@@ -1,4 +1,9 @@
-export 'src/rng/game_rng.dart';
 export 'src/config/balance_config.dart';
+export 'src/model/attack_result.dart';
+export 'src/model/combatant.dart';
+export 'src/model/enums.dart';
+export 'src/model/item.dart';
+export 'src/rng/game_rng.dart';
 export 'src/session/commands.dart';
 export 'src/session/events.dart';
+export 'src/traits/trait.dart';
