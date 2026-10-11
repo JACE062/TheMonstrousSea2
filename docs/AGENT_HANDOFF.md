@@ -33,6 +33,7 @@ Welcome! This repository contains the ongoing migration of **The Monstrous Sea**
 3. **Aesthetics:** Ink-and-parchment nautical cartography theme. Free open-source nautical fonts (*Pirata One* / *IM Fell English*).
 4. **Scope Phasing:** Milestone 1 focuses on a playable vertical slice (Port hub, Rest Area, Sea Chart, Battle Screen, Heir Death loop, Balance Simulator). Full Shipyard drydock/buying/selling ships is deferred to Milestone 2 (Repairs remain in Port for M1).
 5. **Bugfixes:** All 6 documented bug fixes (B1 through B6) are formally approved and specified in [`docs/bugs.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/bugs.md).
+6. **No AI-Generated Raster Art:** Explicit user constraint to avoid generic AI-generated images. Use programmatic UI widgets, Flutter `CustomPainter` (procedural waves, compass, borders), and license-free/public-domain SVGs or vector line art.
 
 ---
 

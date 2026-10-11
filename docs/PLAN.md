@@ -57,6 +57,10 @@ I compared options by **how well an agent can verify its own work**, since that 
 4. **Audio:** **deferred** to a later milestone. Leave only a no-op `AudioService` interface/hook.
 5. **Shipyard (buy/sell/drydock/switch/upgrade):** **deferred to M2.** Repair stays in M1 (Port hub).
 6. **All bug fixes B1–B6:** **approved.**
+7. **Asset & Art Styling Directive (STRICT):** **Avoid AI-generated images.** Do not generate raster image assets via AI image generation tools to prevent generic "AI art" vibes. Instead, prioritize:
+   - Programmatic / procedural UI components, custom painters (`CustomPainter`), borders, and nautical glyphs/linework.
+   - Hand-crafted or license-free / public domain SVG components (e.g. vintage nautical engravings, public domain cartography vectors).
+   - High quality, free/openly licensed vector or illustration archives if specific art is needed.
 
 ---
 
@@ -319,10 +323,13 @@ integration_test/
 
 **Event playback:** the Battle screen consumes events in order (`WeaponFired` → projectile/flash, `AttackHit` → shake + floating ink number, `TentaclesSevered` → tentacle sprite removed, `InkCloudReleased` → ink overlay), and appends the narration line to the log. Input is locked during playback.
 
-### Component 5: Art pipeline (ink-and-parchment)
+### Component 5: Visual Styling & Asset Pipeline (SVG & Ink Line Work)
 - A style bible (`docs/art_style.md`): sepia parchment, iron-gall ink linework, crosshatching, a muted red accent for danger, old-nautical-chart vocabulary (compass rose, rhumb lines, *"here be monsters"* cartouches).
-- Assets generated with the image tool into `apps/monstrous_sea/assets/art/`: parchment background, chart frame, 4 ship classes, 5 monsters + the Kraken, UI ornaments, and item icons per weapon/consumable/treasure type.
-- **Every asset has a vector/placeholder fallback**, so the UI agent is never blocked waiting on art.
+- **No AI-generated raster art.** Assets are built using:
+  - Clean SVG vector components and icons (license-free / public domain nautical engravings, vintage line-art woodcuts).
+  - Procedural styling with Flutter `CustomPainter` (e.g. hand-drawn wave oscillations, ink wash borders, compass rose, cross-hatched health gauges).
+  - Font glyphs and unicode symbols styled as vintage maritime markings.
+  - Procedural/SVG ship outlines (Standard Barque, Freighter, Ironclad, Corvette) and sea beasts (Kraken, Serpent, Shark, Jellyfish, Squid, Crustacean).
 
 ---
 

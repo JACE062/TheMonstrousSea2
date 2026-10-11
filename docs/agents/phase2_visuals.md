@@ -29,14 +29,17 @@ Phase 2 builds the presentation and UI layers on top of `packages/monstrous_core
 
 ---
 
-### Stream 2C: Art & Visual Asset Generation
-- **Files:** `apps/monstrous_sea/assets/art/**`
+### Stream 2C: Visual Styling, SVG & Asset Integration
+- **Files:** `apps/monstrous_sea/assets/art/**`, `apps/monstrous_sea/lib/src/widgets/painters/**`
 - **Scope:**
-  - Ink-and-parchment styled assets (vector/image assets):
-    - 4 ships: Standard Barque, Freighter, Ironclad, Corvette.
-    - 5 monsters + Kraken: Shark, Serpent, Jellyfish, Squid, Crustacean, Colossal Kraken.
-    - Weapon & item icons.
-- **Exit Criteria:** Asset pack integrated; fallback vector rendering available if images missing.
+  - **Strict rule:** No AI-generated raster images.
+  - Ink-and-parchment styled assets:
+    - Procedural `CustomPainter` rendering for parchment backgrounds, wave motion, compass roses, and chart borders.
+    - License-free / public-domain SVG vector illustrations (or hand-crafted vector paths) for:
+      - 4 ships: Standard Barque, Freighter, Ironclad, Corvette.
+      - 5 monsters + Kraken: Shark, Serpent, Jellyfish, Squid, Crustacean, Colossal Kraken.
+      - Weapon, treasure, and consumable icons.
+- **Exit Criteria:** Vector/SVG asset pipeline integrated cleanly without generic AI raster images.
 
 ---
 
