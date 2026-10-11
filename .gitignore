@@ -1,0 +1,31 @@
+# Root .gitignore for TheMonstrousSeaV2
+
+# Dart / Flutter build artifacts and caches
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.ephemeral/
+
+# Java build artifacts
+out/
+target/
+*.class
+*.jar
+
+# IDE & Editor caches
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# OS files
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
+
+# Test / Coverage
+coverage/
+*.lcov
