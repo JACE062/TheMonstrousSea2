@@ -41,20 +41,39 @@ Welcome! This repository contains the modernization of **The Monstrous Sea** fro
 
 ---
 
-## 3. Current Phase: Ready for Phase 2 (Flutter + Flame Visuals)
+- `apps/monstrous_sea/` - Multiplatform Flutter + Flame UI application.
+  - Status: **Complete & Verified** (4 widget & combat flow tests passing, `flutter analyze` clean with 0 issues).
+  - Implements:
+    - Procedural Design System: `InkTheme` (sepia/iron-gall palette, Pirata One / IM Fell English typography), `CartoucheBorderPainter`, `CompassRosePainter`, `AnimatedWavePainter`, `ParchmentTexturePainter`.
+    - Procedural & SVG Asset Pipeline: 5 Ships (Standard, Freighter, Ironclad, Corvette, Flying Dutchman), 6 Sea Monsters (Shark, Serpent, Jellyfish, Squid, Crustacean, The Kraken), 4 Nautical UI Icons. Zero AI-generated raster art.
+    - Screens: `IntroScreen`, `CaptainScreen`, `PortScreen`, `MerchantScreen`, `SeaChartScreen`, `LootScreen`, `RestScreen`, `DeathScreen`.
+    - Flame Combat Arena: `MonstrousSeaBattleGame` (dynamic waves, bobbing ships & monsters, floating damage numbers, camera shake, squid tentacle rendering, ink cloud overlay) + `BattleScreen` HUD with volley triggers, status meters, and chronicle drawer.
 
-Phase 1 (Core Engine & Balance Simulator) is 100% complete and verified. The next phase as outlined in [`docs/PLAN.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/PLAN.md) and [`docs/agents/phase2_visuals.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase2_visuals.md) is:
+---
 
-- **Create App Project:** `apps/monstrous_sea` (Flutter + Flame multiplatform application).
-- **Ink-and-Parchment Design System:** Theme, typography (*Pirata One* / *IM Fell English*), canvas textures, programmatic borders.
-- **Port Hub & Screens:** Port Screen, Merchant Screen, Sea Chart Navigator (4x5 parchment chart), Death & Lineage Ledger.
-- **Flame Naval Battle Scene:** Ships, sea monsters, cannon fire animations, ink clouds, combat log drawer.
+## 2. User-Approved Design Decisions
+
+1. **Flee Mechanic (Bug B3):** Match comment intent: 40% at level 1, dropping by 5% per level, floor at 5% above level 6. Managed in `BalanceConfig`.
+2. **Easter Egg:** Keep the "Davy Jones" cheat code intact (grants maxed *Flying Dutchman* and jumps straight to the Kraken).
+3. **Aesthetics:** Ink-and-parchment nautical cartography theme. Free open-source nautical fonts (*Pirata One* / *IM Fell English*).
+4. **Scope Phasing:** Milestone 1 focuses on a playable vertical slice (Port hub, Rest Area, Sea Chart, Battle Screen, Heir Death loop, Balance Simulator). Full Shipyard drydock/buying/selling ships is deferred to Milestone 2 (Repairs remain in Port for M1).
+5. **Bugfixes:** All 6 documented bug fixes (B1 through B6) are formally approved and specified in [`docs/bugs.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/bugs.md).
+6. **No AI-Generated Raster Art:** Strict user constraint to avoid generic AI-generated images. Uses programmatic UI widgets, Flutter `CustomPainter` (procedural waves, compass, borders), and license-free SVG vector art.
+
+---
+
+## 3. Current Phase & Milestone Status
+
+- **Phase 0 (Foundation & Tooling):** Completed & Committed.
+- **Phase 1 (Domain Engine & Balance Simulation):** Completed & Committed (106 core tests + 6 sim tests passing).
+- **Phase 2 (Flutter + Flame Visuals & UI):** Completed & Committed (4 widget & battle flow tests passing, `flutter analyze` clean).
+- **Milestone 1 Vertical Slice Gate:** Ready for user review! Next is Milestone 2 (Audio, Polish, Expanded Shipyard Drydock).
 
 ---
 
 ## 4. Verification Commands
 
-To verify your work at any point:
+To verify the entire project suite at any point:
 ```powershell
 # Verify Dart Core Engine
 cd packages/monstrous_core
@@ -66,4 +85,9 @@ cd ../monstrous_sim
 dart analyze
 dart test
 dart run bin/simulate.dart --runs 10000 --seed 42
+
+# Verify Flutter App & Flame Arena
+cd ../../apps/monstrous_sea
+flutter analyze
+flutter test
 ```
