@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Sea Monster: Deep Giant Squid -->
+  <g fill="none" stroke="#1B1612" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Torpedo-shaped Mantle -->
+    <path d="M100 25 C125 55 130 95 125 115 L75 115 C70 95 75 55 100 25 Z" fill="#D5C4A1" />
+    <!-- Mantle Fins -->
+    <path d="M100 25 C125 25 145 45 132 60 L124 55 Z" fill="#C4B28F" />
+    <path d="M100 25 C75 25 55 45 68 60 L76 55 Z" fill="#C4B28F" />
+    <!-- Giant Siphon & Head -->
+    <rect x="80" y="112" width="40" height="15" rx="4" fill="#C4B28F" />
+    <!-- Giant Glowing Eyes -->
+    <circle cx="78" cy="118" r="6" fill="#1B1612" />
+    <circle cx="78" cy="118" r="2.5" fill="#B58900" />
+    <circle cx="122" cy="118" r="6" fill="#1B1612" />
+    <circle cx="122" cy="118" r="2.5" fill="#B58900" />
+    <!-- Razor Beak -->
+    <path d="M96 126 L100 134 L104 126 Z" fill="#1B1612" />
+    <!-- Tentacles (spreading downwards) -->
+    <path d="M72 125 C55 140 40 160 55 180" stroke="#1B1612" stroke-width="3" />
+    <path d="M82 127 C70 145 65 170 78 185" stroke="#1B1612" stroke-width="3" />
+    <path d="M92 127 C85 150 90 175 88 190" stroke="#1B1612" stroke-width="3" />
+    <path d="M108 127 C115 150 110 175 112 190" stroke="#1B1612" stroke-width="3" />
+    <path d="M118 127 C130 145 135 170 122 185" stroke="#1B1612" stroke-width="3" />
+    <path d="M128 125 C145 140 160 160 145 180" stroke="#1B1612" stroke-width="3" />
+    <!-- Long Feeding Tentacles with Clubs -->
+    <path d="M60 125 C30 145 35 175 42 192" stroke="#8B1E1E" stroke-width="2.5" />
+    <path d="M140 125 C170 145 165 175 158 192" stroke="#8B1E1E" stroke-width="2.5" />
+    <!-- Suction cups -->
+    <circle cx="52" cy="170" r="1.5" fill="#8B1E1E" />
+    <circle cx="148" cy="170" r="1.5" fill="#8B1E1E" />
+    <circle cx="75" cy="165" r="1.5" fill="#8B1E1E" />
+    <circle cx="125" cy="165" r="1.5" fill="#8B1E1E" />
+  </g>
+</svg>

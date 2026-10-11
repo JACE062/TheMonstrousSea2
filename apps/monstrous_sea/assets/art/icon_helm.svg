@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Ship's Wheel / Captain's Helm -->
+  <g fill="none" stroke="#1B1612" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center Hub -->
+    <circle cx="50" cy="50" r="10" fill="#B58900" stroke-width="2.5" />
+    <circle cx="50" cy="50" r="4" fill="#1B1612" />
+    <!-- Outer Rim -->
+    <circle cx="50" cy="50" r="28" stroke-width="3.5" fill="#D5C4A1" fill-opacity="0.2" />
+    <circle cx="50" cy="50" r="23" stroke-width="2" />
+    <!-- 8 Spokes and Handles -->
+    <!-- Vertical -->
+    <line x1="50" y1="12" x2="50" y2="88" stroke-width="3" />
+    <circle cx="50" cy="10" r="2.5" fill="#B58900" />
+    <circle cx="50" cy="90" r="2.5" fill="#B58900" />
+    <!-- Horizontal -->
+    <line x1="12" y1="50" x2="88" y2="50" stroke-width="3" />
+    <circle cx="10" cy="50" r="2.5" fill="#B58900" />
+    <circle cx="90" cy="50" r="2.5" fill="#B58900" />
+    <!-- Diagonals -->
+    <line x1="23" y1="23" x2="77" y2="77" stroke-width="3" />
+    <circle cx="21" cy="21" r="2.5" fill="#B58900" />
+    <circle cx="79" cy="79" r="2.5" fill="#B58900" />
+    <line x1="77" y1="23" x2="23" y2="77" stroke-width="3" />
+    <circle cx="79" cy="21" r="2.5" fill="#B58900" />
+    <circle cx="21" cy="79" r="2.5" fill="#B58900" />
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Sea Monster: Leviathan Serpent -->
+  <g fill="none" stroke="#1B1612" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Undulating Coiling Body -->
+    <path d="M15 130 C25 80 50 70 70 120 C85 160 115 160 130 115 C145 70 170 80 180 125 C170 145 150 145 138 120 C125 90 98 90 82 125 C65 165 30 165 15 130 Z" fill="#D5C4A1" />
+    <!-- Striking Dragon-like Head -->
+    <path d="M60 75 C45 60 20 62 10 75 C8 85 22 92 38 90 L52 95 Z" fill="#C4B28F" />
+    <!-- Gaping Mouth with Fangs -->
+    <path d="M12 76 L25 82 L12 85" stroke="#8B1E1E" stroke-width="2" />
+    <path d="M18 78 L20 83 M22 84 L24 79" stroke="#1B1612" stroke-width="2" />
+    <!-- Slit Eye & Horns -->
+    <circle cx="28" cy="74" r="2.5" fill="#8B1E1E" />
+    <path d="M38 68 L48 50 L42 66" fill="#C4B28F" />
+    <path d="M48 70 L60 55 L52 70" fill="#C4B28F" />
+    <!-- Dorsal Fins / Spine Spikes along coils -->
+    <path d="M72 90 L78 80 L76 96" fill="#706253" />
+    <path d="M135 90 L140 78 L142 95" fill="#706253" />
+    <path d="M172 100 L180 90 L178 108" fill="#706253" />
+    <!-- Water Splashes / Sea Foam -->
+    <path d="M5 140 Q25 130 45 140 T85 140 T125 140 T165 140 T195 135" stroke="#706253" stroke-width="1.8" />
+  </g>
+</svg>

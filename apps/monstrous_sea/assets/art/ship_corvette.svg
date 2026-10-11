@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Vintage Swift Corvette / War Brigantine -->
+  <g fill="none" stroke="#1B1612" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Sleek, raked hydrodynamic hull -->
+    <path d="M12 118 L35 132 C70 148 145 148 185 122 L175 116 L140 118 L40 116 Z" fill="#EADEC7" />
+    <path d="M12 118 L2 108 L35 116 Z" fill="#D5C4A1" />
+    <!-- Sharp long bowsprit -->
+    <line x1="25" y1="116" x2="2" y2="92" stroke-width="3" />
+    <!-- Jib triangular sails -->
+    <path d="M4 94 L50 48 L45 116 Z" fill="#FDFBF7" stroke-width="1.8" />
+    <!-- Tall Raked Masts (leaning backwards for speed) -->
+    <line x1="68" y1="116" x2="60" y2="35" stroke-width="3" />
+    <line x1="128" y1="117" x2="118" y2="28" stroke-width="3.5" />
+    <!-- Billowing square sails on main & fore -->
+    <path d="M48 48 Q62 54 78 48 Q70 75 62 75 Q54 75 48 48 Z" fill="#FDFBF7" />
+    <path d="M45 78 Q62 85 82 78 Q74 105 64 105 Q52 105 45 78 Z" fill="#FDFBF7" />
+    <path d="M102 40 Q122 47 142 40 Q132 68 122 68 Q110 68 102 40 Z" fill="#FDFBF7" />
+    <path d="M98 72 Q122 80 146 72 Q136 100 124 100 Q110 100 98 72 Z" fill="#FDFBF7" />
+    <!-- Large Gaffe / Spanker Sail on Stern -->
+    <path d="M124 65 L175 75 L165 112 L126 112 Z" fill="#FDFBF7" />
+    <!-- Pennants -->
+    <path d="M118 28 L138 25 L120 34 Z" fill="#1C4E80" stroke="#1C4E80" />
+    <!-- Speed water wake -->
+    <path d="M5 128 Q20 135 35 130" stroke="#706253" stroke-width="2" />
+    <path d="M8 142 Q30 138 60 144 T110 144 T160 144 T195 136" stroke="#706253" stroke-width="1.8" />
+  </g>
+</svg>

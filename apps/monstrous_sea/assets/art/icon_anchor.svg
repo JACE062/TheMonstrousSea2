@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Vintage Iron Anchor -->
+  <g fill="none" stroke="#1B1612" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top Ring -->
+    <circle cx="50" cy="18" r="8" fill="#EADEC7" stroke-width="2.5" />
+    <circle cx="50" cy="18" r="4" fill="#F4EBD9" stroke-width="2" />
+    <!-- Stock (Horizontal Bar) -->
+    <line x1="28" y1="30" x2="72" y2="30" stroke-width="3.5" />
+    <circle cx="28" cy="30" r="3" fill="#1B1612" />
+    <circle cx="72" cy="30" r="3" fill="#1B1612" />
+    <!-- Shank (Vertical Shaft) -->
+    <line x1="50" y1="26" x2="50" y2="82" stroke-width="4" />
+    <!-- Flukes / Arms -->
+    <path d="M22 65 C22 90 78 90 78 65" stroke-width="4" />
+    <!-- Palms (Triangular Tips) -->
+    <path d="M18 68 L22 60 L28 67 Z" fill="#1B1612" />
+    <path d="M82 68 L78 60 L72 67 Z" fill="#1B1612" />
+  </g>
+</svg>
