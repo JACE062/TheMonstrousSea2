@@ -1,6 +1,6 @@
 # Agent Handoff & Quickstart Guide: The Monstrous Sea V2
 
-Welcome! This repository contains the ongoing migration of **The Monstrous Sea** from an educational Java console project to a multiplatform visual roguelike built with **Flutter + Flame (Dart)** and a decoupled domain engine.
+Welcome! This repository contains the modernization of **The Monstrous Sea** from an educational Java console project to a multiplatform visual roguelike built with **Flutter + Flame (Dart)** and a decoupled domain engine.
 
 ---
 
@@ -15,14 +15,18 @@ Welcome! This repository contains the ongoing migration of **The Monstrous Sea**
   - [`decisions/0001-platform.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/decisions/0001-platform.md) - Architectural Decision Record for Flutter + Flame + Pure Dart.
   - `agents/` - Detailed task briefs for subagents:
     - [`phase0_foundation.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase0_foundation.md) (Done)
-    - [`phase1_engine.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase1_engine.md) (Ready to start)
-    - [`phase2_visuals.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase2_visuals.md)
+    - [`phase1_engine.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase1_engine.md) (Done)
+    - [`phase2_visuals.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase2_visuals.md) (Ready to start)
 - `tools/java_oracle/` - Java test harness generating ground-truth distribution baselines:
   - Run: `powershell -ExecutionPolicy Bypass -File .\tools\java_oracle\build_fixtures.ps1`
   - Output: `tools/java_oracle/fixtures/*.json` (Monsters, Ships, Item drop distributions).
 - `packages/monstrous_core/` - Pure Dart game rules engine package (Zero UI dependencies).
-  - Status: Initialized, zero analysis errors, passes `dart analyze` and `dart test`.
-  - Foundation classes created: `GameRng`, `BalanceConfig`, sealed `Command`, sealed `GameEvent`.
+  - Status: **Complete & Verified** (106 unit & parity tests passing, `dart analyze` clean).
+  - Implements: Content, Combat (d20, status effects), Traits (Fortify, Evasion, Tentacles, Ink Cloud), Economy (Merchant, Repairs), Sea Chart (4x5 grid with Kraken at [3][4]), Lineage (Freighter stash inheritance), State Machine (`GameSession.dispatch(Command) -> List<GameEvent>`), Narration Formatter.
+- `packages/monstrous_sim/` - Automated Monte Carlo balance simulation CLI.
+  - Status: **Complete & Verified** (6 tests passing, `dart analyze` clean).
+  - Implements: Bot strategies (`Reckless`, `Cautious`, `Greedy`, `Random`), `SimulationRunner`, `MarkdownReporter`, CSV exporter.
+  - Benchmark: Executed 10,000 automated voyages in 1.5 seconds with 0 crashes and 0 deadlocks. Report saved at `packages/monstrous_sim/reports/report.md`.
 
 ---
 
@@ -33,35 +37,18 @@ Welcome! This repository contains the ongoing migration of **The Monstrous Sea**
 3. **Aesthetics:** Ink-and-parchment nautical cartography theme. Free open-source nautical fonts (*Pirata One* / *IM Fell English*).
 4. **Scope Phasing:** Milestone 1 focuses on a playable vertical slice (Port hub, Rest Area, Sea Chart, Battle Screen, Heir Death loop, Balance Simulator). Full Shipyard drydock/buying/selling ships is deferred to Milestone 2 (Repairs remain in Port for M1).
 5. **Bugfixes:** All 6 documented bug fixes (B1 through B6) are formally approved and specified in [`docs/bugs.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/bugs.md).
-6. **No AI-Generated Raster Art:** Explicit user constraint to avoid generic AI-generated images. Use programmatic UI widgets, Flutter `CustomPainter` (procedural waves, compass, borders), and license-free/public-domain SVGs or vector line art.
+6. **No AI-Generated Raster Art:** Strict user constraint to avoid generic AI-generated images. Use programmatic UI widgets, Flutter `CustomPainter` (procedural waves, compass, borders), and license-free/public-domain SVGs or vector line art.
 
 ---
 
-## 3. Immediate Next Steps: Executing Phase 1
+## 3. Current Phase: Ready for Phase 2 (Flutter + Flame Visuals)
 
-The foundation (Phase 0) is complete and committed to git. The next agent or session should proceed directly with **Phase 1** as specified in [`docs/agents/phase1_engine.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase1_engine.md):
+Phase 1 (Core Engine & Balance Simulator) is 100% complete and verified. The next phase as outlined in [`docs/PLAN.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/PLAN.md) and [`docs/agents/phase2_visuals.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/agents/phase2_visuals.md) is:
 
-### Step 1: Content & Procedural Names (`packages/monstrous_core/lib/src/content/`)
-- Implement `rarity.dart`, `damage_types.dart`, `ship_weapons.dart`, `monster_weapons.dart`, `ships.dart`, `monsters.dart`, `consumables.dart`.
-- Build `names/name_forge.dart` with adjective & name tables for ships, monsters, and captains.
-
-### Step 2: Combat Engine & Monster AI (`packages/monstrous_core/lib/src/rules/`)
-- Implement `combat.dart` (d20 attack rolls, status effects, damage reduction, evasion).
-- Implement `traits/` (`TentacleTrait`, `InkCloudTrait`, `FortifyTrait`, `EvasionTrait`).
-- Implement `monster_ai.dart` (fixing Bug B2).
-
-### Step 3: Economy, Loot & Progression (`packages/monstrous_core/lib/src/rules/`)
-- Implement `loot.dart` (fixing Bugs B1 and B4).
-- Implement `sea_chart.dart` (4×5 map with Kraken boss at [3][4] and loop scaling).
-- Implement `economy.dart` and `lineage.dart` (Freighter stash carryover).
-
-### Step 4: Game Session Machine (`packages/monstrous_core/lib/src/session/`)
-- Implement `game_session.dart` dispatching `Command`s and emitting `GameEvent`s.
-- Write `full_voyage_test.dart` to simulate a complete voyage through Kraken defeat headlessly.
-
-### Step 5: Balance Simulator (`packages/monstrous_sim/`)
-- Create `packages/monstrous_sim` package.
-- Implement `bin/simulate.dart` running 10,000 automated bot runs to test endless scaling.
+- **Create App Project:** `apps/monstrous_sea` (Flutter + Flame multiplatform application).
+- **Ink-and-Parchment Design System:** Theme, typography (*Pirata One* / *IM Fell English*), canvas textures, programmatic borders.
+- **Port Hub & Screens:** Port Screen, Merchant Screen, Sea Chart Navigator (4x5 parchment chart), Death & Lineage Ledger.
+- **Flame Naval Battle Scene:** Ships, sea monsters, cannon fire animations, ink clouds, combat log drawer.
 
 ---
 
@@ -74,7 +61,9 @@ cd packages/monstrous_core
 dart analyze
 dart test
 
-# Rebuild Java Oracle Fixtures (if needed)
-cd ../..
-powershell -ExecutionPolicy Bypass -File .\tools\java_oracle\build_fixtures.ps1
+# Verify Balance Simulator & Run 10k voyages
+cd ../monstrous_sim
+dart analyze
+dart test
+dart run bin/simulate.dart --runs 10000 --seed 42
 ```
