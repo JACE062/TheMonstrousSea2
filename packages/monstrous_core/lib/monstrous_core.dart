@@ -11,8 +11,11 @@ export 'src/model/enums.dart';
 export 'src/model/item.dart';
 export 'src/rng/game_rng.dart';
 export 'src/rules/combat.dart';
+export 'src/rules/economy.dart';
+export 'src/rules/lineage.dart';
+export 'src/rules/loot.dart';
 export 'src/rules/monster_ai.dart';
+export 'src/rules/sea_chart.dart';
 export 'src/session/commands.dart';
 export 'src/session/events.dart';
 export 'src/traits/trait.dart';
-
