@@ -109,6 +109,12 @@ final class CombatantDefeated extends GameEvent {
   final String flavorMessage;
 }
 
+/// A monster hesitated or had no available weapons on its turn.
+final class MonsterHesitated extends GameEvent {
+  const MonsterHesitated([this.monsterName = '']);
+  final String monsterName;
+}
+
 /// The player fled back to port.
 final class FledToPort extends GameEvent {
   const FledToPort({required this.shipName});
