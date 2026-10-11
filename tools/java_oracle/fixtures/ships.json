@@ -1,0 +1,28 @@
+{
+  "ships": {
+    "Standard": {
+      "level_1": { "minHp": 90, "maxHp": 110, "meanHp": 99.94, "minCargo": 15, "maxCargo": 25, "maxWeight": 7 },
+      "level_2": { "minHp": 130, "maxHp": 170, "meanHp": 150.00, "minCargo": 25, "maxCargo": 45, "maxWeight": 14 },
+      "level_3": { "minHp": 170, "maxHp": 230, "meanHp": 199.97, "minCargo": 35, "maxCargo": 65, "maxWeight": 21 },
+      "level_4": { "minHp": 210, "maxHp": 290, "meanHp": 249.97, "minCargo": 45, "maxCargo": 85, "maxWeight": 28 }
+    },
+    "Freighter": {
+      "level_1": { "minHp": 105, "maxHp": 145, "meanHp": 125.12, "minCargo": 20, "maxCargo": 40, "maxWeight": 3 },
+      "level_2": { "minHp": 185, "maxHp": 265, "meanHp": 224.99, "minCargo": 40, "maxCargo": 80, "maxWeight": 6 },
+      "level_3": { "minHp": 265, "maxHp": 385, "meanHp": 324.79, "minCargo": 60, "maxCargo": 120, "maxWeight": 9 },
+      "level_4": { "minHp": 345, "maxHp": 505, "meanHp": 424.82, "minCargo": 80, "maxCargo": 160, "maxWeight": 12 }
+    },
+    "Ironclad": {
+      "level_1": { "minHp": 90, "maxHp": 110, "meanHp": 100.02, "minCargo": 10, "maxCargo": 12, "maxWeight": 10 },
+      "level_2": { "minHp": 155, "maxHp": 195, "meanHp": 174.85, "minCargo": 15, "maxCargo": 19, "maxWeight": 20 },
+      "level_3": { "minHp": 220, "maxHp": 280, "meanHp": 249.97, "minCargo": 20, "maxCargo": 26, "maxWeight": 30 },
+      "level_4": { "minHp": 285, "maxHp": 365, "meanHp": 325.01, "minCargo": 25, "maxCargo": 33, "maxWeight": 40 }
+    },
+    "Corvette": {
+      "level_1": { "minHp": 70, "maxHp": 90, "meanHp": 79.96, "minCargo": 10, "maxCargo": 20, "maxWeight": 5 },
+      "level_2": { "minHp": 100, "maxHp": 140, "meanHp": 119.99, "minCargo": 15, "maxCargo": 35, "maxWeight": 10 },
+      "level_3": { "minHp": 130, "maxHp": 190, "meanHp": 160.29, "minCargo": 20, "maxCargo": 50, "maxWeight": 15 },
+      "level_4": { "minHp": 160, "maxHp": 240, "meanHp": 200.23, "minCargo": 25, "maxCargo": 65, "maxWeight": 20 }
+    }
+  }
+}

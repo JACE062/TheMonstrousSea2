@@ -1,0 +1,8 @@
+{
+  "items": {
+    "level_1": { "treasurePct": 0.6115, "consumablePct": 0.1987, "weaponPct": 0.1898 },
+    "level_2": { "treasurePct": 0.5989, "consumablePct": 0.2027, "weaponPct": 0.1984 },
+    "level_3": { "treasurePct": 0.6094, "consumablePct": 0.2001, "weaponPct": 0.1905 },
+    "level_4": { "treasurePct": 0.6123, "consumablePct": 0.2018, "weaponPct": 0.1859 }
+  }
+}

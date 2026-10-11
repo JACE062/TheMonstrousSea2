@@ -1,0 +1,36 @@
+Final Project Description:
+
+Premise is you are a ship hunting sea monsters
+
+Your ship has different stats, like hull strength, cargo capacity, speed, evasion, types of equippable weapons (and how many of each)
+
+You encounter sea monsters and fight them in turn-based battles, where you have the option to attack, evade, flee, etc.
+
+Each sea monster you defeat drops treasure. The creatures get more difficult the more you fight, but they also drop more valuable loot
+
+You can choose to return to port after each battle, to repair your ship, sell your treasure, and buy upgrades, or you can press on further to fight more sea monsters.
+
+You can push your luck as much as you like with the limited hull strength you have, but if you die before you return to port, you lose everything - loot, upgrades, your ship - and have to start from square one again.
+
+
+
+Utilization of Concepts:
+
+This project will use inheritance, abstraction, interfaces, and polymorphism in the monsters, ships, and treasure/item classes. 
+
+Arrays and ArrayLists for the inventory as well as holding collections of monsters / items.
+
+Console input and output for most of the game's interaction
+
+Multidimensional arrays for the "map" - showing progression - and for storing weapons of different types for the attack function
+
+
+
+Stretch Goals:
+
+Endless mode, where monsters get incrementally stronger and you can keep fighting as far as you can survive
+
+Different ammunition types for the weapons
+
+
+
