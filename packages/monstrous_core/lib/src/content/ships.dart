@@ -44,10 +44,10 @@ ShipState createStandardShip({
 /// Factory function to create a [ShipState] for a Freighter.
 ///
 /// Formulas:
-/// - HP: `50 + [50..70] * level`
-/// - AC: `10 + 2 * level`
-/// - Cargo: `15 + [15..30] * level`
-/// - MaxWeight: `5 * level`
+/// - HP: `25 + [80..120] * level`
+/// - AC: `6 + 2 * level`
+/// - Cargo: `[20..40] * level`
+/// - MaxWeight: `3 * level`
 ShipState createFreighter({
   required int level,
   required GameRng rng,
@@ -57,10 +57,10 @@ ShipState createFreighter({
 }) {
   final shipName = name ?? NameForge.generateShipName(ShipClass.freighter, rng);
   final shipId = id ?? 'ship_freighter_${++_shipIdCounter}';
-  final hp = 50 + rng.nextIntRange(50, 70) * level;
-  final ac = 10 + 2 * level;
-  final cargo = 15 + rng.nextIntRange(15, 30) * level;
-  final maxWeight = 5 * level;
+  final hp = 25 + rng.nextIntRange(80, 120) * level;
+  final ac = 6 + 2 * level;
+  final cargo = rng.nextIntRange(20, 40) * level;
+  final maxWeight = 3 * level;
 
   return ShipState(
     id: shipId,

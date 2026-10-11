@@ -1,9 +1,18 @@
+import '../model/item.dart';
+
 /// Base sealed class for all events emitted by the game engine.
 ///
 /// The UI, audio layer, and combat logger react to these events
 /// without needing to inspect low-level game calculations.
 sealed class GameEvent {
   const GameEvent();
+}
+
+/// The session transitioned to a new game phase.
+final class PhaseChanged extends GameEvent {
+  const PhaseChanged({required this.previousPhase, required this.newPhase});
+  final String previousPhase;
+  final String newPhase;
 }
 
 /// A battle encounter has begun.
@@ -121,6 +130,40 @@ final class FledToPort extends GameEvent {
   final String shipName;
 }
 
+/// Victory loot dropped following monster defeat.
+final class LootDropped extends GameEvent {
+  const LootDropped({required this.items});
+  final List<Item> items;
+}
+
+/// Item picked up into cargo.
+final class ItemAcquired extends GameEvent {
+  const ItemAcquired({required this.item});
+  final Item item;
+}
+
+/// Item sold to merchant.
+final class ItemSold extends GameEvent {
+  const ItemSold({required this.item, required this.goldEarned});
+  final Item item;
+  final int goldEarned;
+}
+
+/// All treasure sold at port.
+final class AllTreasureSold extends GameEvent {
+  const AllTreasureSold({required this.totalGold, required this.itemsSold});
+  final int totalGold;
+  final int itemsSold;
+}
+
+/// Ship hull was repaired at port.
+final class ShipRepaired extends GameEvent {
+  const ShipRepaired({required this.repairedHp, required this.goldCost, required this.newHp});
+  final int repairedHp;
+  final int goldCost;
+  final int newHp;
+}
+
 /// Captain died, ending the voyage.
 final class CaptainLost extends GameEvent {
   const CaptainLost({
@@ -132,4 +175,10 @@ final class CaptainLost extends GameEvent {
   final String captainName;
   final int monstersDefeated;
   final int highestDifficulty;
+}
+
+/// A general narration or flavor message.
+final class NarrationEvent extends GameEvent {
+  const NarrationEvent(this.message);
+  final String message;
 }

@@ -317,13 +317,13 @@ void main() {
         final ship = createFreighter(level: level, rng: rng);
         expect(ship.shipClass, equals(ShipClass.freighter));
         expect(ship.level, equals(level));
-        expect(ship.maxHp, inInclusiveRange(50 + 50 * level, 50 + 70 * level));
-        expect(ship.armorClass, equals(10 + 2 * level));
+        expect(ship.maxHp, inInclusiveRange(25 + 80 * level, 25 + 120 * level));
+        expect(ship.armorClass, equals(6 + 2 * level));
         expect(
           ship.maxCargo,
-          inInclusiveRange(15 + 15 * level, 15 + 30 * level),
+          inInclusiveRange(20 * level, 40 * level),
         );
-        expect(ship.maxWeaponWeight, equals(5 * level));
+        expect(ship.maxWeaponWeight, equals(3 * level));
       }
     });
 
