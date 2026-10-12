@@ -69,107 +69,115 @@ class SeaChartScreen extends StatelessWidget {
                             final species = seaChart.speciesAt(row, col);
 
                             return Expanded(
-                              child: Container(
-                                height: 74,
-                                margin: const EdgeInsets.symmetric(horizontal: 3),
-                                decoration: BoxDecoration(
-                                  color: isCurrent
-                                      ? InkTheme.parchmentHighlight
-                                      : isCompleted
-                                          ? InkTheme.parchmentDark.withValues(alpha: 0.4)
-                                          : !isRevealed
-                                              ? InkTheme.parchmentDark.withValues(alpha: 0.65)
-                                              : InkTheme.parchmentSurface,
-                                  border: Border.all(
+                              child: Semantics(
+                                label: 'Sector Row ${row + 1}, Column ${col + 1}. '
+                                    'Danger level ${row + 1 + seaChart.timesCompleted * 4}. '
+                                    '${isCurrent ? "Current ship location. " : ""}'
+                                    '${isBoss ? "Final Boss sector. " : ""}'
+                                    '${!isRevealed ? "Unexplored fog of war." : isCompleted ? "Defeated monster: ${species.name}." : "Encounter: ${species.name}."}',
+                                excludeSemantics: true,
+                                child: Container(
+                                  height: 74,
+                                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                                  decoration: BoxDecoration(
                                     color: isCurrent
-                                        ? InkTheme.goldAccent
-                                        : isBoss
-                                            ? InkTheme.crimsonAccent
+                                        ? InkTheme.parchmentHighlight
+                                        : isCompleted
+                                            ? InkTheme.parchmentDark.withValues(alpha: 0.4)
                                             : !isRevealed
-                                                ? InkTheme.inkFaint
-                                                : InkTheme.inkMuted,
-                                    width: isCurrent || isBoss ? 2.0 : 1.0,
+                                                ? InkTheme.parchmentDark.withValues(alpha: 0.65)
+                                                : InkTheme.parchmentSurface,
+                                    border: Border.all(
+                                      color: isCurrent
+                                          ? InkTheme.goldAccent
+                                          : isBoss
+                                              ? InkTheme.crimsonAccent
+                                              : !isRevealed
+                                                  ? InkTheme.inkFaint
+                                                  : InkTheme.inkMuted,
+                                      width: isCurrent || isBoss ? 2.0 : 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(4),
                                   ),
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    if (!isRevealed)
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.cloud_queue, size: 20, color: InkTheme.inkFaint),
-                                          const SizedBox(height: 2),
-                                          Text(
-                                            '░ FOG ░',
-                                            style: InkTheme.caption.copyWith(
-                                              color: InkTheme.inkFaint,
-                                              fontSize: 9,
-                                              letterSpacing: 1.1,
+                                  child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      if (!isRevealed)
+                                        Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.cloud_queue, size: 20, color: InkTheme.inkFaint),
+                                            const SizedBox(height: 2),
+                                            Text(
+                                              '░ FOG ░',
+                                              style: InkTheme.caption.copyWith(
+                                                color: InkTheme.inkFaint,
+                                                fontSize: 9,
+                                                letterSpacing: 1.1,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      )
-                                    else if (isCompleted)
-                                      Stack(
-                                        alignment: Alignment.center,
-                                        children: [
-                                          Opacity(
-                                            opacity: 0.35,
-                                            child: SvgAssetView(
+                                          ],
+                                        )
+                                      else if (isCompleted)
+                                        Stack(
+                                          alignment: Alignment.center,
+                                          children: [
+                                            Opacity(
+                                              opacity: 0.35,
+                                              child: SvgAssetView(
+                                                assetPath: SvgAssetView.pathForSpecies(species),
+                                                width: 32,
+                                                height: 32,
+                                              ),
+                                            ),
+                                            const Icon(Icons.check, color: InkTheme.verdigrisGreen, size: 26),
+                                          ],
+                                        )
+                                      else
+                                        Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            SvgAssetView(
                                               assetPath: SvgAssetView.pathForSpecies(species),
-                                              width: 32,
-                                              height: 32,
+                                              width: isBoss ? 42 : 34,
+                                              height: isBoss ? 42 : 34,
                                             ),
-                                          ),
-                                          const Icon(Icons.check, color: InkTheme.verdigrisGreen, size: 26),
-                                        ],
-                                      )
-                                    else
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          SvgAssetView(
-                                            assetPath: SvgAssetView.pathForSpecies(species),
-                                            width: isBoss ? 42 : 34,
-                                            height: isBoss ? 42 : 34,
-                                          ),
-                                          const SizedBox(height: 2),
-                                          Text(
-                                            species.name.toUpperCase(),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: InkTheme.caption.copyWith(
-                                              fontSize: 9,
-                                              color: isBoss ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
-                                              fontWeight: FontWeight.w600,
+                                            const SizedBox(height: 2),
+                                            Text(
+                                              species.name.toUpperCase(),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: InkTheme.caption.copyWith(
+                                                fontSize: 9,
+                                                color: isBoss ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
+                                          ],
+                                        ),
 
-                                    // Current ship marker overlay
-                                    if (isCurrent)
-                                      Positioned(
-                                        bottom: 3,
-                                        child: Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                                          decoration: BoxDecoration(
-                                            color: InkTheme.goldAccent,
-                                            borderRadius: BorderRadius.circular(3),
-                                          ),
-                                          child: Text(
-                                            'VESSEL',
-                                            style: InkTheme.statLabel.copyWith(
-                                              fontSize: 8,
-                                              color: InkTheme.inkPrimary,
-                                              fontWeight: FontWeight.bold,
+                                      // Current ship marker overlay
+                                      if (isCurrent)
+                                        Positioned(
+                                          bottom: 3,
+                                          child: Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                                            decoration: BoxDecoration(
+                                              color: InkTheme.goldAccent,
+                                              borderRadius: BorderRadius.circular(3),
+                                            ),
+                                            child: Text(
+                                              'VESSEL',
+                                              style: InkTheme.statLabel.copyWith(
+                                                fontSize: 8,
+                                                color: InkTheme.inkPrimary,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             );

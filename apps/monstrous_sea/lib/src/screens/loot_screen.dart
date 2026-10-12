@@ -138,6 +138,7 @@ class LootScreen extends StatelessWidget {
                             ),
                             InkButton(
                               label: isFull ? 'Hold Full' : 'Stow',
+                              semanticLabel: isFull ? 'Cargo hold is full' : 'Stow ${item.name} into cargo hold',
                               isPrimary: !isFull,
                               onPressed: isFull
                                   ? null
@@ -204,6 +205,7 @@ class LootScreen extends StatelessWidget {
                                 ),
                                 InkButton(
                                   label: 'Jettison',
+                                  semanticLabel: 'Jettison ${cargoItem.name} into the sea',
                                   isDanger: true,
                                   onPressed: () => controller.dispatch(DropCargoItem(cargoIdx)),
                                 ),

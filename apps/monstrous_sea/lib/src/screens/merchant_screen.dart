@@ -180,6 +180,11 @@ class MerchantScreen extends StatelessWidget {
                                             : !hasRoom
                                                 ? 'Hold Full'
                                                 : 'Buy',
+                                        semanticLabel: !canAfford
+                                            ? 'Cannot purchase ${item.name}, lacks gold (costs ${askingPrice}g, have ${ship?.gold ?? 0}g)'
+                                            : !hasRoom
+                                                ? 'Cannot purchase ${item.name}, cargo hold is full'
+                                                : 'Buy ${item.name} for $askingPrice gold',
                                         isPrimary: canAfford && hasRoom,
                                         onPressed: canAfford && hasRoom
                                             ? () => controller.dispatch(BuyMerchantItem(index))
@@ -250,6 +255,7 @@ class MerchantScreen extends StatelessWidget {
                                       const SizedBox(width: 8),
                                       InkButton(
                                         label: 'Sell',
+                                        semanticLabel: 'Sell ${item.name} for ${item.value} gold',
                                         onPressed: () => controller.dispatch(SellCargoItem(index)),
                                       ),
                                     ],

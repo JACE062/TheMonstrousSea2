@@ -98,29 +98,34 @@ class _CaptainScreenState extends State<CaptainScreen> {
                     return Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              _selectedClass = shipClass;
-                            });
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            decoration: BoxDecoration(
-                              color: isSelected ? InkTheme.parchmentHighlight : InkTheme.parchmentSurface,
-                              border: Border.all(
-                                color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
-                                width: isSelected ? 2.5 : 1.2,
+                        child: Semantics(
+                          button: true,
+                          selected: isSelected,
+                          label: '${shipClass.name.toUpperCase()} vessel',
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                _selectedClass = shipClass;
+                              });
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              decoration: BoxDecoration(
+                                color: isSelected ? InkTheme.parchmentHighlight : InkTheme.parchmentSurface,
+                                border: Border.all(
+                                  color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
+                                  width: isSelected ? 2.5 : 1.2,
+                                ),
+                                borderRadius: BorderRadius.circular(4),
                               ),
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Text(
-                              shipClass.name.toUpperCase(),
-                              style: InkTheme.statLabel.copyWith(
-                                color: isSelected ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
-                                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                              child: Text(
+                                shipClass.name.toUpperCase(),
+                                style: InkTheme.statLabel.copyWith(
+                                  color: isSelected ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+                                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),

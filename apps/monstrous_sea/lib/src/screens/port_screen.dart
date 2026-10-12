@@ -62,6 +62,10 @@ class PortScreen extends StatelessWidget {
                 ),
                 trailing: InkButton(
                   label: ship.gold >= cost100 ? 'Repair' : 'Lacks Gold',
+                  semanticLabel: 'Repair 100% hull',
+                  semanticHint: ship.gold >= cost100
+                      ? 'Costs $cost100 gold'
+                      : 'Lacks ${cost100 - ship.gold} gold (costs ${cost100}g, have ${ship.gold}g)',
                   onPressed: ship.gold >= cost100
                       ? () {
                           controller.dispatch(const RepairShip(1.0));
@@ -84,6 +88,10 @@ class PortScreen extends StatelessWidget {
                 ),
                 trailing: InkButton(
                   label: ship.gold >= cost50 ? 'Repair' : 'Lacks Gold',
+                  semanticLabel: 'Repair 50% hull',
+                  semanticHint: ship.gold >= cost50
+                      ? 'Costs $cost50 gold'
+                      : 'Lacks ${cost50 - ship.gold} gold (costs ${cost50}g, have ${ship.gold}g)',
                   onPressed: ship.gold >= cost50
                       ? () {
                           controller.dispatch(const RepairShip(0.5));
@@ -106,6 +114,10 @@ class PortScreen extends StatelessWidget {
                 ),
                 trailing: InkButton(
                   label: ship.gold >= cost25 ? 'Repair' : 'Lacks Gold',
+                  semanticLabel: 'Repair 25% hull',
+                  semanticHint: ship.gold >= cost25
+                      ? 'Costs $cost25 gold'
+                      : 'Lacks ${cost25 - ship.gold} gold (costs ${cost25}g, have ${ship.gold}g)',
                   onPressed: ship.gold >= cost25
                       ? () {
                           controller.dispatch(const RepairShip(0.25));

@@ -66,9 +66,14 @@ class _TypewriterTextState extends State<TypewriterText> {
   @override
   Widget build(BuildContext context) {
     final displayedText = widget.text.substring(0, _charIndex);
-    return Text(
-      displayedText,
-      style: widget.style ?? InkTheme.body,
+    return Semantics(
+      label: widget.text,
+      child: ExcludeSemantics(
+        child: Text(
+          displayedText,
+          style: widget.style ?? InkTheme.body,
+        ),
+      ),
     );
   }
 }

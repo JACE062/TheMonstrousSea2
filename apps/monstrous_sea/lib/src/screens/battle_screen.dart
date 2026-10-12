@@ -230,25 +230,28 @@ class _BattleScreenState extends State<BattleScreen> {
               top: 115,
               left: 24,
               right: 24,
-              child: Center(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  decoration: BoxDecoration(
-                    color: InkTheme.parchmentSurface,
-                    border: Border.all(color: InkTheme.crimsonAccent, width: 2),
-                    borderRadius: BorderRadius.circular(4),
-                    boxShadow: [
-                      BoxShadow(
-                        color: InkTheme.crimsonAccent.withValues(alpha: 0.25),
-                        blurRadius: 8,
+              child: Semantics(
+                liveRegion: true,
+                child: Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: InkTheme.parchmentSurface,
+                      border: Border.all(color: InkTheme.crimsonAccent, width: 2),
+                      borderRadius: BorderRadius.circular(4),
+                      boxShadow: [
+                        BoxShadow(
+                          color: InkTheme.crimsonAccent.withValues(alpha: 0.25),
+                          blurRadius: 8,
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      _fleeBanner!,
+                      style: InkTheme.titleMedium.copyWith(
+                        color: InkTheme.crimsonAccent,
+                        fontSize: 18,
                       ),
-                    ],
-                  ),
-                  child: Text(
-                    _fleeBanner!,
-                    style: InkTheme.titleMedium.copyWith(
-                      color: InkTheme.crimsonAccent,
-                      fontSize: 18,
                     ),
                   ),
                 ),
@@ -301,6 +304,9 @@ class _BattleScreenState extends State<BattleScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 4.0),
                             child: InkButton(
                               label: '${type.displayName} ($readyCount/${weaponsOfType.length})',
+                              semanticLabel: isReady
+                                  ? 'Fire ${type.displayName} volley. $readyCount of ${weaponsOfType.length} cannons ready.'
+                                  : '${type.displayName} volley reloading. 0 of ${weaponsOfType.length} cannons ready.',
                               isPrimary: isReady,
                               onPressed: isReady && !_isActionLocked
                                   ? () => _dispatchCombatAction(FireWeaponVolley(type))
@@ -321,6 +327,7 @@ class _BattleScreenState extends State<BattleScreen> {
                       if (ship.shipClass == ShipClass.ironclad)
                         InkButton(
                           label: 'Fortify Plating',
+                          semanticLabel: 'Activate Fortify Plating special action',
                           onPressed: !_isActionLocked
                               ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
                               : null,
@@ -328,6 +335,7 @@ class _BattleScreenState extends State<BattleScreen> {
                       else if (ship.shipClass == ShipClass.corvette)
                         InkButton(
                           label: 'Evasive Maneuver',
+                          semanticLabel: 'Activate Evasive Maneuver special action',
                           onPressed: !_isActionLocked
                               ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
                               : null,
@@ -339,6 +347,7 @@ class _BattleScreenState extends State<BattleScreen> {
                       if (ship.cargo.any((item) => item is Consumable)) ...[
                         InkButton(
                           label: 'Use Consumable',
+                          semanticLabel: 'Use first ready consumable from cargo',
                           onPressed: !_isActionLocked
                               ? () {
                                   final idx = ship.cargo.indexWhere((item) => item is Consumable);
@@ -353,6 +362,7 @@ class _BattleScreenState extends State<BattleScreen> {
                       // Flee
                       InkButton(
                         label: 'Flee Encounter',
+                        semanticLabel: 'Attempt escape from encounter',
                         isDanger: true,
                         onPressed: !_isActionLocked
                             ? () => _dispatchCombatAction(const FleeEncounter())

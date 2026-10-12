@@ -169,6 +169,9 @@ class RestScreen extends StatelessWidget {
                                   ),
                                   InkButton(
                                     label: hasCargoRoom ? 'Stow' : 'Hold Full',
+                                    semanticLabel: hasCargoRoom
+                                        ? 'Stow ${weapon.name} into cargo hold'
+                                        : 'Cannot stow ${weapon.name}, cargo hold is full',
                                     onPressed: hasCargoRoom
                                         ? () => controller.dispatch(UnequipShipWeapon(idx))
                                         : null,
@@ -240,6 +243,10 @@ class RestScreen extends StatelessWidget {
                                       ),
                                       InkButton(
                                         label: canFitWeight ? 'Mount' : 'Heavy',
+                                        semanticLabel: 'Mount ${weapon.name} to active gun deck',
+                                        semanticHint: canFitWeight
+                                            ? null
+                                            : 'Exceeds battery weight limit by ${(ship.currentWeaponWeight + weapon.equipWeight) - ship.maxWeaponWeight} Wt',
                                         isPrimary: canFitWeight,
                                         onPressed: canFitWeight
                                             ? () => controller.dispatch(EquipCargoWeapon(cargoIdx))

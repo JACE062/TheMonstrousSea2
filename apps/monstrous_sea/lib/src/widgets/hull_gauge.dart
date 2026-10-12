@@ -20,11 +20,16 @@ class HullGauge extends StatelessWidget {
   Widget build(BuildContext context) {
     final targetPct = maxHp > 0 ? (currentHp / maxHp).clamp(0.0, 1.0) : 0.0;
     final isCritical = targetPct < 0.25;
+    final percentRounded = (targetPct * 100).round();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
+    return Semantics(
+      label: label,
+      value: '$currentHp of $maxHp HP, $percentRounded percent${isCritical ? ", Critical condition" : ""}',
+      excludeSemantics: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -81,6 +86,7 @@ class HullGauge extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
+    ),
+  );
+}
 }

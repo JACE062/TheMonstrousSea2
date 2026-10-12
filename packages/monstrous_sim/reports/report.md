@@ -8,10 +8,10 @@
 
 | Strategy | Runs | Wins (Kraken) | Deaths | Win Rate | Avg Monsters | Avg Max Diff | Avg Gold |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Reckless** | 2500 | 0 | 2500 | 0.0% | 5.2 | 1.2 | 25g |
-| **Cautious** | 2500 | 0 | 2500 | 0.0% | 10.6 | 1.2 | 36g |
-| **Greedy** | 2500 | 0 | 2500 | 0.0% | 2.4 | 1.0 | 37g |
-| **Random** | 2500 | 0 | 2500 | 0.0% | 61.4 | 1.1 | 208g |
+| **Reckless** | 2500 | 0 | 2500 | 0.0% | 5.0 | 1.0 | 25g |
+| **Cautious** | 2500 | 0 | 2500 | 0.0% | 11.3 | 1.0 | 33g |
+| **Greedy** | 2500 | 0 | 2500 | 0.0% | 2.6 | 1.0 | 36g |
+| **Random** | 2500 | 0 | 2500 | 0.0% | 10.8 | 1.0 | 83g |
 
 ## Strategy Win Rates
 
@@ -29,20 +29,20 @@ xychart-beta
 - **Total Voyages:** 2500
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 2500 (100.0%)
-- **Average Monsters Slain:** 5.2
-- **Average Highest Encounter Difficulty:** 1.2
+- **Average Monsters Slain:** 5.0
+- **Average Highest Encounter Difficulty:** 1.0
 - **Average Final Gold Hold:** 25g
-- **Average Combat Rolls/Attacks:** 65.5
+- **Average Combat Rolls/Attacks:** 61.2
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Writhing Curse | 70 | 2.8% |
-| Vanishing Viper | 62 | 2.5% |
-| Tide Coiler | 59 | 2.4% |
-| Depth Lurker | 59 | 2.4% |
-| Sussy Seaweed | 57 | 2.3% |
+| Aegis-Lobster | 172 | 6.9% |
+| Radioactive Isopod | 170 | 6.8% |
+| Stoneclaw Leviathan | 166 | 6.6% |
+| Colossal Lobster | 163 | 6.5% |
+| Mutant Shellback | 161 | 6.4% |
 
 **Ship Class Performance:**
 
@@ -54,20 +54,20 @@ xychart-beta
 - **Total Voyages:** 2500
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 2500 (100.0%)
-- **Average Monsters Slain:** 10.6
-- **Average Highest Encounter Difficulty:** 1.2
-- **Average Final Gold Hold:** 36g
-- **Average Combat Rolls/Attacks:** 134.0
+- **Average Monsters Slain:** 11.3
+- **Average Highest Encounter Difficulty:** 1.0
+- **Average Final Gold Hold:** 33g
+- **Average Combat Rolls/Attacks:** 139.4
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Terror of the Tides | 75 | 3.0% |
-| Writhing Curse | 74 | 3.0% |
-| Crimson Hunter | 72 | 2.9% |
-| Fang of the Abyss | 68 | 2.7% |
-| Darting Death | 68 | 2.7% |
+| Aegis-Lobster | 120 | 4.8% |
+| Colossal Lobster | 119 | 4.8% |
+| Mutant Shellback | 117 | 4.7% |
+| Terrorclaw | 112 | 4.5% |
+| Island-Shell Crab | 110 | 4.4% |
 
 **Ship Class Performance:**
 
@@ -79,20 +79,20 @@ xychart-beta
 - **Total Voyages:** 2500
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 2500 (100.0%)
-- **Average Monsters Slain:** 2.4
+- **Average Monsters Slain:** 2.6
 - **Average Highest Encounter Difficulty:** 1.0
-- **Average Final Gold Hold:** 37g
-- **Average Combat Rolls/Attacks:** 51.0
+- **Average Final Gold Hold:** 36g
+- **Average Combat Rolls/Attacks:** 66.3
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Mire Serpent | 78 | 3.1% |
-| Fang of the Abyss | 75 | 3.0% |
-| Bloodrage Shark | 74 | 3.0% |
-| Eerie Elainaling | 73 | 2.9% |
-| Ragefin | 73 | 2.9% |
+| Depth Lurker | 122 | 4.9% |
+| Many-tentacled beast | 117 | 4.7% |
+| Grasping Abyss | 116 | 4.6% |
+| Cephalopod Tyrant | 113 | 4.5% |
+| Hundred-Limbed Horror | 112 | 4.5% |
 
 **Ship Class Performance:**
 
@@ -104,29 +104,29 @@ xychart-beta
 - **Total Voyages:** 2500
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 2500 (100.0%)
-- **Average Monsters Slain:** 61.4
-- **Average Highest Encounter Difficulty:** 1.1
-- **Average Final Gold Hold:** 208g
-- **Average Combat Rolls/Attacks:** 708.3
+- **Average Monsters Slain:** 10.8
+- **Average Highest Encounter Difficulty:** 1.0
+- **Average Final Gold Hold:** 83g
+- **Average Combat Rolls/Attacks:** 168.2
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 480 | 19.2% |
-| Elusive Eell | 70 | 2.8% |
-| Bloodrage Shark | 64 | 2.6% |
-| Crimson Hunter | 59 | 2.4% |
-| Thrashing Great White | 58 | 2.3% |
+| Inkborn Terror | 140 | 5.6% |
+| Death by Ink | 128 | 5.1% |
+| Hundred-Limbed Horror | 127 | 5.1% |
+| Krakenling | 126 | 5.0% |
+| Cephalopod Tyrant | 121 | 4.8% |
 
 **Ship Class Performance:**
 
 | Ship Class | Voyages | Wins | Class Win Rate |
 | :--- | :--- | :--- | :--- |
-| CORVETTE | 594 | 0 | 0.0% |
-| STANDARD | 651 | 0 | 0.0% |
-| FREIGHTER | 615 | 0 | 0.0% |
-| IRONCLAD | 640 | 0 | 0.0% |
+| CORVETTE | 609 | 0 | 0.0% |
+| IRONCLAD | 634 | 0 | 0.0% |
+| STANDARD | 638 | 0 | 0.0% |
+| FREIGHTER | 619 | 0 | 0.0% |
 
 ## Verification Verdict
 
