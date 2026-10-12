@@ -276,19 +276,25 @@ class _BattleScreenState extends State<BattleScreen> {
                 children: [
                   // Dedicated prominent Chronicle Log above weapon selection
                   if (_showLog) ...[
-                    Container(
-                      height: 100,
-                      margin: const EdgeInsets.only(bottom: 8),
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: InkTheme.parchmentDark.withValues(alpha: 0.25),
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: InkTheme.inkMuted, width: 1),
-                      ),
-                      child: CombatLogView(
-                        entries: widget.controller.combatLog,
-                        scrollController: _logScrollController,
-                      ),
+                    Builder(
+                      builder: (ctx) {
+                        final screenHeight = MediaQuery.of(ctx).size.height;
+                        final logHeight = (screenHeight * 0.22).clamp(115.0, 240.0);
+                        return Container(
+                          height: logHeight,
+                          margin: const EdgeInsets.only(bottom: 8),
+                          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: InkTheme.parchmentDark.withValues(alpha: 0.25),
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(color: InkTheme.inkMuted, width: 1),
+                          ),
+                          child: CombatLogView(
+                            entries: widget.controller.structuredCombatLog,
+                            scrollController: _logScrollController,
+                          ),
+                        );
+                      },
                     ),
                   ],
                   // Weapon Volleys

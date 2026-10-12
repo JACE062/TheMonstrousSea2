@@ -90,6 +90,7 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
       return SeaChartScreen(
         key: const ValueKey('sea_chart_modal'),
         seaChart: _controller.seaChart,
+        isInPort: _controller.phase == SessionPhase.port,
         onClose: () => setState(() => _showingChartModal = false),
       );
     }

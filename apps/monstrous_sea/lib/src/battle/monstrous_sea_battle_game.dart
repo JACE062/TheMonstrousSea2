@@ -99,15 +99,25 @@ class MonstrousSeaBattleGame extends FlameGame {
     if (!_combatantsReady || size.x <= 0 || size.y <= 0) return;
     final arenaHeight = max(40.0, size.y - _arenaTopInset - _arenaBottomInset);
     final centreY = _arenaTopInset + arenaHeight / 2;
-    _shipVisual.position = Vector2(size.x * 0.25, centreY);
-    _monsterVisual.position = Vector2(size.x * 0.74, centreY);
+
+    // Anchor combatants symmetrically around center with clamped spread
+    final centerX = size.x / 2;
+    const maxHalfSpread = 320.0;
+    final halfSpread = min(size.x * 0.25, maxHalfSpread).clamp(110.0, maxHalfSpread);
+    _shipVisual.position = Vector2(centerX - halfSpread, centreY);
+    _monsterVisual.position = Vector2(centerX + halfSpread, centreY);
 
     final shipAspect = _shipVisual.sprite != null
         ? _shipVisual.sprite!.srcSize.x / _shipVisual.sprite!.srcSize.y
         : _shipVisual.pictureInfo != null
             ? _shipVisual.pictureInfo!.size.width / _shipVisual.pictureInfo!.size.height
             : 1.25;
-    final shipWidth = min(size.x * 0.43, arenaHeight * 0.95 * shipAspect);
+    // Sensible ship sizing capped at 220px and arenaHeight to prevent vertical overflow
+    final maxShipWidth = min(
+      size.x * 0.32,
+      min(220.0, arenaHeight * 0.85 * shipAspect),
+    );
+    final shipWidth = max(40.0, maxShipWidth);
     _shipVisual.size = Vector2(shipWidth, shipWidth / shipAspect);
 
     final isBoss = PilotArt.isKraken(monster);
@@ -116,10 +126,12 @@ class MonstrousSeaBattleGame extends FlameGame {
         : _monsterVisual.pictureInfo != null
             ? _monsterVisual.pictureInfo!.size.width / _monsterVisual.pictureInfo!.size.height
             : 1.0;
-    final monsterWidth = min(
-      size.x * (isBoss ? 0.40 : 0.29),
-      arenaHeight * (isBoss ? 0.95 : 0.68) * monsterAspect,
+    // Sensible monster sizing capped at 200px (regular) / 280px (boss) and arenaHeight
+    final maxMonsterWidth = min(
+      size.x * (isBoss ? 0.38 : 0.28),
+      min(isBoss ? 280.0 : 200.0, arenaHeight * (isBoss ? 0.92 : 0.68) * monsterAspect),
     );
+    final monsterWidth = max(40.0, maxMonsterWidth);
     _monsterVisual.size = Vector2(monsterWidth, monsterWidth / monsterAspect);
     if (_inkOverlay != null) {
       _inkOverlay!.position = _monsterVisual.position;

@@ -11,7 +11,9 @@ class GameController extends ChangeNotifier {
   final GameSession session;
   final NarrationFormatter narrationFormatter;
 
-  final List<String> combatLog = <String>[];
+  final List<CombatLogEntry> structuredCombatLog = <CombatLogEntry>[];
+  List<String> get combatLog =>
+      structuredCombatLog.map((e) => e.message).toList();
   List<GameEvent> lastEvents = <GameEvent>[];
   bool isPlayingEvents = false;
 
@@ -31,9 +33,9 @@ class GameController extends ChangeNotifier {
     lastEvents = events;
 
     for (final event in events) {
-      final logLine = _formatEventForLog(event);
-      if (logLine != null && logLine.isNotEmpty) {
-        combatLog.add(logLine);
+      final entry = _formatEventForLog(event);
+      if (entry != null && entry.message.isNotEmpty) {
+        structuredCombatLog.add(entry);
       }
     }
 
@@ -52,51 +54,142 @@ class GameController extends ChangeNotifier {
   }
 
   void clearLog() {
-    combatLog.clear();
+    structuredCombatLog.clear();
     notifyListeners();
   }
 
-  String? _formatEventForLog(GameEvent event) {
+  CombatLogEntry? _formatEventForLog(GameEvent event) {
     return switch (event) {
-      FleeFailed(:final shipName) =>
-        '$shipName attempted to turn tail and flee, but the beast cut off all escape!',
-      BattleStarted(:final monsterName, :final difficulty, :final isBoss) =>
-        isBoss
-            ? 'THE KRAKEN RISES FROM THE ABYSS! Prepare all guns!'
-            : 'Encountered $monsterName (Danger Level $difficulty)!',
+      FleeFailed(:final shipName) => CombatLogEntry(
+          message: '$shipName attempted to turn tail and flee, but the beast cut off all escape!',
+          actor: CombatLogActor.ship,
+          isCritical: true,
+        ),
+      BattleStarted(:final monsterName, :final difficulty, :final isBoss) => CombatLogEntry(
+          message: isBoss
+              ? 'THE KRAKEN RISES FROM THE ABYSS! Prepare all guns!'
+              : 'Encountered $monsterName (Danger Level $difficulty)!',
+          actor: CombatLogActor.ambient,
+          isCritical: isBoss,
+        ),
       AttackHit(:final targetName, :final damage, :final damageType) =>
-        '$targetName was struck for $damage $damageType damage!',
-      AttackMissed(:final targetName) => 'The shot missed $targetName!',
-      AttackEvaded(:final shipName, :final wasManeuver) =>
-        '$shipName swiftly evaded incoming strike${wasManeuver ? ' via evasive maneuvers' : ''}!',
-      DamageReduced(:final shipName, :final nullifiedAmount) =>
-        '$shipName\'s reinforced plating absorbed $nullifiedAmount damage!',
-      TentaclesSevered(:final countSevered, :final remainingTentacles) =>
-        'Severed $countSevered tentacles! ($remainingTentacles remaining)',
-      InkCloudDeployed(:final monsterName, :final acBonus) =>
-        '$monsterName spewed a dense ink cloud! (+$acBonus AC)',
+        targetName == currentMonster?.name
+            ? CombatLogEntry(
+                message: '$targetName was struck for $damage $damageType damage!',
+                actor: CombatLogActor.ship,
+              )
+            : CombatLogEntry(
+                message: '$targetName was struck for $damage $damageType damage!',
+                actor: CombatLogActor.monster,
+                isCritical: true,
+              ),
+      AttackMissed(:final targetName) =>
+        targetName == currentMonster?.name
+            ? CombatLogEntry(
+                message: 'The shot missed $targetName!',
+                actor: CombatLogActor.ship,
+              )
+            : CombatLogEntry(
+                message: 'The beast\'s attack missed $targetName!',
+                actor: CombatLogActor.monster,
+              ),
+      AttackEvaded(:final shipName, :final wasManeuver) => CombatLogEntry(
+          message: '$shipName swiftly evaded incoming strike${wasManeuver ? ' via evasive maneuvers' : ''}!',
+          actor: CombatLogActor.ship,
+        ),
+      DamageReduced(:final shipName, :final nullifiedAmount) => CombatLogEntry(
+          message: '$shipName\'s reinforced plating absorbed $nullifiedAmount damage!',
+          actor: CombatLogActor.ship,
+        ),
+      TentaclesSevered(:final countSevered, :final remainingTentacles) => CombatLogEntry(
+          message: 'Severed $countSevered tentacles! ($remainingTentacles remaining)',
+          actor: CombatLogActor.ship,
+        ),
+      InkCloudDeployed(:final monsterName, :final acBonus) => CombatLogEntry(
+          message: '$monsterName spewed a dense ink cloud! (+$acBonus AC)',
+          actor: CombatLogActor.monster,
+        ),
       StatusEffectTicked(:final targetName, :final effectName, :final damage, :final woreOff) =>
-        '$targetName suffers $damage from $effectName${woreOff ? ' (cleared)' : ''}!',
+        targetName == currentMonster?.name
+            ? CombatLogEntry(
+                message: '$targetName suffers $damage from $effectName${woreOff ? ' (cleared)' : ''}!',
+                actor: CombatLogActor.ship,
+              )
+            : CombatLogEntry(
+                message: '$targetName suffers $damage from $effectName${woreOff ? ' (cleared)' : ''}!',
+                actor: CombatLogActor.monster,
+              ),
       CombatantDefeated(:final name, :final flavorMessage) =>
-        '$name was defeated! $flavorMessage',
-      MonsterHesitated(:final monsterName) =>
-        '$monsterName hesitated, gathering its fury.',
-      FledToPort(:final shipName) =>
-        '$shipName successfully broke off engagement and fled to port!',
-      LootDropped(:final items) =>
-        'Spoils salvaged: ${items.length} items recovered!',
-      ItemAcquired(:final item) => 'Stowed ${item.name} into cargo hold.',
-      ItemSold(:final item, :final goldEarned) =>
-        'Sold ${item.name} for ${goldEarned}g.',
-      AllTreasureSold(:final totalGold, :final itemsSold) =>
-        'Exchanged $itemsSold treasures for ${totalGold}g.',
-      ShipRepaired(:final repairedHp, :final goldCost) =>
-        'Repaired $repairedHp hull points for ${goldCost}g.',
-      CaptainLost(:final captainName, :final monstersDefeated) =>
-        'Captain $captainName has perished in the watery deep ($monstersDefeated monsters slain).',
-      NarrationEvent(:final message) => message,
+        name == currentMonster?.name
+            ? CombatLogEntry(
+                message: '$name was defeated! $flavorMessage',
+                actor: CombatLogActor.ship,
+                isCritical: true,
+              )
+            : CombatLogEntry(
+                message: '$name was defeated! $flavorMessage',
+                actor: CombatLogActor.monster,
+                isCritical: true,
+              ),
+      MonsterHesitated(:final monsterName) => CombatLogEntry(
+          message: '$monsterName hesitated, gathering its fury.',
+          actor: CombatLogActor.monster,
+        ),
+      FledToPort(:final shipName) => CombatLogEntry(
+          message: '$shipName successfully broke off engagement and fled to port!',
+          actor: CombatLogActor.ship,
+        ),
+      LootDropped(:final items) => CombatLogEntry(
+          message: 'Spoils salvaged: ${items.length} items recovered!',
+          actor: CombatLogActor.ambient,
+        ),
+      ItemAcquired(:final item) => CombatLogEntry(
+          message: 'Stowed ${item.name} into cargo hold.',
+          actor: CombatLogActor.ambient,
+        ),
+      ItemSold(:final item, :final goldEarned) => CombatLogEntry(
+          message: 'Sold ${item.name} for ${goldEarned}g.',
+          actor: CombatLogActor.ambient,
+        ),
+      AllTreasureSold(:final totalGold, :final itemsSold) => CombatLogEntry(
+          message: 'Exchanged $itemsSold treasures for ${totalGold}g.',
+          actor: CombatLogActor.ambient,
+        ),
+      ShipRepaired(:final repairedHp, :final goldCost) => CombatLogEntry(
+          message: 'Repaired $repairedHp hull points for ${goldCost}g.',
+          actor: CombatLogActor.ambient,
+        ),
+      CaptainLost(:final captainName, :final monstersDefeated) => CombatLogEntry(
+          message: 'Captain $captainName has perished in the watery deep ($monstersDefeated monsters slain).',
+          actor: CombatLogActor.ambient,
+          isCritical: true,
+        ),
+      NarrationEvent(:final message) => CombatLogEntry(
+          message: message,
+          actor: CombatLogActor.ambient,
+        ),
       PhaseChanged() => null,
       AttackAttempted() => null,
     };
   }
+}
+
+/// Identifies the originator of an event in the naval chronicle.
+enum CombatLogActor {
+  ship,
+  monster,
+  ambient,
+}
+
+/// A structured record in the combat chronicle for differentiated visual display.
+class CombatLogEntry {
+  const CombatLogEntry({
+    required this.message,
+    required this.actor,
+    this.isCritical = false,
+  });
+
+  final String message;
+  final CombatLogActor actor;
+  final bool isCritical;
 }
