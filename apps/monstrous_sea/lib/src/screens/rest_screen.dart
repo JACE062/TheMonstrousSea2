@@ -7,8 +7,11 @@ import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/svg_asset_view.dart';
+import '../widgets/pilot_art.dart';
+import '../widgets/weapon_stats_view.dart';
 
-/// Screen allowing captain to rest upon the open swell, inspect vessel, and choose next move.
+/// Screen allowing captain to rest upon the open swell, inspect vessel,
+/// manage weapon mounts in the armory, and choose their next move.
 class RestScreen extends StatelessWidget {
   const RestScreen({
     super.key,
@@ -27,7 +30,7 @@ class RestScreen extends StatelessWidget {
     return ParchmentScaffold(
       body: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 720),
+          constraints: const BoxConstraints(maxWidth: 780),
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             child: Column(
@@ -45,7 +48,8 @@ class RestScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
 
-                if (ship != null)
+                if (ship != null) ...[
+                  // 1. Vessel Status Card
                   ParchmentCard(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +57,7 @@ class RestScreen extends StatelessWidget {
                         Row(
                           children: [
                             SvgAssetView(
-                              assetPath: SvgAssetView.pathForShip(ship.shipClass, isDavyJones: ship.name == 'Flying Dutchman'),
+                              assetPath: PilotArt.forShip(ship),
                               width: 80,
                               height: 80,
                             ),
@@ -64,7 +68,7 @@ class RestScreen extends StatelessWidget {
                                 children: [
                                   Text(ship.name, style: InkTheme.titleMedium),
                                   Text(
-                                    'Position: Sector [${seaChart.currentRow}, ${seaChart.currentCol}] • Loop ${seaChart.timesCompleted}',
+                                    'Sector [${seaChart.currentRow}, ${seaChart.currentCol}] • Loop ${seaChart.timesCompleted}',
                                     style: InkTheme.caption,
                                   ),
                                   const SizedBox(height: 8),
@@ -80,22 +84,188 @@ class RestScreen extends StatelessWidget {
                           children: [
                             _statColumn('GOLD CARRIED', '${ship.gold}g'),
                             _statColumn('CARGO STOWED', '${ship.cargo.length} / ${ship.maxCargo}'),
-                            _statColumn('GUNS READIED', '${ship.equippedWeapons.length} Mounted'),
+                            _statColumn('GUN WEIGHT', '${ship.currentWeaponWeight} / ${ship.maxWeaponWeight} Wt'),
                           ],
                         ),
                       ],
                     ),
                   ),
 
+                  const SizedBox(height: 18),
+
+                  // 2. Armory & Gun Deck Card (Java Parity: swap equipped weapons)
+                  ParchmentCard(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('ARMORY & WEAPON BATTERIES', style: InkTheme.titleMedium.copyWith(fontSize: 18)),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                              decoration: BoxDecoration(
+                                color: InkTheme.parchmentHighlight,
+                                border: Border.all(color: InkTheme.goldAccent, width: 1),
+                                borderRadius: BorderRadius.circular(3),
+                              ),
+                              child: Text(
+                                'Weight: ${ship.currentWeaponWeight}/${ship.maxWeaponWeight} Wt',
+                                style: InkTheme.statLabel.copyWith(
+                                  color: ship.currentWeaponWeight >= ship.maxWeaponWeight
+                                      ? InkTheme.crimsonAccent
+                                      : InkTheme.inkPrimary,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+
+                        // Mounted Weapons
+                        Text('MOUNTED GUNS (${ship.equippedWeapons.length})', style: InkTheme.statLabel.copyWith(fontSize: 12)),
+                        const SizedBox(height: 6),
+                        if (ship.equippedWeapons.isEmpty)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text('No weapons mounted on gun deck!', style: InkTheme.caption),
+                          )
+                        else
+                          ...List.generate(ship.equippedWeapons.length, (idx) {
+                            final weapon = ship.equippedWeapons[idx];
+                            final hasCargoRoom = ship.cargo.length < ship.maxCargo;
+
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 8),
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: InkTheme.parchmentHighlight.withValues(alpha: 0.5),
+                                border: Border.all(color: InkTheme.inkMuted, width: 1),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Row(
+                                children: [
+                                  SvgAssetView(
+                                    assetPath: SvgAssetView.pathForItem(weapon),
+                                    width: 32,
+                                    height: 32,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          weapon.name,
+                                          style: InkTheme.statValue.copyWith(
+                                            color: InkTheme.rarityColor(weapon.rarity),
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 2),
+                                        WeaponStatsView(item: weapon, compact: true),
+                                      ],
+                                    ),
+                                  ),
+                                  InkButton(
+                                    label: hasCargoRoom ? 'Stow' : 'Hold Full',
+                                    onPressed: hasCargoRoom
+                                        ? () => controller.dispatch(UnequipShipWeapon(idx))
+                                        : null,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }),
+
+                        const Divider(height: 18),
+
+                        // Stowed Weapons in Hold
+                        Text('STOWED WEAPONS IN CARGO', style: InkTheme.statLabel.copyWith(fontSize: 12)),
+                        const SizedBox(height: 6),
+                        Builder(
+                          builder: (context) {
+                            final cargoWeapons = <MapEntry<int, ShipWeapon>>[];
+                            for (var i = 0; i < ship.cargo.length; i++) {
+                              final item = ship.cargo[i];
+                              if (item is ShipWeapon) {
+                                cargoWeapons.add(MapEntry(i, item));
+                              }
+                            }
+
+                            if (cargoWeapons.isEmpty) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                child: Text('No spare naval weapons stowed in the cargo hold.', style: InkTheme.caption),
+                              );
+                            }
+
+                            return Column(
+                              children: cargoWeapons.map((entry) {
+                                final cargoIdx = entry.key;
+                                final weapon = entry.value;
+                                final canFitWeight = ship.currentWeaponWeight + weapon.equipWeight <= ship.maxWeaponWeight;
+
+                                return Container(
+                                  margin: const EdgeInsets.only(bottom: 8),
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: InkTheme.parchmentHighlight.withValues(alpha: 0.5),
+                                    border: Border.all(color: InkTheme.inkMuted, width: 1),
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      SvgAssetView(
+                                        assetPath: SvgAssetView.pathForItem(weapon),
+                                        width: 32,
+                                        height: 32,
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              weapon.name,
+                                              style: InkTheme.statValue.copyWith(
+                                                color: InkTheme.rarityColor(weapon.rarity),
+                                                fontSize: 14,
+                                              ),
+                                            ),
+                                            const SizedBox(height: 2),
+                                            WeaponStatsView(item: weapon, compact: true),
+                                          ],
+                                        ),
+                                      ),
+                                      InkButton(
+                                        label: canFitWeight ? 'Mount' : 'Heavy',
+                                        isPrimary: canFitWeight,
+                                        onPressed: canFitWeight
+                                            ? () => controller.dispatch(EquipCargoWeapon(cargoIdx))
+                                            : null,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }).toList(),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+
                 const SizedBox(height: 20),
 
                 // Chart button
                 InkButton(
                   label: 'CONSULT SEA CHART',
-                  icon: SvgAssetView(assetPath: 'assets/art/icon_cannons.svg', width: 22, height: 22),
+                  icon: SvgAssetView(assetPath: PilotArt.cannons, width: 22, height: 22),
                   onPressed: onOpenChart,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
 
                 // Primary Next Move Choices
                 Row(

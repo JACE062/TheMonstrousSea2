@@ -43,15 +43,27 @@ List<Item> generateMerchantStock(
   return stock;
 }
 
-/// Attempts to purchase [item] for [ship].
+/// Calculates the merchant's asking price for [item].
+///
+/// Standard markup is 35% above nominal sell value.
+/// If [isOnSale] is true, applies a 25% discount off base value.
+int getMerchantBuyPrice(Item item, {bool isOnSale = false}) {
+  if (isOnSale) {
+    return max(1, (item.value * 0.75).round());
+  }
+  return max(1, (item.value * 1.35).round());
+}
+
+/// Attempts to purchase [item] for [ship] at [price] (defaults to item.value).
 ///
 /// Succeeds if ship has sufficient gold and available cargo hold capacity.
-/// Deducts item value from gold and adds item to cargo.
-bool buyItem(ShipState ship, Item item) {
-  if (ship.gold < item.value) return false;
+/// Deducts price from gold and adds item to cargo.
+bool buyItem(ShipState ship, Item item, {int? price}) {
+  final cost = price ?? item.value;
+  if (ship.gold < cost) return false;
   if (ship.cargo.length >= ship.maxCargo) return false;
 
-  ship.gold -= item.value;
+  ship.gold -= cost;
   ship.addCargo(item);
   return true;
 }

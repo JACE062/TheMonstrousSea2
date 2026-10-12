@@ -43,6 +43,8 @@ class NarrationFormatter {
             : 'The sea beast circles warily in the waves.',
       FledToPort(:final shipName) =>
         'The $shipName high tails its way back to port, the crew reeling from a narrow scrape with fate.',
+      FleeFailed(:final shipName) =>
+        'The $shipName attempted to turn tail and flee, but the sea beast cut off all escape!',
       LootDropped(:final items) =>
         'The creature sinks, leaving ${items.length} spoils floating in the waves.',
       ItemAcquired(:final item) =>

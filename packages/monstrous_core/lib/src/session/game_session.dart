@@ -42,10 +42,28 @@ class GameSession {
   MonsterState? currentMonster;
   List<Item> pendingLoot = <Item>[];
   List<Item> merchantStock = <Item>[];
+  int? onSaleMerchantIndex;
 
   int monstersDefeatedThisLife = 0;
   int highestDifficultyThisLife = 0;
   int battleRound = 0;
+
+  /// Returns the current asking price for the item at [stockIndex] in the shop.
+  int getMerchantAskingPrice(int stockIndex) {
+    if (stockIndex < 0 || stockIndex >= merchantStock.length) return 0;
+    return getMerchantBuyPrice(
+      merchantStock[stockIndex],
+      isOnSale: stockIndex == onSaleMerchantIndex,
+    );
+  }
+
+  /// Refreshes the merchant's wares and randomly designates one item as on-sale.
+  void refreshMerchantStock([int? difficulty]) {
+    final diff = difficulty ?? highestDifficultyThisLife;
+    merchantStock = generateMerchantStock(max(1, diff), rng);
+    onSaleMerchantIndex =
+        merchantStock.isNotEmpty ? rng.nextInt(merchantStock.length) : null;
+  }
 
   final List<CombatTrait> traits = const <CombatTrait>[
     FortifyTrait(),
@@ -150,7 +168,7 @@ class GameSession {
     ship!.equipWeapon(cannon2);
     ship!.gold = 25;
 
-    merchantStock = generateMerchantStock(1, rng);
+    refreshMerchantStock(1);
     final prevPhase = phase.displayName;
     phase = SessionPhase.port;
 
@@ -295,9 +313,10 @@ class GameSession {
     final fled = rng.d100() > threshold;
 
     if (fled) {
+      ship!.resetCombatBoosts();
       events.add(FledToPort(shipName: ship!.name));
       seaChart.reset();
-      merchantStock = generateMerchantStock(highestDifficultyThisLife, rng);
+      refreshMerchantStock();
       final prevPhase = phase.displayName;
       phase = SessionPhase.port;
       events.add(PhaseChanged(
@@ -307,6 +326,7 @@ class GameSession {
       return events;
     }
 
+    events.add(FleeFailed(shipName: ship!.name));
     events.add(NarrationEvent('${ship!.name} was unable to flee the encounter!'));
     // Failed flee: Monster attacks!
     events.addAll(_resolveMonsterTurn());
@@ -395,6 +415,7 @@ class GameSession {
 
     pendingLoot = generateVictoryLoot(seaChart.currentDifficulty, rng, config);
     ship!.decrementChargeTimeOnWeapons();
+    ship!.resetCombatBoosts();
 
     final prevPhase = phase.displayName;
     phase = SessionPhase.loot;
@@ -550,7 +571,7 @@ class GameSession {
       throw StateError('Cannot return to port from $phase');
     }
     seaChart.reset();
-    merchantStock = generateMerchantStock(highestDifficultyThisLife, rng);
+    refreshMerchantStock();
     final prevPhase = phase.displayName;
     phase = SessionPhase.port;
     return <GameEvent>[
@@ -597,8 +618,16 @@ class GameSession {
       throw RangeError('Invalid stock index: $stockIndex');
     }
     final item = merchantStock[stockIndex];
-    if (buyItem(ship!, item)) {
+    final cost = getMerchantAskingPrice(stockIndex);
+    if (buyItem(ship!, item, price: cost)) {
       merchantStock.removeAt(stockIndex);
+      if (onSaleMerchantIndex != null) {
+        if (stockIndex == onSaleMerchantIndex) {
+          onSaleMerchantIndex = null;
+        } else if (stockIndex < onSaleMerchantIndex!) {
+          onSaleMerchantIndex = onSaleMerchantIndex! - 1;
+        }
+      }
       return <GameEvent>[ItemAcquired(item: item)];
     }
     return <GameEvent>[
@@ -661,7 +690,7 @@ class GameSession {
     monstersDefeatedThisLife = 0;
     highestDifficultyThisLife = 0;
     seaChart.reset();
-    merchantStock = generateMerchantStock(1, rng);
+    refreshMerchantStock(1);
 
     final prevPhase = phase.displayName;
     phase = SessionPhase.port;

@@ -6,8 +6,10 @@ import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/svg_asset_view.dart';
+import '../widgets/weapon_stats_view.dart';
 
-/// Screen displaying salvaged battle spoils following monster defeat.
+/// Screen displaying salvaged battle spoils following monster defeat,
+/// allowing captain to stow loot or jettison held cargo to free space.
 class LootScreen extends StatelessWidget {
   const LootScreen({super.key, required this.controller});
 
@@ -22,7 +24,7 @@ class LootScreen extends StatelessWidget {
     return ParchmentScaffold(
       body: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 720),
+          constraints: const BoxConstraints(maxWidth: 760),
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             child: Column(
@@ -44,7 +46,9 @@ class LootScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: InkTheme.parchmentSurface,
+                    color: isFull
+                        ? InkTheme.crimsonAccent.withValues(alpha: 0.12)
+                        : InkTheme.parchmentSurface,
                     border: Border.all(
                       color: isFull ? InkTheme.crimsonAccent : InkTheme.inkMuted,
                       width: 1.5,
@@ -55,14 +59,14 @@ class LootScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'CARGO HOLD CAPACITY: ${ship?.cargo.length ?? 0} / ${ship?.maxCargo ?? 0}',
+                        'CARGO HOLD: ${ship?.cargo.length ?? 0} / ${ship?.maxCargo ?? 0}',
                         style: InkTheme.statLabel.copyWith(
                           color: isFull ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
                         ),
                       ),
                       if (isFull)
                         Text(
-                          'HOLD IS FULL!',
+                          'HOLD IS FULL — Jettison cargo below to stow spoils',
                           style: InkTheme.statLabel.copyWith(
                             color: InkTheme.crimsonAccent,
                             fontWeight: FontWeight.bold,
@@ -74,6 +78,8 @@ class LootScreen extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // Pending Loot Items
+                Text('SPOILS FLOATING IN THE WATER', style: InkTheme.statLabel),
+                const SizedBox(height: 8),
                 if (pendingLoot.isEmpty)
                   ParchmentCard(
                     child: Padding(
@@ -97,13 +103,9 @@ class LootScreen extends StatelessWidget {
                         child: Row(
                           children: [
                             SvgAssetView(
-                              assetPath: item is Treasure
-                                  ? 'assets/art/icon_treasure.svg'
-                                  : item is ShipWeapon
-                                      ? 'assets/art/icon_cannons.svg'
-                                      : 'assets/art/icon_helm.svg',
-                              width: 36,
-                              height: 36,
+                              assetPath: SvgAssetView.pathForItem(item),
+                              width: 38,
+                              height: 38,
                             ),
                             const SizedBox(width: 14),
                             Expanded(
@@ -121,6 +123,9 @@ class LootScreen extends StatelessWidget {
                                     item.description,
                                     style: InkTheme.caption.copyWith(fontSize: 13),
                                   ),
+                                  const SizedBox(height: 3),
+                                  WeaponStatsView(item: item),
+                                  const SizedBox(height: 2),
                                   Text(
                                     '${item.rarity.displayName} • Value: ${item.value}g',
                                     style: InkTheme.statLabel.copyWith(
@@ -132,7 +137,8 @@ class LootScreen extends StatelessWidget {
                               ),
                             ),
                             InkButton(
-                              label: 'Stow',
+                              label: isFull ? 'Hold Full' : 'Stow',
+                              isPrimary: !isFull,
                               onPressed: isFull
                                   ? null
                                   : () => controller.dispatch(TakeLootItem(index)),
@@ -142,6 +148,73 @@ class LootScreen extends StatelessWidget {
                       ),
                     );
                   }),
+
+                const SizedBox(height: 16),
+
+                // Cargo Hold Management (Jettison options)
+                if (ship != null && ship.cargo.isNotEmpty) ...[
+                  Text('ITEMS IN YOUR CARGO HOLD (${ship.cargo.length}/${ship.maxCargo})', style: InkTheme.statLabel),
+                  const SizedBox(height: 8),
+                  ParchmentCard(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (isFull)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              'Select an item to jettison into the sea to free up hold space:',
+                              style: InkTheme.caption.copyWith(color: InkTheme.crimsonAccent),
+                            ),
+                          ),
+                        ...List.generate(ship.cargo.length, (cargoIdx) {
+                          final cargoItem = ship.cargo[cargoIdx];
+
+                          return Container(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: InkTheme.parchmentHighlight.withValues(alpha: 0.5),
+                              border: Border.all(color: InkTheme.inkMuted, width: 1),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Row(
+                              children: [
+                                SvgAssetView(
+                                  assetPath: SvgAssetView.pathForItem(cargoItem),
+                                  width: 32,
+                                  height: 32,
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        cargoItem.name,
+                                        style: InkTheme.statValue.copyWith(
+                                          color: InkTheme.rarityColor(cargoItem.rarity),
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 2),
+                                      WeaponStatsView(item: cargoItem, compact: true),
+                                    ],
+                                  ),
+                                ),
+                                InkButton(
+                                  label: 'Jettison',
+                                  isDanger: true,
+                                  onPressed: () => controller.dispatch(DropCargoItem(cargoIdx)),
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                      ],
+                    ),
+                  ),
+                ],
 
                 const SizedBox(height: 24),
 

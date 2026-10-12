@@ -130,6 +130,12 @@ final class FledToPort extends GameEvent {
   final String shipName;
 }
 
+/// The player attempted to flee but was intercepted.
+final class FleeFailed extends GameEvent {
+  const FleeFailed({required this.shipName});
+  final String shipName;
+}
+
 /// Victory loot dropped following monster defeat.
 final class LootDropped extends GameEvent {
   const LootDropped({required this.items});

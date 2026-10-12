@@ -33,57 +33,112 @@ class InkTheme {
         RarityLevel.legendary => goldAccent,
       };
 
-  // Typography
-  static TextStyle get titleLarge => GoogleFonts.pirataOne(
-        fontSize: 32,
-        fontWeight: FontWeight.normal,
-        color: inkPrimary,
-        letterSpacing: 1.2,
-      );
+  /// When true, system fallback fonts are used instead of downloading Google Fonts via HTTP.
+  /// Useful for hermetic widget testing environments without network access.
+  static bool disableGoogleFonts = false;
 
-  static TextStyle get titleMedium => GoogleFonts.pirataOne(
-        fontSize: 24,
-        fontWeight: FontWeight.normal,
-        color: inkPrimary,
+  // Typography
+  static TextStyle get titleLarge => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 32,
+          fontWeight: FontWeight.normal,
+          color: inkPrimary,
+          letterSpacing: 1.2,
+        )
+      : GoogleFonts.pirataOne(
+          fontSize: 32,
+          fontWeight: FontWeight.normal,
+          color: inkPrimary,
+          letterSpacing: 1.2,
+        );
+
+  static TextStyle get titleMedium => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.normal,
+          color: inkPrimary,
+          letterSpacing: 1.0,
+        )
+      : GoogleFonts.pirataOne(
+          fontSize: 24,
+          fontWeight: FontWeight.normal,
+          color: inkPrimary,
         letterSpacing: 1.0,
       );
 
-  static TextStyle get subtitle => GoogleFonts.imFellEnglish(
-        fontSize: 18,
-        fontStyle: FontStyle.italic,
-        color: inkSecondary,
-      );
+  static TextStyle get subtitle => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 18,
+          fontStyle: FontStyle.italic,
+          color: inkSecondary,
+        )
+      : GoogleFonts.imFellEnglish(
+          fontSize: 18,
+          fontStyle: FontStyle.italic,
+          color: inkSecondary,
+        );
 
-  static TextStyle get body => GoogleFonts.imFellEnglish(
-        fontSize: 16,
-        color: inkPrimary,
-        height: 1.35,
-      );
+  static TextStyle get body => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 16,
+          color: inkPrimary,
+          height: 1.35,
+        )
+      : GoogleFonts.imFellEnglish(
+          fontSize: 16,
+          color: inkPrimary,
+          height: 1.35,
+        );
 
-  static TextStyle get bodyBold => GoogleFonts.imFellEnglish(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: inkPrimary,
-      );
+  static TextStyle get bodyBold => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: inkPrimary,
+        )
+      : GoogleFonts.imFellEnglish(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: inkPrimary,
+        );
 
-  static TextStyle get caption => GoogleFonts.imFellEnglish(
-        fontSize: 13,
-        fontStyle: FontStyle.italic,
-        color: inkMuted,
-      );
+  static TextStyle get caption => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 13,
+          fontStyle: FontStyle.italic,
+          color: inkMuted,
+        )
+      : GoogleFonts.imFellEnglish(
+          fontSize: 13,
+          fontStyle: FontStyle.italic,
+          color: inkMuted,
+        );
 
-  static TextStyle get statLabel => GoogleFonts.cinzel(
-        fontSize: 13,
-        fontWeight: FontWeight.w600,
-        color: inkSecondary,
-        letterSpacing: 0.8,
-      );
+  static TextStyle get statLabel => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+          color: inkSecondary,
+          letterSpacing: 0.8,
+        )
+      : GoogleFonts.cinzel(
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+          color: inkSecondary,
+          letterSpacing: 0.8,
+        );
 
-  static TextStyle get statValue => GoogleFonts.cinzel(
-        fontSize: 15,
-        fontWeight: FontWeight.bold,
-        color: inkPrimary,
-      );
+  static TextStyle get statValue => disableGoogleFonts
+      ? const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+          color: inkPrimary,
+        )
+      : GoogleFonts.cinzel(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+          color: inkPrimary,
+        );
 
   // Complete Material ThemeData
   static ThemeData get themeData {
@@ -116,7 +171,9 @@ class InkTheme {
           side: const BorderSide(color: inkPrimary, width: 1.5),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          textStyle: GoogleFonts.pirataOne(fontSize: 20, letterSpacing: 1.0),
+          textStyle: disableGoogleFonts
+              ? const TextStyle(fontSize: 20, letterSpacing: 1.0)
+              : GoogleFonts.pirataOne(fontSize: 20, letterSpacing: 1.0),
         ),
       ),
       cardTheme: CardThemeData(

@@ -1,9 +1,12 @@
 import 'dart:math';
+import 'package:flame/cache.dart';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 import '../theme/ink_theme.dart';
+import '../widgets/pilot_art.dart';
 
 /// 2D naval combat scene driven by Flame, providing animated rolling swells,
 /// combatant bobbing, cannon smoke, damage numbers, and ink cloud overlays.
@@ -11,7 +14,10 @@ class MonstrousSeaBattleGame extends FlameGame {
   MonstrousSeaBattleGame({
     required this.ship,
     required this.monster,
-  });
+  }) {
+    // A local cache owns the scene's full asset paths and decoded images.
+    images = Images(prefix: '');
+  }
 
   final ShipState ship;
   final MonsterState monster;
@@ -20,9 +26,22 @@ class MonstrousSeaBattleGame extends FlameGame {
   late _ShipBattleComponent _shipVisual;
   late _MonsterBattleComponent _monsterVisual;
   _InkCloudOverlayComponent? _inkOverlay;
+  bool _combatantsReady = false;
+  double _arenaTopInset = 140;
+  double _arenaBottomInset = 160;
 
   @override
   Color backgroundColor() => InkTheme.parchmentBackground;
+
+  @override
+  void onRemove() {
+    if (_combatantsReady) {
+      _shipVisual.pictureInfo?.picture.dispose();
+      _monsterVisual.pictureInfo?.picture.dispose();
+    }
+    images.clearCache();
+    super.onRemove();
+  }
 
   @override
   Future<void> onLoad() async {
@@ -32,29 +51,94 @@ class MonstrousSeaBattleGame extends FlameGame {
     _waves = _RollingWavesComponent();
     add(_waves);
 
+    final shipPath = PilotArt.forShip(ship);
+    final monsterPath = PilotArt.forMonster(monster);
+
+    PictureInfo? shipPicture;
+    Sprite? shipSprite;
+    if (shipPath.toLowerCase().endsWith('.svg')) {
+      shipPicture = await vg.loadPicture(SvgAssetLoader(shipPath), null);
+    } else {
+      shipSprite = Sprite(await images.load(shipPath));
+    }
+
+    PictureInfo? monsterPicture;
+    Sprite? monsterSprite;
+    if (monsterPath.toLowerCase().endsWith('.svg')) {
+      monsterPicture = await vg.loadPicture(SvgAssetLoader(monsterPath), null);
+    } else {
+      monsterSprite = Sprite(await images.load(monsterPath));
+    }
+
     // Ship on left side
-    _shipVisual = _ShipBattleComponent(ship: ship);
+    _shipVisual = _ShipBattleComponent(
+      ship: ship,
+      sprite: shipSprite,
+      pictureInfo: shipPicture,
+    );
     add(_shipVisual);
 
     // Monster on right side
-    _monsterVisual = _MonsterBattleComponent(monster: monster);
+    _monsterVisual = _MonsterBattleComponent(
+      monster: monster,
+      sprite: monsterSprite,
+      pictureInfo: monsterPicture,
+    );
     add(_monsterVisual);
+    _combatantsReady = true;
+    _layoutCombatants();
   }
 
   @override
   void onGameResize(Vector2 size) {
     super.onGameResize(size);
-    if (isLoaded) {
-      _shipVisual.position = Vector2(size.x * 0.25, size.y * 0.55);
-      _monsterVisual.position = Vector2(size.x * 0.72, size.y * 0.52);
-      if (_inkOverlay != null) {
-        _inkOverlay!.position = _monsterVisual.position;
-      }
+    if (_combatantsReady) _layoutCombatants();
+  }
+
+  void _layoutCombatants() {
+    if (!_combatantsReady || size.x <= 0 || size.y <= 0) return;
+    final arenaHeight = max(40.0, size.y - _arenaTopInset - _arenaBottomInset);
+    final centreY = _arenaTopInset + arenaHeight / 2;
+    _shipVisual.position = Vector2(size.x * 0.25, centreY);
+    _monsterVisual.position = Vector2(size.x * 0.74, centreY);
+
+    final shipAspect = _shipVisual.sprite != null
+        ? _shipVisual.sprite!.srcSize.x / _shipVisual.sprite!.srcSize.y
+        : _shipVisual.pictureInfo != null
+            ? _shipVisual.pictureInfo!.size.width / _shipVisual.pictureInfo!.size.height
+            : 1.25;
+    final shipWidth = min(size.x * 0.43, arenaHeight * 0.95 * shipAspect);
+    _shipVisual.size = Vector2(shipWidth, shipWidth / shipAspect);
+
+    final isBoss = PilotArt.isKraken(monster);
+    final monsterAspect = _monsterVisual.sprite != null
+        ? _monsterVisual.sprite!.srcSize.x / _monsterVisual.sprite!.srcSize.y
+        : _monsterVisual.pictureInfo != null
+            ? _monsterVisual.pictureInfo!.size.width / _monsterVisual.pictureInfo!.size.height
+            : 1.0;
+    final monsterWidth = min(
+      size.x * (isBoss ? 0.40 : 0.29),
+      arenaHeight * (isBoss ? 0.95 : 0.68) * monsterAspect,
+    );
+    _monsterVisual.size = Vector2(monsterWidth, monsterWidth / monsterAspect);
+    if (_inkOverlay != null) {
+      _inkOverlay!.position = _monsterVisual.position;
     }
+  }
+
+  /// Keep complete sprites inside the space left by the current HUD and dock.
+  void setArenaInsets({required double top, required double bottom}) {
+    if (top == _arenaTopInset && bottom == _arenaBottomInset) return;
+    _arenaTopInset = top;
+    _arenaBottomInset = bottom;
+    if (_combatantsReady) _layoutCombatants();
   }
 
   /// Triggers visual playback for domain [events].
   Future<void> playEvents(List<GameEvent> events, VoidCallback onComplete) async {
+    await loaded;
+    _layoutCombatants();
+
     for (final event in events) {
       switch (event) {
         case AttackHit(:final targetName, :final damage):
@@ -84,6 +168,7 @@ class MonstrousSeaBattleGame extends FlameGame {
             color: InkTheme.goldAccent,
             position: _shipVisual.position - Vector2(0, 40),
           ));
+          _shipVisual.flashFortify();
           await Future.delayed(const Duration(milliseconds: 260));
 
         case TentaclesSevered(:final remainingTentacles):
@@ -101,6 +186,15 @@ class MonstrousSeaBattleGame extends FlameGame {
             add(_inkOverlay!);
           }
           await Future.delayed(const Duration(milliseconds: 300));
+
+        case NarrationEvent(:final message) when message.contains('fortifying'):
+          add(_FloatingTextComponent(
+            text: '+FORTIFIED',
+            color: InkTheme.goldAccent,
+            position: _shipVisual.position - Vector2(0, 40),
+          ));
+          _shipVisual.flashFortify();
+          await Future.delayed(const Duration(milliseconds: 320));
 
         default:
           break;
@@ -137,7 +231,7 @@ class MonstrousSeaBattleGame extends FlameGame {
 }
 
 class _RollingWavesComponent extends PositionComponent with HasGameReference<MonstrousSeaBattleGame> {
-  double _time = 0;
+  double _time = 0.0;
 
   @override
   void update(double dt) {
@@ -178,21 +272,62 @@ class _RollingWavesComponent extends PositionComponent with HasGameReference<Mon
 }
 
 class _ShipBattleComponent extends PositionComponent with HasGameReference<MonstrousSeaBattleGame> {
-  _ShipBattleComponent({required this.ship});
+  _ShipBattleComponent({required this.ship, this.sprite, this.pictureInfo})
+      : super(anchor: Anchor.center);
 
   final ShipState ship;
+  final Sprite? sprite;
+  final PictureInfo? pictureInfo;
   double _time = 0;
+  double _fortifyFlash = 0;
+
+  void flashFortify() {
+    _fortifyFlash = 0.5;
+  }
 
   @override
   void update(double dt) {
     super.update(dt);
     _time += dt;
+    _fortifyFlash = max(0, _fortifyFlash - dt);
     // Nautical pitch and roll
     angle = sin(_time * 1.8) * 0.05;
   }
 
   @override
   void render(Canvas canvas) {
+    final pic = pictureInfo;
+    if (pic != null) {
+      canvas.save();
+      // Anchor.center already offsets the component; local art starts at (0, 0).
+      final scaleX = size.x / pic.size.width;
+      final scaleY = size.y / pic.size.height;
+      canvas.scale(scaleX, scaleY);
+      canvas.drawPicture(pic.picture);
+      if (_fortifyFlash > 0) {
+        final shieldPaint = Paint()
+          ..color = InkTheme.goldAccent.withValues(alpha: (_fortifyFlash / 0.5) * 0.45)
+          ..style = PaintingStyle.fill;
+        canvas.drawRect(Rect.fromLTWH(0, 0, pic.size.width, pic.size.height), shieldPaint);
+      }
+      canvas.restore();
+      return;
+    }
+    final art = sprite;
+    if (art != null) {
+      art.renderRect(
+        canvas,
+        Rect.fromLTWH(0, 0, size.x, size.y),
+        overridePaint: Paint()..filterQuality = FilterQuality.medium,
+      );
+      if (_fortifyFlash > 0) {
+        final shieldPaint = Paint()
+          ..color = InkTheme.goldAccent.withValues(alpha: (_fortifyFlash / 0.5) * 0.45)
+          ..style = PaintingStyle.fill;
+        canvas.drawRect(Rect.fromLTWH(0, 0, size.x, size.y), shieldPaint);
+      }
+      return;
+    }
     final paint = Paint()
       ..color = InkTheme.inkPrimary
       ..style = PaintingStyle.stroke
@@ -242,11 +377,15 @@ class _ShipBattleComponent extends PositionComponent with HasGameReference<Monst
 }
 
 class _MonsterBattleComponent extends PositionComponent with HasGameReference<MonstrousSeaBattleGame> {
-  _MonsterBattleComponent({required this.monster});
+  _MonsterBattleComponent({required this.monster, this.sprite, this.pictureInfo})
+      : super(anchor: Anchor.center);
 
   final MonsterState monster;
+  final Sprite? sprite;
+  final PictureInfo? pictureInfo;
   double _time = 0;
   int displayedTentacles = 8;
+  double _severFlash = 0;
 
   @override
   void onLoad() {
@@ -256,17 +395,63 @@ class _MonsterBattleComponent extends PositionComponent with HasGameReference<Mo
 
   void updateTentacles(int count) {
     displayedTentacles = count.clamp(0, 12);
+    _severFlash = 0.45;
   }
 
   @override
   void update(double dt) {
     super.update(dt);
     _time += dt;
+    _severFlash = max(0, _severFlash - dt);
     angle = sin(_time * 1.2) * 0.04;
   }
 
   @override
   void render(Canvas canvas) {
+    final pic = pictureInfo;
+    if (pic != null) {
+      canvas.save();
+      // The component transform applies the centre anchor exactly once.
+      final scaleX = size.x / pic.size.width;
+      final scaleY = size.y / pic.size.height;
+      canvas.scale(scaleX, scaleY);
+      if (monster.isObscured) {
+        canvas.saveLayer(
+          Rect.fromLTWH(0, 0, pic.size.width, pic.size.height),
+          Paint()..color = Colors.white.withValues(alpha: 0.45),
+        );
+      }
+      canvas.drawPicture(pic.picture);
+      if (monster.isObscured) {
+        canvas.restore();
+      }
+      if (_severFlash > 0) {
+        final severPaint = Paint()
+          ..color = InkTheme.crimsonAccent.withValues(alpha: (_severFlash / 0.45) * 0.45)
+          ..style = PaintingStyle.fill;
+        canvas.drawRect(Rect.fromLTWH(0, 0, pic.size.width, pic.size.height), severPaint);
+      }
+      canvas.restore();
+      return;
+    }
+    final art = sprite;
+    if (art != null) {
+      final paint = Paint()
+        ..filterQuality = FilterQuality.medium
+        ..color = Colors.white.withValues(alpha: monster.isObscured ? 0.5 : 1);
+      if (_severFlash > 0) {
+        paint.colorFilter = ColorFilter.mode(
+          InkTheme.crimsonAccent.withValues(alpha: _severFlash / 0.45 * 0.4),
+          BlendMode.srcATop,
+        );
+      }
+      art.renderRect(
+        canvas,
+        Rect.fromLTWH(0, 0, size.x, size.y),
+        overridePaint: paint,
+      );
+      return;
+    }
     final strokePaint = Paint()
       ..color = InkTheme.inkPrimary
       ..style = PaintingStyle.stroke

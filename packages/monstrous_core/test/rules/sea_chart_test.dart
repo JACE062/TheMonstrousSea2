@@ -144,4 +144,23 @@ void main() {
       expect(chart.currentDifficulty, 1);
     });
   });
+
+  group('SeaChart Fog of War & Grid Generation', () {
+    test('reveals current row and previous rows, obscures lower rows', () {
+      final chart = SeaChart();
+      expect(chart.isRevealed(0, 0), isTrue);
+      expect(chart.isRevealed(0, 4), isTrue);
+      expect(chart.isRevealed(1, 0), isFalse);
+      expect(chart.isRevealed(2, 0), isFalse);
+      // Kraken at [3][4] is always known
+      expect(chart.isRevealed(3, 4), isTrue);
+
+      chart.currentRow = 1;
+      expect(chart.isRevealed(0, 2), isTrue);
+      expect(chart.isRevealed(1, 4), isTrue);
+      expect(chart.isRevealed(2, 0), isFalse);
+
+      expect(chart.speciesAt(3, 4), MonsterSpecies.kraken);
+    });
+  });
 }

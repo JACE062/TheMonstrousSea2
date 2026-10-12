@@ -7,6 +7,7 @@ import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/svg_asset_view.dart';
+import '../widgets/pilot_art.dart';
 
 /// Hub screen at Hunter's Respite Port for repairs, trade, and chart planning.
 class PortScreen extends StatelessWidget {
@@ -51,9 +52,16 @@ class PortScreen extends StatelessWidget {
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text('Repair 100% Hull (Restore to ${ship.maxHp} HP)', style: InkTheme.statLabel),
-                subtitle: Text('Cost: ${cost100}g', style: InkTheme.caption),
+                subtitle: Text(
+                  ship.gold >= cost100
+                      ? 'Cost: ${cost100}g'
+                      : 'Cost: ${cost100}g (Lacks ${cost100 - ship.gold}g)',
+                  style: InkTheme.caption.copyWith(
+                    color: ship.gold >= cost100 ? InkTheme.inkMuted : InkTheme.crimsonAccent,
+                  ),
+                ),
                 trailing: InkButton(
-                  label: 'Repair',
+                  label: ship.gold >= cost100 ? 'Repair' : 'Lacks Gold',
                   onPressed: ship.gold >= cost100
                       ? () {
                           controller.dispatch(const RepairShip(1.0));
@@ -66,9 +74,16 @@ class PortScreen extends StatelessWidget {
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text('Repair 50% Hull', style: InkTheme.statLabel),
-                subtitle: Text('Cost: ${cost50}g', style: InkTheme.caption),
+                subtitle: Text(
+                  ship.gold >= cost50
+                      ? 'Cost: ${cost50}g'
+                      : 'Cost: ${cost50}g (Lacks ${cost50 - ship.gold}g)',
+                  style: InkTheme.caption.copyWith(
+                    color: ship.gold >= cost50 ? InkTheme.inkMuted : InkTheme.crimsonAccent,
+                  ),
+                ),
                 trailing: InkButton(
-                  label: 'Repair',
+                  label: ship.gold >= cost50 ? 'Repair' : 'Lacks Gold',
                   onPressed: ship.gold >= cost50
                       ? () {
                           controller.dispatch(const RepairShip(0.5));
@@ -81,9 +96,16 @@ class PortScreen extends StatelessWidget {
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text('Repair 25% Hull', style: InkTheme.statLabel),
-                subtitle: Text('Cost: ${cost25}g', style: InkTheme.caption),
+                subtitle: Text(
+                  ship.gold >= cost25
+                      ? 'Cost: ${cost25}g'
+                      : 'Cost: ${cost25}g (Lacks ${cost25 - ship.gold}g)',
+                  style: InkTheme.caption.copyWith(
+                    color: ship.gold >= cost25 ? InkTheme.inkMuted : InkTheme.crimsonAccent,
+                  ),
+                ),
                 trailing: InkButton(
-                  label: 'Repair',
+                  label: ship.gold >= cost25 ? 'Repair' : 'Lacks Gold',
                   onPressed: ship.gold >= cost25
                       ? () {
                           controller.dispatch(const RepairShip(0.25));
@@ -141,7 +163,7 @@ class PortScreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          SvgAssetView(assetPath: 'assets/art/icon_treasure.svg', width: 24, height: 24),
+                          SvgAssetView(assetPath: PilotArt.treasure, width: 24, height: 24),
                           const SizedBox(width: 8),
                           Text('${ship?.gold ?? 0}g', style: InkTheme.statValue.copyWith(fontSize: 18, color: InkTheme.goldAccent)),
                         ],
@@ -161,7 +183,7 @@ class PortScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SvgAssetView(
-                              assetPath: SvgAssetView.pathForShip(ship.shipClass, isDavyJones: ship.name == 'Flying Dutchman'),
+                              assetPath: PilotArt.forShip(ship),
                               width: 100,
                               height: 100,
                             ),
@@ -201,7 +223,7 @@ class PortScreen extends StatelessWidget {
                     Expanded(
                       child: InkButton(
                         label: 'VISIT MERCHANT',
-                        icon: SvgAssetView(assetPath: 'assets/art/icon_helm.svg', width: 22, height: 22),
+                        icon: SvgAssetView(assetPath: PilotArt.helm, width: 22, height: 22),
                         onPressed: () => controller.dispatch(const VisitMerchant()),
                       ),
                     ),
@@ -209,7 +231,7 @@ class PortScreen extends StatelessWidget {
                     Expanded(
                       child: InkButton(
                         label: 'REPAIR SHIP',
-                        icon: SvgAssetView(assetPath: 'assets/art/icon_anchor.svg', width: 22, height: 22),
+                        icon: SvgAssetView(assetPath: PilotArt.anchor, width: 22, height: 22),
                         onPressed: () => _showRepairDialog(context),
                       ),
                     ),
@@ -217,7 +239,7 @@ class PortScreen extends StatelessWidget {
                     Expanded(
                       child: InkButton(
                         label: 'SEA CHART',
-                        icon: SvgAssetView(assetPath: 'assets/art/icon_cannons.svg', width: 22, height: 22),
+                        icon: SvgAssetView(assetPath: PilotArt.cannons, width: 22, height: 22),
                         onPressed: onOpenChart,
                       ),
                     ),

@@ -18,15 +18,8 @@ class HullGauge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pct = maxHp > 0 ? (currentHp / maxHp).clamp(0.0, 1.0) : 0.0;
-    final isCritical = pct < 0.25;
-    final isWounded = pct < 0.50;
-
-    final barColor = isCritical
-        ? InkTheme.crimsonAccent
-        : isWounded
-            ? InkTheme.goldAccent
-            : InkTheme.verdigrisGreen;
+    final targetPct = maxHp > 0 ? (currentHp / maxHp).clamp(0.0, 1.0) : 0.0;
+    final isCritical = targetPct < 0.25;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,19 +48,36 @@ class HullGauge extends StatelessWidget {
         Container(
           height: height,
           decoration: BoxDecoration(
-            color: InkTheme.parchmentDark.withValues(alpha: 0.5),
+            // Dark crimson backing track clearly displaying lost hull/vitality
+            color: InkTheme.crimsonAccent.withValues(alpha: 0.50),
             borderRadius: BorderRadius.circular(2),
-            border: Border.all(color: InkTheme.inkPrimary, width: 1.2),
+            border: Border.all(color: InkTheme.inkPrimary, width: 1.4),
           ),
-          child: FractionallySizedBox(
-            alignment: Alignment.centerLeft,
-            widthFactor: pct,
-            child: Container(
-              decoration: BoxDecoration(
-                color: barColor,
-                borderRadius: BorderRadius.circular(1),
-              ),
-            ),
+          clipBehavior: Clip.antiAlias,
+          child: TweenAnimationBuilder<double>(
+            tween: Tween<double>(end: targetPct),
+            duration: const Duration(milliseconds: 450),
+            curve: Curves.easeOutCubic,
+            builder: (context, animatedPct, child) {
+              final isAnimatedCrit = animatedPct < 0.25;
+              final isAnimatedWounded = animatedPct < 0.50;
+              final barColor = isAnimatedCrit
+                  ? InkTheme.crimsonAccent
+                  : isAnimatedWounded
+                      ? InkTheme.goldAccent
+                      : InkTheme.verdigrisGreen;
+
+              return FractionallySizedBox(
+                alignment: Alignment.centerLeft,
+                widthFactor: animatedPct.clamp(0.0, 1.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: barColor,
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ],

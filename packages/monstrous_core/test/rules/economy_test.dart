@@ -312,5 +312,14 @@ void main() {
       expect(ship.gold, 10);
       expect(ship.currentHp, 100);
     });
+
+    test('getMerchantBuyPrice applies 35% markup by default and 25% discount when on sale', () {
+      final item = generateConsumable(ConsumableType.blastPack, RarityLevel.common);
+      final regularPrice = getMerchantBuyPrice(item);
+      expect(regularPrice, (item.value * 1.35).round());
+
+      final salePrice = getMerchantBuyPrice(item, isOnSale: true);
+      expect(salePrice, (item.value * 0.75).round());
+    });
   });
 }

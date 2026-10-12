@@ -6,6 +6,8 @@ import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/svg_asset_view.dart';
+import '../widgets/pilot_art.dart';
+import '../widgets/weapon_stats_view.dart';
 
 /// Screen for trading with the Harpoon & Helm Merchant at Hunter's Respite.
 class MerchantScreen extends StatelessWidget {
@@ -23,7 +25,7 @@ class MerchantScreen extends StatelessWidget {
     return ParchmentScaffold(
       body: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 860),
+          constraints: const BoxConstraints(maxWidth: 900),
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
@@ -33,12 +35,14 @@ class MerchantScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('HARPOON & HELM CHANDLERY', style: InkTheme.titleLarge.copyWith(fontSize: 28)),
-                        Text('Purveyor of Fine Naval Arms & Rare Supplies', style: InkTheme.subtitle),
-                      ],
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('HARPOON & HELM CHANDLERY', style: InkTheme.titleLarge.copyWith(fontSize: 28)),
+                          Text('Purveyor of Fine Naval Arms & Rare Supplies', style: InkTheme.subtitle),
+                        ],
+                      ),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
@@ -49,7 +53,7 @@ class MerchantScreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          SvgAssetView(assetPath: 'assets/art/icon_treasure.svg', width: 22, height: 22),
+                          SvgAssetView(assetPath: PilotArt.treasure, width: 22, height: 22),
                           const SizedBox(width: 8),
                           Text('${ship?.gold ?? 0}g', style: InkTheme.statValue.copyWith(color: InkTheme.goldAccent)),
                         ],
@@ -103,7 +107,9 @@ class MerchantScreen extends StatelessWidget {
                           else
                             ...List.generate(stock.length, (index) {
                               final item = stock[index];
-                              final canAfford = (ship?.gold ?? 0) >= item.value;
+                              final askingPrice = controller.session.getMerchantAskingPrice(index);
+                              final isOnSale = controller.session.onSaleMerchantIndex == index;
+                              final canAfford = (ship?.gold ?? 0) >= askingPrice;
                               final hasRoom = (ship?.cargo.length ?? 0) < (ship?.maxCargo ?? 0);
 
                               return Padding(
@@ -111,25 +117,70 @@ class MerchantScreen extends StatelessWidget {
                                 child: ParchmentCard(
                                   padding: const EdgeInsets.all(10),
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
+                                      SvgAssetView(
+                                        assetPath: SvgAssetView.pathForItem(item),
+                                        width: 36,
+                                        height: 36,
+                                      ),
+                                      const SizedBox(width: 10),
                                       Expanded(
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              item.name,
-                                              style: InkTheme.statValue.copyWith(
-                                                color: InkTheme.rarityColor(item.rarity),
-                                                fontSize: 14,
-                                              ),
+                                            Row(
+                                              children: [
+                                                Expanded(
+                                                  child: Text(
+                                                    item.name,
+                                                    style: InkTheme.statValue.copyWith(
+                                                      color: InkTheme.rarityColor(item.rarity),
+                                                      fontSize: 14,
+                                                    ),
+                                                  ),
+                                                ),
+                                                if (isOnSale)
+                                                  Container(
+                                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                                                    decoration: BoxDecoration(
+                                                      color: InkTheme.goldAccent,
+                                                      borderRadius: BorderRadius.circular(3),
+                                                    ),
+                                                    child: Text(
+                                                      'SALE (-25%)',
+                                                      style: InkTheme.caption.copyWith(
+                                                        fontSize: 9,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: InkTheme.inkPrimary,
+                                                      ),
+                                                    ),
+                                                  ),
+                                              ],
                                             ),
                                             Text(item.description, style: InkTheme.caption.copyWith(fontSize: 12)),
-                                            Text('Cost: ${item.value}g', style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent, fontSize: 12)),
+                                            const SizedBox(height: 3),
+                                            WeaponStatsView(item: item, compact: true),
+                                            const SizedBox(height: 3),
+                                            Text(
+                                              'Cost: ${askingPrice}g'
+                                              '${isOnSale ? ' (was ${(item.value * 1.35).round()}g)' : ''}',
+                                              style: InkTheme.statLabel.copyWith(
+                                                color: canAfford ? InkTheme.goldAccent : InkTheme.crimsonAccent,
+                                                fontSize: 12,
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
+                                      const SizedBox(width: 8),
                                       InkButton(
-                                        label: 'Buy',
+                                        label: !canAfford
+                                            ? 'Lacks Gold'
+                                            : !hasRoom
+                                                ? 'Hold Full'
+                                                : 'Buy',
+                                        isPrimary: canAfford && hasRoom,
                                         onPressed: canAfford && hasRoom
                                             ? () => controller.dispatch(BuyMerchantItem(index))
                                             : null,
@@ -163,7 +214,14 @@ class MerchantScreen extends StatelessWidget {
                                 child: ParchmentCard(
                                   padding: const EdgeInsets.all(10),
                                   child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
+                                      SvgAssetView(
+                                        assetPath: SvgAssetView.pathForItem(item),
+                                        width: 36,
+                                        height: 36,
+                                      ),
+                                      const SizedBox(width: 10),
                                       Expanded(
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,10 +234,20 @@ class MerchantScreen extends StatelessWidget {
                                               ),
                                             ),
                                             Text(item.description, style: InkTheme.caption.copyWith(fontSize: 12)),
-                                            Text('Sell: ${item.value}g', style: InkTheme.caption),
+                                            const SizedBox(height: 3),
+                                            WeaponStatsView(item: item, compact: true),
+                                            const SizedBox(height: 3),
+                                            Text(
+                                              'Sell: ${item.value}g',
+                                              style: InkTheme.statLabel.copyWith(
+                                                color: InkTheme.goldAccent,
+                                                fontSize: 12,
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
+                                      const SizedBox(width: 8),
                                       InkButton(
                                         label: 'Sell',
                                         onPressed: () => controller.dispatch(SellCargoItem(index)),

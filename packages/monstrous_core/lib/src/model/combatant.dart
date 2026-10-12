@@ -129,6 +129,13 @@ class ShipState extends Combatant {
   }
 
   void sortCargo() => cargo.sort();
+
+  /// Resets temporary in-combat stat modifications (Fortify armor boost, Evasion boost)
+  /// back to base hull characteristics after a battle concludes.
+  void resetCombatBoosts() {
+    currentDmgReduction = baseDmgReduction;
+    currentEvasion = baseEvasion;
+  }
 }
 
 /// Dynamic state of a sea monster encounter.

@@ -1,8 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+import 'package:monstrous_sea/src/battle/monstrous_sea_battle_game.dart';
 import 'package:monstrous_sea/src/game_controller.dart';
 import 'package:monstrous_sea/src/screens/battle_screen.dart';
+import 'package:monstrous_sea/src/widgets/svg_asset_view.dart';
+
+Future<void> mountBattle(WidgetTester tester, GameController controller) async {
+  final game = MonstrousSeaBattleGame(
+    ship: controller.ship!,
+    monster: controller.currentMonster!,
+  );
+  await tester.runAsync(() async {
+    for (final path in [
+      SvgAssetView.pathForShip(controller.ship!.shipClass),
+      SvgAssetView.pathForSpecies(controller.currentMonster!.species),
+    ]) {
+      if (path.endsWith('.svg')) {
+        await SvgAssetLoader(path).loadBytes(null);
+      } else {
+        await game.images.load(path);
+      }
+    }
+  });
+  await tester.pumpWidget(MaterialApp(
+    home: BattleScreen(controller: controller, game: game),
+  ));
+  await tester.pump(const Duration(milliseconds: 100));
+  expect(game.isLoaded, isTrue);
+}
 
 void main() {
   testWidgets('BattleScreen renders ship and monster status, and fires weapon volley',
@@ -20,12 +47,7 @@ void main() {
 
     final monsterName = controller.currentMonster!.name;
 
-    await tester.pumpWidget(
-      MaterialApp(
-        home: BattleScreen(controller: controller),
-      ),
-    );
-    await tester.pump(const Duration(milliseconds: 100));
+    await mountBattle(tester, controller);
 
     // Verify BattleScreen HUD
     expect(find.byType(BattleScreen), findsOneWidget);
@@ -35,8 +57,10 @@ void main() {
 
     // Fire weapon volley
     await tester.tap(find.text('Cannon (2/2)'));
-    await tester.pump(const Duration(milliseconds: 500));
-    await tester.pump(const Duration(milliseconds: 500));
+    // Finish the full volley and enemy response before disposing the scene.
+    for (var frame = 0; frame < 6; frame++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
 
     // Verify combat log recorded actions
     expect(controller.combatLog.isNotEmpty, isTrue);
@@ -55,17 +79,14 @@ void main() {
     monster.currentHp = 1;
     monster.armorClass = 0;
 
-    await tester.pumpWidget(
-      MaterialApp(
-        home: BattleScreen(controller: controller),
-      ),
-    );
-    await tester.pump(const Duration(milliseconds: 100));
+    await mountBattle(tester, controller);
 
     // Fire Cannon volley to finish monster
     await tester.tap(find.text('Cannon (2/2)'));
-    await tester.pump(const Duration(milliseconds: 500));
-    await tester.pump(const Duration(milliseconds: 500));
+    // Complete the fatal volley and the battle-ending presentation delay.
+    for (var frame = 0; frame < 6; frame++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
 
     // Session transitions to loot
     expect(controller.phase, SessionPhase.loot);

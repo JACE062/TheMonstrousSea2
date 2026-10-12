@@ -561,5 +561,26 @@ void main() {
       expect(monster.isAlive, isFalse);
       expect(events.any((e) => e is CombatantDefeated), isTrue);
     });
+
+    test('Fortify boost increases damage reduction and resetCombatBoosts restores base stats', () {
+      final ship = createTestShip(
+        shipClass: ShipClass.ironclad,
+        baseDmgReduction: 5,
+        dmgReductionMod: 3,
+      );
+      const trait = FortifyTrait();
+      final dummyMonster = createTestMonster();
+      final rng = QueueGameRng();
+
+      expect(ship.currentDmgReduction, 5);
+      trait.executeSpecialAction(ship, dummyMonster, rng);
+      expect(ship.currentDmgReduction, 8);
+      trait.executeSpecialAction(ship, dummyMonster, rng);
+      expect(ship.currentDmgReduction, 11);
+
+      // Post-combat reset
+      ship.resetCombatBoosts();
+      expect(ship.currentDmgReduction, 5);
+    });
   });
 }

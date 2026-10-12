@@ -26,7 +26,7 @@ class GameController extends ChangeNotifier {
 
   /// Dispatches [command] to domain engine, processes resulting events into logs,
   /// and notifies UI listeners.
-  List<GameEvent> dispatch(Command command) {
+  List<GameEvent> dispatch(Command command, {bool deferNotification = false}) {
     final events = session.dispatch(command);
     lastEvents = events;
 
@@ -37,9 +37,14 @@ class GameController extends ChangeNotifier {
       }
     }
 
-    notifyListeners();
+    if (!deferNotification) {
+      notifyListeners();
+    }
     return events;
   }
+
+  /// Triggers a state notification to subscribers (e.g. after animation settle).
+  void notify() => notifyListeners();
 
   void setIsPlayingEvents(bool playing) {
     isPlayingEvents = playing;
@@ -53,6 +58,8 @@ class GameController extends ChangeNotifier {
 
   String? _formatEventForLog(GameEvent event) {
     return switch (event) {
+      FleeFailed(:final shipName) =>
+        '$shipName attempted to turn tail and flee, but the beast cut off all escape!',
       BattleStarted(:final monsterName, :final difficulty, :final isBoss) =>
         isBoss
             ? 'THE KRAKEN RISES FROM THE ABYSS! Prepare all guns!'

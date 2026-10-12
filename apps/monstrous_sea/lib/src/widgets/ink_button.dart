@@ -22,55 +22,78 @@ class InkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderColor = isDanger
-        ? InkTheme.crimsonAccent
-        : isPrimary
-            ? InkTheme.goldAccent
+    final isEnabled = onPressed != null;
+
+    final borderColor = !isEnabled
+        ? InkTheme.inkFaint
+        : isDanger
+            ? InkTheme.crimsonAccent
+            : isPrimary
+                ? InkTheme.goldAccent
+                : InkTheme.inkPrimary;
+
+    final textColor = !isEnabled
+        ? InkTheme.inkFaint
+        : isDanger
+            ? InkTheme.crimsonAccent
             : InkTheme.inkPrimary;
 
-    final textColor = isDanger ? InkTheme.crimsonAccent : InkTheme.inkPrimary;
+    final buttonContent = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: BoxDecoration(
+        color: isEnabled
+            ? InkTheme.parchmentSurface
+            : InkTheme.parchmentDark.withValues(alpha: 0.35),
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(
+          color: borderColor,
+          width: isEnabled && isPrimary ? 2.0 : 1.2,
+        ),
+        boxShadow: isEnabled
+            ? [
+                BoxShadow(
+                  color: InkTheme.inkPrimary.withValues(alpha: 0.1),
+                  offset: const Offset(1, 2),
+                  blurRadius: 2,
+                ),
+              ]
+            : const [],
+      ),
+      child: Row(
+        mainAxisSize: width != null ? MainAxisSize.max : MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (icon != null) ...[
+            Opacity(
+              opacity: isEnabled ? 1.0 : 0.45,
+              child: icon!,
+            ),
+            const SizedBox(width: 6),
+          ],
+          Flexible(
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: InkTheme.titleMedium.copyWith(
+                fontSize: 18,
+                color: textColor,
+                decoration: !isEnabled ? TextDecoration.none : null,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
 
     final button = Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(4),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          decoration: BoxDecoration(
-            color: InkTheme.parchmentSurface,
-            borderRadius: BorderRadius.circular(4),
-            border: Border.all(color: borderColor, width: isPrimary ? 2.0 : 1.5),
-            boxShadow: [
-              BoxShadow(
-                color: InkTheme.inkPrimary.withValues(alpha: 0.1),
-                offset: const Offset(1, 2),
-                blurRadius: 2,
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisSize: width != null ? MainAxisSize.max : MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (icon != null) ...[
-                icon!,
-                const SizedBox(width: 6),
-              ],
-              Flexible(
-                child: Text(
-                  label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: InkTheme.titleMedium.copyWith(
-                    fontSize: 18,
-                    color: onPressed != null ? textColor : InkTheme.inkMuted,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: isEnabled
+            ? buttonContent
+            : Opacity(opacity: 0.6, child: buttonContent),
       ),
     );
 

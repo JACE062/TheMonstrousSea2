@@ -12,9 +12,10 @@ import '../widgets/parchment_scaffold.dart';
 /// Interactive naval combat screen displaying the Flame battle scene,
 /// ship and monster vitality gauges, weapon volley triggers, and combat chronicle.
 class BattleScreen extends StatefulWidget {
-  const BattleScreen({super.key, required this.controller});
+  const BattleScreen({super.key, required this.controller, this.game});
 
   final GameController controller;
+  final MonstrousSeaBattleGame? game;
 
   @override
   State<BattleScreen> createState() => _BattleScreenState();
@@ -23,16 +24,44 @@ class BattleScreen extends StatefulWidget {
 class _BattleScreenState extends State<BattleScreen> {
   late MonstrousSeaBattleGame _battleGame;
   bool _isActionLocked = false;
-  bool _showLog = false;
+  bool _showLog = true;
+  String? _fleeBanner;
   final ScrollController _logScrollController = ScrollController();
+  final GlobalKey _statusKey = GlobalKey();
+  final GlobalKey _dockKey = GlobalKey();
+
+  void _syncArenaInsets() {
+    if (!mounted) return;
+    final status = _statusKey.currentContext?.findRenderObject() as RenderBox?;
+    final dock = _dockKey.currentContext?.findRenderObject() as RenderBox?;
+    if (status == null || dock == null || !status.hasSize || !dock.hasSize) return;
+    _battleGame.setArenaInsets(
+      top: 16 + status.size.height + 12,
+      bottom: 16 + dock.size.height + 12,
+    );
+  }
 
   @override
   void initState() {
     super.initState();
-    _battleGame = MonstrousSeaBattleGame(
+    _battleGame = widget.game ?? MonstrousSeaBattleGame(
       ship: widget.controller.ship!,
       monster: widget.controller.currentMonster!,
     );
+  }
+
+  @override
+  void dispose() {
+    _logScrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && _logScrollController.hasClients) {
+        _logScrollController.jumpTo(_logScrollController.position.maxScrollExtent);
+      }
+    });
   }
 
   void _dispatchCombatAction(Command command) {
@@ -42,18 +71,47 @@ class _BattleScreenState extends State<BattleScreen> {
       _isActionLocked = true;
     });
 
-    final events = widget.controller.dispatch(command);
-    _battleGame.playEvents(events, () {
+    final isCombatAction = command is FireWeaponVolley ||
+        command is ExecuteShipSpecialAction ||
+        command is UseConsumableItem ||
+        command is FleeEncounter;
+
+    final events = widget.controller.dispatch(command, deferNotification: isCombatAction);
+
+    if (events.any((e) => e is FleeFailed)) {
+      setState(() {
+        _fleeBanner = 'ESCAPE INTERCEPTED! The beast blocks all retreat!';
+      });
+      Future.delayed(const Duration(seconds: 3), () {
+        if (mounted) setState(() => _fleeBanner = null);
+      });
+    }
+
+    _scrollToBottom();
+
+    _battleGame.playEvents(events, () async {
+      final isBattleEnding = widget.controller.phase != SessionPhase.battle;
+      if (isBattleEnding) {
+        // Allow damage numbers, animations, and fatal blow to settle before transitioning
+        await Future.delayed(const Duration(milliseconds: 1400));
+      }
       if (mounted) {
         setState(() {
           _isActionLocked = false;
         });
+        if (isCombatAction) {
+          widget.controller.notify();
+        }
+        _scrollToBottom();
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // Register dependency on MediaQuery so window resizing re-triggers build and insets sync
+    final _ = MediaQuery.of(context).size;
+    WidgetsBinding.instance.addPostFrameCallback((_) => _syncArenaInsets());
     final ship = widget.controller.ship;
     final monster = widget.controller.currentMonster;
     if (ship == null || monster == null) {
@@ -78,6 +136,7 @@ class _BattleScreenState extends State<BattleScreen> {
             left: 16,
             right: 16,
             child: Row(
+              key: _statusKey,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Ship Status Panel (Left)
@@ -94,7 +153,9 @@ class _BattleScreenState extends State<BattleScreen> {
                       children: [
                         Text(ship.name, style: InkTheme.titleMedium.copyWith(fontSize: 20)),
                         Text(
-                          'Level ${ship.level} ${ship.shipClass.name.toUpperCase()} • ${ship.armorClass} AC',
+                          'Level ${ship.level} ${ship.shipClass.name.toUpperCase()} • ${ship.armorClass} AC'
+                          '${ship.shipClass == ShipClass.ironclad ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
+                          '${ship.shipClass == ShipClass.corvette ? ' • Evade: ${ship.currentEvasion}%' : ''}',
                           style: InkTheme.caption,
                         ),
                         const SizedBox(height: 8),
@@ -123,11 +184,15 @@ class _BattleScreenState extends State<BattleScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              monster.name,
-                              style: InkTheme.titleMedium.copyWith(
-                                fontSize: 20,
-                                color: monster.name.contains('Kraken') ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+                            Expanded(
+                              child: Text(
+                                monster.name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: InkTheme.titleMedium.copyWith(
+                                  fontSize: 20,
+                                  color: monster.name.contains('Kraken') ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+                                ),
                               ),
                             ),
                             if (monster.isObscured)
@@ -159,16 +224,34 @@ class _BattleScreenState extends State<BattleScreen> {
             ),
           ),
 
-          // 3. Combat Log Drawer (Collapsible)
-          if (_showLog)
+          // 3. Flee Intercepted Banner
+          if (_fleeBanner != null)
             Positioned(
-              top: 130,
-              right: 16,
-              width: 380,
-              height: 220,
-              child: CombatLogView(
-                entries: widget.controller.combatLog,
-                scrollController: _logScrollController,
+              top: 115,
+              left: 24,
+              right: 24,
+              child: Center(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: InkTheme.parchmentSurface,
+                    border: Border.all(color: InkTheme.crimsonAccent, width: 2),
+                    borderRadius: BorderRadius.circular(4),
+                    boxShadow: [
+                      BoxShadow(
+                        color: InkTheme.crimsonAccent.withValues(alpha: 0.25),
+                        blurRadius: 8,
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    _fleeBanner!,
+                    style: InkTheme.titleMedium.copyWith(
+                      color: InkTheme.crimsonAccent,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
               ),
             ),
 
@@ -178,6 +261,7 @@ class _BattleScreenState extends State<BattleScreen> {
             left: 16,
             right: 16,
             child: Container(
+              key: _dockKey,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: InkTheme.parchmentSurface.withValues(alpha: 0.95),
@@ -187,6 +271,23 @@ class _BattleScreenState extends State<BattleScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  // Dedicated prominent Chronicle Log above weapon selection
+                  if (_showLog) ...[
+                    Container(
+                      height: 100,
+                      margin: const EdgeInsets.only(bottom: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: InkTheme.parchmentDark.withValues(alpha: 0.25),
+                        borderRadius: BorderRadius.circular(4),
+                        border: Border.all(color: InkTheme.inkMuted, width: 1),
+                      ),
+                      child: CombatLogView(
+                        entries: widget.controller.combatLog,
+                        scrollController: _logScrollController,
+                      ),
+                    ),
+                  ],
                   // Weapon Volleys
                   Row(
                     children: [

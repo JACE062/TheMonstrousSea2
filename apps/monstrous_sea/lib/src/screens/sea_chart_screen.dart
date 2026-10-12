@@ -65,23 +65,29 @@ class SeaChartScreen extends StatelessWidget {
                             final isCompleted = (row < seaChart.currentRow) ||
                                 (row == seaChart.currentRow && col < seaChart.currentCol);
                             final isBoss = row == 3 && col == 4;
+                            final isRevealed = seaChart.isRevealed(row, col);
+                            final species = seaChart.speciesAt(row, col);
 
                             return Expanded(
                               child: Container(
-                                height: 70,
+                                height: 74,
                                 margin: const EdgeInsets.symmetric(horizontal: 3),
                                 decoration: BoxDecoration(
                                   color: isCurrent
                                       ? InkTheme.parchmentHighlight
                                       : isCompleted
-                                          ? InkTheme.parchmentDark.withValues(alpha: 0.5)
-                                          : InkTheme.parchmentSurface,
+                                          ? InkTheme.parchmentDark.withValues(alpha: 0.4)
+                                          : !isRevealed
+                                              ? InkTheme.parchmentDark.withValues(alpha: 0.65)
+                                              : InkTheme.parchmentSurface,
                                   border: Border.all(
                                     color: isCurrent
                                         ? InkTheme.goldAccent
                                         : isBoss
                                             ? InkTheme.crimsonAccent
-                                            : InkTheme.inkMuted,
+                                            : !isRevealed
+                                                ? InkTheme.inkFaint
+                                                : InkTheme.inkMuted,
                                     width: isCurrent || isBoss ? 2.0 : 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(4),
@@ -89,28 +95,66 @@ class SeaChartScreen extends StatelessWidget {
                                 child: Stack(
                                   alignment: Alignment.center,
                                   children: [
-                                    if (isBoss)
-                                      SvgAssetView(
-                                        assetPath: 'assets/art/monster_kraken.svg',
-                                        width: 44,
-                                        height: 44,
+                                    if (!isRevealed)
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.cloud_queue, size: 20, color: InkTheme.inkFaint),
+                                          const SizedBox(height: 2),
+                                          Text(
+                                            '░ FOG ░',
+                                            style: InkTheme.caption.copyWith(
+                                              color: InkTheme.inkFaint,
+                                              fontSize: 9,
+                                              letterSpacing: 1.1,
+                                            ),
+                                          ),
+                                        ],
                                       )
                                     else if (isCompleted)
-                                      const Icon(Icons.check, color: InkTheme.verdigrisGreen, size: 24)
+                                      Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          Opacity(
+                                            opacity: 0.35,
+                                            child: SvgAssetView(
+                                              assetPath: SvgAssetView.pathForSpecies(species),
+                                              width: 32,
+                                              height: 32,
+                                            ),
+                                          ),
+                                          const Icon(Icons.check, color: InkTheme.verdigrisGreen, size: 26),
+                                        ],
+                                      )
                                     else
-                                      Text(
-                                        '[$row,$col]',
-                                        style: InkTheme.caption.copyWith(
-                                          color: isCurrent ? InkTheme.inkPrimary : InkTheme.inkFaint,
-                                        ),
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          SvgAssetView(
+                                            assetPath: SvgAssetView.pathForSpecies(species),
+                                            width: isBoss ? 42 : 34,
+                                            height: isBoss ? 42 : 34,
+                                          ),
+                                          const SizedBox(height: 2),
+                                          Text(
+                                            species.name.toUpperCase(),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: InkTheme.caption.copyWith(
+                                              fontSize: 9,
+                                              color: isBoss ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
                                       ),
 
                                     // Current ship marker overlay
                                     if (isCurrent)
                                       Positioned(
-                                        bottom: 4,
+                                        bottom: 3,
                                         child: Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                                           decoration: BoxDecoration(
                                             color: InkTheme.goldAccent,
                                             borderRadius: BorderRadius.circular(3),
@@ -118,7 +162,7 @@ class SeaChartScreen extends StatelessWidget {
                                           child: Text(
                                             'VESSEL',
                                             style: InkTheme.statLabel.copyWith(
-                                              fontSize: 9,
+                                              fontSize: 8,
                                               color: InkTheme.inkPrimary,
                                               fontWeight: FontWeight.bold,
                                             ),
