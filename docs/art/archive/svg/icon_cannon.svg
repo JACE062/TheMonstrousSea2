@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Broadside Cannon</title>
+  <desc id="desc">Cast broadside gun on a wheeled oak carriage, with reinforced barrel rings, breech knob, trunnion and touch hole.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M13 37 L49 32 L55 44 H12 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M17 40 H49 M20 39 l4 4 M28 38 l6 5 M36 37 l6 6" fill="none" stroke-width="1.5"/>
+<path d="M15 27 Q13 23 18 22 L49 15 L53 25 L22 33 Q18 34 15 30 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M47 15 L51 14 L55 25 L51 27 Z" fill="#D5C4A1"/>
+<path d="M24 21 L27 31 M34 18 L37 28" fill="none" stroke-width="2.5"/>
+<circle cx="14" cy="28" r="3" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="31" cy="29" r="3" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="21" cy="46" r="7" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="46" cy="46" r="7" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="21" cy="46" r="2" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="46" cy="46" r="2" fill="#C59B27" stroke-width="1.5"/>
+<path d="M21 39 V43 M21 49 V53 M14 46 H18 M24 46 H28 M46 39 V43 M46 49 V53 M39 46 H43 M49 46 H53 M18 25 L22 24 M39 20 l6 -1 M41 23 l6 -1 M9 56 H57" fill="none" stroke-width="1.5"/>
+  </g>
+</svg>

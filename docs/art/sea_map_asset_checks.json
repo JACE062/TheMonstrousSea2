@@ -1,0 +1,194 @@
+{
+  "note": "Original PNGs checked; composites used only for review.",
+  "checks": [
+    {
+      "title": "Heavy Freighter — restored",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6339369519928573
+    },
+    {
+      "title": "Rounded Squid",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6484042133752534
+    },
+    {
+      "title": "Kraken",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.575681264928306
+    },
+    {
+      "title": "Standard Sloop",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6740338413090868
+    },
+    {
+      "title": "Ironclad",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6842989196930269
+    },
+    {
+      "title": "Swift Corvette",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7311607640240226
+    },
+    {
+      "title": "Flying Dutchman",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6152923086315178
+    },
+    {
+      "title": "Shark",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7999626076936578
+    },
+    {
+      "title": "Sea Serpent",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7571401499253426
+    },
+    {
+      "title": "Jellyfish",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7214998130384683
+    },
+    {
+      "title": "Crustacean",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6844903326897787
+    },
+    {
+      "title": "Unstable Tincture",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6190289955714282
+    },
+    {
+      "title": "Blast Pack",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.5882286730309898
+    },
+    {
+      "title": "Chakram",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7035197098153533
+    },
+    {
+      "title": "Broadside Cannon",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6461619468418763
+    },
+    {
+      "title": "Torpedo Launcher",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6521606139460584
+    },
+    {
+      "title": "Blade Launcher",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6765514627514124
+    },
+    {
+      "title": "Lightning Railgun",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7771100580216672
+    },
+    {
+      "title": "Flamethrower",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7745186694443809
+    },
+    {
+      "title": "Treasure",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.4946442516324158
+    },
+    {
+      "title": "Helm",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7201166792579535
+    },
+    {
+      "title": "Anchor",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7162337298952761
+    },
+    {
+      "title": "Naval Guns",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.6301214105293682
+    },
+    {
+      "title": "Hunter's Respite anchorage",
+      "width": 1024,
+      "height": 1024,
+      "edgePixels": 0,
+      "transparentFraction": 0.7003307342529297
+    },
+    {
+      "title": "Defeated monster",
+      "width": 1024,
+      "height": 1024,
+      "edgePixels": 0,
+      "transparentFraction": 0.7316617965698242
+    },
+    {
+      "title": "Uncharted fog",
+      "width": 1024,
+      "height": 1024,
+      "edgePixels": 0,
+      "transparentFraction": 0.7515983581542969
+    },
+    {
+      "title": "Squid — long-mantle alternative",
+      "width": 1254,
+      "height": 1254,
+      "edgePixels": 0,
+      "transparentFraction": 0.7929108511455527
+    }
+  ]
+}

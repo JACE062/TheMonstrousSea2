@@ -1,0 +1,21 @@
+{
+  "title": "Squid — annotated sucker placement correction",
+  "date": "2026-10-12",
+  "mode": "built-in ImageGen precise-object-edit",
+  "status": "Integrated",
+  "assets": [
+    {
+      "slug": "monster_squid",
+      "title": "Rounded Squid",
+      "kind": "monster",
+      "target": "monster_squid_map_v4.png",
+      "filename": "monster_squid_map_v5.png",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_map_v4.png",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-c7b419ec-3fd7-43fd-9ffc-826cc36ebae7.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/monster_squid_map_v5.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is the EXACT edit target. Make ONLY these two localized annotation edits to the existing transparent creature illustration, with every other pixel/shape as unchanged as possible.\n1. At (59.3% of image width, 75.1% of image height): remove the ENTIRE row of four oval suckers on the BOTTOM-CENTRE arm that hangs downward and curls to the right at its tip. This is the arm whose cup row runs roughly from x=53% to 65%, y=70% to 80%. Restore that arm’s smooth tan fill where those cups were; preserve its outlines and curled tip.\n2. At (35.2% width, 72.1% height): add THREE small oval suckers INSIDE the TAN UNDERSIDE ribbon of the broad LOWER-LEFT arm, the arm whose end curls upward on the far lower-left and whose long sweep curves up to the body. Place the three cups following the diagonal tan ribbon near this point (roughly x=28% to 39%, y=76% to 69%). Keep every cup fully contained in tan, with visible tan margin, and do not place any on the broad cream upper face. No need to broaden or move the arm.\nCRITICAL INVARIANTS: Preserve the three existing suckers on the far-LEFT mid-height arm and the four existing suckers on the LOWER-RIGHT sweeping arm exactly. Do not relocate those. Preserve mantle, face, eyes, left-facing pose, every arm silhouette, arm roots, hatching, waterline strokes, iron-gall outlines, cream/tan palette and simple old-sea-map style. Do not add any other cups, new limbs or disconnected shapes. This is a surgical sucker-placement correction, NOT a creature redesign. Preserve square composition and TRUE transparent alpha background, with no parchment, checkerboard, labels, annotation marks or text.",
+      "change": "Remove bottom-centre sucker row at (59.3%, 75.1%); add three suckers on the lower-left tan underside at (35.2%, 72.1%).",
+      "targetPath": "docs/art/archive/png/monster_squid_map_v4.png"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Torpedo Launcher</title>
+  <desc id="desc">Riveted twin launch tubes in an oak deck cradle, with a pointed brass torpedo, tail fins and handwheel.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M11 39 H49 L55 49 H7 Z" fill="#D5C4A1"/>
+<path d="M12 29 L43 18 L51 25 L20 37 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M15 37 L46 26 L54 33 L23 45 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M43 18 L51 25 L54 20 L52 14 Z" fill="#C59B27"/>
+<path d="M46 26 L54 33 L57 28 L56 21 Z" fill="#D5C4A1"/>
+<path d="M7 20 L33 11 L43 13 L37 20 L12 28 Z" fill="#C59B27"/>
+<path d="M7 20 L6 14 L16 19 M12 28 L7 32 L9 23" fill="#F4ECD8"/>
+<path d="M29 13 l3 9 M24 22 l7 -2 M22 28 l2 7 M32 25 l2 7 M25 37 l3 6 M38 32 l3 6 M14 47 l6 -2 M29 47 l6 -2" fill="none" stroke-width="1.5"/>
+<circle cx="11" cy="40" r="5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="11" cy="40" r="1.5" fill="#C59B27" stroke-width="1.5"/>
+<path d="M11 35 V38 M11 42 V45 M6 40 H9 M13 40 H16" fill="none" stroke-width="1.5"/>
+<rect x="12" y="50" width="9" height="5" fill="#D5C4A1" stroke-width="1.5"/>
+<rect x="42" y="50" width="9" height="5" fill="#D5C4A1" stroke-width="1.5"/>
+  </g>
+</svg>

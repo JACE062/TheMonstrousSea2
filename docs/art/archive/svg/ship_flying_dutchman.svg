@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Flying Dutchman</title>
+  <desc id="desc">Haunted galleon with three rooted masts at (53,126), (104,126), and (151,112). Torn canvas, exposed barnacle ribs, broken stern galleries and thin spectral wakes evoke an antique sea legend.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="spectral-wake">
+<path d="M18 160 Q5 137 13 118 M10 143 Q3 127 8 118 M181 119 Q194 137 183 160 M5 173 Q23 155 44 171 M151 171 Q176 156 195 172 M21 184 Q41 174 57 180 M146 181 Q167 174 184 181" fill="none" stroke-width="1.5"/>
+</g>
+<g id="standing-rigging">
+<path d="M12 104 L53 29 L104 20 L151 36 L182 112 M53 29 L28 126 M104 20 L77 126 M151 36 L126 126" fill="none" stroke-width="1.5"/>
+<line x1="53" y1="74" x2="34" y2="126" stroke-width="1.5"/>
+<line x1="53" y1="81.43" x2="50.29" y2="81.43" stroke-width="1.5"/>
+<line x1="53" y1="88.86" x2="47.57" y2="88.86" stroke-width="1.5"/>
+<line x1="53" y1="96.29" x2="44.86" y2="96.29" stroke-width="1.5"/>
+<line x1="53" y1="103.71" x2="42.14" y2="103.71" stroke-width="1.5"/>
+<line x1="53" y1="111.14" x2="39.43" y2="111.14" stroke-width="1.5"/>
+<line x1="53" y1="118.57" x2="36.71" y2="118.57" stroke-width="1.5"/>
+<line x1="104" y1="75" x2="84" y2="126" stroke-width="1.5"/>
+<line x1="104" y1="82.29" x2="101.14" y2="82.29" stroke-width="1.5"/>
+<line x1="104" y1="89.57" x2="98.29" y2="89.57" stroke-width="1.5"/>
+<line x1="104" y1="96.86" x2="95.43" y2="96.86" stroke-width="1.5"/>
+<line x1="104" y1="104.14" x2="92.57" y2="104.14" stroke-width="1.5"/>
+<line x1="104" y1="111.43" x2="89.71" y2="111.43" stroke-width="1.5"/>
+<line x1="104" y1="118.71" x2="86.86" y2="118.71" stroke-width="1.5"/>
+<path d="M151 67 L173 112 M153 77 l5 2 M155 86 l8 2 M158 95 l10 2" fill="none" stroke-width="1.5"/>
+</g>
+<g id="masts">
+<line x1="53" y1="126" x2="53" y2="29" stroke-width="3" id="mast-fore"/>
+<line x1="104" y1="126" x2="104" y2="20" stroke-width="3" id="mast-main"/>
+<line x1="151" y1="112" x2="151" y2="36" stroke-width="3" id="mast-mizzen"/>
+<path d="M104 20 L127 23 L117 27 L123 32 L104 31 Z" fill="#D5C4A1"/>
+<path d="M110 24 l7 1" fill="none" stroke-width="1.5"/>
+</g>
+<g id="tattered-canvas">
+<path d="M38.5 44 Q53 47 67.5 44 L64.5 65 L62 68 L59 60 L55 70 L50 62 L45 71 L41.5 67 Z" fill="#F4ECD8"/>
+<line x1="35.5" y1="44" x2="70.5" y2="44" stroke-width="2.5"/>
+<path d="M45.75 49 Q43.75 57.0 45.75 67" fill="none" stroke-width="1.5"/>
+<path d="M53 49 Q51 57.0 53 67" fill="none" stroke-width="1.5"/>
+<path d="M60.25 49 Q58.25 57.0 60.25 67" fill="none" stroke-width="1.5"/>
+<path d="M42.5 62 l5 5 M43.5 57 l9 8 M58.5 49 l5 5 M53.5 49 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M45 54 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M65.5 65 l4 7 M45 71 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M34.0 80 Q53 83 72.0 80 L69.0 106 L62 109 L59 101 L55 111 L50 103 L45 112 L37.0 108 Z" fill="#F4ECD8"/>
+<line x1="31.0" y1="80" x2="75.0" y2="80" stroke-width="2.5"/>
+<path d="M43.5 85 Q41.5 95.5 43.5 108" fill="none" stroke-width="1.5"/>
+<path d="M53 85 Q51 95.5 53 108" fill="none" stroke-width="1.5"/>
+<path d="M62.5 85 Q60.5 95.5 62.5 108" fill="none" stroke-width="1.5"/>
+<path d="M38.0 103 l5 5 M39.0 98 l9 8 M63.0 85 l5 5 M58.0 85 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M45 90 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M70.0 106 l4 7 M45 112 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M87.0 35 Q104 38 121.0 35 L118.0 58 L113 61 L110 53 L106 63 L101 55 L96 64 L90.0 60 Z" fill="#F4ECD8"/>
+<line x1="84.0" y1="35" x2="124.0" y2="35" stroke-width="2.5"/>
+<path d="M95.5 40 Q93.5 49.0 95.5 60" fill="none" stroke-width="1.5"/>
+<path d="M104 40 Q102 49.0 104 60" fill="none" stroke-width="1.5"/>
+<path d="M112.5 40 Q110.5 49.0 112.5 60" fill="none" stroke-width="1.5"/>
+<path d="M91.0 55 l5 5 M92.0 50 l9 8 M112.0 40 l5 5 M107.0 40 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M96 45 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M119.0 58 l4 7 M96 64 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M82.5 76 Q104 79 125.5 76 L122.5 105 L113 108 L110 100 L106 110 L101 102 L96 111 L85.5 107 Z" fill="#F4ECD8"/>
+<line x1="79.5" y1="76" x2="128.5" y2="76" stroke-width="2.5"/>
+<path d="M93.25 81 Q91.25 93.0 93.25 107" fill="none" stroke-width="1.5"/>
+<path d="M104 81 Q102 93.0 104 107" fill="none" stroke-width="1.5"/>
+<path d="M114.75 81 Q112.75 93.0 114.75 107" fill="none" stroke-width="1.5"/>
+<path d="M86.5 102 l5 5 M87.5 97 l9 8 M116.5 81 l5 5 M111.5 81 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M96 86 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M123.5 105 l4 7 M96 111 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M137.5 50 Q151 53 164.5 50 L161.5 68 L160 71 L157 63 L153 73 L148 65 L143 74 L140.5 70 Z" fill="#F4ECD8"/>
+<line x1="134.5" y1="50" x2="167.5" y2="50" stroke-width="2.5"/>
+<path d="M144.25 55 Q142.25 61.5 144.25 70" fill="none" stroke-width="1.5"/>
+<path d="M151 55 Q149 61.5 151 70" fill="none" stroke-width="1.5"/>
+<path d="M157.75 55 Q155.75 61.5 157.75 70" fill="none" stroke-width="1.5"/>
+<path d="M141.5 65 l5 5 M142.5 60 l9 8 M155.5 55 l5 5 M150.5 55 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M143 60 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M162.5 68 l4 7 M143 74 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M135.5 82 Q151 85 166.5 82 L163.5 100 L160 103 L157 95 L153 105 L148 97 L143 106 L138.5 102 Z" fill="#F4ECD8"/>
+<line x1="132.5" y1="82" x2="169.5" y2="82" stroke-width="2.5"/>
+<path d="M143.25 87 Q141.25 93.5 143.25 102" fill="none" stroke-width="1.5"/>
+<path d="M151 87 Q149 93.5 151 102" fill="none" stroke-width="1.5"/>
+<path d="M158.75 87 Q156.75 93.5 158.75 102" fill="none" stroke-width="1.5"/>
+<path d="M139.5 97 l5 5 M140.5 92 l9 8 M157.5 87 l5 5 M152.5 87 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M143 92 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M164.5 100 l4 7 M143 106 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M36 111 L28 126 M69 111 L76 126 M85 111 L76 126 M123 111 L130 126 M165 105 L174 112" fill="none" stroke-width="1.5"/>
+<path d="M97 90 Q104 83 111 90 L109 99 H99 Z" fill="#D5C4A1"/>
+<circle cx="101" cy="91" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="107" cy="91" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<path d="M102 98 V102 M106 98 V102 M97 105 L112 101 M98 101 L112 105" fill="none" stroke-width="1.5"/>
+</g>
+<g id="broken-deck">
+<line x1="31" y1="126" x2="10" y2="102" stroke-width="3"/>
+<path d="M135 126 V112 L141 112 L145 105 L149 112 H178 L182 125 L177 132 Z" fill="#D5C4A1"/>
+<path d="M146 113 L145 122 H153 L152 113 Z M163 114 L165 124 H173 L170 114 Z" fill="#1B1612"/>
+</g>
+<g id="hull-engraving">
+<path d="M25 126 H135 V112 H178 L186 139 L176 146 L173 158 L158 166 L150 163 L142 169 H67 L49 159 L41 147 L33 145 Z" fill="#D5C4A1" stroke-width="3" id="hull"/>
+<path d="M25 126 H135 M135 112 H178" fill="none" stroke-width="3" id="deck-main"/>
+<path d="M34 137 H179 M44 149 Q107 166 169 151" fill="none" stroke-width="2"/>
+<path d="M56 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M76 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M96 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M116 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M136 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M156 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M46 140 l8 -2 M68 145 l8 -2 M88 146 l8 -2 M108 146 l8 -2 M128 146 l8 -2 M148 144 l8 -2 M61 152 l6 5 M81 153 l6 5 M101 154 l6 5 M121 154 l6 5 M141 152 l6 5" fill="none" stroke-width="1.5"/>
+<circle cx="44" cy="148" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="50" cy="153" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="64" cy="162" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="87" cy="162" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="110" cy="165" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="132" cy="163" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="156" cy="161" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="169" cy="152" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+</g>
+<g id="sea-engraving">
+<path d="M9 176 Q17 172 25 176 T41 176 M49 176 Q57 172 65 176 T81 176 M113 176 Q121 172 129 176 T145 176 M153 176 Q161 172 169 176 T185 176 M22 183 H46 M58 183 H93 M108 183 H138 M151 183 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>

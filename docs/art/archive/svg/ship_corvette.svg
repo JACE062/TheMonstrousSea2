@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Swift Corvette</title>
+  <desc id="desc">Fine raked clipper bow and two lateen rigs with booms and sheets. Masts are rooted on the deck at (74,128) and (132,128); the bowsprit joins the bow at (32,128).</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="standing-rigging">
+<path d="M10 101 L69 32 L130 41 L173 128 M69 32 L42 128 M130 41 L102 128" fill="none" stroke-width="1.5"/>
+</g>
+<g id="masts">
+<line x1="74" y1="128" x2="69" y2="32" stroke-width="3" id="mast-fore"/>
+<line x1="132" y1="128" x2="130" y2="41" stroke-width="3" id="mast-main"/>
+<path d="M69 32 L87 34 L80 40 L69 40 Z" fill="#8C2D19"/>
+</g>
+<g id="lateen-canvas">
+<path d="M41 51 L98 100 L58 107 Q57 79 41 51 Z" fill="#F4ECD8"/>
+<line x1="38" y1="48" x2="101" y2="103" stroke-width="3"/>
+<line x1="58" y1="108" x2="99" y2="103" stroke-width="2.5"/>
+<path d="M99 55 L158 104 L116 115 Q116 84 99 55 Z" fill="#F4ECD8"/>
+<line x1="96" y1="52" x2="162" y2="107" stroke-width="3"/>
+<line x1="116" y1="115" x2="158" y2="108" stroke-width="2.5"/>
+<path d="M15 104 L62 57 L48 117 Z" fill="#F4ECD8"/>
+<path d="M28 105 L53 76 M47 67 Q66 82 76 104 M55 68 L89 100 M108 70 Q126 88 132 112 M116 71 L148 104 M57 103 l8 -1 M55 97 l10 3 M116 109 l9 2 M116 102 l11 5 M58 107 L46 128 M98 104 L110 128 M116 115 L109 128 M158 108 L171 128 M48 117 L34 128" fill="none" stroke-width="1.5"/>
+</g>
+<g id="bow-and-deck">
+<line x1="32" y1="128" x2="8" y2="99" stroke-width="3"/>
+<rect x="91" y="119" width="16" height="9" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M148 128 V121 H168 L174 128 Z" fill="#D5C4A1"/>
+</g>
+<g id="hull-engraving">
+<path d="M22 120 L42 128 H177 L167 145 Q133 160 65 154 Q39 149 22 120 Z" fill="#D5C4A1" stroke-width="3" id="hull"/>
+<path d="M42 128 H177" fill="none" stroke-width="3" id="deck-main"/>
+<path d="M34 133 Q93 148 170 135 M45 144 Q99 157 157 145" fill="none" stroke-width="2"/>
+<circle cx="64" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="81" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="98" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="115" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="132" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="149" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<path d="M56 145 l6 6 M68 148 l5 5 M81 150 l4 4 M94 151 l3 3 M108 151 l3 3 M122 150 l4 3 M136 148 l4 3 M58 151 l5 -5 M73 152 l4 -4 M88 153 l3 -3 M123 153 l4 -4" fill="none" stroke-width="1.5"/>
+<circle cx="163" cy="132" r="2.5" fill="#C59B27" stroke-width="1.5"/>
+</g>
+<g id="sea-engraving">
+<path d="M9 168 Q17 164 25 168 T41 168 M49 168 Q57 164 65 168 T81 168 M113 168 Q121 164 129 168 T145 168 M153 168 Q161 164 169 168 T185 168 M22 175 H46 M58 175 H93 M108 175 H138 M151 175 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>

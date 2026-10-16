@@ -1,0 +1,814 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="800" viewBox="0 0 1140 800" role="img" aria-labelledby="proof-title">
+<title id="proof-title">The Monstrous Sea: nineteen original vector engravings</title>
+<rect width="1140" height="800" fill="#F4ECD8"/>
+<g fill="#1B1612" font-family="Georgia, serif">
+<text x="24" y="44" font-size="30">The Monstrous Sea · Engraving Proofs</text>
+<text x="24" y="78" font-size="12" letter-spacing="3">VESSELS</text>
+<text x="24" y="340" font-size="12" letter-spacing="3">BEASTS OF THE DEEP</text>
+<text x="24" y="594" font-size="12" letter-spacing="3">CONSUMABLES &amp; SHIP ORDNANCE</text>
+<text x="24" y="782" font-size="12">Native SVG paths · 200 × 200 vessels &amp; beasts · 64 × 64 equipment · Iron-gall ink on vellum</text>
+</g>
+<svg xmlns="http://www.w3.org/2000/svg" x="20" y="88" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="ship_ironclad-title ship_ironclad-desc">
+  <title id="ship_ironclad-title">Ironclad Ram</title>
+  <desc id="ship_ironclad-desc">Low armored ram ship. A bolted mast meets the deck at (112, 124); riveted plates, a reinforced pilot house and a submerged prow are engraved in iron-gall ink.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="ship_ironclad-standing-rigging">
+<path d="M29 124 L112 51 L166 124 M112 72 L74 124" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_ironclad-armored-mast">
+<line x1="112" y1="124" x2="112" y2="35" stroke-width="3" id="ship_ironclad-mast-main"/>
+<path d="M109 44 H115 V124 H109 Z" fill="#D5C4A1"/>
+<line x1="97" y1="59" x2="127" y2="59" stroke-width="3"/>
+<line x1="104" y1="76" x2="120" y2="76" stroke-width="2.5"/>
+<path d="M114 36 L135 39 L130 44 L114 45 Z" fill="#8C2D19"/>
+<path d="M109 89 H115 M109 105 H115" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_ironclad-pilot-house">
+<path d="M133 124 V88 H155 L164 124 Z" fill="#D5C4A1"/>
+<path d="M130 88 L135 82 H156 L160 88 Z" fill="#F4ECD8"/>
+<rect x="137" y="94" width="8" height="9" fill="#1B1612" stroke-width="1.5"/>
+<rect x="150" y="94" width="6" height="9" fill="#1B1612" stroke-width="1.5"/>
+<path d="M136 111 L144 119 M143 110 L151 119 M150 110 L158 119 M136 119 L144 111" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_ironclad-deck-fittings">
+<path d="M45 124 V114 H88 L96 124 Z" fill="#D5C4A1"/>
+<rect x="59" y="108" width="20" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M45 120 H27 V114 H51" fill="#D5C4A1"/>
+<rect x="106" y="119" width="13" height="5" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="109" cy="122" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="116" cy="122" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+</g>
+<g id="ship_ironclad-hull-engraving">
+<path d="M27 124 H179 L173 149 L157 160 H51 L33 149 L10 164 L15 155 L33 146 Z" fill="#D5C4A1" stroke-width="3" id="ship_ironclad-hull"/>
+<path d="M27 124 H179" fill="none" stroke-width="3" id="ship_ironclad-deck-main"/>
+<path d="M33 133 H176 M38 145 H173 M51 156 H157" fill="none" stroke-width="2"/>
+<path d="M50 125 V155 M75 125 V157 M100 125 V157 M125 125 V157 M150 125 V157 M38 136 l8 6 M55 136 l7 6 M81 136 l7 6 M106 136 l7 6 M131 136 l7 6 M156 136 l7 6 M56 150 l5 -4 M82 150 l5 -4 M107 150 l5 -4 M132 150 l5 -4" fill="none" stroke-width="1.5"/>
+<circle cx="57" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="57" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="57" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="83" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="83" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="83" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="109" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="109" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="109" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="135" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="135" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="135" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="161" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="161" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="161" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<path d="M15 155 L32 151" fill="none" stroke-width="2.5"/>
+</g>
+<g id="ship_ironclad-ram-waterline">
+<path d="M5 151 Q13 147 21 151 T37 151" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_ironclad-sea-engraving">
+<path d="M9 169 Q17 165 25 169 T41 169 M49 169 Q57 165 65 169 T81 169 M113 169 Q121 165 129 169 T145 169 M153 169 Q161 165 169 169 T185 169 M22 176 H46 M58 176 H93 M108 176 H138 M151 176 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="120.0" y="307" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1B1612">Ironclad Ram</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="240" y="88" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="ship_freighter-title ship_freighter-desc">
+  <title id="ship_freighter-title">Heavy Freighter</title>
+  <desc id="ship_freighter-desc">Three square-rigged masts meet the two-deck cargo hull at (53,124), (101,124), and (147,108). A high sterncastle, deep draft and cargo hatches identify the freighter.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="ship_freighter-standing-rigging">
+<path d="M14 107 L53 30 L101 22 L147 35 L183 108 M53 30 L29 124 M101 22 L67 124 M147 35 L118 124" fill="none" stroke-width="1.5"/>
+<line x1="53" y1="67" x2="34" y2="124" stroke-width="1.5"/>
+<line x1="53" y1="75.14" x2="50.29" y2="75.14" stroke-width="1.5"/>
+<line x1="53" y1="83.29" x2="47.57" y2="83.29" stroke-width="1.5"/>
+<line x1="53" y1="91.43" x2="44.86" y2="91.43" stroke-width="1.5"/>
+<line x1="53" y1="99.57" x2="42.14" y2="99.57" stroke-width="1.5"/>
+<line x1="53" y1="107.71" x2="39.43" y2="107.71" stroke-width="1.5"/>
+<line x1="53" y1="115.86" x2="36.71" y2="115.86" stroke-width="1.5"/>
+<line x1="101" y1="65" x2="82" y2="124" stroke-width="1.5"/>
+<line x1="101" y1="73.43" x2="98.29" y2="73.43" stroke-width="1.5"/>
+<line x1="101" y1="81.86" x2="95.57" y2="81.86" stroke-width="1.5"/>
+<line x1="101" y1="90.29" x2="92.86" y2="90.29" stroke-width="1.5"/>
+<line x1="101" y1="98.71" x2="90.14" y2="98.71" stroke-width="1.5"/>
+<line x1="101" y1="107.14" x2="87.43" y2="107.14" stroke-width="1.5"/>
+<line x1="101" y1="115.57" x2="84.71" y2="115.57" stroke-width="1.5"/>
+<line x1="147" y1="68" x2="168" y2="108" stroke-width="1.5"/>
+<line x1="147" y1="73.71" x2="150.0" y2="73.71" stroke-width="1.5"/>
+<line x1="147" y1="79.43" x2="153.0" y2="79.43" stroke-width="1.5"/>
+<line x1="147" y1="85.14" x2="156.0" y2="85.14" stroke-width="1.5"/>
+<line x1="147" y1="90.86" x2="159.0" y2="90.86" stroke-width="1.5"/>
+<line x1="147" y1="96.57" x2="162.0" y2="96.57" stroke-width="1.5"/>
+<line x1="147" y1="102.29" x2="165.0" y2="102.29" stroke-width="1.5"/>
+</g>
+<g id="ship_freighter-masts">
+<line x1="53" y1="124" x2="53" y2="29" stroke-width="3" id="ship_freighter-mast-fore"/>
+<line x1="101" y1="124" x2="101" y2="22" stroke-width="3" id="ship_freighter-mast-main"/>
+<line x1="147" y1="108" x2="147" y2="35" stroke-width="3" id="ship_freighter-mast-mizzen"/>
+<path d="M101 22 L118 25 L112 31 L101 30 Z" fill="#8C2D19"/>
+</g>
+<g id="ship_freighter-canvas">
+<path d="M37.5 43 Q53 46 68.5 43 Q63.5 54.5 66.5 66 Q53 70 39.5 66 Q43.5 54.5 37.5 43 Z" fill="#F4ECD8"/>
+<line x1="34.5" y1="43" x2="71.5" y2="43" stroke-width="2.5"/>
+<path d="M45.25 48 Q43.25 54.5 45.25 63" fill="none" stroke-width="1.5"/>
+<path d="M53 48 Q51 54.5 53 63" fill="none" stroke-width="1.5"/>
+<path d="M60.75 48 Q58.75 54.5 60.75 63" fill="none" stroke-width="1.5"/>
+<path d="M41.5 58 l5 5 M42.5 53 l9 8 M59.5 48 l5 5 M54.5 48 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M33.0 76 Q53 79 73.0 76 Q68.0 91.0 71.0 106 Q53 110 35.0 106 Q39.0 91.0 33.0 76 Z" fill="#F4ECD8"/>
+<line x1="30.0" y1="76" x2="76.0" y2="76" stroke-width="2.5"/>
+<path d="M43.0 81 Q41.0 91.0 43.0 103" fill="none" stroke-width="1.5"/>
+<path d="M53 81 Q51 91.0 53 103" fill="none" stroke-width="1.5"/>
+<path d="M63.0 81 Q61.0 91.0 63.0 103" fill="none" stroke-width="1.5"/>
+<path d="M37.0 98 l5 5 M38.0 93 l9 8 M64.0 81 l5 5 M59.0 81 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M84.5 36 Q101 39 117.5 36 Q112.5 49.0 115.5 62 Q101 66 86.5 62 Q90.5 49.0 84.5 36 Z" fill="#F4ECD8"/>
+<line x1="81.5" y1="36" x2="120.5" y2="36" stroke-width="2.5"/>
+<path d="M92.75 41 Q90.75 49.0 92.75 59" fill="none" stroke-width="1.5"/>
+<path d="M101 41 Q99 49.0 101 59" fill="none" stroke-width="1.5"/>
+<path d="M109.25 41 Q107.25 49.0 109.25 59" fill="none" stroke-width="1.5"/>
+<path d="M88.5 54 l5 5 M89.5 49 l9 8 M108.5 41 l5 5 M103.5 41 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M79.5 73 Q101 76 122.5 73 Q117.5 90.5 120.5 108 Q101 112 81.5 108 Q85.5 90.5 79.5 73 Z" fill="#F4ECD8"/>
+<line x1="76.5" y1="73" x2="125.5" y2="73" stroke-width="2.5"/>
+<path d="M90.25 78 Q88.25 90.5 90.25 105" fill="none" stroke-width="1.5"/>
+<path d="M101 78 Q99 90.5 101 105" fill="none" stroke-width="1.5"/>
+<path d="M111.75 78 Q109.75 90.5 111.75 105" fill="none" stroke-width="1.5"/>
+<path d="M83.5 100 l5 5 M84.5 95 l9 8 M113.5 78 l5 5 M108.5 78 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M133.0 47 Q147 50 161.0 47 Q156.0 57.5 159.0 68 Q147 72 135.0 68 Q139.0 57.5 133.0 47 Z" fill="#F4ECD8"/>
+<line x1="130.0" y1="47" x2="164.0" y2="47" stroke-width="2.5"/>
+<path d="M140.0 52 Q138.0 57.5 140.0 65" fill="none" stroke-width="1.5"/>
+<path d="M147 52 Q145 57.5 147 65" fill="none" stroke-width="1.5"/>
+<path d="M154.0 52 Q152.0 57.5 154.0 65" fill="none" stroke-width="1.5"/>
+<path d="M137.0 60 l5 5 M138.0 55 l9 8 M152.0 52 l5 5 M147.0 52 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M131.0 78 Q147 81 163.0 78 Q158.0 90.0 161.0 102 Q147 106 133.0 102 Q137.0 90.0 131.0 78 Z" fill="#F4ECD8"/>
+<line x1="128.0" y1="78" x2="166.0" y2="78" stroke-width="2.5"/>
+<path d="M139.0 83 Q137.0 90.0 139.0 99" fill="none" stroke-width="1.5"/>
+<path d="M147 83 Q145 90.0 147 99" fill="none" stroke-width="1.5"/>
+<path d="M155.0 83 Q153.0 90.0 155.0 99" fill="none" stroke-width="1.5"/>
+<path d="M135.0 94 l5 5 M136.0 89 l9 8 M154.0 83 l5 5 M149.0 83 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M36 107 L29 124 M71 107 L78 124 M81 109 L72 124 M120 109 L126 124 M133 103 L124 124 M161 103 L170 108" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_freighter-deck-cargo">
+<rect x="61" y="114" width="18" height="10" fill="#D5C4A1" stroke-width="1.5"/>
+<rect x="108" y="113" width="19" height="11" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M61 114 l18 10 M61 124 l18 -10 M108 113 l19 11 M108 124 l19 -11" fill="none" stroke-width="1.5"/>
+<line x1="34" y1="124" x2="10" y2="105" stroke-width="3"/>
+<line x1="10" y1="105" x2="53" y2="76" stroke-width="1.5"/>
+</g>
+<g id="ship_freighter-hull-engraving">
+<path d="M27 124 H135 V108 H177 L184 135 Q179 160 157 168 H60 Q40 163 27 124 Z" fill="#D5C4A1" stroke-width="3" id="ship_freighter-hull"/>
+<path d="M27 124 H135 M135 108 H177" fill="none" stroke-width="3" id="ship_freighter-deck-main"/>
+<path d="M35 135 H181 M41 147 H177 M49 157 H169 M64 164 H153" fill="none" stroke-width="2"/>
+<path d="M136 122 H178 M137 109 V134 M175 110 L180 134" fill="none" stroke-width="1.5"/>
+<rect x="143" y="113" width="6" height="6" fill="#1B1612" stroke-width="1.5"/>
+<rect x="155" y="113" width="6" height="6" fill="#1B1612" stroke-width="1.5"/>
+<rect x="167" y="113" width="6" height="6" fill="#1B1612" stroke-width="1.5"/>
+<rect x="51" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="69" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="87" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="105" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="123" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="141" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="159" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M52 149 l12 11 M64 149 l12 13 M76 149 l12 13 M88 149 l12 13 M100 149 l12 13 M112 149 l12 13 M124 149 l12 13 M136 149 l12 12 M148 149 l12 9 M58 159 l10 -10 M77 162 l12 -13 M98 162 l12 -13 M120 162 l12 -13 M141 160 l11 -11" fill="none" stroke-width="1.5"/>
+<circle cx="170" cy="128" r="3" fill="#C59B27" stroke-width="1.5"/>
+</g>
+<g id="ship_freighter-sea-engraving">
+<path d="M9 179 Q17 175 25 179 T41 179 M49 179 Q57 175 65 179 T81 179 M113 179 Q121 175 129 179 T145 179 M153 179 Q161 175 169 179 T185 179 M22 186 H46 M58 186 H93 M108 186 H138 M151 186 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="340.0" y="307" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1B1612">Heavy Freighter</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="460" y="88" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="ship_corvette-title ship_corvette-desc">
+  <title id="ship_corvette-title">Swift Corvette</title>
+  <desc id="ship_corvette-desc">Fine raked clipper bow and two lateen rigs with booms and sheets. Masts are rooted on the deck at (74,128) and (132,128); the bowsprit joins the bow at (32,128).</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="ship_corvette-standing-rigging">
+<path d="M10 101 L69 32 L130 41 L173 128 M69 32 L42 128 M130 41 L102 128" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_corvette-masts">
+<line x1="74" y1="128" x2="69" y2="32" stroke-width="3" id="ship_corvette-mast-fore"/>
+<line x1="132" y1="128" x2="130" y2="41" stroke-width="3" id="ship_corvette-mast-main"/>
+<path d="M69 32 L87 34 L80 40 L69 40 Z" fill="#8C2D19"/>
+</g>
+<g id="ship_corvette-lateen-canvas">
+<path d="M41 51 L98 100 L58 107 Q57 79 41 51 Z" fill="#F4ECD8"/>
+<line x1="38" y1="48" x2="101" y2="103" stroke-width="3"/>
+<line x1="58" y1="108" x2="99" y2="103" stroke-width="2.5"/>
+<path d="M99 55 L158 104 L116 115 Q116 84 99 55 Z" fill="#F4ECD8"/>
+<line x1="96" y1="52" x2="162" y2="107" stroke-width="3"/>
+<line x1="116" y1="115" x2="158" y2="108" stroke-width="2.5"/>
+<path d="M15 104 L62 57 L48 117 Z" fill="#F4ECD8"/>
+<path d="M28 105 L53 76 M47 67 Q66 82 76 104 M55 68 L89 100 M108 70 Q126 88 132 112 M116 71 L148 104 M57 103 l8 -1 M55 97 l10 3 M116 109 l9 2 M116 102 l11 5 M58 107 L46 128 M98 104 L110 128 M116 115 L109 128 M158 108 L171 128 M48 117 L34 128" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_corvette-bow-and-deck">
+<line x1="32" y1="128" x2="8" y2="99" stroke-width="3"/>
+<rect x="91" y="119" width="16" height="9" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M148 128 V121 H168 L174 128 Z" fill="#D5C4A1"/>
+</g>
+<g id="ship_corvette-hull-engraving">
+<path d="M22 120 L42 128 H177 L167 145 Q133 160 65 154 Q39 149 22 120 Z" fill="#D5C4A1" stroke-width="3" id="ship_corvette-hull"/>
+<path d="M42 128 H177" fill="none" stroke-width="3" id="ship_corvette-deck-main"/>
+<path d="M34 133 Q93 148 170 135 M45 144 Q99 157 157 145" fill="none" stroke-width="2"/>
+<circle cx="64" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="81" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="98" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="115" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="132" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="149" cy="137" r="2" fill="#1B1612" stroke-width="1.5"/>
+<path d="M56 145 l6 6 M68 148 l5 5 M81 150 l4 4 M94 151 l3 3 M108 151 l3 3 M122 150 l4 3 M136 148 l4 3 M58 151 l5 -5 M73 152 l4 -4 M88 153 l3 -3 M123 153 l4 -4" fill="none" stroke-width="1.5"/>
+<circle cx="163" cy="132" r="2.5" fill="#C59B27" stroke-width="1.5"/>
+</g>
+<g id="ship_corvette-sea-engraving">
+<path d="M9 168 Q17 164 25 168 T41 168 M49 168 Q57 164 65 168 T81 168 M113 168 Q121 164 129 168 T145 168 M153 168 Q161 164 169 168 T185 168 M22 175 H46 M58 175 H93 M108 175 H138 M151 175 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="560.0" y="307" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1B1612">Swift Corvette</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="680" y="88" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="ship_standard-title ship_standard-desc">
+  <title id="ship_standard-title">Standard Sloop</title>
+  <desc id="ship_standard-desc">Balanced two-masted merchant schooner with gaff sails, a square topsail and a jib. Both masts terminate on the deck at (70,128) and (125,128).</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="ship_standard-standing-rigging">
+<path d="M10 108 L70 34 L125 29 L174 128 M70 34 L40 128 M125 29 L101 128" fill="none" stroke-width="1.5"/>
+<line x1="70" y1="84" x2="51" y2="128" stroke-width="1.5"/>
+<line x1="70" y1="91.33" x2="66.83" y2="91.33" stroke-width="1.5"/>
+<line x1="70" y1="98.67" x2="63.67" y2="98.67" stroke-width="1.5"/>
+<line x1="70" y1="106.0" x2="60.5" y2="106.0" stroke-width="1.5"/>
+<line x1="70" y1="113.33" x2="57.33" y2="113.33" stroke-width="1.5"/>
+<line x1="70" y1="120.67" x2="54.17" y2="120.67" stroke-width="1.5"/>
+<line x1="125" y1="84" x2="146" y2="128" stroke-width="1.5"/>
+<line x1="125" y1="91.33" x2="128.5" y2="91.33" stroke-width="1.5"/>
+<line x1="125" y1="98.67" x2="132.0" y2="98.67" stroke-width="1.5"/>
+<line x1="125" y1="106.0" x2="135.5" y2="106.0" stroke-width="1.5"/>
+<line x1="125" y1="113.33" x2="139.0" y2="113.33" stroke-width="1.5"/>
+<line x1="125" y1="120.67" x2="142.5" y2="120.67" stroke-width="1.5"/>
+</g>
+<g id="ship_standard-masts">
+<line x1="70" y1="128" x2="70" y2="34" stroke-width="3" id="ship_standard-mast-fore"/>
+<line x1="125" y1="128" x2="125" y2="29" stroke-width="3" id="ship_standard-mast-main"/>
+<path d="M125 29 L145 32 L139 39 L125 38 Z" fill="#8C2D19"/>
+</g>
+<g id="ship_standard-schooner-canvas">
+<path d="M55.0 45 Q70 48 85.0 45 Q80.0 57.0 83.0 69 Q70 73 57.0 69 Q61.0 57.0 55.0 45 Z" fill="#F4ECD8"/>
+<line x1="52.0" y1="45" x2="88.0" y2="45" stroke-width="2.5"/>
+<path d="M62.5 50 Q60.5 57.0 62.5 66" fill="none" stroke-width="1.5"/>
+<path d="M70 50 Q68 57.0 70 66" fill="none" stroke-width="1.5"/>
+<path d="M77.5 50 Q75.5 57.0 77.5 66" fill="none" stroke-width="1.5"/>
+<path d="M59.0 61 l5 5 M60.0 56 l9 8 M76.0 50 l5 5 M71.0 50 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M74 77 L99 65 L102 112 L74 116 Z" fill="#F4ECD8"/>
+<line x1="70" y1="80" x2="99" y2="64" stroke-width="2.5"/>
+<line x1="70" y1="116" x2="105" y2="114" stroke-width="2.5"/>
+<path d="M129 53 L161 42 L168 111 L129 118 Z" fill="#F4ECD8"/>
+<line x1="125" y1="56" x2="162" y2="41" stroke-width="2.5"/>
+<line x1="125" y1="119" x2="171" y2="113" stroke-width="2.5"/>
+<path d="M13 111 L66 49 L48 114 Z" fill="#F4ECD8"/>
+<path d="M25 109 L57 67 M79 79 L83 111 M88 75 L92 111 M136 56 Q139 84 137 114 M147 53 Q154 83 152 111 M76 105 l7 7 M76 100 l12 11 M158 99 l6 6 M154 103 l11 7 M48 114 L37 128 M102 113 L112 128 M168 112 L177 128" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_standard-deck-fittings">
+<line x1="32" y1="128" x2="8" y2="105" stroke-width="3"/>
+<rect x="88" y="119" width="18" height="9" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M149 128 V119 H171 V128 Z" fill="#D5C4A1"/>
+<rect x="157" y="121" width="7" height="4" fill="#1B1612" stroke-width="1.5"/>
+</g>
+<g id="ship_standard-hull-engraving">
+<path d="M29 128 H180 L169 150 Q136 166 65 158 Q44 151 29 128 Z" fill="#D5C4A1" stroke-width="3" id="ship_standard-hull"/>
+<path d="M29 128 H180" fill="none" stroke-width="3" id="ship_standard-deck-main"/>
+<path d="M37 138 H174 M48 149 Q103 164 164 149" fill="none" stroke-width="2"/>
+<rect x="59" y="140" width="6" height="5" fill="#1B1612" stroke-width="1.5"/>
+<rect x="78" y="140" width="6" height="5" fill="#1B1612" stroke-width="1.5"/>
+<rect x="97" y="140" width="6" height="5" fill="#1B1612" stroke-width="1.5"/>
+<rect x="116" y="140" width="6" height="5" fill="#1B1612" stroke-width="1.5"/>
+<rect x="135" y="140" width="6" height="5" fill="#1B1612" stroke-width="1.5"/>
+<rect x="154" y="140" width="6" height="5" fill="#1B1612" stroke-width="1.5"/>
+<path d="M59 149 l7 7 M71 151 l6 6 M84 153 l5 5 M97 154 l4 5 M110 154 l4 5 M123 153 l5 4 M137 151 l5 4 M149 149 l5 3 M65 156 l5 -6 M85 158 l5 -5 M110 159 l5 -5 M139 155 l5 -5" fill="none" stroke-width="1.5"/>
+<circle cx="172" cy="134" r="2.5" fill="#C59B27" stroke-width="1.5"/>
+</g>
+<g id="ship_standard-sea-engraving">
+<path d="M9 173 Q17 169 25 173 T41 173 M49 173 Q57 169 65 173 T81 173 M113 173 Q121 169 129 173 T145 173 M153 173 Q161 169 169 173 T185 173 M22 180 H46 M58 180 H93 M108 180 H138 M151 180 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="780.0" y="307" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1B1612">Standard Sloop</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="900" y="88" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="ship_flying_dutchman-title ship_flying_dutchman-desc">
+  <title id="ship_flying_dutchman-title">Flying Dutchman</title>
+  <desc id="ship_flying_dutchman-desc">Haunted galleon with three rooted masts at (53,126), (104,126), and (151,112). Torn canvas, exposed barnacle ribs, broken stern galleries and thin spectral wakes evoke an antique sea legend.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="ship_flying_dutchman-spectral-wake">
+<path d="M18 160 Q5 137 13 118 M10 143 Q3 127 8 118 M181 119 Q194 137 183 160 M5 173 Q23 155 44 171 M151 171 Q176 156 195 172 M21 184 Q41 174 57 180 M146 181 Q167 174 184 181" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_flying_dutchman-standing-rigging">
+<path d="M12 104 L53 29 L104 20 L151 36 L182 112 M53 29 L28 126 M104 20 L77 126 M151 36 L126 126" fill="none" stroke-width="1.5"/>
+<line x1="53" y1="74" x2="34" y2="126" stroke-width="1.5"/>
+<line x1="53" y1="81.43" x2="50.29" y2="81.43" stroke-width="1.5"/>
+<line x1="53" y1="88.86" x2="47.57" y2="88.86" stroke-width="1.5"/>
+<line x1="53" y1="96.29" x2="44.86" y2="96.29" stroke-width="1.5"/>
+<line x1="53" y1="103.71" x2="42.14" y2="103.71" stroke-width="1.5"/>
+<line x1="53" y1="111.14" x2="39.43" y2="111.14" stroke-width="1.5"/>
+<line x1="53" y1="118.57" x2="36.71" y2="118.57" stroke-width="1.5"/>
+<line x1="104" y1="75" x2="84" y2="126" stroke-width="1.5"/>
+<line x1="104" y1="82.29" x2="101.14" y2="82.29" stroke-width="1.5"/>
+<line x1="104" y1="89.57" x2="98.29" y2="89.57" stroke-width="1.5"/>
+<line x1="104" y1="96.86" x2="95.43" y2="96.86" stroke-width="1.5"/>
+<line x1="104" y1="104.14" x2="92.57" y2="104.14" stroke-width="1.5"/>
+<line x1="104" y1="111.43" x2="89.71" y2="111.43" stroke-width="1.5"/>
+<line x1="104" y1="118.71" x2="86.86" y2="118.71" stroke-width="1.5"/>
+<path d="M151 67 L173 112 M153 77 l5 2 M155 86 l8 2 M158 95 l10 2" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_flying_dutchman-masts">
+<line x1="53" y1="126" x2="53" y2="29" stroke-width="3" id="ship_flying_dutchman-mast-fore"/>
+<line x1="104" y1="126" x2="104" y2="20" stroke-width="3" id="ship_flying_dutchman-mast-main"/>
+<line x1="151" y1="112" x2="151" y2="36" stroke-width="3" id="ship_flying_dutchman-mast-mizzen"/>
+<path d="M104 20 L127 23 L117 27 L123 32 L104 31 Z" fill="#D5C4A1"/>
+<path d="M110 24 l7 1" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_flying_dutchman-tattered-canvas">
+<path d="M38.5 44 Q53 47 67.5 44 L64.5 65 L62 68 L59 60 L55 70 L50 62 L45 71 L41.5 67 Z" fill="#F4ECD8"/>
+<line x1="35.5" y1="44" x2="70.5" y2="44" stroke-width="2.5"/>
+<path d="M45.75 49 Q43.75 57.0 45.75 67" fill="none" stroke-width="1.5"/>
+<path d="M53 49 Q51 57.0 53 67" fill="none" stroke-width="1.5"/>
+<path d="M60.25 49 Q58.25 57.0 60.25 67" fill="none" stroke-width="1.5"/>
+<path d="M42.5 62 l5 5 M43.5 57 l9 8 M58.5 49 l5 5 M53.5 49 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M45 54 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M65.5 65 l4 7 M45 71 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M34.0 80 Q53 83 72.0 80 L69.0 106 L62 109 L59 101 L55 111 L50 103 L45 112 L37.0 108 Z" fill="#F4ECD8"/>
+<line x1="31.0" y1="80" x2="75.0" y2="80" stroke-width="2.5"/>
+<path d="M43.5 85 Q41.5 95.5 43.5 108" fill="none" stroke-width="1.5"/>
+<path d="M53 85 Q51 95.5 53 108" fill="none" stroke-width="1.5"/>
+<path d="M62.5 85 Q60.5 95.5 62.5 108" fill="none" stroke-width="1.5"/>
+<path d="M38.0 103 l5 5 M39.0 98 l9 8 M63.0 85 l5 5 M58.0 85 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M45 90 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M70.0 106 l4 7 M45 112 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M87.0 35 Q104 38 121.0 35 L118.0 58 L113 61 L110 53 L106 63 L101 55 L96 64 L90.0 60 Z" fill="#F4ECD8"/>
+<line x1="84.0" y1="35" x2="124.0" y2="35" stroke-width="2.5"/>
+<path d="M95.5 40 Q93.5 49.0 95.5 60" fill="none" stroke-width="1.5"/>
+<path d="M104 40 Q102 49.0 104 60" fill="none" stroke-width="1.5"/>
+<path d="M112.5 40 Q110.5 49.0 112.5 60" fill="none" stroke-width="1.5"/>
+<path d="M91.0 55 l5 5 M92.0 50 l9 8 M112.0 40 l5 5 M107.0 40 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M96 45 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M119.0 58 l4 7 M96 64 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M82.5 76 Q104 79 125.5 76 L122.5 105 L113 108 L110 100 L106 110 L101 102 L96 111 L85.5 107 Z" fill="#F4ECD8"/>
+<line x1="79.5" y1="76" x2="128.5" y2="76" stroke-width="2.5"/>
+<path d="M93.25 81 Q91.25 93.0 93.25 107" fill="none" stroke-width="1.5"/>
+<path d="M104 81 Q102 93.0 104 107" fill="none" stroke-width="1.5"/>
+<path d="M114.75 81 Q112.75 93.0 114.75 107" fill="none" stroke-width="1.5"/>
+<path d="M86.5 102 l5 5 M87.5 97 l9 8 M116.5 81 l5 5 M111.5 81 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M96 86 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M123.5 105 l4 7 M96 111 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M137.5 50 Q151 53 164.5 50 L161.5 68 L160 71 L157 63 L153 73 L148 65 L143 74 L140.5 70 Z" fill="#F4ECD8"/>
+<line x1="134.5" y1="50" x2="167.5" y2="50" stroke-width="2.5"/>
+<path d="M144.25 55 Q142.25 61.5 144.25 70" fill="none" stroke-width="1.5"/>
+<path d="M151 55 Q149 61.5 151 70" fill="none" stroke-width="1.5"/>
+<path d="M157.75 55 Q155.75 61.5 157.75 70" fill="none" stroke-width="1.5"/>
+<path d="M141.5 65 l5 5 M142.5 60 l9 8 M155.5 55 l5 5 M150.5 55 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M143 60 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M162.5 68 l4 7 M143 74 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M135.5 82 Q151 85 166.5 82 L163.5 100 L160 103 L157 95 L153 105 L148 97 L143 106 L138.5 102 Z" fill="#F4ECD8"/>
+<line x1="132.5" y1="82" x2="169.5" y2="82" stroke-width="2.5"/>
+<path d="M143.25 87 Q141.25 93.5 143.25 102" fill="none" stroke-width="1.5"/>
+<path d="M151 87 Q149 93.5 151 102" fill="none" stroke-width="1.5"/>
+<path d="M158.75 87 Q156.75 93.5 158.75 102" fill="none" stroke-width="1.5"/>
+<path d="M139.5 97 l5 5 M140.5 92 l9 8 M157.5 87 l5 5 M152.5 87 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M143 92 l6 -2 l-1 9 l-6 -2 Z" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M164.5 100 l4 7 M143 106 l-3 5" fill="none" stroke-width="1.5"/>
+<path d="M36 111 L28 126 M69 111 L76 126 M85 111 L76 126 M123 111 L130 126 M165 105 L174 112" fill="none" stroke-width="1.5"/>
+<path d="M97 90 Q104 83 111 90 L109 99 H99 Z" fill="#D5C4A1"/>
+<circle cx="101" cy="91" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="107" cy="91" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<path d="M102 98 V102 M106 98 V102 M97 105 L112 101 M98 101 L112 105" fill="none" stroke-width="1.5"/>
+</g>
+<g id="ship_flying_dutchman-broken-deck">
+<line x1="31" y1="126" x2="10" y2="102" stroke-width="3"/>
+<path d="M135 126 V112 L141 112 L145 105 L149 112 H178 L182 125 L177 132 Z" fill="#D5C4A1"/>
+<path d="M146 113 L145 122 H153 L152 113 Z M163 114 L165 124 H173 L170 114 Z" fill="#1B1612"/>
+</g>
+<g id="ship_flying_dutchman-hull-engraving">
+<path d="M25 126 H135 V112 H178 L186 139 L176 146 L173 158 L158 166 L150 163 L142 169 H67 L49 159 L41 147 L33 145 Z" fill="#D5C4A1" stroke-width="3" id="ship_flying_dutchman-hull"/>
+<path d="M25 126 H135 M135 112 H178" fill="none" stroke-width="3" id="ship_flying_dutchman-deck-main"/>
+<path d="M34 137 H179 M44 149 Q107 166 169 151" fill="none" stroke-width="2"/>
+<path d="M56 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M76 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M96 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M116 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M136 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M156 139 q-4 12 6 22 l5 -2 q-9 -9 -6 -20 Z" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M46 140 l8 -2 M68 145 l8 -2 M88 146 l8 -2 M108 146 l8 -2 M128 146 l8 -2 M148 144 l8 -2 M61 152 l6 5 M81 153 l6 5 M101 154 l6 5 M121 154 l6 5 M141 152 l6 5" fill="none" stroke-width="1.5"/>
+<circle cx="44" cy="148" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="50" cy="153" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="64" cy="162" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="87" cy="162" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="110" cy="165" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="132" cy="163" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="156" cy="161" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="169" cy="152" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+</g>
+<g id="ship_flying_dutchman-sea-engraving">
+<path d="M9 176 Q17 172 25 176 T41 176 M49 176 Q57 172 65 176 T81 176 M113 176 Q121 172 129 176 T145 176 M153 176 Q161 172 169 176 T185 176 M22 183 H46 M58 183 H93 M108 183 H138 M151 183 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="1000.0" y="307" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1B1612">Flying Dutchman</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="30" y="358" width="170" height="170" viewBox="0 0 200 200" role="img" aria-labelledby="monster_shark-title monster_shark-desc">
+  <title id="monster_shark-title">Cartographer&#x27;s Shark</title>
+  <desc id="monster_shark-desc">A muscular predatory shark in profile, engraved with gill cuts, a serrated jaw, hatched flanks and curling sea foam.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="monster_shark-fins">
+<path d="M85 83 L107 39 Q107 68 127 81 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M114 124 L150 160 L138 121 Z" fill="#D5C4A1"/>
+<path d="M148 91 L179 58 L173 96 L188 130 L151 113 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M104 57 l-8 22 M109 71 l-6 9 M172 75 L156 98 M178 119 L160 108 M131 133 l9 15" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_shark-body">
+<path d="M13 107 Q34 74 84 79 Q119 77 159 96 L164 105 L154 117 Q103 144 55 129 L27 120 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M28 113 Q75 122 119 113 Q141 111 154 106" fill="none" stroke-width="2"/>
+<path d="M65 112 Q94 115 115 99 L102 144 Q77 145 65 112 Z" fill="#D5C4A1"/>
+<path d="M83 119 l17 -8 M82 125 l15 -8 M86 131 l8 -6 M50 91 Q55 101 51 109 M59 88 Q65 102 60 114 M69 87 Q76 103 71 114 M91 85 l11 9 M102 85 l12 9 M113 86 l11 10 M125 89 l11 10 M137 92 l10 9 M102 96 l10 -9 M120 99 l10 -9 M139 102 l7 -7 M123 122 l6 4 M135 118 l6 3" fill="none" stroke-width="1.5"/>
+<path d="M16 110 L34 108 L46 115 L26 120 Z" fill="#8C2D19"/>
+<path d="M21 110 l3 5 l3 -5 l3 5 l3 -5 l4 5 l3 -3 M30 119 l2 -4 l3 5 l3 -3" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="38" cy="100" r="4" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="37" cy="100" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<path d="M32 93 L43 95 M14 107 L23 105" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_shark-sea-engraving">
+<path d="M9 171 Q17 167 25 171 T41 171 M49 171 Q57 167 65 171 T81 171 M113 171 Q121 167 129 171 T145 171 M153 171 Q161 167 169 171 T185 171 M22 178 H46 M58 178 H93 M108 178 H138 M151 178 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="115.0" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1612">Cartographer&#x27;s Shark</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="210" y="358" width="170" height="170" viewBox="0 0 200 200" role="img" aria-labelledby="monster_serpent-title monster_serpent-desc">
+  <title id="monster_serpent-title">Leviathan Serpent</title>
+  <desc id="monster_serpent-desc">A horned sea serpent rises in connected coils. Overlapping engraved scales, dorsal spines and a toothed crimson mouth recall sea-chart marginalia.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="monster_serpent-dorsal-spines">
+<path d="M59 72 L71 52 L73 76 L88 69 L87 91 L107 98 L119 67 L128 88 L141 69 L146 98 L163 92 L172 119" fill="#D5C4A1"/>
+<path d="M70 62 L69 74 M121 78 L123 87 M142 80 L143 94" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_serpent-coiled-body">
+<path d="M43 81 C61 72 69 98 67 121 C66 143 89 151 104 127 C117 106 109 93 129 87 C149 80 162 102 164 124 C166 145 176 143 187 131 C185 156 158 163 149 141 C137 114 142 102 130 105 C122 107 135 128 118 148 C95 179 51 164 48 135 C45 112 53 99 43 95 Z" fill="#D5C4A1" stroke-width="3"/>
+<path d="M51 92 C62 111 52 133 65 148 C78 164 102 153 112 133 C123 114 117 100 132 96 C150 92 151 118 157 138 C163 155 180 148 187 131" fill="none" stroke-width="2"/>
+<path d="M55 113 l10 -2 M55 121 l11 1 M55 130 l12 3 M59 140 l11 4 M67 148 l10 4 M79 154 l10 -1 M92 151 l9 -6 M103 143 l8 -7 M119 114 l10 2 M123 123 l10 2 M120 133 l10 2 M114 142 l8 5 M144 106 l10 -2 M147 116 l12 -2 M151 127 l12 -1 M156 138 l10 -2 M165 146 l7 -4" fill="none" stroke-width="1.5"/>
+<path d="M71 139 q4 -5 8 0 q4 5 8 0 M75 145 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M86 137 q4 -5 8 0 q4 5 8 0 M90 143 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M120 94 q4 -5 8 0 q4 5 8 0 M124 100 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M136 98 q4 -5 8 0 q4 5 8 0 M140 104 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M156 129 q4 -5 8 0 q4 5 8 0 M160 135 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_serpent-head">
+<path d="M53 88 Q61 66 48 59 L48 43 L37 58 L26 52 L20 65 Q10 67 9 78 L24 86 L39 85 L43 96 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M10 77 L28 76 L36 84 L23 87 Z" fill="#8C2D19"/>
+<path d="M15 77 l3 6 l4 -6 l4 7 l3 -5 M22 87 l3 -4 l3 3" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="29" cy="68" r="3" fill="#C59B27" stroke-width="1.5"/>
+<line x1="29" y1="66" x2="29" y2="70" stroke-width="1.5"/>
+<path d="M37 65 l10 4 M39 71 l9 4 M41 77 l8 3 M39 59 l5 -8 M14 69 l5 1 M37 83 l5 6" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_serpent-sea-engraving">
+<path d="M9 180 Q17 176 25 180 T41 180 M49 180 Q57 176 65 180 T81 180 M113 180 Q121 176 129 180 T145 180 M153 180 Q161 176 169 180 T185 180 M22 187 H46 M58 187 H93 M108 187 H138 M151 187 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="295.0" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1612">Leviathan Serpent</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="390" y="358" width="170" height="170" viewBox="0 0 200 200" role="img" aria-labelledby="monster_jellyfish-title monster_jellyfish-desc">
+  <title id="monster_jellyfish-title">Stinging Medusa</title>
+  <desc id="monster_jellyfish-desc">An engraved domed bell with scalloped margins and connected venomous tendrils. Stippled cells and sinuous oral arms preserve a transparent vellum silhouette.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="monster_jellyfish-tendrils">
+<path d="M49 94 C28 117 66 134 43 163 Q34 177 47 185 M60 100 C44 124 81 134 59 158 Q48 172 65 182 M81 102 C63 130 101 141 79 170 M119 102 C137 132 99 140 121 170 M141 98 C158 120 123 139 145 159 Q158 172 139 183 M151 93 C177 118 139 135 163 163 Q175 179 159 187" fill="none" stroke-width="2.5"/>
+<path d="M94 95 C68 118 107 136 91 152 C79 166 96 180 100 181 C96 163 118 151 106 135 C95 122 117 110 108 96 Z" fill="#D5C4A1"/>
+<path d="M95 111 l8 5 M90 121 l9 5 M96 134 l9 2 M95 147 l7 4 M91 161 l5 4 M41 121 l6 3 M52 141 l6 -2 M143 137 l6 2 M157 115 l6 -2" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_jellyfish-bell">
+<path d="M33 90 C34 18 164 18 167 90 Q158 102 149 94 Q140 108 130 99 Q118 111 107 101 Q95 113 84 101 Q71 110 62 98 Q46 105 43 94 Q37 99 33 90 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M35 86 Q101 61 165 86 L167 90 Q158 102 149 94 Q140 108 130 99 Q118 111 107 101 Q95 113 84 101 Q71 110 62 98 Q46 105 43 94 Q37 99 33 90 Z" fill="#D5C4A1"/>
+<path d="M49 77 Q51 46 80 40 M64 76 Q65 48 86 38 M82 74 Q84 45 95 36 M100 73 V36 M118 74 Q118 45 105 36 M136 77 Q135 47 114 39 M153 79 Q150 48 124 43 M42 79 l8 3 M47 70 l7 3 M52 61 l7 3 M58 53 l7 3 M147 64 l7 -2 M151 72 l7 -2 M154 81 l6 -2 M51 89 l7 5 M67 86 l8 7 M87 84 l8 9 M108 84 l8 9 M129 86 l8 7 M147 89 l8 5" fill="none" stroke-width="1.5"/>
+<circle cx="84" cy="55" r="2" fill="#D5C4A1" stroke-width="1.5"/>
+<circle cx="116" cy="57" r="2" fill="#D5C4A1" stroke-width="1.5"/>
+<circle cx="98" cy="64" r="2" fill="#C59B27" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="475.0" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1612">Stinging Medusa</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="570" y="358" width="170" height="170" viewBox="0 0 200 200" role="img" aria-labelledby="monster_squid-title monster_squid-desc">
+  <title id="monster_squid-title">Abyssal Squid</title>
+  <desc id="monster_squid-desc">A tapered squid mantle with paired fins and eight attached curling arms. Engraved suckers, mantle hatching and watchful eyes suggest an abyssal chart specimen.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="monster_squid-fins">
+<path d="M84 48 Q56 42 45 73 Q60 67 78 81 Z M116 48 Q145 42 155 73 Q138 67 122 81 Z" fill="#D5C4A1"/>
+<path d="M54 66 L77 56 M61 67 L78 63 M123 55 L146 66 M122 62 L139 68" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_squid-arms">
+<path d="M76 111 C51 110 55 137 31 133 C9 129 6 156 26 158 C12 148 25 143 33 148 C63 164 66 128 88 122 Z" fill="#D5C4A1"/>
+<path d="M124 111 C149 110 145 137 169 133 C191 129 194 156 174 158 C188 148 175 143 167 148 C137 164 134 128 112 122 Z" fill="#D5C4A1"/>
+<path d="M82 118 C67 134 81 155 57 159 C36 162 44 185 59 178 C47 177 49 170 60 171 C94 171 82 144 96 125 Z" fill="#F4ECD8"/>
+<path d="M118 118 C133 134 119 155 143 159 C164 162 156 185 141 178 C153 177 151 170 140 171 C106 171 118 144 104 125 Z" fill="#F4ECD8"/>
+<path d="M87 119 C83 143 96 161 78 182 Q88 179 94 170 C100 151 93 138 100 124 Z" fill="#D5C4A1"/>
+<path d="M113 119 C117 143 104 161 122 182 Q112 179 106 170 C100 151 107 138 100 124 Z" fill="#D5C4A1"/>
+<path d="M74 108 C43 98 30 113 21 103 Q23 121 46 117 L78 117 Z M126 108 C157 98 170 113 179 103 Q177 121 154 117 L122 117 Z" fill="#F4ECD8"/>
+<path d="M76 125 Q63 130 58 144 M124 125 Q137 130 142 144 M82 145 Q82 161 60 166 M118 145 Q118 161 140 166 M88 139 l4 7 M108 139 l4 7 M36 110 L47 110 M153 110 H164" fill="none" stroke-width="1.5"/>
+<circle cx="65" cy="128" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="58" cy="137" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="45" cy="145" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="32" cy="144" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="135" cy="128" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="142" cy="137" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="155" cy="145" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="168" cy="144" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="76" cy="151" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="69" cy="160" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="124" cy="151" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="131" cy="160" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+</g>
+<g id="monster_squid-mantle">
+<path d="M100 21 C81 42 73 78 74 101 Q69 118 85 126 Q100 131 115 126 Q131 118 126 101 C127 78 119 42 100 21 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M100 30 Q88 65 88 94 M106 38 Q117 70 116 94" fill="none" stroke-width="1.5"/>
+<path d="M84 61 l5 5 M81 70 l6 6 M79 79 l7 7 M78 88 l8 7 M111 58 l5 5 M114 69 l6 6 M116 80 l6 6 M80 84 l7 -8 M111 77 l8 -7 M93 122 Q100 125 107 122" fill="none" stroke-width="1.5"/>
+<circle cx="85" cy="107" r="6" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="115" cy="107" r="6" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="85" cy="107" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="115" cy="107" r="2" fill="#1B1612" stroke-width="1.5"/>
+<path d="M96 114 L100 120 L104 114 Z" fill="#8C2D19"/>
+</g>
+  </g>
+</svg>
+
+<text x="655.0" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1612">Abyssal Squid</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="750" y="358" width="170" height="170" viewBox="0 0 200 200" role="img" aria-labelledby="monster_crustacean-title monster_crustacean-desc">
+  <title id="monster_crustacean-title">Armored Crustacean</title>
+  <desc id="monster_crustacean-desc">A carapaced sea crab with articulated limbs, two enormous toothed pincers, stalked eyes and a cross-hatched segmented shell.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="monster_crustacean-walking-legs">
+<path d="M69 104 L43 98 L24 125 L40 114 L69 117 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M68 121 L41 125 L27 151 L46 137 L74 132 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M78 138 L55 150 L52 177 L63 158 L88 147 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M131 104 L157 98 L176 125 L160 114 L131 117 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M132 121 L159 125 L173 151 L154 137 L126 132 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M122 138 L145 150 L148 177 L137 158 L112 147 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M43 98 L40 114 M41 125 L46 137 M55 150 L63 158 M157 98 L160 114 M159 125 L154 137 M145 150 L137 158" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_crustacean-pincer-arms">
+<path d="M72 105 L51 87 L44 73 L34 77 L39 95 L64 121 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M128 105 L149 87 L156 73 L166 77 L161 95 L136 121 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<circle cx="48" cy="89" r="5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="152" cy="89" r="5" fill="#F4ECD8" stroke-width="1.5"/>
+</g>
+<g id="monster_crustacean-pincers">
+<path d="M43 83 C15 81 9 47 24 29 Q22 50 38 55 L37 21 C62 35 64 69 43 83 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M157 83 C185 81 191 47 176 29 Q178 50 162 55 L163 21 C138 35 136 69 157 83 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M38 31 L46 37 L39 43 L47 49 L39 55 M162 31 L154 37 L161 43 L153 49 L161 55" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M22 56 Q28 70 40 72 M49 44 Q57 61 45 74 M178 56 Q172 70 160 72 M151 44 Q143 61 155 74 M25 63 l8 -3 M29 69 l8 -3 M175 63 l-8 -3 M171 69 l-8 -3" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_crustacean-carapace">
+<path d="M58 109 L64 94 L72 91 L80 83 Q100 77 120 83 L128 91 L136 94 L142 109 L137 129 L122 145 Q100 153 78 145 L63 129 Z" fill="#D5C4A1" stroke-width="3"/>
+<path d="M73 96 Q100 84 127 96 L132 115 L120 133 Q100 141 80 133 L68 115 Z" fill="#F4ECD8"/>
+<path d="M74 106 Q100 94 126 106 M71 116 Q100 106 129 116 M78 127 Q100 118 122 127 M76 100 l8 5 M88 96 l8 5 M101 96 l8 5 M115 100 l8 5 M76 113 l7 4 M89 109 l8 4 M103 109 l8 4 M116 113 l8 4 M86 132 l7 5 M104 133 l6 4 M72 111 l10 -10 M90 107 l10 -10 M109 108 l10 -8 M65 105 l-3 8 M66 124 l7 8 M134 105 l3 8 M134 124 l-7 8" fill="none" stroke-width="1.5"/>
+<path d="M85 84 L80 71 M115 84 L120 71" fill="none" stroke-width="3"/>
+<circle cx="79" cy="68" r="5" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="121" cy="68" r="5" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="79" cy="68" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="121" cy="68" r="2" fill="#1B1612" stroke-width="1.5"/>
+<path d="M91 140 L100 145 L109 140" fill="none" stroke-width="2"/>
+</g>
+<g id="monster_crustacean-sea-engraving">
+<path d="M9 181 Q17 177 25 181 T41 181 M49 181 Q57 177 65 181 T81 181 M113 181 Q121 177 129 181 T145 181 M153 181 Q161 177 169 181 T185 181 M22 188 H46 M58 188 H93 M108 188 H138 M151 188 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="835.0" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1612">Armored Crustacean</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="930" y="358" width="170" height="170" viewBox="0 0 200 200" role="img" aria-labelledby="monster_kraken-title monster_kraken-desc">
+  <title id="monster_kraken-title">Colossal Kraken</title>
+  <desc id="monster_kraken-desc">A crowned abyssal kraken with eight connected curling tentacles, double rows of engraved suckers and a crimson beak. Its massive domed mantle towers over the chart&#x27;s sea lines.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="monster_kraken-eight-tentacles">
+<path d="M75 97 C51 93 55 65 34 58 C12 51 7 70 20 78 C15 65 25 65 32 70 C44 80 40 113 68 119 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M125 97 C149 93 145 65 166 58 C188 51 193 70 180 78 C185 65 175 65 168 70 C156 80 160 113 132 119 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M69 110 C44 104 41 127 24 113 C5 97 3 133 23 140 C49 151 45 125 77 126 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M131 110 C156 104 159 127 176 113 C195 97 197 133 177 140 C151 151 155 125 123 126 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M78 120 C45 128 64 160 33 155 C10 151 18 178 35 178 C24 169 30 166 38 168 C76 176 61 146 88 132 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M122 120 C155 128 136 160 167 155 C190 151 182 178 165 178 C176 169 170 166 162 168 C124 176 139 146 112 132 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M88 128 C67 149 99 166 73 181 C57 191 43 178 47 168 C42 183 61 199 81 189 C114 171 87 150 102 132 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M112 128 C133 149 101 166 127 181 C143 191 157 178 153 168 C158 183 139 199 119 189 C86 171 113 150 98 132 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M67 108 Q52 105 46 87 M133 108 Q148 105 154 87 M69 119 Q48 118 40 131 M131 119 Q152 118 160 131 M77 131 Q63 138 63 151 M123 131 Q137 138 137 151 M87 142 Q82 154 89 165 M113 142 Q118 154 111 165" fill="none" stroke-width="1.5"/>
+<circle cx="48" cy="87" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="43" cy="76" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="35" cy="65" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="152" cy="87" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="157" cy="76" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="165" cy="65" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="52" cy="123" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="44" cy="132" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="32" cy="135" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="148" cy="123" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="156" cy="132" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="168" cy="135" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="64" cy="143" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="59" cy="154" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="49" cy="162" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="136" cy="143" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="141" cy="154" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="151" cy="162" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="88" cy="151" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="92" cy="163" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="86" cy="177" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="112" cy="151" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="108" cy="163" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="114" cy="177" r="2.5" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M39 87 l6 2 M37 95 l6 2 M155 89 l6 -2 M157 97 l6 -2 M23 121 l3 6 M174 121 l3 6 M38 159 l6 3 M156 162 l6 -3" fill="none" stroke-width="1.5"/>
+</g>
+<g id="monster_kraken-mantle">
+<path d="M62 96 C58 64 68 35 87 30 L94 18 L100 28 L107 17 L114 31 C135 37 142 65 138 96 Q140 121 119 135 Q100 144 81 135 Q60 121 62 96 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M75 77 Q72 48 91 36 M88 73 Q85 49 99 36 M112 73 Q115 49 104 36 M125 78 Q129 51 112 37" fill="none" stroke-width="1.5"/>
+<path d="M67 62 l7 6 M65 73 l8 7 M64 84 l9 7 M65 94 l8 7 M125 58 l7 7 M128 70 l8 7 M128 83 l8 7 M127 94 l7 6 M65 85 l9 -9 M67 99 l7 -8 M126 87 l9 -9 M126 100 l8 -7 M77 122 l8 7 M123 122 l-8 7" fill="none" stroke-width="1.5"/>
+<path d="M72 95 Q83 85 94 96 Q84 108 72 95 Z M106 96 Q117 85 128 95 Q116 108 106 96 Z" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="84" cy="96" r="3" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="116" cy="96" r="3" fill="#C59B27" stroke-width="1.5"/>
+<line x1="84" y1="94" x2="84" y2="98" stroke-width="1.5"/>
+<line x1="116" y1="94" x2="116" y2="98" stroke-width="1.5"/>
+<path d="M92 119 L100 111 L108 119 L100 132 Z" fill="#8C2D19"/>
+<path d="M95 121 L100 118 L105 121 M73 86 L91 90 M109 90 L127 86" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>
+
+<text x="1015.0" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1612">Colossal Kraken</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="34" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_unstable_tincture-title icon_unstable_tincture-desc">
+  <title id="icon_unstable_tincture-title">Unstable Tincture</title>
+  <desc id="icon_unstable_tincture-desc">Corked apothecary bottle containing bubbling venom, with a droplet seal and engraved glass reflections.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M24 16 V25 Q14 29 14 39 V51 Q14 57 21 58 H43 Q50 57 50 51 V39 Q50 29 40 25 V16 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M17 39 Q25 35 32 39 T47 39 V51 Q47 55 42 55 H22 Q17 55 17 51 Z" fill="#D5C4A1"/>
+<rect x="25" y="6" width="14" height="10" fill="#D5C4A1" stroke-width="1.5"/>
+<rect x="22" y="16" width="20" height="6" fill="#C59B27" stroke-width="1.5"/>
+<path d="M28 8 l5 6 M34 8 l3 3 M26 19 H38 M19 32 Q22 28 26 28 M19 35 V46 M42 46 l5 5 M40 49 l5 5 M38 52 l3 3" fill="none" stroke-width="1.5"/>
+<circle cx="25" cy="42" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="39" cy="33" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="33" cy="28" r="1.5" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M33 40 Q25 49 29 51 Q33 54 36 51 Q40 48 33 40 Z" fill="#8C2D19"/>
+  </g>
+</svg>
+
+<text x="82.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Unstable Tincture</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="174" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_blast_pack-title icon_blast_pack-desc">
+  <title id="icon_blast_pack-title">Blast Pack</title>
+  <desc id="icon_blast_pack-desc">Wooden gunpowder keg bound with iron hoops and crossed cord. A burning fuse sparks above the bung.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M19 18 Q32 12 45 18 Q52 35 45 54 Q32 61 19 54 Q12 35 19 18 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M19 18 Q32 23 45 18 M17 51 Q32 57 47 51" fill="none" stroke-width="1.5"/>
+<path d="M24 21 Q20 37 24 55 M31 22 V56 M38 21 Q42 38 38 56 M19 34 l5 5 M18 39 l6 5 M20 46 l4 4 M37 35 l6 6 M37 41 l6 6" fill="none" stroke-width="1.5"/>
+<path d="M17 25 Q32 30 47 25 L48 30 Q32 35 16 30 Z" fill="#F4ECD8"/>
+<path d="M16 44 Q32 49 48 44 L47 50 Q32 55 17 50 Z" fill="#F4ECD8"/>
+<path d="M21 27 V30 M42 27 V30 M21 47 V50 M42 47 V50" fill="none" stroke-width="1.5"/>
+<path d="M19 20 L45 54 M45 20 L19 54" fill="none" stroke-width="2"/>
+<rect x="28" y="13" width="8" height="5" fill="#C59B27" stroke-width="1.5"/>
+<path d="M32 13 C31 5 43 15 45 6" fill="none" stroke-width="2.5"/>
+<path d="M45 6 l-2 -4 M48 7 l5 -3 M48 10 l6 2" fill="none" stroke-width="1.5" stroke="#8C2D19"/>
+  </g>
+</svg>
+
+<text x="222.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Blast Pack</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="314" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_chakram-title icon_chakram-desc">
+  <title id="icon_chakram-title">Chakram</title>
+  <desc id="icon_chakram-desc">Sixteen serrated teeth surround an open throwing ring. Radial engraving and crossed edge hatching define its sharpened bevel.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M32.0 7.0 L34.28 3.09 L38.31 7.81 L41.57 8.9 L45.17 6.16 L47.09 12.07 L49.68 14.32 L54.05 13.17 L53.57 19.36 L55.1 22.43 L59.58 23.04 L56.76 28.57 L57.0 32.0 L60.91 34.28 L56.19 38.31 L55.1 41.57 L57.84 45.17 L51.93 47.09 L49.68 49.68 L50.83 54.05 L44.64 53.57 L41.57 55.1 L40.96 59.58 L35.43 56.76 L32.0 57.0 L29.72 60.91 L25.69 56.19 L22.43 55.1 L18.83 57.84 L16.91 51.93 L14.32 49.68 L9.95 50.83 L10.43 44.64 L8.9 41.57 L4.42 40.96 L7.24 35.43 L7.0 32.0 L3.09 29.72 L7.81 25.69 L8.9 22.43 L6.16 18.83 L12.07 16.91 L14.32 14.32 L13.17 9.95 L19.36 10.43 L22.43 8.9 L23.04 4.42 L28.57 7.24 Z M48 32 A16 16 0 1 0 16 32 A16 16 0 1 0 48 32 Z" fill="#F4ECD8" stroke-width="2" fill-rule="evenodd"/>
+<path d="M54 32 A22 22 0 1 0 10 32 A22 22 0 1 0 54 32 Z" fill="none" stroke-width="1.5"/>
+<line x1="51.0" y1="32.0" x2="55.92" y2="33.92" stroke-width="1.5"/>
+<line x1="50.63" y1="35.71" x2="55.09" y2="38.55" stroke-width="1.5"/>
+<line x1="49.55" y1="39.27" x2="53.37" y2="42.93" stroke-width="1.5"/>
+<line x1="47.8" y1="42.56" x2="50.83" y2="46.89" stroke-width="1.5"/>
+<line x1="45.44" y1="45.44" x2="47.56" y2="50.27" stroke-width="1.5"/>
+<line x1="42.56" y1="47.8" x2="43.7" y2="52.96" stroke-width="1.5"/>
+<line x1="39.27" y1="49.55" x2="39.38" y2="54.84" stroke-width="1.5"/>
+<line x1="35.71" y1="50.63" x2="34.79" y2="55.84" stroke-width="1.5"/>
+<line x1="32.0" y1="51.0" x2="30.08" y2="55.92" stroke-width="1.5"/>
+<line x1="28.29" y1="50.63" x2="25.45" y2="55.09" stroke-width="1.5"/>
+<line x1="24.73" y1="49.55" x2="21.07" y2="53.37" stroke-width="1.5"/>
+<line x1="21.44" y1="47.8" x2="17.11" y2="50.83" stroke-width="1.5"/>
+<line x1="18.56" y1="45.44" x2="13.73" y2="47.56" stroke-width="1.5"/>
+<line x1="16.2" y1="42.56" x2="11.04" y2="43.7" stroke-width="1.5"/>
+<line x1="14.45" y1="39.27" x2="9.16" y2="39.38" stroke-width="1.5"/>
+<line x1="13.37" y1="35.71" x2="8.16" y2="34.79" stroke-width="1.5"/>
+<line x1="13.0" y1="32.0" x2="8.08" y2="30.08" stroke-width="1.5"/>
+<line x1="13.37" y1="28.29" x2="8.91" y2="25.45" stroke-width="1.5"/>
+<line x1="14.45" y1="24.73" x2="10.63" y2="21.07" stroke-width="1.5"/>
+<line x1="16.2" y1="21.44" x2="13.17" y2="17.11" stroke-width="1.5"/>
+<line x1="18.56" y1="18.56" x2="16.44" y2="13.73" stroke-width="1.5"/>
+<line x1="21.44" y1="16.2" x2="20.3" y2="11.04" stroke-width="1.5"/>
+<line x1="24.73" y1="14.45" x2="24.62" y2="9.16" stroke-width="1.5"/>
+<line x1="28.29" y1="13.37" x2="29.21" y2="8.16" stroke-width="1.5"/>
+<line x1="32.0" y1="13.0" x2="33.92" y2="8.08" stroke-width="1.5"/>
+<line x1="35.71" y1="13.37" x2="38.55" y2="8.91" stroke-width="1.5"/>
+<line x1="39.27" y1="14.45" x2="42.93" y2="10.63" stroke-width="1.5"/>
+<line x1="42.56" y1="16.2" x2="46.89" y2="13.17" stroke-width="1.5"/>
+<line x1="45.44" y1="18.56" x2="50.27" y2="16.44" stroke-width="1.5"/>
+<line x1="47.8" y1="21.44" x2="52.96" y2="20.3" stroke-width="1.5"/>
+<line x1="49.55" y1="24.73" x2="54.84" y2="24.62" stroke-width="1.5"/>
+<line x1="50.63" y1="28.29" x2="55.84" y2="29.21" stroke-width="1.5"/>
+<path d="M29 9 l5 6 M31 9 l-3 6 M49 19 l-1 7 M52 21 l-6 2 M49 43 l-7 1 M47 47 l-2 -6 M29 49 l5 6 M31 55 l3 -6 M13 40 l7 2 M15 45 l3 -6 M14 20 l6 1 M17 17 l1 7" fill="none" stroke-width="1.5"/>
+  </g>
+</svg>
+
+<text x="362.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Chakram</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="454" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_cannon-title icon_cannon-desc">
+  <title id="icon_cannon-title">Broadside Cannon</title>
+  <desc id="icon_cannon-desc">Cast broadside gun on a wheeled oak carriage, with reinforced barrel rings, breech knob, trunnion and touch hole.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M13 37 L49 32 L55 44 H12 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M17 40 H49 M20 39 l4 4 M28 38 l6 5 M36 37 l6 6" fill="none" stroke-width="1.5"/>
+<path d="M15 27 Q13 23 18 22 L49 15 L53 25 L22 33 Q18 34 15 30 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M47 15 L51 14 L55 25 L51 27 Z" fill="#D5C4A1"/>
+<path d="M24 21 L27 31 M34 18 L37 28" fill="none" stroke-width="2.5"/>
+<circle cx="14" cy="28" r="3" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="31" cy="29" r="3" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="21" cy="46" r="7" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="46" cy="46" r="7" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="21" cy="46" r="2" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="46" cy="46" r="2" fill="#C59B27" stroke-width="1.5"/>
+<path d="M21 39 V43 M21 49 V53 M14 46 H18 M24 46 H28 M46 39 V43 M46 49 V53 M39 46 H43 M49 46 H53 M18 25 L22 24 M39 20 l6 -1 M41 23 l6 -1 M9 56 H57" fill="none" stroke-width="1.5"/>
+  </g>
+</svg>
+
+<text x="502.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Broadside Cannon</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="594" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_torpedo_launcher-title icon_torpedo_launcher-desc">
+  <title id="icon_torpedo_launcher-title">Torpedo Launcher</title>
+  <desc id="icon_torpedo_launcher-desc">Riveted twin launch tubes in an oak deck cradle, with a pointed brass torpedo, tail fins and handwheel.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M11 39 H49 L55 49 H7 Z" fill="#D5C4A1"/>
+<path d="M12 29 L43 18 L51 25 L20 37 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M15 37 L46 26 L54 33 L23 45 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M43 18 L51 25 L54 20 L52 14 Z" fill="#C59B27"/>
+<path d="M46 26 L54 33 L57 28 L56 21 Z" fill="#D5C4A1"/>
+<path d="M7 20 L33 11 L43 13 L37 20 L12 28 Z" fill="#C59B27"/>
+<path d="M7 20 L6 14 L16 19 M12 28 L7 32 L9 23" fill="#F4ECD8"/>
+<path d="M29 13 l3 9 M24 22 l7 -2 M22 28 l2 7 M32 25 l2 7 M25 37 l3 6 M38 32 l3 6 M14 47 l6 -2 M29 47 l6 -2" fill="none" stroke-width="1.5"/>
+<circle cx="11" cy="40" r="5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="11" cy="40" r="1.5" fill="#C59B27" stroke-width="1.5"/>
+<path d="M11 35 V38 M11 42 V45 M6 40 H9 M13 40 H16" fill="none" stroke-width="1.5"/>
+<rect x="12" y="50" width="9" height="5" fill="#D5C4A1" stroke-width="1.5"/>
+<rect x="42" y="50" width="9" height="5" fill="#D5C4A1" stroke-width="1.5"/>
+  </g>
+</svg>
+
+<text x="642.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Torpedo Launcher</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="734" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_blade_launcher-title icon_blade_launcher-desc">
+  <title id="icon_blade_launcher-title">Blade Launcher</title>
+  <desc id="icon_blade_launcher-desc">Deck-mounted rotary blade launcher. An open circular saw sits in a braced wooden track driven by a brass crank.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 42 L46 33 L55 45 L17 54 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M11 40 L47 30 L51 35 L15 46 Z" fill="#F4ECD8"/>
+<path d="M13 47 L48 38 M21 44 L24 51 M39 39 L43 47" fill="none" stroke-width="2"/>
+<path d="M20 43 L25 30 L31 30 L37 39" fill="#D5C4A1"/>
+<path d="M39 7 L43 11 L50 10 L49 17 L55 21 L50 26 L52 33 L45 33 L41 39 L36 34 L29 36 L29 29 L23 25 L28 20 L26 13 L33 13 Z M45 23 A7 7 0 1 0 31 23 A7 7 0 1 0 45 23 Z" fill="#F4ECD8" stroke-width="2" fill-rule="evenodd"/>
+<path d="M36 12 l3 3 M46 15 l-3 3 M49 24 l-4 1 M44 31 l-3 -3 M34 32 l1 -4 M28 23 l4 1 M31 15 l3 3" fill="none" stroke-width="1.5"/>
+<circle cx="21" cy="38" r="5" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="21" cy="38" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<path d="M21 38 L13 34 L11 28" fill="none" stroke-width="2.5"/>
+<circle cx="11" cy="27" r="2" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M20 49 l7 -2 M29 46 l7 -2 M8 57 H54" fill="none" stroke-width="1.5"/>
+  </g>
+</svg>
+
+<text x="782.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Blade Launcher</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="874" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_lightning_railgun-title icon_lightning_railgun-desc">
+  <title id="icon_lightning_railgun-title">Lightning Railgun</title>
+  <desc id="icon_lightning_railgun-desc">Nautical brass and iron railgun with paired rails, induction coils, Leyden jar and a crimson lightning discharge.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 43 L46 35 L53 48 H12 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M16 35 L47 20 L51 25 L20 40 Z" fill="#F4ECD8"/>
+<path d="M13 26 L44 11 L48 16 L17 31 Z" fill="#F4ECD8"/>
+<path d="M13 26 L17 31 L20 40 L16 35 Z" fill="#D5C4A1"/>
+<path d="M44 11 L48 16 M47 20 L51 25" fill="none" stroke-width="3"/>
+<path d="M21 22 l4 3 l2 8 l-4 2 l-3 -10 Z" fill="#C59B27" stroke-width="1.5"/>
+<path d="M29 18 l4 3 l2 8 l-4 2 l-3 -10 Z" fill="#C59B27" stroke-width="1.5"/>
+<path d="M37 14 l4 3 l2 8 l-4 2 l-3 -10 Z" fill="#C59B27" stroke-width="1.5"/>
+<path d="M8 27 V16 H15 V27 Q12 31 8 27 Z" fill="#F4ECD8"/>
+<rect x="7" y="13" width="9" height="4" fill="#C59B27" stroke-width="1.5"/>
+<path d="M12 13 V8 M12 29 Q6 39 17 43" fill="none" stroke-width="2"/>
+<circle cx="12" cy="7" r="2" fill="#C59B27" stroke-width="1.5"/>
+<path d="M52 9 L58 5 L55 14 L61 12 L54 23" fill="none" stroke-width="2" stroke="#8C2D19"/>
+<path d="M21 44 l4 3 M29 42 l5 5 M37 40 l7 7 M20 49 V55 M44 49 V55 M16 55 H25 M40 55 H49" fill="none" stroke-width="1.5"/>
+  </g>
+</svg>
+
+<text x="922.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Lightning Railgun</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="1014" y="616" width="96" height="96" viewBox="0 0 64 64" role="img" aria-labelledby="icon_flamethrower-title icon_flamethrower-desc">
+  <title id="icon_flamethrower-title">Flamethrower</title>
+  <desc id="icon_flamethrower-desc">A copper pressure reservoir feeds an iron fire projector through a curved hose. A wick flame and brass valve distinguish the deck weapon.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 34 Q8 29 14 29 H22 Q28 29 28 34 V48 Q28 53 22 53 H14 Q8 53 8 48 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<rect x="7" y="35" width="22" height="5" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="13" y="24" width="10" height="5" fill="#C59B27" stroke-width="1.5"/>
+<path d="M18 24 V20 M14 21 H22" fill="none" stroke-width="2"/>
+<path d="M25 46 C40 55 42 35 32 33" fill="none" stroke-width="3"/>
+<path d="M29 30 L44 20 L48 27 L34 37 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M42 20 L47 17 L52 26 L47 29 Z" fill="#C59B27"/>
+<path d="M37 35 L43 44 H51 L54 51 H33 L29 44 Z" fill="#D5C4A1"/>
+<path d="M51 22 Q50 14 55 12 Q53 16 58 16 Q61 13 59 8 Q65 19 58 24 Z" fill="#8C2D19"/>
+<path d="M54 21 Q54 18 57 17 M12 43 l5 7 M18 42 l6 7 M12 49 l6 -6 M34 30 l7 -4 M38 33 l6 -4 M39 45 l4 4 M47 45 l4 4 M7 57 H54" fill="none" stroke-width="1.5"/>
+<circle cx="33" cy="32" r="2.5" fill="#C59B27" stroke-width="1.5"/>
+  </g>
+</svg>
+
+<text x="1062.0" y="735" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#1B1612">Flamethrower</text>
+</svg>

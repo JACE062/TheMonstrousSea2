@@ -1,0 +1,21 @@
+{
+  "title": "Unstable tincture — murky colors",
+  "date": "2026-10-12",
+  "mode": "built-in ImageGen precise-object-edit",
+  "status": "Integrated",
+  "assets": [
+    {
+      "slug": "icon_unstable_tincture",
+      "title": "Unstable Tincture",
+      "kind": "icon",
+      "target": "icon_unstable_tincture_map_v3.png",
+      "filename": "icon_unstable_tincture_map_v4.png",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map_v3.png",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-378c11c2-2503-4f0c-80ca-9b8b83a9f92e.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png",
+      "prompt": "Use case: precise-object-edit. Input image 1 is the exact target: the existing transparent corked apothecary vial icon. Edit ONLY the cloudy liquid inside the bottle, centred on the user annotation at 52.4% width, 64.6% height. Preserve the bottle silhouette, cork, brass neck band, cream glass contours, empty upper glass, framing, ink line style and alpha transparency.\nMake the liquid a MURKY, unstable, roiling MIX OF MANY MUTED COLORS instead of predominantly fiery red and gold. Intermingle smoky slate blue (#596465), mossy olive (#737850), dusty plum (#796475), subdued rust (#985C49), dirty ochre (#A58A54), and smoky taupe (#6B6258) within one cloudy turbulent brew. Balance these tones so no red/orange/fire palette or green/poison palette dominates. Use a few broad irregular rolling eddies and cloudy overlapping currents with rounded contours, not neat rainbow stripes, separate colored layers, camouflage spots or a mosaic. The colors are muddy, opaque and antique hand-tinted, not bright saturated rainbow. Reduce the clean ivory glints to small muted cloudy cream wisps that are part of the mixture. Let its restless mingling imply unpredictable alchemical power and leave all status effects open-ended. ZERO explicit flames, lightning, venom drops, poison/element symbols, labels, glyphs or text.\nMatch the approved SIMPLE parchment-map style: bold slightly uneven iron-gall #1B1612 outlines and large flat color forms, very sparse interior curves. No photorealism, fine texture, dense engraving, 3D, glow, dramatic lighting, glossy highlights or complex detail. Only the inside liquid has the new muted colors; the cork/glass/brass palette stays unchanged. Keep the full icon with clear margins on the same square TRUE-alpha-transparent canvas. No paper or checkerboard baked in.",
+      "change": "A murky roiling mix of muted slate, olive, plum, rust, ochre and taupe suggests unpredictable effects without favoring a specific element.",
+      "targetPath": "docs/art/archive/png/icon_unstable_tincture_map_v3.png"
+    }
+  ]
+}

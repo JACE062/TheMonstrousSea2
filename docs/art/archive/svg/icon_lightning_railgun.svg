@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Lightning Railgun</title>
+  <desc id="desc">Nautical brass and iron railgun with paired rails, induction coils, Leyden jar and a crimson lightning discharge.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 43 L46 35 L53 48 H12 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M16 35 L47 20 L51 25 L20 40 Z" fill="#F4ECD8"/>
+<path d="M13 26 L44 11 L48 16 L17 31 Z" fill="#F4ECD8"/>
+<path d="M13 26 L17 31 L20 40 L16 35 Z" fill="#D5C4A1"/>
+<path d="M44 11 L48 16 M47 20 L51 25" fill="none" stroke-width="3"/>
+<path d="M21 22 l4 3 l2 8 l-4 2 l-3 -10 Z" fill="#C59B27" stroke-width="1.5"/>
+<path d="M29 18 l4 3 l2 8 l-4 2 l-3 -10 Z" fill="#C59B27" stroke-width="1.5"/>
+<path d="M37 14 l4 3 l2 8 l-4 2 l-3 -10 Z" fill="#C59B27" stroke-width="1.5"/>
+<path d="M8 27 V16 H15 V27 Q12 31 8 27 Z" fill="#F4ECD8"/>
+<rect x="7" y="13" width="9" height="4" fill="#C59B27" stroke-width="1.5"/>
+<path d="M12 13 V8 M12 29 Q6 39 17 43" fill="none" stroke-width="2"/>
+<circle cx="12" cy="7" r="2" fill="#C59B27" stroke-width="1.5"/>
+<path d="M52 9 L58 5 L55 14 L61 12 L54 23" fill="none" stroke-width="2" stroke="#8C2D19"/>
+<path d="M21 44 l4 3 M29 42 l5 5 M37 40 l7 7 M20 49 V55 M44 49 V55 M16 55 H25 M40 55 H49" fill="none" stroke-width="1.5"/>
+  </g>
+</svg>

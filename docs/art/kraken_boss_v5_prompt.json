@@ -1,0 +1,23 @@
+{
+  "mode": "built-in image_gen edits",
+  "revision": 5,
+  "source": "docs/art/archive/png/monster_kraken_boss_v4.png",
+  "output": "apps/monstrous_sea/assets/art/monster_kraken_boss_v5.png",
+  "removed_curls": [
+    {
+      "x_percent": 42,
+      "y_percent": 75.6,
+      "description": "Disconnected lower-left curl"
+    },
+    {
+      "x_percent": 80.9,
+      "y_percent": 49.2,
+      "description": "Small curl tucked behind the neck on the right"
+    }
+  ],
+  "prompts": [
+    "Use case: precise-object-edit.\nImage 1 is the EDIT TARGET. Perform ONLY TWO small erasures on this exact transparent Kraken sprite. Keep the same canvas, scale, positioning, left-facing pose, jagged mantle, eye shapes, all connected main arms, outlines, cream/tan palette and sparse line details.\n\nDELETE these two complete small curls, including their cream fill and ink outlines:\n1. The isolated C-shaped curl centered at x=42%, y=75.6% of the image. It floats in the lower-left gap just LEFT of the large central downward-curving foreground tentacle, immediately above the wave marks. Approximate region x=35–49%, y=68–83%. Remove the entire disconnected curl, leaving genuinely transparent negative space. Do not erase the adjacent large central tentacle.\n2. The small tucked C-shaped curl centered at x=80.9%, y=49.2%. It sits behind the head/neck on the RIGHT, just LEFT of the large rightmost upper arm. Approximate region x=72–86%, y=45–55%. Remove that whole small curl and leave clean transparent negative space between the mantle/neck and the connected right-side arm. Do not remove the large rightmost arm or its hook tip.\n\nDo not replace either curl with another appendage, connector, shadow, color patch, ink stroke or wave. Reconstruct a smooth surrounding outline only if the second curl touches an existing main contour. Everything outside these two local erasures should stay as close to pixel-identical as possible. Do not redesign, add detail, rotate, rescale, crop or change facial anatomy. Preserve genuine alpha transparency; no background or checkerboard.",
+    "Use case: precise-object-edit.\nImage 1 is the EDIT TARGET: the cleaned Kraken with both unwanted curls successfully removed.\nImage 2 is a SUPPORTING REFERENCE for the wave marks ONLY: the previous version.\n\nKeep the entire creature in Image 1 pixel-identical, including the clean transparent gaps at (42%,75.6%) and (80.9%,49.2%). Do NOT restore either deleted curl or add any arm. Keep the original canvas size, scale, left-facing pose, jagged mantle, crimson eyes, outlines, fills and genuine alpha transparency.\n\nThe ONLY change is to restore the few thin dark-brown wavy waterline strokes UNDER the creature, matching the wave strokes along the bottom of Image 2. These are separate flat ink water marks underneath the lower tentacles, not cream-filled curls or anatomy. Use the same sparse low curves, line weight and bottom placement as Image 2. Add no other marks, no paper/background, no texture, no text. Do not redesign or redraw the creature."
+  ],
+  "invariants": "Preserve left-facing pose, jagged mantle, crimson eyes, major connected arms, simple ink/cream/tan style, alpha transparency and waterline marks."
+}

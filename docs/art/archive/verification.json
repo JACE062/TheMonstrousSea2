@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-12",
+  "activeFiles": 26,
+  "archivedFiles": 39,
+  "allSourceHashesMatch": true,
+  "htmlPagesChecked": 11,
+  "localLinksChecked": 314,
+  "flutterTests": 65,
+  "result": "Passed",
+  "bytesRemovedFromBundle": 18367359,
+  "bundledManifestArtFiles": 26,
+  "bundleVerification": "Flutter AssetManifest matched PilotArt.allAssets in the passing full test suite"
+}

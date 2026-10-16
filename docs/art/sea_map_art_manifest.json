@@ -1,0 +1,592 @@
+{
+  "title": "The Monstrous Sea — Simple Sea Map Collection",
+  "mode": "built-in ImageGen; transparent reference-based raster illustration",
+  "generatedOn": "2026-10-11",
+  "style": {
+    "ink": "#1B1612",
+    "vellum": "#F4ECD8",
+    "parchment": "#D5C4A1",
+    "crimson": "#8C2D19",
+    "brass": "#C59B27",
+    "direction": "Ships and weapons face right; enemies face left.",
+    "background": "True alpha transparency. Parchment belongs to the game UI.",
+    "detail": "Broad contours, large cream/tan forms, sparse marks; Kraken retains its approved boss silhouette."
+  },
+  "assets": [
+    {
+      "slug": "ship_freighter",
+      "title": "Heavy Freighter — restored",
+      "kind": "ship",
+      "filename": "ship_freighter_pilot_v2.png",
+      "promptRecord": "raster_pilot_prompts_v2.json",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "status": "User-requested change integrated 2026-10-12",
+      "target": "ship_freighter_map_v3.png",
+      "mode": "Restore existing approved file",
+      "change": "Restore the freighter used before the stockier cargo-hull revision, exactly as requested.",
+      "history": [
+        {
+          "slug": "ship_freighter",
+          "title": "Heavy Freighter",
+          "kind": "ship",
+          "filename": "ship_freighter_pilot_v2.png",
+          "promptRecord": "raster_pilot_prompts_v2.json",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+          "status": "Previously approved"
+        },
+        {
+          "slug": "ship_freighter",
+          "title": "Heavy Freighter",
+          "kind": "ship",
+          "target": "ship_freighter_pilot_v2.png",
+          "filename": "ship_freighter_map_v3.png",
+          "change": "Give the freighter a visibly STOCKY CARGO hull: shorten the hull horizontally and deepen its broad rounded belly substantially, hull width about 2.4 times hull depth, high blunt rounded bow on RIGHT, squat raised stern on LEFT. Broad almost level deck, bulbous bottom, heavy tan planking in only three large bands; two large cargo hatch covers attached on deck and no rows of gunports. It must read as a burdened cargo vessel with deep hold, not a slender schooner with an extra plank. Keep three deck-rooted square-rigged masts, six simple cream square sails, red pennant, short right bowsprit and three sparse waterline strokes. Compress the spacing and reduce the rig’s height a little to reinforce the squat mass. Every mast connects visibly to the deck; sail yards connect to masts. No floating sails, detached rigging, or modern containers.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/ship_freighter_map_v3.png",
+          "prompt": "Use case: precise-object-edit. Asset: transparent game sea-map illustration. Input image 1 is the EDIT TARGET; preserve its approved style and only revise the specified design.\nUser-requested revision: Give the freighter a visibly STOCKY CARGO hull: shorten the hull horizontally and deepen its broad rounded belly substantially, hull width about 2.4 times hull depth, high blunt rounded bow on RIGHT, squat raised stern on LEFT. Broad almost level deck, bulbous bottom, heavy tan planking in only three large bands; two large cargo hatch covers attached on deck and no rows of gunports. It must read as a burdened cargo vessel with deep hold, not a slender schooner with an extra plank. Keep three deck-rooted square-rigged masts, six simple cream square sails, red pennant, short right bowsprit and three sparse waterline strokes. Compress the spacing and reduce the rig’s height a little to reinforce the squat mass. Every mast connects visibly to the deck; sail yards connect to masts. No floating sails, detached rigging, or modern containers.\nStyle invariants: match the input’s approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 large plain forms, sparse interior marks, tiny brass #C59B27 / crimson #8C2D19 accents where requested. No added fine texture, dense hatching, photorealism, 3D, gradients, glow, glossy highlights, text, borders, or scenery. Preserve TRUE alpha transparency (no paper or checkerboard baked in), square canvas, entire subject with at least 8% clear margin on all sides. Clean silhouette and connected parts readable at game size.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-fe015023-6b00-421b-8287-a3606caa85e2.png",
+          "status": "User-requested revision integrated",
+          "assetPath": "docs/art/archive/png/ship_freighter_map_v3.png",
+          "archived": true
+        }
+      ],
+      "targetPath": "docs/art/archive/png/ship_freighter_map_v3.png"
+    },
+    {
+      "slug": "monster_squid",
+      "title": "Rounded Squid",
+      "kind": "monster",
+      "target": "monster_squid_map_v4.png",
+      "filename": "monster_squid_map_v5.png",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_map_v4.png",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-c7b419ec-3fd7-43fd-9ffc-826cc36ebae7.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/monster_squid_map_v5.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is the EXACT edit target. Make ONLY these two localized annotation edits to the existing transparent creature illustration, with every other pixel/shape as unchanged as possible.\n1. At (59.3% of image width, 75.1% of image height): remove the ENTIRE row of four oval suckers on the BOTTOM-CENTRE arm that hangs downward and curls to the right at its tip. This is the arm whose cup row runs roughly from x=53% to 65%, y=70% to 80%. Restore that arm’s smooth tan fill where those cups were; preserve its outlines and curled tip.\n2. At (35.2% width, 72.1% height): add THREE small oval suckers INSIDE the TAN UNDERSIDE ribbon of the broad LOWER-LEFT arm, the arm whose end curls upward on the far lower-left and whose long sweep curves up to the body. Place the three cups following the diagonal tan ribbon near this point (roughly x=28% to 39%, y=76% to 69%). Keep every cup fully contained in tan, with visible tan margin, and do not place any on the broad cream upper face. No need to broaden or move the arm.\nCRITICAL INVARIANTS: Preserve the three existing suckers on the far-LEFT mid-height arm and the four existing suckers on the LOWER-RIGHT sweeping arm exactly. Do not relocate those. Preserve mantle, face, eyes, left-facing pose, every arm silhouette, arm roots, hatching, waterline strokes, iron-gall outlines, cream/tan palette and simple old-sea-map style. Do not add any other cups, new limbs or disconnected shapes. This is a surgical sucker-placement correction, NOT a creature redesign. Preserve square composition and TRUE transparent alpha background, with no parchment, checkerboard, labels, annotation marks or text.",
+      "change": "Remove bottom-centre sucker row at (59.3%, 75.1%); add three suckers on the lower-left tan underside at (35.2%, 72.1%).",
+      "status": "User-annotated correction integrated",
+      "history": [
+        {
+          "slug": "monster_squid",
+          "title": "Squid",
+          "kind": "monster",
+          "filename": "monster_squid_pilot_v2.png",
+          "promptRecord": "squid_kraken_prompts.json",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_pilot_v2.png",
+          "status": "Previously approved",
+          "assetPath": "docs/art/archive/png/monster_squid_pilot_v2.png",
+          "archived": true
+        },
+        {
+          "slug": "monster_squid",
+          "title": "Squid — corrected original",
+          "kind": "monster",
+          "target": "monster_squid_pilot_v2.png",
+          "filename": "monster_squid_map_v3.png",
+          "change": "Only remove ALL small oval sucker/cup markings from ALL arms. Replace their areas with the existing plain cream/tan fill. There must be ZERO sucker circles or dots on either side of any tentacle. Preserve the exact approved rounded mantle, face/eyes, left-facing three-quarter attack pose, arm silhouette, curled arm tips, connected anatomy, tan undersides, sparse contour/hatch marks, and three waterline strokes. Do not redesign the head or add arms; this is a focused cleanup of sucker marks only.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_pilot_v2.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_map_v3.png",
+          "prompt": "Use case: precise-object-edit. Asset: transparent game sea-map illustration. Input image 1 is the EDIT TARGET; preserve its approved style and only revise the specified design.\nUser-requested revision: Only remove ALL small oval sucker/cup markings from ALL arms. Replace their areas with the existing plain cream/tan fill. There must be ZERO sucker circles or dots on either side of any tentacle. Preserve the exact approved rounded mantle, face/eyes, left-facing three-quarter attack pose, arm silhouette, curled arm tips, connected anatomy, tan undersides, sparse contour/hatch marks, and three waterline strokes. Do not redesign the head or add arms; this is a focused cleanup of sucker marks only.\nStyle invariants: match the input’s approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 large plain forms, sparse interior marks, tiny brass #C59B27 / crimson #8C2D19 accents where requested. No added fine texture, dense hatching, photorealism, 3D, gradients, glow, glossy highlights, text, borders, or scenery. Preserve TRUE alpha transparency (no paper or checkerboard baked in), square canvas, entire subject with at least 8% clear margin on all sides. Clean silhouette and connected parts readable at game size.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-4861e793-50dc-4d2c-bdbe-5d82abfdd928.png",
+          "status": "User-requested revision integrated",
+          "assetPath": "docs/art/archive/png/monster_squid_map_v3.png",
+          "archived": true,
+          "targetPath": "docs/art/archive/png/monster_squid_pilot_v2.png"
+        },
+        {
+          "slug": "monster_squid",
+          "title": "Rounded Squid",
+          "kind": "monster",
+          "target": "monster_squid_map_v3.png",
+          "filename": "monster_squid_map_v4.png",
+          "change": "Preserve the approved rounded octopus-like cartographic creature EXACTLY: mantle, eyes, face, left-facing pose, connected arm silhouettes, curled arm tips, sparse hatch marks and waterline strokes. Restore readable suckers, but they live ONLY on visible TAN UNDERSIDE surfaces of arms. On THREE foreground arms (the arm reaching far LEFT below the face, the bottom-centre curl, and the lower-RIGHT sweeping arm), broaden the existing tan underside strips slightly where needed into clear narrow underside ribbons. Add one sparse row of THREE or FOUR small cream oval suction cups inside each of those tan ribbons, following its curvature. Every suction cup is fully surrounded by tan shading with a visible tan margin; no cup crosses the cream/tan boundary and no cup touches an arm edge. The broad pale cream TOPS / BACKS of ALL arms remain completely plain except existing contour/hatch marks: ZERO sucker circles or dots on cream top surfaces, the head, or mantle. If an arm does not expose enough tan underside, do not put any sucker on that arm. Never scatter suckers everywhere. Keep distinct cream dorsal surfaces and tan ventral surfaces separated by the existing ink contour so the anatomical placement is unmistakable. No detached cups, floating curls, new arms, head changes or radial redesign.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_map_v3.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_map_v4.png",
+          "prompt": "Use case: precise-object-edit. Input image 1 is the edit target for a transparent game illustration.\nRequested change: Preserve the approved rounded octopus-like cartographic creature EXACTLY: mantle, eyes, face, left-facing pose, connected arm silhouettes, curled arm tips, sparse hatch marks and waterline strokes. Restore readable suckers, but they live ONLY on visible TAN UNDERSIDE surfaces of arms. On THREE foreground arms (the arm reaching far LEFT below the face, the bottom-centre curl, and the lower-RIGHT sweeping arm), broaden the existing tan underside strips slightly where needed into clear narrow underside ribbons. Add one sparse row of THREE or FOUR small cream oval suction cups inside each of those tan ribbons, following its curvature. Every suction cup is fully surrounded by tan shading with a visible tan margin; no cup crosses the cream/tan boundary and no cup touches an arm edge. The broad pale cream TOPS / BACKS of ALL arms remain completely plain except existing contour/hatch marks: ZERO sucker circles or dots on cream top surfaces, the head, or mantle. If an arm does not expose enough tan underside, do not put any sucker on that arm. Never scatter suckers everywhere. Keep distinct cream dorsal surfaces and tan ventral surfaces separated by the existing ink contour so the anatomical placement is unmistakable. No detached cups, floating curls, new arms, head changes or radial redesign.\nKeep the approved SIMPLE antique sea-map style: bold slightly uneven iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 shapes, sparse interior marks, flat color, no added realism, 3D, glow, dense engraving, grain, texture, glossy lighting or text. Preserve square canvas, true alpha transparency, whole subject and clear margins. No paper/background rectangle. This is an edit, not a redesign of the surrounding subject.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-23cdbe9c-6b7e-4b87-872f-dbfc4e591e85.png",
+          "status": "User-requested change integrated 2026-10-12",
+          "assetPath": "docs/art/archive/png/monster_squid_map_v4.png",
+          "archived": true,
+          "targetPath": "docs/art/archive/png/monster_squid_map_v3.png"
+        }
+      ],
+      "targetPath": "docs/art/archive/png/monster_squid_map_v4.png"
+    },
+    {
+      "slug": "monster_kraken",
+      "title": "Kraken",
+      "kind": "monster",
+      "filename": "monster_kraken_boss_v5.png",
+      "promptRecord": "kraken_boss_v5_prompt.json",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/monster_kraken_boss_v5.png",
+      "status": "Previously approved"
+    },
+    {
+      "slug": "ship_standard",
+      "title": "Standard Sloop",
+      "kind": "ship",
+      "subject": "A balanced two-masted merchant schooner, broadside facing RIGHT. Exactly TWO masts planted directly in a closed medium-draft wooden hull, two simple gaff sails and one triangular bow jib, attached spars and a few taut diagonal rigging ropes. Short connected bowsprit at right; modest raised stern at left. Three plain hull plank bands, three stern windows, one curved fold line per sail, tiny faded crimson pennant. Less bulky and fewer sails than the reference freighter.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "ship_standard_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A balanced two-masted merchant schooner, broadside facing RIGHT. Exactly TWO masts planted directly in a closed medium-draft wooden hull, two simple gaff sails and one triangular bow jib, attached spars and a few taut diagonal rigging ropes. Short connected bowsprit at right; modest raised stern at left. Three plain hull plank bands, three stern windows, one curved fold line per sail, tiny faded crimson pennant. Less bulky and fewer sails than the reference freighter.\nComposition: player ship faces RIGHT toward enemy; large readable side profile, all masts rooted on the closed hull, sails on their yards. Only three simple short attached waterline curves beneath the keel.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-67986241-b5c1-454d-bde9-21adb392c50f.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_standard_map.png"
+    },
+    {
+      "slug": "ship_ironclad",
+      "title": "Ironclad",
+      "kind": "ship",
+      "target": "ship_ironclad_map.png",
+      "filename": "ship_ironclad_map_v2.png",
+      "change": "Remove the pointed RAM completely. Rebuild the RIGHT end as an ordinary modestly rounded upright ship bow continuous with the closed armor hull, with no spike, blade, ram, or projecting underwater weapon. Keep the low tan armored hull, large plate seams, few brass rivets, dark underside and reinforced two-window pilothouse on LEFT. The one deck-rooted mast now carries a LARGE functional cream SQUARE SAIL attached directly to its horizontal yard, with one fold mark and simple ropes returning to deck. Mast, yard, sail and deck must connect naturally; sail sits above pilot house and hull without hiding the entire mast root. Red pennant may remain at mast top. No chimney, engine, smoke, steam equipment, or bare ornamental mast. Face RIGHT. Preserve sparse waterline strokes.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/ship_ironclad_map.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_ironclad_map_v2.png",
+      "prompt": "Use case: precise-object-edit. Asset: transparent game sea-map illustration. Input image 1 is the EDIT TARGET; preserve its approved style and only revise the specified design.\nUser-requested revision: Remove the pointed RAM completely. Rebuild the RIGHT end as an ordinary modestly rounded upright ship bow continuous with the closed armor hull, with no spike, blade, ram, or projecting underwater weapon. Keep the low tan armored hull, large plate seams, few brass rivets, dark underside and reinforced two-window pilothouse on LEFT. The one deck-rooted mast now carries a LARGE functional cream SQUARE SAIL attached directly to its horizontal yard, with one fold mark and simple ropes returning to deck. Mast, yard, sail and deck must connect naturally; sail sits above pilot house and hull without hiding the entire mast root. Red pennant may remain at mast top. No chimney, engine, smoke, steam equipment, or bare ornamental mast. Face RIGHT. Preserve sparse waterline strokes.\nStyle invariants: match the input’s approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 large plain forms, sparse interior marks, tiny brass #C59B27 / crimson #8C2D19 accents where requested. No added fine texture, dense hatching, photorealism, 3D, gradients, glow, glossy highlights, text, borders, or scenery. Preserve TRUE alpha transparency (no paper or checkerboard baked in), square canvas, entire subject with at least 8% clear margin on all sides. Clean silhouette and connected parts readable at game size.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-0387d929-bb63-458c-9124-ad554eff5a94.png",
+      "status": "User-requested revision integrated",
+      "history": [
+        {
+          "slug": "ship_ironclad",
+          "title": "Ironclad Ram",
+          "kind": "ship",
+          "subject": "A low-slung armored ironclad ram ship in broadside facing RIGHT. Wide low closed iron-plated hull, six large simple rivets, two plate seams, pointed submerged ram prow at right, small reinforced pilot house at left-middle with two black windows. Exactly ONE sturdy bare armored mast physically rooted in the deck, one short crossbar, tiny crimson pennant; no canvas sails. A short broad dark underside band and plain tan plates. Prow and mast are attached to the hull, nothing floats. Strong heavy mechanical silhouette with very few marks.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+          "filename": "ship_ironclad_map.png",
+          "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A low-slung armored ironclad ram ship in broadside facing RIGHT. Wide low closed iron-plated hull, six large simple rivets, two plate seams, pointed submerged ram prow at right, small reinforced pilot house at left-middle with two black windows. Exactly ONE sturdy bare armored mast physically rooted in the deck, one short crossbar, tiny crimson pennant; no canvas sails. A short broad dark underside band and plain tan plates. Prow and mast are attached to the hull, nothing floats. Strong heavy mechanical silhouette with very few marks.\nComposition: player ship faces RIGHT toward enemy; large readable side profile, all masts rooted on the closed hull, sails on their yards. Only three simple short attached waterline curves beneath the keel.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-3dcd9d7f-b9b1-4c3e-93ad-6d3c90b7a4ed.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/ship_ironclad_map.png",
+          "assetPath": "docs/art/archive/png/ship_ironclad_map.png",
+          "archived": true
+        }
+      ],
+      "targetPath": "docs/art/archive/png/ship_ironclad_map.png"
+    },
+    {
+      "slug": "ship_corvette",
+      "title": "Swift Corvette",
+      "kind": "ship",
+      "subject": "A swift sleek wooden corvette in broadside facing RIGHT. Long narrow closed raked clipper hull, low stern at left, sharply extended bow and attached bowsprit at right. Exactly TWO lightly raked masts firmly rooted in the deck, two large clean triangular lateen sails visibly attached to diagonal yards and booms, a few simple diagonal rigging lines. Three long hull plank lines, two small portholes, one fold stroke per sail. Tiny faded crimson pennant. Fast elongated silhouette, visibly different from the wide square-sailed freighter.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "ship_corvette_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A swift sleek wooden corvette in broadside facing RIGHT. Long narrow closed raked clipper hull, low stern at left, sharply extended bow and attached bowsprit at right. Exactly TWO lightly raked masts firmly rooted in the deck, two large clean triangular lateen sails visibly attached to diagonal yards and booms, a few simple diagonal rigging lines. Three long hull plank lines, two small portholes, one fold stroke per sail. Tiny faded crimson pennant. Fast elongated silhouette, visibly different from the wide square-sailed freighter.\nComposition: player ship faces RIGHT toward enemy; large readable side profile, all masts rooted on the closed hull, sails on their yards. Only three simple short attached waterline curves beneath the keel.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-77bab75e-8f1d-4030-8566-c89b48a0ab5d.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_corvette_map.png"
+    },
+    {
+      "slug": "ship_flying_dutchman",
+      "title": "Flying Dutchman",
+      "kind": "ship",
+      "subject": "A haunted Flying Dutchman galleon in broadside facing RIGHT. Exactly THREE deck-rooted masts, six plain square sails with large obvious ragged tears and missing cloth notches; all remaining sails still attach to their yards. A closed jagged deep hull, high sterncastle at left, connected bowsprit at right. Four simple exposed curved hull ribs and three large barnacle circles attached to the lower hull; a broken but connected stern gallery. Cream fills and muted tan shadows, a small faded tan pennant. An eerie battered sea-map silhouette without glow, fog or realistic decay. Keep the three masts and rigging physically connected.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "ship_flying_dutchman_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A haunted Flying Dutchman galleon in broadside facing RIGHT. Exactly THREE deck-rooted masts, six plain square sails with large obvious ragged tears and missing cloth notches; all remaining sails still attach to their yards. A closed jagged deep hull, high sterncastle at left, connected bowsprit at right. Four simple exposed curved hull ribs and three large barnacle circles attached to the lower hull; a broken but connected stern gallery. Cream fills and muted tan shadows, a small faded tan pennant. An eerie battered sea-map silhouette without glow, fog or realistic decay. Keep the three masts and rigging physically connected.\nComposition: player ship faces RIGHT toward enemy; large readable side profile, all masts rooted on the closed hull, sails on their yards. Only three simple short attached waterline curves beneath the keel.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-a5f0676a-47d3-4f6a-ad8b-132d786a72e1.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_flying_dutchman_map.png"
+    },
+    {
+      "slug": "monster_shark",
+      "title": "Shark",
+      "kind": "monster",
+      "subject": "A powerful but ordinary shark enemy, strict broadside profile facing LEFT. Pointed snout and partly open jaw at left, one small dark watchful eye, three gill strokes, one clean triangular dorsal fin on top, two physically connected pectoral fins below, muscular smooth cream body with one muted tan underside patch, clear forked tail at RIGHT. Two or three simple triangular teeth only, no gore. One long body contour stroke. Natural clean fish anatomy, no limbs, no detached fins. A leftward swimming attack pose; simpler and less imposing than the Kraken boss.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_pilot_v2.png",
+      "filename": "monster_shark_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A powerful but ordinary shark enemy, strict broadside profile facing LEFT. Pointed snout and partly open jaw at left, one small dark watchful eye, three gill strokes, one clean triangular dorsal fin on top, two physically connected pectoral fins below, muscular smooth cream body with one muted tan underside patch, clear forked tail at RIGHT. Two or three simple triangular teeth only, no gore. One long body contour stroke. Natural clean fish anatomy, no limbs, no detached fins. A leftward swimming attack pose; simpler and less imposing than the Kraken boss.\nComposition: ordinary enemy faces and moves LEFT toward the ship; use one or two small attached waterline curves below if appropriate, no boss-like facial ornament. Jellyfish needs no water marks.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-5f0df389-3e4f-4fa4-8ffc-7a1d65c88c0f.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/monster_shark_map.png"
+    },
+    {
+      "slug": "monster_serpent",
+      "title": "Sea Serpent",
+      "kind": "monster",
+      "subject": "A sea serpent ordinary enemy facing LEFT: one continuous thick S-curved cream snake body forming two open coils, clearly attached long neck and small narrow reptilian head at upper LEFT, tapered tail trailing down to the RIGHT. Small dark eye looking left, open mouth with two simple pointed fangs, one short tan dorsal crest attached to the upper neck. A single long belly contour line, five broad belly bands total, just three small groups of three short hatches; no repeated scales. Every coil is part of one connected body. No floating curls, horns, wings, limbs or human expression.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_pilot_v2.png",
+      "filename": "monster_serpent_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A sea serpent ordinary enemy facing LEFT: one continuous thick S-curved cream snake body forming two open coils, clearly attached long neck and small narrow reptilian head at upper LEFT, tapered tail trailing down to the RIGHT. Small dark eye looking left, open mouth with two simple pointed fangs, one short tan dorsal crest attached to the upper neck. A single long belly contour line, five broad belly bands total, just three small groups of three short hatches; no repeated scales. Every coil is part of one connected body. No floating curls, horns, wings, limbs or human expression.\nComposition: ordinary enemy faces and moves LEFT toward the ship; use one or two small attached waterline curves below if appropriate, no boss-like facial ornament. Jellyfish needs no water marks.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-efc66cd1-c021-4ea0-b53f-d43a128da891.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/monster_serpent_map.png"
+    },
+    {
+      "slug": "monster_jellyfish",
+      "title": "Jellyfish",
+      "kind": "monster",
+      "subject": "An ordinary stinging jellyfish enemy drifting and leaning toward LEFT. One plain domed bell with five broad scallops along its lower rim, cream fill and one flat tan rim band; two long curved bell contour lines. SIX long readable thin tentacles start visibly from the underside of the bell and sweep toward lower LEFT, each continuous with a simple taper or broad bend rather than tight spirals. Two thicker simple oral arms connect beneath the centre. No face or eyes, no disconnected curls, no dangling free strokes, no glowing transparency effects or intricate internal anatomy.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_pilot_v2.png",
+      "filename": "monster_jellyfish_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: An ordinary stinging jellyfish enemy drifting and leaning toward LEFT. One plain domed bell with five broad scallops along its lower rim, cream fill and one flat tan rim band; two long curved bell contour lines. SIX long readable thin tentacles start visibly from the underside of the bell and sweep toward lower LEFT, each continuous with a simple taper or broad bend rather than tight spirals. Two thicker simple oral arms connect beneath the centre. No face or eyes, no disconnected curls, no dangling free strokes, no glowing transparency effects or intricate internal anatomy.\nComposition: ordinary enemy faces and moves LEFT toward the ship; use one or two small attached waterline curves below if appropriate, no boss-like facial ornament. Jellyfish needs no water marks.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-66497cf0-8653-4ba8-bdde-edcf013c4e5e.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/monster_jellyfish_map.png"
+    },
+    {
+      "slug": "monster_crustacean",
+      "title": "Crustacean",
+      "kind": "monster",
+      "subject": "A crab-like armored crustacean ordinary enemy in clear LEFT-facing three-quarter attack pose, not frontal. A broad simple cream carapace on the right, one flat tan shell patch and three curved shell bands. Two strongly connected articulated claw arms project toward LEFT: a large foreground pincer open in a clear two-part hook, smaller far pincer higher behind. SIX simple jointed walking legs attach below the shell and brace underneath, with clean roots and distinct gaps. Two tiny dark eyes on short attached stalks, no eyebrows or cartoon smile. Use a few broad joints and three groups of hatch marks, no armor micro-detail. Both claw fingers connect to their own claw bodies.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_pilot_v2.png",
+      "filename": "monster_crustacean_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A crab-like armored crustacean ordinary enemy in clear LEFT-facing three-quarter attack pose, not frontal. A broad simple cream carapace on the right, one flat tan shell patch and three curved shell bands. Two strongly connected articulated claw arms project toward LEFT: a large foreground pincer open in a clear two-part hook, smaller far pincer higher behind. SIX simple jointed walking legs attach below the shell and brace underneath, with clean roots and distinct gaps. Two tiny dark eyes on short attached stalks, no eyebrows or cartoon smile. Use a few broad joints and three groups of hatch marks, no armor micro-detail. Both claw fingers connect to their own claw bodies.\nComposition: ordinary enemy faces and moves LEFT toward the ship; use one or two small attached waterline curves below if appropriate, no boss-like facial ornament. Jellyfish needs no water marks.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-b9e9c724-9c98-485a-8967-5e9c493bce64.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/monster_crustacean_map.png"
+    },
+    {
+      "slug": "icon_unstable_tincture",
+      "title": "Unstable Tincture",
+      "kind": "icon",
+      "target": "icon_unstable_tincture_map_v3.png",
+      "filename": "icon_unstable_tincture_map_v4.png",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map_v3.png",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-378c11c2-2503-4f0c-80ca-9b8b83a9f92e.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png",
+      "prompt": "Use case: precise-object-edit. Input image 1 is the exact target: the existing transparent corked apothecary vial icon. Edit ONLY the cloudy liquid inside the bottle, centred on the user annotation at 52.4% width, 64.6% height. Preserve the bottle silhouette, cork, brass neck band, cream glass contours, empty upper glass, framing, ink line style and alpha transparency.\nMake the liquid a MURKY, unstable, roiling MIX OF MANY MUTED COLORS instead of predominantly fiery red and gold. Intermingle smoky slate blue (#596465), mossy olive (#737850), dusty plum (#796475), subdued rust (#985C49), dirty ochre (#A58A54), and smoky taupe (#6B6258) within one cloudy turbulent brew. Balance these tones so no red/orange/fire palette or green/poison palette dominates. Use a few broad irregular rolling eddies and cloudy overlapping currents with rounded contours, not neat rainbow stripes, separate colored layers, camouflage spots or a mosaic. The colors are muddy, opaque and antique hand-tinted, not bright saturated rainbow. Reduce the clean ivory glints to small muted cloudy cream wisps that are part of the mixture. Let its restless mingling imply unpredictable alchemical power and leave all status effects open-ended. ZERO explicit flames, lightning, venom drops, poison/element symbols, labels, glyphs or text.\nMatch the approved SIMPLE parchment-map style: bold slightly uneven iron-gall #1B1612 outlines and large flat color forms, very sparse interior curves. No photorealism, fine texture, dense engraving, 3D, glow, dramatic lighting, glossy highlights or complex detail. Only the inside liquid has the new muted colors; the cork/glass/brass palette stays unchanged. Keep the full icon with clear margins on the same square TRUE-alpha-transparent canvas. No paper or checkerboard baked in.",
+      "change": "A murky roiling mix of muted slate, olive, plum, rust, ochre and taupe suggests unpredictable effects without favoring a specific element.",
+      "status": "User-requested murky colors integrated",
+      "history": [
+        {
+          "slug": "icon_unstable_tincture",
+          "title": "Unstable Tincture",
+          "kind": "icon",
+          "subject": "One antique corked glass apothecary vial. A short cream glass neck joins a bulbous cream bottle, broad dark ink outline, flat tan liquid fill in the bottom half, a small crimson venom droplet label, TWO plain bubbles, one short glass reflection stroke. Tan cork visibly seated in neck, simple brass-gold neck band. Large clear vial silhouette, no floating cork, no ornamental engraving.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+          "filename": "icon_unstable_tincture_map.png",
+          "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: One antique corked glass apothecary vial. A short cream glass neck joins a bulbous cream bottle, broad dark ink outline, flat tan liquid fill in the bottom half, a small crimson venom droplet label, TWO plain bubbles, one short glass reflection stroke. Tan cork visibly seated in neck, simple brass-gold neck band. Large clear vial silhouette, no floating cork, no ornamental engraving.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-be903bd8-510c-4943-94f6-b22cc7ab17ad.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map.png",
+          "assetPath": "docs/art/archive/png/icon_unstable_tincture_map.png",
+          "archived": true
+        },
+        {
+          "slug": "icon_unstable_tincture",
+          "title": "Unstable Tincture",
+          "kind": "icon",
+          "target": "icon_unstable_tincture_map.png",
+          "filename": "icon_unstable_tincture_map_v2.png",
+          "change": "Keep the round corked apothecary vial and brass neck band. Remove the hanging paper label, its string, and the venom droplet completely. Redesign the liquid visible in the lower rounded glass belly as a simple STORMY AND FIERY volatile mixture: warm brass/amber liquid, a broad crimson flame-shaped swirling tongue on the left, a cream zigzag lightning streak outlined in ink on the right, and one dark curling storm-cloud contour meeting the swirling liquid. Keep these shapes INSIDE the glass, only 2 or 3 big marks rather than many sparks. Readable fire plus lightning at 36–48 px. No poison, venom, drop emblem, skull, words, external lightning, photoreal fire, electric glow, or flame escaping the cork. One glass contour mark only.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map_v2.png",
+          "prompt": "Use case: precise-object-edit. Asset: transparent game equipment icon. Input image 1 is the EDIT TARGET; preserve its approved style and only revise the specified design.\nUser-requested revision: Keep the round corked apothecary vial and brass neck band. Remove the hanging paper label, its string, and the venom droplet completely. Redesign the liquid visible in the lower rounded glass belly as a simple STORMY AND FIERY volatile mixture: warm brass/amber liquid, a broad crimson flame-shaped swirling tongue on the left, a cream zigzag lightning streak outlined in ink on the right, and one dark curling storm-cloud contour meeting the swirling liquid. Keep these shapes INSIDE the glass, only 2 or 3 big marks rather than many sparks. Readable fire plus lightning at 36–48 px. No poison, venom, drop emblem, skull, words, external lightning, photoreal fire, electric glow, or flame escaping the cork. One glass contour mark only.\nStyle invariants: match the input’s approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 large plain forms, sparse interior marks, tiny brass #C59B27 / crimson #8C2D19 accents where requested. No added fine texture, dense hatching, photorealism, 3D, gradients, glow, glossy highlights, text, borders, or scenery. Preserve TRUE alpha transparency (no paper or checkerboard baked in), square canvas, entire subject with at least 8% clear margin on all sides. Clean silhouette and connected parts readable at game size.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-8634eebb-d4d5-40e8-9751-ae68a2fd9596.png",
+          "status": "User-requested revision integrated",
+          "assetPath": "docs/art/archive/png/icon_unstable_tincture_map_v2.png",
+          "archived": true,
+          "targetPath": "docs/art/archive/png/icon_unstable_tincture_map.png"
+        },
+        {
+          "slug": "icon_unstable_tincture",
+          "title": "Unstable Tincture",
+          "kind": "icon",
+          "target": "icon_unstable_tincture_map_v2.png",
+          "filename": "icon_unstable_tincture_map_v3.png",
+          "change": "Preserve the exact corked round vial, brass neck band, cream glass contour and overall silhouette. Replace ALL literal fire, lightning bolt, and storm-cloud symbols inside the bottle with ONE integrated CLOUDY, ROILING LIQUID mixture. Three or four broad rounded interlocking currents tumble around each other like agitated opaque brew: muted brass/amber with warm rust-crimson and smoky charcoal/tan veils. A couple of very small curved ivory slivers caught between the rolling currents suggest unstable electric energy; they must be abstract slivers, NOT lightning bolts or zigzag symbols. Warm red/amber currents evoke heat without any identifiable flame shape, flame tongues, pointy flame silhouettes or fire pictogram. Clouds are the cloudy texture of the liquid itself, NOT a separate cloud icon or a symbol hovering over the liquid. Keep the mixture subtle, organic, softly billowing in broad flat shapes, mature and simple enough to read at 36–48 px. No droplet, poison emblem, label, fire icon, lightning icon, spark stars, runes or words. No photoreal swirling smoke or gradients; only sparse woodcut-style outlines separating the roiling currents.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map_v2.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map_v3.png",
+          "prompt": "Use case: precise-object-edit. Input image 1 is the edit target for a transparent game illustration.\nRequested change: Preserve the exact corked round vial, brass neck band, cream glass contour and overall silhouette. Replace ALL literal fire, lightning bolt, and storm-cloud symbols inside the bottle with ONE integrated CLOUDY, ROILING LIQUID mixture. Three or four broad rounded interlocking currents tumble around each other like agitated opaque brew: muted brass/amber with warm rust-crimson and smoky charcoal/tan veils. A couple of very small curved ivory slivers caught between the rolling currents suggest unstable electric energy; they must be abstract slivers, NOT lightning bolts or zigzag symbols. Warm red/amber currents evoke heat without any identifiable flame shape, flame tongues, pointy flame silhouettes or fire pictogram. Clouds are the cloudy texture of the liquid itself, NOT a separate cloud icon or a symbol hovering over the liquid. Keep the mixture subtle, organic, softly billowing in broad flat shapes, mature and simple enough to read at 36–48 px. No droplet, poison emblem, label, fire icon, lightning icon, spark stars, runes or words. No photoreal swirling smoke or gradients; only sparse woodcut-style outlines separating the roiling currents.\nKeep the approved SIMPLE antique sea-map style: bold slightly uneven iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 shapes, sparse interior marks, flat color, no added realism, 3D, glow, dense engraving, grain, texture, glossy lighting or text. Preserve square canvas, true alpha transparency, whole subject and clear margins. No paper/background rectangle. This is an edit, not a redesign of the surrounding subject.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-85de79d9-d634-4e74-9a20-fd68037d4553.png",
+          "status": "User-requested change integrated 2026-10-12",
+          "assetPath": "docs/art/archive/png/icon_unstable_tincture_map_v3.png",
+          "archived": true,
+          "targetPath": "docs/art/archive/png/icon_unstable_tincture_map_v2.png"
+        }
+      ],
+      "targetPath": "docs/art/archive/png/icon_unstable_tincture_map_v3.png"
+    },
+    {
+      "slug": "icon_blast_pack",
+      "title": "Blast Pack",
+      "kind": "icon",
+      "subject": "One small rounded wooden gunpowder keg, flat tan fill, two broad cream iron hoops, three simple stave seams and one crossed binding cord. A short fuse visibly starts at the top bung and bends upward to one small crimson three-stroke spark. All bands and cord wrap the same coherent barrel. No loose explosive sticks, lettering, tiny rivets or extra decoration.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_blast_pack_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: One small rounded wooden gunpowder keg, flat tan fill, two broad cream iron hoops, three simple stave seams and one crossed binding cord. A short fuse visibly starts at the top bung and bends upward to one small crimson three-stroke spark. All bands and cord wrap the same coherent barrel. No loose explosive sticks, lettering, tiny rivets or extra decoration.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-35669f62-c972-4fb6-ad56-787a7ae0b4ec.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_blast_pack_map.png"
+    },
+    {
+      "slug": "icon_chakram",
+      "title": "Chakram",
+      "kind": "icon",
+      "subject": "One serrated circular throwing ring blade seen face-on, a broad cream ring with a large truly transparent open centre and EIGHT simple swept teeth firmly joined to the outside edge. Dark ink contour, one tan bevel patch and two groups of three short hatch strokes only. A single ring, no handle, no hub or spokes, no nested gears or excessive tiny teeth.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_chakram_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: One serrated circular throwing ring blade seen face-on, a broad cream ring with a large truly transparent open centre and EIGHT simple swept teeth firmly joined to the outside edge. Dark ink contour, one tan bevel patch and two groups of three short hatch strokes only. A single ring, no handle, no hub or spokes, no nested gears or excessive tiny teeth.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-ad8c9453-3405-44d3-a4b3-5729b4acbf29.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_chakram_map.png"
+    },
+    {
+      "slug": "icon_cannon",
+      "title": "Broadside Cannon",
+      "kind": "icon",
+      "subject": "One simple broadside cannon pointing RIGHT and slightly upward. Short thick cream iron barrel with two obvious reinforcing bands, dark open muzzle, small brass breech knob and trunnion, mounted directly on a tan wooden carriage with TWO solid round wheels and simple dark hubs. Two plank lines on the carriage and three short hatch marks. A readable stout gun silhouette, no smoke, scenery, intricate spokes or tiny mechanisms.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_cannon_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: One simple broadside cannon pointing RIGHT and slightly upward. Short thick cream iron barrel with two obvious reinforcing bands, dark open muzzle, small brass breech knob and trunnion, mounted directly on a tan wooden carriage with TWO solid round wheels and simple dark hubs. Two plank lines on the carriage and three short hatch marks. A readable stout gun silhouette, no smoke, scenery, intricate spokes or tiny mechanisms.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-b402e04c-09d0-40d9-b160-810a78e7c99b.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_cannon_map.png"
+    },
+    {
+      "slug": "icon_torpedo_launcher",
+      "title": "Torpedo Launcher",
+      "kind": "icon",
+      "target": "icon_torpedo_launcher_map.png",
+      "filename": "icon_torpedo_launcher_map_v2.png",
+      "change": "Fix the projectile/barrel geometry. Keep the TWO cream tubes pointed RIGHT, tan deck cradle and rear handwheel. Remove the full gold torpedo currently drawn across the OUTSIDE of the upper barrel. Both barrels are now unbroken opaque cream cylinders with simple bands. A loaded torpedo is INSIDE the UPPER tube: show ONLY a short gold rounded/conical nose protruding out of the RIGHT FRONT muzzle, on the tube centreline, with a narrow dark crescent behind it inside the muzzle mouth. The rest of the torpedo and all its fins are OCCLUDED by the tube: zero visible gold body along the tube sides and no rear fins visible. The lower muzzle remains dark and empty. Do not draw a cutaway, transparent barrel, side-mounted missile, side slot, or detached torpedo. Make the containment and muzzle alignment obvious. Retain only two bolts and large simple construction strokes.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_torpedo_launcher_map.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_torpedo_launcher_map_v2.png",
+      "prompt": "Use case: precise-object-edit. Asset: transparent game equipment icon. Input image 1 is the EDIT TARGET; preserve its approved style and only revise the specified design.\nUser-requested revision: Fix the projectile/barrel geometry. Keep the TWO cream tubes pointed RIGHT, tan deck cradle and rear handwheel. Remove the full gold torpedo currently drawn across the OUTSIDE of the upper barrel. Both barrels are now unbroken opaque cream cylinders with simple bands. A loaded torpedo is INSIDE the UPPER tube: show ONLY a short gold rounded/conical nose protruding out of the RIGHT FRONT muzzle, on the tube centreline, with a narrow dark crescent behind it inside the muzzle mouth. The rest of the torpedo and all its fins are OCCLUDED by the tube: zero visible gold body along the tube sides and no rear fins visible. The lower muzzle remains dark and empty. Do not draw a cutaway, transparent barrel, side-mounted missile, side slot, or detached torpedo. Make the containment and muzzle alignment obvious. Retain only two bolts and large simple construction strokes.\nStyle invariants: match the input’s approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 large plain forms, sparse interior marks, tiny brass #C59B27 / crimson #8C2D19 accents where requested. No added fine texture, dense hatching, photorealism, 3D, gradients, glow, glossy highlights, text, borders, or scenery. Preserve TRUE alpha transparency (no paper or checkerboard baked in), square canvas, entire subject with at least 8% clear margin on all sides. Clean silhouette and connected parts readable at game size.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-7b9ff238-fb01-4e4f-9682-d0f470e48e94.png",
+      "status": "User-requested revision integrated",
+      "history": [
+        {
+          "slug": "icon_torpedo_launcher",
+          "title": "Torpedo Launcher",
+          "kind": "icon",
+          "subject": "A nautical twin torpedo launcher pointing RIGHT. TWO broad parallel cream launch tubes in a flat tan deck cradle, visible dark open circular muzzles on the right, one short brass-gold pointed torpedo resting visibly in the upper tube, two simple tail fins physically attached to its left end. One small handwheel on the left and two large mounting bolts. Distinct twin-tube silhouette with large simple shapes, no modern rockets, complex machinery or tiny rivets.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+          "filename": "icon_torpedo_launcher_map.png",
+          "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A nautical twin torpedo launcher pointing RIGHT. TWO broad parallel cream launch tubes in a flat tan deck cradle, visible dark open circular muzzles on the right, one short brass-gold pointed torpedo resting visibly in the upper tube, two simple tail fins physically attached to its left end. One small handwheel on the left and two large mounting bolts. Distinct twin-tube silhouette with large simple shapes, no modern rockets, complex machinery or tiny rivets.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-fcc974b7-21cf-4e85-bb02-26c58757e2b7.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_torpedo_launcher_map.png",
+          "assetPath": "docs/art/archive/png/icon_torpedo_launcher_map.png",
+          "archived": true
+        }
+      ],
+      "targetPath": "docs/art/archive/png/icon_torpedo_launcher_map.png"
+    },
+    {
+      "slug": "icon_blade_launcher",
+      "title": "Blade Launcher",
+      "kind": "icon",
+      "subject": "A simple nautical rotary blade launcher pointing RIGHT. One LARGE serrated cream ring blade with six broad teeth and an open centre sits visibly in a short sloped tan wooden launch track. Two plain rails connect to one deck-mounted base and a single brass crank on the left. Three plank marks and two short hatch groups. Readable blade-in-track silhouette, no extra blades, disconnected teeth, gears or intricate metalwork.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_blade_launcher_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A simple nautical rotary blade launcher pointing RIGHT. One LARGE serrated cream ring blade with six broad teeth and an open centre sits visibly in a short sloped tan wooden launch track. Two plain rails connect to one deck-mounted base and a single brass crank on the left. Three plank marks and two short hatch groups. Readable blade-in-track silhouette, no extra blades, disconnected teeth, gears or intricate metalwork.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-eec7d127-9ffa-4edb-be4e-4f6510336225.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_blade_launcher_map.png"
+    },
+    {
+      "slug": "icon_lightning_railgun",
+      "title": "Lightning Railgun",
+      "kind": "icon",
+      "subject": "A simple nautical brass lightning railgun pointing RIGHT and slightly upward. TWO long cream parallel rails connected to one tan deck base, THREE broad brass-gold induction bands wrap the rails, one small plain cream Leyden jar at the rear left connected by a short visible wire. One small flat crimson zigzag lightning mark immediately at the muzzle. Large clean rails-and-coils silhouette, no glow, sparks cloud, intricate wires, sci-fi gun ornament or modern plastic shapes.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_lightning_railgun_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A simple nautical brass lightning railgun pointing RIGHT and slightly upward. TWO long cream parallel rails connected to one tan deck base, THREE broad brass-gold induction bands wrap the rails, one small plain cream Leyden jar at the rear left connected by a short visible wire. One small flat crimson zigzag lightning mark immediately at the muzzle. Large clean rails-and-coils silhouette, no glow, sparks cloud, intricate wires, sci-fi gun ornament or modern plastic shapes.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-b313e784-c188-4733-ae0c-3cde6373ed06.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_lightning_railgun_map.png"
+    },
+    {
+      "slug": "icon_flamethrower",
+      "title": "Flamethrower",
+      "kind": "icon",
+      "target": "icon_flamethrower_map.png",
+      "filename": "icon_flamethrower_map_v2.png",
+      "change": "Keep the pressure tank on LEFT with cream band, brass valve and one attached hose. Redesign the nozzle on RIGHT as a much LARGER broad flared flame spout with a cream body and brass-rimmed open mouth. Mount it HIGH on one sturdy tall tan pedestal connected to a wide deck base; the spout centre is above the tank midpoint, near the tank shoulder height. Aim it about 15 degrees upward to the RIGHT so its large plume clears the deck. Connect the hose clearly from tank outlet to the nozzle rear. Emit one broad stylized crimson plume with two or three large tapering lobes and a small brass inner flame, at least as long as the nozzle, with the plume wholly above the base. Sparse flat shapes, strong silhouette, no tiny floor-level flame, disconnected nozzle, photoreal fire, smoke, gradients, glow or extra plumbing. Keep whole flame in clear margins.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_flamethrower_map.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_flamethrower_map_v2.png",
+      "prompt": "Use case: precise-object-edit. Asset: transparent game equipment icon. Input image 1 is the EDIT TARGET; preserve its approved style and only revise the specified design.\nUser-requested revision: Keep the pressure tank on LEFT with cream band, brass valve and one attached hose. Redesign the nozzle on RIGHT as a much LARGER broad flared flame spout with a cream body and brass-rimmed open mouth. Mount it HIGH on one sturdy tall tan pedestal connected to a wide deck base; the spout centre is above the tank midpoint, near the tank shoulder height. Aim it about 15 degrees upward to the RIGHT so its large plume clears the deck. Connect the hose clearly from tank outlet to the nozzle rear. Emit one broad stylized crimson plume with two or three large tapering lobes and a small brass inner flame, at least as long as the nozzle, with the plume wholly above the base. Sparse flat shapes, strong silhouette, no tiny floor-level flame, disconnected nozzle, photoreal fire, smoke, gradients, glow or extra plumbing. Keep whole flame in clear margins.\nStyle invariants: match the input’s approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 large plain forms, sparse interior marks, tiny brass #C59B27 / crimson #8C2D19 accents where requested. No added fine texture, dense hatching, photorealism, 3D, gradients, glow, glossy highlights, text, borders, or scenery. Preserve TRUE alpha transparency (no paper or checkerboard baked in), square canvas, entire subject with at least 8% clear margin on all sides. Clean silhouette and connected parts readable at game size.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-0b9efe5b-32c6-45de-9c8a-e357a8fd9d90.png",
+      "status": "User-requested revision integrated",
+      "history": [
+        {
+          "slug": "icon_flamethrower",
+          "title": "Flamethrower",
+          "kind": "icon",
+          "subject": "A simple shipboard flamethrower pointing RIGHT. One squat tan cylindrical pressure reservoir with a cream metal band and one brass top valve, one thick curved hose visibly joins the reservoir to a short cream fire-projector nozzle on a small deck mount. One small flat crimson flame with TWO lobes at the muzzle. Broad simple tank-and-hose silhouette, no smoke, glow, realistic fire, complex plumbing or dense texture.",
+          "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+          "filename": "icon_flamethrower_map.png",
+          "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A simple shipboard flamethrower pointing RIGHT. One squat tan cylindrical pressure reservoir with a cream metal band and one brass top valve, one thick curved hose visibly joins the reservoir to a short cream fire-projector nozzle on a small deck mount. One small flat crimson flame with TWO lobes at the muzzle. Broad simple tank-and-hose silhouette, no smoke, glow, realistic fire, complex plumbing or dense texture.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-650acfd4-b8d4-4d72-963c-87fa995420e5.png",
+          "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_flamethrower_map.png",
+          "assetPath": "docs/art/archive/png/icon_flamethrower_map.png",
+          "archived": true
+        }
+      ],
+      "targetPath": "docs/art/archive/png/icon_flamethrower_map.png"
+    },
+    {
+      "slug": "icon_treasure",
+      "title": "Treasure",
+      "kind": "icon",
+      "subject": "One small open tan wooden treasure chest. A raised connected lid, two broad cream reinforcing bands, one simple brass latch, THREE large gold coins peeking above the opening. Three plain plank marks. Bold clean chest silhouette, no jewels, ornament, loose coin scatter, skulls or lettering.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_treasure_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: One small open tan wooden treasure chest. A raised connected lid, two broad cream reinforcing bands, one simple brass latch, THREE large gold coins peeking above the opening. Three plain plank marks. Bold clean chest silhouette, no jewels, ornament, loose coin scatter, skulls or lettering.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-203118bd-91da-477f-ada1-441d2bce1179.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_treasure_map.png"
+    },
+    {
+      "slug": "icon_helm",
+      "title": "Helm",
+      "kind": "icon",
+      "subject": "One antique wooden ship helm wheel, front view. A broad tan circular rim, SIX simple connected spokes from a brass-gold central hub to the rim, six short rounded handgrips aligned with the spokes outside the rim. Bold ink outline and two small groups of three hatch marks. Clear wheel silhouette, no additional compass points, inner wheels or decorative rope.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_helm_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: One antique wooden ship helm wheel, front view. A broad tan circular rim, SIX simple connected spokes from a brass-gold central hub to the rim, six short rounded handgrips aligned with the spokes outside the rim. Bold ink outline and two small groups of three hatch marks. Clear wheel silhouette, no additional compass points, inner wheels or decorative rope.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-c5818d17-6da9-4273-96e7-67a1afd13e64.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_helm_map.png"
+    },
+    {
+      "slug": "icon_anchor",
+      "title": "Anchor",
+      "kind": "icon",
+      "subject": "One sturdy cream ship anchor tilted slightly toward LEFT, large top ring joined to a single shank, one simple cross-stock and two broad curved arms ending in pointed flukes. One tan bevel patch and a short tan rope threaded through the top ring with ONE broad loose bend. Every piece physically connected, no tiny chain links, decorative coils, detached hooks or extra anchor arms.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_anchor_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: One sturdy cream ship anchor tilted slightly toward LEFT, large top ring joined to a single shank, one simple cross-stock and two broad curved arms ending in pointed flukes. One tan bevel patch and a short tan rope threaded through the top ring with ONE broad loose bend. Every piece physically connected, no tiny chain links, decorative coils, detached hooks or extra anchor arms.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-613a6f87-493c-40ad-b47f-48bf3c6107ea.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_anchor_map.png"
+    },
+    {
+      "slug": "icon_cannons",
+      "title": "Naval Guns",
+      "kind": "icon",
+      "subject": "A simple naval-guns emblem: TWO short thick cream cannon barrels crossing in an X, each with one broad tan reinforcing band and a clear dark muzzle. Small brass-gold central fastening boss at the crossing. Bold simple silhouette with only three short hatch marks on the lower left barrel. No carriage, smoke, cannonballs, crest, banner, lettering or tiny ornament.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "filename": "icon_cannons_map.png",
+      "prompt": "Use case: illustration-story. Asset: ONE isolated transparent PNG for The Monstrous Sea. Style reference image 1 is ONLY a reference for the approved simple old sea-map drawing: slightly uneven bold iron-gall ink contours, large plain cream/tan shapes, sparse interior marks, mature understated hand-drawn character. Match this exact low detail level. Palette #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; very small #8C2D19 crimson and #C59B27 brass accents only where specified. Flat printed fills, no modeled shading. Every mark must read at small gameplay size. Genuine alpha transparency outside the subject; no paper rectangle, no checkerboard. No realistic rendering, dense engraving, grain, stippling, gradients, glow, gloss, dramatic lighting, texture, text, labels, frames, or extra objects. Every appendage or mechanical part must attach coherently to its parent; no stray disconnected curls or random marks. Entire subject visible, square canvas, approximately 80–84% canvas width with clean 8–10% margins around all extremities.\nSubject: A simple naval-guns emblem: TWO short thick cream cannon barrels crossing in an X, each with one broad tan reinforcing band and a clear dark muzzle. Small brass-gold central fastening boss at the crossing. Bold simple silhouette with only three short hatch marks on the lower left barrel. No carriage, smoke, cannonballs, crest, banner, lettering or tiny ornament.\nComposition: one large simple equipment or utility icon, designed to remain recognizable at 36–48px. Use fewer interior strokes than the reference ship. No waves or background elements.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-b43bcc40-a9b5-4752-966b-32d21a461e60.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_cannons_map.png"
+    },
+    {
+      "slug": "icon_port_haven",
+      "title": "Hunter's Respite anchorage",
+      "filename": "icon_port_haven_map.png",
+      "role": "Dedicated port anchorage tile at the top-left of the Sea Chart",
+      "body": "Use case: illustration-story. Asset: transparent game sea-map icon.\nSubject: Port of departure harbor anchorage symbol (\"Hunter's Respite\").\nA simple, bold antique nautical chart symbol representing a safe harbor haven and mooring anchorage. A heavy iron anchor upright in the center, looped through a thick coiled hemp mooring line, resting alongside a compact weathered stone lighthouse tower with a tiny brass-accented beacon lantern at the peak.\nStyle invariants: Match the approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall ink outlines #1B1612, cream #F4ECD8 and weathered tan #D5C4A1 large flat forms, sparse interior contour marks, and tiny brass #C59B27 accents on the lantern/shackle. Bold silhouette readable at 36x36 to 64x64 game icon size. No added fine texture, dense cross-hatching, photorealism, 3D render, glow, drop shadows, borders, text, or scenery. Canvas: 1024x1024 square, TRUE alpha transparency (no background paper or checkerboard baked in), with at least 10% clear transparent margins on all sides.",
+      "kind": "chart",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_anchor_map.png",
+      "prompt": "Use case: illustration-story. Asset: transparent game sea-map icon.\nSubject: Port of departure harbor anchorage symbol (\"Hunter's Respite\").\nA simple, bold antique nautical chart symbol representing a safe harbor haven and mooring anchorage. A heavy iron anchor upright in the center, looped through a thick coiled hemp mooring line, resting alongside a compact weathered stone lighthouse tower with a tiny brass-accented beacon lantern at the peak.\nStyle invariants: Match the approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall ink outlines #1B1612, cream #F4ECD8 and weathered tan #D5C4A1 large flat forms, sparse interior contour marks, and tiny brass #C59B27 accents on the lantern/shackle. Bold silhouette readable at 36x36 to 64x64 game icon size. No added fine texture, dense cross-hatching, photorealism, 3D render, glow, drop shadows, borders, text, or scenery. Canvas: 1024x1024 square, TRUE alpha transparency (no background paper or checkerboard baked in), with at least 10% clear transparent margins on all sides.\nInput image 1 is STYLE REFERENCE only, not an edit target. Match its simple bold hand-inked contours and cream/tan palette while drawing this new symbol. A centered subject in a square canvas; preserve all 10% transparent margins. Simple 17th-century nautical map woodcut. Zero gradients, bevels, gloss, dense details or lettering. Keep all structural parts attached and the silhouette uncluttered.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-39939fd2-33c1-455c-aa39-a1e346149606.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_port_haven_map.png",
+      "status": "Integrated on Sea Chart"
+    },
+    {
+      "slug": "icon_skull",
+      "title": "Defeated monster",
+      "filename": "icon_skull_map.png",
+      "role": "Cleared sector where a sea monster was slain",
+      "body": "Use case: illustration-story. Asset: transparent game sea-map icon.\nSubject: Defeated sea monster cartographic skull and crossbones symbol.\nA stylized, antique maritime beast skull: a weathered leviathan skull with subtle aquatic fangs and two crossed harpoons underneath. The skull features hollow iron-gall eye sockets, a cracked bone crest, and subtle cartographic crimson accents suggesting a vanquished monster on an old explorer's map.\nStyle invariants: Match the approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, antique bone cream #F4ECD8 and tan #D5C4A1 flat fills, sparse linework, and selective cartographic crimson #8C2D19 ink accents along the cracks or harpoon bindings. Must read clearly as a \"slain monster / danger cleared\" marker at small thumbnail size (32x32 to 48x48). No 3D CGI, photorealism, modern poison/hazard symbols, neon glow, text, or frames. Canvas: 1024x1024 square, TRUE alpha transparency (no background paper or checkerboard baked in), with at least 10% clear margin on all sides.",
+      "kind": "chart",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_anchor_map.png",
+      "prompt": "Use case: illustration-story. Asset: transparent game sea-map icon.\nSubject: Defeated sea monster cartographic skull and crossbones symbol.\nA stylized, antique maritime beast skull: a weathered leviathan skull with subtle aquatic fangs and two crossed harpoons underneath. The skull features hollow iron-gall eye sockets, a cracked bone crest, and subtle cartographic crimson accents suggesting a vanquished monster on an old explorer's map.\nStyle invariants: Match the approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, antique bone cream #F4ECD8 and tan #D5C4A1 flat fills, sparse linework, and selective cartographic crimson #8C2D19 ink accents along the cracks or harpoon bindings. Must read clearly as a \"slain monster / danger cleared\" marker at small thumbnail size (32x32 to 48x48). No 3D CGI, photorealism, modern poison/hazard symbols, neon glow, text, or frames. Canvas: 1024x1024 square, TRUE alpha transparency (no background paper or checkerboard baked in), with at least 10% clear margin on all sides.\nInput image 1 is STYLE REFERENCE only, not an edit target. Match its simple bold hand-inked contours and cream/tan palette while drawing this new symbol. A centered subject in a square canvas; preserve all 10% transparent margins. Simple 17th-century nautical map woodcut. Zero gradients, bevels, gloss, dense details or lettering. Keep all structural parts attached and the silhouette uncluttered.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-78d148d5-c0b0-452f-89a7-ce48206cf085.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_skull_map.png",
+      "status": "Integrated on Sea Chart"
+    },
+    {
+      "slug": "icon_fog",
+      "title": "Uncharted fog",
+      "filename": "icon_fog_map.png",
+      "role": "Unrevealed Sea Chart sectors",
+      "body": "Use case: illustration-story. Asset: transparent game sea-map icon.\nSubject: Uncharted maritime fog and coastal sea mist cartographic symbol.\nA compact, stylized antique map illustration of swirling sea mist: three low curling nautical wave-crest scrolls interlocked with stylized wisps of rolling maritime sea fog, reminiscent of old cartographic engravings for \"Terra Incognita\" or shrouded waters.\nStyle invariants: Match the approved SIMPLE antique sea-map symbol style: broad slightly irregular iron-gall outlines #1B1612, muted cream #F4ECD8 / faint parchment tan fills, very sparse curved strokes indicating mist currents. Simple, iconic, and uncluttered so it can be repeated across locked map grid cells without visual noise. No photorealistic smoke, gradients, particle effects, glow, text, or frame. Canvas: 1024x1024 square, TRUE alpha transparency (no background paper or checkerboard baked in), with at least 10% clear margin on all sides.",
+      "kind": "chart",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_anchor_map.png",
+      "prompt": "Use case: illustration-story. Asset: transparent game sea-map icon.\nSubject: Uncharted maritime fog and coastal sea mist cartographic symbol.\nA compact, stylized antique map illustration of swirling sea mist: three low curling nautical wave-crest scrolls interlocked with stylized wisps of rolling maritime sea fog, reminiscent of old cartographic engravings for \"Terra Incognita\" or shrouded waters.\nStyle invariants: Match the approved SIMPLE antique sea-map symbol style: broad slightly irregular iron-gall outlines #1B1612, muted cream #F4ECD8 / faint parchment tan fills, very sparse curved strokes indicating mist currents. Simple, iconic, and uncluttered so it can be repeated across locked map grid cells without visual noise. No photorealistic smoke, gradients, particle effects, glow, text, or frame. Canvas: 1024x1024 square, TRUE alpha transparency (no background paper or checkerboard baked in), with at least 10% clear margin on all sides.\nInput image 1 is STYLE REFERENCE only, not an edit target. Match its simple bold hand-inked contours and cream/tan palette while drawing this new symbol. A centered subject in a square canvas; preserve all 10% transparent margins. Simple 17th-century nautical map woodcut. Zero gradients, bevels, gloss, dense details or lettering. Keep all structural parts attached and the silhouette uncluttered.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-e7e01e7b-17e2-4b2a-b8f7-545840936322.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_fog_map.png",
+      "status": "Integrated on Sea Chart"
+    }
+  ],
+  "previewAlternatives": [
+    {
+      "slug": "monster_squid_alternate",
+      "title": "Squid — long-mantle alternative",
+      "kind": "monster",
+      "target": "monster_squid_pilot_v2.png",
+      "filename": "monster_squid_alternate_map_v1.png",
+      "previewOnly": true,
+      "change": "Create a NEW alternate NORMAL SQUID design in the reference style, changing its silhouette to clearly squid-like. Face and attack LEFT in a three-quarter side view, with the head at centre-left and a long tapered pointed mantle extending toward upper RIGHT, noticeably longer than the small head. Two simple triangular rear fins visibly attach to the mantle near its rear tip; they are body fins, not horns. Small dark eyes on the head, not the mantle. Eight shorter narrow arms originate from a readable cluster BELOW / IN FRONT of the head and sweep LEFT together; TWO much longer feeding tentacles extend farther LEFT with slightly widened simple club tips. Keep this readable rather than a radial octopus rosette; arms do not grow out of eyes or rear mantle. All arms visibly attached, no disconnected curls, no sucker dots anywhere. One tan underside strip, two mantle contour marks and three short waterline strokes only. Ordinary enemy strength: no crimson angry eyes, ragged boss crest, or elaborate detail. This is a review alternative, not the Kraken.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_pilot_v2.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_alternate_map_v1.png",
+      "prompt": "Use case: illustration-story. Asset: transparent game sea-map illustration. Input image 1 is STYLE REFERENCE only; create a distinct alternative.\nUser-requested revision: Create a NEW alternate NORMAL SQUID design in the reference style, changing its silhouette to clearly squid-like. Face and attack LEFT in a three-quarter side view, with the head at centre-left and a long tapered pointed mantle extending toward upper RIGHT, noticeably longer than the small head. Two simple triangular rear fins visibly attach to the mantle near its rear tip; they are body fins, not horns. Small dark eyes on the head, not the mantle. Eight shorter narrow arms originate from a readable cluster BELOW / IN FRONT of the head and sweep LEFT together; TWO much longer feeding tentacles extend farther LEFT with slightly widened simple club tips. Keep this readable rather than a radial octopus rosette; arms do not grow out of eyes or rear mantle. All arms visibly attached, no disconnected curls, no sucker dots anywhere. One tan underside strip, two mantle contour marks and three short waterline strokes only. Ordinary enemy strength: no crimson angry eyes, ragged boss crest, or elaborate detail. This is a review alternative, not the Kraken.\nStyle invariants: match the input’s approved SIMPLE antique sea-map symbol style exactly: broad slightly irregular iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 large plain forms, sparse interior marks, tiny brass #C59B27 / crimson #8C2D19 accents where requested. No added fine texture, dense hatching, photorealism, 3D, gradients, glow, glossy highlights, text, borders, or scenery. Preserve TRUE alpha transparency (no paper or checkerboard baked in), square canvas, entire subject with at least 8% clear margin on all sides. Clean silhouette and connected parts readable at game size.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-f17e9b4e-45c7-438e-8e3d-6be1822f2905.png",
+      "assetPath": "docs/art/archive/png/monster_squid_alternate_map_v1.png",
+      "archived": true,
+      "targetPath": "docs/art/archive/png/monster_squid_pilot_v2.png"
+    }
+  ],
+  "latestRevisionManifest": "sea_map_revisions_v5.json",
+  "updatedOn": "2026-10-12",
+  "validation": {
+    "result": "Passed",
+    "coverage": "23 active assets and the earlier squid alternative decode with transparent padding. Six scenes cover all ship designs and monster species at 1100x720 and 800x600 with chronicle open and closed. Logical bounds and rendered ink pixels remain within the HUD/dock arena. Volley and loot-flow tests pass.",
+    "sourceChecks": "24 PNGs passed transparency and unclipped-edge checks in sea_map_asset_checks.json.",
+    "smallIconProof": "sea_map_icons_small.png",
+    "revisionPreview": "sea_map_revisions_v5.html",
+    "battleProofs": [
+      {
+        "scene": "freighter-kraken",
+        "wide": "squid_v5_battle.png",
+        "compact": "squid_v5_battle-compact.png",
+        "chronicleClosed": "squid_v5_battle-compact-art.png"
+      },
+      {
+        "scene": "freighter-squid",
+        "wide": "squid_v5_battle-freighter-squid.png",
+        "compact": "squid_v5_battle-freighter-squid-compact.png",
+        "chronicleClosed": "squid_v5_battle-freighter-squid-compact-art.png"
+      },
+      {
+        "scene": "standard-shark",
+        "wide": "squid_v5_battle-standard-shark.png",
+        "compact": "squid_v5_battle-standard-shark-compact.png",
+        "chronicleClosed": "squid_v5_battle-standard-shark-compact-art.png"
+      },
+      {
+        "scene": "ironclad-serpent",
+        "wide": "squid_v5_battle-ironclad-serpent.png",
+        "compact": "squid_v5_battle-ironclad-serpent-compact.png",
+        "chronicleClosed": "squid_v5_battle-ironclad-serpent-compact-art.png"
+      },
+      {
+        "scene": "corvette-jellyfish",
+        "wide": "squid_v5_battle-corvette-jellyfish.png",
+        "compact": "squid_v5_battle-corvette-jellyfish-compact.png",
+        "chronicleClosed": "squid_v5_battle-corvette-jellyfish-compact-art.png"
+      },
+      {
+        "scene": "dutchman-crustacean",
+        "wide": "squid_v5_battle-dutchman-crustacean.png",
+        "compact": "squid_v5_battle-dutchman-crustacean-compact.png",
+        "chronicleClosed": "squid_v5_battle-dutchman-crustacean-compact-art.png"
+      }
+    ],
+    "previousFullSuite": {
+      "tests": 53,
+      "result": "Passed before this localized edit"
+    },
+    "testScope": "Full Flutter application suite after archive cleanup",
+    "previousArtworkSuite": {
+      "tests": 30,
+      "result": "Passed before tincture color edit"
+    },
+    "targetedAssetTests": 1,
+    "chartIcons": {
+      "tests": 7,
+      "result": "Passed",
+      "testScope": "chart_art_test.dart and widget_test.dart",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparentMarginPixels": 102,
+      "canvasChecks": "chart_icon_checks.json",
+      "review": "chart_icons.html",
+      "previews": [
+        "chart_preview-port-wide.png",
+        "chart_preview-port-compact.png",
+        "chart_preview-underway-wide.png",
+        "chart_preview-underway-compact.png"
+      ]
+    },
+    "flutterTests": 65,
+    "archiveCleanup": "26 active bundled images; 39 source files preserved with matching SHA-256; all preview links resolve."
+  },
+  "latestNewAssetManifest": "chart_icon_prompts.json",
+  "archive": {
+    "index": "archive/index.html",
+    "manifest": "archive/manifest.json",
+    "verification": "archive/verification.json",
+    "pngDrafts": 16,
+    "svgSources": 23,
+    "activeAssets": 26,
+    "bytesRemovedFromBundle": 18367359
+  }
+}

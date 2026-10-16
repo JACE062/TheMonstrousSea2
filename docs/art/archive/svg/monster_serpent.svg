@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Leviathan Serpent</title>
+  <desc id="desc">A horned sea serpent rises in connected coils. Overlapping engraved scales, dorsal spines and a toothed crimson mouth recall sea-chart marginalia.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="dorsal-spines">
+<path d="M59 72 L71 52 L73 76 L88 69 L87 91 L107 98 L119 67 L128 88 L141 69 L146 98 L163 92 L172 119" fill="#D5C4A1"/>
+<path d="M70 62 L69 74 M121 78 L123 87 M142 80 L143 94" fill="none" stroke-width="1.5"/>
+</g>
+<g id="coiled-body">
+<path d="M43 81 C61 72 69 98 67 121 C66 143 89 151 104 127 C117 106 109 93 129 87 C149 80 162 102 164 124 C166 145 176 143 187 131 C185 156 158 163 149 141 C137 114 142 102 130 105 C122 107 135 128 118 148 C95 179 51 164 48 135 C45 112 53 99 43 95 Z" fill="#D5C4A1" stroke-width="3"/>
+<path d="M51 92 C62 111 52 133 65 148 C78 164 102 153 112 133 C123 114 117 100 132 96 C150 92 151 118 157 138 C163 155 180 148 187 131" fill="none" stroke-width="2"/>
+<path d="M55 113 l10 -2 M55 121 l11 1 M55 130 l12 3 M59 140 l11 4 M67 148 l10 4 M79 154 l10 -1 M92 151 l9 -6 M103 143 l8 -7 M119 114 l10 2 M123 123 l10 2 M120 133 l10 2 M114 142 l8 5 M144 106 l10 -2 M147 116 l12 -2 M151 127 l12 -1 M156 138 l10 -2 M165 146 l7 -4" fill="none" stroke-width="1.5"/>
+<path d="M71 139 q4 -5 8 0 q4 5 8 0 M75 145 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M86 137 q4 -5 8 0 q4 5 8 0 M90 143 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M120 94 q4 -5 8 0 q4 5 8 0 M124 100 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M136 98 q4 -5 8 0 q4 5 8 0 M140 104 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+<path d="M156 129 q4 -5 8 0 q4 5 8 0 M160 135 q4 -5 8 0" fill="none" stroke-width="1.5"/>
+</g>
+<g id="head">
+<path d="M53 88 Q61 66 48 59 L48 43 L37 58 L26 52 L20 65 Q10 67 9 78 L24 86 L39 85 L43 96 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M10 77 L28 76 L36 84 L23 87 Z" fill="#8C2D19"/>
+<path d="M15 77 l3 6 l4 -6 l4 7 l3 -5 M22 87 l3 -4 l3 3" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="29" cy="68" r="3" fill="#C59B27" stroke-width="1.5"/>
+<line x1="29" y1="66" x2="29" y2="70" stroke-width="1.5"/>
+<path d="M37 65 l10 4 M39 71 l9 4 M41 77 l8 3 M39 59 l5 -8 M14 69 l5 1 M37 83 l5 6" fill="none" stroke-width="1.5"/>
+</g>
+<g id="sea-engraving">
+<path d="M9 180 Q17 176 25 180 T41 180 M49 180 Q57 176 65 180 T81 180 M113 180 Q121 176 129 180 T145 180 M153 180 Q161 176 169 180 T185 180 M22 187 H46 M58 187 H93 M108 187 H138 M151 187 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>

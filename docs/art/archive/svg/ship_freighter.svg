@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Heavy Freighter</title>
+  <desc id="desc">Three square-rigged masts meet the two-deck cargo hull at (53,124), (101,124), and (147,108). A high sterncastle, deep draft and cargo hatches identify the freighter.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="standing-rigging">
+<path d="M14 107 L53 30 L101 22 L147 35 L183 108 M53 30 L29 124 M101 22 L67 124 M147 35 L118 124" fill="none" stroke-width="1.5"/>
+<line x1="53" y1="67" x2="34" y2="124" stroke-width="1.5"/>
+<line x1="53" y1="75.14" x2="50.29" y2="75.14" stroke-width="1.5"/>
+<line x1="53" y1="83.29" x2="47.57" y2="83.29" stroke-width="1.5"/>
+<line x1="53" y1="91.43" x2="44.86" y2="91.43" stroke-width="1.5"/>
+<line x1="53" y1="99.57" x2="42.14" y2="99.57" stroke-width="1.5"/>
+<line x1="53" y1="107.71" x2="39.43" y2="107.71" stroke-width="1.5"/>
+<line x1="53" y1="115.86" x2="36.71" y2="115.86" stroke-width="1.5"/>
+<line x1="101" y1="65" x2="82" y2="124" stroke-width="1.5"/>
+<line x1="101" y1="73.43" x2="98.29" y2="73.43" stroke-width="1.5"/>
+<line x1="101" y1="81.86" x2="95.57" y2="81.86" stroke-width="1.5"/>
+<line x1="101" y1="90.29" x2="92.86" y2="90.29" stroke-width="1.5"/>
+<line x1="101" y1="98.71" x2="90.14" y2="98.71" stroke-width="1.5"/>
+<line x1="101" y1="107.14" x2="87.43" y2="107.14" stroke-width="1.5"/>
+<line x1="101" y1="115.57" x2="84.71" y2="115.57" stroke-width="1.5"/>
+<line x1="147" y1="68" x2="168" y2="108" stroke-width="1.5"/>
+<line x1="147" y1="73.71" x2="150.0" y2="73.71" stroke-width="1.5"/>
+<line x1="147" y1="79.43" x2="153.0" y2="79.43" stroke-width="1.5"/>
+<line x1="147" y1="85.14" x2="156.0" y2="85.14" stroke-width="1.5"/>
+<line x1="147" y1="90.86" x2="159.0" y2="90.86" stroke-width="1.5"/>
+<line x1="147" y1="96.57" x2="162.0" y2="96.57" stroke-width="1.5"/>
+<line x1="147" y1="102.29" x2="165.0" y2="102.29" stroke-width="1.5"/>
+</g>
+<g id="masts">
+<line x1="53" y1="124" x2="53" y2="29" stroke-width="3" id="mast-fore"/>
+<line x1="101" y1="124" x2="101" y2="22" stroke-width="3" id="mast-main"/>
+<line x1="147" y1="108" x2="147" y2="35" stroke-width="3" id="mast-mizzen"/>
+<path d="M101 22 L118 25 L112 31 L101 30 Z" fill="#8C2D19"/>
+</g>
+<g id="canvas">
+<path d="M37.5 43 Q53 46 68.5 43 Q63.5 54.5 66.5 66 Q53 70 39.5 66 Q43.5 54.5 37.5 43 Z" fill="#F4ECD8"/>
+<line x1="34.5" y1="43" x2="71.5" y2="43" stroke-width="2.5"/>
+<path d="M45.25 48 Q43.25 54.5 45.25 63" fill="none" stroke-width="1.5"/>
+<path d="M53 48 Q51 54.5 53 63" fill="none" stroke-width="1.5"/>
+<path d="M60.75 48 Q58.75 54.5 60.75 63" fill="none" stroke-width="1.5"/>
+<path d="M41.5 58 l5 5 M42.5 53 l9 8 M59.5 48 l5 5 M54.5 48 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M33.0 76 Q53 79 73.0 76 Q68.0 91.0 71.0 106 Q53 110 35.0 106 Q39.0 91.0 33.0 76 Z" fill="#F4ECD8"/>
+<line x1="30.0" y1="76" x2="76.0" y2="76" stroke-width="2.5"/>
+<path d="M43.0 81 Q41.0 91.0 43.0 103" fill="none" stroke-width="1.5"/>
+<path d="M53 81 Q51 91.0 53 103" fill="none" stroke-width="1.5"/>
+<path d="M63.0 81 Q61.0 91.0 63.0 103" fill="none" stroke-width="1.5"/>
+<path d="M37.0 98 l5 5 M38.0 93 l9 8 M64.0 81 l5 5 M59.0 81 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M84.5 36 Q101 39 117.5 36 Q112.5 49.0 115.5 62 Q101 66 86.5 62 Q90.5 49.0 84.5 36 Z" fill="#F4ECD8"/>
+<line x1="81.5" y1="36" x2="120.5" y2="36" stroke-width="2.5"/>
+<path d="M92.75 41 Q90.75 49.0 92.75 59" fill="none" stroke-width="1.5"/>
+<path d="M101 41 Q99 49.0 101 59" fill="none" stroke-width="1.5"/>
+<path d="M109.25 41 Q107.25 49.0 109.25 59" fill="none" stroke-width="1.5"/>
+<path d="M88.5 54 l5 5 M89.5 49 l9 8 M108.5 41 l5 5 M103.5 41 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M79.5 73 Q101 76 122.5 73 Q117.5 90.5 120.5 108 Q101 112 81.5 108 Q85.5 90.5 79.5 73 Z" fill="#F4ECD8"/>
+<line x1="76.5" y1="73" x2="125.5" y2="73" stroke-width="2.5"/>
+<path d="M90.25 78 Q88.25 90.5 90.25 105" fill="none" stroke-width="1.5"/>
+<path d="M101 78 Q99 90.5 101 105" fill="none" stroke-width="1.5"/>
+<path d="M111.75 78 Q109.75 90.5 111.75 105" fill="none" stroke-width="1.5"/>
+<path d="M83.5 100 l5 5 M84.5 95 l9 8 M113.5 78 l5 5 M108.5 78 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M133.0 47 Q147 50 161.0 47 Q156.0 57.5 159.0 68 Q147 72 135.0 68 Q139.0 57.5 133.0 47 Z" fill="#F4ECD8"/>
+<line x1="130.0" y1="47" x2="164.0" y2="47" stroke-width="2.5"/>
+<path d="M140.0 52 Q138.0 57.5 140.0 65" fill="none" stroke-width="1.5"/>
+<path d="M147 52 Q145 57.5 147 65" fill="none" stroke-width="1.5"/>
+<path d="M154.0 52 Q152.0 57.5 154.0 65" fill="none" stroke-width="1.5"/>
+<path d="M137.0 60 l5 5 M138.0 55 l9 8 M152.0 52 l5 5 M147.0 52 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M131.0 78 Q147 81 163.0 78 Q158.0 90.0 161.0 102 Q147 106 133.0 102 Q137.0 90.0 131.0 78 Z" fill="#F4ECD8"/>
+<line x1="128.0" y1="78" x2="166.0" y2="78" stroke-width="2.5"/>
+<path d="M139.0 83 Q137.0 90.0 139.0 99" fill="none" stroke-width="1.5"/>
+<path d="M147 83 Q145 90.0 147 99" fill="none" stroke-width="1.5"/>
+<path d="M155.0 83 Q153.0 90.0 155.0 99" fill="none" stroke-width="1.5"/>
+<path d="M135.0 94 l5 5 M136.0 89 l9 8 M154.0 83 l5 5 M149.0 83 l8 8" fill="none" stroke-width="1.5"/>
+<path d="M36 107 L29 124 M71 107 L78 124 M81 109 L72 124 M120 109 L126 124 M133 103 L124 124 M161 103 L170 108" fill="none" stroke-width="1.5"/>
+</g>
+<g id="deck-cargo">
+<rect x="61" y="114" width="18" height="10" fill="#D5C4A1" stroke-width="1.5"/>
+<rect x="108" y="113" width="19" height="11" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M61 114 l18 10 M61 124 l18 -10 M108 113 l19 11 M108 124 l19 -11" fill="none" stroke-width="1.5"/>
+<line x1="34" y1="124" x2="10" y2="105" stroke-width="3"/>
+<line x1="10" y1="105" x2="53" y2="76" stroke-width="1.5"/>
+</g>
+<g id="hull-engraving">
+<path d="M27 124 H135 V108 H177 L184 135 Q179 160 157 168 H60 Q40 163 27 124 Z" fill="#D5C4A1" stroke-width="3" id="hull"/>
+<path d="M27 124 H135 M135 108 H177" fill="none" stroke-width="3" id="deck-main"/>
+<path d="M35 135 H181 M41 147 H177 M49 157 H169 M64 164 H153" fill="none" stroke-width="2"/>
+<path d="M136 122 H178 M137 109 V134 M175 110 L180 134" fill="none" stroke-width="1.5"/>
+<rect x="143" y="113" width="6" height="6" fill="#1B1612" stroke-width="1.5"/>
+<rect x="155" y="113" width="6" height="6" fill="#1B1612" stroke-width="1.5"/>
+<rect x="167" y="113" width="6" height="6" fill="#1B1612" stroke-width="1.5"/>
+<rect x="51" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="69" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="87" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="105" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="123" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="141" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="159" y="137" width="7" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M52 149 l12 11 M64 149 l12 13 M76 149 l12 13 M88 149 l12 13 M100 149 l12 13 M112 149 l12 13 M124 149 l12 13 M136 149 l12 12 M148 149 l12 9 M58 159 l10 -10 M77 162 l12 -13 M98 162 l12 -13 M120 162 l12 -13 M141 160 l11 -11" fill="none" stroke-width="1.5"/>
+<circle cx="170" cy="128" r="3" fill="#C59B27" stroke-width="1.5"/>
+</g>
+<g id="sea-engraving">
+<path d="M9 179 Q17 175 25 179 T41 179 M49 179 Q57 175 65 179 T81 179 M113 179 Q121 175 129 179 T145 179 M153 179 Q161 175 169 179 T185 179 M22 186 H46 M58 186 H93 M108 186 H138 M151 186 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>

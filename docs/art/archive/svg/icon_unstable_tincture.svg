@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Unstable Tincture</title>
+  <desc id="desc">Corked apothecary bottle containing bubbling venom, with a droplet seal and engraved glass reflections.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M24 16 V25 Q14 29 14 39 V51 Q14 57 21 58 H43 Q50 57 50 51 V39 Q50 29 40 25 V16 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M17 39 Q25 35 32 39 T47 39 V51 Q47 55 42 55 H22 Q17 55 17 51 Z" fill="#D5C4A1"/>
+<rect x="25" y="6" width="14" height="10" fill="#D5C4A1" stroke-width="1.5"/>
+<rect x="22" y="16" width="20" height="6" fill="#C59B27" stroke-width="1.5"/>
+<path d="M28 8 l5 6 M34 8 l3 3 M26 19 H38 M19 32 Q22 28 26 28 M19 35 V46 M42 46 l5 5 M40 49 l5 5 M38 52 l3 3" fill="none" stroke-width="1.5"/>
+<circle cx="25" cy="42" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="39" cy="33" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="33" cy="28" r="1.5" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M33 40 Q25 49 29 51 Q33 54 36 51 Q40 48 33 40 Z" fill="#8C2D19"/>
+  </g>
+</svg>

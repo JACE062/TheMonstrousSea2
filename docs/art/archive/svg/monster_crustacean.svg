@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Armored Crustacean</title>
+  <desc id="desc">A carapaced sea crab with articulated limbs, two enormous toothed pincers, stalked eyes and a cross-hatched segmented shell.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="walking-legs">
+<path d="M69 104 L43 98 L24 125 L40 114 L69 117 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M68 121 L41 125 L27 151 L46 137 L74 132 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M78 138 L55 150 L52 177 L63 158 L88 147 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M131 104 L157 98 L176 125 L160 114 L131 117 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M132 121 L159 125 L173 151 L154 137 L126 132 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M122 138 L145 150 L148 177 L137 158 L112 147 Z" fill="#D5C4A1" stroke-width="2"/>
+<path d="M43 98 L40 114 M41 125 L46 137 M55 150 L63 158 M157 98 L160 114 M159 125 L154 137 M145 150 L137 158" fill="none" stroke-width="1.5"/>
+</g>
+<g id="pincer-arms">
+<path d="M72 105 L51 87 L44 73 L34 77 L39 95 L64 121 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M128 105 L149 87 L156 73 L166 77 L161 95 L136 121 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<circle cx="48" cy="89" r="5" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="152" cy="89" r="5" fill="#F4ECD8" stroke-width="1.5"/>
+</g>
+<g id="pincers">
+<path d="M43 83 C15 81 9 47 24 29 Q22 50 38 55 L37 21 C62 35 64 69 43 83 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M157 83 C185 81 191 47 176 29 Q178 50 162 55 L163 21 C138 35 136 69 157 83 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M38 31 L46 37 L39 43 L47 49 L39 55 M162 31 L154 37 L161 43 L153 49 L161 55" fill="#D5C4A1" stroke-width="1.5"/>
+<path d="M22 56 Q28 70 40 72 M49 44 Q57 61 45 74 M178 56 Q172 70 160 72 M151 44 Q143 61 155 74 M25 63 l8 -3 M29 69 l8 -3 M175 63 l-8 -3 M171 69 l-8 -3" fill="none" stroke-width="1.5"/>
+</g>
+<g id="carapace">
+<path d="M58 109 L64 94 L72 91 L80 83 Q100 77 120 83 L128 91 L136 94 L142 109 L137 129 L122 145 Q100 153 78 145 L63 129 Z" fill="#D5C4A1" stroke-width="3"/>
+<path d="M73 96 Q100 84 127 96 L132 115 L120 133 Q100 141 80 133 L68 115 Z" fill="#F4ECD8"/>
+<path d="M74 106 Q100 94 126 106 M71 116 Q100 106 129 116 M78 127 Q100 118 122 127 M76 100 l8 5 M88 96 l8 5 M101 96 l8 5 M115 100 l8 5 M76 113 l7 4 M89 109 l8 4 M103 109 l8 4 M116 113 l8 4 M86 132 l7 5 M104 133 l6 4 M72 111 l10 -10 M90 107 l10 -10 M109 108 l10 -8 M65 105 l-3 8 M66 124 l7 8 M134 105 l3 8 M134 124 l-7 8" fill="none" stroke-width="1.5"/>
+<path d="M85 84 L80 71 M115 84 L120 71" fill="none" stroke-width="3"/>
+<circle cx="79" cy="68" r="5" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="121" cy="68" r="5" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="79" cy="68" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="121" cy="68" r="2" fill="#1B1612" stroke-width="1.5"/>
+<path d="M91 140 L100 145 L109 140" fill="none" stroke-width="2"/>
+</g>
+<g id="sea-engraving">
+<path d="M9 181 Q17 177 25 181 T41 181 M49 181 Q57 177 65 181 T81 181 M113 181 Q121 177 129 181 T145 181 M153 181 Q161 177 169 181 T185 181 M22 188 H46 M58 188 H93 M108 188 H138 M151 188 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>

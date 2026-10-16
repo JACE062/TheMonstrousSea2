@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Blast Pack</title>
+  <desc id="desc">Wooden gunpowder keg bound with iron hoops and crossed cord. A burning fuse sparks above the bung.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M19 18 Q32 12 45 18 Q52 35 45 54 Q32 61 19 54 Q12 35 19 18 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<path d="M19 18 Q32 23 45 18 M17 51 Q32 57 47 51" fill="none" stroke-width="1.5"/>
+<path d="M24 21 Q20 37 24 55 M31 22 V56 M38 21 Q42 38 38 56 M19 34 l5 5 M18 39 l6 5 M20 46 l4 4 M37 35 l6 6 M37 41 l6 6" fill="none" stroke-width="1.5"/>
+<path d="M17 25 Q32 30 47 25 L48 30 Q32 35 16 30 Z" fill="#F4ECD8"/>
+<path d="M16 44 Q32 49 48 44 L47 50 Q32 55 17 50 Z" fill="#F4ECD8"/>
+<path d="M21 27 V30 M42 27 V30 M21 47 V50 M42 47 V50" fill="none" stroke-width="1.5"/>
+<path d="M19 20 L45 54 M45 20 L19 54" fill="none" stroke-width="2"/>
+<rect x="28" y="13" width="8" height="5" fill="#C59B27" stroke-width="1.5"/>
+<path d="M32 13 C31 5 43 15 45 6" fill="none" stroke-width="2.5"/>
+<path d="M45 6 l-2 -4 M48 7 l5 -3 M48 10 l6 2" fill="none" stroke-width="1.5" stroke="#8C2D19"/>
+  </g>
+</svg>

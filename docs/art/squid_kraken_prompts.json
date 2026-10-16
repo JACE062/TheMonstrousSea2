@@ -1,0 +1,20 @@
+{
+  "mode": "built-in image_gen (boss); reuse of the accepted v2 image (squid)",
+  "decision": "Assign the rounded v2 creature to normal squid enemies; use a new upright, heavier, angular design for the Kraken boss.",
+  "style": "Sparse sea-map ink drawing with cream/tan flat shapes and minimal hatching; the boss has two small crimson eye slits.",
+  "assets": [
+    {
+      "path": "docs/art/archive/png/monster_squid_pilot_v2.png",
+      "source": "docs/art/archive/png/monster_kraken_pilot_v2.png",
+      "action": "Reassigned without editing the image.",
+      "original_prompt": "docs/art/raster_pilot_prompts_v2.json"
+    },
+    {
+      "path": "docs/art/archive/png/monster_kraken_boss_v3.png",
+      "prompt": "Use case: illustration-story.\nAsset: one transparent PNG BOSS KRAKEN sprite for a simple parchment sea-map game.\nReference image 1 is the NORMAL SQUID enemy, used ONLY for the established style: bold slightly uneven dark-brown ink contours, plain cream and muted tan shapes, sparse interior marks. Keep that simple visual language, but create a clearly different, much more imposing boss. Do not redraw the reference's rounded tilted squid silhouette.\nBoss design: a colossal upright sea-chart kraken with a massive broad, almost triangular mantle rising in the centre. The mantle has a rough angular ridge along its upper outline, like an ancient battered sea creature, not a crown or horns. Two narrow predatory crimson-black eye slits sit under a heavy low brow formed by the mantle; no round pupils or eye highlights. The low centre of the creature is dark and weighty, with one small pointed cephalopod beak largely in shadow. Eight broad muscular arms attach coherently to the body: two rear arms rise high on either side in large threatening hooks, two foreground arms spread toward LEFT as if preparing to seize a vessel, and the remaining arms brace in irregular coils below. Natural asymmetry, clearly readable major arm gaps. Fewer playful spirals, heavier arms and a looming frontal posture. The silhouette should feel like an enormous final boss even in solid black.\nSimplicity: large FLAT cream shapes outlined in thick iron-gall ink; a few tan underside bands, at most two long mantle contour lines, three small groups of short parallel hatch marks, and four to six widely spaced sucker ovals on the two foremost arms only. Keep the rest plain. Match the low level of detail of the reference. Menace comes from proportion, pose, eye shape and dark negative space, not added texture.\nPalette: #1B1612 ink, #F4ECD8 cream, #D5C4A1 tan; just two tiny flat #8C2D19 eye slits. No gradients, grain, stippling, skin detail, dense engraving, glow, gloss, cinematic lighting, realistic shading or ornamental decoration.\nComposition: complete isolated creature centered in a square canvas, around 80% canvas width and 80% height, at least 8–10% true transparent margin around all raised hook tips and lower arms. A few bold simple curved water marks underneath. All background areas genuinely transparent.\nNo text, frame, scenery, ship, checkerboard, cartoon smile, friendly eyes, human eyebrows, teeth, devil horns, royal crown or extra body parts.",
+      "style_reference": "monster_squid_pilot_v2.png"
+    }
+  ],
+  "runtime": "Squid species uses the smaller normal illustration. Kraken species or the_kraken ID uses the larger boss illustration, including the alternate squid-species boss factory.",
+  "limitation": "Both are fixed illustrations. Live tentacle counts and combat effects remain in the existing UI."
+}

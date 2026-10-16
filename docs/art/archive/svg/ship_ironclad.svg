@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Ironclad Ram</title>
+  <desc id="desc">Low armored ram ship. A bolted mast meets the deck at (112, 124); riveted plates, a reinforced pilot house and a submerged prow are engraved in iron-gall ink.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="standing-rigging">
+<path d="M29 124 L112 51 L166 124 M112 72 L74 124" fill="none" stroke-width="1.5"/>
+</g>
+<g id="armored-mast">
+<line x1="112" y1="124" x2="112" y2="35" stroke-width="3" id="mast-main"/>
+<path d="M109 44 H115 V124 H109 Z" fill="#D5C4A1"/>
+<line x1="97" y1="59" x2="127" y2="59" stroke-width="3"/>
+<line x1="104" y1="76" x2="120" y2="76" stroke-width="2.5"/>
+<path d="M114 36 L135 39 L130 44 L114 45 Z" fill="#8C2D19"/>
+<path d="M109 89 H115 M109 105 H115" fill="none" stroke-width="1.5"/>
+</g>
+<g id="pilot-house">
+<path d="M133 124 V88 H155 L164 124 Z" fill="#D5C4A1"/>
+<path d="M130 88 L135 82 H156 L160 88 Z" fill="#F4ECD8"/>
+<rect x="137" y="94" width="8" height="9" fill="#1B1612" stroke-width="1.5"/>
+<rect x="150" y="94" width="6" height="9" fill="#1B1612" stroke-width="1.5"/>
+<path d="M136 111 L144 119 M143 110 L151 119 M150 110 L158 119 M136 119 L144 111" fill="none" stroke-width="1.5"/>
+</g>
+<g id="deck-fittings">
+<path d="M45 124 V114 H88 L96 124 Z" fill="#D5C4A1"/>
+<rect x="59" y="108" width="20" height="6" fill="#F4ECD8" stroke-width="1.5"/>
+<path d="M45 120 H27 V114 H51" fill="#D5C4A1"/>
+<rect x="106" y="119" width="13" height="5" fill="#C59B27" stroke-width="1.5"/>
+<circle cx="109" cy="122" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="116" cy="122" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+</g>
+<g id="hull-engraving">
+<path d="M27 124 H179 L173 149 L157 160 H51 L33 149 L10 164 L15 155 L33 146 Z" fill="#D5C4A1" stroke-width="3" id="hull"/>
+<path d="M27 124 H179" fill="none" stroke-width="3" id="deck-main"/>
+<path d="M33 133 H176 M38 145 H173 M51 156 H157" fill="none" stroke-width="2"/>
+<path d="M50 125 V155 M75 125 V157 M100 125 V157 M125 125 V157 M150 125 V157 M38 136 l8 6 M55 136 l7 6 M81 136 l7 6 M106 136 l7 6 M131 136 l7 6 M156 136 l7 6 M56 150 l5 -4 M82 150 l5 -4 M107 150 l5 -4 M132 150 l5 -4" fill="none" stroke-width="1.5"/>
+<circle cx="57" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="57" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="57" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="83" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="83" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="83" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="109" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="109" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="109" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="135" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="135" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="135" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="161" cy="129" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="161" cy="141" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="161" cy="151" r="1.5" fill="#1B1612" stroke-width="1.5"/>
+<path d="M15 155 L32 151" fill="none" stroke-width="2.5"/>
+</g>
+<g id="ram-waterline">
+<path d="M5 151 Q13 147 21 151 T37 151" fill="none" stroke-width="1.5"/>
+</g>
+<g id="sea-engraving">
+<path d="M9 169 Q17 165 25 169 T41 169 M49 169 Q57 165 65 169 T81 169 M113 169 Q121 165 129 169 T145 169 M153 169 Q161 165 169 169 T185 169 M22 176 H46 M58 176 H93 M108 176 H138 M151 176 H177" fill="none" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+{
+  "title": "Freighter restoration, abstract tincture, and underside suckers",
+  "date": "2026-10-12",
+  "mode": "built-in ImageGen for two precise edits; original freighter restored from its saved file",
+  "status": "All three changes integrated. Rounded creature remains the active squid.",
+  "assets": [
+    {
+      "slug": "ship_freighter",
+      "title": "Heavy Freighter — restored",
+      "kind": "ship",
+      "target": "ship_freighter_map_v3.png",
+      "filename": "ship_freighter_pilot_v2.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "mode": "Restore existing approved file",
+      "change": "Restore the freighter used before the stockier cargo-hull revision, exactly as requested.",
+      "promptRecord": "raster_pilot_prompts_v2.json",
+      "targetPath": "docs/art/archive/png/ship_freighter_map_v3.png"
+    },
+    {
+      "slug": "icon_unstable_tincture",
+      "title": "Unstable Tincture",
+      "kind": "icon",
+      "target": "icon_unstable_tincture_map_v2.png",
+      "filename": "icon_unstable_tincture_map_v3.png",
+      "change": "Preserve the exact corked round vial, brass neck band, cream glass contour and overall silhouette. Replace ALL literal fire, lightning bolt, and storm-cloud symbols inside the bottle with ONE integrated CLOUDY, ROILING LIQUID mixture. Three or four broad rounded interlocking currents tumble around each other like agitated opaque brew: muted brass/amber with warm rust-crimson and smoky charcoal/tan veils. A couple of very small curved ivory slivers caught between the rolling currents suggest unstable electric energy; they must be abstract slivers, NOT lightning bolts or zigzag symbols. Warm red/amber currents evoke heat without any identifiable flame shape, flame tongues, pointy flame silhouettes or fire pictogram. Clouds are the cloudy texture of the liquid itself, NOT a separate cloud icon or a symbol hovering over the liquid. Keep the mixture subtle, organic, softly billowing in broad flat shapes, mature and simple enough to read at 36–48 px. No droplet, poison emblem, label, fire icon, lightning icon, spark stars, runes or words. No photoreal swirling smoke or gradients; only sparse woodcut-style outlines separating the roiling currents.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map_v2.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/icon_unstable_tincture_map_v3.png",
+      "prompt": "Use case: precise-object-edit. Input image 1 is the edit target for a transparent game illustration.\nRequested change: Preserve the exact corked round vial, brass neck band, cream glass contour and overall silhouette. Replace ALL literal fire, lightning bolt, and storm-cloud symbols inside the bottle with ONE integrated CLOUDY, ROILING LIQUID mixture. Three or four broad rounded interlocking currents tumble around each other like agitated opaque brew: muted brass/amber with warm rust-crimson and smoky charcoal/tan veils. A couple of very small curved ivory slivers caught between the rolling currents suggest unstable electric energy; they must be abstract slivers, NOT lightning bolts or zigzag symbols. Warm red/amber currents evoke heat without any identifiable flame shape, flame tongues, pointy flame silhouettes or fire pictogram. Clouds are the cloudy texture of the liquid itself, NOT a separate cloud icon or a symbol hovering over the liquid. Keep the mixture subtle, organic, softly billowing in broad flat shapes, mature and simple enough to read at 36–48 px. No droplet, poison emblem, label, fire icon, lightning icon, spark stars, runes or words. No photoreal swirling smoke or gradients; only sparse woodcut-style outlines separating the roiling currents.\nKeep the approved SIMPLE antique sea-map style: bold slightly uneven iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 shapes, sparse interior marks, flat color, no added realism, 3D, glow, dense engraving, grain, texture, glossy lighting or text. Preserve square canvas, true alpha transparency, whole subject and clear margins. No paper/background rectangle. This is an edit, not a redesign of the surrounding subject.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-85de79d9-d634-4e74-9a20-fd68037d4553.png",
+      "assetPath": "docs/art/archive/png/icon_unstable_tincture_map_v3.png",
+      "archived": true,
+      "targetPath": "docs/art/archive/png/icon_unstable_tincture_map_v2.png"
+    },
+    {
+      "slug": "monster_squid",
+      "title": "Rounded Squid",
+      "kind": "monster",
+      "target": "monster_squid_map_v3.png",
+      "filename": "monster_squid_map_v4.png",
+      "change": "Preserve the approved rounded octopus-like cartographic creature EXACTLY: mantle, eyes, face, left-facing pose, connected arm silhouettes, curled arm tips, sparse hatch marks and waterline strokes. Restore readable suckers, but they live ONLY on visible TAN UNDERSIDE surfaces of arms. On THREE foreground arms (the arm reaching far LEFT below the face, the bottom-centre curl, and the lower-RIGHT sweeping arm), broaden the existing tan underside strips slightly where needed into clear narrow underside ribbons. Add one sparse row of THREE or FOUR small cream oval suction cups inside each of those tan ribbons, following its curvature. Every suction cup is fully surrounded by tan shading with a visible tan margin; no cup crosses the cream/tan boundary and no cup touches an arm edge. The broad pale cream TOPS / BACKS of ALL arms remain completely plain except existing contour/hatch marks: ZERO sucker circles or dots on cream top surfaces, the head, or mantle. If an arm does not expose enough tan underside, do not put any sucker on that arm. Never scatter suckers everywhere. Keep distinct cream dorsal surfaces and tan ventral surfaces separated by the existing ink contour so the anatomical placement is unmistakable. No detached cups, floating curls, new arms, head changes or radial redesign.",
+      "reference": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_map_v3.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/art/archive/png/monster_squid_map_v4.png",
+      "prompt": "Use case: precise-object-edit. Input image 1 is the edit target for a transparent game illustration.\nRequested change: Preserve the approved rounded octopus-like cartographic creature EXACTLY: mantle, eyes, face, left-facing pose, connected arm silhouettes, curled arm tips, sparse hatch marks and waterline strokes. Restore readable suckers, but they live ONLY on visible TAN UNDERSIDE surfaces of arms. On THREE foreground arms (the arm reaching far LEFT below the face, the bottom-centre curl, and the lower-RIGHT sweeping arm), broaden the existing tan underside strips slightly where needed into clear narrow underside ribbons. Add one sparse row of THREE or FOUR small cream oval suction cups inside each of those tan ribbons, following its curvature. Every suction cup is fully surrounded by tan shading with a visible tan margin; no cup crosses the cream/tan boundary and no cup touches an arm edge. The broad pale cream TOPS / BACKS of ALL arms remain completely plain except existing contour/hatch marks: ZERO sucker circles or dots on cream top surfaces, the head, or mantle. If an arm does not expose enough tan underside, do not put any sucker on that arm. Never scatter suckers everywhere. Keep distinct cream dorsal surfaces and tan ventral surfaces separated by the existing ink contour so the anatomical placement is unmistakable. No detached cups, floating curls, new arms, head changes or radial redesign.\nKeep the approved SIMPLE antique sea-map style: bold slightly uneven iron-gall outlines #1B1612, cream #F4ECD8 and tan #D5C4A1 shapes, sparse interior marks, flat color, no added realism, 3D, glow, dense engraving, grain, texture, glossy lighting or text. Preserve square canvas, true alpha transparency, whole subject and clear margins. No paper/background rectangle. This is an edit, not a redesign of the surrounding subject.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-23cdbe9c-6b7e-4b87-872f-dbfc4e591e85.png",
+      "assetPath": "docs/art/archive/png/monster_squid_map_v4.png",
+      "archived": true,
+      "targetPath": "docs/art/archive/png/monster_squid_map_v3.png"
+    }
+  ]
+}

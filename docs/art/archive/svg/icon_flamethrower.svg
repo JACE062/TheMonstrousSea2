@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Flamethrower</title>
+  <desc id="desc">A copper pressure reservoir feeds an iron fire projector through a curved hose. A wick flame and brass valve distinguish the deck weapon.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 34 Q8 29 14 29 H22 Q28 29 28 34 V48 Q28 53 22 53 H14 Q8 53 8 48 Z" fill="#D5C4A1" stroke-width="2.5"/>
+<rect x="7" y="35" width="22" height="5" fill="#F4ECD8" stroke-width="1.5"/>
+<rect x="13" y="24" width="10" height="5" fill="#C59B27" stroke-width="1.5"/>
+<path d="M18 24 V20 M14 21 H22" fill="none" stroke-width="2"/>
+<path d="M25 46 C40 55 42 35 32 33" fill="none" stroke-width="3"/>
+<path d="M29 30 L44 20 L48 27 L34 37 Z" fill="#F4ECD8" stroke-width="2.5"/>
+<path d="M42 20 L47 17 L52 26 L47 29 Z" fill="#C59B27"/>
+<path d="M37 35 L43 44 H51 L54 51 H33 L29 44 Z" fill="#D5C4A1"/>
+<path d="M51 22 Q50 14 55 12 Q53 16 58 16 Q61 13 59 8 Q65 19 58 24 Z" fill="#8C2D19"/>
+<path d="M54 21 Q54 18 57 17 M12 43 l5 7 M18 42 l6 7 M12 49 l6 -6 M34 30 l7 -4 M38 33 l6 -4 M39 45 l4 4 M47 45 l4 4 M7 57 H54" fill="none" stroke-width="1.5"/>
+<circle cx="33" cy="32" r="2.5" fill="#C59B27" stroke-width="1.5"/>
+  </g>
+</svg>

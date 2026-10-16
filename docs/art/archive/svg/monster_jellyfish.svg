@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Stinging Medusa</title>
+  <desc id="desc">An engraved domed bell with scalloped margins and connected venomous tendrils. Stippled cells and sinuous oral arms preserve a transparent vellum silhouette.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="tendrils">
+<path d="M49 94 C28 117 66 134 43 163 Q34 177 47 185 M60 100 C44 124 81 134 59 158 Q48 172 65 182 M81 102 C63 130 101 141 79 170 M119 102 C137 132 99 140 121 170 M141 98 C158 120 123 139 145 159 Q158 172 139 183 M151 93 C177 118 139 135 163 163 Q175 179 159 187" fill="none" stroke-width="2.5"/>
+<path d="M94 95 C68 118 107 136 91 152 C79 166 96 180 100 181 C96 163 118 151 106 135 C95 122 117 110 108 96 Z" fill="#D5C4A1"/>
+<path d="M95 111 l8 5 M90 121 l9 5 M96 134 l9 2 M95 147 l7 4 M91 161 l5 4 M41 121 l6 3 M52 141 l6 -2 M143 137 l6 2 M157 115 l6 -2" fill="none" stroke-width="1.5"/>
+</g>
+<g id="bell">
+<path d="M33 90 C34 18 164 18 167 90 Q158 102 149 94 Q140 108 130 99 Q118 111 107 101 Q95 113 84 101 Q71 110 62 98 Q46 105 43 94 Q37 99 33 90 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M35 86 Q101 61 165 86 L167 90 Q158 102 149 94 Q140 108 130 99 Q118 111 107 101 Q95 113 84 101 Q71 110 62 98 Q46 105 43 94 Q37 99 33 90 Z" fill="#D5C4A1"/>
+<path d="M49 77 Q51 46 80 40 M64 76 Q65 48 86 38 M82 74 Q84 45 95 36 M100 73 V36 M118 74 Q118 45 105 36 M136 77 Q135 47 114 39 M153 79 Q150 48 124 43 M42 79 l8 3 M47 70 l7 3 M52 61 l7 3 M58 53 l7 3 M147 64 l7 -2 M151 72 l7 -2 M154 81 l6 -2 M51 89 l7 5 M67 86 l8 7 M87 84 l8 9 M108 84 l8 9 M129 86 l8 7 M147 89 l8 5" fill="none" stroke-width="1.5"/>
+<circle cx="84" cy="55" r="2" fill="#D5C4A1" stroke-width="1.5"/>
+<circle cx="116" cy="57" r="2" fill="#D5C4A1" stroke-width="1.5"/>
+<circle cx="98" cy="64" r="2" fill="#C59B27" stroke-width="1.5"/>
+</g>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Abyssal Squid</title>
+  <desc id="desc">A tapered squid mantle with paired fins and eight attached curling arms. Engraved suckers, mantle hatching and watchful eyes suggest an abyssal chart specimen.</desc>
+  <g fill="none" stroke="#1B1612" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<g id="fins">
+<path d="M84 48 Q56 42 45 73 Q60 67 78 81 Z M116 48 Q145 42 155 73 Q138 67 122 81 Z" fill="#D5C4A1"/>
+<path d="M54 66 L77 56 M61 67 L78 63 M123 55 L146 66 M122 62 L139 68" fill="none" stroke-width="1.5"/>
+</g>
+<g id="arms">
+<path d="M76 111 C51 110 55 137 31 133 C9 129 6 156 26 158 C12 148 25 143 33 148 C63 164 66 128 88 122 Z" fill="#D5C4A1"/>
+<path d="M124 111 C149 110 145 137 169 133 C191 129 194 156 174 158 C188 148 175 143 167 148 C137 164 134 128 112 122 Z" fill="#D5C4A1"/>
+<path d="M82 118 C67 134 81 155 57 159 C36 162 44 185 59 178 C47 177 49 170 60 171 C94 171 82 144 96 125 Z" fill="#F4ECD8"/>
+<path d="M118 118 C133 134 119 155 143 159 C164 162 156 185 141 178 C153 177 151 170 140 171 C106 171 118 144 104 125 Z" fill="#F4ECD8"/>
+<path d="M87 119 C83 143 96 161 78 182 Q88 179 94 170 C100 151 93 138 100 124 Z" fill="#D5C4A1"/>
+<path d="M113 119 C117 143 104 161 122 182 Q112 179 106 170 C100 151 107 138 100 124 Z" fill="#D5C4A1"/>
+<path d="M74 108 C43 98 30 113 21 103 Q23 121 46 117 L78 117 Z M126 108 C157 98 170 113 179 103 Q177 121 154 117 L122 117 Z" fill="#F4ECD8"/>
+<path d="M76 125 Q63 130 58 144 M124 125 Q137 130 142 144 M82 145 Q82 161 60 166 M118 145 Q118 161 140 166 M88 139 l4 7 M108 139 l4 7 M36 110 L47 110 M153 110 H164" fill="none" stroke-width="1.5"/>
+<circle cx="65" cy="128" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="58" cy="137" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="45" cy="145" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="32" cy="144" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="135" cy="128" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="142" cy="137" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="155" cy="145" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="168" cy="144" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="76" cy="151" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="69" cy="160" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="124" cy="151" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+<circle cx="131" cy="160" r="2" fill="#F4ECD8" stroke-width="1.5"/>
+</g>
+<g id="mantle">
+<path d="M100 21 C81 42 73 78 74 101 Q69 118 85 126 Q100 131 115 126 Q131 118 126 101 C127 78 119 42 100 21 Z" fill="#F4ECD8" stroke-width="3"/>
+<path d="M100 30 Q88 65 88 94 M106 38 Q117 70 116 94" fill="none" stroke-width="1.5"/>
+<path d="M84 61 l5 5 M81 70 l6 6 M79 79 l7 7 M78 88 l8 7 M111 58 l5 5 M114 69 l6 6 M116 80 l6 6 M80 84 l7 -8 M111 77 l8 -7 M93 122 Q100 125 107 122" fill="none" stroke-width="1.5"/>
+<circle cx="85" cy="107" r="6" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="115" cy="107" r="6" fill="#D5C4A1" stroke-width="2"/>
+<circle cx="85" cy="107" r="2" fill="#1B1612" stroke-width="1.5"/>
+<circle cx="115" cy="107" r="2" fill="#1B1612" stroke-width="1.5"/>
+<path d="M96 114 L100 120 L104 114 Z" fill="#8C2D19"/>
+</g>
+  </g>
+</svg>

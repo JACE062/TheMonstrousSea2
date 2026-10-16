@@ -1,0 +1,439 @@
+{
+  "createdOn": "2026-10-12",
+  "state": "archived",
+  "note": "Unused source artwork moved outside the Flutter asset bundle. All originals preserved byte-for-byte.",
+  "bytesRemovedFromBundle": 18367359.0,
+  "archivedFiles": [
+    {
+      "filename": "icon_anchor.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_anchor.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_anchor.svg",
+      "bytes": 932,
+      "sha256": "487789FB18E3E27C25A581AEE989534195D47F2F8046E50FBA3AC08780FD9219"
+    },
+    {
+      "filename": "icon_blade_launcher.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_blade_launcher.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_blade_launcher.svg",
+      "bytes": 1399,
+      "sha256": "BDE7E995C58187D2DA5D92702F04CC67312FAFC066252E79FE5D6D5BA78C53E4"
+    },
+    {
+      "filename": "icon_blast_pack.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_blast_pack.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_blast_pack.svg",
+      "bytes": 1295,
+      "sha256": "D2ED27D7F9FDE9A8386568302FCB8F1770AB7AB0CC7B8D10E82B8BB80B9A21A6"
+    },
+    {
+      "filename": "icon_cannon.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_cannon.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_cannon.svg",
+      "bytes": 1405,
+      "sha256": "F5601F8A1F65B5233DF3E49C1213202BD19B4801A8E70163B1F36DCDA10DB7CD"
+    },
+    {
+      "filename": "icon_cannons.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_cannons.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_cannons.svg",
+      "bytes": 844,
+      "sha256": "479E16D8898030D80DD2E38CB7606567392778793F11973E2690DA06011CF5D8"
+    },
+    {
+      "filename": "icon_chakram.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_chakram.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_chakram.svg",
+      "bytes": 3695,
+      "sha256": "5E9A8E125CBD51392ADDFCDDC7771EC2372C7038399C05238937F24F2AB24E72"
+    },
+    {
+      "filename": "icon_flamethrower_map.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_flamethrower_map.png",
+      "archivedRelativePath": "docs/art/archive/png/icon_flamethrower_map.png",
+      "bytes": 578342,
+      "sha256": "1D18D31257FE4FAB2FC2D0DD173BA7998A464819668B5255DF4C9234846D8A5E"
+    },
+    {
+      "filename": "icon_flamethrower.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_flamethrower.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_flamethrower.svg",
+      "bytes": 1371,
+      "sha256": "A1A36AC5E3F6C951C08B606C01DFB9619D7DB51AC8B2F7452BA2B71B503A2EA4"
+    },
+    {
+      "filename": "icon_helm.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_helm.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_helm.svg",
+      "bytes": 1346,
+      "sha256": "335709CBD6EC79118071E84E2F3B870A0848C7F2AB386D138E99FF02D7554872"
+    },
+    {
+      "filename": "icon_lightning_railgun.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_lightning_railgun.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_lightning_railgun.svg",
+      "bytes": 1475,
+      "sha256": "6BC413EA7393F480B6D1E4D65C033E7EEFD6752E1B0497CFBF93572C7FDF9E0E"
+    },
+    {
+      "filename": "icon_torpedo_launcher_map.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_torpedo_launcher_map.png",
+      "archivedRelativePath": "docs/art/archive/png/icon_torpedo_launcher_map.png",
+      "bytes": 718227,
+      "sha256": "4FA06C89D5C26473D38A40F8171E9E294DCA9E8B7D7148B8DD11D0490C924373"
+    },
+    {
+      "filename": "icon_torpedo_launcher.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_torpedo_launcher.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_torpedo_launcher.svg",
+      "bytes": 1389,
+      "sha256": "FC6A6F3F51F6DF8E60DA88539F7633EB5492560FB4385E10114C6A487301E895"
+    },
+    {
+      "filename": "icon_treasure.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_treasure.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_treasure.svg",
+      "bytes": 1098,
+      "sha256": "21583B4C2573CC86892F05FD68B3C34C2E72957097F6BFB928D8AE3145EB466F"
+    },
+    {
+      "filename": "icon_unstable_tincture_map_v2.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v2.png",
+      "archivedRelativePath": "docs/art/archive/png/icon_unstable_tincture_map_v2.png",
+      "bytes": 838065,
+      "sha256": "79522E0D3134A98FE17868ED54DB21F9504D08BAA57A276D5DE9A3CF7DC9579A"
+    },
+    {
+      "filename": "icon_unstable_tincture_map_v3.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v3.png",
+      "archivedRelativePath": "docs/art/archive/png/icon_unstable_tincture_map_v3.png",
+      "bytes": 839319,
+      "sha256": "CC51533467959655350141ACB2AB4E2F9816349441DC7A7E46A19BD55BC7EA27"
+    },
+    {
+      "filename": "icon_unstable_tincture_map.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_unstable_tincture_map.png",
+      "archivedRelativePath": "docs/art/archive/png/icon_unstable_tincture_map.png",
+      "bytes": 834889,
+      "sha256": "87DB32C713B29285487813B4B4CA504B2CE36AEED124796ACA3D30651628CE39"
+    },
+    {
+      "filename": "icon_unstable_tincture.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/icon_unstable_tincture.svg",
+      "archivedRelativePath": "docs/art/archive/svg/icon_unstable_tincture.svg",
+      "bytes": 1218,
+      "sha256": "59D02046E0DCB07AEF77B2D0CC78D3C9D0D7C93CEDDFE351B4790E9A0EC524E6"
+    },
+    {
+      "filename": "monster_crustacean.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_crustacean.svg",
+      "archivedRelativePath": "docs/art/archive/svg/monster_crustacean.svg",
+      "bytes": 3371,
+      "sha256": "ECAC751777C737A386EFC818564D9352072F1ED0B947674F961815A9FA2E5849"
+    },
+    {
+      "filename": "monster_jellyfish.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_jellyfish.svg",
+      "archivedRelativePath": "docs/art/archive/svg/monster_jellyfish.svg",
+      "bytes": 2009,
+      "sha256": "EE33B98897E9C175467A5F0A3C9166CC7D53CFF4E07003DB12555079D5E72044"
+    },
+    {
+      "filename": "monster_kraken_boss_v3.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_kraken_boss_v3.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_kraken_boss_v3.png",
+      "bytes": 1258705,
+      "sha256": "7FF60831F9581F5C4134C94CDE366F5D488E43C2E11B9F38E01E015DD3A61CF4"
+    },
+    {
+      "filename": "monster_kraken_boss_v4.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_kraken_boss_v4.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_kraken_boss_v4.png",
+      "bytes": 1180161,
+      "sha256": "B416D1D54CD33CD1EAAC773FB7AE50302CD3D292BD7350DBEE27B2977F45407E"
+    },
+    {
+      "filename": "monster_kraken_pilot_v2.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_kraken_pilot_v2.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_kraken_pilot_v2.png",
+      "bytes": 932073,
+      "sha256": "68975E2C27045A8178CA8F063E6F84F4CF96FC37AFD1F0C05CC1A09C1055053F"
+    },
+    {
+      "filename": "monster_kraken_pilot.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_kraken_pilot.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_kraken_pilot.png",
+      "bytes": 3426474,
+      "sha256": "B38FB07A5EE86E1EB446BE2BE81150A5D0EE523E6C623C5EF928E89ADA54A90A"
+    },
+    {
+      "filename": "monster_kraken.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_kraken.svg",
+      "archivedRelativePath": "docs/art/archive/svg/monster_kraken.svg",
+      "bytes": 4840,
+      "sha256": "042AEAC54E686EABC3ADB04E6A67D78F6EE5060878800B0485919940565CA2A7"
+    },
+    {
+      "filename": "monster_serpent.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_serpent.svg",
+      "archivedRelativePath": "docs/art/archive/svg/monster_serpent.svg",
+      "bytes": 2738,
+      "sha256": "580455532C3FEB43876DDF1EE3220D6E67E2C17E6BB0A90F459B5D0F22D75AF2"
+    },
+    {
+      "filename": "monster_shark.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_shark.svg",
+      "archivedRelativePath": "docs/art/archive/svg/monster_shark.svg",
+      "bytes": 2061,
+      "sha256": "E2FF65DB51D10E2CEEDF41511CE38157A1A3967C8D7524D7A8A3ED0C05983C99"
+    },
+    {
+      "filename": "monster_squid_alternate_map_v1.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_squid_alternate_map_v1.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_squid_alternate_map_v1.png",
+      "bytes": 608344,
+      "sha256": "42F9BF6D123ECFC3187E89C8FC60678934D3178579FA8C5F3620C5036F4E8782"
+    },
+    {
+      "filename": "monster_squid_map_v3.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_squid_map_v3.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_squid_map_v3.png",
+      "bytes": 893587,
+      "sha256": "58401773D733BAF6F5EA32DA77F5CBCFB0E39DB6330DE40B2AF1BFF6EC8250FD"
+    },
+    {
+      "filename": "monster_squid_map_v4.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_squid_map_v4.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_squid_map_v4.png",
+      "bytes": 933595,
+      "sha256": "68BC52A2A94AF0DA0D1A0BAEB5E294A65EBB361577748199F834D6F6E9F06627"
+    },
+    {
+      "filename": "monster_squid_pilot_v2.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_squid_pilot_v2.png",
+      "archivedRelativePath": "docs/art/archive/png/monster_squid_pilot_v2.png",
+      "bytes": 932073,
+      "sha256": "68975E2C27045A8178CA8F063E6F84F4CF96FC37AFD1F0C05CC1A09C1055053F"
+    },
+    {
+      "filename": "monster_squid.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/monster_squid.svg",
+      "archivedRelativePath": "docs/art/archive/svg/monster_squid.svg",
+      "bytes": 3386,
+      "sha256": "FFF9DB18A41CE7E0B37B096840DF67AA2F067C3CE78D70A731929C2A89392AB4"
+    },
+    {
+      "filename": "ship_corvette.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_corvette.svg",
+      "archivedRelativePath": "docs/art/archive/svg/ship_corvette.svg",
+      "bytes": 3057,
+      "sha256": "7F221676D6150EB30791C9713975EE5DA83A03732D8CFA069ED107D1FC1401AC"
+    },
+    {
+      "filename": "ship_flying_dutchman.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_flying_dutchman.svg",
+      "archivedRelativePath": "docs/art/archive/svg/ship_flying_dutchman.svg",
+      "bytes": 8922,
+      "sha256": "166592885E81ED41248E6A81AD754B0A1E7F84E6528E343360875D73138BF1A1"
+    },
+    {
+      "filename": "ship_freighter_map_v3.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_freighter_map_v3.png",
+      "archivedRelativePath": "docs/art/archive/png/ship_freighter_map_v3.png",
+      "bytes": 990857,
+      "sha256": "DD9E8867D9EAA93F6C098565D81407EC19A770E40AD002E374F96087805AF9A8"
+    },
+    {
+      "filename": "ship_freighter_pilot.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_freighter_pilot.png",
+      "archivedRelativePath": "docs/art/archive/png/ship_freighter_pilot.png",
+      "bytes": 2790760,
+      "sha256": "E4C7F05D4E87B99F99572BD33CBBA7F102ACEA10595470973EB3DE7595C6B991"
+    },
+    {
+      "filename": "ship_freighter.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_freighter.svg",
+      "archivedRelativePath": "docs/art/archive/svg/ship_freighter.svg",
+      "bytes": 7804,
+      "sha256": "F9AAFEB876A1F88E60DE41D173F437F0F2234BB67B87595F299ECD7604291FEA"
+    },
+    {
+      "filename": "ship_ironclad_map.png",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_ironclad_map.png",
+      "archivedRelativePath": "docs/art/archive/png/ship_ironclad_map.png",
+      "bytes": 547886,
+      "sha256": "FE2DA6EC1C96FD4A81455385984843514B2A4C7BE1375DA9A4ABE191D5A36A44"
+    },
+    {
+      "filename": "ship_ironclad.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_ironclad.svg",
+      "archivedRelativePath": "docs/art/archive/svg/ship_ironclad.svg",
+      "bytes": 3894,
+      "sha256": "CBD64AB2D8C84736BFB8E8F2FB49F813B7B8F9F57FA4E5044FFD10E0CDD64C8D"
+    },
+    {
+      "filename": "ship_standard.svg",
+      "originalRelativePath": "apps/monstrous_sea/assets/art/ship_standard.svg",
+      "archivedRelativePath": "docs/art/archive/svg/ship_standard.svg",
+      "bytes": 4453,
+      "sha256": "D2BCE4234A3044A654DAE2A255021B7983BCAE08310AF4B305FD02DB741E6BC8"
+    }
+  ],
+  "activeFiles": [
+    {
+      "filename": "icon_anchor_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_anchor_map.png",
+      "bytes": 692130,
+      "sha256": "54D79F5506E9ECEF5DF337A8D80C432BD1BD28F07F9895946AF63A4765CC07FB"
+    },
+    {
+      "filename": "icon_blade_launcher_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_blade_launcher_map.png",
+      "bytes": 785883,
+      "sha256": "2F313695A0FEFFF899C6271925B995F64F696EC6B22E75B7E0215E7D0F0A0FC6"
+    },
+    {
+      "filename": "icon_blast_pack_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_blast_pack_map.png",
+      "bytes": 887167,
+      "sha256": "8EC092012E86D2B46E4A59DBC6E86D5568067C38812CF3621AADCF77A8F40B1A"
+    },
+    {
+      "filename": "icon_cannon_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_cannon_map.png",
+      "bytes": 821478,
+      "sha256": "E63E8B906D8139AEDE3419B1B97405AF767E229D0BCDCE5B57391560B26B67C0"
+    },
+    {
+      "filename": "icon_cannons_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_cannons_map.png",
+      "bytes": 864732,
+      "sha256": "88B8BEC167BCB22EEE8861142A979EEF9234498D35D4B51E704174C912E6B023"
+    },
+    {
+      "filename": "icon_chakram_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_chakram_map.png",
+      "bytes": 704372,
+      "sha256": "89242C1A02E0E2AC58368C08D35CC1FF354F3EF9625EFFE6E39CC50F33C1BA63"
+    },
+    {
+      "filename": "icon_flamethrower_map_v2.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_flamethrower_map_v2.png",
+      "bytes": 566938,
+      "sha256": "B05A4E7C8477857156E694CF6FBF96660E74D5799BFEF559A526147712893711"
+    },
+    {
+      "filename": "icon_fog_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_fog_map.png",
+      "bytes": 499935,
+      "sha256": "8928AB59F1CB11D90E144B62CB17651D9FEE7F5551FF519AAEDA7384365588D6"
+    },
+    {
+      "filename": "icon_helm_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_helm_map.png",
+      "bytes": 737529,
+      "sha256": "4266AC3F619C4164746C3A558CE71507FA8BBF7A08601328F3CF4FD0C9C55379"
+    },
+    {
+      "filename": "icon_lightning_railgun_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_lightning_railgun_map.png",
+      "bytes": 627469,
+      "sha256": "EE12E52C66905E32512D7225DF2F27B0A01BDF86F752787ED02C4519EAD27D62"
+    },
+    {
+      "filename": "icon_port_haven_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_port_haven_map.png",
+      "bytes": 663154,
+      "sha256": "863442E887FB72E257C929D776AD35041BD820280F282E00E650EF879E29BC81"
+    },
+    {
+      "filename": "icon_skull_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_skull_map.png",
+      "bytes": 632457,
+      "sha256": "369D472CCB91B4BF29A2DCE8266DE03B11E147CECDB7A46427E13D1BC98C6555"
+    },
+    {
+      "filename": "icon_torpedo_launcher_map_v2.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_torpedo_launcher_map_v2.png",
+      "bytes": 720290,
+      "sha256": "C82A9FB40F63FC64CCCDF2FC6AB7ACACA4CEEAB0C16EE717A4B524B2CA63D7E3"
+    },
+    {
+      "filename": "icon_treasure_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+      "bytes": 1039496,
+      "sha256": "CAC0DF49903C581F639237913BE5D59E5C516E130D56062AC6FAD935BF7F247F"
+    },
+    {
+      "filename": "icon_unstable_tincture_map_v4.png",
+      "relativePath": "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png",
+      "bytes": 832983,
+      "sha256": "D80A71A21D128F2B382170DE7F64D69D394B65B17BC42C7A2FDB25EF5DD67D9A"
+    },
+    {
+      "filename": "monster_crustacean_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/monster_crustacean_map.png",
+      "bytes": 892466,
+      "sha256": "5A3247505C53F7A7D1E3F371B075AB56E050BBAFE3D34D9AB8827DCAABD76A01"
+    },
+    {
+      "filename": "monster_jellyfish_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/monster_jellyfish_map.png",
+      "bytes": 791822,
+      "sha256": "20D66D48E4CE5C8E3801043944AE248CDCFAC30CEA3430E15B973531DAAC125F"
+    },
+    {
+      "filename": "monster_kraken_boss_v5.png",
+      "relativePath": "apps/monstrous_sea/assets/art/monster_kraken_boss_v5.png",
+      "bytes": 1127241,
+      "sha256": "6929D92DDBBFC049FE2393F8D4379946184310C649F770BE05C3DE4E0B8DF147"
+    },
+    {
+      "filename": "monster_serpent_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/monster_serpent_map.png",
+      "bytes": 632414,
+      "sha256": "6870DE7B735F62B228C1036C8F08C6485035607A5923DB91FEEC8B348A5629EA"
+    },
+    {
+      "filename": "monster_shark_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/monster_shark_map.png",
+      "bytes": 514389,
+      "sha256": "E5A4F8C558ECB2D764B4C3EB9E22AD6DA51636BC390D926AE5BF2035271C0167"
+    },
+    {
+      "filename": "monster_squid_map_v5.png",
+      "relativePath": "apps/monstrous_sea/assets/art/monster_squid_map_v5.png",
+      "bytes": 925371,
+      "sha256": "DBC1E31434BA3A4C402A7DF0D2184B71EFF2094014F2D269BF1FA8621ED46161"
+    },
+    {
+      "filename": "ship_corvette_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/ship_corvette_map.png",
+      "bytes": 694375,
+      "sha256": "B5EDD7D4594AB2DA59D7351B6B4D343272CBA1A1728A5A449CAE72CAD72DA786"
+    },
+    {
+      "filename": "ship_flying_dutchman_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/ship_flying_dutchman_map.png",
+      "bytes": 1111147,
+      "sha256": "9763B6234F08DD720CCA9E25BBCB4E337E033C1F634F59AC222050507BC2AB3B"
+    },
+    {
+      "filename": "ship_freighter_pilot_v2.png",
+      "relativePath": "apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+      "bytes": 964312,
+      "sha256": "C0A86992A1A2647996F8F0504A20AF010B14D26657CACF4FB9BF889744BE36CA"
+    },
+    {
+      "filename": "ship_ironclad_map_v2.png",
+      "relativePath": "apps/monstrous_sea/assets/art/ship_ironclad_map_v2.png",
+      "bytes": 687413,
+      "sha256": "0D5FD76AAC5794703DBAB29F09CA6F3E5D52812E0089B543FE17775E52553DE6"
+    },
+    {
+      "filename": "ship_standard_map.png",
+      "relativePath": "apps/monstrous_sea/assets/art/ship_standard_map.png",
+      "bytes": 810356,
+      "sha256": "AEB057AF7CB85F7FA7522A1B1996F3B532DB5521CB6AF0A29D53B325AEF6EB33"
+    }
+  ]
+}
