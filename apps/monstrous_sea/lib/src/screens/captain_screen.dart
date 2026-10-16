@@ -195,6 +195,9 @@ class _CaptainScreenState extends State<CaptainScreen> {
         ShipClass.freighter => 'Armored Heavy Freighter',
         ShipClass.ironclad => 'Steam-Plated Ironclad',
         ShipClass.corvette => 'Wind-Skimming Corvette',
+        ShipClass.clipper => 'Razor Clipper Skiff',
+        ShipClass.bombardier => 'Siege Bombardier Barque',
+        ShipClass.corsair => 'Tactical Corsair Sloop',
       };
 
   String _shipDescription(ShipClass sClass) => switch (sClass) {
@@ -203,36 +206,60 @@ class _CaptainScreenState extends State<CaptainScreen> {
         ShipClass.freighter =>
           'Massive hold capacity designed for trade and looting. Survives with safe stash carrying 5% gold & cargo to heirs.',
         ShipClass.ironclad =>
-          'Heavy reinforced armor plates. Features Fortify trait: nullifies incoming attack damage and deflects monster strikes.',
+          'Heavy reinforced armor plates. Features Fortify trait and prow ram that shatters monster carapace.',
         ShipClass.corvette =>
-          'Raked sails built for supreme speed. Features Evasion trait: naturally dodges strikes and can execute evasive maneuvers.',
+          'Raked sails built for supreme speed. Features Evasion trait: naturally dodges strikes and maneuvers.',
+        ShipClass.clipper =>
+          'Streamlined racer mounting a Precision Culverin. Surgical critical strikes ignore 50% carapace.',
+        ShipClass.bombardier =>
+          'Heavy deck joists mounting high-angle Mortar artillery. Crushes carapace (+50% blast) and disrupts frenzy.',
+        ShipClass.corsair =>
+          'Equipped with Harpoon Winch rigging to sever tentacles and tether charging beasts, with expanded cargo.',
       };
 
   List<Widget> _buildStatColumns(ShipClass sClass) {
     return switch (sClass) {
       ShipClass.standard => [
           _statItem('HULL HP', '90 - 110'),
-          _statItem('ARMOR CLASS', '10 AC'),
+          _statItem('DEFENSE', 'Reinforced'),
           _statItem('CARGO HOLD', '15 - 25'),
           _statItem('GUN WEIGHT', '7 Wt'),
         ],
       ShipClass.freighter => [
           _statItem('HULL HP', '105 - 145'),
-          _statItem('ARMOR CLASS', '8 AC'),
+          _statItem('HEIR STASH', '5% Gold & Hold'),
           _statItem('CARGO HOLD', '20 - 40'),
           _statItem('GUN WEIGHT', '3 Wt'),
         ],
       ShipClass.ironclad => [
           _statItem('HULL HP', '90 - 110'),
-          _statItem('ARMOR CLASS', '12 AC'),
-          _statItem('DAMAGE REDUCT', '3 Flat'),
+          _statItem('FORTIFY DEF', '-3 Dmg Flat'),
+          _statItem('CARGO HOLD', '10 - 12'),
           _statItem('GUN WEIGHT', '10 Wt'),
         ],
       ShipClass.corvette => [
           _statItem('HULL HP', '70 - 90'),
-          _statItem('ARMOR CLASS', '6 AC'),
-          _statItem('BASE EVASION', '10%'),
+          _statItem('BASE EVASION', '10% Dodge'),
+          _statItem('CARGO HOLD', '10 - 20'),
           _statItem('GUN WEIGHT', '5 Wt'),
+        ],
+      ShipClass.clipper => [
+          _statItem('HULL HP', '75'),
+          _statItem('BASE EVASION', '25% Dodge'),
+          _statItem('CARGO HOLD', '12'),
+          _statItem('SIGNATURE', 'Culverin'),
+        ],
+      ShipClass.bombardier => [
+          _statItem('HULL HP', '95'),
+          _statItem('DEFENSE', 'Reinforced'),
+          _statItem('CARGO HOLD', '14'),
+          _statItem('SIGNATURE', 'Mortar'),
+        ],
+      ShipClass.corsair => [
+          _statItem('HULL HP', '85'),
+          _statItem('TACTICAL RIG', 'Harpoon Winch'),
+          _statItem('CARGO HOLD', '25'),
+          _statItem('SIGNATURE', 'Harpoon'),
         ],
     };
   }

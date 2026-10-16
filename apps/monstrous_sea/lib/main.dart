@@ -4,12 +4,19 @@ import 'src/game_controller.dart';
 import 'src/screens/battle_screen.dart';
 import 'src/screens/captain_screen.dart';
 import 'src/screens/death_screen.dart';
+import 'src/screens/helm_screen.dart';
 import 'src/screens/intro_screen.dart';
 import 'src/screens/loot_screen.dart';
 import 'src/screens/merchant_screen.dart';
 import 'src/screens/port_screen.dart';
+import 'src/screens/respite_island_screen.dart';
 import 'src/screens/rest_screen.dart';
 import 'src/screens/sea_chart_screen.dart';
+import 'src/screens/shipwreck_screen.dart';
+import 'src/screens/shrine_screen.dart';
+import 'src/screens/smuggler_screen.dart';
+import 'src/screens/victory_screen.dart';
+import 'src/settings/game_settings.dart';
 import 'src/theme/ink_theme.dart';
 
 void main() {
@@ -22,11 +29,24 @@ class MonstrousSeaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'The Monstrous Sea',
-      debugShowCheckedModeBanner: false,
-      theme: InkTheme.themeData,
-      home: const GameOrchestratorView(),
+    return ListenableBuilder(
+      listenable: GameSettings.instance,
+      builder: (context, _) {
+        return MaterialApp(
+          title: 'The Monstrous Sea',
+          debugShowCheckedModeBanner: false,
+          theme: InkTheme.themeData,
+          builder: (context, child) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: TextScaler.linear(GameSettings.instance.fontScale),
+              ),
+              child: child!,
+            );
+          },
+          home: const GameOrchestratorView(),
+        );
+      },
     );
   }
 }
@@ -91,6 +111,7 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
         key: const ValueKey('sea_chart_modal'),
         seaChart: _controller.seaChart,
         isInPort: _controller.phase == SessionPhase.port,
+        isCurrentDefeated: _controller.isCurrentEncounterDefeated,
         onClose: () => setState(() => _showingChartModal = false),
       );
     }
@@ -115,6 +136,13 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
           controller: _controller,
         );
 
+      case SessionPhase.helm:
+        return HelmScreen(
+          key: const ValueKey('helm_screen'),
+          controller: _controller,
+          onOpenChart: () => setState(() => _showingChartModal = true),
+        );
+
       case SessionPhase.battle:
         return BattleScreen(
           key: ValueKey('battle_screen_${_controller.currentMonster?.id}'),
@@ -132,6 +160,40 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
           key: const ValueKey('rest_screen'),
           controller: _controller,
           onOpenChart: () => setState(() => _showingChartModal = true),
+        );
+
+      case SessionPhase.respiteIsland:
+        return RespiteIslandScreen(
+          key: const ValueKey('respite_island_screen'),
+          controller: _controller,
+          onOpenChart: () => setState(() => _showingChartModal = true),
+        );
+
+      case SessionPhase.shipwreck:
+        return ShipwreckScreen(
+          key: const ValueKey('shipwreck_screen'),
+          controller: _controller,
+          onOpenChart: () => setState(() => _showingChartModal = true),
+        );
+
+      case SessionPhase.smuggler:
+        return SmugglerScreen(
+          key: const ValueKey('smuggler_screen'),
+          controller: _controller,
+          onOpenChart: () => setState(() => _showingChartModal = true),
+        );
+
+      case SessionPhase.shrine:
+        return ShrineScreen(
+          key: const ValueKey('shrine_screen'),
+          controller: _controller,
+          onOpenChart: () => setState(() => _showingChartModal = true),
+        );
+
+      case SessionPhase.expeditionVictory:
+        return VictoryScreen(
+          key: const ValueKey('victory_screen'),
+          controller: _controller,
         );
 
       case SessionPhase.death:

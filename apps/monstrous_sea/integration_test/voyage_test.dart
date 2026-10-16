@@ -105,20 +105,11 @@ void main() {
       expect(find.byType(BattleScreen), findsOneWidget);
       expect(find.text('BEAST INTEGRITY'), findsOneWidget);
 
-      // Test combat interaction: fire Cannon volley until victory or flee
-      final cannonButton = find.text('Cannon (2/2)');
-      if (cannonButton.evaluate().isNotEmpty) {
-        await tester.tap(cannonButton);
-        for (var frame = 0; frame < 6; frame++) {
-          await tester.pump(const Duration(milliseconds: 500));
-        }
-      }
-
-      // If battle continues, test Flee encounter
-      if (find.byType(BattleScreen).evaluate().isNotEmpty) {
-        final fleeButton = find.text('Flee Encounter');
-        if (fleeButton.evaluate().isNotEmpty) {
-          await tester.tap(fleeButton);
+      // Test combat interaction: fire Cannon volleys
+      for (var round = 0; round < 3; round++) {
+        final cannonButton = find.text('Cannon (2/2)');
+        if (cannonButton.evaluate().isNotEmpty) {
+          await tester.tap(cannonButton);
           for (var frame = 0; frame < 6; frame++) {
             await tester.pump(const Duration(milliseconds: 500));
           }

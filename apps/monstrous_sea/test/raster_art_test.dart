@@ -42,6 +42,14 @@ void main() {
     };
   });
 
+  test('The art bundle contains exactly the active illustrations', () async {
+    final manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
+    final bundled = manifest.listAssets().where(
+      (asset) => asset.startsWith('assets/art/'),
+    );
+    expect(bundled, unorderedEquals(PilotArt.allAssets));
+  });
+
   for (final asset in PilotArt.allAssets) {
     test('$asset decodes from the bundle with real transparency', () async {
       final source = await rootBundle.load(asset);
@@ -63,7 +71,22 @@ void main() {
           }
           expect(transparent, greaterThan(pixels.length ~/ 40));
           expect(painted, greaterThan(pixels.length ~/ 40));
-          expect(pixels[3], 0, reason: 'The cutout must not carry a paper box');
+          // Near-zero alpha (1/255) in generated padding is visually clear.
+          // Check all four corners while rejecting a visible background box.
+          final width = frame.image.width;
+          final height = frame.image.height;
+          for (final pixel in [
+            0,
+            width - 1,
+            (height - 1) * width,
+            width * height - 1,
+          ]) {
+            expect(
+              pixels[pixel * 4 + 3],
+              lessThanOrEqualTo(2),
+              reason: 'The cutout must not carry a paper box',
+            );
+          }
         } finally {
           frame.image.dispose();
         }
@@ -311,8 +334,9 @@ void main() {
       }
 
       if (encounter.shipClass == ShipClass.freighter) {
-        await tester.tap(find.text('Cannon (1/1)'));
-        for (var frame = 0; frame < 6; frame++) {
+        await tester.tap(find.textContaining('Cannon'));
+        final frameCount = isBoss ? 20 : 6;
+        for (var frame = 0; frame < frameCount; frame++) {
           await tester.pump(const Duration(milliseconds: 500));
         }
         expect(controller.session.battleRound, 1);

@@ -48,6 +48,7 @@ void main() {
     expect(find.text('VENTURE OUT TO SEA'), findsOneWidget);
 
     // Tap SEA CHART
+    await tester.ensureVisible(find.text('SEA CHART'));
     await tester.tap(find.text('SEA CHART'));
     await tester.pumpAndSettle();
 

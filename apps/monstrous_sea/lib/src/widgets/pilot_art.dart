@@ -13,8 +13,6 @@ class PilotArt {
   static const serpent = 'assets/art/monster_serpent_map.png';
   static const jellyfish = 'assets/art/monster_jellyfish_map.png';
   static const squid = 'assets/art/monster_squid_map_v5.png';
-  static const squidAlternative =
-      'assets/art/monster_squid_alternate_map_v1.png';
   static const crustacean = 'assets/art/monster_crustacean_map.png';
   static const kraken = 'assets/art/monster_kraken_boss_v5.png';
   static const unstableTincture =
@@ -30,6 +28,11 @@ class PilotArt {
   static const helm = 'assets/art/icon_helm_map.png';
   static const anchor = 'assets/art/icon_anchor_map.png';
   static const cannons = 'assets/art/icon_cannons_map.png';
+  static const portHaven = 'assets/art/icon_port_haven_map.png';
+  static const defeatedMonster = 'assets/art/icon_skull_map.png';
+  static const fog = 'assets/art/icon_fog_map.png';
+
+  static const chartAssets = [portHaven, defeatedMonster, fog];
 
   static const allAssets = [
     standard,
@@ -55,6 +58,7 @@ class PilotArt {
     helm,
     anchor,
     cannons,
+    ...chartAssets,
   ];
 
   static String forShip(ShipState ship) {
@@ -66,9 +70,9 @@ class PilotArt {
 
   static String forShipClass(ShipClass shipClass) => switch (shipClass) {
     ShipClass.standard => standard,
-    ShipClass.freighter => freighter,
-    ShipClass.ironclad => ironclad,
-    ShipClass.corvette => corvette,
+    ShipClass.freighter || ShipClass.corsair => freighter,
+    ShipClass.ironclad || ShipClass.bombardier => ironclad,
+    ShipClass.corvette || ShipClass.clipper => corvette,
   };
 
   static bool isKraken(MonsterState monster) =>
@@ -86,5 +90,7 @@ class PilotArt {
     MonsterSpecies.squid => squid,
     MonsterSpecies.crustacean => crustacean,
     MonsterSpecies.kraken => kraken,
+    MonsterSpecies.worldSerpent => serpent,
+    MonsterSpecies.ancientLeviathan => kraken,
   };
 }

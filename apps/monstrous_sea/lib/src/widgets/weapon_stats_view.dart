@@ -3,7 +3,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../theme/ink_theme.dart';
 
 /// Renders compact antique badges displaying damage, charge time, hit bonus,
-/// weight, and status effects for weapons and equipment.
+/// weapon battery type, and status effects for weapons and equipment.
 class WeaponStatsView extends StatelessWidget {
   const WeaponStatsView({
     super.key,
@@ -39,9 +39,9 @@ class WeaponStatsView extends StatelessWidget {
             color: InkTheme.verdigrisGreen,
           ),
           _statBadge(
-            '${weapon.equipWeight} Wt',
-            icon: Icons.fitness_center,
-            color: InkTheme.inkMuted,
+            weapon.weaponType.displayName,
+            icon: Icons.anchor,
+            color: InkTheme.inkSecondary,
           ),
           if (weapon.statusEffect != null)
             _statBadge(

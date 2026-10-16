@@ -59,6 +59,12 @@ class MerchantScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(width: 12),
+                    InkButton(
+                      label: 'LEAVE CHANDLERY',
+                      semanticLabel: 'Leave Chandlery and return to port',
+                      onPressed: () => controller.dispatch(const LeaveMerchant()),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -150,7 +156,7 @@ class MerchantScreen extends StatelessWidget {
                                                     child: Text(
                                                       'SALE (-25%)',
                                                       style: InkTheme.caption.copyWith(
-                                                        fontSize: 9,
+                                                        fontSize: 11,
                                                         fontWeight: FontWeight.bold,
                                                         color: InkTheme.inkPrimary,
                                                       ),
@@ -158,7 +164,7 @@ class MerchantScreen extends StatelessWidget {
                                                   ),
                                               ],
                                             ),
-                                            Text(item.description, style: InkTheme.caption.copyWith(fontSize: 12)),
+                                            Text(item.description, style: InkTheme.caption.copyWith(fontSize: 13.5)),
                                             const SizedBox(height: 3),
                                             WeaponStatsView(item: item, compact: true),
                                             const SizedBox(height: 3),
@@ -167,8 +173,8 @@ class MerchantScreen extends StatelessWidget {
                                               '${isOnSale ? ' (was ${(item.value * 1.35).round()}g)' : ''}',
                                               style: InkTheme.statLabel.copyWith(
                                                 color: canAfford ? InkTheme.goldAccent : InkTheme.crimsonAccent,
-                                                fontSize: 12,
-                                              ),
+                                                fontSize: 13.5,
+                                               ),
                                             ),
                                           ],
                                         ),
@@ -238,7 +244,7 @@ class MerchantScreen extends StatelessWidget {
                                                 fontSize: 14,
                                               ),
                                             ),
-                                            Text(item.description, style: InkTheme.caption.copyWith(fontSize: 12)),
+                                            Text(item.description, style: InkTheme.caption.copyWith(fontSize: 13.5)),
                                             const SizedBox(height: 3),
                                             WeaponStatsView(item: item, compact: true),
                                             const SizedBox(height: 3),
@@ -246,8 +252,8 @@ class MerchantScreen extends StatelessWidget {
                                               'Sell: ${item.value}g',
                                               style: InkTheme.statLabel.copyWith(
                                                 color: InkTheme.goldAccent,
-                                                fontSize: 12,
-                                              ),
+                                                fontSize: 13.5,
+                                               ),
                                             ),
                                           ],
                                         ),
@@ -283,3 +289,5 @@ class MerchantScreen extends StatelessWidget {
     );
   }
 }
+
+

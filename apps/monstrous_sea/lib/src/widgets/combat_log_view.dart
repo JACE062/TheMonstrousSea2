@@ -47,7 +47,7 @@ class CombatLogView extends StatelessWidget {
                     Text(
                       'VESSEL VOLLEYS',
                       style: InkTheme.statLabel.copyWith(
-                        fontSize: 10,
+                        fontSize: 11.5,
                         color: InkTheme.verdigrisGreen,
                         letterSpacing: 0.8,
                       ),
@@ -57,7 +57,7 @@ class CombatLogView extends StatelessWidget {
                 Text(
                   'CHRONICLE OF BATTLE',
                   style: InkTheme.caption.copyWith(
-                    fontSize: 10,
+                    fontSize: 11.5,
                     letterSpacing: 1.2,
                     color: InkTheme.inkMuted,
                   ),
@@ -67,7 +67,7 @@ class CombatLogView extends StatelessWidget {
                     Text(
                       'BEAST STRIKES',
                       style: InkTheme.statLabel.copyWith(
-                        fontSize: 10,
+                        fontSize: 11.5,
                         color: InkTheme.crimsonAccent,
                         letterSpacing: 0.8,
                       ),
@@ -198,7 +198,7 @@ class CombatLogView extends StatelessWidget {
                     child: Text(
                       badgeLabel,
                       style: InkTheme.statLabel.copyWith(
-                        fontSize: 9,
+                        fontSize: 11,
                         color: badgeColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -212,7 +212,7 @@ class CombatLogView extends StatelessWidget {
                       color: entry.isCritical
                           ? InkTheme.crimsonAccent
                           : InkTheme.inkPrimary,
-                      fontSize: 13,
+                      fontSize: 14.5,
                       fontWeight: entry.isCritical ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),
@@ -228,7 +228,7 @@ class CombatLogView extends StatelessWidget {
                     child: Text(
                       badgeLabel,
                       style: InkTheme.statLabel.copyWith(
-                        fontSize: 9,
+                        fontSize: 11,
                         color: badgeColor,
                         fontWeight: FontWeight.bold,
                       ),

@@ -208,6 +208,26 @@ class MonstrousSeaBattleGame extends FlameGame {
           _shipVisual.flashFortify();
           await Future.delayed(const Duration(milliseconds: 320));
 
+        case CombatRangeChanged(:final newRange, :final previousRange):
+          final isClosing = newRange.index > previousRange.index;
+          add(_FloatingTextComponent(
+            text: isClosing
+                ? 'CLOSING: ${newRange.displayName.toUpperCase()}'
+                : 'FALLING BACK: ${newRange.displayName.toUpperCase()}',
+            color: InkTheme.goldAccent,
+            position: _shipVisual.position - Vector2(0, 40),
+          ));
+          await Future.delayed(const Duration(milliseconds: 260));
+
+        case MortarBackfireOccurred(:final damage):
+          add(_FloatingTextComponent(
+            text: 'BACKFIRE! -$damage',
+            color: InkTheme.crimsonAccent,
+            position: _shipVisual.position - Vector2(0, 40),
+          ));
+          _triggerScreenShake();
+          await Future.delayed(const Duration(milliseconds: 320));
+
         default:
           break;
       }

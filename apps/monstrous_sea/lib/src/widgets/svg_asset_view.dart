@@ -32,6 +32,10 @@ class SvgAssetView extends StatelessWidget {
     if (item is ShipWeapon) {
       return switch (item.weaponType) {
         ShipWeaponType.cannon => PilotArt.cannon,
+        ShipWeaponType.precisionCulverin => PilotArt.cannon,
+        ShipWeaponType.heavyMortar => PilotArt.cannons,
+        ShipWeaponType.prowRam => PilotArt.anchor,
+        ShipWeaponType.harpoonWinch => PilotArt.anchor,
         ShipWeaponType.torpedoLauncher => PilotArt.torpedoLauncher,
         ShipWeaponType.bladeLauncher => PilotArt.bladeLauncher,
         ShipWeaponType.lightningRailgun => PilotArt.lightningRailgun,

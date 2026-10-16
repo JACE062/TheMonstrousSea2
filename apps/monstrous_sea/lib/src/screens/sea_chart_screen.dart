@@ -3,57 +3,101 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_scaffold.dart';
+import '../widgets/settings_dialog.dart';
 import '../widgets/svg_asset_view.dart';
+import '../widgets/pilot_art.dart';
 
-/// Interactive 4x5 nautical chart grid revealing route progression toward The Kraken,
-/// including the Hunter's Respite port anchorage and defeated beast skull markers.
+/// Interactive dead-reckoning sea chart revealing the 10-leg expedition progression toward The Regional Titan,
+/// including the Harbor Haven anchorage, Midpoint Respite Haven, and defeated beast markers.
 class SeaChartScreen extends StatelessWidget {
   const SeaChartScreen({
     super.key,
     required this.seaChart,
     required this.onClose,
     this.isInPort = false,
+    this.isCurrentDefeated = false,
   });
 
   final SeaChart seaChart;
   final VoidCallback onClose;
   final bool isInPort;
+  final bool isCurrentDefeated;
 
-  static const List<String> _rowTitles = [
-    'I. COASTAL SHALLOWS',
-    'II. OUTER REEF SHOALS',
-    'III. DEEP PELAGIC TRENCH',
-    'IV. ABYSSAL REALM',
-  ];
+  /// The active expedition leg (0 when in port, 1..totalLegs underway).
+  int get effectiveLeg {
+    if (seaChart.currentLeg > 0) return seaChart.currentLeg;
+    if (isInPort) return 0;
+    // Fallback if initialized via legacy coordinates (currentRow, currentCol)
+    return (seaChart.currentRow * SeaChart.totalCols + seaChart.currentCol + 1)
+        .clamp(1, seaChart.totalLegs);
+  }
+
+  int difficultyForLeg(int leg) {
+    if (leg == seaChart.regionTitanLeg) {
+      return SeaChart.bossRow + 2 + seaChart.timesCompleted * 4;
+    }
+    return ((leg + 1) ~/ 2).clamp(1, 4) + seaChart.timesCompleted * 4;
+  }
 
   @override
   Widget build(BuildContext context) {
     return ParchmentScaffold(
       body: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 820),
+          constraints: const BoxConstraints(maxWidth: 860),
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  'NAUTICAL SEA CHART',
-                  style: InkTheme.titleLarge.copyWith(fontSize: 30),
-                  textAlign: TextAlign.center,
+                // Top Navigation Bar
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.settings, color: InkTheme.inkPrimary),
+                      tooltip: 'Settings & Accessibility',
+                      onPressed: () => SettingsDialog.show(context),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            'NAUTICAL SEA CHART',
+                            style: InkTheme.titleLarge.copyWith(fontSize: 25),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            'EXPEDITION: ${seaChart.currentRegionName.toUpperCase()} • Region ${seaChart.currentRegionIndex + 1} of ${SeaChart.totalRegions}',
+                            style: InkTheme.subtitle.copyWith(
+                              color: InkTheme.goldAccent,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            seaChart.currentRegionSubtitle,
+                            style: InkTheme.caption,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.close, color: InkTheme.inkPrimary),
+                      tooltip: 'Close Sea Chart',
+                      onPressed: onClose,
+                    ),
+                  ],
                 ),
-                Text(
-                  'Chart of the 20 Naval Sectors • Loop ${seaChart.timesCompleted}',
-                  style: InkTheme.subtitle,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
 
-                // Harbor Anchorage / Port Haven spot
+                // Harbor Anchorage / Expedition Stronghold Haven
                 Semantics(
                   label: isInPort
-                      ? 'Harbor Haven: Hunter\'s Respite. Your ship is currently moored in port.'
-                      : 'Harbor Haven: Hunter\'s Respite. Vessel has departed into open water.',
+                      ? 'Harbor Haven: ${seaChart.currentPortName}. Your vessel is currently moored in port.'
+                      : 'Harbor Haven: ${seaChart.currentPortName}. Vessel has set sail into open soundings.',
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 18),
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -84,22 +128,28 @@ class SeaChartScreen extends StatelessWidget {
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
-                              const Icon(Icons.anchor, size: 28, color: InkTheme.inkPrimary),
+                              const SvgAssetView(
+                                assetPath: PilotArt.portHaven,
+                                width: 48,
+                                height: 48,
+                              ),
                               if (isInPort)
                                 Positioned(
                                   bottom: 2,
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                                     decoration: BoxDecoration(
                                       color: InkTheme.goldAccent,
                                       borderRadius: BorderRadius.circular(2),
+                                      border: Border.all(color: InkTheme.inkPrimary, width: 0.8),
                                     ),
                                     child: Text(
                                       'VESSEL',
                                       style: InkTheme.statLabel.copyWith(
-                                        fontSize: 8,
+                                        fontSize: 9.5,
                                         color: InkTheme.inkPrimary,
                                         fontWeight: FontWeight.bold,
+                                        letterSpacing: 0.6,
                                       ),
                                     ),
                                   ),
@@ -118,8 +168,10 @@ class SeaChartScreen extends StatelessWidget {
                                 runSpacing: 4,
                                 children: [
                                   Text(
-                                    "PORT OF DEPARTURE: HUNTER'S RESPITE",
-                                    style: InkTheme.titleMedium.copyWith(fontSize: 15),
+                                    seaChart.currentRegionIndex == 0
+                                        ? "PORT OF DEPARTURE: ${seaChart.currentPortName.toUpperCase()}"
+                                        : "EXPEDITION STRONGHOLD: ${seaChart.currentPortName.toUpperCase()}",
+                                    style: InkTheme.titleMedium.copyWith(fontSize: 16),
                                   ),
                                   if (isInPort)
                                     Container(
@@ -133,7 +185,7 @@ class SeaChartScreen extends StatelessWidget {
                                         'ANCHORED IN PORT',
                                         style: InkTheme.caption.copyWith(
                                           color: InkTheme.verdigrisGreen,
-                                          fontSize: 10,
+                                          fontSize: 11.5,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -143,9 +195,9 @@ class SeaChartScreen extends StatelessWidget {
                               const SizedBox(height: 2),
                               Text(
                                 isInPort
-                                    ? 'Your ship is moored safely in harbor. Set sail from Hunter\'s Respite to enter Naval Sector I-1.'
-                                    : 'Vessel is currently deployed on the open sea. Harbor is behind you.',
-                                style: InkTheme.caption.copyWith(fontSize: 12),
+                                    ? "Your vessel is moored safely in harbor at ${seaChart.currentPortName}. Take the helm to steer out into Soundings I."
+                                    : "Vessel has set sail from ${seaChart.currentPortName}. Harbor is left in your wake as you press outward to sea.",
+                                style: InkTheme.caption.copyWith(fontSize: 13.5),
                               ),
                             ],
                           ),
@@ -155,159 +207,26 @@ class SeaChartScreen extends StatelessWidget {
                   ),
                 ),
 
-                // 4x5 Chart Grid
-                ...List.generate(4, (row) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${_rowTitles[row]} (Danger Level ${row + 1 + seaChart.timesCompleted * 4})',
-                          style: InkTheme.statLabel.copyWith(fontSize: 12),
-                        ),
-                        const SizedBox(height: 6),
-                        Row(
-                          children: List.generate(5, (col) {
-                            // If in port, the vessel is at the harbor anchorage, not on the grid
-                            final isCurrent = !isInPort &&
-                                seaChart.currentRow == row &&
-                                seaChart.currentCol == col;
-                            final isCompleted = (row < seaChart.currentRow) ||
-                                (row == seaChart.currentRow && col < seaChart.currentCol);
-                            final isBoss = row == 3 && col == 4;
-                            final isRevealed = seaChart.isRevealed(row, col);
-                            final species = seaChart.speciesAt(row, col);
+                // Soundings I • Inshore Waters (Legs 1 to midpointHavenLeg)
+                _buildSoundingsTrack(
+                  trackTitle: 'SOUNDINGS I • INSHORE WATERS',
+                  subtitle: 'Inshore soundings leading to the Midpoint Respite Haven',
+                  startLeg: 1,
+                  endLeg: seaChart.midpointHavenLeg,
+                ),
+                const SizedBox(height: 16),
 
-                            return Expanded(
-                              child: Semantics(
-                                label: 'Sector Row ${row + 1}, Column ${col + 1}. '
-                                    'Danger level ${row + 1 + seaChart.timesCompleted * 4}. '
-                                    '${isCurrent ? "Current ship location. " : ""}'
-                                    '${isBoss ? "Final Boss sector. " : ""}'
-                                    '${!isRevealed ? "Unexplored fog of war." : isCompleted ? "Defeated beast sector. Slain: ${species.name}." : "Encounter: ${species.name}."}',
-                                excludeSemantics: true,
-                                child: Container(
-                                  height: 74,
-                                  margin: const EdgeInsets.symmetric(horizontal: 3),
-                                  decoration: BoxDecoration(
-                                    color: isCurrent
-                                        ? InkTheme.parchmentHighlight
-                                        : isCompleted
-                                            ? InkTheme.parchmentDark.withValues(alpha: 0.4)
-                                            : !isRevealed
-                                                ? InkTheme.parchmentDark.withValues(alpha: 0.65)
-                                                : InkTheme.parchmentSurface,
-                                    border: Border.all(
-                                      color: isCurrent
-                                          ? InkTheme.goldAccent
-                                          : isBoss
-                                              ? InkTheme.crimsonAccent
-                                              : !isRevealed
-                                                  ? InkTheme.inkFaint
-                                                  : InkTheme.inkMuted,
-                                      width: isCurrent || isBoss ? 2.0 : 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      if (!isRevealed)
-                                        Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.cloud_queue, size: 20, color: InkTheme.inkFaint),
-                                            const SizedBox(height: 2),
-                                            Text(
-                                              '░ FOG ░',
-                                              style: InkTheme.caption.copyWith(
-                                                color: InkTheme.inkFaint,
-                                                fontSize: 9,
-                                                letterSpacing: 1.1,
-                                              ),
-                                            ),
-                                          ],
-                                        )
-                                      else if (isCompleted)
-                                        // Skull and crossbones denoting defeated monster
-                                        Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              '☠',
-                                              style: TextStyle(
-                                                fontSize: 26,
-                                                color: InkTheme.crimsonAccent,
-                                                height: 1.0,
-                                              ),
-                                            ),
-                                            const SizedBox(height: 2),
-                                            Text(
-                                              'DEFEATED',
-                                              style: InkTheme.caption.copyWith(
-                                                color: InkTheme.crimsonAccent,
-                                                fontSize: 8.5,
-                                                fontWeight: FontWeight.bold,
-                                                letterSpacing: 0.8,
-                                              ),
-                                            ),
-                                          ],
-                                        )
-                                      else
-                                        Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            SvgAssetView(
-                                              assetPath: SvgAssetView.pathForSpecies(species),
-                                              width: isBoss ? 42 : 34,
-                                              height: isBoss ? 42 : 34,
-                                            ),
-                                            const SizedBox(height: 2),
-                                            Text(
-                                              species.name.toUpperCase(),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: InkTheme.caption.copyWith(
-                                                fontSize: 9,
-                                                color: isBoss ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                // Soundings II • Abyssal Passage (Legs midpointHavenLeg + 1 to totalLegs)
+                _buildSoundingsTrack(
+                  trackTitle: 'SOUNDINGS II • ABYSSAL PASSAGE',
+                  subtitle: 'Deepwater soundings leading to the Regional Titan\'s Lair',
+                  startLeg: seaChart.midpointHavenLeg + 1,
+                  endLeg: seaChart.totalLegs,
+                ),
+                const SizedBox(height: 20),
 
-                                      // Current ship marker overlay
-                                      if (isCurrent)
-                                        Positioned(
-                                          bottom: 3,
-                                          child: Container(
-                                            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                                            decoration: BoxDecoration(
-                                              color: InkTheme.goldAccent,
-                                              borderRadius: BorderRadius.circular(3),
-                                            ),
-                                            child: Text(
-                                              'VESSEL',
-                                              style: InkTheme.statLabel.copyWith(
-                                                fontSize: 8,
-                                                color: InkTheme.inkPrimary,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
+                // Dead-Reckoning Voyage Log (Chronicle)
+                _buildVoyageLog(),
 
                 const SizedBox(height: 24),
                 InkButton(
@@ -318,6 +237,383 @@ class SeaChartScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildSoundingsTrack({
+    required String trackTitle,
+    required String subtitle,
+    required int startLeg,
+    required int endLeg,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 8,
+          runSpacing: 2,
+          children: [
+            Text(
+              trackTitle,
+              style: InkTheme.statLabel.copyWith(
+                fontSize: 13.5,
+                letterSpacing: 0.8,
+              ),
+            ),
+            Text(
+              'Legs $startLeg – $endLeg',
+              style: InkTheme.caption.copyWith(
+                color: InkTheme.inkMuted,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        Text(
+          subtitle,
+          style: InkTheme.caption.copyWith(fontSize: 12),
+        ),
+        const SizedBox(height: 8),
+        Row(
+          children: List.generate(endLeg - startLeg + 1, (index) {
+            final leg = startLeg + index;
+            return Expanded(
+              child: _buildWaypointCard(leg),
+            );
+          }),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildWaypointCard(int leg) {
+    final activeLeg = effectiveLeg;
+    final isCurrent = !isInPort && leg == activeLeg;
+    final isCompleted = (leg < activeLeg) || (isCurrent && isCurrentDefeated);
+    final isHaven = leg == seaChart.midpointHavenLeg;
+    final isBoss = leg == seaChart.regionTitanLeg;
+
+    // Revealed if completed, current, guaranteed landmarks (haven/boss)
+    final isRevealed = isCompleted || isCurrent || isHaven || isBoss;
+
+    // Look up voyage record if logged
+    final VoyageLegRecord? record =
+        (leg <= seaChart.voyageLog.length) ? seaChart.voyageLog[leg - 1] : null;
+
+    // Determine node type and species
+    final EncounterNodeType nodeType = record?.nodeType ??
+        (isHaven
+            ? EncounterNodeType.respiteIsland
+            : isBoss
+                ? EncounterNodeType.regionTitan
+                : isCurrent
+                    ? seaChart.currentNodeType
+                    : EncounterNodeType.beastCombat);
+
+    final MonsterSpecies? species = record?.monsterSpecies ??
+        (isCurrent ? seaChart.speciesAt(seaChart.currentRow, seaChart.currentCol) : null);
+
+    final nodeLabel = switch (nodeType) {
+      EncounterNodeType.respiteIsland => 'Respite Haven',
+      EncounterNodeType.shipwreckSalvage => 'Shipwreck derelict',
+      EncounterNodeType.smugglerTrader => 'Smuggler trader',
+      EncounterNodeType.ancientShrine => 'Ancient Sea Shrine',
+      EncounterNodeType.regionTitan => 'Region Titan lair',
+      EncounterNodeType.beastCombat => species != null ? species.name : 'Sea beast',
+    };
+
+    final semanticsLabel = 'Expedition Leg $leg. '
+        'Danger level ${difficultyForLeg(leg)}. '
+        '${isCurrent ? "Current ship location. " : ""}'
+        '${isBoss ? "Final Titan sector. " : ""}'
+        '${isHaven ? "Midpoint Haven. " : ""}'
+        '${!isRevealed ? "Unexplored fog of war." : isCompleted ? "Completed sector: $nodeLabel." : nodeLabel}';
+
+    return Semantics(
+      label: semanticsLabel,
+      excludeSemantics: true,
+      child: Container(
+        height: 80,
+        margin: const EdgeInsets.symmetric(horizontal: 3),
+        decoration: BoxDecoration(
+          color: isCurrent
+              ? InkTheme.parchmentHighlight
+              : isCompleted
+                  ? InkTheme.parchmentDark.withValues(alpha: 0.4)
+                  : !isRevealed
+                      ? InkTheme.parchmentDark.withValues(alpha: 0.65)
+                      : InkTheme.parchmentSurface,
+          border: Border.all(
+            color: isCurrent
+                ? InkTheme.goldAccent
+                : isBoss
+                    ? InkTheme.crimsonAccent
+                    : isHaven
+                        ? InkTheme.goldAccent
+                        : !isRevealed
+                            ? InkTheme.inkFaint
+                            : InkTheme.inkMuted,
+            width: isCurrent || isBoss || isHaven ? 2.0 : 1.0,
+          ),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            if (!isRevealed)
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SvgAssetView(
+                    assetPath: PilotArt.fog,
+                    width: 36,
+                    height: 36,
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    '░ FOG ░',
+                    style: InkTheme.caption.copyWith(
+                      color: InkTheme.inkFaint,
+                      fontSize: 11,
+                      letterSpacing: 1.1,
+                    ),
+                  ),
+                ],
+              )
+            else if (isCompleted)
+              Padding(
+                padding: EdgeInsets.only(top: isCurrent ? 8 : 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SvgAssetView(
+                      assetPath: PilotArt.defeatedMonster,
+                      width: 34,
+                      height: 34,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      'DEFEATED',
+                      style: InkTheme.caption.copyWith(
+                        color: InkTheme.crimsonAccent,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 0.8,
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            else
+              Padding(
+                padding: EdgeInsets.only(top: isCurrent ? 8 : 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgAssetView(
+                      assetPath: isHaven
+                          ? PilotArt.anchor
+                          : isBoss
+                              ? PilotArt.kraken
+                              : nodeType == EncounterNodeType.shipwreckSalvage
+                                  ? PilotArt.treasure
+                                  : nodeType == EncounterNodeType.smugglerTrader
+                                      ? PilotArt.helm
+                                      : nodeType == EncounterNodeType.ancientShrine
+                                          ? PilotArt.portHaven
+                                          : species != null
+                                              ? SvgAssetView.pathForSpecies(species)
+                                              : PilotArt.kraken,
+                      width: isBoss ? 38 : 30,
+                      height: isBoss ? 38 : 30,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      isHaven
+                          ? 'HAVEN'
+                          : isBoss
+                              ? 'TITAN'
+                              : nodeType == EncounterNodeType.shipwreckSalvage
+                                  ? 'WRECK'
+                                  : nodeType == EncounterNodeType.smugglerTrader
+                                      ? 'SMUGGLER'
+                                      : nodeType == EncounterNodeType.ancientShrine
+                                          ? 'SHRINE'
+                                          : species != null
+                                              ? species.name.toUpperCase()
+                                              : 'BEAST',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: InkTheme.caption.copyWith(
+                        fontSize: 10.5,
+                        color: isBoss
+                            ? InkTheme.crimsonAccent
+                            : isHaven
+                                ? InkTheme.goldAccent
+                                : InkTheme.inkPrimary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+            // Pinned VESSEL marker on current leg at top
+            if (isCurrent)
+              Positioned(
+                top: 3,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: InkTheme.goldAccent,
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: InkTheme.inkPrimary, width: 0.8),
+                  ),
+                  child: Text(
+                    'VESSEL',
+                    style: InkTheme.statLabel.copyWith(
+                      fontSize: 9.5,
+                      color: InkTheme.inkPrimary,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.6,
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildVoyageLog() {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: InkTheme.parchmentSurface,
+        border: Border.all(color: InkTheme.inkMuted),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 8,
+            runSpacing: 2,
+            children: [
+              Text(
+                'DEAD-RECKONING VOYAGE LOG',
+                style: InkTheme.statValue.copyWith(
+                  fontSize: 13,
+                  letterSpacing: 1.0,
+                  color: InkTheme.goldAccent,
+                ),
+              ),
+              Text(
+                'Leg $effectiveLeg of ${seaChart.totalLegs}',
+                style: InkTheme.caption.copyWith(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          if (seaChart.voyageLog.isEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6),
+              child: Text(
+                'No bearings steered yet. As you take the helm and choose your headings, each nautical leg, bearing tack, and lookout sighting will be permanently charted here.',
+                style: InkTheme.caption.copyWith(
+                  fontStyle: FontStyle.italic,
+                  fontSize: 12.5,
+                ),
+              ),
+            )
+          else
+            Column(
+              children: seaChart.voyageLog.map((entry) {
+                return Container(
+                  margin: const EdgeInsets.only(bottom: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: InkTheme.parchmentDark.withValues(alpha: 0.35),
+                    border: Border.all(color: InkTheme.inkFaint),
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: InkTheme.goldAccent.withValues(alpha: 0.2),
+                          border: Border.all(color: InkTheme.goldAccent, width: 0.8),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: Text(
+                          'LEG ${entry.leg}: ${entry.bearing.shortName}',
+                          style: InkTheme.caption.copyWith(
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            color: InkTheme.goldAccent,
+                          ),
+                        ),
+                      ),
+                      if (entry.isApex) ...[
+                        const SizedBox(width: 6),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: InkTheme.crimsonAccent.withValues(alpha: 0.2),
+                            border: Border.all(color: InkTheme.crimsonAccent, width: 0.8),
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                          child: Text(
+                            'APEX',
+                            style: InkTheme.caption.copyWith(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: InkTheme.crimsonAccent,
+                            ),
+                          ),
+                        ),
+                      ],
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '${entry.bearing.displayName} • ${entry.nodeType.displayName}',
+                              style: InkTheme.caption.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: InkTheme.inkPrimary,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              '"${entry.lookoutCall}"',
+                              style: InkTheme.caption.copyWith(
+                                fontSize: 11.5,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
+        ],
       ),
     );
   }

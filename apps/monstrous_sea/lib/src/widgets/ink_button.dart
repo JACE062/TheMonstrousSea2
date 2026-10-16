@@ -8,6 +8,8 @@ class InkButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.icon,
+    this.subtitle,
+    this.subtitleColor,
     this.isDanger = false,
     this.isPrimary = false,
     this.width,
@@ -18,6 +20,8 @@ class InkButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final Widget? icon;
+  final String? subtitle;
+  final Color? subtitleColor;
   final bool isDanger;
   final bool isPrimary;
   final double? width;
@@ -79,15 +83,36 @@ class InkButton extends StatelessWidget {
               const SizedBox(width: 6),
             ],
             Flexible(
-              child: Text(
-                label,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: InkTheme.titleMedium.copyWith(
-                  fontSize: 18,
-                  color: textColor,
-                  decoration: !isEnabled ? TextDecoration.none : null,
-                ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    label,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: InkTheme.titleMedium.copyWith(
+                      fontSize: subtitle != null ? 14 : 18,
+                      color: textColor,
+                      decoration: !isEnabled ? TextDecoration.none : null,
+                    ),
+                  ),
+                  if (subtitle != null) ...[
+                    const SizedBox(height: 1),
+                    Text(
+                      subtitle!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: InkTheme.caption.copyWith(
+                        fontSize: 9.5,
+                        fontWeight: FontWeight.bold,
+                        color: !isEnabled
+                            ? InkTheme.inkFaint
+                            : subtitleColor ?? InkTheme.goldAccent,
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
           ],

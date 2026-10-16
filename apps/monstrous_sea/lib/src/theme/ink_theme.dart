@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+import '../settings/game_settings.dart';
 
 /// Design tokens and typography defining the 18th-century nautical cartography aesthetic.
 class InkTheme {
@@ -24,6 +25,7 @@ class InkTheme {
   static const Color goldAccent = Color(0xFFB58900);    // Doubloons, Relics, Victory
   static const Color abyssNavy = Color(0xFF1A2F3B);     // Deep Trench, Night Sea
   static const Color verdigrisGreen = Color(0xFF2A5A48);// Venom, Ghostly sails
+  static const Color greenAccent = verdigrisGreen;      // Healing, Boons, Timbers
 
   // Rarity Colors
   static Color rarityColor(RarityLevel rarity) => switch (rarity) {
@@ -37,105 +39,110 @@ class InkTheme {
   /// Useful for hermetic widget testing environments without network access.
   static bool disableGoogleFonts = false;
 
-  // Typography
-  static TextStyle get titleLarge => disableGoogleFonts
-      ? const TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.normal,
-          color: inkPrimary,
-          letterSpacing: 1.2,
-        )
-      : GoogleFonts.pirataOne(
-          fontSize: 32,
-          fontWeight: FontWeight.normal,
-          color: inkPrimary,
-          letterSpacing: 1.2,
-        );
+  static bool get _useCleanFont =>
+      disableGoogleFonts || GameSettings.instance.highLegibilityFont;
 
-  static TextStyle get titleMedium => disableGoogleFonts
+  // Typography
+  static TextStyle get titleLarge => _useCleanFont
       ? const TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.normal,
+          fontSize: 34,
+          fontWeight: FontWeight.bold,
           color: inkPrimary,
           letterSpacing: 1.0,
         )
       : GoogleFonts.pirataOne(
-          fontSize: 24,
+          fontSize: 34,
           fontWeight: FontWeight.normal,
           color: inkPrimary,
-        letterSpacing: 1.0,
-      );
+          letterSpacing: 1.2,
+        );
 
-  static TextStyle get subtitle => disableGoogleFonts
+  static TextStyle get titleMedium => _useCleanFont
       ? const TextStyle(
-          fontSize: 18,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+          color: inkPrimary,
+          letterSpacing: 0.8,
+        )
+      : GoogleFonts.pirataOne(
+          fontSize: 25,
+          fontWeight: FontWeight.normal,
+          color: inkPrimary,
+          letterSpacing: 1.0,
+        );
+
+  static TextStyle get subtitle => _useCleanFont
+      ? const TextStyle(
+          fontSize: 19,
           fontStyle: FontStyle.italic,
           color: inkSecondary,
         )
       : GoogleFonts.imFellEnglish(
-          fontSize: 18,
+          fontSize: 19,
           fontStyle: FontStyle.italic,
           color: inkSecondary,
         );
 
-  static TextStyle get body => disableGoogleFonts
+  static TextStyle get body => _useCleanFont
       ? const TextStyle(
-          fontSize: 16,
+          fontSize: 17,
           color: inkPrimary,
-          height: 1.35,
+          height: 1.4,
         )
       : GoogleFonts.imFellEnglish(
-          fontSize: 16,
+          fontSize: 17,
           color: inkPrimary,
-          height: 1.35,
+          height: 1.4,
         );
 
-  static TextStyle get bodyBold => disableGoogleFonts
+  static TextStyle get bodyBold => _useCleanFont
       ? const TextStyle(
-          fontSize: 16,
+          fontSize: 17,
           fontWeight: FontWeight.bold,
           color: inkPrimary,
+          height: 1.4,
         )
       : GoogleFonts.imFellEnglish(
-          fontSize: 16,
+          fontSize: 17,
           fontWeight: FontWeight.bold,
           color: inkPrimary,
+          height: 1.4,
         );
 
-  static TextStyle get caption => disableGoogleFonts
+  static TextStyle get caption => _useCleanFont
       ? const TextStyle(
-          fontSize: 13,
+          fontSize: 14.5,
           fontStyle: FontStyle.italic,
           color: inkMuted,
         )
       : GoogleFonts.imFellEnglish(
-          fontSize: 13,
+          fontSize: 14.5,
           fontStyle: FontStyle.italic,
           color: inkMuted,
         );
 
-  static TextStyle get statLabel => disableGoogleFonts
+  static TextStyle get statLabel => _useCleanFont
       ? const TextStyle(
-          fontSize: 13,
+          fontSize: 14.5,
           fontWeight: FontWeight.w600,
           color: inkSecondary,
           letterSpacing: 0.8,
         )
       : GoogleFonts.cinzel(
-          fontSize: 13,
+          fontSize: 14.5,
           fontWeight: FontWeight.w600,
           color: inkSecondary,
           letterSpacing: 0.8,
         );
 
-  static TextStyle get statValue => disableGoogleFonts
+  static TextStyle get statValue => _useCleanFont
       ? const TextStyle(
-          fontSize: 15,
+          fontSize: 16.5,
           fontWeight: FontWeight.bold,
           color: inkPrimary,
         )
       : GoogleFonts.cinzel(
-          fontSize: 15,
+          fontSize: 16.5,
           fontWeight: FontWeight.bold,
           color: inkPrimary,
         );

@@ -19,12 +19,20 @@ class DeathScreen extends StatefulWidget {
 class _DeathScreenState extends State<DeathScreen> {
   late final TextEditingController _heirNameController;
   ShipClass _chosenClass = ShipClass.standard;
+  int _selectedCandidateIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    final prevName = widget.controller.captainName;
-    _heirNameController = TextEditingController(text: 'Heir of $prevName');
+    final candidates = widget.controller.pendingHeirCandidates;
+    if (candidates.isNotEmpty) {
+      _heirNameController = TextEditingController(text: candidates.first.defaultName);
+    } else {
+      final prevName = widget.controller.captainName;
+      _heirNameController = TextEditingController(
+        text: prevName.isNotEmpty ? 'Heir of $prevName' : 'Heir of the Deep',
+      );
+    }
   }
 
   @override
@@ -36,7 +44,18 @@ class _DeathScreenState extends State<DeathScreen> {
   void _onContinueLineage() {
     final name = _heirNameController.text.trim();
     if (name.isEmpty) return;
-    widget.controller.dispatch(ContinueLineage(name, _chosenClass));
+    final candidates = widget.controller.pendingHeirCandidates;
+    final selected = (candidates.isNotEmpty &&
+            _selectedCandidateIndex >= 0 &&
+            _selectedCandidateIndex < candidates.length)
+        ? candidates[_selectedCandidateIndex]
+        : null;
+    widget.controller.dispatch(ContinueLineage(
+      name,
+      _chosenClass,
+      boon: selected?.boon,
+      quirk: selected?.quirk,
+    ));
   }
 
   @override
@@ -44,6 +63,8 @@ class _DeathScreenState extends State<DeathScreen> {
     final lineage = widget.controller.lineage;
     final lastRecord = lineage.history.isNotEmpty ? lineage.history.last : null;
     final isFreighter = widget.controller.ship?.shipClass == ShipClass.freighter;
+    final nemesis = widget.controller.activeNemesis;
+    final candidates = widget.controller.pendingHeirCandidates;
 
     return ParchmentScaffold(
       body: Center(
@@ -55,7 +76,9 @@ class _DeathScreenState extends State<DeathScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'A WATERY GRAVE',
+                  lastRecord?.causeOfDeath.contains('Ascended') == true
+                      ? 'ASCENDED INTO THE DEEP'
+                      : 'A WATERY GRAVE',
                   style: InkTheme.titleLarge.copyWith(
                     fontSize: 36,
                     color: InkTheme.crimsonAccent,
@@ -63,7 +86,9 @@ class _DeathScreenState extends State<DeathScreen> {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'The timbers splintered. The deep claimed another valiant captain.',
+                  lastRecord?.causeOfDeath.contains('Ascended') == true
+                      ? 'The captain claimed the Primordial Core. The flagship returns alone to harbor with the Covenant awoken.'
+                      : 'The timbers splintered. The deep claimed another valiant captain.',
                   style: InkTheme.subtitle,
                   textAlign: TextAlign.center,
                 ),
@@ -97,6 +122,66 @@ class _DeathScreenState extends State<DeathScreen> {
                 ),
                 const SizedBox(height: 20),
 
+                // Nemesis Ascended Card
+                if (nemesis != null) ...[
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: InkTheme.crimsonAccent.withValues(alpha: 0.12),
+                      border: Border.all(color: InkTheme.crimsonAccent, width: 2),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.warning_amber_rounded, color: InkTheme.crimsonAccent, size: 24),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                'NEMESIS ASCENDED: ${nemesis.moniker.toUpperCase()}',
+                                style: InkTheme.titleMedium.copyWith(
+                                  color: InkTheme.crimsonAccent,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1.1,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          'Felled Captain ${nemesis.predecessorCaptain} in Region ${nemesis.regionIndex + 1}.',
+                          style: InkTheme.bodyBold,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'The beast grows more cunning and ruthless in the deep. Confront it on a future voyage to avenge your ancestor.',
+                          style: InkTheme.body,
+                        ),
+                        const Divider(height: 16, color: InkTheme.crimsonAccent),
+                        Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          spacing: 4,
+                          runSpacing: 4,
+                          children: [
+                            Text(
+                              'Vengeance Bounty: ',
+                              style: InkTheme.caption.copyWith(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '+${nemesis.bountyGold} Gold • +${nemesis.bountySeaGlass} Sea Glass • +${nemesis.bountyMonsterBone} Monster Bone • +${nemesis.bountyBarnacles} Barnacles',
+                              style: InkTheme.caption.copyWith(color: InkTheme.goldAccent, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+
                 // Freighter Inheritance Notice
                 if (isFreighter)
                   Container(
@@ -112,6 +197,159 @@ class _DeathScreenState extends State<DeathScreen> {
                       style: InkTheme.bodyBold.copyWith(color: InkTheme.goldAccent),
                     ),
                   ),
+
+                // Heir Candidates Selection
+                if (candidates.isNotEmpty) ...[
+                  Text('SELECT HEIR CANDIDATE', style: InkTheme.statLabel),
+                  const SizedBox(height: 6),
+                  Text(
+                    'Each heir inherits unique bloodline dispositions forged by your lineage\'s pact with the sea.',
+                    style: InkTheme.subtitle,
+                  ),
+                  const SizedBox(height: 12),
+                  Column(
+                    children: List.generate(candidates.length, (index) {
+                      final candidate = candidates[index];
+                      final isSelected = _selectedCandidateIndex == index;
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              _selectedCandidateIndex = index;
+                              _heirNameController.text = candidate.defaultName;
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(14),
+                            decoration: BoxDecoration(
+                              color: isSelected ? InkTheme.parchmentHighlight : InkTheme.parchmentSurface,
+                              border: Border.all(
+                                color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
+                                width: isSelected ? 2.5 : 1,
+                              ),
+                              borderRadius: BorderRadius.circular(6),
+                              boxShadow: isSelected
+                                  ? [
+                                      BoxShadow(
+                                        color: InkTheme.goldAccent.withValues(alpha: 0.25),
+                                        blurRadius: 8,
+                                        offset: const Offset(0, 2),
+                                      )
+                                    ]
+                                  : null,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        candidate.defaultName,
+                                        style: InkTheme.titleMedium.copyWith(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: isSelected ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+                                        ),
+                                      ),
+                                    ),
+                                    if (isSelected) ...[
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: InkTheme.goldAccent.withValues(alpha: 0.2),
+                                          border: Border.all(color: InkTheme.goldAccent),
+                                          borderRadius: BorderRadius.circular(4),
+                                        ),
+                                        child: Text(
+                                          'SELECTED',
+                                          style: InkTheme.caption.copyWith(
+                                            color: InkTheme.goldAccent,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ],
+                                ),
+                                const SizedBox(height: 10),
+                                // Boon
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue.withValues(alpha: 0.15),
+                                        border: Border.all(color: Colors.blue.shade700),
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                      child: Text(
+                                        'BOON',
+                                        style: InkTheme.caption.copyWith(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.blue.shade800,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(candidate.boon.name, style: InkTheme.bodyBold),
+                                          Text(candidate.boon.description, style: InkTheme.caption),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 8),
+                                // Quirk
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                      decoration: BoxDecoration(
+                                        color: Colors.deepOrange.withValues(alpha: 0.15),
+                                        border: Border.all(color: Colors.deepOrange.shade700),
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                      child: Text(
+                                        'QUIRK',
+                                        style: InkTheme.caption.copyWith(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.deepOrange.shade800,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(candidate.quirk.name, style: InkTheme.bodyBold),
+                                          Text(candidate.quirk.description, style: InkTheme.caption),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                  const SizedBox(height: 16),
+                ],
 
                 // Heir Name & Ship Selection
                 ParchmentCard(
@@ -154,7 +392,8 @@ class _DeathScreenState extends State<DeathScreen> {
                                   child: Text(
                                     sClass.name.toUpperCase(),
                                     style: InkTheme.statLabel.copyWith(
-                                      fontSize: 11,
+                                      fontSize: 13,
+                                      fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
                                       color: isSelected ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
                                     ),
                                     textAlign: TextAlign.center,
@@ -198,3 +437,4 @@ class _DeathScreenState extends State<DeathScreen> {
     );
   }
 }
+

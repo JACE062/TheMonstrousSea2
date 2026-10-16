@@ -5,6 +5,7 @@ import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
+import '../widgets/pilot_art.dart';
 import '../widgets/svg_asset_view.dart';
 import '../widgets/weapon_stats_view.dart';
 
@@ -36,11 +37,46 @@ class LootScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'The beast sinks into the deep, leaving flotsam and treasures in the brine.',
+                  'The beast sinks into the deep, leaving flotsam and munitions in the brine.',
                   style: InkTheme.subtitle,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 16),
+
+                // Direct Gold Salvaged Notification Banner
+                if (controller.lastGoldSalvaged > 0) ...[
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    decoration: BoxDecoration(
+                      color: InkTheme.goldAccent.withValues(alpha: 0.15),
+                      border: Border.all(color: InkTheme.goldAccent, width: 1.5),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SvgAssetView(
+                          assetPath: PilotArt.treasure,
+                          width: 28,
+                          height: 28,
+                        ),
+                        const SizedBox(width: 12),
+                        Flexible(
+                          child: Text(
+                            '+${controller.lastGoldSalvaged} GOLD SALVAGED DIRECTLY TO PURSE (Purse: ${ship?.gold ?? 0}g)',
+                            style: InkTheme.statLabel.copyWith(
+                              color: InkTheme.goldAccent,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                ],
 
                 // Cargo Hold Indicator
                 Container(
@@ -152,7 +188,29 @@ class LootScreen extends StatelessWidget {
 
                 const SizedBox(height: 16),
 
-                // Cargo Hold Management (Jettison options)
+                // Primary Action Buttons (placed directly below spoils)
+                Row(
+                  children: [
+                    if (pendingLoot.isNotEmpty && !isFull)
+                      Expanded(
+                        child: InkButton(
+                          label: 'TAKE ALL SPOILS',
+                          isPrimary: true,
+                          onPressed: () => controller.dispatch(const TakeAllLoot()),
+                        ),
+                      ),
+                    if (pendingLoot.isNotEmpty && !isFull) const SizedBox(width: 12),
+                    Expanded(
+                      child: InkButton(
+                        label: pendingLoot.isEmpty ? 'PROCEED TO NEXT REST' : 'LEAVE LEFTOVER & PROCEED',
+                        onPressed: () => controller.dispatch(const LeaveRemainingLoot()),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+                // Cargo Hold Management (Jettison options to free space)
                 if (ship != null && ship.cargo.isNotEmpty) ...[
                   Text('ITEMS IN YOUR CARGO HOLD (${ship.cargo.length}/${ship.maxCargo})', style: InkTheme.statLabel),
                   const SizedBox(height: 8),
@@ -217,29 +275,6 @@ class LootScreen extends StatelessWidget {
                     ),
                   ),
                 ],
-
-                const SizedBox(height: 24),
-
-                // Action Buttons
-                Row(
-                  children: [
-                    if (pendingLoot.isNotEmpty && !isFull)
-                      Expanded(
-                        child: InkButton(
-                          label: 'TAKE ALL SPOILS',
-                          isPrimary: true,
-                          onPressed: () => controller.dispatch(const TakeAllLoot()),
-                        ),
-                      ),
-                    if (pendingLoot.isNotEmpty && !isFull) const SizedBox(width: 12),
-                    Expanded(
-                      child: InkButton(
-                        label: 'LEAVE LEFTOVER & PROCEED',
-                        onPressed: () => controller.dispatch(const LeaveRemainingLoot()),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
