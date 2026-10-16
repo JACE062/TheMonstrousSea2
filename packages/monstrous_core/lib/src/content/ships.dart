@@ -1,5 +1,7 @@
 import '../model/combatant.dart';
+import '../model/covenant_of_the_deep.dart';
 import '../model/enums.dart';
+import '../model/flagship_blueprint.dart';
 import '../model/item.dart';
 import '../rng/game_rng.dart';
 import 'names/name_forge.dart';
@@ -214,6 +216,137 @@ ShipState createFlyingDutchman({
   );
 }
 
+/// Factory function to create a [ShipState] from an ancestral [FlagshipBlueprint].
+///
+/// Sets up the flagship according to its blueprint specifications:
+/// - Base stats: HP, AC, Evasion, Cargo, Damage Reduction.
+/// - Hardpoints: configured from the blueprint.
+/// - Starting weapons: mounts the blueprint's signature weapon (if any) and baseline weapons:
+///   * Standard: 2 Cannons
+///   * Ironclad: Prow Ram + Cannon
+///   * Clipper: Precision Culverin + Cannon
+///   * Bombardier: Heavy Mortar + 2 Cannons
+///   * Corsair: Harpoon Winch + Cannon
+ShipState createFlagshipFromBlueprint(
+  BlueprintId blueprintId, {
+  int level = 1,
+  required GameRng rng,
+  String? name,
+  String? id,
+  List<ShipWeapon>? equippedWeapons,
+  int armamentTier = 1,
+  bool hasExpandedAuxiliarySlot = false,
+  int bonusMaxHp = 0,
+}) {
+  final bp = FlagshipBlueprint.catalog[blueprintId] ??
+      FlagshipBlueprint.catalog[BlueprintId.standard]!;
+  final shipName = name ?? NameForge.generateShipName(bp.id.shipClass, rng);
+  final shipId = id ?? 'flagship_${blueprintId.name}_${++_shipIdCounter}';
+
+  final hp = bp.baseHp + (level - 1) * 40 + bonusMaxHp;
+  final ac = bp.baseArmorClass + (level - 1) * 2;
+  final cargo = bp.baseCargo + (level - 1) * 5;
+  final baseMaxWeight = switch (blueprintId) {
+    BlueprintId.standard => 7 * level,
+    BlueprintId.ironclad => 10 * level,
+    BlueprintId.clipper => 6 * level,
+    BlueprintId.bombardier => 8 * level,
+    BlueprintId.corsair => 7 * level,
+  };
+  final maxWeight = baseMaxWeight + (hasExpandedAuxiliarySlot ? 2 : 0);
+  final evasion = (bp.baseEvasion + (level - 1) * 5).clamp(0, 50);
+  final dmgReduction = bp.baseDamageReduction + (level - 1) * 2;
+  final dmgReductionMod = blueprintId == BlueprintId.ironclad ? 2 * level : 0;
+
+  final hardpoints = hasExpandedAuxiliarySlot
+      ? <HardpointSlot>[
+          ...bp.hardpoints,
+          const HardpointSlot(
+            id: 'reserve_aux',
+            name: 'Reserve Aux Mount',
+            type: HardpointType.auxiliary,
+          ),
+        ]
+      : bp.hardpoints;
+
+  final weapons = equippedWeapons ??
+      _createDefaultWeaponsForBlueprint(
+        blueprintId,
+        level,
+        rng,
+        armamentTier: armamentTier,
+      );
+
+  final ship = ShipState(
+    id: shipId,
+    name: shipName,
+    level: level,
+    maxHp: hp,
+    armorClass: ac,
+    shipClass: bp.id.shipClass,
+    blueprintId: blueprintId.name,
+    hardpoints: hardpoints,
+    maxCargo: cargo,
+    maxWeaponWeight: maxWeight,
+    baseEvasion: evasion,
+    baseDmgReduction: dmgReduction,
+    dmgReductionMod: dmgReductionMod,
+    equippedWeapons: weapons,
+  );
+  for (final w in weapons) {
+    if (!ship.cargo.contains(w)) {
+      ship.addCargo(w);
+    }
+  }
+  return ship;
+}
+
+List<ShipWeapon> _createDefaultWeaponsForBlueprint(
+  BlueprintId blueprintId,
+  int level,
+  GameRng rng, {
+  int armamentTier = 1,
+}) {
+  final rarity = rarityForLevel(level);
+  final weapons = switch (blueprintId) {
+    BlueprintId.standard => [
+        generateShipWeapon(ShipWeaponType.cannon, level, rarity, rng),
+        generateShipWeapon(ShipWeaponType.cannon, level, rarity, rng),
+      ],
+    BlueprintId.ironclad => [
+        generateShipWeapon(ShipWeaponType.prowRam, level, rarity, rng),
+        generateShipWeapon(ShipWeaponType.cannon, level, rarity, rng),
+      ],
+    BlueprintId.clipper => [
+        generateShipWeapon(ShipWeaponType.precisionCulverin, level, rarity, rng),
+        generateShipWeapon(ShipWeaponType.cannon, level, rarity, rng),
+      ],
+    BlueprintId.bombardier => [
+        generateShipWeapon(ShipWeaponType.heavyMortar, level, rarity, rng),
+        generateShipWeapon(ShipWeaponType.cannon, level, rarity, rng),
+        generateShipWeapon(ShipWeaponType.cannon, level, rarity, rng),
+      ],
+    BlueprintId.corsair => [
+        generateShipWeapon(ShipWeaponType.harpoonWinch, level, rarity, rng),
+        generateShipWeapon(ShipWeaponType.cannon, level, rarity, rng),
+      ],
+  };
+
+  if (armamentTier > 1) {
+    final mult = BlueprintArmamentProgression.damageMultiplierForTier(
+      armamentTier,
+    );
+    final numeral = armamentTier == 2 ? 'II' : 'III';
+    for (final w in weapons) {
+      if (w.isSignature || blueprintId == BlueprintId.standard) {
+        w.damage = (w.damage * mult).round();
+        w.name = '${w.name} $numeral';
+      }
+    }
+  }
+  return weapons;
+}
+
 /// General dispatcher creating a [ShipState] by [shipClass].
 ShipState createShip(
   ShipClass shipClass, {
@@ -256,5 +389,105 @@ ShipState createShip(
         id: id,
         equippedWeapons: equippedWeapons,
       );
+    case ShipClass.clipper:
+      return createFlagshipFromBlueprint(
+        BlueprintId.clipper,
+        level: level,
+        rng: rng,
+        name: name,
+        id: id,
+        equippedWeapons: equippedWeapons,
+      );
+    case ShipClass.bombardier:
+      return createFlagshipFromBlueprint(
+        BlueprintId.bombardier,
+        level: level,
+        rng: rng,
+        name: name,
+        id: id,
+        equippedWeapons: equippedWeapons,
+      );
+    case ShipClass.corsair:
+      return createFlagshipFromBlueprint(
+        BlueprintId.corsair,
+        level: level,
+        rng: rng,
+        name: name,
+        id: id,
+        equippedWeapons: equippedWeapons,
+      );
   }
 }
+
+/// Returns the gold cost to refit and upgrade a ship from [currentLevel] to `currentLevel + 1`.
+int calculateShipUpgradeCost(int currentLevel) {
+  return switch (currentLevel) {
+    1 => 100,
+    2 => 250,
+    3 => 500,
+    _ => 0,
+  };
+}
+
+/// Refits [ship] to its next level tier, expanding max HP, cargo, gun deck weight,
+/// and unique class defense traits (Damage Reduction on Ironclad, Evasion on Corvette/Clipper).
+void upgradeShipState(ShipState ship) {
+  if (ship.level >= 4) return;
+  ship.level++;
+  final lvl = ship.level;
+
+  switch (ship.shipClass) {
+    case ShipClass.standard:
+      const hpGain = 50;
+      ship.maxHp += hpGain;
+      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.maxWeaponWeight = 7 * lvl;
+      ship.maxCargo += 15;
+    case ShipClass.freighter:
+      const hpGain = 100;
+      ship.maxHp += hpGain;
+      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.maxWeaponWeight = 3 * lvl;
+      ship.maxCargo += 25;
+    case ShipClass.ironclad:
+      const hpGain = 75;
+      ship.maxHp += hpGain;
+      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.maxWeaponWeight = 10 * lvl;
+      ship.maxCargo += 6;
+      ship.baseDmgReduction = 3 * lvl;
+      ship.currentDmgReduction = ship.baseDmgReduction;
+      ship.dmgReductionMod = 2 * lvl;
+    case ShipClass.corvette:
+      const hpGain = 40;
+      ship.maxHp += hpGain;
+      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.maxWeaponWeight = 5 * lvl;
+      ship.maxCargo += 10;
+      ship.baseEvasion = (5 + 5 * lvl).clamp(0, 50);
+      ship.currentEvasion = ship.baseEvasion;
+    case ShipClass.clipper:
+      const hpGain = 40;
+      ship.maxHp += hpGain;
+      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.maxWeaponWeight = 6 * lvl;
+      ship.maxCargo += 10;
+      ship.baseEvasion = (ship.baseEvasion + 5).clamp(0, 50);
+      ship.currentEvasion = ship.baseEvasion;
+    case ShipClass.bombardier:
+      const hpGain = 45;
+      ship.maxHp += hpGain;
+      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.maxWeaponWeight = 8 * lvl;
+      ship.maxCargo += 12;
+    case ShipClass.corsair:
+      const hpGain = 45;
+      ship.maxHp += hpGain;
+      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.maxWeaponWeight = 7 * lvl;
+      ship.maxCargo += 20;
+      ship.baseEvasion = (ship.baseEvasion + 3).clamp(0, 50);
+      ship.currentEvasion = ship.baseEvasion;
+  }
+}
+

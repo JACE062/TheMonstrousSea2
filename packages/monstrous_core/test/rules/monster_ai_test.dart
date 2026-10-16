@@ -43,7 +43,7 @@ MonsterWeapon createMonsterWeapon({
   String name = 'Claw',
   MonsterWeaponType type = MonsterWeaponType.claw,
   int damage = 10,
-  int hitModifier = 2,
+  int hitModifier = 80,
   int chargeTime = 0,
   int chargeCountdown = 0,
 }) {
@@ -202,7 +202,7 @@ void main() {
         name: 'Tentacle',
         type: MonsterWeaponType.tentacle,
         damage: 8,
-        hitModifier: 2,
+        hitModifier: 80,
       );
 
       final squid = MonsterState(
@@ -227,10 +227,9 @@ void main() {
         maxWeaponWeight: 10,
       );
 
-      // d100 = 50 (attack), d20 = [15, 15, 15, 15] (all hit)
+      // 1st d100 = 50 (attack), remaining d100 = [50, 50, 50, 50] (all hit)
       final rng = QueueGameRng(
-        d100Rolls: [50],
-        d20Rolls: [15, 15, 15, 15],
+        d100Rolls: [50, 50, 50, 50, 50],
       );
 
       final events = takeMonsterTurn(squid, ship, rng);
@@ -321,7 +320,7 @@ void main() {
       final claw = createMonsterWeapon(
         type: MonsterWeaponType.claw,
         damage: 12,
-        hitModifier: 2,
+        hitModifier: 80,
       );
       final crab = MonsterState(
         id: 'crab-1',
@@ -344,13 +343,121 @@ void main() {
         maxWeaponWeight: 10,
       );
 
-      // Even with d100 = 99 (which would be special action for other monsters)
-      final rng = QueueGameRng(d100Rolls: [99], d20Rolls: [15]);
+      // Crustacean with intact carapace always attacks without needing to roll attack probability
+      final rng = QueueGameRng(d100Rolls: [50]);
       final events = takeMonsterTurn(crab, ship, rng);
 
       // Crustacean attacks!
       expect(events.any((e) => e is AttackHit), isTrue);
       expect(ship.currentHp, equals(88));
+    });
+  });
+
+  group('Shark Frenzy & Serpent Slither AI Tests', () {
+    test('shark uses frenzy roar on special action, gaining frenzy stack', () {
+      final jaws = createMonsterWeapon(type: MonsterWeaponType.jaws);
+      final shark = MonsterState(
+        id: 'shark-1',
+        name: 'Great White',
+        level: 2,
+        maxHp: 80,
+        armorClass: 10,
+        species: MonsterSpecies.shark,
+        usableWeapons: [jaws],
+      );
+
+      final ship = ShipState(
+        id: 'ship-1',
+        name: 'HMS Vanguard',
+        level: 1,
+        maxHp: 100,
+        armorClass: 10,
+        shipClass: ShipClass.standard,
+        maxCargo: 10,
+        maxWeaponWeight: 10,
+      );
+
+      // d100 = 90 (> 80 -> triggers 20% special action chance)
+      final rng = QueueGameRng(d100Rolls: [90]);
+      final events = takeMonsterTurn(shark, ship, rng);
+
+      expect(shark.frenzyStacks, equals(1));
+      expect(events.any((e) => e is SharkFrenzyRoared), isTrue);
+      final roarEvent =
+          events.firstWhere((e) => e is SharkFrenzyRoared) as SharkFrenzyRoared;
+      expect(roarEvent.stacks, equals(1));
+    });
+
+    test('shark with frenzy stacks deals scaled damage on attack', () {
+      final jaws = createMonsterWeapon(
+        type: MonsterWeaponType.jaws,
+        damage: 20,
+        hitModifier: 80,
+      );
+      final shark = MonsterState(
+        id: 'shark-1',
+        name: 'Great White',
+        level: 2,
+        maxHp: 80,
+        armorClass: 10,
+        species: MonsterSpecies.shark,
+        frenzyStacks: 2, // +50% damage buff!
+        usableWeapons: [jaws],
+      );
+
+      final ship = ShipState(
+        id: 'ship-1',
+        name: 'HMS Vanguard',
+        level: 1,
+        maxHp: 100,
+        armorClass: 10,
+        shipClass: ShipClass.standard,
+        maxCargo: 10,
+        maxWeaponWeight: 10,
+      );
+
+      // 1st d100 = 50 (attack), 2nd d100 = 50 (<= 80 hit)
+      final rng = QueueGameRng(d100Rolls: [50, 50]);
+      final events = takeMonsterTurn(shark, ship, rng);
+
+      final hit = events.firstWhere((e) => e is AttackHit) as AttackHit;
+      // 20 base * 1.50 = 30 damage!
+      expect(hit.damage, equals(30));
+      expect(ship.currentHp, equals(100 - 30));
+      // Base weapon damage restored afterwards
+      expect(jaws.damage, equals(20));
+    });
+
+    test('serpent uses slither on special action, boosting evasion', () {
+      final tail = createMonsterWeapon(type: MonsterWeaponType.tail);
+      final serpent = MonsterState(
+        id: 'serpent-1',
+        name: 'Sea Serpent',
+        level: 2,
+        maxHp: 80,
+        armorClass: 10,
+        species: MonsterSpecies.serpent,
+        evasion: 20,
+        usableWeapons: [tail],
+      );
+
+      final ship = ShipState(
+        id: 'ship-1',
+        name: 'HMS Vanguard',
+        level: 1,
+        maxHp: 100,
+        armorClass: 10,
+        shipClass: ShipClass.standard,
+        maxCargo: 10,
+        maxWeaponWeight: 10,
+      );
+
+      // d100 = 90 (> 80 -> triggers 20% special action chance)
+      final rng = QueueGameRng(d100Rolls: [90]);
+      final events = takeMonsterTurn(serpent, ship, rng);
+
+      expect(serpent.evasion, equals(40)); // 20 + 20
+      expect(events.any((e) => e is SerpentSlithered), isTrue);
     });
   });
 
@@ -393,7 +500,7 @@ void main() {
       );
 
       // rng nextInt = 0 (picks w1)
-      final rng = QueueGameRng(d100Rolls: [50], nextIntValues: [0], d20Rolls: [15]);
+      final rng = QueueGameRng(d100Rolls: [50, 50], nextIntValues: [0]);
       takeMonsterTurn(seaSerpent, ship, rng);
 
       expect(w1.chargeCountdown, equals(2)); // Put on cooldown

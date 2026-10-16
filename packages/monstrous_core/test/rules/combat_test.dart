@@ -93,11 +93,12 @@ ShipWeapon createTestShipWeapon({
   String name = 'Heavy Cannon',
   ShipWeaponType type = ShipWeaponType.cannon,
   int damage = 20,
-  int hitModifier = 2,
+  int hitModifier = 80,
   int chargeTime = 0,
   int chargeCountdown = 0,
   DamageType damageType = DamageType.piercing,
   StatusEffect? statusEffect,
+  int equipWeight = 1,
 }) {
   return ShipWeapon(
     id: id,
@@ -111,7 +112,7 @@ ShipWeapon createTestShipWeapon({
     chargeCountdown: chargeCountdown,
     damageType: damageType,
     statusEffect: statusEffect,
-    equipWeight: 2,
+    equipWeight: equipWeight,
     weaponType: type,
   );
 }
@@ -121,7 +122,7 @@ MonsterWeapon createTestMonsterWeapon({
   String name = 'Razor Jaws',
   MonsterWeaponType type = MonsterWeaponType.jaws,
   int damage = 15,
-  int hitModifier = 1,
+  int hitModifier = 80,
   int chargeTime = 1,
   int chargeCountdown = 0,
   DamageType damageType = DamageType.piercing,
@@ -144,13 +145,13 @@ MonsterWeapon createTestMonsterWeapon({
 
 void main() {
   group('calculateAttack Tests', () {
-    test('d20 roll + hitMod < AC results in miss', () {
+    test('d100 roll > hitChance results in miss', () {
       final ship = createTestShip();
-      final weapon = createTestShipWeapon(hitModifier: 2);
-      final monster = createTestMonster(armorClass: 14);
+      final weapon = createTestShipWeapon(hitModifier: 75);
+      final monster = createTestMonster();
 
-      // d20 = 10, total = 10 + 2 = 12 < 14
-      final rng = QueueGameRng(d20Rolls: [10]);
+      // d100 = 85 > 75 -> miss!
+      final rng = QueueGameRng(d100Rolls: [85]);
       final (result, events) = calculateAttack(ship, weapon, monster, rng);
 
       expect(result.didHit, isFalse);
@@ -160,21 +161,21 @@ void main() {
       expect(events.length, equals(2));
       expect(events[0], isA<AttackAttempted>());
       final attempted = events[0] as AttackAttempted;
-      expect(attempted.roll, equals(12));
-      expect(attempted.targetAc, equals(14));
+      expect(attempted.roll, equals(85));
+      expect(attempted.targetAc, equals(75));
 
       expect(events[1], isA<AttackMissed>());
       final missed = events[1] as AttackMissed;
       expect(missed.targetName, equals(monster.name));
     });
 
-    test('d20 roll + hitMod >= AC results in hit dealing damage', () {
+    test('d100 roll <= hitChance results in hit dealing damage', () {
       final ship = createTestShip();
-      final weapon = createTestShipWeapon(damage: 25, hitModifier: 2);
-      final monster = createTestMonster(armorClass: 12);
+      final weapon = createTestShipWeapon(damage: 25, hitModifier: 80);
+      final monster = createTestMonster();
 
-      // d20 = 10, total = 10 + 2 = 12 >= 12
-      final rng = QueueGameRng(d20Rolls: [10]);
+      // d100 = 40 <= 80 -> hit!
+      final rng = QueueGameRng(d100Rolls: [40]);
       final (result, events) = calculateAttack(ship, weapon, monster, rng);
 
       expect(result.didHit, isTrue);
@@ -189,34 +190,33 @@ void main() {
       expect(hit.remainingHp, equals(75));
     });
 
-    test('obscured monster uses effectiveArmorClass', () {
+    test('obscured monster reduces hitChance', () {
       final ship = createTestShip();
-      final weapon = createTestShipWeapon(hitModifier: 2);
-      // AC = 10 + 4 (obscured) = 14
+      final weapon = createTestShipWeapon(hitModifier: 80);
+      // Accuracy = 80 - 20 (obscured) = 60%
       final monster = createTestMonster(
-        armorClass: 10,
         isObscured: true,
-        obscuredAcMod: 4,
+        obscuredAcMod: 20,
       );
 
-      // d20 = 10 + 2 = 12 -> misses effective AC 14
-      final rng = QueueGameRng(d20Rolls: [10]);
+      // d100 = 70 -> misses 60% hitChance
+      final rng = QueueGameRng(d100Rolls: [70]);
       final (result, events) = calculateAttack(ship, weapon, monster, rng);
 
       expect(result.didHit, isFalse);
       final attempted = events[0] as AttackAttempted;
-      expect(attempted.targetAc, equals(14));
+      expect(attempted.targetAc, equals(60));
     });
 
     test('applying status effects on hit', () {
       final ship = createTestShip();
       final weapon = createTestShipWeapon(
         statusEffect: StatusEffect.burn,
-        hitModifier: 5,
+        hitModifier: 80,
       );
-      final monster = createTestMonster(armorClass: 10);
+      final monster = createTestMonster();
 
-      final rng = QueueGameRng(d20Rolls: [15]);
+      final rng = QueueGameRng(d100Rolls: [30]);
       final (result, _) = calculateAttack(ship, weapon, monster, rng);
 
       expect(result.didHit, isTrue);
@@ -225,10 +225,10 @@ void main() {
 
     test('defeating combatant emits CombatantDefeated', () {
       final ship = createTestShip();
-      final weapon = createTestShipWeapon(damage: 100);
-      final monster = createTestMonster(maxHp: 50, armorClass: 8);
+      final weapon = createTestShipWeapon(damage: 100, hitModifier: 80);
+      final monster = createTestMonster(maxHp: 50);
 
-      final rng = QueueGameRng(d20Rolls: [10]);
+      final rng = QueueGameRng(d100Rolls: [20]);
       final (_, events) = calculateAttack(ship, weapon, monster, rng);
 
       expect(monster.isAlive, isFalse);
@@ -241,14 +241,13 @@ void main() {
       final ironclad = createTestShip(
         shipClass: ShipClass.ironclad,
         baseDmgReduction: 6,
-        armorClass: 8,
       );
       final monster = createTestMonster();
-      final monsterWeapon = createTestMonsterWeapon(damage: 20, hitModifier: 2);
+      final monsterWeapon = createTestMonsterWeapon(damage: 20, hitModifier: 80);
 
       const traits = [FortifyTrait()];
-      // d20 = 10 + 2 = 12 >= 8 -> hit
-      final rng = QueueGameRng(d20Rolls: [10]);
+      // d100 = 50 <= 80 -> hit
+      final rng = QueueGameRng(d100Rolls: [50]);
       final (result, events) =
           calculateAttack(monster, monsterWeapon, ironclad, rng, traits);
 
@@ -256,7 +255,8 @@ void main() {
       expect(result.nullifiedDamage, equals(6));
       expect(ironclad.currentHp, equals(100 - (20 - 6)));
 
-      final reducedEvent = events.firstWhere((e) => e is DamageReduced) as DamageReduced;
+      final reducedEvent =
+          events.firstWhere((e) => e is DamageReduced) as DamageReduced;
       expect(reducedEvent.shipName, equals(ironclad.name));
       expect(reducedEvent.nullifiedAmount, equals(6));
 
@@ -268,13 +268,12 @@ void main() {
       final ironclad = createTestShip(
         shipClass: ShipClass.ironclad,
         baseDmgReduction: 15,
-        armorClass: 8,
       );
       final monster = createTestMonster();
-      final monsterWeapon = createTestMonsterWeapon(damage: 10);
+      final monsterWeapon = createTestMonsterWeapon(damage: 10, hitModifier: 80);
 
       const traits = [FortifyTrait()];
-      final rng = QueueGameRng(d20Rolls: [10]);
+      final rng = QueueGameRng(d100Rolls: [50]);
       final (result, _) =
           calculateAttack(monster, monsterWeapon, ironclad, rng, traits);
 
@@ -304,14 +303,13 @@ void main() {
       final corvette = createTestShip(
         shipClass: ShipClass.corvette,
         baseEvasion: 25,
-        armorClass: 8,
       );
       final monster = createTestMonster();
-      final monsterWeapon = createTestMonsterWeapon(damage: 30);
+      final monsterWeapon = createTestMonsterWeapon(damage: 30, hitModifier: 80);
 
       const traits = [EvasionTrait()];
-      // d20 = 15 (hit), d100 = 20 (<= 25 evasion)
-      final rng = QueueGameRng(d20Rolls: [15], d100Rolls: [20]);
+      // 1st d100 = 50 (hit), 2nd d100 = 20 (<= 25 evasion)
+      final rng = QueueGameRng(d100Rolls: [50, 20]);
       final (result, events) =
           calculateAttack(monster, monsterWeapon, corvette, rng, traits);
 
@@ -320,7 +318,8 @@ void main() {
       expect(corvette.currentHp, equals(100)); // undamaged
 
       expect(events.any((e) => e is AttackEvaded), isTrue);
-      final evadedEvent = events.firstWhere((e) => e is AttackEvaded) as AttackEvaded;
+      final evadedEvent =
+          events.firstWhere((e) => e is AttackEvaded) as AttackEvaded;
       expect(evadedEvent.wasManeuver, isFalse);
     });
 
@@ -328,7 +327,6 @@ void main() {
       final corvette = createTestShip(
         shipClass: ShipClass.corvette,
         baseEvasion: 20,
-        armorClass: 8,
       );
       const trait = EvasionTrait();
       final rng = QueueGameRng();
@@ -337,15 +335,16 @@ void main() {
       expect(corvette.currentEvasion, equals(40));
 
       final monster = createTestMonster();
-      final monsterWeapon = createTestMonsterWeapon(damage: 30);
+      final monsterWeapon = createTestMonsterWeapon(damage: 30, hitModifier: 80);
 
-      // d20 = 15 (hit), d100 = 35 (<= 40, dodged thanks to maneuver!)
-      final attackRng = QueueGameRng(d20Rolls: [15], d100Rolls: [35]);
+      // 1st d100 = 50 (hit), 2nd d100 = 35 (<= 40, dodged thanks to maneuver!)
+      final attackRng = QueueGameRng(d100Rolls: [50, 35]);
       final (result, events) =
           calculateAttack(monster, monsterWeapon, corvette, attackRng, [trait]);
 
       expect(result.wasEvaded, isTrue);
-      final evadedEvent = events.firstWhere((e) => e is AttackEvaded) as AttackEvaded;
+      final evadedEvent =
+          events.firstWhere((e) => e is AttackEvaded) as AttackEvaded;
       expect(evadedEvent.wasManeuver, isTrue);
 
       // Evasion resets to base after dodging
@@ -353,22 +352,22 @@ void main() {
     });
   });
 
-  group('Squid TentacleTrait Tests', () {
+  group('Squid & Kraken TentacleTrait Tests', () {
     test('slicing damage severs tentacles based on damage', () {
       final squid = createTestMonster(
         species: MonsterSpecies.squid,
         numberOfTentacles: 10,
-        armorClass: 8,
       );
       final ship = createTestShip();
       // 15 slicing damage -> ceil(15 / 10) = 2 tentacles severed
       final bladeLauncher = createTestShipWeapon(
         damage: 15,
         damageType: DamageType.slicing,
+        hitModifier: 80,
       );
 
       const traits = [TentacleTrait()];
-      final rng = QueueGameRng(d20Rolls: [15]);
+      final rng = QueueGameRng(d100Rolls: [50]);
       final (result, events) =
           calculateAttack(ship, bladeLauncher, squid, rng, traits);
 
@@ -381,26 +380,182 @@ void main() {
       expect(severedEvent.remainingTentacles, equals(8));
     });
 
+    test('slicing damage severs tentacles on The Kraken as well', () {
+      final kraken = createTestMonster(
+        species: MonsterSpecies.kraken,
+        numberOfTentacles: 25,
+      );
+      final ship = createTestShip();
+      final bladeLauncher = createTestShipWeapon(
+        damage: 30,
+        damageType: DamageType.slicing,
+        hitModifier: 80,
+      );
+
+      const traits = [TentacleTrait()];
+      final rng = QueueGameRng(d100Rolls: [50]);
+      final (result, _) =
+          calculateAttack(ship, bladeLauncher, kraken, rng, traits);
+
+      expect(result.tentaclesSevered, equals(3));
+      expect(kraken.numberOfTentacles, equals(22));
+    });
+
     test('non-slicing damage does not sever tentacles', () {
       final squid = createTestMonster(
         species: MonsterSpecies.squid,
         numberOfTentacles: 10,
-        armorClass: 8,
       );
       final ship = createTestShip();
       final cannon = createTestShipWeapon(
         damage: 30,
         damageType: DamageType.piercing,
+        hitModifier: 80,
       );
 
       const traits = [TentacleTrait()];
-      final rng = QueueGameRng(d20Rolls: [15]);
+      final rng = QueueGameRng(d100Rolls: [50]);
       final (result, events) =
           calculateAttack(ship, cannon, squid, rng, traits);
 
       expect(result.tentaclesSevered, equals(0));
       expect(squid.numberOfTentacles, equals(10));
       expect(events.any((e) => e is TentaclesSevered), isFalse);
+    });
+  });
+
+  group('Crustacean CarapaceTrait Tests', () {
+    test('absorbs piercing/kinetic damage point-for-point and emits CarapaceAbsorbed', () {
+      final crustacean = createTestMonster(species: MonsterSpecies.crustacean)
+        ..carapacePlating = 50
+        ..maxCarapace = 50;
+      final ship = createTestShip();
+      final cannon = createTestShipWeapon(
+        damage: 20,
+        damageType: DamageType.piercing,
+        hitModifier: 80,
+      );
+
+      const traits = [CarapaceTrait()];
+      final rng = QueueGameRng(d100Rolls: [50]);
+      final (result, events) =
+          calculateAttack(ship, cannon, crustacean, rng, traits);
+
+      expect(result.didHit, isTrue);
+      expect(result.carapaceAbsorbed, equals(20));
+      expect(result.nullifiedDamage, equals(20));
+      expect(crustacean.currentHp, equals(100)); // absorbed by shell
+      expect(crustacean.carapacePlating, equals(30)); // 50 - 20 absorbed
+      expect(result.wasCarapaceShattered, isFalse);
+
+      expect(events.any((e) => e is CarapaceAbsorbed), isTrue);
+      final absorbedEvent =
+          events.firstWhere((e) => e is CarapaceAbsorbed) as CarapaceAbsorbed;
+      expect(absorbedEvent.absorbedAmount, equals(20));
+    });
+
+    test('blast damage reduces carapace plating and emits CarapaceDamaged', () {
+      final crustacean = createTestMonster(species: MonsterSpecies.crustacean)
+        ..carapacePlating = 50
+        ..maxCarapace = 50;
+      final ship = createTestShip();
+      final torpedo = createTestShipWeapon(
+        damage: 30,
+        damageType: DamageType.blast,
+        hitModifier: 80,
+      );
+
+      const traits = [CarapaceTrait()];
+      final rng = QueueGameRng(d100Rolls: [50]);
+      final (result, events) =
+          calculateAttack(ship, torpedo, crustacean, rng, traits);
+
+      expect(result.didHit, isTrue);
+      // 30 * 1.5 = 45 bonus blast damage against carapace
+      expect(result.carapaceDamaged, equals(45));
+      expect(crustacean.carapacePlating, equals(5)); // 50 - 45
+      expect(result.wasCarapaceShattered, isFalse);
+      expect(crustacean.currentHp, equals(100)); // absorbed into plating
+
+      expect(events.any((e) => e is CarapaceDamaged), isTrue);
+      final damagedEvent =
+          events.firstWhere((e) => e is CarapaceDamaged) as CarapaceDamaged;
+      expect(damagedEvent.damageDealt, equals(45));
+      expect(damagedEvent.remainingCarapace, equals(5));
+      expect(damagedEvent.wasShattered, isFalse);
+    });
+
+    test('blast damage completely shatters carapace when damage exceeds plating', () {
+      final crustacean = createTestMonster(species: MonsterSpecies.crustacean)
+        ..carapacePlating = 20
+        ..maxCarapace = 50;
+      final ship = createTestShip();
+      final torpedo = createTestShipWeapon(
+        damage: 35,
+        damageType: DamageType.blast,
+        hitModifier: 80,
+      );
+
+      const traits = [CarapaceTrait()];
+      final rng = QueueGameRng(d100Rolls: [50]);
+      final (result, events) =
+          calculateAttack(ship, torpedo, crustacean, rng, traits);
+
+      expect(result.didHit, isTrue);
+      expect(result.carapaceDamaged, equals(20));
+      expect(crustacean.carapacePlating, equals(0)); // shattered!
+      expect(result.wasCarapaceShattered, isTrue);
+      // 20 absorbed by plating, remaining 15 penetrates to HP!
+      expect(crustacean.currentHp, equals(100 - 15));
+
+      final damagedEvent =
+          events.firstWhere((e) => e is CarapaceDamaged) as CarapaceDamaged;
+      expect(damagedEvent.wasShattered, isTrue);
+    });
+
+    test('fire damage bypasses carapace completely', () {
+      final crustacean = createTestMonster(species: MonsterSpecies.crustacean)
+        ..carapacePlating = 50
+        ..maxCarapace = 50;
+      final ship = createTestShip();
+      final flamethrower = createTestShipWeapon(
+        damage: 25,
+        damageType: DamageType.fire,
+        hitModifier: 80,
+      );
+
+      const traits = [CarapaceTrait()];
+      final rng = QueueGameRng(d100Rolls: [50]);
+      final (result, _) =
+          calculateAttack(ship, flamethrower, crustacean, rng, traits);
+
+      expect(result.didHit, isTrue);
+      expect(result.nullifiedDamage, equals(0)); // 0 absorbed!
+      expect(crustacean.currentHp, equals(100 - 25)); // full damage directly to HP
+      expect(crustacean.carapacePlating, equals(50));
+    });
+  });
+
+  group('Shark FrenzyTrait Tests', () {
+    test('shock damage disrupts shark frenzy and resets stacks', () {
+      final shark = createTestMonster(species: MonsterSpecies.shark)
+        ..frenzyStacks = 2;
+      final ship = createTestShip();
+      final railgun = createTestShipWeapon(
+        damage: 20,
+        damageType: DamageType.shock,
+        hitModifier: 80,
+      );
+
+      const traits = [SharkFrenzyTrait()];
+      final rng = QueueGameRng(d100Rolls: [50]);
+      final (result, events) =
+          calculateAttack(ship, railgun, shark, rng, traits);
+
+      expect(result.didHit, isTrue);
+      expect(result.disruptedFrenzy, isTrue);
+      expect(shark.frenzyStacks, equals(0));
+      expect(events.any((e) => e is SharkFrenzyDisrupted), isTrue);
     });
   });
 
@@ -430,7 +585,7 @@ void main() {
       final ship = createTestShip(weapons: [w1, w2, w3]);
       final monster = createTestMonster(maxHp: 100, armorClass: 8);
 
-      final rng = QueueGameRng(d20Rolls: [15, 15]);
+      final rng = QueueGameRng(d100Rolls: [50, 50]);
       final events =
           executeShipWeaponVolley(ship, ShipWeaponType.cannon, monster, rng);
 
@@ -458,7 +613,7 @@ void main() {
       final ship = createTestShip(weapons: [w1, w2]);
       final monster = createTestMonster(maxHp: 40, armorClass: 8);
 
-      final rng = QueueGameRng(d20Rolls: [15]);
+      final rng = QueueGameRng(d100Rolls: [50]);
       final events =
           executeShipWeaponVolley(ship, ShipWeaponType.cannon, monster, rng);
 
@@ -524,23 +679,23 @@ void main() {
       final monster = createTestMonster();
       monster.addStatus(StatusEffect.stun);
 
-      // Roll 60 (> 50) -> wears off
+      // Roll 60 (> 25) -> wears off after denying action this turn
       final rng = QueueGameRng(d100Rolls: [60]);
       final (canAct, events) = updateStatusEffects(monster, 1, rng);
 
-      expect(canAct, isTrue);
-      expect(monster.hasStatus(StatusEffect.stun), isFalse);
+      expect(canAct, isFalse); // Stun denies action this turn!
+      expect(monster.hasStatus(StatusEffect.stun), isFalse); // But clears for next turn
 
       final ticked = events.firstWhere((e) => e is StatusEffectTicked) as StatusEffectTicked;
       expect(ticked.woreOff, isTrue);
     });
 
-    test('STUN on monster persists on d100 <= 50 and denies action', () {
+    test('STUN on monster persists on low d100 and denies action', () {
       final monster = createTestMonster();
       monster.addStatus(StatusEffect.stun);
 
-      // Roll 40 (<= 50) -> remains stunned
-      final rng = QueueGameRng(d100Rolls: [40]);
+      // Roll 20 (<= 25) -> remains stunned
+      final rng = QueueGameRng(d100Rolls: [20]);
       final (canAct, events) = updateStatusEffects(monster, 1, rng);
 
       expect(canAct, isFalse);
@@ -581,6 +736,186 @@ void main() {
       // Post-combat reset
       ship.resetCombatBoosts();
       expect(ship.currentDmgReduction, 5);
+    });
+  });
+
+  group('Combat Range Bands & Hardpoint Mounts', () {
+    test('CombatRange navigation closer and farther behave correctly', () {
+      expect(CombatRange.long.closer, CombatRange.medium);
+      expect(CombatRange.medium.closer, CombatRange.short);
+      expect(CombatRange.short.closer, CombatRange.short);
+
+      expect(CombatRange.short.farther, CombatRange.medium);
+      expect(CombatRange.medium.farther, CombatRange.long);
+      expect(CombatRange.long.farther, CombatRange.long);
+    });
+
+    test('Standard Cannon suffers -15% accuracy at Long Range', () {
+      final ship = createTestShip();
+      final monster = createTestMonster();
+      final cannon = createTestShipWeapon(type: ShipWeaponType.cannon, hitModifier: 80);
+
+      final medChance = calculateHitChance(ship, cannon, monster, range: CombatRange.medium);
+      final longChance = calculateHitChance(ship, cannon, monster, range: CombatRange.long);
+      final shortChance = calculateHitChance(ship, cannon, monster, range: CombatRange.short);
+
+      expect(medChance, 80);
+      expect(shortChance, 80);
+      expect(longChance, 65); // 80 - 15 = 65%
+    });
+
+    test('Culverins and Mortars gain +25% damage at Long Range', () {
+      final ship = createTestShip();
+      final monster = createTestMonster(maxHp: 200);
+      final culverin = createTestShipWeapon(
+        type: ShipWeaponType.precisionCulverin,
+        damage: 40,
+        hitModifier: 95,
+      );
+      final mortar = createTestShipWeapon(
+        type: ShipWeaponType.heavyMortar,
+        damage: 40,
+        hitModifier: 95,
+      );
+
+      final rng = QueueGameRng(d100Rolls: [10, 10]);
+
+      final (culverinResult, _) = calculateAttack(
+        ship,
+        culverin,
+        monster,
+        rng,
+        const [],
+        0,
+        1.0,
+        CombatRange.long,
+      );
+      expect(culverinResult.damage, 50); // 40 * 1.25 = 50
+
+      final (mortarResult, _) = calculateAttack(
+        ship,
+        mortar,
+        monster,
+        rng,
+        const [],
+        0,
+        1.0,
+        CombatRange.long,
+      );
+      expect(mortarResult.damage, 50); // 40 * 1.25 = 50
+    });
+
+    test('Prow Ram gains +30% collision damage at Short Range', () {
+      final ship = createTestShip();
+      final monster = createTestMonster(maxHp: 200);
+      final ram = createTestShipWeapon(
+        type: ShipWeaponType.prowRam,
+        damage: 50,
+        hitModifier: 95,
+      );
+
+      final rng = QueueGameRng(d100Rolls: [10]);
+      final (ramResult, _) = calculateAttack(
+        ship,
+        ram,
+        monster,
+        rng,
+        const [],
+        0,
+        1.0,
+        CombatRange.short,
+      );
+      expect(ramResult.damage, 65); // 50 * 1.30 = 65
+    });
+
+    test('Point-blank Mortar at Short Range triggers backfire splash to own hull', () {
+      final ship = createTestShip(maxHp: 100);
+      final monster = createTestMonster(maxHp: 200);
+      final mortar = createTestShipWeapon(
+        type: ShipWeaponType.heavyMortar,
+        damage: 40,
+        hitModifier: 95,
+      );
+
+      final rng = QueueGameRng(d100Rolls: [10]);
+      final (_, events) = calculateAttack(
+        ship,
+        mortar,
+        monster,
+        rng,
+        const [],
+        0,
+        1.0,
+        CombatRange.short,
+      );
+
+      expect(ship.currentHp, 92); // 40 * 0.20 = 8 damage splash to own hull
+      expect(events.any((e) => e is MortarBackfireOccurred), isTrue);
+      final backfireEvent = events.whereType<MortarBackfireOccurred>().first;
+      expect(backfireEvent.damage, 8);
+    });
+
+    test('EvasionTrait receives +15% at Long Range and -15% at Short Range', () {
+      final ship = createTestShip(shipClass: ShipClass.corvette, baseEvasion: 30);
+      final monster = createTestMonster();
+      final monsterAttack = createTestMonsterWeapon(damage: 20, hitModifier: 95);
+      const trait = EvasionTrait();
+
+      // Long range: effective evasion is 30 + 15 = 45%. A roll of 40 evades!
+      final rngLong = QueueGameRng(d100Rolls: [10, 40]); // hit roll 10, dodge roll 40
+      final (resultLong, eventsLong) = calculateAttack(
+        monster,
+        monsterAttack,
+        ship,
+        rngLong,
+        [trait],
+        0,
+        1.0,
+        CombatRange.long,
+      );
+      expect(resultLong.wasEvaded, isTrue);
+      expect(eventsLong.any((e) => e is AttackEvaded), isTrue);
+
+      // Short range: effective evasion is 30 - 15 = 15%. A roll of 20 fails to evade!
+      final rngShort = QueueGameRng(d100Rolls: [10, 20]); // hit roll 10, dodge roll 20
+      final (resultShort, eventsShort) = calculateAttack(
+        monster,
+        monsterAttack,
+        ship,
+        rngShort,
+        [trait],
+        0,
+        1.0,
+        CombatRange.short,
+      );
+      expect(resultShort.wasEvaded, isFalse);
+      expect(eventsShort.any((e) => e is AttackEvaded), isFalse);
+    });
+
+    test('Ship canEquipWeapon checks hardpoint slots rather than weapon weight', () {
+      final ship = createTestShip();
+      ship.hardpoints.clear();
+      ship.hardpoints.addAll([
+        const HardpointSlot(id: 'broadside_1', name: 'Port Broadside', type: HardpointType.broadside),
+        const HardpointSlot(id: 'broadside_2', name: 'Starboard Broadside', type: HardpointType.broadside),
+      ]);
+      ship.equippedWeapons.clear();
+
+      // Weapons with heavy legacy weight (e.g. 5 each) can still be equipped if hardpoint slots exist
+      final w1 = createTestShipWeapon(id: 'w1', name: 'Siege Gun 1', equipWeight: 5);
+      final w2 = createTestShipWeapon(id: 'w2', name: 'Siege Gun 2', equipWeight: 5);
+      final w3 = createTestShipWeapon(id: 'w3', name: 'Siege Gun 3', equipWeight: 5);
+
+      expect(ship.canEquipWeapon(w1), isTrue);
+      ship.equipWeapon(w1);
+      expect(ship.equippedWeapons.length, 1);
+
+      expect(ship.canEquipWeapon(w2), isTrue);
+      ship.equipWeapon(w2);
+      expect(ship.equippedWeapons.length, 2);
+
+      // 3rd weapon cannot be equipped because all 2 hardpoints are occupied
+      expect(ship.canEquipWeapon(w3), isFalse);
     });
   });
 }

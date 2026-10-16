@@ -17,12 +17,38 @@ class CaptainRecord {
     required this.causeOfDeath,
   });
 
+  factory CaptainRecord.fromJson(Map<String, dynamic> json) {
+    final shipClassName = json['shipClass'] as String? ?? 'standard';
+    final shipClass = ShipClass.values.firstWhere(
+      (e) => e.name == shipClassName,
+      orElse: () => ShipClass.standard,
+    );
+
+    return CaptainRecord(
+      captainName: json['captainName'] as String? ?? 'Unknown Captain',
+      shipName: json['shipName'] as String? ?? 'The Wanderer',
+      shipClass: shipClass,
+      monstersDefeated: json['monstersDefeated'] as int? ?? 0,
+      highestDifficultyReached: json['highestDifficultyReached'] as int? ?? 1,
+      causeOfDeath: json['causeOfDeath'] as String? ?? 'The Deep',
+    );
+  }
+
   final String captainName;
   final String shipName;
   final ShipClass shipClass;
   final int monstersDefeated;
   final int highestDifficultyReached;
   final String causeOfDeath;
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'captainName': captainName,
+        'shipName': shipName,
+        'shipClass': shipClass.name,
+        'monstersDefeated': monstersDefeated,
+        'highestDifficultyReached': highestDifficultyReached,
+        'causeOfDeath': causeOfDeath,
+      };
 
   @override
   String toString() =>
@@ -45,10 +71,28 @@ class LineageTracker {
     List<CaptainRecord>? history,
   }) : history = history ?? <CaptainRecord>[];
 
+  factory LineageTracker.fromJson(Map<String, dynamic> json) {
+    return LineageTracker(
+      captainsLost: json['captainsLost'] as int? ?? 0,
+      totalMonstersDefeated: json['totalMonstersDefeated'] as int? ?? 0,
+      highestDifficultyReached: json['highestDifficultyReached'] as int? ?? 0,
+      history: (json['history'] as List<dynamic>?)
+          ?.map((e) => CaptainRecord.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
+
   int captainsLost;
   int totalMonstersDefeated;
   int highestDifficultyReached;
   final List<CaptainRecord> history;
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'captainsLost': captainsLost,
+        'totalMonstersDefeated': totalMonstersDefeated,
+        'highestDifficultyReached': highestDifficultyReached,
+        'history': history.map((e) => e.toJson()).toList(),
+      };
 
   /// Records the death of a captain, updating aggregate statistics.
   void recordDeath(CaptainRecord record) {

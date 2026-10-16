@@ -1,3 +1,4 @@
+import '../lore/weapon_lore.dart';
 import '../model/attack_result.dart';
 import '../model/enums.dart';
 import '../model/item.dart';
@@ -19,11 +20,12 @@ Consumable generateConsumable(
   final consumableId = id ?? '${type.name}_${++_consumableIdCounter}';
   final maxUses = rarity.level;
   final value = 25 * rarity.level;
+  final desc = WeaponLore.consumables[type]?.description ?? type.description;
 
   return Consumable(
     id: consumableId,
     name: type.displayName,
-    description: type.description,
+    description: desc,
     value: value,
     rarity: rarity,
     type: type,

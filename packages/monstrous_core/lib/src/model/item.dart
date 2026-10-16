@@ -32,6 +32,21 @@ abstract class Item implements Comparable<Item> {
 
   @override
   String toString() => '$name (${value}g)';
+
+  Map<String, dynamic> toJson();
+
+  static Item fromJson(Map<String, dynamic> json) {
+    final kind = json['kind'] as String?;
+    switch (kind) {
+      case 'consumable':
+        return Consumable.fromJson(json);
+      case 'shipWeapon':
+        return ShipWeapon.fromJson(json);
+      case 'treasure':
+      default:
+        return Treasure.fromJson(json);
+    }
+  }
 }
 
 /// Pure treasure item that can be sold for gold at port.
@@ -43,6 +58,27 @@ class Treasure extends Item {
     required super.value,
     required super.rarity,
   });
+
+  factory Treasure.fromJson(Map<String, dynamic> json) => Treasure(
+        id: json['id'] as String,
+        name: json['name'] as String,
+        description: json['description'] as String,
+        value: json['value'] as int,
+        rarity: RarityLevel.values.firstWhere(
+          (e) => e.name == json['rarity'],
+          orElse: () => RarityLevel.common,
+        ),
+      );
+
+  @override
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'kind': 'treasure',
+        'id': id,
+        'name': name,
+        'description': description,
+        'value': value,
+        'rarity': rarity.name,
+      };
 }
 
 /// Consumable item usable during combat or exploration.
@@ -58,11 +94,41 @@ class Consumable extends Item {
     int? usesLeft,
   }) : usesLeft = usesLeft ?? maxUses;
 
+  factory Consumable.fromJson(Map<String, dynamic> json) => Consumable(
+        id: json['id'] as String,
+        name: json['name'] as String,
+        description: json['description'] as String,
+        value: json['value'] as int,
+        rarity: RarityLevel.values.firstWhere(
+          (e) => e.name == json['rarity'],
+          orElse: () => RarityLevel.common,
+        ),
+        type: ConsumableType.values.firstWhere(
+          (e) => e.name == json['type'],
+          orElse: () => ConsumableType.unstableTincture,
+        ),
+        maxUses: json['maxUses'] as int,
+        usesLeft: json['usesLeft'] as int?,
+      );
+
   final ConsumableType type;
   final int maxUses;
   int usesLeft;
 
   bool get isDepleted => usesLeft <= 0;
+
+  @override
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'kind': 'consumable',
+        'id': id,
+        'name': name,
+        'description': description,
+        'value': value,
+        'rarity': rarity.name,
+        'type': type.name,
+        'maxUses': maxUses,
+        'usesLeft': usesLeft,
+      };
 
   @override
   String toString() => '$name $usesLeft/$maxUses Uses (${value}g)';
@@ -90,6 +156,9 @@ abstract class Weapon extends Item {
   int chargeCountdown;
   DamageType damageType;
   StatusEffect? statusEffect;
+
+  /// Base hit accuracy percentage (e.g. 85 for 85% hit chance).
+  int get baseAccuracy => hitModifier;
 
   bool get isReady => chargeCountdown <= 0;
 
@@ -122,8 +191,55 @@ class ShipWeapon extends Weapon {
     required this.weaponType,
   });
 
+  factory ShipWeapon.fromJson(Map<String, dynamic> json) => ShipWeapon(
+        id: json['id'] as String,
+        name: json['name'] as String,
+        description: json['description'] as String,
+        value: json['value'] as int,
+        rarity: RarityLevel.values.firstWhere(
+          (e) => e.name == json['rarity'],
+          orElse: () => RarityLevel.common,
+        ),
+        damage: json['damage'] as int,
+        hitModifier: json['hitModifier'] as int,
+        chargeTime: json['chargeTime'] as int,
+        chargeCountdown: json['chargeCountdown'] as int?,
+        damageType: DamageType.values.firstWhere(
+          (e) => e.name == json['damageType'],
+          orElse: () => DamageType.piercing,
+        ),
+        statusEffect: json['statusEffect'] != null
+            ? StatusEffect.values.firstWhere((e) => e.name == json['statusEffect'])
+            : null,
+        equipWeight: json['equipWeight'] as int,
+        weaponType: ShipWeaponType.values.firstWhere(
+          (e) => e.name == json['weaponType'],
+          orElse: () => ShipWeaponType.cannon,
+        ),
+      );
+
   final int equipWeight;
   final ShipWeaponType weaponType;
+
+  bool get isSignature => weaponType.isSignature;
+
+  @override
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'kind': 'shipWeapon',
+        'id': id,
+        'name': name,
+        'description': description,
+        'value': value,
+        'rarity': rarity.name,
+        'damage': damage,
+        'hitModifier': hitModifier,
+        'chargeTime': chargeTime,
+        'chargeCountdown': chargeCountdown,
+        'damageType': damageType.name,
+        'statusEffect': statusEffect?.name,
+        'equipWeight': equipWeight,
+        'weaponType': weaponType.name,
+      };
 }
 
 /// Weapons wielded by sea monsters.
@@ -143,4 +259,20 @@ class MonsterWeapon extends Weapon {
   }) : super(value: 0);
 
   final MonsterWeaponType monsterWeaponType;
+
+  @override
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'kind': 'monsterWeapon',
+        'id': id,
+        'name': name,
+        'description': description,
+        'rarity': rarity.name,
+        'damage': damage,
+        'hitModifier': hitModifier,
+        'chargeTime': chargeTime,
+        'chargeCountdown': chargeCountdown,
+        'damageType': damageType.name,
+        'statusEffect': statusEffect?.name,
+        'monsterWeaponType': monsterWeaponType.name,
+      };
 }

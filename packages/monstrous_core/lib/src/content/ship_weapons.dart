@@ -1,3 +1,4 @@
+import '../lore/weapon_lore.dart';
 import '../model/enums.dart';
 import '../model/item.dart';
 import '../rng/game_rng.dart';
@@ -14,12 +15,12 @@ RarityLevel rarityForLevel(int level) {
 
 /// Generates a specific [ShipWeapon] scaled by [level] and configured by [type].
 ///
-/// Formulas match GDD and Java specifications:
-/// - Cannon: weight 2, charge 0, piercing [8..12]*L, hitMod 2*L, value 20*L
-/// - TorpedoLauncher: weight 4, charge 2, blast [13..17]*L, hitMod 2*L, value 30*L
-/// - BladeLauncher: weight 3, charge 1, slicing [13..17]*L, hitMod 2*L, value 30*L
-/// - LightningRailgun: weight 3, charge 3, shock [20..30]*L, hitMod 2*L, value 50*L, stuns
-/// - Flamethrower: weight 3, charge 3, fire [20..30]*L, hitMod 2*L, value 50*L, burns
+/// Formulas match balanced tactical overhaul:
+/// - Cannon: weight 1, charge 0, piercing [8..12]*L, hitMod 85, value 20*L
+/// - TorpedoLauncher: weight 2, charge 2, blast [18..24]*L, hitMod 75, value 30*L
+/// - BladeLauncher: weight 2, charge 2, slicing [16..22]*L, hitMod 80, value 30*L
+/// - LightningRailgun: weight 3, charge 2, shock [16..22]*L, hitMod 80, value 50*L, stuns
+/// - Flamethrower: weight 3, charge 2, fire [16..22]*L, hitMod 85, value 50*L, burns
 ShipWeapon generateShipWeapon(
   ShipWeaponType type,
   int level,
@@ -28,96 +29,156 @@ ShipWeapon generateShipWeapon(
   String? id,
 }) {
   final weaponId = id ?? '${type.name}_${++_shipWeaponIdCounter}';
-  final hitModifier = 2 * level;
+
+  final desc = WeaponLore.ship[type]?.description ?? type.displayName;
 
   switch (type) {
     case ShipWeaponType.cannon:
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description: 'A simple, lead-firing cannon',
+        description: desc,
         value: 20 * level,
         rarity: rarity,
         damage: rng.nextIntRange(8, 12) * level,
-        hitModifier: hitModifier,
-        chargeTime: 0,
+        hitModifier: 85,
+        chargeTime: type.chargeTime,
         damageType: DamageType.piercing,
-        equipWeight: 2,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.prowRam:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description: desc,
+        value: 40 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(22, 28) * level,
+        hitModifier: 90,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.blast,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.precisionCulverin:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description: desc,
+        value: 35 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(10, 14) * level,
+        hitModifier: 95,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.piercing,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.heavyMortar:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description: desc,
+        value: 45 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(24, 32) * level,
+        hitModifier: 80,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.blast,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.harpoonWinch:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description: desc,
+        value: 35 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(14, 20) * level,
+        hitModifier: 85,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.piercing,
+        equipWeight: type.equipWeight,
         weaponType: type,
       );
     case ShipWeaponType.torpedoLauncher:
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Fires underwater explosives capable of blasting through armor',
+        description: desc,
         value: 30 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(13, 17) * level,
-        hitModifier: hitModifier,
-        chargeTime: 2,
+        damage: rng.nextIntRange(18, 24) * level,
+        hitModifier: 75,
+        chargeTime: type.chargeTime,
         damageType: DamageType.blast,
-        equipWeight: 4,
+        equipWeight: type.equipWeight,
         weaponType: type,
       );
     case ShipWeaponType.bladeLauncher:
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Launches spinning blades with a penchant for removing limbs',
+        description: desc,
         value: 30 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(13, 17) * level,
-        hitModifier: hitModifier,
-        chargeTime: 1,
+        damage: rng.nextIntRange(16, 22) * level,
+        hitModifier: 80,
+        chargeTime: type.chargeTime,
         damageType: DamageType.slicing,
-        equipWeight: 3,
+        equipWeight: type.equipWeight,
         weaponType: type,
       );
     case ShipWeaponType.lightningRailgun:
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            "Arcs a powerful lightning bolt, zapping a target's nervous system",
+        description: desc,
         value: 50 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(20, 30) * level,
-        hitModifier: hitModifier,
-        chargeTime: 3,
+        damage: rng.nextIntRange(16, 22) * level,
+        hitModifier: 80,
+        chargeTime: type.chargeTime,
         damageType: DamageType.shock,
         statusEffect: StatusEffect.stun,
-        equipWeight: 3,
+        equipWeight: type.equipWeight,
         weaponType: type,
       );
     case ShipWeaponType.flamethrower:
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Fuel. Ignition. A memory of hell wreaks flame upon your enemies',
+        description: desc,
         value: 50 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(20, 30) * level,
-        hitModifier: hitModifier,
-        chargeTime: 3,
+        damage: rng.nextIntRange(16, 22) * level,
+        hitModifier: 85,
+        chargeTime: type.chargeTime,
         damageType: DamageType.fire,
         statusEffect: StatusEffect.burn,
-        equipWeight: 3,
+        equipWeight: type.equipWeight,
         weaponType: type,
       );
   }
 }
 
 /// Generates a random [ShipWeapon] of a randomly chosen type, scaled to [level].
+///
+/// By default excludes signature weapons (Prow Ram, Heavy Mortar, etc.) so that
+/// general loot pools drop universal weapons.
 ShipWeapon randomShipWeapon(
   int level,
   GameRng rng, {
   RarityLevel? rarity,
   String? id,
+  bool includeSignature = false,
 }) {
   final weaponRarity = rarity ?? rarityForLevel(level);
-  final type = ShipWeaponType.values[rng.nextInt(ShipWeaponType.values.length)];
+  final pool = includeSignature
+      ? ShipWeaponType.values
+      : ShipWeaponType.values.where((t) => !t.isSignature).toList();
+  final type = pool[rng.nextInt(pool.length)];
   return generateShipWeapon(type, level, weaponRarity, rng, id: id);
 }

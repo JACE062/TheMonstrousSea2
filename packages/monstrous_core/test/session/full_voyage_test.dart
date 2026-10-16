@@ -115,6 +115,259 @@ void main() {
       expect(session.ship!.shipClass, equals(ShipClass.ironclad));
       // Freighter 5% gold inheritance (5% of 100 = 5g)
       expect(session.ship!.gold, equals(5));
+      expect(session.seaChart.maxRowReached, equals(0)); // Reset for new heir
+    });
+
+    test('Captain returns to port and departs directly at charted depth waypoint (Option A)', () {
+      final session = GameSession(rng: SeededGameRng(101));
+      session.dispatch(const NameCaptain('Deepsea Dan'));
+      session.dispatch(const ChooseShip(ShipClass.ironclad));
+
+      // Simulate exploring down to Row 2
+      session.seaChart.currentRow = 2;
+      session.seaChart.currentCol = 3;
+      session.seaChart.maxRowReached = 2;
+
+      // Captain visits rest and returns to port
+      session.phase = SessionPhase.restArea;
+      session.dispatch(const ReturnToPort());
+
+      expect(session.phase, equals(SessionPhase.port));
+      expect(session.seaChart.maxRowReached, equals(2)); // Unlocked up to Depth 3
+
+      // Captain chooses to venture directly into Depth 3 (Row 2, Col 0)
+      final sailEvents = session.dispatch(const VentureOutToSea(startingRow: 2));
+
+      expect(session.phase, equals(SessionPhase.battle));
+      expect(session.seaChart.currentRow, equals(2));
+      expect(session.seaChart.currentCol, equals(0)); // Starts at the beginning of the row!
+      expect(sailEvents.whereType<BattleStarted>(), isNotEmpty);
+      expect(session.currentMonster!.level, equals(3));
+    });
+
+    test('Respite Island Haven: careen hull, drill gunners, and depart', () {
+      final session = GameSession(rng: SeededGameRng(333));
+      session.dispatch(const NameCaptain('Nemo'));
+      session.dispatch(const ChooseShip(ShipClass.standard));
+
+      // Damage ship hull to test careening
+      session.ship!.currentHp = 50;
+
+      // Locate the guaranteed Respite Island
+      int islandRow = -1;
+      int islandCol = -1;
+      for (var r = 0; r < SeaChart.totalRows; r++) {
+        for (var c = 0; c < SeaChart.totalCols; c++) {
+          if (session.seaChart.nodeTypeAt(r, c) == EncounterNodeType.respiteIsland) {
+            islandRow = r;
+            islandCol = c;
+            break;
+          }
+        }
+        if (islandRow != -1) break;
+      }
+      expect(islandRow != -1, isTrue);
+
+      // Position ship right before Respite Island
+      if (islandCol > 0) {
+        session.seaChart.currentRow = islandRow;
+        session.seaChart.currentCol = islandCol - 1;
+      } else {
+        session.seaChart.currentRow = islandRow - 1;
+        session.seaChart.currentCol = SeaChart.totalCols - 1;
+      }
+      session.phase = SessionPhase.restArea;
+
+      // Advance to the island
+      final advanceEvents = session.dispatch(const AdvanceToNextBattle());
+
+      expect(session.phase, equals(SessionPhase.respiteIsland));
+      expect(session.seaChart.isRespiteIsland, isTrue);
+      expect(advanceEvents.whereType<RespiteIslandReached>(), isNotEmpty);
+      expect(session.currentIslandName, isNotEmpty);
+
+      // Careen Hull (heals 35% maxHp = ~35 HP)
+      final careenEvents = session.dispatch(const CareenHullAtIsland());
+      expect(careenEvents.whereType<HullCareened>(), isNotEmpty);
+      expect(session.ship!.currentHp, greaterThan(50));
+      expect(session.hasCareenedAtCurrentIsland, isTrue);
+
+      // Repeat careen is ignored
+      final repeatCareen = session.dispatch(const CareenHullAtIsland());
+      expect(repeatCareen.whereType<HullCareened>(), isEmpty);
+
+      // With single shore duty restraint, drilling after careening is locked out
+      final drillEvents = session.dispatch(const DrillGunnersAtIsland());
+      expect(drillEvents.whereType<GunnersDrilled>(), isEmpty);
+      expect(session.hasChosenIslandDuty, isTrue);
+
+      // Depart Island transitions to the helm to set course
+      final departEvents = session.dispatch(const DepartIsland());
+      expect(session.phase, equals(SessionPhase.helm));
+      expect(departEvents.whereType<HelmApproached>(), isNotEmpty);
+
+      final steerEvents = session.dispatch(
+        const SteerCourse(NavigationalBearing.deadAhead),
+      );
+      expect(session.phase, isNot(equals(SessionPhase.helm)));
+      expect(steerEvents.whereType<CourseSteered>(), isNotEmpty);
+    });
+
+    test('Shipwreck Derelict Encounter: discover and salvage strongbox', () {
+      final session = GameSession(rng: SeededGameRng(444));
+      session.dispatch(const NameCaptain('Blackbeard'));
+      session.dispatch(const ChooseShip(ShipClass.freighter));
+
+      final startGold = session.ship!.gold;
+
+      // Locate or establish a Shipwreck on the chart
+      int wreckRow = -1;
+      int wreckCol = -1;
+      for (var r = 0; r < SeaChart.totalRows; r++) {
+        for (var c = 0; c < SeaChart.totalCols; c++) {
+          if (session.seaChart.nodeTypeAt(r, c) == EncounterNodeType.shipwreckSalvage) {
+            wreckRow = r;
+            wreckCol = c;
+            break;
+          }
+        }
+        if (wreckRow != -1) break;
+      }
+      if (wreckRow == -1) {
+        wreckRow = 2;
+        wreckCol = 1;
+        session.seaChart.setNodeTypeAt(wreckRow, wreckCol, EncounterNodeType.shipwreckSalvage);
+      }
+
+      // Position ship right before Shipwreck
+      if (wreckCol > 0) {
+        session.seaChart.currentRow = wreckRow;
+        session.seaChart.currentCol = wreckCol - 1;
+      } else {
+        session.seaChart.currentRow = wreckRow - 1;
+        session.seaChart.currentCol = SeaChart.totalCols - 1;
+      }
+      session.phase = SessionPhase.restArea;
+
+      // Advance to the shipwreck
+      final advanceEvents = session.dispatch(const AdvanceToNextBattle());
+
+      expect(session.phase, equals(SessionPhase.shipwreck));
+      expect(session.seaChart.isShipwreck, isTrue);
+      expect(advanceEvents.whereType<ShipwreckDiscovered>(), isNotEmpty);
+
+      // Cannot depart without salvaging
+      expect(
+        () => session.dispatch(const AdvanceToNextBattle()),
+        throwsStateError,
+      );
+
+      // Salvage strongbox
+      final salvageEvents = session.dispatch(
+        const SalvageShipwreck(ShipwreckChoice.strongbox),
+      );
+      expect(salvageEvents.whereType<ShipwreckSalvaged>(), isNotEmpty);
+      expect(session.ship!.gold, greaterThan(startGold));
+
+      // Now can depart to next node
+      final departEvents = session.dispatch(const AdvanceToNextBattle());
+      final expectedNextRow = wreckCol < SeaChart.bossCol ? wreckRow : wreckRow + 1;
+      final expectedNextCol = wreckCol < SeaChart.bossCol ? wreckCol + 1 : 0;
+      expect(session.seaChart.currentRow, equals(expectedNextRow));
+      expect(session.seaChart.currentCol, equals(expectedNextCol));
+      expect(departEvents, isNotEmpty);
+    });
+
+    test("Carpenter Emergency Triage in Rest Area strictly enforces <25% HP floor", () {
+      final session = GameSession(rng: SeededGameRng(555));
+      session.dispatch(const NameCaptain('Ishmael'));
+      session.dispatch(const ChooseShip(ShipClass.standard));
+
+      session.phase = SessionPhase.restArea;
+      session.ship!.currentHp = 60; // > 25% of max HP (~100)
+
+      // Routine repair declined in turbulent open sea
+      final declinedEvents = session.dispatch(const RepairShip(0.25));
+      expect(declinedEvents.whereType<ShipRepaired>(), isEmpty);
+      expect(
+        declinedEvents.whereType<NarrationEvent>().first.message,
+        contains('too turbulent'),
+      );
+
+      // Ship suffers critical damage down to 10 HP (<25%)
+      session.ship!.currentHp = 10;
+      session.ship!.gold = 100;
+
+      final triageEvents = session.dispatch(const RepairShip(0.25));
+      expect(triageEvents.whereType<ShipRepaired>(), isNotEmpty);
+      final repairedEvent = triageEvents.whereType<ShipRepaired>().first;
+      expect(repairedEvent.newHp, equals((session.ship!.maxHp * 0.25).ceil()));
+      expect(session.ship!.currentHp, equals((session.ship!.maxHp * 0.25).ceil()));
+    });
+
+    test('Grand Expedition Campaign Victory after slaying Region 3 Final Titan', () {
+      final session = GameSession(rng: SeededGameRng(888));
+      session.dispatch(const NameCaptain('Odysseus'));
+      session.dispatch(const ChooseShip(ShipClass.ironclad));
+
+      // 1. Clear Region 0 Kraken
+      session.seaChart.currentRow = 3;
+      session.seaChart.currentCol = 4;
+      session.seaChart.timesCompleted = 0;
+      session.phase = SessionPhase.battle;
+      session.currentMonster = session.seaChart.currentMonster(session.rng);
+      session.currentMonster!.currentHp = 0; // Beast defeated!
+
+      session.phase = SessionPhase.restArea;
+      final toRegion1 = session.dispatch(const AdvanceToNextBattle());
+      expect(toRegion1.whereType<RegionTransitioned>(), isNotEmpty);
+      expect(session.seaChart.currentRegionIndex, equals(1));
+      expect(session.seaChart.currentRegionName, equals('The Sargasso Drift'));
+      expect(session.phase, equals(SessionPhase.port));
+      expect(session.seaChart.currentPortName, equals('Fort Krakenwatch'));
+
+      // Embark from Fort Krakenwatch into Region 1
+      session.dispatch(const VentureOutToSea());
+      expect(session.phase, isNot(equals(SessionPhase.port)));
+
+      // 2. Clear Region 1 World Serpent
+      session.seaChart.currentRow = 3;
+      session.seaChart.currentCol = 4;
+      session.phase = SessionPhase.battle;
+      session.currentMonster = session.seaChart.currentMonster(session.rng);
+      session.currentMonster!.currentHp = 0; // Beast defeated!
+
+      session.phase = SessionPhase.restArea;
+      final toRegion2 = session.dispatch(const AdvanceToNextBattle());
+      expect(toRegion2.whereType<RegionTransitioned>(), isNotEmpty);
+      expect(session.seaChart.currentRegionIndex, equals(2));
+      expect(session.seaChart.currentRegionName, equals('The Boiling Reach'));
+      expect(session.phase, equals(SessionPhase.port));
+      expect(session.seaChart.currentPortName, equals('The Iron Bastion'));
+
+      // Embark from The Iron Bastion into Region 2
+      session.dispatch(const VentureOutToSea());
+      expect(session.phase, isNot(equals(SessionPhase.port)));
+
+      // 3. Clear Region 2 Final Titan (The Ancient Leviathan)
+      session.seaChart.currentRow = 3;
+      session.seaChart.currentCol = 4;
+      session.phase = SessionPhase.battle;
+      session.currentMonster = session.seaChart.currentMonster(session.rng);
+      session.currentMonster!.currentHp = 0; // Final Titan vanquished!
+
+      session.phase = SessionPhase.restArea;
+      final victoryEvents = session.dispatch(const AdvanceToNextBattle());
+
+      // Expedition is won!
+      expect(session.phase, equals(SessionPhase.expeditionVictory));
+      expect(session.isExpeditionWon, isTrue);
+      expect(victoryEvents.whereType<ExpeditionWon>(), isNotEmpty);
+
+      // Claim eternal glory
+      final finishEvents = session.dispatch(const ClaimExpeditionVictory());
+      expect(session.phase, equals(SessionPhase.ended));
+      expect(finishEvents.whereType<PhaseChanged>(), isNotEmpty);
     });
   });
 }

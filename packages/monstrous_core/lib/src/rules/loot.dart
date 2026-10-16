@@ -107,14 +107,77 @@ List<Item> generateVictoryLoot(
   int monsterLevel,
   GameRng rng, [
   BalanceConfig config = BalanceConfig.standard,
+  bool isApex = false,
 ]) {
-  final dropCount =
+  var dropCount =
       rng.nextIntRange(config.minItemsDropped, config.maxItemsDropped);
+  if (isApex) {
+    dropCount += 1;
+  }
   final items = <Item>[];
 
   for (var i = 0; i < dropCount; i++) {
-    final itemLevel = calculateLootLevel(monsterLevel, rng);
+    final itemLevel = calculateLootLevel(isApex ? monsterLevel + 1 : monsterLevel, rng);
     items.add(generateLootItem(itemLevel, rng, config));
+  }
+
+  items.sort();
+  return items;
+}
+
+/// Calculates direct gold bounty awarded upon vanquishing a monster of [monsterLevel].
+///
+/// Scales smoothly across monster levels to support drydock upgrades and merchant purchases:
+/// - Level 1: 15–25g
+/// - Level 2: 35–55g
+/// - Level 3: 75–115g
+/// - Level 4: 160–240g
+/// - Level 5+: (100 * 1.35^lvl + d50)
+/// - Apex monsters award +50% bonus gold.
+int calculateVictoryGold(int monsterLevel, GameRng rng, {bool isApex = false}) {
+  int baseGold;
+  if (monsterLevel <= 1) {
+    baseGold = rng.nextIntRange(15, 25);
+  } else if (monsterLevel == 2) {
+    baseGold = rng.nextIntRange(35, 55);
+  } else if (monsterLevel == 3) {
+    baseGold = rng.nextIntRange(75, 115);
+  } else if (monsterLevel == 4) {
+    baseGold = rng.nextIntRange(160, 240);
+  } else {
+    final base = 100 * pow(1.35, monsterLevel);
+    final variance = rng.nextInt(50);
+    baseGold = (base + variance).toInt();
+  }
+
+  return isApex ? (baseGold * 1.5).round() : baseGold;
+}
+
+/// Generates tactical battle spoils consisting strictly of [Consumable]s (50%)
+/// and [ShipWeapon]s (50%), preventing cargo holds from becoming clogged with junk treasure.
+/// Apex predators drop an additional drop item.
+List<Item> generateTacticalVictoryLoot(
+  int monsterLevel,
+  GameRng rng, [
+  int minItems = 1,
+  int maxItems = 2,
+  bool isApex = false,
+]) {
+  var dropCount = rng.nextIntRange(minItems, maxItems);
+  if (isApex) {
+    dropCount += 1;
+  }
+  final items = <Item>[];
+
+  for (var i = 0; i < dropCount; i++) {
+    final itemLevel =
+        calculateLootLevel(isApex ? monsterLevel + 1 : monsterLevel, rng);
+    final isConsumable = rng.nextInt(2) == 0;
+    if (isConsumable) {
+      items.add(randomConsumable(itemLevel, rng));
+    } else {
+      items.add(randomShipWeapon(itemLevel, rng));
+    }
   }
 
   items.sort();

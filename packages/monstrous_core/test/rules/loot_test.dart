@@ -214,4 +214,55 @@ void main() {
       }
     });
   });
+
+  group('Direct Victory Gold Bounty', () {
+    test('calculateVictoryGold awards scaled gold by monster level', () {
+      final rng = SeededGameRng(42);
+
+      for (var i = 0; i < 50; i++) {
+        final g1 = calculateVictoryGold(1, rng);
+        expect(g1, inInclusiveRange(15, 25));
+
+        final g2 = calculateVictoryGold(2, rng);
+        expect(g2, inInclusiveRange(35, 55));
+
+        final g3 = calculateVictoryGold(3, rng);
+        expect(g3, inInclusiveRange(75, 115));
+
+        final g4 = calculateVictoryGold(4, rng);
+        expect(g4, inInclusiveRange(160, 240));
+
+        final g5 = calculateVictoryGold(5, rng);
+        // 100 * 1.35^5 ~= 448 + [0..49] -> [448..497]
+        expect(g5, greaterThanOrEqualTo(400));
+      }
+    });
+  });
+
+  group('Tactical Victory Loot (No Junk Treasure)', () {
+    test('generateTacticalVictoryLoot drops exclusively Consumables and ShipWeapons', () {
+      final rng = SeededGameRng(101);
+
+      for (var monsterLevel = 1; monsterLevel <= 6; monsterLevel++) {
+        for (var i = 0; i < 50; i++) {
+          final loot = generateTacticalVictoryLoot(monsterLevel, rng);
+          expect(loot.length, inInclusiveRange(1, 2));
+
+          for (final item in loot) {
+            expect(item, isNot(isA<Treasure>()));
+            expect(item is Consumable || item is ShipWeapon, isTrue);
+          }
+        }
+      }
+    });
+
+    test('generateTacticalVictoryLoot returns items sorted by Item.compareTo', () {
+      final rng = SeededGameRng(202);
+      final loot = generateTacticalVictoryLoot(3, rng, 2, 2);
+
+      for (var i = 0; i < loot.length - 1; i++) {
+        expect(loot[i].compareTo(loot[i + 1]), lessThanOrEqualTo(0));
+      }
+    });
+  });
 }

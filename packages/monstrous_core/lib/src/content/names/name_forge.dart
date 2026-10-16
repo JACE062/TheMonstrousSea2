@@ -237,11 +237,11 @@ class NameForge {
     switch (shipClass) {
       case ShipClass.standard:
         adjectives = standardShipAdjectives;
-      case ShipClass.freighter:
+      case ShipClass.freighter || ShipClass.corsair:
         adjectives = freighterAdjectives;
-      case ShipClass.ironclad:
+      case ShipClass.ironclad || ShipClass.bombardier:
         adjectives = ironcladAdjectives;
-      case ShipClass.corvette:
+      case ShipClass.corvette || ShipClass.clipper:
         adjectives = corvetteAdjectives;
     }
     final adj = adjectives[rng.nextInt(adjectives.length)];
@@ -263,6 +263,10 @@ class NameForge {
         return crustaceanNames[rng.nextInt(crustaceanNames.length)];
       case MonsterSpecies.kraken:
         return krakenTitles[rng.nextInt(krakenTitles.length)];
+      case MonsterSpecies.worldSerpent:
+        return 'Jörmungandr, The World Serpent';
+      case MonsterSpecies.ancientLeviathan:
+        return 'The Ancient Leviathan';
     }
   }
 

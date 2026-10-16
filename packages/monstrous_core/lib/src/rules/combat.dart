@@ -19,40 +19,137 @@ extension StatusOutcomeExtension on (bool, List<GameEvent>) {
   List<GameEvent> get events => $2;
 }
 
+/// Default combat traits active during naval engagements.
+const defaultCombatTraits = <CombatTrait>[
+  FortifyTrait(),
+  EvasionTrait(),
+  InkCloudTrait(),
+  TentacleTrait(),
+  CarapaceTrait(),
+  SharkFrenzyTrait(),
+  SerpentSlitherTrait(),
+];
+
+/// Evaluates whether [type] can be fired from [range].
+///
+/// Tactical Legality Rules:
+/// - Prow Ram: Available at Medium or Short Range. Cannot be initiated from Long Range.
+/// - Heavy Mortar, Culverin, Harpoon Winch, Cannons, Torpedoes, etc. can be launched from all legal ranges.
+bool isWeaponTypeUsableAtRange(ShipWeaponType type, CombatRange range) {
+  if (type == ShipWeaponType.prowRam) {
+    return range != CombatRange.long;
+  }
+  return true;
+}
+
+/// Evaluates whether [weapon] can be fired from [range].
+bool isWeaponUsableAtRange(ShipWeapon weapon, CombatRange range) =>
+    isWeaponTypeUsableAtRange(weapon.weaponType, range);
+
+/// Calculates the percentage hit chance for [attacker] firing [weapon] at [defender].
+///
+/// Bounded between 25% and 95%:
+/// - Base accuracy from [weapon.baseAccuracy] (or [weapon.hitModifier]).
+/// - Optional [accuracyBonus] (e.g. from island gunnery drills).
+/// - Long Range penalty (-15% accuracy) for standard broadside naval cannons.
+/// - Obscurity modifier (Ink Cloud) reduces accuracy.
+/// - Heavy Blast ordnance against colossal targets (Kraken, Crustacean) gains a +10% bonus.
+int calculateHitChance(
+  Combatant attacker,
+  Weapon weapon,
+  Combatant defender, {
+  int accuracyBonus = 0,
+  CombatRange range = CombatRange.medium,
+}) {
+  int chance = weapon.baseAccuracy + accuracyBonus;
+
+  if (range == CombatRange.long &&
+      weapon is ShipWeapon &&
+      weapon.weaponType == ShipWeaponType.cannon) {
+    chance -= 15;
+  }
+
+  if (defender is MonsterState) {
+    if (defender.isObscured) {
+      chance -= defender.obscuredAcMod;
+    }
+    final isMassiveBeast = defender.species == MonsterSpecies.kraken ||
+        defender.species == MonsterSpecies.ancientLeviathan ||
+        defender.species == MonsterSpecies.crustacean ||
+        defender.carapacePlating > 0;
+    if (isMassiveBeast && weapon.damageType == DamageType.blast) {
+      chance += 10;
+    }
+  }
+
+  return chance.clamp(25, 95);
+}
+
 /// Calculates an individual attack from [attacker] using [weapon] against [defender].
 ///
-/// Resolves the d20 roll against the defender's effective armor class, rolls damage,
-/// triggers applicable [traits] hooks, applies final effective damage and status effects,
-/// and emits the corresponding [GameEvent]s.
+/// Resolves a bounded d100 percentage hit roll against calculated accuracy,
+/// rolls damage, triggers applicable [traits] hooks, applies final effective
+/// damage and status effects, and emits the corresponding [GameEvent]s.
 (AttackResult result, List<GameEvent> events) calculateAttack(
   Combatant attacker,
   Weapon weapon,
   Combatant defender,
   GameRng rng, [
   List<CombatTrait> traits = const [],
+  int accuracyBonus = 0,
+  double damageMultiplier = 1.0,
+  CombatRange range = CombatRange.medium,
 ]) {
   final events = <GameEvent>[];
-  final targetAc = defender is MonsterState
-      ? defender.effectiveArmorClass
-      : defender.armorClass;
-
-  final d20 = rng.d20();
-  final totalRoll = d20 + weapon.hitModifier;
+  final hitChance = calculateHitChance(
+    attacker,
+    weapon,
+    defender,
+    accuracyBonus: accuracyBonus,
+    range: range,
+  );
+  final roll = rng.d100();
+  final didHit = roll <= hitChance;
 
   events.add(AttackAttempted(
     attackerName: attacker.name,
     weaponName: weapon.name,
-    roll: totalRoll,
-    targetAc: targetAc,
+    roll: roll,
+    targetAc: hitChance,
   ));
 
-  if (totalRoll < targetAc) {
+  // Point-blank Mortar Backfire: firing a siege mortar at Short Range risks splashing own hull
+  if (weapon is ShipWeapon &&
+      weapon.weaponType == ShipWeaponType.heavyMortar &&
+      range == CombatRange.short &&
+      attacker is ShipState &&
+      attacker.isAlive) {
+    final backfireDmg = (weapon.damage * 0.20).round();
+    attacker.applyDamage(backfireDmg);
+    events.add(MortarBackfireOccurred(
+      shipName: attacker.name,
+      damage: backfireDmg,
+      remainingHp: attacker.currentHp,
+    ));
+    if (!attacker.isAlive) {
+      events.add(CombatantDefeated(
+        name: attacker.name,
+        flavorMessage:
+            '${attacker.name} was destroyed by its own point-blank mortar barrage!',
+      ));
+    }
+  }
+
+  if (!didHit) {
     final result = AttackResult(
       didHit: false,
       damage: 0,
       damageType: weapon.damageType,
+      shipWeaponType: weapon is ShipWeapon ? weapon.weaponType : null,
       statusEffect: null,
-      description: '${attacker.name} attacks with ${weapon.name}, but misses ${defender.name}.',
+      description:
+          '${attacker.name} attacks with ${weapon.name}, but misses ${defender.name}.',
+      combatRange: range,
     );
     events.add(AttackMissed(targetName: defender.name));
     return (result, events);
@@ -62,15 +159,38 @@ extension StatusOutcomeExtension on (bool, List<GameEvent>) {
   final wasManeuver = defender is ShipState &&
       defender.currentEvasion > defender.baseEvasion;
 
+  var effectiveMultiplier = damageMultiplier;
+  final impactRange = (weapon is ShipWeapon && weapon.weaponType == ShipWeaponType.prowRam)
+      ? CombatRange.short
+      : range;
+
+  if (weapon is ShipWeapon) {
+    if (impactRange == CombatRange.long) {
+      if (weapon.weaponType == ShipWeaponType.precisionCulverin ||
+          weapon.weaponType == ShipWeaponType.heavyMortar) {
+        effectiveMultiplier *= 1.25;
+      }
+    } else if (impactRange == CombatRange.short) {
+      if (weapon.weaponType == ShipWeaponType.prowRam) {
+        effectiveMultiplier *= 1.30;
+      }
+    }
+  }
+
+  final baseDamage = (weapon.damage * effectiveMultiplier).round();
   final result = AttackResult(
     didHit: true,
-    damage: weapon.damage,
+    damage: baseDamage,
     damageType: weapon.damageType,
+    shipWeaponType: weapon is ShipWeapon ? weapon.weaponType : null,
     statusEffect: weapon.statusEffect,
     description: '${attacker.name} attacks with ${weapon.name}',
+    combatRange: impactRange,
   );
 
-  for (final trait in traits) {
+
+  final activeTraits = traits.isNotEmpty ? traits : defaultCombatTraits;
+  for (final trait in activeTraits) {
     trait.onIncomingAttack(defender, attacker, result, rng);
   }
 
@@ -82,7 +202,31 @@ extension StatusOutcomeExtension on (bool, List<GameEvent>) {
     return (result, events);
   }
 
-  if (result.nullifiedDamage > 0) {
+  if (result.carapaceDamaged > 0 || result.wasCarapaceShattered) {
+    events.add(CarapaceDamaged(
+      monsterName: defender.name,
+      damageDealt: result.carapaceDamaged,
+      remainingCarapace: (defender as MonsterState).carapacePlating,
+      wasShattered: result.wasCarapaceShattered,
+    ));
+  }
+
+  if (result.carapaceAbsorbed > 0) {
+    events.add(CarapaceAbsorbed(
+      monsterName: defender.name,
+      absorbedAmount: result.carapaceAbsorbed,
+      penetratingDamage: result.damage - result.nullifiedDamage,
+    ));
+  }
+
+  if (result.disruptedFrenzy) {
+    events.add(SharkFrenzyDisrupted(
+      monsterName: defender.name,
+      reason: 'Shock disrupted feeding frenzy',
+    ));
+  }
+
+  if (result.nullifiedDamage > 0 && defender is ShipState) {
     events.add(DamageReduced(
       shipName: defender.name,
       nullifiedAmount: result.nullifiedDamage,
@@ -132,21 +276,36 @@ List<GameEvent> executeShipWeaponVolley(
   MonsterState monster,
   GameRng rng, [
   List<CombatTrait> traits = const [],
+  int accuracyBonus = 0,
+  double damageMultiplier = 1.0,
+  CombatRange range = CombatRange.medium,
 ]) {
+  if (!isWeaponTypeUsableAtRange(weaponType, range)) {
+    throw StateError('Cannot fire ${weaponType.displayName} at ${range.displayName}');
+  }
+
   final events = <GameEvent>[];
   final readyWeapons = ship.equippedWeapons
       .where((w) => w.weaponType == weaponType && w.chargeCountdown == 0)
       .toList();
 
   for (final weapon in readyWeapons) {
-    if (!monster.isAlive) break;
+    if (!monster.isAlive || !ship.isAlive) break;
 
-    final (_, attackEvents) =
-        calculateAttack(ship, weapon, monster, rng, traits);
+    final (_, attackEvents) = calculateAttack(
+      ship,
+      weapon,
+      monster,
+      rng,
+      traits,
+      accuracyBonus,
+      damageMultiplier,
+      range,
+    );
     events.addAll(attackEvents);
     weapon.resetCharge();
 
-    if (!monster.isAlive) break;
+    if (!monster.isAlive || !ship.isAlive) break;
   }
 
   return events;
@@ -228,11 +387,10 @@ List<GameEvent> executeShipWeaponVolley(
       ));
       canAct = false;
     } else {
+      canAct = false;
       final woreOff = rng.d100() > (100 - config.stunWearOffChanceMonster);
       if (woreOff) {
         combatant.removeStatus(StatusEffect.stun);
-      } else {
-        canAct = false;
       }
       events.add(StatusEffectTicked(
         targetName: combatant.name,

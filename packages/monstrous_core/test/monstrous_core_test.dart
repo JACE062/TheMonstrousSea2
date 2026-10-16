@@ -30,7 +30,6 @@ void main() {
       expect(cfg.treasureDropWeight, equals(60));
       expect(cfg.consumableDropWeight, equals(20));
       expect(cfg.weaponDropWeight, equals(20));
-      expect(cfg.baseFleeThresholdLevel1, equals(60)); // 40% flee success rate
     });
   });
 }

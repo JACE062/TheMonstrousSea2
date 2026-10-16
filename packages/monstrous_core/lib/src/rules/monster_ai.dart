@@ -24,6 +24,7 @@ List<GameEvent> takeMonsterTurn(
   GameRng rng, [
   BalanceConfig config = BalanceConfig.standard,
   List<CombatTrait> traits = const [],
+  CombatRange range = CombatRange.medium,
 ]) {
   if (!monster.isAlive) return const <GameEvent>[];
 
@@ -31,29 +32,69 @@ List<GameEvent> takeMonsterTurn(
 
   CombatTrait? findSpecialTrait() {
     for (final trait in traits) {
-      if (trait is InkCloudTrait && monster.species == MonsterSpecies.squid) {
+      if (trait is InkCloudTrait &&
+          (monster.species == MonsterSpecies.squid ||
+              monster.species == MonsterSpecies.kraken)) {
+        return trait;
+      }
+      if (trait is SharkFrenzyTrait &&
+          monster.species == MonsterSpecies.shark) {
+        return trait;
+      }
+      if (trait is SerpentSlitherTrait &&
+          monster.species == MonsterSpecies.serpent) {
+        return trait;
+      }
+      if (trait is CarapaceTrait &&
+          monster.species == MonsterSpecies.crustacean &&
+          monster.carapacePlating < monster.maxCarapace) {
         return trait;
       }
     }
-    if (monster.species == MonsterSpecies.squid) {
+    if (monster.species == MonsterSpecies.squid ||
+        monster.species == MonsterSpecies.kraken) {
       return const InkCloudTrait();
+    }
+    if (monster.species == MonsterSpecies.shark) {
+      return const SharkFrenzyTrait();
+    }
+    if (monster.species == MonsterSpecies.serpent) {
+      return const SerpentSlitherTrait();
+    }
+    if (monster.species == MonsterSpecies.crustacean &&
+        monster.carapacePlating < monster.maxCarapace) {
+      return const CarapaceTrait();
     }
     return null;
   }
 
   void executeSpecial(CombatTrait specialTrait) {
-    specialTrait.executeSpecialAction(monster, ship, rng);
+    final msg = specialTrait.executeSpecialAction(monster, ship, rng);
     if (specialTrait is InkCloudTrait) {
       events.add(InkCloudDeployed(
         monsterName: monster.name,
         acBonus: monster.obscuredAcMod,
       ));
+    } else if (specialTrait is SharkFrenzyTrait) {
+      events.add(SharkFrenzyRoared(
+        monsterName: monster.name,
+        stacks: monster.frenzyStacks,
+      ));
+    } else if (specialTrait is SerpentSlitherTrait) {
+      events.add(SerpentSlithered(
+        monsterName: monster.name,
+        evasionBonus: 20,
+      ));
+    } else if (msg.isNotEmpty) {
+      events.add(NarrationEvent(msg));
     }
     monster.decrementChargeTimeOnWeapons();
   }
 
+  final isJellyfish = monster.species == MonsterSpecies.jellyfish;
   final isCrustacean = monster.species == MonsterSpecies.crustacean;
-  final wantsAttack = isCrustacean ||
+  final wantsAttack = isJellyfish ||
+      (isCrustacean && monster.carapacePlating >= monster.maxCarapace) ||
       (rng.d100() <= config.monsterAttackProbability);
 
   if (!wantsAttack) {
@@ -71,10 +112,13 @@ List<GameEvent> takeMonsterTurn(
       .toList();
 
   if (readyWeapons.isEmpty) {
-    final special = findSpecialTrait();
-    if (special != null && !monster.isObscured) {
-      executeSpecial(special);
-      return events;
+    if (monster.species == MonsterSpecies.squid ||
+        monster.species == MonsterSpecies.kraken) {
+      final special = findSpecialTrait();
+      if (special != null && !monster.isObscured) {
+        executeSpecial(special);
+        return events;
+      }
     }
 
     events.add(MonsterHesitated(monster.name));
@@ -87,21 +131,49 @@ List<GameEvent> takeMonsterTurn(
   final isTentacle =
       chosenWeapon.monsterWeaponType == MonsterWeaponType.tentacle;
 
-  if (isTentacle) {
-    if (monster.numberOfTentacles > 0) {
-      for (var i = 0; i < monster.numberOfTentacles; i++) {
-        if (!ship.isAlive) break;
-        final (_, attackEvents) =
-            calculateAttack(monster, chosenWeapon, ship, rng, traits);
-        events.addAll(attackEvents);
+  // Apply Shark Frenzy damage scaling if active
+  final originalDamage = chosenWeapon.damage;
+  if (monster.species == MonsterSpecies.shark && monster.frenzyStacks > 0) {
+    final bonusMultiplier = 1.0 + (monster.frenzyStacks * 0.25);
+    chosenWeapon.damage = (originalDamage * bonusMultiplier).round();
+  }
+
+  try {
+    if (isTentacle) {
+      if (monster.numberOfTentacles > 0) {
+        for (var i = 0; i < monster.numberOfTentacles; i++) {
+          if (!ship.isAlive) break;
+          final (_, attackEvents) = calculateAttack(
+            monster,
+            chosenWeapon,
+            ship,
+            rng,
+            traits,
+            0,
+            1.0,
+            range,
+          );
+          events.addAll(attackEvents);
+        }
+      } else {
+        events.add(AttackMissed(targetName: ship.name));
       }
     } else {
-      events.add(AttackMissed(targetName: ship.name));
+      final (_, attackEvents) = calculateAttack(
+        monster,
+        chosenWeapon,
+        ship,
+        rng,
+        traits,
+        0,
+        1.0,
+        range,
+      );
+      events.addAll(attackEvents);
     }
-  } else {
-    final (_, attackEvents) =
-        calculateAttack(monster, chosenWeapon, ship, rng, traits);
-    events.addAll(attackEvents);
+  } finally {
+    // Restore base damage after attacking
+    chosenWeapon.damage = originalDamage;
   }
 
   // Put weapon on cooldown

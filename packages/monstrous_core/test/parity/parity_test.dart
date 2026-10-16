@@ -25,7 +25,9 @@ void main() {
           ShipClass.freighter => 'Freighter',
           ShipClass.ironclad => 'Ironclad',
           ShipClass.corvette => 'Corvette',
+          _ => null,
         };
+        if (className == null) continue;
         final classData = shipsFixture[className];
         if (classData == null) continue;
 
