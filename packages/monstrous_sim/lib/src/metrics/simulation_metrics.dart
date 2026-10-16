@@ -131,7 +131,8 @@ class SimulationMetrics {
       avgMonstersDefeated: totalMonsters / n,
       avgHighestDifficulty: totalHighestDiff / n,
       avgGoldEarned: totalGold / n,
-      avgRoundsPerCombat: totalRounds / n,
+      avgRoundsPerCombat:
+          (totalMonsters + deaths) > 0 ? totalRounds / (totalMonsters + deaths) : 0.0,
       causeOfDeathCounts: deathsByCause,
       shipClassCounts: classCounts,
       shipClassWins: classWins,

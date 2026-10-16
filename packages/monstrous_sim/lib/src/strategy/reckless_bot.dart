@@ -27,15 +27,36 @@ class RecklessBot implements BotStrategy {
             return const RepairShip(0.5);
           }
         }
+        if (ship != null && ship.level < 4) {
+          final cost = calculateShipUpgradeCost(ship.level);
+          if (cost > 0 && ship.gold >= cost) {
+            return const UpgradeShip();
+          }
+        }
+        if (ship != null) {
+          for (var i = 0; i < ship.cargo.length; i++) {
+            final item = ship.cargo[i];
+            if (item is ShipWeapon && ship.canEquipWeapon(item)) {
+              return EquipCargoWeapon(i);
+            }
+          }
+        }
         return const VentureOutToSea();
 
       case SessionPhase.battle:
         final ship = session.ship!;
-        final readyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
+        final readyWeapons = ship.equippedWeapons
+            .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
+            .toList();
 
         if (readyWeapons.isNotEmpty) {
           readyWeapons.sort((a, b) => b.damage.compareTo(a.damage));
           return FireWeaponVolley(readyWeapons.first.weaponType);
+        }
+
+        final outOfRangeReadyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
+        if (outOfRangeReadyWeapons.isNotEmpty && session.combatRange != CombatRange.short) {
+          return ChangeCombatRange(session.combatRange.closer);
         }
 
         final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
@@ -47,11 +68,16 @@ class RecklessBot implements BotStrategy {
           return const ExecuteShipSpecialAction();
         }
 
-        if (ship.equippedWeaponTypes.isNotEmpty) {
-          return FireWeaponVolley(ship.equippedWeaponTypes.first);
+        final anyUsable = ship.equippedWeaponTypes
+            .where((type) => isWeaponTypeUsableAtRange(type, session.combatRange))
+            .toList();
+        if (anyUsable.isNotEmpty) {
+          return FireWeaponVolley(anyUsable.first);
         }
 
-        return const ExecuteShipSpecialAction();
+        return session.combatRange != CombatRange.short
+            ? ChangeCombatRange(session.combatRange.closer)
+            : const ExecuteShipSpecialAction();
 
       case SessionPhase.loot:
         if (session.pendingLoot.isNotEmpty) {
@@ -64,7 +90,46 @@ class RecklessBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
+        final ship = session.ship;
+        if (ship != null) {
+          for (var i = 0; i < ship.cargo.length; i++) {
+            final item = ship.cargo[i];
+            if (item is ShipWeapon && ship.canEquipWeapon(item)) {
+              return EquipCargoWeapon(i);
+            }
+          }
+        }
         return const AdvanceToNextBattle();
+
+      case SessionPhase.respiteIsland:
+        if (!session.hasChosenIslandDuty) {
+          return const DrillGunnersAtIsland();
+        }
+        return const DepartIsland();
+
+      case SessionPhase.shipwreck:
+        return const SalvageShipwreck(ShipwreckChoice.munitions);
+
+      case SessionPhase.smuggler:
+        return const DepartSmuggler();
+
+      case SessionPhase.shrine:
+        if (!session.hasCommunedAtCurrentShrine) {
+          return const CommuneWithShrine(ShrineChoice.abyssalPact);
+        }
+        return const DepartShrine();
+
+      case SessionPhase.helm:
+        final combatCourse = session.seaChart.currentCourseOptions
+            .where((c) => c.nodeType == EncounterNodeType.beastCombat)
+            .firstOrNull;
+        if (combatCourse != null) {
+          return SteerCourse(combatCourse.bearing);
+        }
+        return const SteerCourse(NavigationalBearing.deadAhead);
+
+      case SessionPhase.expeditionVictory:
+        return const ClaimExpeditionVictory();
 
       case SessionPhase.merchant:
         final hasTreasure = session.ship?.cargo.any((item) => item is Treasure) ?? false;

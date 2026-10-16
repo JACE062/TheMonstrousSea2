@@ -45,7 +45,8 @@ void main() {
       session.ship!.currentHp = (session.ship!.maxHp * 0.15).toInt();
 
       final cmd = bot.decideNextAction(session);
-      expect(cmd, isA<FleeEncounter>());
+      expect(cmd, isA<ChangeCombatRange>());
+      expect((cmd as ChangeCombatRange).targetRange, equals(CombatRange.long));
     });
 
     test('GreedyBot selects Freighter to optimize cargo hold and gold hoarding', () {

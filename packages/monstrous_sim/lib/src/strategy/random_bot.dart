@@ -34,9 +34,11 @@ class RandomBot implements BotStrategy {
 
       case SessionPhase.battle:
         final ship = session.ship!;
-        final readyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
+        final readyWeapons = ship.equippedWeapons
+            .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
+            .toList();
 
-        // 70% attack if weapon ready, 10% special, 10% consumable, 10% flee
+        // 70% attack if weapon ready, 10% special, 10% consumable, 10% range maneuver
         final actionRoll = rng.nextInt(10);
         if (actionRoll < 7 && readyWeapons.isNotEmpty) {
           final chosen = readyWeapons[rng.nextInt(readyWeapons.length)];
@@ -50,14 +52,22 @@ class RandomBot implements BotStrategy {
             return UseConsumableItem(consumableIndex);
           }
         } else if (actionRoll == 9) {
-          return const FleeEncounter();
+          final legalRanges = switch (session.combatRange) {
+            CombatRange.long => const [CombatRange.medium],
+            CombatRange.medium => const [CombatRange.short, CombatRange.long],
+            CombatRange.short => const [CombatRange.medium],
+          };
+          return ChangeCombatRange(legalRanges[rng.nextInt(legalRanges.length)]);
         }
 
         if (readyWeapons.isNotEmpty) {
           return FireWeaponVolley(readyWeapons.first.weaponType);
         }
-        if (ship.equippedWeaponTypes.isNotEmpty) {
-          return FireWeaponVolley(ship.equippedWeaponTypes.first);
+        final anyUsable = ship.equippedWeaponTypes
+            .where((type) => isWeaponTypeUsableAtRange(type, session.combatRange))
+            .toList();
+        if (anyUsable.isNotEmpty) {
+          return FireWeaponVolley(anyUsable.first);
         }
         return const ExecuteShipSpecialAction();
 
@@ -75,6 +85,35 @@ class RandomBot implements BotStrategy {
         return advance
             ? const AdvanceToNextBattle()
             : const ReturnToPort();
+
+      case SessionPhase.respiteIsland:
+        if (!session.hasChosenIslandDuty) {
+          final choice = rng.nextInt(3);
+          if (choice == 0) return const CareenHullAtIsland();
+          if (choice == 1) return const DrillGunnersAtIsland();
+          return const ForageShoalsAtIsland();
+        }
+        return const DepartIsland();
+
+      case SessionPhase.shipwreck:
+        final choices = ShipwreckChoice.values;
+        return SalvageShipwreck(choices[rng.nextInt(choices.length)]);
+
+      case SessionPhase.smuggler:
+        return const DepartSmuggler();
+
+      case SessionPhase.shrine:
+        if (!session.hasCommunedAtCurrentShrine) {
+          return const CommuneWithShrine(ShrineChoice.ancientRunes);
+        }
+        return const DepartShrine();
+
+      case SessionPhase.helm:
+        final bearings = NavigationalBearing.values;
+        return SteerCourse(bearings[rng.nextInt(bearings.length)]);
+
+      case SessionPhase.expeditionVictory:
+        return const ClaimExpeditionVictory();
 
       case SessionPhase.merchant:
         final hasTreasure = session.ship?.cargo.any((item) => item is Treasure) ?? false;
