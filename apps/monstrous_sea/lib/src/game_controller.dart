@@ -408,6 +408,30 @@ class GameController extends ChangeNotifier {
           actor: CombatLogActor.ship,
           isCritical: true,
         ),
+      MonsterIntentTelegraphed(:final intent) => CombatLogEntry(
+          message: narrationFormatter.format(event),
+          actor: CombatLogActor.monster,
+          isCritical: intent.isBossWindup || intent.isBossCatastropheStrike,
+        ),
+      MonsterAttackOutOfRange() => CombatLogEntry(
+          message: narrationFormatter.format(event),
+          actor: CombatLogActor.ship,
+        ),
+      HeadOnCollisionOccurred() => CombatLogEntry(
+          message: narrationFormatter.format(event),
+          actor: CombatLogActor.monster,
+          isCritical: true,
+        ),
+      MonsterIntentDisrupted() => CombatLogEntry(
+          message: narrationFormatter.format(event),
+          actor: CombatLogActor.ship,
+          isCritical: true,
+        ),
+      ShipGrappled() => CombatLogEntry(
+          message: narrationFormatter.format(event),
+          actor: CombatLogActor.monster,
+          isCritical: true,
+        ),
       PhaseChanged() => null,
       AttackAttempted() => null,
     };

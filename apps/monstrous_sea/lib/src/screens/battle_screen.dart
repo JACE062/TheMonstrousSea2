@@ -80,7 +80,9 @@ class _BattleScreenState extends State<BattleScreen> {
 
     // If an advance or fall back order was selected, execute helm order first
     final currentRange = widget.controller.combatRange;
-    final activeOrder = currentRange.availableHelmOrders.contains(_selectedHelmOrder)
+    final isGrappled = widget.controller.ship?.isGrappled ?? false;
+    final activeOrder = (!isGrappled &&
+            currentRange.availableHelmOrders.contains(_selectedHelmOrder))
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
 
@@ -133,7 +135,8 @@ class _BattleScreenState extends State<BattleScreen> {
     }
 
     final currentRange = widget.controller.combatRange;
-    final activeHelmOrder = currentRange.availableHelmOrders.contains(_selectedHelmOrder)
+    final activeHelmOrder = (!ship.isGrappled &&
+            currentRange.availableHelmOrders.contains(_selectedHelmOrder))
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
     final previewRange = currentRange.rangeAfterHelmOrder(activeHelmOrder);
@@ -413,7 +416,13 @@ class _BattleScreenState extends State<BattleScreen> {
                     ),
                   ],
                   // Tactical Bearing & Bounded Helm Order Bar
-                  _buildTacticalBearingBar(currentRange, previewRange, activeHelmOrder),
+                  _buildTacticalBearingBar(
+                    currentRange,
+                    previewRange,
+                    activeHelmOrder,
+                    ship,
+                    monster,
+                  ),
 
                   // Weapon Volleys with Tactical Range Badges inside InkButton
                   Row(
@@ -526,7 +535,16 @@ class _BattleScreenState extends State<BattleScreen> {
     CombatRange currentRange,
     CombatRange previewRange,
     HelmOrder activeHelmOrder,
+    ShipState ship,
+    MonsterState monster,
   ) {
+    final intent = monster.currentIntent;
+    final previewOutcome = intent?.evaluatePreview(
+      currentRange: currentRange,
+      selectedHelmOrder: activeHelmOrder,
+      isMonsterPinned: monster.isPinnedThisTurn,
+    );
+
     return Container(
       margin: const EdgeInsets.only(bottom: 6),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -535,87 +553,246 @@ class _BattleScreenState extends State<BattleScreen> {
         borderRadius: BorderRadius.circular(4),
         border: Border.all(color: InkTheme.inkMuted, width: 1),
       ),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final isNarrow = constraints.maxWidth < 460;
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (intent != null && previewOutcome != null) ...[
+            _buildMonsterIntentReadout(intent, previewOutcome, monster),
+            const SizedBox(height: 4),
+          ],
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final isNarrow = constraints.maxWidth < 460;
 
-          final bearingTrack = Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 4,
-            runSpacing: 4,
-            children: [
-              Text(
-                'BEARING:',
-                style: InkTheme.statLabel.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 11,
-                  color: InkTheme.inkSecondary,
-                ),
-              ),
-              const SizedBox(width: 4),
-              for (final r in [
-                CombatRange.long,
-                CombatRange.medium,
-                CombatRange.short,
-              ]) ...[
-                _buildRangeTrackChip(r, currentRange, previewRange),
-                if (r != CombatRange.short)
+              final bearingTrack = Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 4,
+                runSpacing: 4,
+                children: [
                   Text(
-                    '—',
-                    style: TextStyle(
-                      color: InkTheme.inkMuted,
-                      fontSize: 11,
+                    'BEARING:',
+                    style: InkTheme.statLabel.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 11,
+                      color: InkTheme.inkSecondary,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  for (final r in [
+                    CombatRange.long,
+                    CombatRange.medium,
+                    CombatRange.short,
+                  ]) ...[
+                    _buildRangeTrackChip(
+                      r,
+                      currentRange,
+                      previewRange,
+                      isThreatened: intent?.threatenedRanges.contains(r) ?? false,
+                    ),
+                    if (r != CombatRange.short)
+                      Text(
+                        '—',
+                        style: TextStyle(
+                          color: InkTheme.inkMuted,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                  ],
+                ],
+              );
+
+              final helmOrders = Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 4,
+                runSpacing: 4,
+                children: [
+                  Text(
+                    'HELM:',
+                    style: InkTheme.statLabel.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11,
+                      color: InkTheme.inkSecondary,
+                    ),
+                  ),
+                  if (ship.isGrappled)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 1),
+                      decoration: BoxDecoration(
+                        color: InkTheme.crimsonAccent.withValues(alpha: 0.18),
+                        borderRadius: BorderRadius.circular(3),
+                        border: Border.all(
+                            color: InkTheme.crimsonAccent, width: 1.0),
+                      ),
+                      child: Text(
+                        '⛓️ GRAPPLED',
+                        style: InkTheme.caption.copyWith(
+                          fontSize: 9.5,
+                          fontWeight: FontWeight.bold,
+                          color: InkTheme.crimsonAccent,
+                        ),
+                      ),
+                    ),
+                  const SizedBox(width: 2),
+                  for (final order in [
+                    HelmOrder.fallBack,
+                    HelmOrder.holdLine,
+                    HelmOrder.advance,
+                  ]) ...[
+                    _buildHelmOrderPill(
+                      order,
+                      currentRange,
+                      activeHelmOrder,
+                      isGrappled: ship.isGrappled,
+                    ),
+                  ],
+                ],
+              );
+
+              if (isNarrow) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    bearingTrack,
+                    const SizedBox(height: 6),
+                    helmOrders,
+                  ],
+                );
+              }
+
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(child: bearingTrack),
+                  const SizedBox(width: 12),
+                  helmOrders,
+                ],
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMonsterIntentReadout(
+    MonsterIntent intent,
+    IntentPreviewOutcome preview,
+    MonsterState monster,
+  ) {
+    final isSafe = preview.isSafe;
+    final isSevere = preview.status == IntentPreviewStatus.headOnCollisionDanger ||
+        preview.status == IntentPreviewStatus.bossCatastropheImminent;
+
+    final outcomeColor = isSafe
+        ? InkTheme.verdigrisGreen
+        : isSevere
+            ? InkTheme.crimsonAccent
+            : const Color(0xFF9A6700);
+
+    return Tooltip(
+      message: '${intent.description}\nCounterplay: ${intent.tacticalTip}',
+      child: Semantics(
+        label:
+            'Monster Intent: ${intent.name}. Threatens ${intent.threatenedRangesLabel}. ${preview.summaryBadge}',
+        child: Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 6,
+          runSpacing: 3,
+          children: [
+            Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 5,
+              runSpacing: 2,
+              children: [
+                Text(
+                  'INTENT: ${intent.name.toUpperCase()}',
+                  style: InkTheme.statLabel.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10.5,
+                    color: (intent.isBossWindup || intent.isBossCatastropheStrike)
+                        ? InkTheme.crimsonAccent
+                        : InkTheme.inkPrimary,
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: InkTheme.crimsonAccent.withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(
+                      color: InkTheme.crimsonAccent.withValues(alpha: 0.6),
+                      width: 0.9,
+                    ),
+                  ),
+                  child: Text(
+                    'HITS: ${intent.threatenedRangesLabel}',
+                    style: InkTheme.caption.copyWith(
+                      fontSize: 9.0,
+                      fontWeight: FontWeight.bold,
+                      color: InkTheme.crimsonAccent,
+                    ),
+                  ),
+                ),
+                if (intent.moveDelta != IntentMoveDelta.stationary)
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                    decoration: BoxDecoration(
+                      color: InkTheme.parchmentSurface,
+                      borderRadius: BorderRadius.circular(2),
+                      border: Border.all(color: InkTheme.inkMuted, width: 0.9),
+                    ),
+                    child: Text(
+                      intent.moveLabel,
+                      style: InkTheme.caption.copyWith(
+                        fontSize: 9.0,
+                        fontWeight: FontWeight.w600,
+                        color: InkTheme.inkSecondary,
+                      ),
+                    ),
+                  ),
+                if (intent.poiseThreshold > 0)
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                    decoration: BoxDecoration(
+                      color: InkTheme.goldAccent.withValues(alpha: 0.2),
+                      borderRadius: BorderRadius.circular(2),
+                      border: Border.all(color: InkTheme.goldAccent, width: 0.9),
+                    ),
+                    child: Text(
+                      'POISE: ${monster.windupDamageTaken}/${intent.poiseThreshold}',
+                      style: InkTheme.caption.copyWith(
+                        fontSize: 9.0,
+                        fontWeight: FontWeight.bold,
+                        color: InkTheme.inkPrimary,
+                      ),
                     ),
                   ),
               ],
-            ],
-          );
-
-          final helmOrders = Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 4,
-            runSpacing: 4,
-            children: [
-              Text(
-                'HELM:',
-                style: InkTheme.statLabel.copyWith(
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+              decoration: BoxDecoration(
+                color: outcomeColor.withValues(alpha: 0.14),
+                borderRadius: BorderRadius.circular(3),
+                border: Border.all(color: outcomeColor, width: 1.0),
+              ),
+              child: Text(
+                preview.summaryBadge,
+                style: InkTheme.caption.copyWith(
+                  fontSize: 9.5,
                   fontWeight: FontWeight.bold,
-                  fontSize: 11,
-                  color: InkTheme.inkSecondary,
+                  color: outcomeColor,
                 ),
               ),
-              const SizedBox(width: 2),
-              for (final order in [
-                HelmOrder.fallBack,
-                HelmOrder.holdLine,
-                HelmOrder.advance,
-              ]) ...[
-                _buildHelmOrderPill(order, currentRange, activeHelmOrder),
-              ],
-            ],
-          );
-
-          if (isNarrow) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                bearingTrack,
-                const SizedBox(height: 6),
-                helmOrders,
-              ],
-            );
-          }
-
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(child: bearingTrack),
-              const SizedBox(width: 12),
-              helmOrders,
-            ],
-          );
-        },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -623,22 +800,25 @@ class _BattleScreenState extends State<BattleScreen> {
   Widget _buildRangeTrackChip(
     CombatRange band,
     CombatRange currentRange,
-    CombatRange previewRange,
-  ) {
+    CombatRange previewRange, {
+    bool isThreatened = false,
+  }) {
     final isTargetDestination = band == previewRange && previewRange != currentRange;
     final isCurrentStation = band == currentRange && previewRange == currentRange;
     final isDepartingStation = band == currentRange && previewRange != currentRange;
 
     Color bgColor = Colors.transparent;
-    Color borderColor = InkTheme.inkMuted.withValues(alpha: 0.35);
-    Color textColor = InkTheme.inkMuted;
+    Color borderColor = isThreatened
+        ? InkTheme.crimsonAccent.withValues(alpha: 0.65)
+        : InkTheme.inkMuted.withValues(alpha: 0.35);
+    Color textColor = isThreatened ? InkTheme.crimsonAccent : InkTheme.inkMuted;
     FontWeight fontWeight = FontWeight.normal;
     String prefix = '';
     String suffix = '';
 
     if (isCurrentStation) {
       bgColor = InkTheme.inkPrimary;
-      borderColor = InkTheme.inkPrimary;
+      borderColor = isThreatened ? InkTheme.crimsonAccent : InkTheme.inkPrimary;
       textColor = InkTheme.parchmentHighlight;
       fontWeight = FontWeight.bold;
       prefix = '⚓ ';
@@ -658,10 +838,10 @@ class _BattleScreenState extends State<BattleScreen> {
 
     return Semantics(
       label: isCurrentStation
-          ? 'Current engagement distance: ${band.displayName}'
+          ? 'Current engagement distance: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ''}'
           : isTargetDestination
-              ? 'Pending tactical bearing: ${band.displayName}'
-              : band.displayName,
+              ? 'Pending tactical bearing: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ' (Safe blind spot)'}'
+              : '${band.displayName}${isThreatened ? ' (Threatened)' : ''}',
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
         decoration: BoxDecoration(
@@ -684,9 +864,11 @@ class _BattleScreenState extends State<BattleScreen> {
   Widget _buildHelmOrderPill(
     HelmOrder order,
     CombatRange currentRange,
-    HelmOrder activeHelmOrder,
-  ) {
-    final isAvailable = currentRange.availableHelmOrders.contains(order);
+    HelmOrder activeHelmOrder, {
+    bool isGrappled = false,
+  }) {
+    final isAvailable = (!isGrappled || order == HelmOrder.holdLine) &&
+        currentRange.availableHelmOrders.contains(order);
     final isSelected = activeHelmOrder == order;
 
     final IconData icon = switch (order) {
@@ -696,6 +878,8 @@ class _BattleScreenState extends State<BattleScreen> {
     };
 
     final tooltip = switch (order) {
+      _ when isGrappled && order != HelmOrder.holdLine =>
+        'Ship is grappled! Helm is locked to Hold Line this round.',
       HelmOrder.fallBack when !isAvailable => 'Cannot fall back beyond Long Range',
       HelmOrder.fallBack =>
         'Order helm to fall back to ${currentRange.rangeAfterHelmOrder(order).displayName}',

@@ -62,6 +62,9 @@ int calculateHitChance(
   CombatRange range = CombatRange.medium,
 }) {
   int chance = weapon.baseAccuracy + accuracyBonus;
+  if (attacker is ShipState && attacker.tempAccuracyPenalty > 0) {
+    chance -= attacker.tempAccuracyPenalty;
+  }
 
   if (range == CombatRange.long &&
       weapon is ShipWeapon &&

@@ -228,6 +228,40 @@ class MonstrousSeaBattleGame extends FlameGame {
           _triggerScreenShake();
           await Future.delayed(const Duration(milliseconds: 320));
 
+        case MonsterAttackOutOfRange():
+          add(_FloatingTextComponent(
+            text: 'EVADED BY RANGE!',
+            color: InkTheme.verdigrisGreen,
+            position: _shipVisual.position - Vector2(0, 40),
+          ));
+          await Future.delayed(const Duration(milliseconds: 280));
+
+        case HeadOnCollisionOccurred(:final bonusDamagePercent):
+          add(_FloatingTextComponent(
+            text: 'HEAD-ON COLLISION! +$bonusDamagePercent%',
+            color: InkTheme.crimsonAccent,
+            position: _shipVisual.position - Vector2(0, 40),
+          ));
+          _triggerScreenShake();
+          await Future.delayed(const Duration(milliseconds: 300));
+
+        case MonsterIntentDisrupted():
+          add(_FloatingTextComponent(
+            text: 'INTENT DISRUPTED!',
+            color: InkTheme.goldAccent,
+            position: _monsterVisual.position - Vector2(0, 50),
+          ));
+          _triggerScreenShake();
+          await Future.delayed(const Duration(milliseconds: 300));
+
+        case ShipGrappled():
+          add(_FloatingTextComponent(
+            text: 'HELM GRAPPLED!',
+            color: InkTheme.crimsonAccent,
+            position: _shipVisual.position - Vector2(0, 40),
+          ));
+          await Future.delayed(const Duration(milliseconds: 280));
+
         default:
           break;
       }

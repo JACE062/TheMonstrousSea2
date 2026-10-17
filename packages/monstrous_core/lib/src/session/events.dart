@@ -5,6 +5,7 @@ import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
 import '../model/item.dart';
 import '../model/meta_inventory.dart';
+import '../model/monster_intent.dart';
 import '../model/nemesis.dart';
 import '../rules/sea_chart.dart';
 
@@ -582,4 +583,67 @@ final class HarborMonumentUpgraded extends GameEvent {
   final int newRank;
 }
 
+/// The sea monster telegraphed its intended action for the current combat round.
+final class MonsterIntentTelegraphed extends GameEvent {
+  const MonsterIntentTelegraphed({
+    required this.monsterName,
+    required this.intent,
+  });
 
+  final String monsterName;
+  final MonsterIntent intent;
+}
+
+/// The monster's telegraphed attack missed completely because the ship maneuvered outside its threatened range bands.
+final class MonsterAttackOutOfRange extends GameEvent {
+  const MonsterAttackOutOfRange({
+    required this.monsterName,
+    required this.intentName,
+    required this.shipName,
+    required this.currentRange,
+  });
+
+  final String monsterName;
+  final String intentName;
+  final String shipName;
+  final CombatRange currentRange;
+}
+
+/// The flagship advanced directly into a charging monster at Short Range, triggering +30% collision impact.
+final class HeadOnCollisionOccurred extends GameEvent {
+  const HeadOnCollisionOccurred({
+    required this.monsterName,
+    required this.shipName,
+    required this.intentName,
+    this.bonusDamagePercent = 30,
+  });
+
+  final String monsterName;
+  final String shipName;
+  final String intentName;
+  final int bonusDamagePercent;
+}
+
+/// A monster's wind-up or movement intent was disrupted by poise break, Harpoon tether, Concussive Mortar, or Stun.
+final class MonsterIntentDisrupted extends GameEvent {
+  const MonsterIntentDisrupted({
+    required this.monsterName,
+    required this.intentName,
+    required this.reason,
+  });
+
+  final String monsterName;
+  final String intentName;
+  final String reason;
+}
+
+/// The ship was grappled by a Squid/Kraken beak at Short Range, locking its Helm Order to Hold Line for 1 round.
+final class ShipGrappled extends GameEvent {
+  const ShipGrappled({
+    required this.monsterName,
+    required this.shipName,
+  });
+
+  final String monsterName;
+  final String shipName;
+}

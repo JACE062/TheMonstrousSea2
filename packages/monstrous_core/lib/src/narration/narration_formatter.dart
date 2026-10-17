@@ -187,6 +187,49 @@ class NarrationFormatter {
         'ELDRITCH RELIC FORGED: $relicName unlocked at the Covenant Altar!',
       HarborMonumentUpgraded(:final monumentId, :final newRank) =>
         'HARBOR MONUMENT: ${monumentId.name} consecrated to Rank $newRank!',
+      MonsterIntentTelegraphed(:final monsterName, :final intent) =>
+        ChronicleStrings.monsterIntentTelegraphed(
+          monsterName: monsterName,
+          intentName: intent.name,
+          telegraphLog: intent.telegraphLog,
+        ),
+      MonsterAttackOutOfRange(
+        :final monsterName,
+        :final intentName,
+        :final shipName,
+        :final currentRange,
+      ) =>
+        ChronicleStrings.monsterAttackOutOfRange(
+          monsterName: monsterName,
+          intentName: intentName,
+          shipName: shipName,
+          currentRangeName: currentRange.displayName,
+        ),
+      HeadOnCollisionOccurred(
+        :final monsterName,
+        :final shipName,
+        :final intentName,
+      ) =>
+        ChronicleStrings.headOnCollision(
+          monsterName: monsterName,
+          shipName: shipName,
+          intentName: intentName,
+        ),
+      MonsterIntentDisrupted(
+        :final monsterName,
+        :final intentName,
+        :final reason,
+      ) =>
+        ChronicleStrings.monsterIntentDisrupted(
+          monsterName: monsterName,
+          intentName: intentName,
+          reason: reason,
+        ),
+      ShipGrappled(:final monsterName, :final shipName) =>
+        ChronicleStrings.shipGrappled(
+          monsterName: monsterName,
+          shipName: shipName,
+        ),
     };
   }
 }

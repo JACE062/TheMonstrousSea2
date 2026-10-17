@@ -123,4 +123,39 @@ class ChronicleStrings {
     required int remainingHp,
   }) =>
       'POINT-BLANK BACKFIRE! Mortar blast splashes The $shipName for $damage damage! ($remainingHp HP remaining).';
+
+  static String monsterIntentTelegraphed({
+    required String monsterName,
+    required String intentName,
+    required String telegraphLog,
+  }) =>
+      'BEAST INTENT [$intentName]: The $monsterName $telegraphLog';
+
+  static String monsterAttackOutOfRange({
+    required String monsterName,
+    required String intentName,
+    required String shipName,
+    required String currentRangeName,
+  }) =>
+      'EVADED BY POSITION! The $monsterName unleashes $intentName, but The $shipName is safely out of reach at $currentRangeName!';
+
+  static String headOnCollision({
+    required String monsterName,
+    required String shipName,
+    required String intentName,
+  }) =>
+      'HEAD-ON COLLISION! The $shipName steered straight into The $monsterName\'s $intentName (+30% Momentum Impact)!';
+
+  static String monsterIntentDisrupted({
+    required String monsterName,
+    required String intentName,
+    required String reason,
+  }) =>
+      'INTENT DISRUPTED! $reason — The $monsterName\'s $intentName is shattered!';
+
+  static String shipGrappled({
+    required String monsterName,
+    required String shipName,
+  }) =>
+      'GRAPPLED! The $monsterName latches onto The $shipName\'s hull, locking the helm to Hold Line for the next round!';
 }

@@ -32,6 +32,7 @@ void main() {
       // Ensure monster survives strike so combatRange does not reset to medium on victory
       session.currentMonster!.maxHp = 300;
       session.currentMonster!.currentHp = 300;
+      session.currentMonster!.isPinnedThisTurn = true;
 
       // Firing Prow Ram charges into point-blank range
       final events = session.dispatch(const FireWeaponVolley(ShipWeaponType.prowRam));
@@ -62,6 +63,8 @@ void main() {
             e.newRange == CombatRange.long),
         isTrue,
       );
+
+      session.currentMonster!.isPinnedThisTurn = true;
 
       // Culverin volley at Long Range
       final fireEvents = session.dispatch(const FireWeaponVolley(
@@ -133,6 +136,7 @@ void main() {
       // Ensure monster survives strike so combatRange does not reset to medium on victory
       session.currentMonster!.maxHp = 300;
       session.currentMonster!.currentHp = 300;
+      session.currentMonster!.isPinnedThisTurn = true;
 
       // Ramming from Medium is legal, and surges to Short Range on impact
       final events = session.dispatch(const FireWeaponVolley(ShipWeaponType.prowRam));
@@ -156,6 +160,7 @@ void main() {
       // Set to Long Range first
       session.dispatch(const ChangeCombatRange(CombatRange.long));
       expect(session.combatRange, CombatRange.long);
+      session.currentMonster!.isPinnedThisTurn = true;
 
       // Fire Harpoon Winch -> reels from Long to Medium
       final events = session.dispatch(const FireWeaponVolley(ShipWeaponType.harpoonWinch));
@@ -178,6 +183,7 @@ void main() {
       // Beast closed in to Short Range
       session.dispatch(const ChangeCombatRange(CombatRange.short));
       expect(session.combatRange, CombatRange.short);
+      session.currentMonster!.isPinnedThisTurn = true;
 
       // Corvette executes evasive tacking action -> opens distance to Medium
       final events = session.dispatch(const ExecuteShipSpecialAction());

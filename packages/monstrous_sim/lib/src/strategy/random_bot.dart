@@ -51,7 +51,7 @@ class RandomBot implements BotStrategy {
           if (consumableIndex >= 0) {
             return UseConsumableItem(consumableIndex);
           }
-        } else if (actionRoll == 9) {
+        } else if (actionRoll == 9 && !ship.isGrappled) {
           final legalRanges = switch (session.combatRange) {
             CombatRange.long => const [CombatRange.medium],
             CombatRange.medium => const [CombatRange.short, CombatRange.long],

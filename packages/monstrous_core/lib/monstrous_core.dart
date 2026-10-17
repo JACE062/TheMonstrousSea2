@@ -14,6 +14,7 @@ export 'src/model/enums.dart';
 export 'src/model/flagship_blueprint.dart';
 export 'src/model/item.dart';
 export 'src/model/meta_inventory.dart';
+export 'src/model/monster_intent.dart';
 export 'src/model/nemesis.dart';
 export 'src/narration/narration_formatter.dart';
 export 'src/persistence/profile_data.dart';

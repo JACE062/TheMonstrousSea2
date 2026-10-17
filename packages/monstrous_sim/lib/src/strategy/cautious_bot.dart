@@ -54,15 +54,41 @@ class CautiousBot implements BotStrategy {
       case SessionPhase.battle:
         final ship = session.ship!;
         final hpRatio = ship.currentHp / ship.maxHp;
+        final intent = session.currentMonster?.currentIntent;
+
+        // If not grappled and haven't shifted helm this turn, check if a helm order can evade the telegraphed intent
+        if (!ship.isGrappled &&
+            session.lastHelmOrderThisTurn == HelmOrder.holdLine &&
+            intent != null) {
+          for (final order in session.combatRange.availableHelmOrders) {
+            if (order == HelmOrder.holdLine) continue;
+            final preview = intent.evaluatePreview(
+              currentRange: session.combatRange,
+              selectedHelmOrder: order,
+              isMonsterPinned:
+                  session.currentMonster?.isPinnedThisTurn ?? false,
+            );
+            if (preview.status == IntentPreviewStatus.evadedByPosition) {
+              final targetRange = session.combatRange.rangeAfterHelmOrder(order);
+              if (targetRange != session.combatRange) {
+                return ChangeCombatRange(targetRange);
+              }
+            }
+          }
+        }
 
         // Fall back to longer range if critical health (< 20%) to gain evasion
-        if (hpRatio < 0.20 && session.combatRange != CombatRange.long) {
+        if (!ship.isGrappled &&
+            hpRatio < 0.20 &&
+            session.combatRange != CombatRange.long) {
           return ChangeCombatRange(session.combatRange.farther);
         }
 
         // Fire ready weapons
         final readyWeapons = ship.equippedWeapons
-            .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
+            .where((w) =>
+                w.isReady &&
+                isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
             .toList();
         if (readyWeapons.isNotEmpty) {
           // If haven't fortified yet and under 50% HP, fortify once
@@ -77,18 +103,23 @@ class CautiousBot implements BotStrategy {
         }
 
         // If ready weapons exist but are out of range (e.g. Prow Ram at Long range), close in
-        final outOfRangeReadyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
-        if (outOfRangeReadyWeapons.isNotEmpty && session.combatRange != CombatRange.short) {
+        final outOfRangeReadyWeapons =
+            ship.equippedWeapons.where((w) => w.isReady).toList();
+        if (!ship.isGrappled &&
+            outOfRangeReadyWeapons.isNotEmpty &&
+            session.combatRange != CombatRange.short) {
           return ChangeCombatRange(session.combatRange.closer);
         }
 
         // Check for consumable
-        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
+        final consumableIndex =
+            ship.cargo.indexWhere((item) => item is Consumable);
         if (consumableIndex >= 0) {
           return UseConsumableItem(consumableIndex);
         }
 
-        if (ship.shipClass == ShipClass.ironclad || ship.shipClass == ShipClass.corvette) {
+        if (ship.shipClass == ShipClass.ironclad ||
+            ship.shipClass == ShipClass.corvette) {
           return const ExecuteShipSpecialAction();
         }
 
@@ -99,7 +130,7 @@ class CautiousBot implements BotStrategy {
           return FireWeaponVolley(anyUsable.first);
         }
 
-        return session.combatRange != CombatRange.short
+        return (!ship.isGrappled && session.combatRange != CombatRange.short)
             ? ChangeCombatRange(session.combatRange.closer)
             : const ExecuteShipSpecialAction();
 

@@ -55,7 +55,9 @@ class RecklessBot implements BotStrategy {
         }
 
         final outOfRangeReadyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
-        if (outOfRangeReadyWeapons.isNotEmpty && session.combatRange != CombatRange.short) {
+        if (!ship.isGrappled &&
+            outOfRangeReadyWeapons.isNotEmpty &&
+            session.combatRange != CombatRange.short) {
           return ChangeCombatRange(session.combatRange.closer);
         }
 
@@ -75,7 +77,7 @@ class RecklessBot implements BotStrategy {
           return FireWeaponVolley(anyUsable.first);
         }
 
-        return session.combatRange != CombatRange.short
+        return (!ship.isGrappled && session.combatRange != CombatRange.short)
             ? ChangeCombatRange(session.combatRange.closer)
             : const ExecuteShipSpecialAction();
 

@@ -1,6 +1,7 @@
 import 'enums.dart';
 import 'flagship_blueprint.dart';
 import 'item.dart';
+import 'monster_intent.dart';
 
 /// Base entity representing any participant in naval combat.
 abstract class Combatant {
@@ -69,6 +70,8 @@ class ShipState extends Combatant {
     this.gold = 0,
     String? blueprintId,
     List<HardpointSlot>? hardpoints,
+    this.isGrappled = false,
+    this.tempAccuracyPenalty = 0,
   })  : maxWeaponWeight = maxWeaponWeight ?? 10,
         blueprintId = blueprintId ?? shipClass.blueprintId.name,
         hardpoints = List<HardpointSlot>.from(
@@ -97,6 +100,13 @@ class ShipState extends Combatant {
   int dmgReductionMod;
 
   int gold;
+
+  /// True if the ship's rudder/hull is grappled by a Squid/Kraken beak for the current turn,
+  /// locking Helm Orders to [HelmOrder.holdLine].
+  bool isGrappled;
+
+  /// Temporary accuracy penalty from monster wake/flash abilities (cleared after 1 round).
+  int tempAccuracyPenalty;
 
   /// Total number of deck hardpoints available on this hull.
   int get maxHardpointSlots => hardpoints.length;
@@ -157,11 +167,13 @@ class ShipState extends Combatant {
 
   void sortCargo() => cargo.sort();
 
-  /// Resets temporary in-combat stat modifications (Fortify armor boost, Evasion boost)
+  /// Resets temporary in-combat stat modifications (Fortify armor boost, Evasion boost, Grapple)
   /// back to base hull characteristics and refreshes all gun batteries after a battle concludes.
   void resetCombatBoosts() {
     currentDmgReduction = baseDmgReduction;
     currentEvasion = baseEvasion;
+    isGrappled = false;
+    tempAccuracyPenalty = 0;
     resetWeaponCooldowns();
   }
 
@@ -203,6 +215,8 @@ class ShipState extends Combatant {
       currentDmgReduction: json['currentDmgReduction'] as int?,
       dmgReductionMod: json['dmgReductionMod'] as int? ?? 0,
       gold: json['gold'] as int? ?? 0,
+      isGrappled: json['isGrappled'] as bool? ?? false,
+      tempAccuracyPenalty: json['tempAccuracyPenalty'] as int? ?? 0,
     );
   }
 
@@ -226,6 +240,8 @@ class ShipState extends Combatant {
         'currentDmgReduction': currentDmgReduction,
         'dmgReductionMod': dmgReductionMod,
         'gold': gold,
+        'isGrappled': isGrappled,
+        'tempAccuracyPenalty': tempAccuracyPenalty,
       };
 }
 
@@ -250,8 +266,14 @@ class MonsterState extends Combatant {
     this.evasion = 0,
     this.isApex = false,
     this.apexTitle,
+    this.currentIntent,
+    Map<MonsterIntentId, int>? intentCooldowns,
+    this.isPinnedThisTurn = false,
+    this.windupDamageTaken = 0,
+    this.lastExecutedIntentId,
   })  : maxCarapace = maxCarapace ?? carapacePlating,
-        usableWeapons = usableWeapons ?? <MonsterWeapon>[];
+        usableWeapons = usableWeapons ?? <MonsterWeapon>[],
+        intentCooldowns = intentCooldowns ?? <MonsterIntentId, int>{};
 
   final MonsterSpecies species;
   final List<MonsterWeapon> usableWeapons;
@@ -271,8 +293,45 @@ class MonsterState extends Combatant {
   /// Evasion chance percentage (e.g. Serpent slither).
   int evasion;
 
+  /// Telegraphed intention for the current combat round.
+  MonsterIntent? currentIntent;
+
+  /// Active turn cooldowns per intent ID to prevent ability spam.
+  final Map<MonsterIntentId, int> intentCooldowns;
+
+  /// True if hit by a Harpoon Winch or Concussive Mortar this round, canceling the
+  /// movement component of the monster's intent.
+  bool isPinnedThisTurn;
+
+  /// Cumulative hull damage sustained during a 2-turn Boss Wind-up (used for Poise break).
+  int windupDamageTaken;
+
+  /// Last executed intent ID for anti-repeat weighting.
+  MonsterIntentId? lastExecutedIntentId;
+
   int get effectiveArmorClass =>
       isObscured ? armorClass + obscuredAcMod : armorClass;
+
+  bool isIntentOnCooldown(MonsterIntentId id) =>
+      (intentCooldowns[id] ?? 0) > 0;
+
+  void setIntentCooldown(MonsterIntentId id, int turns) {
+    if (turns > 0) {
+      intentCooldowns[id] = turns;
+    }
+  }
+
+  void tickIntentCooldowns() {
+    final keys = intentCooldowns.keys.toList();
+    for (final k in keys) {
+      final next = (intentCooldowns[k] ?? 0) - 1;
+      if (next <= 0) {
+        intentCooldowns.remove(k);
+      } else {
+        intentCooldowns[k] = next;
+      }
+    }
+  }
 
   void decrementChargeTimeOnWeapons() {
     for (final weapon in usableWeapons) {

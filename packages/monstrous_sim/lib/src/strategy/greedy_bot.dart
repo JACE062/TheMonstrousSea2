@@ -53,7 +53,9 @@ class GreedyBot implements BotStrategy {
         final hpRatio = ship.currentHp / ship.maxHp;
 
         // Fall back to longer range if critical health (< 20%)
-        if (hpRatio < 0.20 && session.combatRange != CombatRange.long) {
+        if (!ship.isGrappled &&
+            hpRatio < 0.20 &&
+            session.combatRange != CombatRange.long) {
           return ChangeCombatRange(session.combatRange.farther);
         }
 
@@ -67,7 +69,9 @@ class GreedyBot implements BotStrategy {
         }
 
         final outOfRangeReadyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
-        if (outOfRangeReadyWeapons.isNotEmpty && session.combatRange != CombatRange.short) {
+        if (!ship.isGrappled &&
+            outOfRangeReadyWeapons.isNotEmpty &&
+            session.combatRange != CombatRange.short) {
           return ChangeCombatRange(session.combatRange.closer);
         }
 
@@ -83,7 +87,7 @@ class GreedyBot implements BotStrategy {
           return FireWeaponVolley(anyUsable.first);
         }
 
-        return session.combatRange != CombatRange.short
+        return (!ship.isGrappled && session.combatRange != CombatRange.short)
             ? ChangeCombatRange(session.combatRange.closer)
             : const ExecuteShipSpecialAction();
 

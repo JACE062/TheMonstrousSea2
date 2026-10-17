@@ -10,6 +10,7 @@ import '../model/covenant_of_the_deep.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
 import '../model/item.dart';
+import '../model/monster_intent.dart';
 import '../model/nemesis.dart';
 import '../persistence/profile_data.dart';
 import '../rng/game_rng.dart';
@@ -53,6 +54,8 @@ class GameSession {
   ShipState? ship;
   MonsterState? currentMonster;
   CombatRange combatRange = CombatRange.medium;
+  HelmOrder lastHelmOrderThisTurn = HelmOrder.holdLine;
+  bool _disruptedBossCatastropheThisTurn = false;
   List<Item> pendingLoot = <Item>[];
   List<Item> merchantStock = <Item>[];
   int? onSaleMerchantIndex;
@@ -210,6 +213,15 @@ class GameSession {
       seaChart.maxRowReached = 3;
       currentMonster = seaChart.currentMonster(rng);
       battleRound = 1;
+      combatRange = CombatRange.medium;
+      lastHelmOrderThisTurn = HelmOrder.holdLine;
+      _disruptedBossCatastropheThisTurn = false;
+      currentMonster!.currentIntent = selectNextMonsterIntent(
+        currentMonster!,
+        combatRange,
+        rng,
+        battleRound: battleRound,
+      );
       final prevPhase = phase.displayName;
       phase = SessionPhase.battle;
 
@@ -223,6 +235,10 @@ class GameSession {
         isBoss: true,
         monsterHp: currentMonster!.maxHp,
         monsterAc: currentMonster!.armorClass,
+      ));
+      events.add(MonsterIntentTelegraphed(
+        monsterName: currentMonster!.name,
+        intent: currentMonster!.currentIntent!,
       ));
       return events;
     }
@@ -787,6 +803,14 @@ class GameSession {
 
     final prevPhase = phase.displayName;
     phase = SessionPhase.battle;
+    lastHelmOrderThisTurn = HelmOrder.holdLine;
+    _disruptedBossCatastropheThisTurn = false;
+    currentMonster!.currentIntent = selectNextMonsterIntent(
+      currentMonster!,
+      combatRange,
+      rng,
+      battleRound: battleRound,
+    );
 
     events.add(PhaseChanged(
       previousPhase: prevPhase,
@@ -804,6 +828,88 @@ class GameSession {
       isApex: currentMonster!.isApex,
       apexTitle: currentMonster!.apexTitle,
     ));
+    events.add(MonsterIntentTelegraphed(
+      monsterName: currentMonster!.name,
+      intent: currentMonster!.currentIntent!,
+    ));
+    return events;
+  }
+
+  /// Evaluates player hits against active monster intents for pinning and Boss Poise/Utility disruption.
+  List<GameEvent> _evaluatePlayerHitIntentInteractions({
+    required int totalDamageDealt,
+    ShipWeaponType? weaponType,
+    ConsumableType? consumableType,
+    StatusEffect? inflictedStatus,
+  }) {
+    if (currentMonster == null || !currentMonster!.isAlive) {
+      return const <GameEvent>[];
+    }
+    final events = <GameEvent>[];
+
+    final isPinningOrdnance = weaponType == ShipWeaponType.harpoonWinch ||
+        weaponType == ShipWeaponType.heavyMortar ||
+        consumableType == ConsumableType.blastPack ||
+        inflictedStatus == StatusEffect.stun ||
+        currentMonster!.hasStatus(StatusEffect.stun);
+
+    if (isPinningOrdnance) {
+      currentMonster!.isPinnedThisTurn = true;
+    }
+
+    final intent = currentMonster!.currentIntent;
+    if (intent != null &&
+        (intent.isBossWindup || intent.isBossCatastropheStrike)) {
+      currentMonster!.windupDamageTaken += totalDamageDealt;
+
+      final disruptedByUtility = isPinningOrdnance;
+      final disruptedByPoise = intent.poiseThreshold > 0 &&
+          currentMonster!.windupDamageTaken >= intent.poiseThreshold;
+
+      if (disruptedByUtility || disruptedByPoise) {
+        final reason = switch (weaponType) {
+          ShipWeaponType.heavyMortar =>
+            'Heavy Mortar concussive blast shattered the titan\'s stance!',
+          ShipWeaponType.harpoonWinch =>
+            'Harpoon Winch cables wrenched the titan off-balance!',
+          _ => (inflictedStatus == StatusEffect.stun ||
+                  currentMonster!.hasStatus(StatusEffect.stun) ||
+                  consumableType == ConsumableType.blastPack)
+              ? 'Concussive shockwave disrupted the catastrophic charge!'
+              : 'Poise shattered (${currentMonster!.windupDamageTaken}/${intent.poiseThreshold} damage dealt)!',
+        };
+
+        events.add(MonsterIntentDisrupted(
+          monsterName: currentMonster!.name,
+          intentName: intent.name,
+          reason: reason,
+        ));
+
+        switch (currentMonster!.species) {
+          case MonsterSpecies.kraken:
+            currentMonster!.setIntentCooldown(
+              MonsterIntentId.bossKrakenWindup,
+              3,
+            );
+          case MonsterSpecies.worldSerpent:
+            currentMonster!.setIntentCooldown(
+              MonsterIntentId.bossWorldSerpentWindup,
+              3,
+            );
+          case MonsterSpecies.ancientLeviathan:
+            currentMonster!.setIntentCooldown(
+              MonsterIntentId.bossLeviathanWindup,
+              3,
+            );
+          default:
+            break;
+        }
+        currentMonster!.windupDamageTaken = 0;
+        currentMonster!.currentIntent = null;
+        _disruptedBossCatastropheThisTurn = true;
+      }
+    }
+
     return events;
   }
 
@@ -869,8 +975,16 @@ class GameSession {
         .whereType<AttackHit>()
         .where((e) => e.targetName == currentMonster!.name)
         .toList();
+    final carapaceHits = volleyEvents
+        .whereType<CarapaceDamaged>()
+        .where((e) => e.monsterName == currentMonster!.name)
+        .toList();
 
-    if (resolvedHits.isNotEmpty) {
+    var totalDamageDealt =
+        resolvedHits.fold<int>(0, (sum, e) => sum + e.damage) +
+            carapaceHits.fold<int>(0, (sum, e) => sum + e.damageDealt);
+
+    if (resolvedHits.isNotEmpty || carapaceHits.isNotEmpty) {
       if (weaponType == ShipWeaponType.prowRam &&
           profile.isEldritchRelicActive(EldritchRelicId.siphonRam)) {
         final totalHullDmg =
@@ -887,6 +1001,7 @@ class GameSession {
       if (hasGhostwake && currentMonster!.isAlive) {
         final shockDmg = resolvedHits.length * 8;
         currentMonster!.applyDamage(shockDmg);
+        totalDamageDealt += shockDmg;
         events.add(NarrationEvent(
           'Ghostwake Rail-Culverin arcs abyssal lightning for +$shockDmg Shock damage!',
         ));
@@ -909,6 +1024,11 @@ class GameSession {
           'Kraken-Sinew Drag Winch constricts the quarry with venomous abyssal barbs (Poison)!',
         ));
       }
+
+      events.addAll(_evaluatePlayerHitIntentInteractions(
+        totalDamageDealt: totalDamageDealt,
+        weaponType: weaponType,
+      ));
     }
 
     // Action-driven momentum range shifts:
@@ -948,10 +1068,15 @@ class GameSession {
     if (phase != SessionPhase.battle || ship == null || currentMonster == null) {
       throw StateError('Cannot issue helm orders outside of battle');
     }
+    if (ship!.isGrappled && order != HelmOrder.holdLine) {
+      throw StateError(
+          'Cannot maneuver while grappled by ${currentMonster!.name}; helm is locked to Hold Line!');
+    }
     if (!combatRange.availableHelmOrders.contains(order)) {
       throw StateError(
           'Helm order ${order.displayName} is not permitted at ${combatRange.displayName}');
     }
+    lastHelmOrderThisTurn = order;
     final targetRange = combatRange.rangeAfterHelmOrder(order);
     if (combatRange == targetRange) {
       return <GameEvent>[
@@ -976,6 +1101,10 @@ class GameSession {
       throw StateError('Cannot change combat range outside of battle');
     }
     if (combatRange == targetRange) return const <GameEvent>[];
+    if (ship!.isGrappled) {
+      throw StateError(
+          'Cannot maneuver while grappled by ${currentMonster!.name}; helm is locked to Hold Line!');
+    }
     final isLegalStep = (combatRange == CombatRange.long && targetRange == CombatRange.medium) ||
         (combatRange == CombatRange.medium && (targetRange == CombatRange.short || targetRange == CombatRange.long)) ||
         (combatRange == CombatRange.short && targetRange == CombatRange.medium);
@@ -984,6 +1113,8 @@ class GameSession {
           'Cannot shift directly from $combatRange to $targetRange in a single helm maneuver');
     }
     final prev = combatRange;
+    lastHelmOrderThisTurn =
+        targetRange == prev.closer ? HelmOrder.advance : HelmOrder.fallBack;
     combatRange = targetRange;
     return <GameEvent>[
       CombatRangeChanged(
@@ -1027,6 +1158,11 @@ class GameSession {
               : '${item.name} inflicts ${result.statusEffect!.displayName}!',
         ));
       }
+      events.addAll(_evaluatePlayerHitIntentInteractions(
+        totalDamageDealt: result.damage,
+        consumableType: item.type,
+        inflictedStatus: result.statusEffect,
+      ));
     } else {
       events.add(AttackMissed(targetName: currentMonster!.name));
     }
@@ -1066,7 +1202,9 @@ class GameSession {
       final msg = trait.executeSpecialAction(ship!, currentMonster!, rng);
       if (msg.isNotEmpty) {
         events.add(NarrationEvent(msg));
-        if (trait is EvasionTrait && combatRange != CombatRange.long) {
+        if (trait is EvasionTrait &&
+            combatRange != CombatRange.long &&
+            !ship!.isGrappled) {
           final prev = combatRange;
           combatRange = combatRange.farther;
           events.add(CombatRangeChanged(
@@ -1086,6 +1224,10 @@ class GameSession {
 
   List<GameEvent> _resolveMonsterTurn() {
     final events = <GameEvent>[];
+
+    // Expire single-round ship debuffs after the player's turn has concluded
+    ship!.isGrappled = false;
+    ship!.tempAccuracyPenalty = 0;
 
     // Status effect tick on monster
     final monsterStatus = updateStatusEffects(
@@ -1112,17 +1254,42 @@ class GameSession {
       ));
     }
 
-    // Monster attacks if can act
-    if (monsterStatus.canAct) {
-      events.addAll(takeMonsterTurn(
-        currentMonster!,
-        ship!,
-        rng,
-        config,
-        traits,
-        combatRange,
-      ));
+    // Monster executes its telegraphed intent if it can act and wasn't disrupted
+    if (_disruptedBossCatastropheThisTurn) {
+      events.add(MonsterHesitated(currentMonster!.name));
+      currentMonster!.tickIntentCooldowns();
+      currentMonster!.isPinnedThisTurn = false;
+    } else if (monsterStatus.canAct) {
+      if (currentMonster!.currentIntent != null) {
+        final (newRange, intentEvents) = executeMonsterIntent(
+          currentMonster!,
+          ship!,
+          rng,
+          combatRange,
+          config,
+          traits,
+          lastHelmOrderThisTurn,
+        );
+        combatRange = newRange;
+        events.addAll(intentEvents);
+      } else {
+        events.addAll(takeMonsterTurn(
+          currentMonster!,
+          ship!,
+          rng,
+          config,
+          traits,
+          combatRange,
+        ));
+      }
+    } else {
+      currentMonster!.tickIntentCooldowns();
+      currentMonster!.isPinnedThisTurn = false;
+      currentMonster!.currentIntent = null;
     }
+
+    _disruptedBossCatastropheThisTurn = false;
+    lastHelmOrderThisTurn = HelmOrder.holdLine;
 
     // Check if player died
     if (!ship!.isAlive) {
@@ -1163,6 +1330,24 @@ class GameSession {
     events.addAll(shipStatus.events);
     if (!ship!.isAlive) {
       events.addAll(_resolvePlayerDeath());
+      return events;
+    }
+
+    // Select and telegraph the monster's intent for the next combat round
+    if (currentMonster != null &&
+        currentMonster!.isAlive &&
+        currentMonster!.currentIntent == null) {
+      final nextIntent = selectNextMonsterIntent(
+        currentMonster!,
+        combatRange,
+        rng,
+        battleRound: battleRound,
+      );
+      currentMonster!.currentIntent = nextIntent;
+      events.add(MonsterIntentTelegraphed(
+        monsterName: currentMonster!.name,
+        intent: nextIntent,
+      ));
     }
 
     return events;
