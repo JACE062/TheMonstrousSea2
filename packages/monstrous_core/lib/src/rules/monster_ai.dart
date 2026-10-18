@@ -122,8 +122,12 @@ MonsterIntent selectNextMonsterIntent(
       return switch (currentRange) {
         CombatRange.long =>
           MonsterIntent.fromId(MonsterIntentId.serpentAbyssalUnderStrike),
-        CombatRange.medium =>
-          MonsterIntent.fromId(MonsterIntentId.serpentVenomSpitRecoil),
+        CombatRange.medium => (monster.lastExecutedIntentId ==
+                    MonsterIntentId.serpentVenomSpitRecoil ||
+                monster.isIntentOnCooldown(
+                    MonsterIntentId.serpentVenomSpitRecoil))
+            ? MonsterIntent.fromId(MonsterIntentId.serpentFangedWhipRecoil)
+            : MonsterIntent.fromId(MonsterIntentId.serpentVenomSpitRecoil),
         CombatRange.short =>
           MonsterIntent.fromId(MonsterIntentId.serpentFangedWhipRecoil),
       };

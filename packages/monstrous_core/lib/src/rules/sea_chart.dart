@@ -546,14 +546,17 @@ class SeaChart {
       } else if (targetLeg == 1 && i == 1) {
         type = EncounterNodeType.beastCombat;
       } else {
+        final isDepartingIsland = currentNodeType == EncounterNodeType.respiteIsland;
         final roll = effectiveRng.nextInt(100);
         if (roll < 55) {
           type = EncounterNodeType.beastCombat;
         } else if (roll < 70) {
           type = EncounterNodeType.shipwreckSalvage;
         } else if (roll < 85) {
-          // 15% chance of procedural secluded cove
-          type = EncounterNodeType.respiteIsland;
+          // 15% chance of procedural secluded cove; strictly 0% if currently departing an island
+          type = isDepartingIsland
+              ? EncounterNodeType.beastCombat
+              : EncounterNodeType.respiteIsland;
         } else if (roll < 93) {
           type = EncounterNodeType.smugglerTrader;
         } else {

@@ -207,11 +207,18 @@ class MonsterIntent {
   String get moveLabel => switch (moveDelta) {
         IntentMoveDelta.stationary => 'STATIONARY',
         IntentMoveDelta.closer1 => moveTiming == IntentMoveTiming.beforeAttack
-            ? 'CHARGES 1 BAND CLOSER'
-            : 'ADVANCES 1 BAND AFTER',
-        IntentMoveDelta.farther1 => 'RETREATS 1 BAND AFTER',
-        IntentMoveDelta.pullShipCloser1 => 'PULLS SHIP 1 BAND CLOSER',
-        IntentMoveDelta.ambushToShort => 'AMBUSH ERUPTION (SETS SHORT)',
+            ? 'PRE-ATTACK CHARGE (+1 CLOSER)'
+            : 'POST-ATTACK ADVANCE (+1 CLOSER)',
+        IntentMoveDelta.farther1 => 'POST-ATTACK RECOIL (+1 FARTHER)',
+        IntentMoveDelta.pullShipCloser1 => 'POST-ATTACK PULL (REELS SHIP +1)',
+        IntentMoveDelta.ambushToShort => 'PRE-ATTACK AMBUSH (ERUPTS TO SHORT)',
+      };
+
+  /// Explicit timing badge for whether movement occurs before or after the strike.
+  String get moveTimingBadge => switch (moveTiming) {
+        IntentMoveTiming.beforeAttack => 'PRE-ATTACK',
+        IntentMoveTiming.afterAttack => 'POST-ATTACK',
+        IntentMoveTiming.none => 'NONE',
       };
 
   /// Evaluates the exact spatial outcome if the player issues [selectedHelmOrder]
@@ -503,6 +510,7 @@ class MonsterIntent {
       moveTiming: IntentMoveTiming.afterAttack,
       damageMultiplier: 1.0,
       estimatedDamage: 15,
+      cooldownTurns: 1,
     ),
     MonsterIntentId.serpentFangedWhipRecoil: MonsterIntent(
       id: MonsterIntentId.serpentFangedWhipRecoil,

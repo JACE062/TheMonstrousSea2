@@ -331,7 +331,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                                 style: InkTheme.statValue.copyWith(fontSize: 16),
                               ),
                               Text(
-                                'An old recluse shipwright reinforces ship framing, expanding max HP, cargo space, and gun deck weight.',
+                                'An old recluse shipwright reinforces ship framing, expanding max HP, cargo space, and class defenses.',
                                 style: InkTheme.caption,
                               ),
                               const SizedBox(height: 4),

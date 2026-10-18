@@ -51,6 +51,11 @@ final class ExecuteShipSpecialAction extends Command {
   const ExecuteShipSpecialAction();
 }
 
+/// Braces the crew behind the gunwales and passes the attack phase, allowing helm maneuvers to resolve and weapons to reload.
+final class BraceForImpact extends Command {
+  const BraceForImpact();
+}
+
 /// Takes a single loot item by index from pending victory loot.
 final class TakeLootItem extends Command {
   const TakeLootItem(this.lootIndex);

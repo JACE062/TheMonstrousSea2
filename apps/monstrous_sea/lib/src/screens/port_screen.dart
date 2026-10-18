@@ -30,25 +30,18 @@ class _PortScreenState extends State<PortScreen> {
   GameController get controller => widget.controller;
   VoidCallback get onOpenChart => widget.onOpenChart;
 
-  int _selectedStartingRow = 0;
   int _covenantTabIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    _selectedStartingRow = controller.session.seaChart.maxRowReached;
-  }
-
   String _upgradeBenefits(ShipClass sClass, int nextLevel) => switch (sClass) {
-        ShipClass.standard => '+50 Max HP • +7 Gun Deck Wt • +15 Cargo',
+        ShipClass.standard => '+50 Max HP • +15 Cargo',
         ShipClass.freighter || ShipClass.corsair =>
-          '+45 Max HP • +7 Gun Deck Wt • +20 Cargo',
+          '+45 Max HP • +20 Cargo',
         ShipClass.ironclad =>
-          '+75 Max HP • +10 Gun Deck Wt • -${3 * nextLevel} Dmg Reduction',
+          '+75 Max HP • -${3 * nextLevel} Dmg Reduction',
         ShipClass.corvette || ShipClass.clipper =>
-          '+40 Max HP • +6 Gun Deck Wt • ${(5 + 5 * nextLevel).clamp(0, 50)}% Evasion',
+          '+40 Max HP • ${(5 + 5 * nextLevel).clamp(0, 50)}% Evasion',
         ShipClass.bombardier =>
-          '+45 Max HP • +8 Gun Deck Wt • +12 Cargo',
+          '+45 Max HP • +12 Cargo',
       };
 
   void _showDrydockDialog(BuildContext context) {
@@ -334,8 +327,8 @@ class _PortScreenState extends State<PortScreen> {
                                   const SizedBox(height: 2),
                                   Text(
                                     hasAux
-                                        ? 'Flagship gun deck reinforced: +1 Reserve Aux Mount & +2 Max Weapon Weight active across all hulls.'
-                                        : 'Reinforce the ancestral flagship deck to mount +1 Reserve Auxiliary Hardpoint and expand weight capacity (+2 Max Weapon Weight). Cost: ${_formatUnlockCost(auxCost)}.',
+                                        ? 'Flagship gun deck reinforced: +1 Reserve Aux Mount active across all hulls.'
+                                        : 'Reinforce the ancestral flagship deck to mount +1 Reserve Auxiliary Hardpoint across all hulls. Cost: ${_formatUnlockCost(auxCost)}.',
                                     style: InkTheme.caption.copyWith(fontSize: 12),
                                   ),
                                 ],
@@ -1190,10 +1183,6 @@ class _PortScreenState extends State<PortScreen> {
   Widget build(BuildContext context) {
     final ship = controller.ship;
     final profile = controller.session.profile;
-    final maxRowReached = controller.session.seaChart.maxRowReached;
-    if (_selectedStartingRow > maxRowReached) {
-      _selectedStartingRow = maxRowReached;
-    }
 
     return ParchmentScaffold(
       body: Center(
@@ -1438,126 +1427,14 @@ class _PortScreenState extends State<PortScreen> {
                 const SizedBox(height: 18),
 
                 // Expedition Departure Route Selector (Charted Waypoints)
-                if (maxRowReached > 0) ...[
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              'EXPEDITION DEPARTURE ROUTE',
-                              style: InkTheme.statLabel.copyWith(
-                                color: InkTheme.inkPrimary,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const Spacer(),
-                            Text(
-                              'Charted to Depth ${maxRowReached + 1}',
-                              style: InkTheme.caption.copyWith(
-                                color: InkTheme.goldAccent,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          'Select your departure stratum. Slower vessels start near shore; experienced captains dive directly into the deeps.',
-                          style: InkTheme.caption.copyWith(fontSize: 12),
-                        ),
-                        const SizedBox(height: 10),
-                        Column(
-                          children: List.generate(SeaChart.totalRows, (row) {
-                            final isUnlocked = row <= maxRowReached;
-                            final isSelected = _selectedStartingRow == row;
-                            final depthTitle = 'Depth ${row + 1}: ${SeaChart.depthName(row)}';
-                            final dangerLabel = row == 3 ? 'Danger Lv 4 & Kraken Boss' : 'Danger Lv ${row + 1}';
-
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 6.0),
-                              child: InkWell(
-                                onTap: isUnlocked
-                                    ? () => setState(() => _selectedStartingRow = row)
-                                    : null,
-                                borderRadius: BorderRadius.circular(3),
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                                  decoration: BoxDecoration(
-                                    color: isSelected
-                                        ? InkTheme.parchmentHighlight
-                                        : (isUnlocked
-                                            ? InkTheme.parchmentSurface
-                                            : InkTheme.parchmentDark.withValues(alpha: 0.3)),
-                                    border: Border.all(
-                                      color: isSelected
-                                          ? InkTheme.goldAccent
-                                          : (isUnlocked ? InkTheme.inkMuted : InkTheme.inkFaint),
-                                      width: isSelected ? 2.0 : 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        isSelected
-                                            ? Icons.radio_button_checked
-                                            : (isUnlocked
-                                                ? Icons.radio_button_unchecked
-                                                : Icons.lock_outline),
-                                        size: 18,
-                                        color: isSelected
-                                            ? InkTheme.goldAccent
-                                            : (isUnlocked ? InkTheme.inkSecondary : InkTheme.inkFaint),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        child: Text(
-                                          depthTitle,
-                                          style: InkTheme.statLabel.copyWith(
-                                            color: isUnlocked ? InkTheme.inkPrimary : InkTheme.inkFaint,
-                                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                      Text(
-                                        isUnlocked ? dangerLabel : 'Uncharted',
-                                        style: InkTheme.caption.copyWith(
-                                          color: isSelected
-                                              ? InkTheme.crimsonAccent
-                                              : (isUnlocked ? InkTheme.inkMuted : InkTheme.inkFaint),
-                                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                                          fontSize: 11.5,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                ],
-
-                // Main Sail Button
+                // Main Expedition Departure Button
                 InkButton(
-                  label: maxRowReached == 0
-                      ? (controller.session.seaChart.currentRegionIndex == 0
-                          ? 'VENTURE OUT TO SEA'
-                          : 'SET SAIL FOR ${controller.session.seaChart.currentRegionName.toUpperCase()}')
-                      : (_selectedStartingRow == 3
-                          ? 'DIVE INTO DEPTH 4 (${SeaChart.regionDepthName(controller.session.seaChart.currentRegionIndex, 3).toUpperCase()})'
-                          : 'SET SAIL FOR DEPTH ${_selectedStartingRow + 1} (${SeaChart.regionDepthName(controller.session.seaChart.currentRegionIndex, _selectedStartingRow).toUpperCase()})'),
+                  label: controller.session.seaChart.currentRegionIndex == 0
+                      ? 'VENTURE OUT TO SEA'
+                      : 'SET SAIL FOR ${controller.session.seaChart.currentRegionName.toUpperCase()}',
                   isPrimary: true,
                   onPressed: () => controller.dispatch(
-                    VentureOutToSea(startingRow: _selectedStartingRow),
+                    const VentureOutToSea(),
                   ),
                 ),
               ],

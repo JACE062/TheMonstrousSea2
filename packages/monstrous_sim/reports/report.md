@@ -8,10 +8,10 @@
 
 | Strategy | Runs | Wins (Kraken) | Deaths | Win Rate | Avg Monsters | Avg Max Diff | Avg Gold |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Reckless** | 250 | 0 | 250 | 0.0% | 66.7 | 1.5 | 1104g |
-| **Cautious** | 250 | 0 | 250 | 0.0% | 49.7 | 1.6 | 835g |
-| **Greedy** | 250 | 0 | 250 | 0.0% | 6.3 | 1.1 | 166g |
-| **Random** | 250 | 0 | 250 | 0.0% | 4.0 | 1.0 | 88g |
+| **Reckless** | 250 | 0 | 250 | 0.0% | 47.2 | 1.4 | 794g |
+| **Cautious** | 250 | 0 | 250 | 0.0% | 44.1 | 1.5 | 740g |
+| **Greedy** | 250 | 0 | 250 | 0.0% | 6.2 | 1.1 | 145g |
+| **Random** | 250 | 0 | 250 | 0.0% | 3.6 | 1.0 | 85g |
 
 ## Strategy Win Rates
 
@@ -29,20 +29,20 @@ xychart-beta
 - **Total Voyages:** 250
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 66.7
-- **Average Highest Encounter Difficulty:** 1.5
-- **Average Final Gold Hold:** 1104g
-- **Average Combat Rolls/Attacks:** 3.4
+- **Average Monsters Slain:** 47.2
+- **Average Highest Encounter Difficulty:** 1.4
+- **Average Final Gold Hold:** 794g
+- **Average Combat Rolls/Attacks:** 3.7
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 177 | 70.8% |
-| Many-tentacled beast | 4 | 1.6% |
-| Bloodthirsty Bull Shark | 3 | 1.2% |
-| Frenzied Maw | 3 | 1.2% |
-| Behemoth Mako | 3 | 1.2% |
+| Adrift at Sea (Lost in Fog) | 153 | 61.2% |
+| Abyssal Constrictor | 5 | 2.0% |
+| Elusive Eell | 5 | 2.0% |
+| Living Fortress | 4 | 1.6% |
+| Ragefin | 4 | 1.6% |
 
 **Ship Class Performance:**
 
@@ -54,20 +54,20 @@ xychart-beta
 - **Total Voyages:** 250
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 49.7
-- **Average Highest Encounter Difficulty:** 1.6
-- **Average Final Gold Hold:** 835g
-- **Average Combat Rolls/Attacks:** 4.1
+- **Average Monsters Slain:** 44.1
+- **Average Highest Encounter Difficulty:** 1.5
+- **Average Final Gold Hold:** 740g
+- **Average Combat Rolls/Attacks:** 3.6
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 212 | 84.8% |
-| Chitinous Colossus | 5 | 2.0% |
-| Shellbound Menace | 3 | 1.2% |
-| Living Fortress | 3 | 1.2% |
-| Terrorclaw | 3 | 1.2% |
+| Adrift at Sea (Lost in Fog) | 196 | 78.4% |
+| Eerie Elainaling | 6 | 2.4% |
+| Lurking Coil | 4 | 1.6% |
+| Abyssal Constrictor | 3 | 1.2% |
+| Mire Serpent | 3 | 1.2% |
 
 **Ship Class Performance:**
 
@@ -79,9 +79,9 @@ xychart-beta
 - **Total Voyages:** 250
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 6.3
+- **Average Monsters Slain:** 6.2
 - **Average Highest Encounter Difficulty:** 1.1
-- **Average Final Gold Hold:** 166g
+- **Average Final Gold Hold:** 145g
 - **Average Combat Rolls/Attacks:** 6.2
 
 **Top Causes of Death:**
@@ -89,9 +89,9 @@ xychart-beta
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
 | Adrift at Sea (Lost in Fog) | 179 | 71.6% |
-| Lurking Coil | 7 | 2.8% |
-| Tide Coiler | 7 | 2.8% |
-| Writhing Curse | 7 | 2.8% |
+| Tide Coiler | 6 | 2.4% |
+| Writhing Curse | 6 | 2.4% |
+| Lurking Coil | 5 | 2.0% |
 | Elusive Eell | 4 | 1.6% |
 
 **Ship Class Performance:**
@@ -104,32 +104,32 @@ xychart-beta
 - **Total Voyages:** 250
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 4.0
+- **Average Monsters Slain:** 3.6
 - **Average Highest Encounter Difficulty:** 1.0
-- **Average Final Gold Hold:** 88g
-- **Average Combat Rolls/Attacks:** 7.6
+- **Average Final Gold Hold:** 85g
+- **Average Combat Rolls/Attacks:** 7.7
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 63 | 25.2% |
-| Darting Death | 13 | 5.2% |
-| Slithery Devil | 10 | 4.0% |
-| Writhing Curse | 10 | 4.0% |
-| Ragefin | 9 | 3.6% |
+| Adrift at Sea (Lost in Fog) | 71 | 28.4% |
+| Sussy Seaweed | 11 | 4.4% |
+| Eerie Elainaling | 11 | 4.4% |
+| Behemoth Mako | 10 | 4.0% |
+| Terror of the Tides | 9 | 3.6% |
 
 **Ship Class Performance:**
 
 | Ship Class | Voyages | Wins | Class Win Rate |
 | :--- | :--- | :--- | :--- |
-| CORSAIR | 31 | 0 | 0.0% |
-| BOMBARDIER | 37 | 0 | 0.0% |
-| FREIGHTER | 33 | 0 | 0.0% |
+| CORSAIR | 27 | 0 | 0.0% |
+| BOMBARDIER | 33 | 0 | 0.0% |
+| FREIGHTER | 30 | 0 | 0.0% |
 | CLIPPER | 37 | 0 | 0.0% |
-| CORVETTE | 28 | 0 | 0.0% |
-| STANDARD | 43 | 0 | 0.0% |
-| IRONCLAD | 41 | 0 | 0.0% |
+| CORVETTE | 44 | 0 | 0.0% |
+| STANDARD | 48 | 0 | 0.0% |
+| IRONCLAD | 31 | 0 | 0.0% |
 
 ## Verification Verdict
 

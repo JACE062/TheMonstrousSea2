@@ -237,5 +237,73 @@ void main() {
         isTrue,
       );
     });
+
+    test('Serpent at Medium Range alternates to Fanged Whip ({short, medium}) when Venom Spit is on cooldown, breaking the infinite dodge loop', () {
+      final serpent = createMonster(MonsterSpecies.serpent, level: 2, rng: _AlwaysHitRng());
+      serpent.maxHp = 500;
+      serpent.currentHp = 500;
+      session.currentMonster = serpent;
+      session.combatRange = CombatRange.medium;
+
+      // Turn 1: Serpent telegraphs Venom Spit ({medium, long})
+      final intent1 = selectNextMonsterIntent(serpent, CombatRange.medium, _AlwaysHitRng());
+      expect(intent1.id, MonsterIntentId.serpentVenomSpitRecoil);
+      serpent.currentIntent = intent1;
+
+      // Player advances to Short Range to avoid the spit
+      session.dispatch(const IssueHelmOrder(HelmOrder.advance));
+      expect(session.combatRange, CombatRange.short);
+
+      final turn1Events = session.dispatch(const FireWeaponVolley(ShipWeaponType.cannon));
+      expect(turn1Events.whereType<MonsterAttackOutOfRange>(), isNotEmpty);
+
+      // Serpent recoiled 1 band post-attack (Short -> Medium)
+      expect(session.combatRange, CombatRange.medium);
+      expect(serpent.lastExecutedIntentId, MonsterIntentId.serpentVenomSpitRecoil);
+      expect(serpent.isIntentOnCooldown(MonsterIntentId.serpentVenomSpitRecoil), isTrue);
+
+      // Turn 2: Since Venom Spit is on cooldown / was last executed, Serpent selects Fanged Whip ({short, medium})!
+      expect(serpent.currentIntent!.id, MonsterIntentId.serpentFangedWhipRecoil);
+      expect(serpent.currentIntent!.threatenedRanges.contains(CombatRange.short), isTrue);
+
+      // If the player attempts to advance to Short Range again to repeat their trick:
+      session.dispatch(const IssueHelmOrder(HelmOrder.advance));
+      expect(session.combatRange, CombatRange.short);
+
+      final turn2Events = session.dispatch(const FireWeaponVolley(ShipWeaponType.cannon));
+
+      // The Fanged Whip hits the player at Short Range! The infinite loop is broken!
+      expect(turn2Events.whereType<MonsterAttackOutOfRange>(), isEmpty);
+      expect(
+        turn2Events.whereType<AttackHit>().any((e) => e.targetName == session.ship!.name),
+        isTrue,
+      );
+    });
+
+    test('BraceForImpact allows captain to pass turn defensively when all weapons are on cooldown without soft-lock', () {
+      final shark = createMonster(MonsterSpecies.shark, level: 2, rng: _AlwaysHitRng());
+      session.currentMonster = shark;
+      session.combatRange = CombatRange.medium;
+      shark.currentIntent = selectNextMonsterIntent(shark, CombatRange.medium, _AlwaysHitRng());
+
+      // Give ship a torpedo launcher with 2-turn cooldown
+      final torpedo = generateShipWeapon(ShipWeaponType.torpedoLauncher, 2, RarityLevel.rare, _AlwaysHitRng());
+      session.ship!.equippedWeapons.clear();
+      session.ship!.addCargo(torpedo);
+      session.ship!.equipWeapon(torpedo);
+      expect(torpedo.isReady, isTrue);
+
+      // Round 1: Fire Torpedo -> goes on cooldown
+      session.dispatch(const FireWeaponVolley(ShipWeaponType.torpedoLauncher));
+      expect(torpedo.isReady, isFalse);
+      expect(torpedo.chargeCountdown > 0, isTrue);
+
+      // Round 2: With weapon on cooldown and no other weapons ready, dispatch BraceForImpact
+      final braceEvents = session.dispatch(const BraceForImpact());
+
+      // Ship braced behind gunwales (+10% evasion) and monster turn resolved cleanly
+      expect(braceEvents.whereType<NarrationEvent>().any((e) => e.message.contains('braces behind the gunwales')), isTrue);
+      expect(session.battleRound, 3);
+    });
   });
 }

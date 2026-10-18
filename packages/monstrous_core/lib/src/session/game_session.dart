@@ -148,6 +148,7 @@ class GameSession {
       UseConsumableItem(:final cargoIndex) =>
         _handleUseConsumable(cargoIndex),
       ExecuteShipSpecialAction() => _handleShipSpecialAction(),
+      BraceForImpact() => _handleBraceForImpact(),
       TakeLootItem(:final lootIndex) => _handleTakeLootItem(lootIndex),
       TakeAllLoot() => _handleTakeAllLoot(),
       LeaveRemainingLoot() => _handleLeaveRemainingLoot(),
@@ -1216,6 +1217,23 @@ class GameSession {
         break;
       }
     }
+
+    // Monster response turn
+    events.addAll(_resolveMonsterTurn());
+    return events;
+  }
+
+  List<GameEvent> _handleBraceForImpact() {
+    if (phase != SessionPhase.battle || ship == null) {
+      throw StateError('Cannot brace for impact outside of battle');
+    }
+    final events = <GameEvent>[];
+
+    // Defensive bracing: +10% evasion for the incoming monster turn
+    ship!.currentEvasion = min(90, ship!.currentEvasion + 10);
+    events.add(NarrationEvent(
+      '${ship!.name}\'s crew braces behind the gunwales (+10% Evasion) while ordnance reloads!',
+    ));
 
     // Monster response turn
     events.addAll(_resolveMonsterTurn());

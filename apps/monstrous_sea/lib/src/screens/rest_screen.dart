@@ -176,38 +176,23 @@ class RestScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Primary Next Move Choices
-                Row(
-                  children: [
-                    Expanded(
-                      child: InkButton(
-                        label: (seaChart.currentRow == SeaChart.bossRow &&
-                                seaChart.currentCol == SeaChart.bossCol &&
-                                controller.isCurrentEncounterDefeated)
-                            ? (seaChart.currentRegionIndex < SeaChart.totalRegions - 1
-                                ? 'ENTER ${SeaChart.strongholdName(seaChart.currentRegionIndex + 1).toUpperCase()} (STRONGHOLD)'
-                                : 'CLAIM EXPEDITION VICTORY!')
-                            : 'TAKE THE HELM & SET COURSE',
-                        isPrimary: true,
-                        onPressed: () => controller.dispatch(
-                          (seaChart.currentRow == SeaChart.bossRow &&
-                                  seaChart.currentCol == SeaChart.bossCol &&
-                                  controller.isCurrentEncounterDefeated)
-                              ? const AdvanceToNextBattle()
-                              : const TakeHelm(),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: InkButton(
-                        label: seaChart.currentRegionIndex == 0
-                            ? 'RETURN TO PORT'
-                            : 'RETREAT TO ${seaChart.currentPortName.toUpperCase()}',
-                        onPressed: () => controller.dispatch(const ReturnToPort()),
-                      ),
-                    ),
-                  ],
+                // Primary Next Move Choice (No retreat; the wind drives relentlessly outward)
+                InkButton(
+                  label: (seaChart.currentRow == SeaChart.bossRow &&
+                          seaChart.currentCol == SeaChart.bossCol &&
+                          controller.isCurrentEncounterDefeated)
+                      ? (seaChart.currentRegionIndex < SeaChart.totalRegions - 1
+                          ? 'ENTER ${SeaChart.strongholdName(seaChart.currentRegionIndex + 1).toUpperCase()} (STRONGHOLD)'
+                          : 'CLAIM EXPEDITION VICTORY!')
+                      : 'TAKE THE HELM & SET COURSE',
+                  isPrimary: true,
+                  onPressed: () => controller.dispatch(
+                    (seaChart.currentRow == SeaChart.bossRow &&
+                            seaChart.currentCol == SeaChart.bossCol &&
+                            controller.isCurrentEncounterDefeated)
+                        ? const AdvanceToNextBattle()
+                        : const TakeHelm(),
+                  ),
                 ),
               ],
             ),

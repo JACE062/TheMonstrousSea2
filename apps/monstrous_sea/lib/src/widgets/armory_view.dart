@@ -46,9 +46,9 @@ class ArmoryView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(3),
                 ),
                 child: Text(
-                  'Weight: ${ship.currentWeaponWeight}/${ship.maxWeaponWeight} Wt',
+                  'Hardpoints: ${ship.equippedWeapons.length}/${ship.hardpoints.length} Mounted',
                   style: InkTheme.statLabel.copyWith(
-                    color: ship.currentWeaponWeight >= ship.maxWeaponWeight
+                    color: ship.equippedWeapons.length >= ship.hardpoints.length
                         ? InkTheme.crimsonAccent
                         : InkTheme.inkPrimary,
                   ),
@@ -146,8 +146,7 @@ class ArmoryView extends StatelessWidget {
                 children: cargoWeapons.map((entry) {
                   final cargoIdx = entry.key;
                   final weapon = entry.value;
-                  final canFitWeight =
-                      ship.currentWeaponWeight + weapon.equipWeight <= ship.maxWeaponWeight;
+                  final canEquip = ship.canEquipWeapon(weapon);
 
                   return Container(
                     margin: const EdgeInsets.only(bottom: 8),
@@ -182,13 +181,13 @@ class ArmoryView extends StatelessWidget {
                           ),
                         ),
                         InkButton(
-                          label: canFitWeight ? 'Mount' : 'Heavy',
+                          label: canEquip ? 'Mount' : 'Deck Full',
                           semanticLabel: 'Mount ${weapon.name} to active gun deck',
-                          semanticHint: canFitWeight
-                              ? null
-                              : 'Exceeds battery weight limit by ${(ship.currentWeaponWeight + weapon.equipWeight) - ship.maxWeaponWeight} Wt',
-                          isPrimary: canFitWeight,
-                          onPressed: canFitWeight
+                          semanticHint: canEquip
+                              ? 'Mount weapon to open hardpoint slot'
+                              : 'All deck hardpoint mounts are occupied',
+                          isPrimary: canEquip,
+                          onPressed: canEquip
                               ? () => controller.dispatch(EquipCargoWeapon(cargoIdx))
                               : null,
                         ),

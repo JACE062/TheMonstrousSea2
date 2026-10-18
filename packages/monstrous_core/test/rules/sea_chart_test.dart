@@ -336,5 +336,26 @@ void main() {
       expect(chart.currentPortName, 'The Iron Bastion');
       expect(chart.currentPortSubtitle, contains('Volcanic Citadel'));
     });
+
+    test('departing a Respite Island guarantees 0% chance of an island on the immediately following leg', () {
+      final rng = SeededGameRng(12345);
+      final chart = SeaChart(rng: rng);
+
+      // Force current cell to be a Respite Island
+      chart.setNodeTypeAt(chart.currentRow, chart.currentCol, EncounterNodeType.respiteIsland);
+      expect(chart.currentNodeType, EncounterNodeType.respiteIsland);
+
+      // Generate options for the next leg across 50 simulated seeds
+      for (var seed = 1; seed <= 50; seed++) {
+        final options = chart.generateCourseOptions(SeededGameRng(seed));
+        for (final opt in options) {
+          expect(
+            opt.nodeType,
+            isNot(equals(EncounterNodeType.respiteIsland)),
+            reason: 'Leg immediately following a Respite Island must never spawn another Respite Island!',
+          );
+        }
+      }
+    });
   });
 }

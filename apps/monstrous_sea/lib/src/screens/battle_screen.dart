@@ -140,7 +140,11 @@ class _BattleScreenState extends State<BattleScreen> {
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
     final previewRange = currentRange.rangeAfterHelmOrder(activeHelmOrder);
-
+    final canFireAnyWeapon = ship.equippedWeaponTypes.any((type) {
+      final ready = ship.equippedWeapons.where((w) => w.weaponType == type).any((w) => w.isReady);
+      final usable = isWeaponTypeUsableAtRange(type, previewRange);
+      return ready && usable;
+    });
 
     return ParchmentScaffold(
       showBorder: false,
@@ -383,7 +387,7 @@ class _BattleScreenState extends State<BattleScreen> {
             right: 16,
             child: Container(
               key: _dockKey,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
               decoration: BoxDecoration(
                 color: InkTheme.parchmentSurface.withValues(alpha: 0.95),
                 border: Border.all(color: InkTheme.inkPrimary, width: 2),
@@ -397,7 +401,7 @@ class _BattleScreenState extends State<BattleScreen> {
                     Builder(
                       builder: (ctx) {
                         final screenHeight = MediaQuery.of(ctx).size.height;
-                        final logHeight = (screenHeight * 0.16).clamp(80.0, 200.0);
+                        final logHeight = (screenHeight * (screenHeight <= 650 ? 0.11 : 0.16)).clamp(60.0, 200.0);
                         return Container(
                           height: logHeight,
                           margin: const EdgeInsets.only(bottom: 4),
@@ -464,45 +468,62 @@ class _BattleScreenState extends State<BattleScreen> {
                   ),
                   const SizedBox(height: 6),
 
-                  // Special Action, Consumables & Combat Log
+                  // Special Action, Brace for Impact, Consumables & Combat Log
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Special Action button if Ironclad or Corvette
-                      if (ship.shipClass == ShipClass.ironclad)
-                        InkButton(
-                          label: 'Fortify Plating',
-                          semanticLabel: 'Activate Fortify Plating special action',
-                          onPressed: !_isActionLocked
-                              ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
-                              : null,
-                        )
-                      else if (ship.shipClass == ShipClass.corvette)
-                        InkButton(
-                          label: 'Evasive Maneuver',
-                          semanticLabel: 'Activate Evasive Maneuver special action',
-                          onPressed: !_isActionLocked
-                              ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
-                              : null,
-                        )
-                      else
-                        const SizedBox.shrink(),
+                      Expanded(
+                        child: Wrap(
+                          spacing: 8,
+                          runSpacing: 4,
+                          children: [
+                            // Special Action button if Ironclad or Corvette
+                            if (ship.shipClass == ShipClass.ironclad)
+                              InkButton(
+                                label: 'Fortify Plating',
+                                semanticLabel: 'Activate Fortify Plating special action',
+                                onPressed: !_isActionLocked
+                                    ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
+                                    : null,
+                              )
+                            else if (ship.shipClass == ShipClass.corvette)
+                              InkButton(
+                                label: 'Evasive Maneuver',
+                                semanticLabel: 'Activate Evasive Maneuver special action',
+                                onPressed: !_isActionLocked
+                                    ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
+                                    : null,
+                              ),
 
-                      // Quick Consumable Use
-                      if (ship.cargo.any((item) => item is Consumable)) ...[
-                        InkButton(
-                          label: 'Use Consumable',
-                          semanticLabel: 'Use first ready consumable from cargo',
-                          onPressed: !_isActionLocked
-                              ? () {
-                                  final idx = ship.cargo.indexWhere((item) => item is Consumable);
-                                  if (idx >= 0) {
-                                    _dispatchCombatAction(UseConsumableItem(idx));
-                                  }
-                                }
-                              : null,
+                            // Universal Brace for Impact / Pass Turn (solves all-weapons-cooldown soft-lock)
+                            InkButton(
+                              label: canFireAnyWeapon ? 'Brace for Impact' : 'BRACE & RELOAD',
+                              isPrimary: !canFireAnyWeapon,
+                              semanticLabel: canFireAnyWeapon
+                                  ? 'Brace for impact behind gunwales (+10% Evasion) and pass attack'
+                                  : 'All weapons cooling down or out of range. Brace for impact (+10% Evasion) and reload ordnance',
+                              onPressed: !_isActionLocked
+                                  ? () => _dispatchCombatAction(const BraceForImpact())
+                                  : null,
+                            ),
+
+                            // Quick Consumable Use
+                            if (ship.cargo.any((item) => item is Consumable))
+                              InkButton(
+                                label: 'Use Consumable',
+                                semanticLabel: 'Use first ready consumable from cargo',
+                                onPressed: !_isActionLocked
+                                    ? () {
+                                        final idx = ship.cargo.indexWhere((item) => item is Consumable);
+                                        if (idx >= 0) {
+                                          _dispatchCombatAction(UseConsumableItem(idx));
+                                        }
+                                      }
+                                    : null,
+                              ),
+                          ],
                         ),
-                      ],
+                      ),
 
                       // Bottom-right Utility Controls: Settings & Chronicle Log
                       Row(
@@ -546,8 +567,8 @@ class _BattleScreenState extends State<BattleScreen> {
     );
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 6),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      margin: const EdgeInsets.only(bottom: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: InkTheme.parchmentDark.withValues(alpha: 0.35),
         borderRadius: BorderRadius.circular(4),
@@ -559,7 +580,7 @@ class _BattleScreenState extends State<BattleScreen> {
         children: [
           if (intent != null && previewOutcome != null) ...[
             _buildMonsterIntentReadout(intent, previewOutcome, monster),
-            const SizedBox(height: 4),
+            const SizedBox(height: 3),
           ],
           LayoutBuilder(
             builder: (context, constraints) {
@@ -740,18 +761,27 @@ class _BattleScreenState extends State<BattleScreen> {
                 if (intent.moveDelta != IntentMoveDelta.stationary)
                   Container(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
                     decoration: BoxDecoration(
-                      color: InkTheme.parchmentSurface,
+                      color: intent.moveTiming == IntentMoveTiming.beforeAttack
+                          ? InkTheme.goldAccent.withValues(alpha: 0.18)
+                          : InkTheme.parchmentSurface,
                       borderRadius: BorderRadius.circular(2),
-                      border: Border.all(color: InkTheme.inkMuted, width: 0.9),
+                      border: Border.all(
+                        color: intent.moveTiming == IntentMoveTiming.beforeAttack
+                            ? InkTheme.goldAccent
+                            : InkTheme.inkMuted,
+                        width: 1.0,
+                      ),
                     ),
                     child: Text(
                       intent.moveLabel,
                       style: InkTheme.caption.copyWith(
                         fontSize: 9.0,
-                        fontWeight: FontWeight.w600,
-                        color: InkTheme.inkSecondary,
+                        fontWeight: FontWeight.bold,
+                        color: intent.moveTiming == IntentMoveTiming.beforeAttack
+                            ? InkTheme.inkPrimary
+                            : InkTheme.inkSecondary,
                       ),
                     ),
                   ),
