@@ -52,38 +52,66 @@ Consumable randomConsumable(
 /// - Blast Pack & Chakram: 75% hit rate (`d100() <= 75`), dealing
 ///   `5 * rarity.level` damage with their respective damage types.
 AttackResult resolveConsumableEffect(Consumable consumable, GameRng rng) {
-  if (consumable.type == ConsumableType.unstableTincture) {
-    const effects = [
-      StatusEffect.burn,
-      StatusEffect.poison,
-      StatusEffect.stun,
-    ];
-    final selectedEffect = effects[rng.nextInt(effects.length)];
-    return AttackResult(
-      didHit: true,
-      damage: 0,
-      damageType: consumable.type.damageType,
-      statusEffect: selectedEffect,
-      description: '${consumable.name} inflicts ${selectedEffect.displayName}!',
-    );
-  } else {
-    final hits = rng.d100() <= 75;
-    if (hits) {
-      final damage = 5 * consumable.rarity.level;
+  switch (consumable.type) {
+    case ConsumableType.hullPatchKit:
       return AttackResult(
         didHit: true,
-        damage: damage,
-        damageType: consumable.type.damageType,
-        description:
-            '${consumable.name} hits for $damage ${consumable.type.damageType.displayName} damage!',
-      );
-    } else {
-      return AttackResult(
-        didHit: false,
         damage: 0,
         damageType: consumable.type.damageType,
-        description: 'The ${consumable.name} misses!',
+        description:
+            '${consumable.name} patches the hull, restoring 30% max HP!',
       );
-    }
+    case ConsumableType.krakenInkBomb:
+      return AttackResult(
+        didHit: true,
+        damage: 0,
+        damageType: consumable.type.damageType,
+        description:
+            '${consumable.name} billows a smoke screen (+25% Evasion)!',
+      );
+    case ConsumableType.alchemicalPitch:
+      return AttackResult(
+        didHit: true,
+        damage: 0,
+        damageType: consumable.type.damageType,
+        statusEffect: StatusEffect.burn,
+        description:
+            '${consumable.name} coats the guns in incendiary pitch (+25% Fire damage & Burn on next volley)!',
+      );
+    case ConsumableType.unstableTincture:
+      const effects = [
+        StatusEffect.burn,
+        StatusEffect.poison,
+        StatusEffect.stun,
+      ];
+      final selectedEffect = effects[rng.nextInt(effects.length)];
+      return AttackResult(
+        didHit: true,
+        damage: 0,
+        damageType: consumable.type.damageType,
+        statusEffect: selectedEffect,
+        description:
+            '${consumable.name} inflicts ${selectedEffect.displayName}!',
+      );
+    case ConsumableType.blastPack:
+    case ConsumableType.chakram:
+      final hits = rng.d100() <= 75;
+      if (hits) {
+        final damage = 5 * consumable.rarity.level;
+        return AttackResult(
+          didHit: true,
+          damage: damage,
+          damageType: consumable.type.damageType,
+          description:
+              '${consumable.name} hits for $damage ${consumable.type.damageType.displayName} damage!',
+        );
+      } else {
+        return AttackResult(
+          didHit: false,
+          damage: 0,
+          damageType: consumable.type.damageType,
+          description: 'The ${consumable.name} misses!',
+        );
+      }
   }
 }

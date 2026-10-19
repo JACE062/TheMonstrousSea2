@@ -49,7 +49,10 @@ void main() {
     expect(await storage.hasActiveVoyage(), isTrue);
 
     // Steer course into battle
-    final course = controller.currentCourseOptions.first;
+    final course = controller.currentCourseOptions.firstWhere(
+      (c) => c.nodeType == EncounterNodeType.beastCombat,
+      orElse: () => controller.currentCourseOptions.first,
+    );
     controller.dispatch(SteerCourse(course.bearing));
     expect(controller.phase, SessionPhase.battle);
 

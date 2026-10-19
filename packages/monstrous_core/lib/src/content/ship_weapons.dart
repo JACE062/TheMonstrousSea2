@@ -47,6 +47,81 @@ ShipWeapon generateShipWeapon(
         equipWeight: type.equipWeight,
         weaponType: type,
       );
+    case ShipWeaponType.heavyCarronade:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description:
+            'Short-barreled heavy iron carronades delivering devastating close-quarters Piercing slugs (Short: 100%, Med: 80%, Long: 35%).',
+        value: 25 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(12, 15) * level,
+        hitModifier: 85,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.piercing,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.swivelGun:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description:
+            'Rifled long-barrel swivel guns engineered for flat-trajectory accuracy across Medium and Long range (Short: 75%, Med: 100%, Long: 100%).',
+        value: 25 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(9, 11) * level,
+        hitModifier: 90,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.piercing,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.chainShotBroadside:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description:
+            'Linked iron chain-shot that shreds tentacles and deals +20% bonus Slicing damage against Pinned targets (Short: 100%, Med: 85%, Long: 45%).',
+        value: 25 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(10, 13) * level,
+        hitModifier: 85,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.slicing,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.shrapnelHowitzer:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description:
+            'Flak-packed deck howitzers firing concussive Blast shells that crack armored Carapace (Short: 70%, Med: 100%, Long: 75%).',
+        value: 25 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(10, 13) * level,
+        hitModifier: 85,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.blast,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
+    case ShipWeaponType.twinChasers:
+      return ShipWeapon(
+        id: weaponId,
+        name: type.displayName,
+        description:
+            'Synchronized twin bow-chaser cannons with high-velocity sighting (+10% accuracy; Short: 75%, Med: 100%, Long: 90%).',
+        value: 35 * level,
+        rarity: rarity,
+        damage: rng.nextIntRange(16, 20) * level,
+        hitModifier: 95,
+        chargeTime: type.chargeTime,
+        damageType: DamageType.piercing,
+        equipWeight: type.equipWeight,
+        weaponType: type,
+      );
     case ShipWeaponType.prowRam:
       return ShipWeapon(
         id: weaponId,
@@ -54,7 +129,7 @@ ShipWeapon generateShipWeapon(
         description: desc,
         value: 40 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(22, 28) * level,
+        damage: rng.nextIntRange(20, 25) * level,
         hitModifier: 90,
         chargeTime: type.chargeTime,
         damageType: DamageType.blast,
@@ -68,7 +143,7 @@ ShipWeapon generateShipWeapon(
         description: desc,
         value: 35 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(10, 14) * level,
+        damage: rng.nextIntRange(16, 20) * level,
         hitModifier: 95,
         chargeTime: type.chargeTime,
         damageType: DamageType.piercing,
@@ -82,7 +157,7 @@ ShipWeapon generateShipWeapon(
         description: desc,
         value: 45 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(24, 32) * level,
+        damage: rng.nextIntRange(22, 28) * level,
         hitModifier: 80,
         chargeTime: type.chargeTime,
         damageType: DamageType.blast,
@@ -96,7 +171,7 @@ ShipWeapon generateShipWeapon(
         description: desc,
         value: 35 * level,
         rarity: rarity,
-        damage: rng.nextIntRange(14, 20) * level,
+        damage: rng.nextIntRange(14, 18) * level,
         hitModifier: 85,
         chargeTime: type.chargeTime,
         damageType: DamageType.piercing,
@@ -166,8 +241,8 @@ ShipWeapon generateShipWeapon(
 
 /// Generates a random [ShipWeapon] of a randomly chosen type, scaled to [level].
 ///
-/// By default excludes signature weapons (Prow Ram, Heavy Mortar, etc.) so that
-/// general loot pools drop universal weapons.
+/// By default excludes blueprint-intrinsic weapons so legacy parity tests roll
+/// the 5 classic weapon types.
 ShipWeapon randomShipWeapon(
   int level,
   GameRng rng, {
@@ -178,7 +253,9 @@ ShipWeapon randomShipWeapon(
   final weaponRarity = rarity ?? rarityForLevel(level);
   final pool = includeSignature
       ? ShipWeaponType.values
-      : ShipWeaponType.values.where((t) => !t.isSignature).toList();
+      : ShipWeaponType.values
+          .where((t) => !t.isSignature && !t.isBlueprintIntrinsic)
+          .toList();
   final type = pool[rng.nextInt(pool.length)];
   return generateShipWeapon(type, level, weaponRarity, rng, id: id);
 }

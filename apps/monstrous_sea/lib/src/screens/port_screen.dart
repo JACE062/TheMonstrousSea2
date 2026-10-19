@@ -33,15 +33,15 @@ class _PortScreenState extends State<PortScreen> {
   int _covenantTabIndex = 0;
 
   String _upgradeBenefits(ShipClass sClass, int nextLevel) => switch (sClass) {
-        ShipClass.standard => '+50 Max HP • +15 Cargo',
+        ShipClass.standard => '+50 Max HP • +25% Hardpoint Damage',
         ShipClass.freighter || ShipClass.corsair =>
-          '+45 Max HP • +20 Cargo',
+          '+45 Max HP • +3% Evasion • +25% Hardpoint Damage',
         ShipClass.ironclad =>
-          '+75 Max HP • -${3 * nextLevel} Dmg Reduction',
+          '+75 Max HP • -${3 * nextLevel} Dmg Reduction • +25% Hardpoint Damage',
         ShipClass.corvette || ShipClass.clipper =>
-          '+40 Max HP • ${(5 + 5 * nextLevel).clamp(0, 50)}% Evasion',
+          '+40 Max HP • +5% Evasion • +25% Hardpoint Damage',
         ShipClass.bombardier =>
-          '+45 Max HP • +12 Cargo',
+          '+45 Max HP • +25% Hardpoint Damage',
       };
 
   void _showDrydockDialog(BuildContext context) {
@@ -111,6 +111,62 @@ class _PortScreenState extends State<PortScreen> {
                   style: InkTheme.caption.copyWith(fontStyle: FontStyle.italic),
                 ),
               ],
+              const Divider(height: 20),
+              Text(
+                'HARDPOINT TEMPERING (MK I -> MK II -> MK III)',
+                style: InkTheme.statLabel.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 6),
+              ...[
+                HardpointType.broadside,
+                HardpointType.signature,
+                HardpointType.utility,
+              ].map((slot) {
+                final mark = ship.markForHardpoint(slot);
+                final markLabel = ship.markLabelForHardpoint(slot);
+                final temperCost = calculateHardpointTemperCost(mark);
+                final canTemper = mark < 3;
+                final canAfford = canTemper && ship.gold >= temperCost;
+                return ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  dense: true,
+                  title: Text(
+                    '${slot.displayName} Hardpoint ($markLabel)',
+                    style: InkTheme.statLabel,
+                  ),
+                  subtitle: Text(
+                    canTemper
+                        ? 'Temper to Mk ${mark + 1} (+20% base potency) • Cost: ${temperCost}g'
+                        : 'Maximum temper achieved (Mk III • 1.40x potency)',
+                    style: InkTheme.caption.copyWith(
+                      color: !canTemper
+                          ? InkTheme.goldAccent
+                          : (canAfford
+                              ? InkTheme.inkMuted
+                              : InkTheme.crimsonAccent),
+                    ),
+                  ),
+                  trailing: canTemper
+                      ? InkButton(
+                          label: canAfford ? 'Temper (${temperCost}g)' : 'Lacks Gold',
+                          semanticLabel:
+                              'Temper ${slot.displayName} hardpoint to Mk ${mark + 1}',
+                          onPressed: canAfford
+                              ? () {
+                                  controller.dispatch(TemperHardpoint(slot));
+                                  Navigator.pop(ctx);
+                                }
+                              : null,
+                        )
+                      : Text(
+                          'MAX',
+                          style: InkTheme.caption.copyWith(
+                            color: InkTheme.goldAccent,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                );
+              }),
               const Divider(height: 20),
               Text('HULL REPAIRS', style: InkTheme.statLabel.copyWith(fontWeight: FontWeight.bold)),
               const SizedBox(height: 6),
@@ -1272,8 +1328,10 @@ class _PortScreenState extends State<PortScreen> {
                           ],
                         ),
                         const Divider(height: 24),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        Wrap(
+                          spacing: 16,
+                          runSpacing: 8,
+                          alignment: WrapAlignment.spaceAround,
                           children: [
                             switch (ship.shipClass) {
                               ShipClass.ironclad => _vesselStat(
@@ -1289,8 +1347,11 @@ class _PortScreenState extends State<PortScreen> {
                               ShipClass.bombardier =>
                                 _vesselStat('SIEGE MORTAR', 'Heavy Blast'),
                             },
-                            _vesselStat('CARGO HOLD', '${ship.cargo.length} / ${ship.maxCargo}'),
-                            _vesselStat('BATTERIES', '${ship.equippedWeapons.length} / ${ship.maxHardpointSlots} Mounts'),
+                            _vesselStat('TACTICAL BELT', '${ship.cargo.length} / ${ship.maxCargo} Slots'),
+                            _vesselStat(
+                              'HARDPOINTS',
+                              '3 Mounts (${ship.markLabelForHardpoint(HardpointType.broadside)}/${ship.markLabelForHardpoint(HardpointType.signature)}/${ship.markLabelForHardpoint(HardpointType.utility)})',
+                            ),
                             _vesselStat('MONSTERS SLAIN', '${controller.session.monstersDefeatedThisLife}'),
                           ],
                         ),

@@ -139,6 +139,12 @@ final class UpgradeShip extends Command {
   const UpgradeShip();
 }
 
+/// Tempers a specific ship hardpoint (Broadside, Signature, or Utility) to the next Mark (Mk I -> Mk II -> Mk III).
+final class TemperHardpoint extends Command {
+  const TemperHardpoint(this.slot);
+  final HardpointType slot;
+}
+
 /// Returns to home port from the rest area.
 final class ReturnToPort extends Command {
   const ReturnToPort();

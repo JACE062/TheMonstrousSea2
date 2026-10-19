@@ -27,43 +27,39 @@ flowchart TD
 
 ---
 
-## 2. Complete Retirement of Weapon Weight
+## 2. Complete Retirement of Weapon Weight & Generic Weapon Swapping
 
 ### The Decision
-**Weapon Weight is permanently retired.** It was a vestige of the 2017 Java console prototype that created redundant restrictions alongside the modern **Deck Hardpoint Architecture**.
+**Weapon Weight and generic RPG weapon-swapping are permanently retired.** Flagships no longer loot random cannons from sea monsters or swap weapons in and out of cargo.
 
-### The Modern Topology: Hardpoints + Cargo Hold
-Flagship armaments are strictly governed by **physical hardpoints** defined by the commissioned Blueprint:
+### The Modern Topology: 3 Intrinsic Hardpoints + Tactical Consumable Belt
+See [PHASE_3A_HARDPOINT_AND_BELT_SPEC.md](PHASE_3A_HARDPOINT_AND_BELT_SPEC.md) for the complete locked specification. Every commissioned [`FlagshipBlueprint`](../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) permanently mounts **strictly 3 intrinsic Hardpoints**:
 
 ```mermaid
 flowchart TD
-    subgraph Flagship ["Flagship Deck Hardpoints (Commissioned Blueprint)"]
-        P["Prow Slot (Kinetic Ram / Chaser Culverin)"]
-        B1["Port Broadside Battery"]
-        B2["Starboard Broadside Battery"]
-        M["Centerline Mortar Emplacement"]
-        U["Utility Rigging Winch"]
-        A1["Auxiliary Mount 1 (Universal)"]
-        A2["Auxiliary Mount 2 (Expanded via Drydock)"]
+    subgraph Flagship ["Flagship 3-Pillar Hardpoints (Commissioned Blueprint)"]
+        B["1. Broadside Battery (0T Cooldown)\nHull-Specific Primary Attack"]
+        S["2. Signature Armament (1T Cooldown)\nProw Ram / Culverin / Mortar / Harpoon / Chasers"]
+        U["3. Utility Rigging (2T Cooldown)\nFortify / Evasive Rigging / Tether-Trap / Spotter Flare / Gunnery Drill"]
     end
 
-    subgraph Cargo ["Cargo Hold (Storage & Mid-Voyage Reserves)"]
-        W1["Spare Torpedo Battery"]
-        W2["Contraband Flamethrower"]
-        Items["Oak Planks, Draughts, Pitch"]
+    subgraph Belt ["Tactical Consumable Belt (3-4 Quick-Action Slots)"]
+        C1["Hull Patch Kit (0T Quick Action)"]
+        C2["Bottled Kraken Ink (0T Quick Action)"]
+        C3["Alchemical Pitch Flask (0T Quick Action)"]
     end
-
-    W1 -.->|Equipped at Port / Haven Cove| A1
 ```
 
-- **Hardpoint Types**:
-  - `Prow`: Forward-mounted kinetic rams and forward chaser culverins (*Ironclad*, *Clipper*).
-  - `Broadside`: Lateral gun decks for standard naval cannon batteries and carronades.
-  - `Mortar`: Center-line reinforced deck pit for high-arc siege mortars (*Bombardier*).
-  - `Utility`: Heavy mechanical winches, pulleys, and launch rails (*Corsair*).
-  - `Auxiliary`: Universal hardpoint accepting secondary ordnance (Flamethrowers, Lightning Railguns, Torpedoes, Blade Launchers, or extra Cannons).
-- **The Auxiliary Expansion**:
-  - Unlocking the Drydock expansion permanently grants a **second Auxiliary Hardpoint** on the flagship across all future runs, rather than adjusting an abstract weight number.
+- **Hardpoint Types (`HardpointType`)**:
+  - `broadside`: Primary hull battery (`0T` Cooldown) with a blueprint-specific range curve and damage type.
+  - `signature`: Defining prow/centerline tactical weapon (`1T` Cooldown across all blueprints).
+  - `utility`: Blueprint-specific defensive, positional, or control mechanism (`2T` Cooldown across all blueprints).
+- **Hardpoint Tempering & Progression**:
+  - Hardpoints scale across the voyage via **Port Tempering (`Mk I -> Mk II -> Mk III`)**, **Hull Tier Refits (`Lvl 1 -> 4`)**, **Sea Shrine Blessings**, and **Master Refits**.
+  - The 4 legacy weapons (*Torpedo Launcher*, *Blade Launcher*, *Lightning Railgun*, *Flamethrower*) are retired as standalone lootable items and folded into Shrine Infusions and Master Refit transformations.
+- **Tactical Consumable Belt**:
+  - Replaces legacy cargo tonnage with **3–4 Tactical Consumable Slots**.
+  - Triggering a consumable in combat is a **0-turn-cost Quick Action** (1 per round) that does not forfeit the ship's hardpoint action.
 
 ---
 

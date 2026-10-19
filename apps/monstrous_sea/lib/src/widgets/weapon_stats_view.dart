@@ -18,6 +18,11 @@ class WeaponStatsView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (item is ShipWeapon) {
       final weapon = item as ShipWeapon;
+      final shortPct = (weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.short) * 100).round();
+      final medPct = (weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.medium) * 100).round();
+      final longPct = isWeaponTypeUsableAtRange(weapon.weaponType, CombatRange.long)
+          ? '${(weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.long) * 100).round()}%'
+          : '—';
       return Wrap(
         spacing: 6,
         runSpacing: 4,
@@ -29,19 +34,19 @@ class WeaponStatsView extends StatelessWidget {
             color: InkTheme.crimsonAccent,
           ),
           _statBadge(
-            weapon.chargeTime == 0 ? 'No Reload' : '${weapon.chargeTime} Turn CD',
+            weapon.chargeTime == 0 ? '0T Reload' : '${weapon.chargeTime}T CD',
             icon: Icons.timer,
             color: InkTheme.inkPrimary,
+          ),
+          _statBadge(
+            'S:$shortPct% / M:$medPct% / L:$longPct',
+            icon: Icons.straighten,
+            color: InkTheme.inkSecondary,
           ),
           _statBadge(
             '+${weapon.hitModifier} Hit',
             icon: Icons.adjust,
             color: InkTheme.verdigrisGreen,
-          ),
-          _statBadge(
-            weapon.weaponType.displayName,
-            icon: Icons.anchor,
-            color: InkTheme.inkSecondary,
           ),
           if (weapon.statusEffect != null)
             _statBadge(
@@ -63,6 +68,11 @@ class WeaponStatsView extends StatelessWidget {
             '${consumable.usesLeft}/${consumable.maxUses} Uses',
             icon: Icons.science,
             color: InkTheme.goldAccent,
+          ),
+          _statBadge(
+            '0T Quick Action',
+            icon: Icons.bolt,
+            color: InkTheme.verdigrisGreen,
           ),
         ],
       );

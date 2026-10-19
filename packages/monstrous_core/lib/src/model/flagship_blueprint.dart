@@ -20,6 +20,36 @@ enum BlueprintId {
         BlueprintId.bombardier => ShipClass.bombardier,
         BlueprintId.corsair => ShipClass.corsair,
       };
+
+  static BlueprintId fromShipClass(ShipClass shipClass) =>
+      shipClass.blueprintId;
+
+  /// Hull-specific Broadside hardpoint weapon type (0T cooldown).
+  ShipWeaponType get broadsideWeaponType => switch (this) {
+        BlueprintId.standard => ShipWeaponType.cannon,
+        BlueprintId.ironclad => ShipWeaponType.heavyCarronade,
+        BlueprintId.clipper => ShipWeaponType.swivelGun,
+        BlueprintId.bombardier => ShipWeaponType.shrapnelHowitzer,
+        BlueprintId.corsair => ShipWeaponType.chainShotBroadside,
+      };
+
+  /// Hull-specific Signature hardpoint weapon type (1T cooldown).
+  ShipWeaponType get signatureWeaponType => switch (this) {
+        BlueprintId.standard => ShipWeaponType.twinChasers,
+        BlueprintId.ironclad => ShipWeaponType.prowRam,
+        BlueprintId.clipper => ShipWeaponType.precisionCulverin,
+        BlueprintId.bombardier => ShipWeaponType.heavyMortar,
+        BlueprintId.corsair => ShipWeaponType.harpoonWinch,
+      };
+
+  /// Hull-specific Utility hardpoint mechanism (2T cooldown).
+  UtilityHardpointId get utilityHardpoint => switch (this) {
+        BlueprintId.standard => UtilityHardpointId.gunneryDrill,
+        BlueprintId.ironclad => UtilityHardpointId.fortifyPlates,
+        BlueprintId.clipper => UtilityHardpointId.evasiveRigging,
+        BlueprintId.bombardier => UtilityHardpointId.spotterFlare,
+        BlueprintId.corsair => UtilityHardpointId.driftingTetherTrap,
+      };
 }
 
 extension ShipClassBlueprintExtension on ShipClass {
@@ -32,16 +62,29 @@ extension ShipClassBlueprintExtension on ShipClass {
       };
 }
 
-/// Category and mounting requirements for a ship's deck hardpoints.
+/// Category for a ship's 3 intrinsic deck hardpoints (Broadside, Signature, Utility).
 enum HardpointType {
   broadside('Broadside Battery'),
+  signature('Signature Armament'),
+  utility('Utility Rigging'),
+  // Legacy aliases retained for save migration compatibility
   prow('Prow Mount'),
   mortar('Mortar Emplacement'),
-  utility('Utility Rigging'),
   auxiliary('Auxiliary Deck Mount');
 
   const HardpointType(this.displayName);
   final String displayName;
+
+  /// Normalizes legacy hardpoint types to the canonical 3-pillar hardpoint types.
+  HardpointType get canonical => switch (this) {
+        HardpointType.broadside || HardpointType.auxiliary =>
+          HardpointType.broadside,
+        HardpointType.signature ||
+        HardpointType.prow ||
+        HardpointType.mortar =>
+          HardpointType.signature,
+        HardpointType.utility => HardpointType.utility,
+      };
 }
 
 /// Specification for a single hardpoint mount upon the Ancestral Flagship.
@@ -65,12 +108,19 @@ class HardpointSlot {
         'isSignature': isSignature,
       };
 
-  factory HardpointSlot.fromJson(Map<String, dynamic> json) => HardpointSlot(
-        id: json['id'] as String,
-        name: json['name'] as String,
-        type: HardpointType.values.byName(json['type'] as String),
-        isSignature: json['isSignature'] as bool? ?? false,
-      );
+  factory HardpointSlot.fromJson(Map<String, dynamic> json) {
+    final typeName = json['type'] as String? ?? 'broadside';
+    final parsedType = HardpointType.values.firstWhere(
+      (e) => e.name == typeName,
+      orElse: () => HardpointType.broadside,
+    );
+    return HardpointSlot(
+      id: json['id'] as String? ?? 'broadside',
+      name: json['name'] as String? ?? parsedType.displayName,
+      type: parsedType,
+      isSignature: json['isSignature'] as bool? ?? false,
+    );
+  }
 }
 
 /// An ancestral naval engineering blueprint defining a specialized refit of the Flagship.
@@ -101,6 +151,8 @@ class FlagshipBlueprint {
   final int baseHp;
   final int baseEvasion;
   final int baseArmorClass;
+
+  /// Tactical Consumable Belt slot capacity (3 baseline, 4 for Corsair).
   final int baseCargo;
   final int baseDamageReduction;
 
@@ -110,7 +162,10 @@ class FlagshipBlueprint {
   /// Default baseline blueprint unlocked from the start of the family bloodline.
   static const BlueprintId defaultStartingBlueprint = BlueprintId.standard;
 
-  /// Full catalog of all ancestral blueprints.
+  /// Full catalog of all ancestral blueprints, each mounting strictly 3 intrinsic hardpoints:
+  /// 1. Broadside (0T CD)
+  /// 2. Signature (1T CD)
+  /// 3. Utility (2T CD)
   static final Map<BlueprintId, FlagshipBlueprint> catalog = {
     // 1. STANDARD BARQUE (Default Starting Hull)
     BlueprintId.standard: FlagshipBlueprint(
@@ -119,18 +174,31 @@ class FlagshipBlueprint {
       subtitle: BlueprintLore.standard.subtitle,
       description: BlueprintLore.standard.description,
       tacticalRole: BlueprintLore.standard.tacticalRole,
-      unlockCost: MetaCost(), // Free by default
+      unlockCost: const MetaCost(), // Free by default
       baseHp: 90,
       baseEvasion: 10,
       baseArmorClass: 10,
-      baseCargo: 15,
+      baseCargo: 3,
       baseDamageReduction: 0,
-      hardpoints: [
-        HardpointSlot(id: 'broadside_port', name: 'Port Battery', type: HardpointType.broadside),
-        HardpointSlot(id: 'broadside_starboard', name: 'Starboard Battery', type: HardpointType.broadside),
-        HardpointSlot(id: 'auxiliary_deck', name: 'Auxiliary Mount', type: HardpointType.auxiliary),
+      hardpoints: const [
+        HardpointSlot(
+          id: 'broadside_cannon',
+          name: 'Naval Cannon Battery',
+          type: HardpointType.broadside,
+        ),
+        HardpointSlot(
+          id: 'signature_chasers',
+          name: 'Twin Chaser Cannons',
+          type: HardpointType.signature,
+          isSignature: true,
+        ),
+        HardpointSlot(
+          id: 'utility_drill',
+          name: 'Gunnery Drill',
+          type: HardpointType.utility,
+        ),
       ],
-      signatureWeaponId: null,
+      signatureWeaponId: 'twin_chasers',
     ),
 
     // 2. IRONCLAD (Defensive Battering Juggernaut - Tier 1 Unlock)
@@ -140,16 +208,29 @@ class FlagshipBlueprint {
       subtitle: BlueprintLore.ironclad.subtitle,
       description: BlueprintLore.ironclad.description,
       tacticalRole: BlueprintLore.ironclad.tacticalRole,
-      unlockCost: MetaCost(seaGlass: 15, monsterBone: 10),
+      unlockCost: const MetaCost(seaGlass: 15, monsterBone: 10),
       baseHp: 110,
       baseEvasion: 0,
       baseArmorClass: 14,
-      baseCargo: 10,
+      baseCargo: 3,
       baseDamageReduction: 3,
-      hardpoints: [
-        HardpointSlot(id: 'prow_ram', name: 'Reinforced Prow', type: HardpointType.prow, isSignature: true),
-        HardpointSlot(id: 'broadside_battery', name: 'Plated Broadside', type: HardpointType.broadside),
-        HardpointSlot(id: 'auxiliary_deck', name: 'Auxiliary Mount', type: HardpointType.auxiliary),
+      hardpoints: const [
+        HardpointSlot(
+          id: 'broadside_carronades',
+          name: 'Heavy Carronades',
+          type: HardpointType.broadside,
+        ),
+        HardpointSlot(
+          id: 'prow_ram',
+          name: 'Reinforced Prow Ram',
+          type: HardpointType.signature,
+          isSignature: true,
+        ),
+        HardpointSlot(
+          id: 'utility_fortify',
+          name: 'Fortify Iron Plates',
+          type: HardpointType.utility,
+        ),
       ],
       signatureWeaponId: 'prow_ram',
     ),
@@ -161,16 +242,29 @@ class FlagshipBlueprint {
       subtitle: BlueprintLore.clipper.subtitle,
       description: BlueprintLore.clipper.description,
       tacticalRole: BlueprintLore.clipper.tacticalRole,
-      unlockCost: MetaCost(seaGlass: 15, monsterBone: 10),
+      unlockCost: const MetaCost(seaGlass: 15, monsterBone: 10),
       baseHp: 75,
       baseEvasion: 25,
       baseArmorClass: 8,
-      baseCargo: 12,
+      baseCargo: 3,
       baseDamageReduction: 0,
-      hardpoints: [
-        HardpointSlot(id: 'prow_chaser', name: 'Precision Chaser', type: HardpointType.prow, isSignature: true),
-        HardpointSlot(id: 'broadside_swivel', name: 'Swivel Broadside', type: HardpointType.broadside),
-        HardpointSlot(id: 'auxiliary_deck', name: 'Auxiliary Mount', type: HardpointType.auxiliary),
+      hardpoints: const [
+        HardpointSlot(
+          id: 'broadside_swivel',
+          name: 'Long-Barrel Swivel Guns',
+          type: HardpointType.broadside,
+        ),
+        HardpointSlot(
+          id: 'prow_chaser',
+          name: 'Precision Culverin',
+          type: HardpointType.signature,
+          isSignature: true,
+        ),
+        HardpointSlot(
+          id: 'utility_evasive',
+          name: 'Evasive Rigging',
+          type: HardpointType.utility,
+        ),
       ],
       signatureWeaponId: 'precision_culverin',
     ),
@@ -182,16 +276,29 @@ class FlagshipBlueprint {
       subtitle: BlueprintLore.bombardier.subtitle,
       description: BlueprintLore.bombardier.description,
       tacticalRole: BlueprintLore.bombardier.tacticalRole,
-      unlockCost: MetaCost(depthWroughtIron: 8, abyssalBarnacles: 6),
+      unlockCost: const MetaCost(depthWroughtIron: 8, abyssalBarnacles: 6),
       baseHp: 95,
       baseEvasion: 5,
       baseArmorClass: 10,
-      baseCargo: 14,
+      baseCargo: 3,
       baseDamageReduction: 0,
-      hardpoints: [
-        HardpointSlot(id: 'mortar_deck', name: 'Mortar Emplacement', type: HardpointType.mortar, isSignature: true),
-        HardpointSlot(id: 'broadside_port', name: 'Port Broadside', type: HardpointType.broadside),
-        HardpointSlot(id: 'broadside_starboard', name: 'Starboard Broadside', type: HardpointType.broadside),
+      hardpoints: const [
+        HardpointSlot(
+          id: 'broadside_howitzers',
+          name: 'Shrapnel Howitzers',
+          type: HardpointType.broadside,
+        ),
+        HardpointSlot(
+          id: 'mortar_deck',
+          name: 'Heavy Siege Mortar',
+          type: HardpointType.signature,
+          isSignature: true,
+        ),
+        HardpointSlot(
+          id: 'utility_flare',
+          name: 'Phosphor Spotter Flare',
+          type: HardpointType.utility,
+        ),
       ],
       signatureWeaponId: 'heavy_mortar',
     ),
@@ -203,16 +310,29 @@ class FlagshipBlueprint {
       subtitle: BlueprintLore.corsair.subtitle,
       description: BlueprintLore.corsair.description,
       tacticalRole: BlueprintLore.corsair.tacticalRole,
-      unlockCost: MetaCost(depthWroughtIron: 8, abyssalBarnacles: 6),
+      unlockCost: const MetaCost(depthWroughtIron: 8, abyssalBarnacles: 6),
       baseHp: 85,
       baseEvasion: 15,
       baseArmorClass: 10,
-      baseCargo: 25,
+      baseCargo: 4,
       baseDamageReduction: 0,
-      hardpoints: [
-        HardpointSlot(id: 'utility_rig', name: 'Utility Rigging', type: HardpointType.utility, isSignature: true),
-        HardpointSlot(id: 'broadside_deck', name: 'Deck Battery', type: HardpointType.broadside),
-        HardpointSlot(id: 'auxiliary_deck', name: 'Auxiliary Mount', type: HardpointType.auxiliary),
+      hardpoints: const [
+        HardpointSlot(
+          id: 'broadside_chainshot',
+          name: 'Chain-Shot Broadside',
+          type: HardpointType.broadside,
+        ),
+        HardpointSlot(
+          id: 'signature_harpoon',
+          name: 'Harpoon Winch',
+          type: HardpointType.signature,
+          isSignature: true,
+        ),
+        HardpointSlot(
+          id: 'utility_trap',
+          name: 'Drifting Tether-Trap',
+          type: HardpointType.utility,
+        ),
       ],
       signatureWeaponId: 'harpoon_winch',
     ),

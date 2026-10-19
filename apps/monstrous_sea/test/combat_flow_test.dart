@@ -53,10 +53,10 @@ void main() {
     expect(find.byType(BattleScreen), findsOneWidget);
     expect(find.text(controller.ship!.name), findsOneWidget);
     expect(find.text(monsterName), findsOneWidget);
-    expect(find.text('Cannon (2/2)'), findsOneWidget);
+    expect(find.text('Naval Cannon Battery'), findsOneWidget);
 
     // Fire weapon volley
-    await tester.tap(find.text('Cannon (2/2)'));
+    await tester.tap(find.text('Naval Cannon Battery'));
     // Finish the full volley and enemy response before disposing the scene.
     for (var frame = 0; frame < 6; frame++) {
       await tester.pump(const Duration(milliseconds: 500));
@@ -82,7 +82,7 @@ void main() {
     await mountBattle(tester, controller);
 
     // Fire Cannon volley to finish monster
-    await tester.tap(find.text('Cannon (2/2)'));
+    await tester.tap(find.text('Naval Cannon Battery'));
     // Complete the fatal volley and the battle-ending presentation delay.
     for (var frame = 0; frame < 6; frame++) {
       await tester.pump(const Duration(milliseconds: 500));

@@ -224,7 +224,7 @@ abstract final class MonsterIntentLore {
     description:
         'The Kraken raises all colossal limbs forty feet above the waves as a whirlpool forms beneath the ship.',
     tacticalTip:
-        '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Deal heavy damage to break Poise, or disrupt with Mortar/Harpoon/Stun!',
+        '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Disrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Stun!',
     telegraphLog:
         'heaves its titanic bulk skyward—initiating a 2-turn wind-up for Maelstrom Crush!',
   );
@@ -235,7 +235,7 @@ abstract final class MonsterIntentLore {
     description:
         'Towering tentacles descend across the entire sea lane in an inescapable cataclysm of foam and timber.',
     tacticalTip:
-        'HITS ALL RANGES THIS TURN! Break remaining Poise threshold, fire a Mortar/Harpoon to interrupt, or Fortify!',
+        'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or brace for impact!',
     telegraphLog:
         'roars from the abyss—Maelstrom Crush will strike ALL RANGES at the end of this turn!',
   );
@@ -246,7 +246,7 @@ abstract final class MonsterIntentLore {
     description:
         'The World Serpent encircles the entire horizon, spinning the sea into a suffocating, corrosive funnel.',
     tacticalTip:
-        '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Break Poise threshold or interrupt with Mortar/Harpoon/Stun!',
+        '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Stun!',
     telegraphLog:
         'encircles the entire sea lane in mile-long coils—winding up Tidal Coil Maelstrom!',
   );
@@ -257,7 +257,7 @@ abstract final class MonsterIntentLore {
     description:
         'The constricting whirlpool collapses inward, crushing everything on the surface in venomous brine.',
     tacticalTip:
-        'HITS ALL RANGES THIS TURN! Break remaining Poise, interrupt with Mortar/Harpoon, or brace for impact!',
+        'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or brace for impact!',
     telegraphLog:
         'tightens its horizon-spanning coils—Tidal Coil Maelstrom strikes ALL RANGES this turn!',
   );
@@ -268,7 +268,7 @@ abstract final class MonsterIntentLore {
     description:
         'The Ancient Leviathan inhales boiling magma from the trench floor, its dorsal plates glowing white-hot.',
     tacticalTip:
-        '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Break Poise threshold or interrupt with Mortar/Harpoon/Stun!',
+        '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Stun!',
     telegraphLog:
         'parts its volcanic dorsal vents, drawing in trench magma for Caldera Superheat!',
   );
@@ -279,7 +279,7 @@ abstract final class MonsterIntentLore {
     description:
         'Unleashes a horizon-spanning eruption of superheated steam and molten slag across the entire reach.',
     tacticalTip:
-        'HITS ALL RANGES THIS TURN! Break remaining Poise, interrupt with Mortar/Harpoon, or Fortify!',
+        'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Fortify!',
     telegraphLog:
         'glows blinding white—Caldera Superheat will scorch ALL RANGES at the end of this turn!',
   );

@@ -153,9 +153,9 @@ int calculateVictoryGold(int monsterLevel, GameRng rng, {bool isApex = false}) {
   return isApex ? (baseGold * 1.5).round() : baseGold;
 }
 
-/// Generates tactical battle spoils consisting strictly of [Consumable]s (50%)
-/// and [ShipWeapon]s (50%), preventing cargo holds from becoming clogged with junk treasure.
-/// Apex predators drop an additional drop item.
+/// Generates tactical battle spoils consisting strictly of [Consumable]s
+/// for the ship's Tactical Belt (no random weapon drops in Phase 3A).
+/// Apex predators drop an additional consumable item.
 List<Item> generateTacticalVictoryLoot(
   int monsterLevel,
   GameRng rng, [
@@ -172,12 +172,7 @@ List<Item> generateTacticalVictoryLoot(
   for (var i = 0; i < dropCount; i++) {
     final itemLevel =
         calculateLootLevel(isApex ? monsterLevel + 1 : monsterLevel, rng);
-    final isConsumable = rng.nextInt(2) == 0;
-    if (isConsumable) {
-      items.add(randomConsumable(itemLevel, rng));
-    } else {
-      items.add(randomShipWeapon(itemLevel, rng));
-    }
+    items.add(randomConsumable(itemLevel, rng));
   }
 
   items.sort();

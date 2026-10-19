@@ -334,7 +334,7 @@ void main() {
       }
 
       if (encounter.shipClass == ShipClass.freighter) {
-        await tester.tap(find.textContaining('Cannon'));
+        await tester.tap(find.textContaining('Chain-Shot Broadside'));
         final frameCount = isBoss ? 20 : 6;
         for (var frame = 0; frame < frameCount; frame++) {
           await tester.pump(const Duration(milliseconds: 500));

@@ -230,6 +230,8 @@ class NarrationFormatter {
           monsterName: monsterName,
           shipName: shipName,
         ),
+      HardpointTempered(:final slot, :final newMark, :final goldCost) =>
+        'Tempered ${slot.displayName} hardpoint to Mk ${newMark == 2 ? 'II' : 'III'} for ${goldCost}g!',
     };
   }
 }

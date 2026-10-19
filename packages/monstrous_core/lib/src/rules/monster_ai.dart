@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import '../config/balance_config.dart';
+import '../model/attack_result.dart';
 import '../model/combatant.dart';
 import '../model/enums.dart';
 import '../model/monster_intent.dart';
@@ -8,6 +9,86 @@ import '../rng/game_rng.dart';
 import '../session/events.dart';
 import '../traits/trait.dart';
 import 'combat.dart';
+
+/// Detonates an active Corsair Drifting Tether-Trap against [monster],
+/// dealing Slicing damage through [traits] and inflicting **Pinned (`1T`)**.
+List<GameEvent> detonateTetherTrap(
+  ShipState ship,
+  MonsterState monster,
+  GameRng rng,
+  List<CombatTrait> traits, {
+  required String reason,
+}) {
+  if (ship.activeTetherTrapDistance == null || !monster.isAlive) {
+    return const <GameEvent>[];
+  }
+  ship.activeTetherTrapDistance = null;
+  final events = <GameEvent>[];
+
+  final baseDamage = max(1, ship.activeTetherTrapDamage);
+  final result = AttackResult(
+    didHit: true,
+    damage: baseDamage,
+    damageType: DamageType.slicing,
+    shipWeaponType: ShipWeaponType.chainShotBroadside,
+    statusEffect: null,
+    description: '$reason — Drifting Tether-Trap snares ${monster.name}',
+    combatRange: CombatRange.short,
+  );
+
+  final activeTraits = traits.isNotEmpty ? traits : defaultCombatTraits;
+  for (final trait in activeTraits) {
+    trait.onIncomingAttack(monster, ship, result, rng);
+  }
+
+  if (result.carapaceDamaged > 0 || result.wasCarapaceShattered) {
+    events.add(CarapaceDamaged(
+      monsterName: monster.name,
+      damageDealt: result.carapaceDamaged,
+      remainingCarapace: monster.carapacePlating,
+      wasShattered: result.wasCarapaceShattered,
+    ));
+  }
+
+  if (result.carapaceAbsorbed > 0) {
+    events.add(CarapaceAbsorbed(
+      monsterName: monster.name,
+      absorbedAmount: result.carapaceAbsorbed,
+      penetratingDamage: result.damage - result.nullifiedDamage,
+    ));
+  }
+
+  final effectiveDamage =
+      (result.damage - result.nullifiedDamage).clamp(0, monster.currentHp);
+  monster.applyDamage(effectiveDamage);
+  monster.isPinnedThisTurn = true;
+
+  events.add(AttackHit(
+    targetName: monster.name,
+    damage: effectiveDamage,
+    damageType: DamageType.slicing.displayName,
+    remainingHp: monster.currentHp,
+  ));
+
+  if (result.tentaclesSevered > 0) {
+    events.add(TentaclesSevered(
+      countSevered: result.tentaclesSevered,
+      remainingTentacles: monster.numberOfTentacles,
+    ));
+  }
+
+  events.add(NarrationEvent(
+    '$reason — SNARE! Drifting Tether-Trap snares ${monster.name} for $effectiveDamage Slicing damage and inflicts Pinned (1T)!',
+  ));
+
+  if (!monster.isAlive) {
+    events.add(CombatantDefeated(
+      name: monster.name,
+      flavorMessage: '${monster.name} has been defeated!',
+    ));
+  }
+  return events;
+}
 
 /// Selects and telegraphs the next [MonsterIntent] for [monster] based on [currentRange].
 ///
@@ -266,7 +347,19 @@ MonsterIntent selectNextMonsterIntent(
                 '${monster.name} surged closer with ${intent.name} (${prev.displayName} -> ${range.displayName})!',
           ));
         }
-        if (hadHeadOnCollision) {
+        if (ship.activeTetherTrapDistance != null) {
+          ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
+          if (ship.activeTetherTrapDistance! <= 0) {
+            events.addAll(detonateTetherTrap(
+              ship,
+              monster,
+              rng,
+              traits,
+              reason: '${monster.name} surged directly into the floating net',
+            ));
+          }
+        }
+        if (hadHeadOnCollision && monster.isAlive) {
           events.add(HeadOnCollisionOccurred(
             monsterName: monster.name,
             shipName: ship.name,
@@ -275,18 +368,39 @@ MonsterIntent selectNextMonsterIntent(
           ));
         }
       } else if (intent.moveDelta == IntentMoveDelta.ambushToShort) {
-        if (range != CombatRange.short) {
+        while (range != CombatRange.short &&
+            !monster.isPinnedThisTurn &&
+            monster.isAlive) {
           final prev = range;
-          range = CombatRange.short;
+          range = range.closer;
           events.add(CombatRangeChanged(
             previousRange: prev,
             newRange: range,
-            reason:
-                '${monster.name} vanished beneath the abyss and erupted at point-blank range!',
+            reason: range == CombatRange.short
+                ? '${monster.name} vanished beneath the abyss and erupted at point-blank range!'
+                : '${monster.name} surged through the depths (${prev.displayName} -> ${range.displayName})!',
           ));
+          if (ship.activeTetherTrapDistance != null) {
+            ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
+            if (ship.activeTetherTrapDistance! <= 0) {
+              events.addAll(detonateTetherTrap(
+                ship,
+                monster,
+                rng,
+                traits,
+                reason:
+                    '${monster.name}\'s ambush charge snared the floating net at ${range.displayName}',
+              ));
+            }
+          }
         }
       }
     }
+  }
+
+  if (!monster.isAlive) {
+    monster.currentIntent = null;
+    return (range, events);
   }
 
   // 5. Attack Resolution & Positional Evasion Check
@@ -425,19 +539,31 @@ MonsterIntent selectNextMonsterIntent(
   }
 
   // 7. Post-Attack Buffs & Movement (Recoils & Tentacle Snares)
-  if (ship.isAlive) {
+  if (ship.isAlive && monster.isAlive) {
     if (intent.id == MonsterIntentId.serpentVenomSpitRecoil) {
-      monster.evasion = min(80, monster.evasion + 20);
-      events.add(SerpentSlithered(
-        monsterName: monster.name,
-        evasionBonus: 20,
-      ));
+      if (monster.isIlluminatedByFlare) {
+        events.add(NarrationEvent(
+          'Phosphor Spotter Flare illuminates ${monster.name}\'s slithering silhouette, suppressing its evasion!',
+        ));
+      } else {
+        monster.evasion = min(80, monster.evasion + 20);
+        events.add(SerpentSlithered(
+          monsterName: monster.name,
+          evasionBonus: 20,
+        ));
+      }
     } else if (intent.id == MonsterIntentId.squidInkShroudRecoil) {
-      monster.isObscured = true;
-      events.add(InkCloudDeployed(
-        monsterName: monster.name,
-        acBonus: monster.obscuredAcMod,
-      ));
+      if (monster.isIlluminatedByFlare) {
+        events.add(NarrationEvent(
+          'Phosphor Spotter Flare burns straight through ${monster.name}\'s ink cloud!',
+        ));
+      } else {
+        monster.isObscured = true;
+        events.add(InkCloudDeployed(
+          monsterName: monster.name,
+          acBonus: monster.obscuredAcMod,
+        ));
+      }
     }
 
     if (intent.moveTiming == IntentMoveTiming.afterAttack &&
@@ -450,6 +576,9 @@ MonsterIntent selectNextMonsterIntent(
           range != CombatRange.long) {
         final prev = range;
         range = range.farther;
+        if (ship.activeTetherTrapDistance != null) {
+          ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! + 1;
+        }
         events.add(CombatRangeChanged(
           previousRange: prev,
           newRange: range,
@@ -459,14 +588,33 @@ MonsterIntent selectNextMonsterIntent(
       } else if (intent.moveDelta == IntentMoveDelta.pullShipCloser1 &&
           didHitShip &&
           range != CombatRange.short) {
-        final prev = range;
-        range = range.closer;
-        events.add(CombatRangeChanged(
-          previousRange: prev,
-          newRange: range,
-          reason:
-              '${monster.name}\'s barbed tentacles dragged ${ship.name} into ${range.displayName}!',
-        ));
+        if (ship.isAnchoredThisTurn) {
+          events.add(NarrationEvent(
+            '${ship.name}\'s fortified iron anchor holds fast against ${monster.name}\'s tentacle pull!',
+          ));
+        } else {
+          final prev = range;
+          range = range.closer;
+          events.add(CombatRangeChanged(
+            previousRange: prev,
+            newRange: range,
+            reason:
+                '${monster.name}\'s barbed tentacles dragged ${ship.name} into ${range.displayName}!',
+          ));
+          if (ship.activeTetherTrapDistance != null) {
+            ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
+            if (ship.activeTetherTrapDistance! <= 0) {
+              events.addAll(detonateTetherTrap(
+                ship,
+                monster,
+                rng,
+                traits,
+                reason:
+                    '${monster.name} dragged ${ship.name}\'s floating tether-trap into its own mass',
+              ));
+            }
+          }
+        }
       }
     }
   }

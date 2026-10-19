@@ -25,13 +25,21 @@ class SvgAssetView extends StatelessWidget {
     if (item is Consumable) {
       return switch (item.type) {
         ConsumableType.unstableTincture => PilotArt.unstableTincture,
+        ConsumableType.hullPatchKit => PilotArt.unstableTincture,
         ConsumableType.blastPack => PilotArt.blastPack,
+        ConsumableType.krakenInkBomb => PilotArt.blastPack,
+        ConsumableType.alchemicalPitch => PilotArt.blastPack,
         ConsumableType.chakram => PilotArt.chakram,
       };
     }
     if (item is ShipWeapon) {
       return switch (item.weaponType) {
         ShipWeaponType.cannon => PilotArt.cannon,
+        ShipWeaponType.heavyCarronade => PilotArt.cannons,
+        ShipWeaponType.swivelGun => PilotArt.cannon,
+        ShipWeaponType.chainShotBroadside => PilotArt.bladeLauncher,
+        ShipWeaponType.shrapnelHowitzer => PilotArt.cannons,
+        ShipWeaponType.twinChasers => PilotArt.cannon,
         ShipWeaponType.precisionCulverin => PilotArt.cannon,
         ShipWeaponType.heavyMortar => PilotArt.cannons,
         ShipWeaponType.prowRam => PilotArt.anchor,

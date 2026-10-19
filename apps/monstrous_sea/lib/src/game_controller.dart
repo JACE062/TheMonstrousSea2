@@ -432,6 +432,11 @@ class GameController extends ChangeNotifier {
           actor: CombatLogActor.monster,
           isCritical: true,
         ),
+      HardpointTempered() => CombatLogEntry(
+          message: narrationFormatter.format(event),
+          actor: CombatLogActor.ship,
+          isCritical: true,
+        ),
       PhaseChanged() => null,
       AttackAttempted() => null,
     };

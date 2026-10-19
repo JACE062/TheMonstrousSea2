@@ -32,6 +32,8 @@ void main() {
       session.dispatch(const VentureOutToSea());
       session.phase = SessionPhase.battle;
       session.combatRange = CombatRange.medium;
+      session.ship!.baseEvasion = 0;
+      session.ship!.currentEvasion = 0;
     });
 
     test('Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range', () {

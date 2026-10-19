@@ -285,6 +285,18 @@ final class ShipUpgraded extends GameEvent {
   final int goldCost;
 }
 
+/// A specific ship hardpoint was tempered to a higher Mark (`Mk II` or `Mk III`).
+final class HardpointTempered extends GameEvent {
+  const HardpointTempered({
+    required this.slot,
+    required this.newMark,
+    required this.goldCost,
+  });
+  final HardpointType slot;
+  final int newMark;
+  final int goldCost;
+}
+
 /// Captain died, ending the voyage.
 final class CaptainLost extends GameEvent {
   const CaptainLost({

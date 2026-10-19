@@ -54,9 +54,15 @@ class GreedyBot implements BotStrategy {
 
         // Fall back to longer range if critical health (< 20%)
         if (!ship.isGrappled &&
+            session.lastHelmOrderThisTurn == HelmOrder.holdLine &&
             hpRatio < 0.20 &&
             session.combatRange != CombatRange.long) {
           return ChangeCombatRange(session.combatRange.farther);
+        }
+
+        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
+        if (!session.usedQuickConsumableThisTurn && consumableIndex >= 0) {
+          return UseConsumableItem(consumableIndex);
         }
 
         // Fire ready weapons
@@ -70,26 +76,17 @@ class GreedyBot implements BotStrategy {
 
         final outOfRangeReadyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
         if (!ship.isGrappled &&
+            session.lastHelmOrderThisTurn == HelmOrder.holdLine &&
             outOfRangeReadyWeapons.isNotEmpty &&
             session.combatRange != CombatRange.short) {
           return ChangeCombatRange(session.combatRange.closer);
         }
 
-        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
-        if (consumableIndex >= 0) {
-          return UseConsumableItem(consumableIndex);
+        if (ship.isUtilityReady) {
+          return const ExecuteShipSpecialAction();
         }
 
-        final anyUsable = ship.equippedWeaponTypes
-            .where((type) => isWeaponTypeUsableAtRange(type, session.combatRange))
-            .toList();
-        if (anyUsable.isNotEmpty) {
-          return FireWeaponVolley(anyUsable.first);
-        }
-
-        return (!ship.isGrappled && session.combatRange != CombatRange.short)
-            ? ChangeCombatRange(session.combatRange.closer)
-            : const ExecuteShipSpecialAction();
+        return const BraceForImpact();
 
       case SessionPhase.loot:
         if (session.pendingLoot.isNotEmpty) {

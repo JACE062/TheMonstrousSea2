@@ -3,6 +3,7 @@ import 'dart:math';
 import '../model/attack_result.dart';
 import '../model/combatant.dart';
 import '../model/enums.dart';
+import '../model/flagship_blueprint.dart';
 import '../rng/game_rng.dart';
 
 /// Pluggable behavioral trait for combat mechanics and subclass actions.
@@ -26,7 +27,7 @@ abstract class CombatTrait {
       '';
 }
 
-/// Ironclad armor plating: passive flat damage reduction, stackable fortify action.
+/// Ironclad armor plating & Gunnery Drill brace: passive flat damage reduction, stackable fortify action, and 20% drill brace.
 class FortifyTrait extends CombatTrait {
   const FortifyTrait();
 
@@ -38,7 +39,10 @@ class FortifyTrait extends CombatTrait {
     GameRng rng,
   ) {
     if (defender is ShipState && result.didHit && !result.wasEvaded) {
-      final reduction = defender.currentDmgReduction;
+      var reduction = defender.currentDmgReduction;
+      if (defender.isBracedByDrill) {
+        reduction += (result.damage * 0.20).round();
+      }
       if (reduction > 0) {
         final mitigated = reduction.clamp(0, result.damage);
         result.nullifiedDamage = mitigated;
@@ -54,8 +58,11 @@ class FortifyTrait extends CombatTrait {
   ) {
     if (actor is ShipState &&
         (actor.shipClass == ShipClass.ironclad || actor.dmgReductionMod > 0)) {
-      actor.currentDmgReduction += actor.dmgReductionMod;
-      return '${actor.name} bolsters its hull plating, fortifying defenses!';
+      final utilMult = actor.multiplierForHardpointMark(HardpointType.utility);
+      final gain = max(1, (actor.dmgReductionMod * utilMult).round());
+      actor.currentDmgReduction += gain;
+      actor.isAnchoredThisTurn = true;
+      return '${actor.name} bolts down its iron plates (+$gain Damage Reduction) and anchors against monster push/pull!';
     }
     return '';
   }
@@ -291,10 +298,16 @@ class SerpentSlitherTrait extends CombatTrait {
   ) {
     if (defender is MonsterState &&
         result.didHit &&
-        defender.evasion > 0) {
-      final roll = rng.d100();
-      if (roll <= defender.evasion) {
-        result.wasEvaded = true;
+        defender.evasion > 0 &&
+        !defender.isIlluminatedByFlare) {
+      final effectiveEvasion = defender.isPinnedThisTurn
+          ? (defender.evasion ~/ 2)
+          : defender.evasion;
+      if (effectiveEvasion > 0) {
+        final roll = rng.d100();
+        if (roll <= effectiveEvasion) {
+          result.wasEvaded = true;
+        }
       }
     }
   }

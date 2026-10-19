@@ -2,7 +2,6 @@ import 'dart:math';
 
 import '../config/balance_config.dart';
 import '../content/consumables.dart';
-import '../content/ship_weapons.dart';
 import '../content/ships.dart';
 import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
@@ -56,10 +55,16 @@ class GameSession {
   CombatRange combatRange = CombatRange.medium;
   HelmOrder lastHelmOrderThisTurn = HelmOrder.holdLine;
   bool _disruptedBossCatastropheThisTurn = false;
+  bool usedQuickConsumableThisTurn = false;
+  int quickConsumablesUsedThisTurn = 0;
   List<Item> pendingLoot = <Item>[];
   List<Item> merchantStock = <Item>[];
   int? onSaleMerchantIndex;
   int lastGoldSalvaged = 0;
+
+  /// Whether the player can still trigger a 0-turn-cost Quick Action consumable this round.
+  bool get canUseQuickConsumableThisTurn =>
+      phase == SessionPhase.battle && !usedQuickConsumableThisTurn;
 
   bool hasCareenedAtCurrentIsland = false;
   bool hasDrilledAtCurrentIsland = false;
@@ -165,6 +170,7 @@ class GameSession {
       SellAllTreasure() => _handleSellAllTreasure(),
       RepairShip(:final percentage) => _handleRepairShip(percentage),
       UpgradeShip() => _handleUpgradeShip(),
+      TemperHardpoint(:final slot) => _handleTemperHardpoint(slot),
       ContinueLineage(
         :final heirName,
         :final chosenClass,
@@ -217,6 +223,8 @@ class GameSession {
       combatRange = CombatRange.medium;
       lastHelmOrderThisTurn = HelmOrder.holdLine;
       _disruptedBossCatastropheThisTurn = false;
+      usedQuickConsumableThisTurn = false;
+      quickConsumablesUsedThisTurn = 0;
       currentMonster!.currentIntent = selectNextMonsterIntent(
         currentMonster!,
         combatRange,
@@ -251,32 +259,23 @@ class GameSession {
     if (phase != SessionPhase.captainCreation) {
       throw StateError('Cannot choose starting ship in phase $phase');
     }
-    ship = createShip(shipClass, level: 1, rng: rng);
-    if (customName != null && customName.isNotEmpty) {
-      ship!.name = customName;
+    final bpId = BlueprintId.fromShipClass(shipClass);
+    ship = createFlagshipFromBlueprint(
+      bpId,
+      level: 1,
+      rng: rng,
+      name: (customName != null && customName.isNotEmpty) ? customName : null,
+      armamentTier: profile.armamentTierFor(bpId),
+      hasExpandedAuxiliarySlot: profile.hasExpandedAuxiliarySlot,
+      bonusMaxHp: profile.monumentBonusMaxHp,
+    );
+    ship!.shipClass = shipClass;
+    if (shipClass == ShipClass.corvette) {
+      ship!.maxWeaponWeight = 5;
+      ship!.baseEvasion = 10;
+      ship!.currentEvasion = 10;
     }
-    profile.activeBlueprintId = shipClass.blueprintId.name;
-    if (ship!.equippedWeapons.isEmpty) {
-      final w1Type = shipClass == ShipClass.ironclad
-          ? ShipWeaponType.prowRam
-          : ShipWeaponType.cannon;
-      final w1 = generateShipWeapon(
-        w1Type,
-        1,
-        RarityLevel.common,
-        rng,
-      );
-      final w2 = generateShipWeapon(
-        ShipWeaponType.cannon,
-        1,
-        RarityLevel.common,
-        rng,
-      );
-      ship!.addCargo(w1);
-      ship!.addCargo(w2);
-      ship!.equipWeapon(w1);
-      ship!.equipWeapon(w2);
-    }
+    profile.activeBlueprintId = bpId.name;
     ship!.gold = 25;
 
     refreshMerchantStock(1);
@@ -345,7 +344,7 @@ class GameSession {
     newShip.gold = oldGold;
 
     for (final item in oldCargo) {
-      if (item is ShipWeapon && item.isSignature) continue;
+      if (item is ShipWeapon) continue;
       newShip.addCargo(item);
     }
 
@@ -419,19 +418,16 @@ class GameSession {
     }
     profile.unlockAuxiliaryExpansion();
     if (ship != null) {
+      ship!.maxCargo += 1;
       ship!.maxWeaponWeight += 2;
-      ship!.hardpoints.add(
-        const HardpointSlot(
-          id: 'reserve_aux',
-          name: 'Reserve Aux Mount',
-          type: HardpointType.auxiliary,
-        ),
-      );
+      if (ship!.markForHardpoint(HardpointType.broadside) < 2) {
+        temperShipHardpoint(ship!, HardpointType.broadside);
+      }
     }
     return const <GameEvent>[
       AuxiliaryExpansionUnlocked(),
       NarrationEvent(
-        'Flagship deck reinforced! Unlocked Reserve Auxiliary Hardpoint.',
+        'Tactical Belt expanded (+1 Slot) and Broadside pre-tempered to Mk II!',
       ),
     ];
   }
@@ -806,6 +802,8 @@ class GameSession {
     phase = SessionPhase.battle;
     lastHelmOrderThisTurn = HelmOrder.holdLine;
     _disruptedBossCatastropheThisTurn = false;
+    usedQuickConsumableThisTurn = false;
+    quickConsumablesUsedThisTurn = 0;
     currentMonster!.currentIntent = selectNextMonsterIntent(
       currentMonster!,
       combatRange,
@@ -836,7 +834,7 @@ class GameSession {
     return events;
   }
 
-  /// Evaluates player hits against active monster intents for pinning and Boss Poise/Utility disruption.
+  /// Evaluates player hits against active monster intents for pinning and Boss Wind-Up disruption.
   List<GameEvent> _evaluatePlayerHitIntentInteractions({
     required int totalDamageDealt,
     ShipWeaponType? weaponType,
@@ -863,21 +861,13 @@ class GameSession {
         (intent.isBossWindup || intent.isBossCatastropheStrike)) {
       currentMonster!.windupDamageTaken += totalDamageDealt;
 
-      final disruptedByUtility = isPinningOrdnance;
-      final disruptedByPoise = intent.poiseThreshold > 0 &&
-          currentMonster!.windupDamageTaken >= intent.poiseThreshold;
-
-      if (disruptedByUtility || disruptedByPoise) {
+      if (isPinningOrdnance) {
         final reason = switch (weaponType) {
           ShipWeaponType.heavyMortar =>
             'Heavy Mortar concussive blast shattered the titan\'s stance!',
           ShipWeaponType.harpoonWinch =>
             'Harpoon Winch cables wrenched the titan off-balance!',
-          _ => (inflictedStatus == StatusEffect.stun ||
-                  currentMonster!.hasStatus(StatusEffect.stun) ||
-                  consumableType == ConsumableType.blastPack)
-              ? 'Concussive shockwave disrupted the catastrophic charge!'
-              : 'Poise shattered (${currentMonster!.windupDamageTaken}/${intent.poiseThreshold} damage dealt)!',
+          _ => 'Concussive shockwave disrupted the catastrophic charge!',
         };
 
         events.add(MonsterIntentDisrupted(
@@ -924,7 +914,7 @@ class GameSession {
     }
     final events = <GameEvent>[];
 
-    final accuracyBoon = gunneryAccuracyBoon;
+    var accuracyBoon = gunneryAccuracyBoon;
     gunneryAccuracyBoon = 0;
 
     double damageMultiplier = profile.monumentWeaponDamageMultiplier;
@@ -938,6 +928,25 @@ class GameSession {
     }
     if (activeQuirk?.id == BloodlineTraitId.overzealousGunner) {
       damageMultiplier *= 1.15;
+    }
+
+    // Consume Gunnery Drill utility buff (+15% Accuracy, +20% * markMult Damage)
+    if (ship!.gunneryDrillBuffActive) {
+      ship!.gunneryDrillBuffActive = false;
+      final utilMult = ship!.hardpointMarkMultiplier(HardpointType.utility);
+      final drillBonusPct = (20 * utilMult).round();
+      accuracyBoon += 15;
+      damageMultiplier *= (1.0 + 0.20 * utilMult);
+      events.add(NarrationEvent(
+        'Gunnery Drill volley: +15% Accuracy and +$drillBonusPct% Damage!',
+      ));
+    }
+
+    // Consume Alchemical Pitch Flask buff (+25% Fire Damage + Burn on hit)
+    final hadPitchCoating = ship!.pitchCoatingActive;
+    if (hadPitchCoating) {
+      ship!.pitchCoatingActive = false;
+      damageMultiplier *= 1.25;
     }
 
     // Ghostwake Rail-Culverin: ignores monster Obscurity
@@ -971,7 +980,7 @@ class GameSession {
       return events;
     }
 
-    // Evaluate Post-Loop Eldritch Relic Weapon effects on hit
+    // Evaluate Post-Loop Eldritch Relic Weapon & Pitch Coating effects on hit
     final resolvedHits = volleyEvents
         .whereType<AttackHit>()
         .where((e) => e.targetName == currentMonster!.name)
@@ -986,6 +995,13 @@ class GameSession {
             carapaceHits.fold<int>(0, (sum, e) => sum + e.damageDealt);
 
     if (resolvedHits.isNotEmpty || carapaceHits.isNotEmpty) {
+      if (hadPitchCoating && currentMonster!.isAlive) {
+        currentMonster!.addStatus(StatusEffect.burn);
+        events.add(NarrationEvent(
+          'Alchemical Pitch ignites ${currentMonster!.name} in inextinguishable flames (Burn)!',
+        ));
+      }
+
       if (weaponType == ShipWeaponType.prowRam &&
           profile.isEldritchRelicActive(EldritchRelicId.siphonRam)) {
         final totalHullDmg =
@@ -1043,7 +1059,7 @@ class GameSession {
         reason: 'Prow Ram kinetic charge surged into point-blank range!',
       ));
     }
-    // Harpoon Winch reels 1 band closer
+    // Harpoon Winch reels 1 band closer (and pulls monster into Drifting Tether-Trap if active!)
     if (weaponType == ShipWeaponType.harpoonWinch && combatRange != CombatRange.short) {
       final prev = combatRange;
       combatRange = combatRange.closer;
@@ -1052,6 +1068,19 @@ class GameSession {
         newRange: combatRange,
         reason: 'Harpoon Winch tightened cables, reeling the quarry closer!',
       ));
+      if (ship!.activeTetherTrapDistance != null && currentMonster!.isAlive) {
+        ship!.activeTetherTrapDistance = ship!.activeTetherTrapDistance! - 1;
+        if (ship!.activeTetherTrapDistance! <= 0) {
+          events.addAll(detonateTetherTrap(
+            ship!,
+            currentMonster!,
+            rng,
+            traits,
+            reason:
+                'Harpoon Winch dragged ${currentMonster!.name} straight into the floating net',
+          ));
+        }
+      }
     }
 
     // Check if monster defeated
@@ -1061,7 +1090,7 @@ class GameSession {
     }
 
     // Monster response turn
-    events.addAll(_resolveMonsterTurn());
+    events.addAll(_resolveMonsterTurn(firedWeaponType: weaponType));
     return events;
   }
 
@@ -1137,35 +1166,100 @@ class GameSession {
     if (item is! Consumable) {
       throw ArgumentError('Item at index $cargoIndex is not a consumable');
     }
+    final maxQuickItems =
+        activeBoon?.id == BloodlineTraitId.drillmaster ? 2 : 1;
+    if (quickConsumablesUsedThisTurn >= maxQuickItems) {
+      throw StateError(
+          'Already used the maximum Quick Action consumables allowed this round');
+    }
+
+    quickConsumablesUsedThisTurn++;
+    usedQuickConsumableThisTurn = quickConsumablesUsedThisTurn >= maxQuickItems;
 
     final events = <GameEvent>[];
     item.usesLeft--;
-    final result = resolveConsumableEffect(item, rng);
-    if (result.didHit) {
-      if (result.damage > 0) {
-        currentMonster!.applyDamage(result.damage);
-        events.add(AttackHit(
-          targetName: currentMonster!.name,
-          damage: result.damage,
-          damageType: result.damageType.displayName,
-          remainingHp: currentMonster!.currentHp,
-        ));
-      }
-      if (result.statusEffect != null) {
-        currentMonster!.addStatus(result.statusEffect!);
+
+    switch (item.type) {
+      case ConsumableType.hullPatchKit:
+        final healAmt = max(1, (ship!.maxHp * 0.30).round());
+        ship!.heal(healAmt);
         events.add(NarrationEvent(
-          result.description.isNotEmpty
-              ? result.description
-              : '${item.name} inflicts ${result.statusEffect!.displayName}!',
+          'Quick Action (0T): ${item.name} braced hull breaches, restoring $healAmt HP (${ship!.currentHp}/${ship!.maxHp})!',
         ));
-      }
-      events.addAll(_evaluatePlayerHitIntentInteractions(
-        totalDamageDealt: result.damage,
-        consumableType: item.type,
-        inflictedStatus: result.statusEffect,
-      ));
-    } else {
-      events.add(AttackMissed(targetName: currentMonster!.name));
+      case ConsumableType.krakenInkBomb:
+        ship!.currentEvasion = min(95, ship!.currentEvasion + 25);
+        events.add(NarrationEvent(
+          'Quick Action (0T): ${item.name} billows an abyssal smoke screen (+25% Evasion)!',
+        ));
+      case ConsumableType.alchemicalPitch:
+        ship!.pitchCoatingActive = true;
+        events.add(NarrationEvent(
+          'Quick Action (0T): ${item.name} coats the deck guns in incendiary pitch (+25% Fire damage & Burn on next volley)!',
+        ));
+      case ConsumableType.unstableTincture:
+      case ConsumableType.blastPack:
+      case ConsumableType.chakram:
+        final result = resolveConsumableEffect(item, rng);
+        if (result.didHit) {
+          if (result.damage > 0) {
+            if (item.type == ConsumableType.blastPack &&
+                currentMonster!.carapacePlating > 0) {
+              final blastCarapace = result.damage * 2;
+              if (currentMonster!.carapacePlating > blastCarapace) {
+                currentMonster!.carapacePlating -= blastCarapace;
+                events.add(CarapaceDamaged(
+                  monsterName: currentMonster!.name,
+                  damageDealt: blastCarapace,
+                  remainingCarapace: currentMonster!.carapacePlating,
+                  wasShattered: false,
+                ));
+              } else {
+                final broken = currentMonster!.carapacePlating;
+                final overflow =
+                    max(0, result.damage - (broken ~/ 2));
+                currentMonster!.carapacePlating = 0;
+                events.add(CarapaceDamaged(
+                  monsterName: currentMonster!.name,
+                  damageDealt: broken,
+                  remainingCarapace: 0,
+                  wasShattered: true,
+                ));
+                if (overflow > 0) {
+                  currentMonster!.applyDamage(overflow);
+                  events.add(AttackHit(
+                    targetName: currentMonster!.name,
+                    damage: overflow,
+                    damageType: result.damageType.displayName,
+                    remainingHp: currentMonster!.currentHp,
+                  ));
+                }
+              }
+            } else {
+              currentMonster!.applyDamage(result.damage);
+              events.add(AttackHit(
+                targetName: currentMonster!.name,
+                damage: result.damage,
+                damageType: result.damageType.displayName,
+                remainingHp: currentMonster!.currentHp,
+              ));
+            }
+          }
+          if (result.statusEffect != null) {
+            currentMonster!.addStatus(result.statusEffect!);
+            events.add(NarrationEvent(
+              result.description.isNotEmpty
+                  ? result.description
+                  : '${item.name} inflicts ${result.statusEffect!.displayName}!',
+            ));
+          }
+          events.addAll(_evaluatePlayerHitIntentInteractions(
+            totalDamageDealt: result.damage,
+            consumableType: item.type,
+            inflictedStatus: result.statusEffect,
+          ));
+        } else {
+          events.add(AttackMissed(targetName: currentMonster!.name));
+        }
     }
 
     if (item.isDepleted) {
@@ -1178,48 +1272,115 @@ class GameSession {
       return events;
     }
 
-    // Check Drillmaster boon: consumable does NOT consume turn!
     if (activeBoon?.id == BloodlineTraitId.drillmaster) {
       events.add(const NarrationEvent(
         "Drillmaster: Quick hands primed the munition without forfeiting the ship's combat initiative!",
       ));
-      return events;
     }
 
-    // Monster turn
-    events.addAll(_resolveMonsterTurn());
+    // Tactical Belt consumables are 0-Turn-Cost Quick Actions!
     return events;
   }
-
 
   List<GameEvent> _handleShipSpecialAction() {
     if (phase != SessionPhase.battle || ship == null) {
       throw StateError('Cannot use special action outside of battle');
     }
+    if (!ship!.isAlive) {
+      return _resolveMonsterTurn(usedUtility: true);
+    }
+    if (ship!.utilityCooldown > 0) {
+      throw StateError(
+          'Utility hardpoint is on cooldown (${ship!.utilityCooldown}T remaining)');
+    }
     final events = <GameEvent>[];
 
-    // Fortify or Evasive Maneuvers
-    for (final trait in traits) {
-      final msg = trait.executeSpecialAction(ship!, currentMonster!, rng);
-      if (msg.isNotEmpty) {
-        events.add(NarrationEvent(msg));
-        if (trait is EvasionTrait &&
-            combatRange != CombatRange.long &&
-            !ship!.isGrappled) {
+    final bpId = BlueprintId.values.firstWhere(
+      (b) => b.name == ship!.blueprintId,
+      orElse: () => ship!.shipClass.blueprintId,
+    );
+    final utility = bpId.utilityHardpoint;
+    final markMult = ship!.hardpointMarkMultiplier(HardpointType.utility);
+    ship!.utilityCooldown = 2;
+
+    switch (utility) {
+      case UtilityHardpointId.gunneryDrill:
+        ship!.isBracedByDrill = true;
+        ship!.gunneryDrillBuffActive = true;
+        final dmgBonusPct = (20 * markMult).round();
+        events.add(NarrationEvent(
+          'Gunnery Drill: ${ship!.name}\'s crew braces behind the gunwales (-20% incoming damage this round) and sights guns (+15% Accuracy & +$dmgBonusPct% Damage on next volley)!',
+        ));
+      case UtilityHardpointId.fortifyPlates:
+        final msg = const FortifyTrait().executeSpecialAction(
+          ship!,
+          currentMonster!,
+          rng,
+        );
+        if (msg.isNotEmpty) {
+          events.add(NarrationEvent(msg));
+        }
+      case UtilityHardpointId.evasiveRigging:
+        final msg = const EvasionTrait().executeSpecialAction(
+          ship!,
+          currentMonster!,
+          rng,
+        );
+        if (msg.isNotEmpty) {
+          events.add(NarrationEvent(msg));
+        }
+        if (combatRange != CombatRange.long && !ship!.isGrappled) {
           final prev = combatRange;
           combatRange = combatRange.farther;
           events.add(CombatRangeChanged(
             previousRange: prev,
             newRange: combatRange,
-            reason: 'Evasive tacking caught the wind, falling back to open water!',
+            reason:
+                'Evasive Rigging caught the wind, falling back to open water!',
           ));
         }
-        break;
-      }
+      case UtilityHardpointId.driftingTetherTrap:
+        final trapDamage = ((16 + 5 * (ship!.level - 1)) * markMult).round();
+        ship!.activeTetherTrapDamage = trapDamage;
+        switch (combatRange) {
+          case CombatRange.short:
+            ship!.activeTetherTrapDistance = 0;
+            events.addAll(detonateTetherTrap(
+              ship!,
+              currentMonster!,
+              rng,
+              traits,
+              reason:
+                  '${ship!.name} launched a Drifting Tether-Trap at point-blank range',
+            ));
+            if (!currentMonster!.isAlive) {
+              events.addAll(_resolveMonsterDefeat());
+              return events;
+            }
+          case CombatRange.medium:
+            ship!.activeTetherTrapDistance = 1;
+            events.add(NarrationEvent(
+              '${ship!.name} launches a Drifting Tether-Trap into Short Range (Distance to ${currentMonster!.name}: 1 band)!',
+            ));
+          case CombatRange.long:
+            ship!.activeTetherTrapDistance = 2;
+            events.add(NarrationEvent(
+              '${ship!.name} launches a Drifting Tether-Trap into Medium Range (Distance to ${currentMonster!.name}: 2 bands)!',
+            ));
+        }
+      case UtilityHardpointId.spotterFlare:
+        currentMonster!.spotterFlareTurns = 2;
+        currentMonster!.spotterFlareAccuracyBonus = (15 * markMult).round();
+        currentMonster!.spotterFlareBlastBonus = 0.25 * markMult;
+        currentMonster!.isObscured = false;
+        currentMonster!.evasion = 0;
+        events.add(NarrationEvent(
+          '${ship!.name} fires a Phosphor Spotter Flare! ${currentMonster!.name} is illuminated for 2 turns (Obscurity & Evasion suppressed, +${currentMonster!.spotterFlareAccuracyBonus}% Accuracy, +${(currentMonster!.spotterFlareBlastBonus * 100).round()}% Blast damage taken)!',
+        ));
     }
 
     // Monster response turn
-    events.addAll(_resolveMonsterTurn());
+    events.addAll(_resolveMonsterTurn(usedUtility: true));
     return events;
   }
 
@@ -1240,12 +1401,17 @@ class GameSession {
     return events;
   }
 
-  List<GameEvent> _resolveMonsterTurn() {
+  List<GameEvent> _resolveMonsterTurn({
+    ShipWeaponType? firedWeaponType,
+    bool usedUtility = false,
+  }) {
     final events = <GameEvent>[];
 
     // Expire single-round ship debuffs after the player's turn has concluded
     ship!.isGrappled = false;
     ship!.tempAccuracyPenalty = 0;
+    usedQuickConsumableThisTurn = false;
+    quickConsumablesUsedThisTurn = 0;
 
     // Status effect tick on monster
     final monsterStatus = updateStatusEffects(
@@ -1308,6 +1474,14 @@ class GameSession {
 
     _disruptedBossCatastropheThisTurn = false;
     lastHelmOrderThisTurn = HelmOrder.holdLine;
+    ship!.isAnchoredThisTurn = false;
+    ship!.isBracedByDrill = false;
+
+    // Check if monster died from Tether-Trap detonation during its movement
+    if (!currentMonster!.isAlive) {
+      events.addAll(_resolveMonsterDefeat());
+      return events;
+    }
 
     // Check if player died
     if (!ship!.isAlive) {
@@ -1315,8 +1489,16 @@ class GameSession {
       return events;
     }
 
-    // End of round: decrement ship weapon charges
-    ship!.decrementChargeTimeOnWeapons();
+    // End of round: decrement cooldowns on weapons/utility NOT used this turn
+    for (final weapon in ship!.equippedWeapons) {
+      if (weapon.weaponType != firedWeaponType) {
+        weapon.decrementChargeCountdown();
+      }
+    }
+    if (!usedUtility && ship!.utilityCooldown > 0) {
+      ship!.utilityCooldown--;
+    }
+    currentMonster!.tickSpotterFlare();
 
     // Region 3 Hazard: Thermal Caldera Scald every 3 combat rounds (or every 2 rounds for 15 dmg under Volatile Environs)
     final volatileActive =
@@ -1337,6 +1519,29 @@ class GameSession {
     }
 
     battleRound++;
+
+    // Start of new round: Ocean current drifts Corsair Tether-Trap 1 space closer to the monster
+    if (ship!.activeTetherTrapDistance != null && currentMonster!.isAlive) {
+      ship!.activeTetherTrapDistance = ship!.activeTetherTrapDistance! - 1;
+      if (ship!.activeTetherTrapDistance! <= 0) {
+        events.addAll(detonateTetherTrap(
+          ship!,
+          currentMonster!,
+          rng,
+          traits,
+          reason:
+              'Ocean currents drifted the Tether-Trap into ${currentMonster!.name}',
+        ));
+        if (!currentMonster!.isAlive) {
+          events.addAll(_resolveMonsterDefeat());
+          return events;
+        }
+      } else {
+        events.add(NarrationEvent(
+          'Ocean currents drift the Tether-Trap closer to ${currentMonster!.name} (Distance: ${ship!.activeTetherTrapDistance} band)!',
+        ));
+      }
+    }
 
     // Status effect tick on ship
     final shipStatus = updateStatusEffects(
@@ -1845,6 +2050,48 @@ class GameSession {
     ];
   }
 
+  List<GameEvent> _handleTemperHardpoint(HardpointType slot) {
+    if (ship == null) throw StateError('No ship available');
+    if (phase != SessionPhase.port && phase != SessionPhase.respiteIsland) {
+      throw StateError('Can only temper hardpoints at port or respite island');
+    }
+    if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
+      return const <GameEvent>[
+        NarrationEvent('No master armourer dwells on this secluded atoll to temper your hardpoints.'),
+      ];
+    }
+    final canonical = slot.canonical;
+    final currentMark = ship!.markForHardpoint(canonical);
+    if (currentMark >= 3) {
+      return <GameEvent>[
+        NarrationEvent('${canonical.displayName} hardpoint has already reached maximum temper (Mk III)!'),
+      ];
+    }
+    final cost = calculateHardpointTemperCost(currentMark);
+    if (ship!.gold < cost) {
+      return <GameEvent>[
+        NarrationEvent(
+          'Insufficient gold to temper ${canonical.displayName} hardpoint (Requires ${cost}g, have ${ship!.gold}g).',
+        ),
+      ];
+    }
+
+    ship!.gold -= cost;
+    temperShipHardpoint(ship!, canonical);
+    final newMark = ship!.markForHardpoint(canonical);
+
+    return <GameEvent>[
+      HardpointTempered(
+        slot: canonical,
+        newMark: newMark,
+        goldCost: cost,
+      ),
+      NarrationEvent(
+        'Tempered ${canonical.displayName} mount to ${ship!.markLabelForHardpoint(canonical)} (+20% base potency)!',
+      ),
+    ];
+  }
+
   List<GameEvent> _handleCareenHullAtIsland() {
     if (phase != SessionPhase.respiteIsland || ship == null) {
       throw StateError('Cannot careen hull outside of respite island');
@@ -1947,10 +2194,7 @@ class GameSession {
     switch (choice) {
       case ShipwreckChoice.munitions:
         final itemLevel = max(1, seaChart.currentDifficulty);
-        final isConsumable = rng.nextInt(2) == 0;
-        final item = isConsumable
-            ? randomConsumable(itemLevel, rng)
-            : randomShipWeapon(itemLevel, rng);
+        final item = randomConsumable(itemLevel, rng);
         if (ship!.cargo.length < ship!.maxCargo) {
           ship!.addCargo(item);
           events.add(ItemAcquired(item: item));
@@ -2168,7 +2412,7 @@ class GameSession {
         }
         ship!.applyDamage(damage);
         hasCommunedAtCurrentShrine = true;
-        final relic = randomShipWeapon(seaChart.currentDifficulty + 1, rng);
+        final relic = randomConsumable(seaChart.currentDifficulty + 1, rng);
         if (ship!.cargo.length < ship!.maxCargo) {
           ship!.addCargo(relic);
           events.add(ItemAcquired(item: relic));
@@ -2283,28 +2527,33 @@ class GameSession {
     activeQuirk = quirk;
     pendingHeirCandidates = <HeirCandidate>[];
 
-    ship = lineage.createHeirShip(
-      heirName: heirName,
-      chosenClass: chosenClass,
-      previousShip: ship!,
+    final previousShip = ship!;
+    final blueprintId = BlueprintId.fromShipClass(chosenClass);
+    final armamentTier = profile.armamentTierFor(blueprintId);
+    final heirShip = createFlagshipFromBlueprint(
+      blueprintId,
+      level: 1,
       rng: rng,
-    );
-    if (profile.monumentBonusMaxHp > 0) {
-      ship!.maxHp += profile.monumentBonusMaxHp;
-      ship!.currentHp += profile.monumentBonusMaxHp;
-    }
-    if (profile.hasExpandedAuxiliarySlot) {
-      ship!.maxWeaponWeight += 2;
-      if (!ship!.hardpoints.any((h) => h.id == 'reserve_aux')) {
-        ship!.hardpoints.add(
-          const HardpointSlot(
-            id: 'reserve_aux',
-            name: 'Reserve Aux Mount',
-            type: HardpointType.auxiliary,
-          ),
-        );
+      armamentTier: armamentTier,
+      hasExpandedAuxiliarySlot: profile.hasExpandedAuxiliarySlot,
+      bonusMaxHp: profile.monumentBonusMaxHp,
+    )..shipClass = chosenClass;
+
+    if (previousShip.shipClass == ShipClass.freighter ||
+        previousShip.shipClass == ShipClass.corsair) {
+      heirShip.gold = (previousShip.gold * 0.05).toInt();
+      for (final item in previousShip.cargo) {
+        if (heirShip.cargo.length < heirShip.maxCargo) {
+          heirShip.cargo.add(item);
+        } else {
+          break;
+        }
       }
+    } else {
+      heirShip.gold = 25;
+      heirShip.cargo.clear();
     }
+    ship = heirShip;
     monstersDefeatedThisLife = 0;
     highestDifficultyThisLife = 0;
     seaChart.reset(resetMaxRow: true);

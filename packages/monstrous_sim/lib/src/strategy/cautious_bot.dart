@@ -79,9 +79,19 @@ class CautiousBot implements BotStrategy {
 
         // Fall back to longer range if critical health (< 20%) to gain evasion
         if (!ship.isGrappled &&
+            session.lastHelmOrderThisTurn == HelmOrder.holdLine &&
             hpRatio < 0.20 &&
             session.combatRange != CombatRange.long) {
           return ChangeCombatRange(session.combatRange.farther);
+        }
+
+        // Check for quick-action consumable if wounded or available
+        final consumableIndex =
+            ship.cargo.indexWhere((item) => item is Consumable);
+        if (!session.usedQuickConsumableThisTurn &&
+            consumableIndex >= 0 &&
+            hpRatio < 0.80) {
+          return UseConsumableItem(consumableIndex);
         }
 
         // Fire ready weapons
@@ -91,8 +101,9 @@ class CautiousBot implements BotStrategy {
                 isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
             .toList();
         if (readyWeapons.isNotEmpty) {
-          // If haven't fortified yet and under 50% HP, fortify once
+          // If haven't fortified yet and under 50% HP, fortify once if utility is ready
           if (hpRatio < 0.50 &&
+              ship.isUtilityReady &&
               ship.currentDmgReduction == ship.baseDmgReduction &&
               ship.shipClass == ShipClass.ironclad) {
             return const ExecuteShipSpecialAction();
@@ -106,33 +117,17 @@ class CautiousBot implements BotStrategy {
         final outOfRangeReadyWeapons =
             ship.equippedWeapons.where((w) => w.isReady).toList();
         if (!ship.isGrappled &&
+            session.lastHelmOrderThisTurn == HelmOrder.holdLine &&
             outOfRangeReadyWeapons.isNotEmpty &&
             session.combatRange != CombatRange.short) {
           return ChangeCombatRange(session.combatRange.closer);
         }
 
-        // Check for consumable
-        final consumableIndex =
-            ship.cargo.indexWhere((item) => item is Consumable);
-        if (consumableIndex >= 0) {
-          return UseConsumableItem(consumableIndex);
-        }
-
-        if (ship.shipClass == ShipClass.ironclad ||
-            ship.shipClass == ShipClass.corvette) {
+        if (ship.isUtilityReady) {
           return const ExecuteShipSpecialAction();
         }
 
-        final anyUsable = ship.equippedWeaponTypes
-            .where((type) => isWeaponTypeUsableAtRange(type, session.combatRange))
-            .toList();
-        if (anyUsable.isNotEmpty) {
-          return FireWeaponVolley(anyUsable.first);
-        }
-
-        return (!ship.isGrappled && session.combatRange != CombatRange.short)
-            ? ChangeCombatRange(session.combatRange.closer)
-            : const ExecuteShipSpecialAction();
+        return const BraceForImpact();
 
       case SessionPhase.loot:
         if (session.pendingLoot.isNotEmpty) {

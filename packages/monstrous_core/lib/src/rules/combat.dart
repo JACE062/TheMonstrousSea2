@@ -34,7 +34,7 @@ const defaultCombatTraits = <CombatTrait>[
 ///
 /// Tactical Legality Rules:
 /// - Prow Ram: Available at Medium or Short Range. Cannot be initiated from Long Range.
-/// - Heavy Mortar, Culverin, Harpoon Winch, Cannons, Torpedoes, etc. can be launched from all legal ranges.
+/// - Heavy Mortar, Culverin, Harpoon Winch, Broadsides, etc. can be launched from all legal ranges.
 bool isWeaponTypeUsableAtRange(ShipWeaponType type, CombatRange range) {
   if (type == ShipWeaponType.prowRam) {
     return range != CombatRange.long;
@@ -46,13 +46,89 @@ bool isWeaponTypeUsableAtRange(ShipWeaponType type, CombatRange range) {
 bool isWeaponUsableAtRange(ShipWeapon weapon, CombatRange range) =>
     isWeaponTypeUsableAtRange(weapon.weaponType, range);
 
+/// Returns the Phase 3A normalized range effectiveness multiplier for [type] when fired from [range].
+///
+/// Every blueprint offensive hardpoint has a `1.00` (`100%`) anchor range:
+/// - Broadsides (0T CD):
+///   * Naval Cannon Battery (`cannon`): Short `85%`, Med `100%`, Long `65%`
+///   * Heavy Carronades (`heavyCarronade`): Short `100%`, Med `80%`, Long `35%`
+///   * Long-Barrel Swivel Guns (`swivelGun`): Short `75%`, Med `100%`, Long `100%`
+///   * Chain-Shot Broadside (`chainShotBroadside`): Short `100%`, Med `85%`, Long `45%`
+///   * Shrapnel Howitzers (`shrapnelHowitzer`): Short `70%`, Med `100%`, Long `75%`
+/// - Signature Armaments (1T CD):
+///   * Twin Chaser Cannons (`twinChasers`): Short `75%`, Med `100%`, Long `90%`
+///   * Reinforced Prow Ram (`prowRam`): Short `100%`, Med `125%` (kinetic charge into Short), Long `0%`
+///   * Precision Culverin (`precisionCulverin`): Short `40%`, Med `85%`, Long `100%`
+///   * Harpoon Winch (`harpoonWinch`): Short `85%`, Med `100%`, Long `85%`
+///   * Heavy Siege Mortar (`heavyMortar`): Short `70%` (25% self-splash), Med `85%`, Long `100%`
+double weaponRangeDamageMultiplier(ShipWeaponType type, CombatRange range) {
+  return switch (type) {
+    ShipWeaponType.cannon => switch (range) {
+        CombatRange.short => 0.85,
+        CombatRange.medium => 1.00,
+        CombatRange.long => 0.65,
+      },
+    ShipWeaponType.heavyCarronade => switch (range) {
+        CombatRange.short => 1.00,
+        CombatRange.medium => 0.80,
+        CombatRange.long => 0.35,
+      },
+    ShipWeaponType.swivelGun => switch (range) {
+        CombatRange.short => 0.75,
+        CombatRange.medium => 1.00,
+        CombatRange.long => 1.00,
+      },
+    ShipWeaponType.chainShotBroadside => switch (range) {
+        CombatRange.short => 1.00,
+        CombatRange.medium => 0.85,
+        CombatRange.long => 0.45,
+      },
+    ShipWeaponType.shrapnelHowitzer => switch (range) {
+        CombatRange.short => 0.70,
+        CombatRange.medium => 1.00,
+        CombatRange.long => 0.75,
+      },
+    ShipWeaponType.twinChasers => switch (range) {
+        CombatRange.short => 0.75,
+        CombatRange.medium => 1.00,
+        CombatRange.long => 0.90,
+      },
+    ShipWeaponType.prowRam => switch (range) {
+        CombatRange.short => 1.00,
+        CombatRange.medium => 1.25,
+        CombatRange.long => 0.0,
+      },
+    ShipWeaponType.precisionCulverin => switch (range) {
+        CombatRange.short => 0.40,
+        CombatRange.medium => 0.85,
+        CombatRange.long => 1.00,
+      },
+    ShipWeaponType.harpoonWinch => switch (range) {
+        CombatRange.short => 0.85,
+        CombatRange.medium => 1.00,
+        CombatRange.long => 0.85,
+      },
+    ShipWeaponType.heavyMortar => switch (range) {
+        CombatRange.short => 0.70,
+        CombatRange.medium => 0.85,
+        CombatRange.long => 1.00,
+      },
+    ShipWeaponType.torpedoLauncher ||
+    ShipWeaponType.bladeLauncher ||
+    ShipWeaponType.lightningRailgun ||
+    ShipWeaponType.flamethrower =>
+      1.00,
+  };
+}
+
 /// Calculates the percentage hit chance for [attacker] firing [weapon] at [defender].
 ///
 /// Bounded between 25% and 95%:
 /// - Base accuracy from [weapon.baseAccuracy] (or [weapon.hitModifier]).
-/// - Optional [accuracyBonus] (e.g. from island gunnery drills).
+/// - Optional [accuracyBonus] (e.g. from island gunnery drills or Standard Gunnery Drill).
 /// - Long Range penalty (-15% accuracy) for standard broadside naval cannons.
-/// - Obscurity modifier (Ink Cloud) reduces accuracy.
+/// - Obscurity modifier (Ink Cloud) reduces accuracy unless illuminated by a Spotter Flare.
+/// - Spotter Flare grants +15% accuracy against illuminated monsters.
 /// - Heavy Blast ordnance against colossal targets (Kraken, Crustacean) gains a +10% bonus.
 int calculateHitChance(
   Combatant attacker,
@@ -73,7 +149,9 @@ int calculateHitChance(
   }
 
   if (defender is MonsterState) {
-    if (defender.isObscured) {
+    if (defender.isIlluminatedByFlare) {
+      chance += defender.spotterFlareAccuracyBonus;
+    } else if (defender.isObscured) {
       chance -= defender.obscuredAcMod;
     }
     final isMassiveBeast = defender.species == MonsterSpecies.kraken ||
@@ -121,13 +199,35 @@ int calculateHitChance(
     targetAc: hitChance,
   ));
 
-  // Point-blank Mortar Backfire: firing a siege mortar at Short Range risks splashing own hull
+  var effectiveMultiplier = damageMultiplier;
+  if (weapon is ShipWeapon) {
+    effectiveMultiplier *= weaponRangeDamageMultiplier(weapon.weaponType, range);
+    if (weapon.weaponType == ShipWeaponType.chainShotBroadside &&
+        defender is MonsterState &&
+        defender.isPinnedThisTurn) {
+      effectiveMultiplier *= 1.20;
+    }
+  }
+  if (defender is MonsterState &&
+      defender.isIlluminatedByFlare &&
+      weapon.damageType == DamageType.blast) {
+    effectiveMultiplier *= (1.0 + defender.spotterFlareBlastBonus);
+  }
+
+  final baseDamage = (weapon.damage * effectiveMultiplier).round();
+  final impactRange = (weapon is ShipWeapon &&
+          weapon.weaponType == ShipWeaponType.prowRam)
+      ? CombatRange.short
+      : range;
+
+  // Point-blank Mortar Backfire: firing a siege mortar at Short Range deals 70% damage
+  // to the beast, but splashes 25% of the dealt damage back onto the Bombardier's hull.
   if (weapon is ShipWeapon &&
       weapon.weaponType == ShipWeaponType.heavyMortar &&
       range == CombatRange.short &&
       attacker is ShipState &&
       attacker.isAlive) {
-    final backfireDmg = (weapon.damage * 0.20).round();
+    final backfireDmg = (baseDamage * 0.25).round().clamp(1, attacker.maxHp);
     attacker.applyDamage(backfireDmg);
     events.add(MortarBackfireOccurred(
       shipName: attacker.name,
@@ -162,25 +262,6 @@ int calculateHitChance(
   final wasManeuver = defender is ShipState &&
       defender.currentEvasion > defender.baseEvasion;
 
-  var effectiveMultiplier = damageMultiplier;
-  final impactRange = (weapon is ShipWeapon && weapon.weaponType == ShipWeaponType.prowRam)
-      ? CombatRange.short
-      : range;
-
-  if (weapon is ShipWeapon) {
-    if (impactRange == CombatRange.long) {
-      if (weapon.weaponType == ShipWeaponType.precisionCulverin ||
-          weapon.weaponType == ShipWeaponType.heavyMortar) {
-        effectiveMultiplier *= 1.25;
-      }
-    } else if (impactRange == CombatRange.short) {
-      if (weapon.weaponType == ShipWeaponType.prowRam) {
-        effectiveMultiplier *= 1.30;
-      }
-    }
-  }
-
-  final baseDamage = (weapon.damage * effectiveMultiplier).round();
   final result = AttackResult(
     didHit: true,
     damage: baseDamage,
@@ -288,9 +369,14 @@ List<GameEvent> executeShipWeaponVolley(
   }
 
   final events = <GameEvent>[];
-  final readyWeapons = ship.equippedWeapons
+  var readyWeapons = ship.equippedWeapons
       .where((w) => w.weaponType == weaponType && w.chargeCountdown == 0)
       .toList();
+  if (readyWeapons.isEmpty && weaponType == ShipWeaponType.cannon) {
+    readyWeapons = ship.equippedWeapons
+        .where((w) => !w.isSignature && w.chargeCountdown == 0)
+        .toList();
+  }
 
   for (final weapon in readyWeapons) {
     if (!monster.isAlive || !ship.isAlive) break;

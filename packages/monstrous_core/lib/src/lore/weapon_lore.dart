@@ -54,7 +54,47 @@ class WeaponLore {
           'A reliable cast-iron smoothbore cannon firing lead-alloy solid shot.',
       flavorQuote: 'The steady heartbeat of naval warfare. Loud, smoky, and honest.',
       tacticalTip:
-          'Universal workhorse. Suffer -15% accuracy at Long Range; best deployed at Medium or Short.',
+          'Optimal 100% damage at Medium Range (85% Short, 65% Long with -15% Accuracy).',
+    ),
+    ShipWeaponType.heavyCarronade: ShipWeaponLoreEntry(
+      name: 'Heavy Carronade Battery',
+      description:
+          'Short-barreled, large-bore iron smashers engineered to shatter hulls at point-blank range.',
+      flavorQuote: 'At fifty paces, iron plate splinters like driftwood.',
+      tacticalTip:
+          'Optimal 100% damage at Short Range (80% Medium, 35% Long). Pair with Prow Ram charges.',
+    ),
+    ShipWeaponType.swivelGun: ShipWeaponLoreEntry(
+      name: 'Long-Barrel Swivel Battery',
+      description:
+          'Gimbal-mounted long-barrel batteries that maintain pinpoint elevation across heavy swells.',
+      flavorQuote: 'Keep the wind at our quarter and never let the beast within reach.',
+      tacticalTip:
+          'Maintains 100% damage across both Medium and Long Range (75% at Short).',
+    ),
+    ShipWeaponType.chainShotBroadside: ShipWeaponLoreEntry(
+      name: 'Chain-Shot Broadside',
+      description:
+          'Twin iron half-balls linked by tempered chain that whirl through the air to shear flesh and limbs.',
+      flavorQuote: 'Listen to the chains sing before the tentacles fall.',
+      tacticalTip:
+          'Optimal 100% Slicing damage at Short Range (85% Medium, 45% Long). Deals +20% damage against Pinned targets.',
+    ),
+    ShipWeaponType.shrapnelHowitzer: ShipWeaponLoreEntry(
+      name: 'Shrapnel Howitzer Battery',
+      description:
+          'Thick-walled naval howitzers firing fused canisters packed with explosive iron shrapnel.',
+      flavorQuote: 'Set the fuse for mid-water and watch the shell plates crack.',
+      tacticalTip:
+          'Optimal 100% Blast damage at Medium Range (70% Short, 75% Long). Deals 1.5x damage to Carapace.',
+    ),
+    ShipWeaponType.twinChasers: ShipWeaponLoreEntry(
+      name: 'Twin Bow Chasers',
+      description:
+          'Paired long-barreled pursuit guns mounted in the foredeck for disciplined focused volleys.',
+      flavorQuote: 'Two shots straight down the keel line before the smoke clears.',
+      tacticalTip:
+          '1T Cooldown Signature. Optimal 100% damage at Medium Range (75% Short, 90% Long).',
     ),
     ShipWeaponType.prowRam: ShipWeaponLoreEntry(
       name: 'Reinforced Prow Ram',
@@ -62,7 +102,7 @@ class WeaponLore {
           'A massive forged-iron battering beak bolted directly to the ship’s keel.',
       flavorQuote: 'When all powder is spent, the ship itself becomes the cannonball.',
       tacticalTip:
-          'Cannot attack from Long Range. Surges forward on impact, dealing +30% collision damage at Short Range.',
+          '1T Cooldown Signature. Unusable at Long Range. Deals 100% Blast at Short, or 125% Kinetic Charge when lunging from Medium into Short.',
     ),
     ShipWeaponType.precisionCulverin: ShipWeaponLoreEntry(
       name: 'Precision Culverin',
@@ -70,7 +110,7 @@ class WeaponLore {
           'A slender, rifled long gun designed for pinpoint accuracy at extreme range.',
       flavorQuote: 'A needle through sea mist, finding the soft tendon beneath the plate.',
       tacticalTip:
-          'Deals +25% bonus damage at Long Range. Bypasses 50% of monster Carapace plating.',
+          '1T Cooldown Signature. Optimal 100% damage at Long Range (85% Medium, 40% Short). Pierces 50% of Carapace plating.',
     ),
     ShipWeaponType.heavyMortar: ShipWeaponLoreEntry(
       name: 'Heavy Siege Mortar',
@@ -78,7 +118,7 @@ class WeaponLore {
           'A stubby, high-angle naval bombard that lofts explosive hollow shells over waves.',
       flavorQuote: 'A thunderous arc that falls like a dying star.',
       tacticalTip:
-          'Deals +25% damage at Long Range and shatters Carapace (+50%). Beware: point-blank fire at Short Range risks 20% self-splash backfire.',
+          '1T Cooldown Signature. Optimal 100% Blast at Long Range (85% Medium) and 2.0x vs Carapace. Point-blank fire at Short Range deals 70% damage with 25% self-splash!',
     ),
     ShipWeaponType.harpoonWinch: ShipWeaponLoreEntry(
       name: 'Harpoon Winch',
@@ -86,7 +126,7 @@ class WeaponLore {
           'Steam-assisted pneumatic winch launching heavy barbed steel tethers.',
       flavorQuote: 'Drive the barb deep and let the steam engine haul the titan in.',
       tacticalTip:
-          'Fires from Long or Medium Range. Reels the quarry 1 range band closer upon impact and pins monster charges.',
+          '1T Cooldown Signature. Optimal 100% damage at Medium Range (85% Short/Long). Pulls the monster 1 range band closer and inflicts Pinned (1T).',
     ),
     ShipWeaponType.torpedoLauncher: ShipWeaponLoreEntry(
       name: 'Sub-Surface Torpedo Launcher',
@@ -172,6 +212,27 @@ class WeaponLore {
   // --- Combat Consumables ---
 
   static const consumables = <ConsumableType, ConsumableLoreEntry>{
+    ConsumableType.hullPatchKit: ConsumableLoreEntry(
+      name: 'Hull Patch Kit',
+      description:
+          'Pre-fitted oak shoring timbers, tarred oakum, and copper hull plates ready for emergency combat patching.',
+      flavorUse:
+          'Quick Action (0T): Braces breached planking mid-battle, immediately restoring 30% of Max Hull HP.',
+    ),
+    ConsumableType.krakenInkBomb: ConsumableLoreEntry(
+      name: 'Bottled Kraken Ink',
+      description:
+          'A pressurized stoneware jar filled with dense abyssal cephalopod ink and alchemical smoke powder.',
+      flavorUse:
+          'Quick Action (0T): Shrouds the flagship in an opaque mist, granting +25% Evasion for 1 round.',
+    ),
+    ConsumableType.alchemicalPitch: ConsumableLoreEntry(
+      name: 'Alchemical Pitch Flask',
+      description:
+          'Volatile naphtha-distilled sea pitch that ignites upon contact with air and cannon flash.',
+      flavorUse:
+          'Quick Action (0T): Coats your next hardpoint volley this turn with incendiary pitch (+25% Fire damage & inflicts Burn).',
+    ),
     ConsumableType.unstableTincture: ConsumableLoreEntry(
       name: 'Unstable Tincture',
       description:
@@ -180,7 +241,7 @@ class WeaponLore {
           'Shatters against the beast’s flank, releasing unpredictable corrosive fumes (Burn, Poison, or Stun).',
     ),
     ConsumableType.blastPack: ConsumableLoreEntry(
-      name: 'Demolition Blast Pack',
+      name: 'Black-Powder Charge',
       description:
           'A waterproof bundle of black powder and sulfur strapped to an iron grapple hook.',
       flavorUse:

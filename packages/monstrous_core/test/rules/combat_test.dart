@@ -764,7 +764,7 @@ void main() {
       expect(longChance, 65); // 80 - 15 = 65%
     });
 
-    test('Culverins and Mortars gain +25% damage at Long Range', () {
+    test('Culverins and Mortars deal 100% anchor damage at Long Range and 85% at Medium Range', () {
       final ship = createTestShip();
       final monster = createTestMonster(maxHp: 200);
       final culverin = createTestShipWeapon(
@@ -778,9 +778,9 @@ void main() {
         hitModifier: 95,
       );
 
-      final rng = QueueGameRng(d100Rolls: [10, 10]);
+      final rng = QueueGameRng(d100Rolls: [10, 10, 10, 10]);
 
-      final (culverinResult, _) = calculateAttack(
+      final (culverinLong, _) = calculateAttack(
         ship,
         culverin,
         monster,
@@ -790,9 +790,9 @@ void main() {
         1.0,
         CombatRange.long,
       );
-      expect(culverinResult.damage, 50); // 40 * 1.25 = 50
+      expect(culverinLong.damage, 40); // 40 * 1.00 = 40 at Long anchor range
 
-      final (mortarResult, _) = calculateAttack(
+      final (mortarLong, _) = calculateAttack(
         ship,
         mortar,
         monster,
@@ -802,10 +802,22 @@ void main() {
         1.0,
         CombatRange.long,
       );
-      expect(mortarResult.damage, 50); // 40 * 1.25 = 50
+      expect(mortarLong.damage, 40); // 40 * 1.00 = 40 at Long anchor range
+
+      final (mortarMed, _) = calculateAttack(
+        ship,
+        mortar,
+        monster,
+        rng,
+        const [],
+        0,
+        1.0,
+        CombatRange.medium,
+      );
+      expect(mortarMed.damage, 34); // 40 * 0.85 = 34 at Medium range
     });
 
-    test('Prow Ram gains +30% collision damage at Short Range', () {
+    test('Prow Ram deals 100% anchor damage at Short Range and 125% kinetic charge from Medium Range', () {
       final ship = createTestShip();
       final monster = createTestMonster(maxHp: 200);
       final ram = createTestShipWeapon(
@@ -814,8 +826,8 @@ void main() {
         hitModifier: 95,
       );
 
-      final rng = QueueGameRng(d100Rolls: [10]);
-      final (ramResult, _) = calculateAttack(
+      final rng = QueueGameRng(d100Rolls: [10, 10]);
+      final (ramShort, _) = calculateAttack(
         ship,
         ram,
         monster,
@@ -825,10 +837,22 @@ void main() {
         1.0,
         CombatRange.short,
       );
-      expect(ramResult.damage, 65); // 50 * 1.30 = 65
+      expect(ramShort.damage, 50); // 50 * 1.00 = 50 at Short anchor range
+
+      final (ramMedCharge, _) = calculateAttack(
+        ship,
+        ram,
+        monster,
+        rng,
+        const [],
+        0,
+        1.0,
+        CombatRange.medium,
+      );
+      expect(ramMedCharge.damage, 63); // 50 * 1.25 = 62.5 -> 63 kinetic charge from Medium
     });
 
-    test('Point-blank Mortar at Short Range triggers backfire splash to own hull', () {
+    test('Point-blank Mortar at Short Range triggers 25% backfire splash to own hull', () {
       final ship = createTestShip(maxHp: 100);
       final monster = createTestMonster(maxHp: 200);
       final mortar = createTestShipWeapon(
@@ -849,10 +873,11 @@ void main() {
         CombatRange.short,
       );
 
-      expect(ship.currentHp, 92); // 40 * 0.20 = 8 damage splash to own hull
+      // 40 * 0.70 (Short range mult) = 28 base damage; 28 * 0.25 = 7 splash damage to own hull
+      expect(ship.currentHp, 93);
       expect(events.any((e) => e is MortarBackfireOccurred), isTrue);
       final backfireEvent = events.whereType<MortarBackfireOccurred>().first;
-      expect(backfireEvent.damage, 8);
+      expect(backfireEvent.damage, 7);
     });
 
     test('EvasionTrait receives +15% at Long Range and -15% at Short Range', () {

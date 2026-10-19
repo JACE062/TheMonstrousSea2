@@ -43,15 +43,17 @@ class RandomBot implements BotStrategy {
         if (actionRoll < 7 && readyWeapons.isNotEmpty) {
           final chosen = readyWeapons[rng.nextInt(readyWeapons.length)];
           return FireWeaponVolley(chosen.weaponType);
-        } else if (actionRoll == 7) {
+        } else if (actionRoll == 7 && ship.isUtilityReady) {
           return const ExecuteShipSpecialAction();
-        } else if (actionRoll == 8) {
+        } else if (actionRoll == 8 && !session.usedQuickConsumableThisTurn) {
           final consumableIndex =
               ship.cargo.indexWhere((item) => item is Consumable);
           if (consumableIndex >= 0) {
             return UseConsumableItem(consumableIndex);
           }
-        } else if (actionRoll == 9 && !ship.isGrappled) {
+        } else if (actionRoll == 9 &&
+            !ship.isGrappled &&
+            session.lastHelmOrderThisTurn == HelmOrder.holdLine) {
           final legalRanges = switch (session.combatRange) {
             CombatRange.long => const [CombatRange.medium],
             CombatRange.medium => const [CombatRange.short, CombatRange.long],
@@ -63,13 +65,10 @@ class RandomBot implements BotStrategy {
         if (readyWeapons.isNotEmpty) {
           return FireWeaponVolley(readyWeapons.first.weaponType);
         }
-        final anyUsable = ship.equippedWeaponTypes
-            .where((type) => isWeaponTypeUsableAtRange(type, session.combatRange))
-            .toList();
-        if (anyUsable.isNotEmpty) {
-          return FireWeaponVolley(anyUsable.first);
+        if (ship.isUtilityReady) {
+          return const ExecuteShipSpecialAction();
         }
-        return const ExecuteShipSpecialAction();
+        return const BraceForImpact();
 
       case SessionPhase.loot:
         final ship = session.ship;

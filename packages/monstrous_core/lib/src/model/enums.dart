@@ -101,11 +101,71 @@ enum CombatRange {
 }
 
 enum ShipWeaponType {
-  cannon('Cannon', chargeTime: 0, equipWeight: 1),
-  prowRam('Prow Ram', chargeTime: 1, equipWeight: 2, isSignature: true),
-  precisionCulverin('Precision Culverin', chargeTime: 0, equipWeight: 1, isSignature: true),
-  heavyMortar('Heavy Mortar', chargeTime: 2, equipWeight: 3, isSignature: true),
-  harpoonWinch('Harpoon Winch', chargeTime: 1, equipWeight: 2, isSignature: true),
+  // Broadsides (0T Cooldown)
+  cannon('Naval Cannon Battery', chargeTime: 0, equipWeight: 1),
+  heavyCarronade(
+    'Heavy Carronades',
+    chargeTime: 0,
+    equipWeight: 1,
+    isBlueprintIntrinsic: true,
+  ),
+  swivelGun(
+    'Long-Barrel Swivel Guns',
+    chargeTime: 0,
+    equipWeight: 1,
+    isBlueprintIntrinsic: true,
+  ),
+  chainShotBroadside(
+    'Chain-Shot Broadside',
+    chargeTime: 0,
+    equipWeight: 1,
+    isBlueprintIntrinsic: true,
+  ),
+  shrapnelHowitzer(
+    'Shrapnel Howitzers',
+    chargeTime: 0,
+    equipWeight: 1,
+    isBlueprintIntrinsic: true,
+  ),
+
+  // Signature Armaments (1T Cooldown across all blueprints)
+  twinChasers(
+    'Twin Chaser Cannons',
+    chargeTime: 1,
+    equipWeight: 2,
+    isSignature: true,
+    isBlueprintIntrinsic: true,
+  ),
+  prowRam(
+    'Prow Ram',
+    chargeTime: 1,
+    equipWeight: 2,
+    isSignature: true,
+    isBlueprintIntrinsic: true,
+  ),
+  precisionCulverin(
+    'Precision Culverin',
+    chargeTime: 1,
+    equipWeight: 1,
+    isSignature: true,
+    isBlueprintIntrinsic: true,
+  ),
+  heavyMortar(
+    'Heavy Mortar',
+    chargeTime: 1,
+    equipWeight: 3,
+    isSignature: true,
+    isBlueprintIntrinsic: true,
+  ),
+  harpoonWinch(
+    'Harpoon Winch',
+    chargeTime: 1,
+    equipWeight: 2,
+    isSignature: true,
+    isBlueprintIntrinsic: true,
+  ),
+
+  // Legacy Java / Refit Weapons
   torpedoLauncher('Torpedo Launcher', chargeTime: 2, equipWeight: 2),
   bladeLauncher('Blade Launcher', chargeTime: 2, equipWeight: 2),
   lightningRailgun('Lightning Railgun', chargeTime: 2, equipWeight: 3),
@@ -116,12 +176,56 @@ enum ShipWeaponType {
     required this.chargeTime,
     required this.equipWeight,
     this.isSignature = false,
+    this.isBlueprintIntrinsic = false,
   });
 
   final String displayName;
   final int chargeTime;
   final int equipWeight;
   final bool isSignature;
+  final bool isBlueprintIntrinsic;
+
+  @override
+  String toString() => displayName;
+}
+
+/// Blueprint-specific Utility Hardpoint mechanisms (2-turn cooldown).
+enum UtilityHardpointId {
+  gunneryDrill(
+    'Gunnery Drill',
+    'Brace for -20% incoming damage this round and grant +15% Accuracy & +20% Damage to your next volley.',
+    cooldownTurns: 2,
+  ),
+  fortifyPlates(
+    'Fortify Iron Plates',
+    'Bolster hull Damage Reduction for the battle and Anchor the ship for 1 round (immune to monster push/pull).',
+    cooldownTurns: 2,
+  ),
+  evasiveRigging(
+    'Evasive Rigging',
+    'Double ship Evasion until next dodge and immediately shift 1 range band away from the monster.',
+    cooldownTurns: 2,
+  ),
+  driftingTetherTrap(
+    'Drifting Tether-Trap',
+    'Launch a floating razor-net 1 band ahead. Drifts 1 band toward the beast each round and detonates on contact for Slicing damage + Pin (1T).',
+    cooldownTurns: 2,
+  ),
+  spotterFlare(
+    'Phosphor Spotter Flare',
+    'Illuminate the beast for 2 turns: clears Ink/Obscurity, suppresses Evasion, grants +15% Accuracy, and increases Blast damage taken by +25%.',
+    cooldownTurns: 2,
+  );
+
+  const UtilityHardpointId(
+    this.displayName,
+    this.description, {
+    this.cooldownTurns = 2,
+  });
+
+  final String displayName;
+  final String description;
+  final int cooldownTurns;
 
   @override
   String toString() => displayName;
@@ -151,13 +255,28 @@ enum ConsumableType {
   ),
   blastPack(
     'Blast Pack',
-    'A small bundle of explosives designed for breaching armored doors.',
+    'A small bundle of explosives designed for breaching armored shells.',
     DamageType.blast,
   ),
   chakram(
     'Chakram',
     "Very sharp, circular throwing-blade. Won't hurt much, but could sever limbs if thrown right.",
     DamageType.slicing,
+  ),
+  hullPatchKit(
+    'Hull Patch Kit',
+    'Seasoned oak planks and hot pitch that restore 30% of max hull HP as a Quick Action.',
+    DamageType.piercing,
+  ),
+  krakenInkBomb(
+    'Bottled Kraken Ink',
+    'Alchemical smoke bomb that shrouds the ship, granting +25% Evasion for 1 round.',
+    DamageType.venom,
+  ),
+  alchemicalPitch(
+    'Alchemical Pitch Flask',
+    'Coats the next hardpoint volley in volatile naptha (+25% Fire damage and inflicts Burn).',
+    DamageType.fire,
   );
 
   const ConsumableType(this.displayName, this.description, this.damageType);

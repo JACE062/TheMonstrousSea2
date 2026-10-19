@@ -65,6 +65,39 @@ class _BattleScreenState extends State<BattleScreen> {
     });
   }
 
+  String _utilityLabel(ShipState ship) {
+    final slot = ship.hardpoints
+        .where((h) => h.type.canonical == HardpointType.utility)
+        .firstOrNull;
+    if (slot != null) return slot.name;
+    return switch (ship.shipClass) {
+      ShipClass.ironclad => 'Fortify Iron Plates',
+      ShipClass.corvette || ShipClass.clipper => 'Evasive Rigging',
+      ShipClass.corsair || ShipClass.freighter => 'Drifting Tether-Trap',
+      ShipClass.bombardier => 'Phosphor Spotter Flare',
+      ShipClass.standard => 'Gunnery Drill',
+    };
+  }
+
+  String _utilityTooltip(ShipState ship, CombatRange previewRange) {
+    final bpId = BlueprintId.values
+        .where((b) => b.name == ship.blueprintId)
+        .firstOrNull;
+    final mult = ship.multiplierForHardpointMark(HardpointType.utility);
+    return switch (bpId) {
+      BlueprintId.ironclad =>
+        'Fortify Iron Plates (2T CD): Permanently adds +${(ship.dmgReductionMod * mult).round()} Damage Reduction for this battle and anchors your hull against forced push/pull this round.',
+      BlueprintId.clipper =>
+        'Evasive Rigging (2T CD): Doubles current Evasion until next dodge and shifts 1 range band away from the monster.',
+      BlueprintId.corsair =>
+        'Drifting Tether-Trap (2T CD): Launches a floating tether-mine 1 band ahead (${previewRange == CombatRange.short ? 'Instant detonation at Short!' : previewRange == CombatRange.medium ? 'Sets at distance 1' : 'Sets at distance 2'}). Detonates for ${(16 + 5 * (ship.level - 1) * mult).round()} Slicing damage and Pins the beast (1T).',
+      BlueprintId.bombardier =>
+        'Phosphor Spotter Flare (2T CD): Illuminates the monster for 2 turns — clears Obscured, suppresses monster Evasion to 0%, grants +15% Accuracy, and increases Blast damage taken by +25%.',
+      _ =>
+        'Gunnery Drill (2T CD): Reduces incoming damage by ${(20 * mult).round()}% this round and empowers your next offensive volley with +15% Accuracy and +${(20 * mult).round()}% Damage.',
+    };
+  }
+
   void _dispatchCombatAction(Command command) {
     if (_isActionLocked) return;
 
@@ -72,13 +105,14 @@ class _BattleScreenState extends State<BattleScreen> {
       _isActionLocked = true;
     });
 
-    final isCombatAction = command is FireWeaponVolley ||
+    final isTurnEndingAction = command is FireWeaponVolley ||
         command is ExecuteShipSpecialAction ||
-        command is UseConsumableItem;
+        command is BraceForImpact;
+    final isCombatAction = isTurnEndingAction || command is UseConsumableItem;
 
     final events = <GameEvent>[];
 
-    // If an advance or fall back order was selected, execute helm order first
+    // If an advance or fall back order was selected, execute helm order before turn-ending actions
     final currentRange = widget.controller.combatRange;
     final isGrappled = widget.controller.ship?.isGrappled ?? false;
     final activeOrder = (!isGrappled &&
@@ -86,7 +120,7 @@ class _BattleScreenState extends State<BattleScreen> {
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
 
-    if (activeOrder != HelmOrder.holdLine && isCombatAction) {
+    if (activeOrder != HelmOrder.holdLine && isTurnEndingAction) {
       events.addAll(widget.controller.dispatch(
         IssueHelmOrder(activeOrder),
         deferNotification: true,
@@ -98,8 +132,10 @@ class _BattleScreenState extends State<BattleScreen> {
       deferNotification: isCombatAction,
     ));
 
-    // Reset selected helm order to holdLine for subsequent round
-    _selectedHelmOrder = HelmOrder.holdLine;
+    if (isTurnEndingAction) {
+      // Reset selected helm order to holdLine for subsequent round
+      _selectedHelmOrder = HelmOrder.holdLine;
+    }
 
     _scrollToBottom();
 
@@ -146,6 +182,11 @@ class _BattleScreenState extends State<BattleScreen> {
       return ready && usable;
     });
 
+    final maxQuickBeltUses =
+        widget.controller.activeBoon?.id == BloodlineTraitId.drillmaster ? 2 : 1;
+    final quickUsed = widget.controller.session.quickConsumablesUsedThisTurn;
+    final canUseQuickBelt = quickUsed < maxQuickBeltUses;
+
     return ParchmentScaffold(
       showBorder: false,
       body: Stack(
@@ -179,8 +220,11 @@ class _BattleScreenState extends State<BattleScreen> {
                         Text(ship.name, style: InkTheme.titleMedium.copyWith(fontSize: 20)),
                         Text(
                           'Level ${ship.level} ${ship.shipClass.name.toUpperCase()}'
-                          '${ship.shipClass == ShipClass.ironclad ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
-                          '${ship.shipClass == ShipClass.corvette ? ' • Evade: ${ship.currentEvasion}%' : ''}',
+                          '${ship.currentDmgReduction > 0 ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
+                          '${ship.currentEvasion > 0 ? ' • Evade: ${ship.currentEvasion}%' : ''}'
+                          '${ship.isAnchoredThisTurn ? ' • ⚓ Anchored' : ''}'
+                          '${ship.gunneryDrillBuffActive ? ' • 🎯 Drill Ready (+15% Hit/+20% Dmg)' : ''}'
+                          '${ship.pitchCoatingActive ? ' • 🔥 Pitch Coated (+25% Fire/Burn)' : ''}',
                           style: InkTheme.caption,
                         ),
                         const SizedBox(height: 8),
@@ -263,7 +307,10 @@ class _BattleScreenState extends State<BattleScreen> {
                           'Danger Level ${monster.level}'
                           '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
                           '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
-                          '${monster.evasion > 0 ? ' • Evade: ${monster.evasion}%' : ''}',
+                          '${monster.evasion > 0 && monster.spotterFlareTurns <= 0 ? ' • Evade: ${monster.evasion}%' : ''}'
+                          '${monster.isPinnedThisTurn ? ' • ⛓️ Pinned' : ''}'
+                          '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'
+                          '${ship.activeTetherTrapDistance != null ? ' • 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}' : ''}',
                           style: InkTheme.caption,
                         ),
                         const SizedBox(height: 8),
@@ -332,7 +379,7 @@ class _BattleScreenState extends State<BattleScreen> {
                                   ),
                                   const SizedBox(height: 2),
                                   Text(
-                                    'Deflects standard shots. Shatter with Blast/Torpedoes!',
+                                    'Deflects standard shots. Shatter with Blast/Culverin!',
                                     style: InkTheme.caption.copyWith(
                                       fontSize: 10.5,
                                       fontStyle: FontStyle.italic,
@@ -428,33 +475,42 @@ class _BattleScreenState extends State<BattleScreen> {
                     monster,
                   ),
 
-                  // Weapon Volleys with Tactical Range Badges inside InkButton
+                  // Primary 3-Hardpoint Action Row (1. Broadside, 2. Signature, 3. Utility)
                   Row(
                     children: [
                       ...ship.equippedWeaponTypes.map((type) {
                         final weaponsOfType = ship.equippedWeapons.where((w) => w.weaponType == type).toList();
                         final readyCount = weaponsOfType.where((w) => w.isReady).length;
                         final isReady = readyCount > 0;
+                        final maxCd = weaponsOfType.fold<int>(0, (prev, w) => w.chargeCountdown > prev ? w.chargeCountdown : prev);
                         final isUsableAtRange = isWeaponTypeUsableAtRange(type, previewRange);
                         final canFire = isReady && isUsableAtRange && !_isActionLocked;
                         final badgeInfo = _getTacticalWeaponBadge(type, previewRange);
 
+                        final labelText = weaponsOfType.length == 1
+                            ? (isReady
+                                ? type.displayName
+                                : '${type.displayName} (${maxCd}T CD)')
+                            : '${type.displayName} ($readyCount/${weaponsOfType.length})';
+
                         return Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 3.0),
                             child: Tooltip(
                               message: badgeInfo?.tip ?? '',
                               child: InkButton(
-                                label: '${type.displayName} ($readyCount/${weaponsOfType.length})',
-                                subtitle: badgeInfo?.badge,
-                                subtitleColor: badgeInfo?.isWarning == true
+                                label: labelText,
+                                subtitle: isReady
+                                    ? badgeInfo?.badge
+                                    : 'RELOADING (${maxCd}T)',
+                                subtitleColor: !isReady || badgeInfo?.isWarning == true
                                     ? InkTheme.crimsonAccent
                                     : InkTheme.goldAccent,
                                 semanticLabel: !isUsableAtRange
                                     ? '${type.displayName} volley out of range at ${previewRange.displayName}. Advance to strike!'
                                     : isReady
-                                        ? 'Fire ${type.displayName} volley at ${previewRange.displayName}. $readyCount of ${weaponsOfType.length} cannons ready.${badgeInfo != null ? ' ${badgeInfo.badge}.' : ''}'
-                                        : '${type.displayName} volley reloading. 0 of ${weaponsOfType.length} cannons ready.',
+                                        ? 'Fire ${type.displayName} volley at ${previewRange.displayName}. $readyCount of ${weaponsOfType.length} ready.${badgeInfo != null ? ' ${badgeInfo.badge}.' : ''}'
+                                        : '${type.displayName} volley reloading ($maxCd turns remaining).',
                                 isPrimary: canFire,
                                 onPressed: canFire
                                     ? () => _dispatchCombatAction(FireWeaponVolley(type))
@@ -464,38 +520,58 @@ class _BattleScreenState extends State<BattleScreen> {
                           ),
                         );
                       }),
+                      // 3. Utility Hardpoint Button (2T Cooldown across all ships)
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                          child: Builder(
+                            builder: (context) {
+                              final utilName = _utilityLabel(ship);
+                              final utilMark = ship.markLabelForHardpoint(HardpointType.utility);
+                              final utilReady = ship.isUtilityReady;
+                              final canUseUtil = utilReady && !_isActionLocked;
+                              final utilSubtitle = utilReady
+                                  ? 'UTILITY ($utilMark • 2T CD)'
+                                  : 'COOLDOWN (${ship.utilityCooldown}T)';
+
+                              return Tooltip(
+                                message: _utilityTooltip(ship, previewRange),
+                                child: InkButton(
+                                  label: utilName,
+                                  subtitle: utilSubtitle,
+                                  subtitleColor: utilReady
+                                      ? InkTheme.goldAccent
+                                      : InkTheme.crimsonAccent,
+                                  semanticLabel: utilReady
+                                      ? 'Activate $utilName utility hardpoint ($utilMark)'
+                                      : '$utilName utility hardpoint cooling down (${ship.utilityCooldown} turns remaining)',
+                                  isPrimary: false,
+                                  onPressed: canUseUtil
+                                      ? () => _dispatchCombatAction(
+                                            const ExecuteShipSpecialAction(),
+                                          )
+                                      : null,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 6),
 
-                  // Special Action, Brace for Impact, Consumables & Combat Log
+                  // Secondary Row: Tactical Consumable Belt (0T Quick Actions), Brace for Impact & Log Controls
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: Wrap(
-                          spacing: 8,
+                          spacing: 6,
                           runSpacing: 4,
+                          crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
-                            // Special Action button if Ironclad or Corvette
-                            if (ship.shipClass == ShipClass.ironclad)
-                              InkButton(
-                                label: 'Fortify Plating',
-                                semanticLabel: 'Activate Fortify Plating special action',
-                                onPressed: !_isActionLocked
-                                    ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
-                                    : null,
-                              )
-                            else if (ship.shipClass == ShipClass.corvette)
-                              InkButton(
-                                label: 'Evasive Maneuver',
-                                semanticLabel: 'Activate Evasive Maneuver special action',
-                                onPressed: !_isActionLocked
-                                    ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
-                                    : null,
-                              ),
-
-                            // Universal Brace for Impact / Pass Turn (solves all-weapons-cooldown soft-lock)
+                            // Universal Brace for Impact / Pass Turn
                             InkButton(
                               label: canFireAnyWeapon ? 'Brace for Impact' : 'BRACE & RELOAD',
                               isPrimary: !canFireAnyWeapon,
@@ -507,20 +583,29 @@ class _BattleScreenState extends State<BattleScreen> {
                                   : null,
                             ),
 
-                            // Quick Consumable Use
-                            if (ship.cargo.any((item) => item is Consumable))
-                              InkButton(
-                                label: 'Use Consumable',
-                                semanticLabel: 'Use first ready consumable from cargo',
-                                onPressed: !_isActionLocked
-                                    ? () {
-                                        final idx = ship.cargo.indexWhere((item) => item is Consumable);
-                                        if (idx >= 0) {
-                                          _dispatchCombatAction(UseConsumableItem(idx));
-                                        }
-                                      }
-                                    : null,
-                              ),
+                            // Tactical Belt Consumables (0T Quick Action)
+                            for (var i = 0; i < ship.cargo.length; i++)
+                              if (ship.cargo[i] is Consumable)
+                                Builder(
+                                  builder: (context) {
+                                    final cons = ship.cargo[i] as Consumable;
+                                    final canTrigger = !_isActionLocked && canUseQuickBelt;
+                                    return Tooltip(
+                                      message: canUseQuickBelt
+                                          ? 'Quick Action (0T — does not end turn): Trigger ${cons.name} (${cons.usesLeft}/${cons.maxUses} uses left).'
+                                          : 'Quick-action belt limit reached this round ($quickUsed/$maxQuickBeltUses used).',
+                                      child: InkButton(
+                                        label: '⚡ ${cons.name} (${cons.usesLeft})',
+                                        semanticLabel: canUseQuickBelt
+                                            ? 'Quick Action: Use ${cons.name} (${cons.usesLeft} uses left, 0 turn cost)'
+                                            : 'Cannot use ${cons.name}, quick action belt already used this round',
+                                        onPressed: canTrigger
+                                            ? () => _dispatchCombatAction(UseConsumableItem(i))
+                                            : null,
+                                      ),
+                                    );
+                                  },
+                                ),
                           ],
                         ),
                       ),
@@ -785,24 +870,6 @@ class _BattleScreenState extends State<BattleScreen> {
                       ),
                     ),
                   ),
-                if (intent.poiseThreshold > 0)
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
-                    decoration: BoxDecoration(
-                      color: InkTheme.goldAccent.withValues(alpha: 0.2),
-                      borderRadius: BorderRadius.circular(2),
-                      border: Border.all(color: InkTheme.goldAccent, width: 0.9),
-                    ),
-                    child: Text(
-                      'POISE: ${monster.windupDamageTaken}/${intent.poiseThreshold}',
-                      style: InkTheme.caption.copyWith(
-                        fontSize: 9.0,
-                        fontWeight: FontWeight.bold,
-                        color: InkTheme.inkPrimary,
-                      ),
-                    ),
-                  ),
               ],
             ),
             Container(
@@ -985,6 +1052,7 @@ class _BattleScreenState extends State<BattleScreen> {
     ShipWeaponType type,
     CombatRange targetRange,
   ) {
+    final pct = (weaponRangeDamageMultiplier(type, targetRange) * 100).round();
     switch (type) {
       case ShipWeaponType.prowRam:
         if (targetRange == CombatRange.long) {
@@ -993,66 +1061,111 @@ class _BattleScreenState extends State<BattleScreen> {
             tip: 'Cannot fire Prow Ram from Long Range. Advance to engage!',
             isWarning: true,
           );
+        } else if (targetRange == CombatRange.medium) {
+          return const _TacticalBadgeInfo(
+            badge: '⚡ 125% CHARGE',
+            tip: 'Kinetic ram charge from Medium to Short Range (+25% bonus kinetic damage, 1.5x vs Carapace).',
+          );
         }
         return const _TacticalBadgeInfo(
-          badge: '⚡ +30% COLLISION',
-          tip: 'Surges forward to Short Range on impact with +30% collision damage bonus.',
+          badge: '100% RAM IMPACT',
+          tip: 'Point-blank Prow Ram strike (100% damage, 1.5x vs Carapace).',
         );
       case ShipWeaponType.heavyMortar:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '⚡ +25% HIGH ARC',
-            tip: 'Heavy Mortar deals +25% bonus damage at Long Range and shatters Carapace plating.',
+            badge: '🎯 100% HIGH ARC',
+            tip: 'Heavy Siege Mortar optimal Long Range (100% damage, 2.0x vs Carapace).',
           );
         } else if (targetRange == CombatRange.short) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ 20% BACKFIRE',
-            tip: 'Point-blank mortar fire at Short Range risks 20% self-splash damage to own ship hull!',
+            badge: '⚠️ 70% • 25% SPLASH',
+            tip: 'Point-blank mortar fire at Short Range deals 70% damage and splashes 25% backfire onto your hull!',
             isWarning: true,
           );
         }
-        return const _TacticalBadgeInfo(
-          badge: 'CARAPACE BREAKER',
-          tip: 'Deals blast damage that shatters monster Carapace plating.',
+        return _TacticalBadgeInfo(
+          badge: '$pct% CARAPACE BREAKER',
+          tip: 'Heavy Siege Mortar at Medium Range (85% damage, 2.0x vs Carapace).',
         );
       case ShipWeaponType.precisionCulverin:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '⚡ +25% SNIPER',
-            tip: 'Precision Culverin deals +25% bonus damage at Long Range and pierces 50% Carapace.',
+            badge: '🎯 100% SNIPER',
+            tip: 'Precision Culverin optimal Long Range (100% damage, pierces 50% Carapace).',
+          );
+        } else if (targetRange == CombatRange.short) {
+          return const _TacticalBadgeInfo(
+            badge: '⚠️ 40% CRAMPED',
+            tip: 'Long-barrel culverin suffers severe damage falloff (40%) at Short Range.',
+            isWarning: true,
           );
         }
-        return const _TacticalBadgeInfo(
-          badge: 'ARMOR PIERCER',
-          tip: 'Ignores 50% of monster Carapace plating.',
+        return _TacticalBadgeInfo(
+          badge: '$pct% ARMOR PIERCER',
+          tip: 'Precision Culverin at Medium Range (85% damage, pierces 50% Carapace).',
+        );
+      case ShipWeaponType.twinChasers:
+        return _TacticalBadgeInfo(
+          badge: pct == 100 ? '🎯 100% OPTIMAL' : '$pct% DMG',
+          tip: 'Twin Chaser Cannons ($pct% damage at ${targetRange.displayName}).',
         );
       case ShipWeaponType.cannon:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ -15% ACCURACY',
-            tip: 'Standard broadside cannons suffer -15% accuracy penalty at Long Range.',
+            badge: '⚠️ 65% • -15% HIT',
+            tip: 'Standard broadside cannons deal 65% damage and suffer -15% accuracy at Long Range.',
             isWarning: true,
           );
-        } else if (targetRange == CombatRange.short) {
+        }
+        return _TacticalBadgeInfo(
+          badge: pct == 100 ? '🎯 100% OPTIMAL' : '$pct% POINT BLANK',
+          tip: 'Naval Cannon Battery ($pct% damage at ${targetRange.displayName}).',
+        );
+      case ShipWeaponType.heavyCarronade:
+        if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: 'POINT BLANK',
-            tip: 'Point-blank naval broadside with full accuracy.',
+            badge: '⚠️ 35% FALLOFF',
+            tip: 'Short-barrel Heavy Carronades deal only 35% damage at Long Range.',
+            isWarning: true,
           );
         }
-        return const _TacticalBadgeInfo(
-          badge: 'OPTIMUM RANGE',
-          tip: 'Standard naval broadside at Medium Range.',
+        return _TacticalBadgeInfo(
+          badge: pct == 100 ? '🎯 100% BRAWLER' : '$pct% DMG',
+          tip: 'Heavy Carronades ($pct% damage at ${targetRange.displayName}).',
+        );
+      case ShipWeaponType.swivelGun:
+        return _TacticalBadgeInfo(
+          badge: pct == 100 ? '🎯 100% SKIRMISH' : '$pct% DMG',
+          tip: 'Long-Barrel Swivel Guns ($pct% damage at ${targetRange.displayName}).',
+        );
+      case ShipWeaponType.chainShotBroadside:
+        if (targetRange == CombatRange.long) {
+          return const _TacticalBadgeInfo(
+            badge: '⚠️ 45% FALLOFF',
+            tip: 'Chain-Shot Broadside deals 45% damage at Long Range (+20% vs Pinned targets).',
+            isWarning: true,
+          );
+        }
+        return _TacticalBadgeInfo(
+          badge: pct == 100 ? '🎯 100% (+20% VS PIN)' : '$pct% (+20% VS PIN)',
+          tip: 'Chain-Shot Broadside ($pct% Slicing damage at ${targetRange.displayName}, +20% vs Pinned).',
+        );
+      case ShipWeaponType.shrapnelHowitzer:
+        return _TacticalBadgeInfo(
+          badge: pct == 100 ? '🎯 100% BLAST' : '$pct% BLAST',
+          tip: 'Shrapnel Howitzers ($pct% Blast damage at ${targetRange.displayName}, 1.5x vs Carapace).',
         );
       case ShipWeaponType.harpoonWinch:
         if (targetRange != CombatRange.short) {
-          return const _TacticalBadgeInfo(
-            badge: '⚓ PULLS QUARRY',
-            tip: 'Striking with Harpoon Winch reels the monster 1 range band closer.',
+          return _TacticalBadgeInfo(
+            badge: '⚓ $pct% • PULLS & PINS',
+            tip: 'Harpoon Winch deals $pct% damage, reels the monster 1 range band closer, and Pins it (1T).',
           );
         }
-        return const _TacticalBadgeInfo(
-          badge: 'PINS BEAST',
-          tip: 'Tethers and pins quarry at point-blank range.',
+        return _TacticalBadgeInfo(
+          badge: '⛓️ $pct% • PINS BEAST',
+          tip: 'Harpoon Winch deals $pct% damage and Pins the monster at Short Range (1T).',
         );
       case ShipWeaponType.torpedoLauncher:
         return const _TacticalBadgeInfo(

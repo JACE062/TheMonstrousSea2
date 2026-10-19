@@ -1,19 +1,16 @@
 import 'dart:math';
 
 import '../content/consumables.dart';
-import '../content/ship_weapons.dart';
 import '../model/combatant.dart';
 import '../model/item.dart';
 import '../rng/game_rng.dart';
 
-/// Generates 3-5 non-treasure items for the merchant's inventory.
+/// Generates 3-5 Tactical Belt [Consumable] items for the merchant's inventory.
 ///
 /// Each item has:
 /// - 50% chance to be at [highestDifficultyReached]
 /// - 25% chance to be at `highestDifficultyReached + 1`
 /// - 25% chance to be at `max(1, highestDifficultyReached - 1)`
-///
-/// Categories are strictly consumables or ship weapons (50% split).
 List<Item> generateMerchantStock(
   int highestDifficultyReached,
   GameRng rng,
@@ -32,10 +29,7 @@ List<Item> generateMerchantStock(
       itemLevel = max(1, highestDifficultyReached - 1);
     }
 
-    final isConsumable = rng.nextInt(2) == 0;
-    final item = isConsumable
-        ? randomConsumable(itemLevel, rng)
-        : randomShipWeapon(itemLevel, rng);
+    final item = randomConsumable(itemLevel, rng);
     stock.add(item);
   }
 

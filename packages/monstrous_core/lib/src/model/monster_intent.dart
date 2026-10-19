@@ -238,7 +238,7 @@ class MonsterIntent {
         projectedEndOfRoundRange: postHelmRange,
         estimatedDamage: 0,
         summaryBadge:
-            '⚡ WIND-UP (1/2): No strike this turn! Break Poise ($poiseThreshold dmg) or prepare!',
+            '⚡ WIND-UP (1/2): No strike this turn! Disrupt with Mortar, Harpoon, Blast Pack, or Stun!',
       );
     }
 

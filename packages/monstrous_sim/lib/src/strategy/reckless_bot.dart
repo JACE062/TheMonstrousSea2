@@ -45,6 +45,11 @@ class RecklessBot implements BotStrategy {
 
       case SessionPhase.battle:
         final ship = session.ship!;
+        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
+        if (!session.usedQuickConsumableThisTurn && consumableIndex >= 0) {
+          return UseConsumableItem(consumableIndex);
+        }
+
         final readyWeapons = ship.equippedWeapons
             .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
             .toList();
@@ -56,30 +61,17 @@ class RecklessBot implements BotStrategy {
 
         final outOfRangeReadyWeapons = ship.equippedWeapons.where((w) => w.isReady).toList();
         if (!ship.isGrappled &&
+            session.lastHelmOrderThisTurn == HelmOrder.holdLine &&
             outOfRangeReadyWeapons.isNotEmpty &&
             session.combatRange != CombatRange.short) {
           return ChangeCombatRange(session.combatRange.closer);
         }
 
-        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
-        if (consumableIndex >= 0) {
-          return UseConsumableItem(consumableIndex);
-        }
-
-        if (ship.shipClass == ShipClass.ironclad || ship.shipClass == ShipClass.corvette) {
+        if (ship.isUtilityReady) {
           return const ExecuteShipSpecialAction();
         }
 
-        final anyUsable = ship.equippedWeaponTypes
-            .where((type) => isWeaponTypeUsableAtRange(type, session.combatRange))
-            .toList();
-        if (anyUsable.isNotEmpty) {
-          return FireWeaponVolley(anyUsable.first);
-        }
-
-        return (!ship.isGrappled && session.combatRange != CombatRange.short)
-            ? ChangeCombatRange(session.combatRange.closer)
-            : const ExecuteShipSpecialAction();
+        return const BraceForImpact();
 
       case SessionPhase.loot:
         if (session.pendingLoot.isNotEmpty) {

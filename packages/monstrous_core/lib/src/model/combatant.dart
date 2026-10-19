@@ -72,6 +72,14 @@ class ShipState extends Combatant {
     List<HardpointSlot>? hardpoints,
     this.isGrappled = false,
     this.tempAccuracyPenalty = 0,
+    this.utilityCooldown = 0,
+    Map<HardpointType, int>? hardpointMarks,
+    this.isAnchoredThisTurn = false,
+    this.isBracedByDrill = false,
+    this.gunneryDrillBuffActive = false,
+    this.pitchCoatingActive = false,
+    this.activeTetherTrapDistance,
+    this.activeTetherTrapDamage = 0,
   })  : maxWeaponWeight = maxWeaponWeight ?? 10,
         blueprintId = blueprintId ?? shipClass.blueprintId.name,
         hardpoints = List<HardpointSlot>.from(
@@ -79,12 +87,18 @@ class ShipState extends Combatant {
               (FlagshipBlueprint.catalog[shipClass.blueprintId]?.hardpoints ??
                   const <HardpointSlot>[]),
         ),
+        hardpointMarks = <HardpointType, int>{
+          HardpointType.broadside: 1,
+          HardpointType.signature: 1,
+          HardpointType.utility: 1,
+          ...?hardpointMarks,
+        },
         cargo = cargo ?? <Item>[],
         equippedWeapons = equippedWeapons ?? <ShipWeapon>[],
         currentEvasion = currentEvasion ?? baseEvasion,
         currentDmgReduction = currentDmgReduction ?? baseDmgReduction;
 
-  final ShipClass shipClass;
+  ShipClass shipClass;
   String blueprintId;
   final List<HardpointSlot> hardpoints;
   int maxCargo;
@@ -107,6 +121,67 @@ class ShipState extends Combatant {
 
   /// Temporary accuracy penalty from monster wake/flash abilities (cleared after 1 round).
   int tempAccuracyPenalty;
+
+  /// Remaining turn cooldown on the ship's Utility Hardpoint (2T max).
+  int utilityCooldown;
+
+  /// Tempering Marks (`1` = Mk I, `2` = Mk II, `3` = Mk III) for each of the 3 hardpoints.
+  final Map<HardpointType, int> hardpointMarks;
+
+  /// True if Ironclad's Fortify Iron Plates anchored the hull this round against monster push/pull.
+  bool isAnchoredThisTurn;
+
+  /// True if Standard's Gunnery Drill braced the crew this round (-20% incoming damage).
+  bool isBracedByDrill;
+
+  /// True if Standard's Gunnery Drill empowered the next offensive volley (+15% Accuracy, +20% Damage).
+  bool gunneryDrillBuffActive;
+
+  /// True if an Alchemical Pitch Flask coated the next offensive volley (+25% Fire damage & Burn).
+  bool pitchCoatingActive;
+
+  /// Current distance (in range bands: 0, 1, or 2) from a deployed Corsair Drifting Tether-Trap to the monster.
+  int? activeTetherTrapDistance;
+
+  /// Base Slicing damage stored in the active Corsair Drifting Tether-Trap.
+  int activeTetherTrapDamage;
+
+  /// Resolves the active [BlueprintId] for this hull.
+  BlueprintId get resolvedBlueprintId => BlueprintId.values.firstWhere(
+        (b) => b.name == blueprintId,
+        orElse: () => shipClass.blueprintId,
+      );
+
+  /// The blueprint's intrinsic Utility Hardpoint mechanism.
+  UtilityHardpointId get utilityHardpoint =>
+      resolvedBlueprintId.utilityHardpoint;
+
+  /// True if the Utility Hardpoint is off cooldown and ready to activate.
+  bool get isUtilityReady => utilityCooldown <= 0;
+
+  /// Returns the current Tempering Mark (`1`..`3`) for [slot].
+  int markForHardpoint(HardpointType slot) =>
+      (hardpointMarks[slot.canonical] ?? 1).clamp(1, 3);
+
+  /// Returns the Roman numeral label (`Mk I`, `Mk II`, `Mk III`) for [slot]'s Tempering Mark.
+  String markLabelForHardpoint(HardpointType slot) =>
+      switch (markForHardpoint(slot)) {
+        2 => 'Mk II',
+        3 => 'Mk III',
+        _ => 'Mk I',
+      };
+
+  /// Returns the damage/potency multiplier (`1.0`, `1.2`, `1.4`) for [slot]'s Tempering Mark.
+  double multiplierForHardpointMark(HardpointType slot) =>
+      switch (markForHardpoint(slot)) {
+        2 => 1.20,
+        3 => 1.40,
+        _ => 1.00,
+      };
+
+  /// Alias for [multiplierForHardpointMark].
+  double hardpointMarkMultiplier(HardpointType slot) =>
+      multiplierForHardpointMark(slot);
 
   /// Total number of deck hardpoints available on this hull.
   int get maxHardpointSlots => hardpoints.length;
@@ -156,24 +231,34 @@ class ShipState extends Combatant {
     for (final weapon in equippedWeapons) {
       weapon.decrementChargeCountdown();
     }
+    if (utilityCooldown > 0) {
+      utilityCooldown--;
+    }
   }
 
-  /// Refreshes all equipped weapons to ready status (0 cooldown) between battles.
+  /// Refreshes all equipped weapons and the utility hardpoint to ready status (0 cooldown) between battles.
   void resetWeaponCooldowns() {
     for (final weapon in equippedWeapons) {
       weapon.chargeCountdown = 0;
     }
+    utilityCooldown = 0;
   }
 
   void sortCargo() => cargo.sort();
 
-  /// Resets temporary in-combat stat modifications (Fortify armor boost, Evasion boost, Grapple)
+  /// Resets temporary in-combat stat modifications (Fortify armor boost, Evasion boost, Grapple, Utility buffs/traps)
   /// back to base hull characteristics and refreshes all gun batteries after a battle concludes.
   void resetCombatBoosts() {
     currentDmgReduction = baseDmgReduction;
     currentEvasion = baseEvasion;
     isGrappled = false;
     tempAccuracyPenalty = 0;
+    isAnchoredThisTurn = false;
+    isBracedByDrill = false;
+    gunneryDrillBuffActive = false;
+    pitchCoatingActive = false;
+    activeTetherTrapDistance = null;
+    activeTetherTrapDamage = 0;
     resetWeaponCooldowns();
   }
 
@@ -195,6 +280,24 @@ class ShipState extends Combatant {
         ?.map((e) => HardpointSlot.fromJson(e as Map<String, dynamic>))
         .toList();
 
+    final rawMarks = json['hardpointMarks'] as Map<String, dynamic>?;
+    final parsedMarks = <HardpointType, int>{
+      HardpointType.broadside: 1,
+      HardpointType.signature: 1,
+      HardpointType.utility: 1,
+    };
+    if (rawMarks != null) {
+      for (final entry in rawMarks.entries) {
+        final key = HardpointType.values
+            .firstWhere(
+              (h) => h.name == entry.key,
+              orElse: () => HardpointType.broadside,
+            )
+            .canonical;
+        parsedMarks[key] = (entry.value as int? ?? 1).clamp(1, 3);
+      }
+    }
+
     return ShipState(
       id: json['id'] as String? ?? 'player_ship',
       name: json['name'] as String? ?? 'The Sea Wanderer',
@@ -205,7 +308,7 @@ class ShipState extends Combatant {
       shipClass: shipClass,
       blueprintId: bpId,
       hardpoints: hardpointsList,
-      maxCargo: json['maxCargo'] as int? ?? 10,
+      maxCargo: json['maxCargo'] as int? ?? 3,
       cargo: cargoList,
       maxWeaponWeight: json['maxWeaponWeight'] as int? ?? 10,
       equippedWeapons: weaponsList,
@@ -217,6 +320,8 @@ class ShipState extends Combatant {
       gold: json['gold'] as int? ?? 0,
       isGrappled: json['isGrappled'] as bool? ?? false,
       tempAccuracyPenalty: json['tempAccuracyPenalty'] as int? ?? 0,
+      utilityCooldown: json['utilityCooldown'] as int? ?? 0,
+      hardpointMarks: parsedMarks,
     );
   }
 
@@ -242,6 +347,11 @@ class ShipState extends Combatant {
         'gold': gold,
         'isGrappled': isGrappled,
         'tempAccuracyPenalty': tempAccuracyPenalty,
+        'utilityCooldown': utilityCooldown,
+        'hardpointMarks': {
+          for (final entry in hardpointMarks.entries)
+            entry.key.name: entry.value,
+        },
       };
 }
 
@@ -271,6 +381,9 @@ class MonsterState extends Combatant {
     this.isPinnedThisTurn = false,
     this.windupDamageTaken = 0,
     this.lastExecutedIntentId,
+    this.spotterFlareTurns = 0,
+    this.spotterFlareBlastBonus = 0.25,
+    this.spotterFlareAccuracyBonus = 15,
   })  : maxCarapace = maxCarapace ?? carapacePlating,
         usableWeapons = usableWeapons ?? <MonsterWeapon>[],
         intentCooldowns = intentCooldowns ?? <MonsterIntentId, int>{};
@@ -299,18 +412,29 @@ class MonsterState extends Combatant {
   /// Active turn cooldowns per intent ID to prevent ability spam.
   final Map<MonsterIntentId, int> intentCooldowns;
 
-  /// True if hit by a Harpoon Winch or Concussive Mortar this round, canceling the
-  /// movement component of the monster's intent.
+  /// True if hit by a Harpoon Winch, Tether-Trap, or Stun this round, canceling the
+  /// movement component of the monster's intent and halving its evasion.
   bool isPinnedThisTurn;
 
-  /// Cumulative hull damage sustained during a 2-turn Boss Wind-up (used for Poise break).
+  /// Legacy field retained for serialization/test compatibility.
   int windupDamageTaken;
 
   /// Last executed intent ID for anti-repeat weighting.
   MonsterIntentId? lastExecutedIntentId;
 
+  /// Remaining turns of Bombardier Phosphor Spotter Flare illumination on this monster.
+  int spotterFlareTurns;
+
+  /// Bonus Blast damage multiplier while illuminated by a Spotter Flare (default +25%).
+  double spotterFlareBlastBonus;
+
+  /// Bonus accuracy granted against this monster while illuminated by a Spotter Flare (default +15%).
+  int spotterFlareAccuracyBonus;
+
+  bool get isIlluminatedByFlare => spotterFlareTurns > 0;
+
   int get effectiveArmorClass =>
-      isObscured ? armorClass + obscuredAcMod : armorClass;
+      (isObscured && !isIlluminatedByFlare) ? armorClass + obscuredAcMod : armorClass;
 
   bool isIntentOnCooldown(MonsterIntentId id) =>
       (intentCooldowns[id] ?? 0) > 0;
@@ -330,6 +454,12 @@ class MonsterState extends Combatant {
       } else {
         intentCooldowns[k] = next;
       }
+    }
+  }
+
+  void tickSpotterFlare() {
+    if (spotterFlareTurns > 0) {
+      spotterFlareTurns--;
     }
   }
 
