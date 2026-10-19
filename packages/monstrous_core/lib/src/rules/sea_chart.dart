@@ -292,7 +292,10 @@ class SeaChart {
   bool get isAncientShrine => currentNodeType == EncounterNodeType.ancientShrine;
 
   /// Returns true if current cell is a Region Titan encounter.
-  bool get isRegionTitan => currentNodeType == EncounterNodeType.regionTitan;
+  bool get isRegionTitan =>
+      currentNodeType == EncounterNodeType.regionTitan ||
+      (currentLeg >= totalLegs && currentLeg > 0) ||
+      (currentRow == bossRow && currentCol == bossCol);
 
   /// Returns true if facing the final titan of the entire 3-region campaign.
   bool get isFinalTitan => isRegionTitan && currentRegionIndex == totalRegions - 1;
@@ -403,16 +406,13 @@ class SeaChart {
   /// Returns true if currently at the very beginning of the sea chart.
   bool get isAtStart => currentLeg == 0 && currentRow == 0 && currentCol == 0;
 
-  /// Returns true if currently facing The Kraken on loop 0 at cell [3][4].
-  bool get isKrakenBoss =>
-      currentRow == bossRow &&
-      currentCol == bossCol &&
-      timesCompleted == 0;
+  /// Returns true if currently facing The Kraken on loop 0.
+  bool get isKrakenBoss => isRegionTitan && currentRegionIndex == 0;
 
   /// Calculates the encounter difficulty level for cell [row], [col].
   int difficultyAt(int row, int col) {
-    if (row == bossRow && col == bossCol) {
-      return row + 2 + timesCompleted * 4;
+    if (isRegionTitan || (row == bossRow && col == bossCol)) {
+      return bossRow + 2 + timesCompleted * 4;
     }
     return row + 1 + timesCompleted * 4;
   }
@@ -422,13 +422,12 @@ class SeaChart {
 
   /// Generates the monster encounter for the current coordinate.
   MonsterState currentMonster(GameRng rng) {
-    if (isKrakenBoss) {
-      return createKraken(rng: rng);
-    }
-    if (currentRow == bossRow && currentCol == bossCol) {
-      if (timesCompleted == 1) {
+    if (isRegionTitan) {
+      if (currentRegionIndex == 0) {
+        return createKraken(rng: rng);
+      } else if (currentRegionIndex == 1) {
         return createWorldSerpent(level: currentDifficulty, rng: rng);
-      } else if (timesCompleted >= 2) {
+      } else {
         return createAncientLeviathan(level: currentDifficulty, rng: rng);
       }
     }
@@ -825,6 +824,22 @@ class SeaChart {
     }
 
     _currentCourseOptions = generateCourseOptions(rng);
+  }
+
+  /// Advances the sea chart to the next region after slaying the regional titan.
+  void advanceRegion([GameRng? rng]) {
+    timesCompleted++;
+    currentRow = 0;
+    currentCol = 0;
+    currentLeg = 0;
+    maxRowReached = 0;
+    currentIsApex = false;
+    currentIsNemesis = false;
+    hasEncounteredNemesisThisVoyage = false;
+    _revealedRows.clear();
+    _voyageLog.clear();
+    _currentCourseOptions.clear();
+    generateGrid(rng ?? SeededGameRng(42 + timesCompleted));
   }
 
   /// Resets coordinates back to [0][0] within the current region/stronghold.

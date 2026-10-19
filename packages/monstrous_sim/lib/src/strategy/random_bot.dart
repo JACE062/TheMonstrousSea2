@@ -17,8 +17,9 @@ class RandomBot implements BotStrategy {
         if (session.captainName.isEmpty) {
           return const NameCaptain('Captain Fortuna');
         }
-        final classes = ShipClass.values;
-        return ChooseShip(classes[rng.nextInt(classes.length)]);
+        final canonicalClasses =
+            BlueprintId.values.map((b) => b.shipClass).toList();
+        return ChooseShip(canonicalClasses[rng.nextInt(canonicalClasses.length)]);
 
       case SessionPhase.port:
         final roll = rng.nextInt(3);
@@ -80,10 +81,15 @@ class RandomBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
-        final advance = rng.nextInt(2) == 0;
-        return advance
-            ? const AdvanceToNextBattle()
-            : const ReturnToPort();
+        final isBossDefeated = ((session.seaChart.currentRow == SeaChart.bossRow &&
+                    session.seaChart.currentCol == SeaChart.bossCol) ||
+                session.seaChart.currentLeg >= session.seaChart.totalLegs) &&
+            session.currentMonster != null &&
+            !session.currentMonster!.isAlive;
+        if (isBossDefeated) {
+          return const AdvanceToNextBattle();
+        }
+        return const TakeHelm();
 
       case SessionPhase.respiteIsland:
         if (!session.hasChosenIslandDuty) {
@@ -95,8 +101,11 @@ class RandomBot implements BotStrategy {
         return const DepartIsland();
 
       case SessionPhase.shipwreck:
-        final choices = ShipwreckChoice.values;
-        return SalvageShipwreck(choices[rng.nextInt(choices.length)]);
+        if (!session.hasSalvagedCurrentWreck) {
+          final choices = ShipwreckChoice.values;
+          return SalvageShipwreck(choices[rng.nextInt(choices.length)]);
+        }
+        return const TakeHelm();
 
       case SessionPhase.smuggler:
         return const DepartSmuggler();
@@ -108,8 +117,11 @@ class RandomBot implements BotStrategy {
         return const DepartShrine();
 
       case SessionPhase.helm:
-        final bearings = NavigationalBearing.values;
-        return SteerCourse(bearings[rng.nextInt(bearings.length)]);
+        final options = session.seaChart.currentCourseOptions;
+        if (options.isNotEmpty) {
+          return SteerCourse(options[rng.nextInt(options.length)].bearing);
+        }
+        return const SteerCourse(NavigationalBearing.deadAhead);
 
       case SessionPhase.expeditionVictory:
         return const ClaimExpeditionVictory();

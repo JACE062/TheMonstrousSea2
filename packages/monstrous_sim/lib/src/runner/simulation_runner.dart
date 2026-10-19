@@ -30,8 +30,9 @@ class SimulationRunner {
     while (session.phase != SessionPhase.ended && steps < maxStepsPerRun) {
       steps++;
 
-      // In non-endless mode, beating the Kraken (loop >= 1) triggers victory
-      if (!endless && session.seaChart.timesCompleted >= 1) {
+      // In non-endless mode, beating the Kraken (loop >= 1) or winning expedition triggers victory
+      if (!endless &&
+          (session.seaChart.timesCompleted >= 1 || session.isExpeditionWon)) {
         won = true;
         break;
       }
@@ -54,8 +55,8 @@ class SimulationRunner {
         }
       }
 
-      // Check if Kraken map was completed during this step
-      if (session.seaChart.timesCompleted >= 1) {
+      // Check if Kraken map was completed or expedition won during this step
+      if (session.seaChart.timesCompleted >= 1 || session.isExpeditionWon) {
         won = true;
         if (!endless) break;
       }

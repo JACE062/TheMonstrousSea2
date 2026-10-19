@@ -84,6 +84,15 @@ class RecklessBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
+        final isBossDefeated = ((session.seaChart.currentRow == SeaChart.bossRow &&
+                    session.seaChart.currentCol == SeaChart.bossCol) ||
+                session.seaChart.currentLeg >= session.seaChart.totalLegs) &&
+            session.currentMonster != null &&
+            !session.currentMonster!.isAlive;
+        if (isBossDefeated) {
+          return const AdvanceToNextBattle();
+        }
+
         final ship = session.ship;
         if (ship != null) {
           for (var i = 0; i < ship.cargo.length; i++) {
@@ -93,7 +102,7 @@ class RecklessBot implements BotStrategy {
             }
           }
         }
-        return const AdvanceToNextBattle();
+        return const TakeHelm();
 
       case SessionPhase.respiteIsland:
         if (!session.hasChosenIslandDuty) {
@@ -102,7 +111,10 @@ class RecklessBot implements BotStrategy {
         return const DepartIsland();
 
       case SessionPhase.shipwreck:
-        return const SalvageShipwreck(ShipwreckChoice.munitions);
+        if (!session.hasSalvagedCurrentWreck) {
+          return const SalvageShipwreck(ShipwreckChoice.munitions);
+        }
+        return const TakeHelm();
 
       case SessionPhase.smuggler:
         return const DepartSmuggler();
@@ -114,13 +126,29 @@ class RecklessBot implements BotStrategy {
         return const DepartShrine();
 
       case SessionPhase.helm:
-        final combatCourse = session.seaChart.currentCourseOptions
+        final options = session.seaChart.currentCourseOptions;
+        if (options.isEmpty) {
+          return const SteerCourse(NavigationalBearing.deadAhead);
+        }
+        final titanCourse = options
+            .where((c) => c.nodeType == EncounterNodeType.regionTitan)
+            .firstOrNull;
+        if (titanCourse != null) {
+          return SteerCourse(titanCourse.bearing);
+        }
+        final combatCourse = options
             .where((c) => c.nodeType == EncounterNodeType.beastCombat)
             .firstOrNull;
         if (combatCourse != null) {
           return SteerCourse(combatCourse.bearing);
         }
-        return const SteerCourse(NavigationalBearing.deadAhead);
+        final ahead = options
+            .where((c) => c.bearing == NavigationalBearing.deadAhead)
+            .firstOrNull;
+        if (ahead != null) {
+          return SteerCourse(ahead.bearing);
+        }
+        return SteerCourse(options.first.bearing);
 
       case SessionPhase.expeditionVictory:
         return const ClaimExpeditionVictory();

@@ -16,7 +16,7 @@ class GreedyBot implements BotStrategy {
         if (session.captainName.isEmpty) {
           return const NameCaptain('Captain Midas');
         }
-        return const ChooseShip(ShipClass.freighter);
+        return const ChooseShip(ShipClass.corsair);
 
       case SessionPhase.port:
         final ship = session.ship;
@@ -99,13 +99,16 @@ class GreedyBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
-        final ship = session.ship;
-        final hpRatio = ship != null ? ship.currentHp / ship.maxHp : 1.0;
-
-        // Return to port only when dangerously wounded
-        if (hpRatio < 0.20) {
-          return const ReturnToPort();
+        final isBossDefeated = ((session.seaChart.currentRow == SeaChart.bossRow &&
+                    session.seaChart.currentCol == SeaChart.bossCol) ||
+                session.seaChart.currentLeg >= session.seaChart.totalLegs) &&
+            session.currentMonster != null &&
+            !session.currentMonster!.isAlive;
+        if (isBossDefeated) {
+          return const AdvanceToNextBattle();
         }
+
+        final ship = session.ship;
         if (ship != null) {
           for (var i = 0; i < ship.cargo.length; i++) {
             final item = ship.cargo[i];
@@ -114,7 +117,7 @@ class GreedyBot implements BotStrategy {
             }
           }
         }
-        return const AdvanceToNextBattle();
+        return const TakeHelm();
 
       case SessionPhase.respiteIsland:
         final ship = session.ship;
@@ -127,7 +130,10 @@ class GreedyBot implements BotStrategy {
         return const DepartIsland();
 
       case SessionPhase.shipwreck:
-        return const SalvageShipwreck(ShipwreckChoice.strongbox);
+        if (!session.hasSalvagedCurrentWreck) {
+          return const SalvageShipwreck(ShipwreckChoice.strongbox);
+        }
+        return const TakeHelm();
 
       case SessionPhase.smuggler:
         final hasTreasure = session.ship?.cargo.any((item) => item is Treasure) ?? false;
@@ -148,6 +154,9 @@ class GreedyBot implements BotStrategy {
 
       case SessionPhase.helm:
         final options = session.seaChart.currentCourseOptions;
+        if (options.isEmpty) {
+          return const SteerCourse(NavigationalBearing.deadAhead);
+        }
         final wreck = options
             .where((c) => c.nodeType == EncounterNodeType.shipwreckSalvage)
             .firstOrNull;
@@ -156,7 +165,11 @@ class GreedyBot implements BotStrategy {
             .where((c) => c.nodeType == EncounterNodeType.smugglerTrader)
             .firstOrNull;
         if (smuggler != null) return SteerCourse(smuggler.bearing);
-        return const SteerCourse(NavigationalBearing.deadAhead);
+        final ahead = options
+            .where((c) => c.bearing == NavigationalBearing.deadAhead)
+            .firstOrNull;
+        if (ahead != null) return SteerCourse(ahead.bearing);
+        return SteerCourse(options.first.bearing);
 
       case SessionPhase.expeditionVictory:
         return const ClaimExpeditionVictory();

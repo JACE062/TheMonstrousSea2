@@ -8,10 +8,10 @@
 
 | Strategy | Runs | Wins (Kraken) | Deaths | Win Rate | Avg Monsters | Avg Max Diff | Avg Gold |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Reckless** | 250 | 0 | 250 | 0.0% | 70.9 | 1.4 | 1262g |
-| **Cautious** | 250 | 0 | 250 | 0.0% | 52.7 | 1.5 | 974g |
-| **Greedy** | 250 | 0 | 250 | 0.0% | 3.8 | 1.0 | 135g |
-| **Random** | 250 | 0 | 250 | 0.0% | 2.7 | 0.9 | 67g |
+| **Reckless** | 250 | 23 | 227 | 9.2% | 6.4 | 1.6 | 215g |
+| **Cautious** | 250 | 24 | 226 | 9.6% | 4.5 | 2.2 | 223g |
+| **Greedy** | 250 | 4 | 246 | 1.6% | 2.3 | 1.2 | 269g |
+| **Random** | 250 | 0 | 250 | 0.0% | 1.5 | 1.0 | 73g |
 
 ## Strategy Win Rates
 
@@ -20,116 +20,114 @@ xychart-beta
     title "Strategy Win Rates (%)"
     x-axis ["Reckless", "Cautious", "Greedy", "Random"]
     y-axis "Win Rate (%)" 0 --> 100
-    bar [0.0, 0.0, 0.0, 0.0]
+    bar [9.2, 9.6, 1.6, 0.0]
 ```
 
 ## Deep Dive by Strategy
 
 ### Reckless Strategy
 - **Total Voyages:** 250
-- **Victories (Kraken Slain):** 0 (0.0%)
-- **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 70.9
-- **Average Highest Encounter Difficulty:** 1.4
-- **Average Final Gold Hold:** 1262g
-- **Average Combat Rolls/Attacks:** 1.8
+- **Victories (Kraken Slain):** 23 (9.2%)
+- **Defeats (Watery Grave):** 227 (90.8%)
+- **Average Monsters Slain:** 6.4
+- **Average Highest Encounter Difficulty:** 1.6
+- **Average Final Gold Hold:** 215g
+- **Average Combat Rolls/Attacks:** 7.4
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 171 | 68.4% |
-| Writhing Curse | 10 | 4.0% |
-| Colossal Tiger Shark | 5 | 2.0% |
-| Darting Death | 4 | 1.6% |
-| Mire Serpent | 4 | 1.6% |
+| The Kraken | 100 | 44.1% |
+| Eerie Elainaling | 8 | 3.5% |
+| Abyssal Constrictor | 6 | 2.6% |
+| Apex Phosphor Wyrm Twisting Terror | 6 | 2.6% |
+| Vanishing Viper | 6 | 2.6% |
 
 **Ship Class Performance:**
 
 | Ship Class | Voyages | Wins | Class Win Rate |
 | :--- | :--- | :--- | :--- |
-| IRONCLAD | 250 | 0 | 0.0% |
+| IRONCLAD | 250 | 23 | 9.2% |
 
 ### Cautious Strategy
 - **Total Voyages:** 250
-- **Victories (Kraken Slain):** 0 (0.0%)
-- **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 52.7
-- **Average Highest Encounter Difficulty:** 1.5
-- **Average Final Gold Hold:** 974g
-- **Average Combat Rolls/Attacks:** 3.4
+- **Victories (Kraken Slain):** 24 (9.6%)
+- **Defeats (Watery Grave):** 226 (90.4%)
+- **Average Monsters Slain:** 4.5
+- **Average Highest Encounter Difficulty:** 2.2
+- **Average Final Gold Hold:** 223g
+- **Average Combat Rolls/Attacks:** 14.7
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 187 | 74.8% |
-| Lurking Coil | 4 | 1.6% |
-| Mire Serpent | 4 | 1.6% |
-| Shellbound Menace | 3 | 1.2% |
-| Mutant Shellback | 3 | 1.2% |
+| The Kraken | 150 | 66.4% |
+| Apex Abyssal Krakenling Razor Tendrils | 5 | 2.2% |
+| Vanishing Viper | 4 | 1.8% |
+| Mire Serpent | 4 | 1.8% |
+| Lurking Coil | 3 | 1.3% |
 
 **Ship Class Performance:**
 
 | Ship Class | Voyages | Wins | Class Win Rate |
 | :--- | :--- | :--- | :--- |
-| IRONCLAD | 250 | 0 | 0.0% |
+| IRONCLAD | 250 | 24 | 9.6% |
 
 ### Greedy Strategy
 - **Total Voyages:** 250
-- **Victories (Kraken Slain):** 0 (0.0%)
-- **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 3.8
-- **Average Highest Encounter Difficulty:** 1.0
-- **Average Final Gold Hold:** 135g
-- **Average Combat Rolls/Attacks:** 5.3
+- **Victories (Kraken Slain):** 4 (1.6%)
+- **Defeats (Watery Grave):** 246 (98.4%)
+- **Average Monsters Slain:** 2.3
+- **Average Highest Encounter Difficulty:** 1.2
+- **Average Final Gold Hold:** 269g
+- **Average Combat Rolls/Attacks:** 9.0
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 142 | 56.8% |
-| Thrashing Great White | 9 | 3.6% |
-| Lurking Coil | 6 | 2.4% |
-| Vanishing Viper | 6 | 2.4% |
-| Sussy Seaweed | 5 | 2.0% |
+| The Kraken | 80 | 32.5% |
+| Mire Serpent | 7 | 2.8% |
+| Elusive Eell | 6 | 2.4% |
+| Frenzied Maw | 6 | 2.4% |
+| Colossal Tiger Shark | 6 | 2.4% |
 
 **Ship Class Performance:**
 
 | Ship Class | Voyages | Wins | Class Win Rate |
 | :--- | :--- | :--- | :--- |
-| FREIGHTER | 250 | 0 | 0.0% |
+| CORSAIR | 250 | 4 | 1.6% |
 
 ### Random Strategy
 - **Total Voyages:** 250
 - **Victories (Kraken Slain):** 0 (0.0%)
 - **Defeats (Watery Grave):** 250 (100.0%)
-- **Average Monsters Slain:** 2.7
-- **Average Highest Encounter Difficulty:** 0.9
-- **Average Final Gold Hold:** 67g
-- **Average Combat Rolls/Attacks:** 7.5
+- **Average Monsters Slain:** 1.5
+- **Average Highest Encounter Difficulty:** 1.0
+- **Average Final Gold Hold:** 73g
+- **Average Combat Rolls/Attacks:** 9.7
 
 **Top Causes of Death:**
 
 | Threat / Sea Monster | Fatalities | % of Deaths |
 | :--- | :--- | :--- |
-| Adrift at Sea (Lost in Fog) | 45 | 18.0% |
-| Tide Coiler | 11 | 4.4% |
-| Vanishing Viper | 10 | 4.0% |
-| Ragefin | 9 | 3.6% |
-| Abyssal Constrictor | 8 | 3.2% |
+| Sussy Seaweed | 12 | 4.8% |
+| Bloodthirsty Bull Shark | 11 | 4.4% |
+| Darting Death | 10 | 4.0% |
+| Mire Serpent | 10 | 4.0% |
+| Writhing Curse | 9 | 3.6% |
 
 **Ship Class Performance:**
 
 | Ship Class | Voyages | Wins | Class Win Rate |
 | :--- | :--- | :--- | :--- |
-| CORSAIR | 38 | 0 | 0.0% |
-| CLIPPER | 41 | 0 | 0.0% |
-| STANDARD | 35 | 0 | 0.0% |
-| BOMBARDIER | 36 | 0 | 0.0% |
-| IRONCLAD | 28 | 0 | 0.0% |
-| FREIGHTER | 36 | 0 | 0.0% |
-| CORVETTE | 36 | 0 | 0.0% |
+| BOMBARDIER | 54 | 0 | 0.0% |
+| CORSAIR | 56 | 0 | 0.0% |
+| STANDARD | 51 | 0 | 0.0% |
+| CLIPPER | 48 | 0 | 0.0% |
+| IRONCLAD | 41 | 0 | 0.0% |
 
 ## Verification Verdict
 

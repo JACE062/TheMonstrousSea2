@@ -49,14 +49,14 @@ void main() {
       expect((cmd as ChangeCombatRange).targetRange, equals(CombatRange.long));
     });
 
-    test('GreedyBot selects Freighter to optimize cargo hold and gold hoarding', () {
+    test('GreedyBot selects Corsair to optimize cargo hold and gold hoarding', () {
       const bot = GreedyBot();
       final session = GameSession(rng: SeededGameRng(300));
 
       session.dispatch(bot.decideNextAction(session));
       final shipCmd = bot.decideNextAction(session);
       expect(shipCmd, isA<ChooseShip>());
-      expect((shipCmd as ChooseShip).shipClass, equals(ShipClass.freighter));
+      expect((shipCmd as ChooseShip).shipClass, equals(ShipClass.corsair));
     });
 
     test('RandomBot produces legal actions across all phases', () {

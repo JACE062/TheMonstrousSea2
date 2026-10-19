@@ -519,7 +519,7 @@ class GameSession {
       } else {
         // Transition to next region via after-region stronghold!
         final prevRegion = seaChart.currentRegionName;
-        seaChart.advance(rng);
+        seaChart.advanceRegion(rng);
         final nextRegion = seaChart.currentRegionName;
         final stronghold = seaChart.currentPortName;
         refreshMerchantStock(seaChart.currentDifficulty);
@@ -583,7 +583,7 @@ class GameSession {
         ];
       } else {
         final prevRegion = seaChart.currentRegionName;
-        seaChart.advance(rng);
+        seaChart.advanceRegion(rng);
         final nextRegion = seaChart.currentRegionName;
         final stronghold = seaChart.currentPortName;
         refreshMerchantStock(seaChart.currentDifficulty);

@@ -140,13 +140,16 @@ class CautiousBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
-        final ship = session.ship;
-        final hpRatio = ship != null ? ship.currentHp / ship.maxHp : 1.0;
-
-        // Emergency retreat to port to repair and upgrade when damaged
-        if (hpRatio < 0.45) {
-          return const ReturnToPort();
+        final isBossDefeated = ((session.seaChart.currentRow == SeaChart.bossRow &&
+                    session.seaChart.currentCol == SeaChart.bossCol) ||
+                session.seaChart.currentLeg >= session.seaChart.totalLegs) &&
+            session.currentMonster != null &&
+            !session.currentMonster!.isAlive;
+        if (isBossDefeated) {
+          return const AdvanceToNextBattle();
         }
+
+        final ship = session.ship;
         if (ship != null) {
           for (var i = 0; i < ship.cargo.length; i++) {
             final item = ship.cargo[i];
@@ -155,7 +158,7 @@ class CautiousBot implements BotStrategy {
             }
           }
         }
-        return const AdvanceToNextBattle();
+        return const TakeHelm();
 
       case SessionPhase.respiteIsland:
         final ship = session.ship;
@@ -168,12 +171,15 @@ class CautiousBot implements BotStrategy {
         return const DepartIsland();
 
       case SessionPhase.shipwreck:
-        final ship = session.ship;
-        final hpRatio = ship != null ? ship.currentHp / ship.maxHp : 1.0;
-        if (hpRatio < 0.6) {
-          return const SalvageShipwreck(ShipwreckChoice.timbers);
+        if (!session.hasSalvagedCurrentWreck) {
+          final ship = session.ship;
+          final hpRatio = ship != null ? ship.currentHp / ship.maxHp : 1.0;
+          if (hpRatio < 0.6) {
+            return const SalvageShipwreck(ShipwreckChoice.timbers);
+          }
+          return const SalvageShipwreck(ShipwreckChoice.strongbox);
         }
-        return const SalvageShipwreck(ShipwreckChoice.strongbox);
+        return const TakeHelm();
 
       case SessionPhase.smuggler:
         final ship = session.ship;
@@ -199,6 +205,9 @@ class CautiousBot implements BotStrategy {
       case SessionPhase.helm:
         final ship = session.ship;
         final options = session.seaChart.currentCourseOptions;
+        if (options.isEmpty) {
+          return const SteerCourse(NavigationalBearing.deadAhead);
+        }
         if (ship != null && ship.currentHp < ship.maxHp * 0.65) {
           final haven = options
               .where((c) => c.nodeType == EncounterNodeType.respiteIsland)
@@ -213,7 +222,11 @@ class CautiousBot implements BotStrategy {
             .where((c) => c.nodeType == EncounterNodeType.ancientShrine)
             .firstOrNull;
         if (shrine != null) return SteerCourse(shrine.bearing);
-        return const SteerCourse(NavigationalBearing.deadAhead);
+        final ahead = options
+            .where((c) => c.bearing == NavigationalBearing.deadAhead)
+            .firstOrNull;
+        if (ahead != null) return SteerCourse(ahead.bearing);
+        return SteerCourse(options.first.bearing);
 
       case SessionPhase.expeditionVictory:
         return const ClaimExpeditionVictory();

@@ -72,7 +72,9 @@ void main() {
         classWins[r.shipClass] = (classWins[r.shipClass] ?? 0) + 1;
       }
     }
-    for (final sc in ShipClass.values) {
+    final canonicalClasses =
+        BlueprintId.values.map((b) => b.shipClass).toList();
+    for (final sc in canonicalClasses) {
       final total = classTotal[sc] ?? 0;
       final wins = classWins[sc] ?? 0;
       final winRate = total > 0 ? (wins / total * 100).toStringAsFixed(1) : 'N/A';
