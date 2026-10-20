@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,7 +14,7 @@ import 'package:monstrous_sea/src/theme/ink_theme.dart';
 
 class _StartupStorage extends StorageService {
   _StartupStorage(this.profileFuture, {this.voyage});
-  final Future<ProfileData> profileFuture;
+  Future<ProfileData> profileFuture;
   final VoyageSaveData? voyage;
   @override
   Future<ProfileData> loadProfile() => profileFuture;
@@ -23,6 +24,36 @@ class _StartupStorage extends StorageService {
 
 void main() {
   setUpAll(() => InkTheme.disableGoogleFonts = true);
+
+  testWidgets(
+    'failed save initialization offers retry without starting a fresh voyage',
+    (tester) async {
+      final profileReady = Completer<ProfileData>();
+      final storage = _StartupStorage(profileReady.future);
+      final controller = GameController(storage: storage, autoSave: false);
+      addTearDown(controller.dispose);
+      await tester.pumpWidget(
+        MaterialApp(
+          home: GameOrchestratorView(controller: controller, loadStorage: true),
+        ),
+      );
+      profileReady.completeError(
+        const FileSystemException('Import interrupted'),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Could not load your saved progress.'), findsOneWidget);
+      expect(find.byType(CaptainScreen), findsNothing);
+      expect(find.byType(IntroScreen), findsNothing);
+      storage.profileFuture = Future.value(
+        ProfileData(hasBegunFirstVoyage: true),
+      );
+      await tester.tap(find.text('RETRY'));
+      await tester.pumpAndSettle();
+      expect(find.byType(CaptainScreen), findsOneWidget);
+      expect(find.byType(IntroScreen), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets(
     'Startup waits for profile and restores saved chart progress instead of showing first-run menus',

@@ -77,6 +77,7 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
   late bool _introDismissed = widget.skipIntro;
   bool _showingChartModal = false;
   bool _loadingStorage = false;
+  bool _storageFailed = false;
 
   @override
   void initState() {
@@ -90,12 +91,23 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
   }
 
   Future<void> _loadStorage() async {
-    await _controller.initializeStorage();
-    if (mounted) {
-      setState(() {
-        _loadingStorage = false;
-        if (_controller.profile.hasBegunFirstVoyage) _introDismissed = true;
-      });
+    try {
+      await _controller.initializeStorage();
+      if (mounted) {
+        setState(() {
+          _loadingStorage = false;
+          _storageFailed = false;
+          if (_controller.profile.hasBegunFirstVoyage) _introDismissed = true;
+        });
+      }
+    } catch (error) {
+      debugPrint('Unable to initialize saved progress: $error');
+      if (mounted) {
+        setState(() {
+          _loadingStorage = false;
+          _storageFailed = true;
+        });
+      }
     }
   }
 
@@ -114,6 +126,29 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
 
   @override
   Widget build(BuildContext context) {
+    if (_storageFailed) {
+      return Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('Could not load your saved progress.'),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _storageFailed = false;
+                    _loadingStorage = true;
+                  });
+                  _loadStorage();
+                },
+                child: const Text('RETRY'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     if (_loadingStorage) {
       return const Scaffold(
         body: Center(
