@@ -2,6 +2,7 @@ import 'enums.dart';
 import 'flagship_blueprint.dart';
 import 'item.dart';
 import 'monster_intent.dart';
+import 'ocean_power.dart';
 
 /// Base entity representing any participant in naval combat.
 abstract class Combatant {
@@ -13,8 +14,8 @@ abstract class Combatant {
     int? currentHp,
     required this.armorClass,
     List<StatusEffect>? statusEffects,
-  })  : currentHp = currentHp ?? maxHp,
-        statusEffects = statusEffects ?? <StatusEffect>[];
+  }) : currentHp = currentHp ?? maxHp,
+       statusEffects = statusEffects ?? <StatusEffect>[];
 
   final String id;
   String name;
@@ -80,23 +81,29 @@ class ShipState extends Combatant {
     this.pitchCoatingActive = false,
     this.activeTetherTrapDistance,
     this.activeTetherTrapDamage = 0,
-  })  : maxWeaponWeight = maxWeaponWeight ?? 10,
-        blueprintId = blueprintId ?? shipClass.blueprintId.name,
-        hardpoints = List<HardpointSlot>.from(
-          hardpoints ??
-              (FlagshipBlueprint.catalog[shipClass.blueprintId]?.hardpoints ??
-                  const <HardpointSlot>[]),
-        ),
-        hardpointMarks = <HardpointType, int>{
-          HardpointType.broadside: 1,
-          HardpointType.signature: 1,
-          HardpointType.utility: 1,
-          ...?hardpointMarks,
-        },
-        cargo = cargo ?? <Item>[],
-        equippedWeapons = equippedWeapons ?? <ShipWeapon>[],
-        currentEvasion = currentEvasion ?? baseEvasion,
-        currentDmgReduction = currentDmgReduction ?? baseDmgReduction;
+    Map<HardpointType, HardpointBlessing>? blessings,
+    this.basaltBarrierHp = 0,
+    this.basaltAegisTurns = 0,
+    this.stormRiggingTurns = 0,
+    this.boilingWakeTurns = 0,
+  }) : maxWeaponWeight = maxWeaponWeight ?? 10,
+       blessings = Map<HardpointType, HardpointBlessing>.from(blessings ?? {}),
+       blueprintId = blueprintId ?? shipClass.blueprintId.name,
+       hardpoints = List<HardpointSlot>.from(
+         hardpoints ??
+             (FlagshipBlueprint.catalog[shipClass.blueprintId]?.hardpoints ??
+                 const <HardpointSlot>[]),
+       ),
+       hardpointMarks = <HardpointType, int>{
+         HardpointType.broadside: 1,
+         HardpointType.signature: 1,
+         HardpointType.utility: 1,
+         ...?hardpointMarks,
+       },
+       cargo = cargo ?? <Item>[],
+       equippedWeapons = equippedWeapons ?? <ShipWeapon>[],
+       currentEvasion = currentEvasion ?? baseEvasion,
+       currentDmgReduction = currentDmgReduction ?? baseDmgReduction;
 
   ShipClass shipClass;
   String blueprintId;
@@ -146,11 +153,28 @@ class ShipState extends Combatant {
   /// Base Slicing damage stored in the active Corsair Drifting Tether-Trap.
   int activeTetherTrapDamage;
 
+  /// Voyage-long socket dedications; only shrine commands install or upgrade them.
+  final Map<HardpointType, HardpointBlessing> blessings;
+
+  /// Combat-scoped primordial defenses and reactive effects.
+  int basaltBarrierHp;
+  int basaltAegisTurns;
+  int stormRiggingTurns;
+  int boilingWakeTurns;
+
+  int highestBlessingTier(OceanPower power) => blessings.values
+      .where((blessing) => blessing.power == power)
+      .fold(
+        0,
+        (highest, blessing) =>
+            blessing.tier > highest ? blessing.tier : highest,
+      );
+
   /// Resolves the active [BlueprintId] for this hull.
   BlueprintId get resolvedBlueprintId => BlueprintId.values.firstWhere(
-        (b) => b.name == blueprintId,
-        orElse: () => shipClass.blueprintId,
-      );
+    (b) => b.name == blueprintId,
+    orElse: () => shipClass.blueprintId,
+  );
 
   /// The blueprint's intrinsic Utility Hardpoint mechanism.
   UtilityHardpointId get utilityHardpoint =>
@@ -259,6 +283,10 @@ class ShipState extends Combatant {
     pitchCoatingActive = false;
     activeTetherTrapDistance = null;
     activeTetherTrapDamage = 0;
+    basaltBarrierHp = 0;
+    basaltAegisTurns = 0;
+    stormRiggingTurns = 0;
+    boilingWakeTurns = 0;
     resetWeaponCooldowns();
   }
 
@@ -281,6 +309,26 @@ class ShipState extends Combatant {
         .toList();
 
     final rawMarks = json['hardpointMarks'] as Map<String, dynamic>?;
+    final parsedBlessings = <HardpointType, HardpointBlessing>{};
+    final rawBlessings = json['blessings'] as Map<String, dynamic>?;
+    if (rawBlessings != null) {
+      for (final entry in rawBlessings.entries) {
+        // Ignore unknown future powers/slots without discarding the voyage.
+        if (!HardpointType.values.any((slot) => slot.name == entry.key) ||
+            entry.value is! Map<String, dynamic>) {
+          continue;
+        }
+        final value = entry.value as Map<String, dynamic>;
+        if (!OceanPower.values.any((power) => power.name == value['power'])) {
+          continue;
+        }
+        final slot = HardpointType.values.byName(entry.key).canonical;
+        parsedBlessings[slot] = HardpointBlessing.fromJson({
+          ...value,
+          'slot': slot.name,
+        });
+      }
+    }
     final parsedMarks = <HardpointType, int>{
       HardpointType.broadside: 1,
       HardpointType.signature: 1,
@@ -322,37 +370,41 @@ class ShipState extends Combatant {
       tempAccuracyPenalty: json['tempAccuracyPenalty'] as int? ?? 0,
       utilityCooldown: json['utilityCooldown'] as int? ?? 0,
       hardpointMarks: parsedMarks,
+      blessings: parsedBlessings,
     );
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
-        'name': name,
-        'level': level,
-        'maxHp': maxHp,
-        'currentHp': currentHp,
-        'armorClass': armorClass,
-        'shipClass': shipClass.name,
-        'blueprintId': blueprintId,
-        'hardpoints': hardpoints.map((e) => e.toJson()).toList(),
-        'maxCargo': maxCargo,
-        'cargo': cargo.map((e) => e.toJson()).toList(),
-        'maxWeaponWeight': maxWeaponWeight,
-        'equippedWeapons': equippedWeapons.map((e) => e.toJson()).toList(),
-        'baseEvasion': baseEvasion,
-        'currentEvasion': currentEvasion,
-        'baseDmgReduction': baseDmgReduction,
-        'currentDmgReduction': currentDmgReduction,
-        'dmgReductionMod': dmgReductionMod,
-        'gold': gold,
-        'isGrappled': isGrappled,
-        'tempAccuracyPenalty': tempAccuracyPenalty,
-        'utilityCooldown': utilityCooldown,
-        'hardpointMarks': {
-          for (final entry in hardpointMarks.entries)
-            entry.key.name: entry.value,
-        },
-      };
+    'id': id,
+    'name': name,
+    'level': level,
+    'maxHp': maxHp,
+    'currentHp': currentHp,
+    'armorClass': armorClass,
+    'shipClass': shipClass.name,
+    'blueprintId': blueprintId,
+    'hardpoints': hardpoints.map((e) => e.toJson()).toList(),
+    'maxCargo': maxCargo,
+    'cargo': cargo.map((e) => e.toJson()).toList(),
+    'maxWeaponWeight': maxWeaponWeight,
+    'equippedWeapons': equippedWeapons.map((e) => e.toJson()).toList(),
+    'baseEvasion': baseEvasion,
+    'currentEvasion': currentEvasion,
+    'baseDmgReduction': baseDmgReduction,
+    'currentDmgReduction': currentDmgReduction,
+    'dmgReductionMod': dmgReductionMod,
+    'gold': gold,
+    'isGrappled': isGrappled,
+    'tempAccuracyPenalty': tempAccuracyPenalty,
+    'utilityCooldown': utilityCooldown,
+    'hardpointMarks': {
+      for (final entry in hardpointMarks.entries) entry.key.name: entry.value,
+    },
+    'blessings': {
+      for (final entry in blessings.entries)
+        entry.key.name: entry.value.toJson(),
+    },
+  };
 }
 
 /// Dynamic state of a sea monster encounter.
@@ -384,9 +436,15 @@ class MonsterState extends Combatant {
     this.spotterFlareTurns = 0,
     this.spotterFlareBlastBonus = 0.25,
     this.spotterFlareAccuracyBonus = 15,
-  })  : maxCarapace = maxCarapace ?? carapacePlating,
-        usableWeapons = usableWeapons ?? <MonsterWeapon>[],
-        intentCooldowns = intentCooldowns ?? <MonsterIntentId, int>{};
+    this.staticStacks = 0,
+    this.corrodedStacks = 0,
+    this.corrodedTurns = 0,
+    this.isElectroJolted = false,
+    this.tremorAccPenalty = 0,
+    this.burnTurns = 0,
+  }) : maxCarapace = maxCarapace ?? carapacePlating,
+       usableWeapons = usableWeapons ?? <MonsterWeapon>[],
+       intentCooldowns = intentCooldowns ?? <MonsterIntentId, int>{};
 
   final MonsterSpecies species;
   final List<MonsterWeapon> usableWeapons;
@@ -431,13 +489,21 @@ class MonsterState extends Combatant {
   /// Bonus accuracy granted against this monster while illuminated by a Spotter Flare (default +15%).
   int spotterFlareAccuracyBonus;
 
+  /// Primordial status counters, refreshed and consumed by combat resolution.
+  int staticStacks;
+  int corrodedStacks;
+  int corrodedTurns;
+  bool isElectroJolted;
+  int tremorAccPenalty;
+  int burnTurns;
+
   bool get isIlluminatedByFlare => spotterFlareTurns > 0;
 
-  int get effectiveArmorClass =>
-      (isObscured && !isIlluminatedByFlare) ? armorClass + obscuredAcMod : armorClass;
+  int get effectiveArmorClass => (isObscured && !isIlluminatedByFlare)
+      ? armorClass + obscuredAcMod
+      : armorClass;
 
-  bool isIntentOnCooldown(MonsterIntentId id) =>
-      (intentCooldowns[id] ?? 0) > 0;
+  bool isIntentOnCooldown(MonsterIntentId id) => (intentCooldowns[id] ?? 0) > 0;
 
   void setIntentCooldown(MonsterIntentId id, int turns) {
     if (turns > 0) {

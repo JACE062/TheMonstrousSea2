@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../theme/ink_theme.dart';
 
 /// Renders a cross-hatched health meter displaying current vs max hull/vitality.
@@ -24,69 +25,100 @@ class HullGauge extends StatelessWidget {
 
     return Semantics(
       label: label,
-      value: '$currentHp of $maxHp HP, $percentRounded percent${isCritical ? ", Critical condition" : ""}',
+      value:
+          '$currentHp of $maxHp HP, $percentRounded percent${isCritical ? ", Critical condition" : ""}',
       excludeSemantics: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              child: Text(
-                label,
-                style: InkTheme.statLabel,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            const SizedBox(width: 8),
-            Text(
-              '$currentHp / $maxHp HP',
-              style: InkTheme.statValue.copyWith(
-                color: isCritical ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 4),
-        Container(
-          height: height,
-          decoration: BoxDecoration(
-            // Dark crimson backing track clearly displaying lost hull/vitality
-            color: InkTheme.crimsonAccent.withValues(alpha: 0.50),
-            borderRadius: BorderRadius.circular(2),
-            border: Border.all(color: InkTheme.inkPrimary, width: 1.4),
-          ),
-          clipBehavior: Clip.antiAlias,
-          child: TweenAnimationBuilder<double>(
-            tween: Tween<double>(end: targetPct),
-            duration: const Duration(milliseconds: 450),
-            curve: Curves.easeOutCubic,
-            builder: (context, animatedPct, child) {
-              final isAnimatedCrit = animatedPct < 0.25;
-              final isAnimatedWounded = animatedPct < 0.50;
-              final barColor = isAnimatedCrit
-                  ? InkTheme.crimsonAccent
-                  : isAnimatedWounded
-                      ? InkTheme.goldAccent
-                      : InkTheme.verdigrisGreen;
-
-              return FractionallySizedBox(
-                alignment: Alignment.centerLeft,
-                widthFactor: animatedPct.clamp(0.0, 1.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: barColor,
-                    borderRadius: BorderRadius.circular(1),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth < 240) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      label,
+                      style: InkTheme.statLabel,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        '$currentHp / $maxHp HP',
+                        style: InkTheme.statValue.copyWith(
+                          color: isCritical
+                              ? InkTheme.crimsonAccent
+                              : InkTheme.inkPrimary,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(
+                      label,
+                      style: InkTheme.statLabel,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                ),
+                  const SizedBox(width: 8),
+                  Text(
+                    '$currentHp / $maxHp HP',
+                    style: InkTheme.statValue.copyWith(
+                      color: isCritical
+                          ? InkTheme.crimsonAccent
+                          : InkTheme.inkPrimary,
+                    ),
+                  ),
+                ],
               );
             },
           ),
-        ),
-      ],
-    ),
-  );
-}
+          const SizedBox(height: 4),
+          Container(
+            height: height,
+            decoration: BoxDecoration(
+              // Dark crimson backing track clearly displaying lost hull/vitality
+              color: InkTheme.crimsonAccent.withValues(alpha: 0.50),
+              borderRadius: BorderRadius.circular(2),
+              border: Border.all(color: InkTheme.inkPrimary, width: 1.4),
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: TweenAnimationBuilder<double>(
+              tween: Tween<double>(end: targetPct),
+              duration: const Duration(milliseconds: 450),
+              curve: Curves.easeOutCubic,
+              builder: (context, animatedPct, child) {
+                final isAnimatedCrit = animatedPct < 0.25;
+                final isAnimatedWounded = animatedPct < 0.50;
+                final barColor = isAnimatedCrit
+                    ? InkTheme.crimsonAccent
+                    : isAnimatedWounded
+                    ? InkTheme.goldAccent
+                    : InkTheme.verdigrisGreen;
+
+                return FractionallySizedBox(
+                  alignment: Alignment.centerLeft,
+                  widthFactor: animatedPct.clamp(0.0, 1.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: barColor,
+                      borderRadius: BorderRadius.circular(1),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

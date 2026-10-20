@@ -27,6 +27,7 @@ class VoyageSaveData {
     List<Item>? merchantStock,
     this.onSaleMerchantIndex,
     this.gunneryAccuracyBoon = 0,
+    this.runicGuidanceBoon = 0,
   })  : pendingLoot = pendingLoot ?? <Item>[],
         merchantStock = merchantStock ?? <Item>[];
 
@@ -73,6 +74,7 @@ class VoyageSaveData {
       merchantStock: stockList,
       onSaleMerchantIndex: json['onSaleMerchantIndex'] as int?,
       gunneryAccuracyBoon: json['gunneryAccuracyBoon'] as int? ?? 0,
+      runicGuidanceBoon: json['runicGuidanceBoon'] as int? ?? 0,
     );
   }
 
@@ -92,6 +94,7 @@ class VoyageSaveData {
   final List<Item> merchantStock;
   final int? onSaleMerchantIndex;
   final int gunneryAccuracyBoon;
+  final int runicGuidanceBoon;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'captainName': captainName,
@@ -110,6 +113,7 @@ class VoyageSaveData {
         'merchantStock': merchantStock.map((e) => e.toJson()).toList(),
         'onSaleMerchantIndex': onSaleMerchantIndex,
         'gunneryAccuracyBoon': gunneryAccuracyBoon,
+        'runicGuidanceBoon': runicGuidanceBoon,
       };
 
   /// Constructs a [VoyageSaveData] snapshot from an active [GameSession].
@@ -134,6 +138,7 @@ class VoyageSaveData {
       merchantStock: List<Item>.from(session.merchantStock),
       onSaleMerchantIndex: session.onSaleMerchantIndex,
       gunneryAccuracyBoon: session.gunneryAccuracyBoon,
+      runicGuidanceBoon: session.runicGuidanceBoon,
     );
   }
 
@@ -152,6 +157,7 @@ class VoyageSaveData {
     session.merchantStock = List<Item>.from(merchantStock);
     session.onSaleMerchantIndex = onSaleMerchantIndex;
     session.gunneryAccuracyBoon = gunneryAccuracyBoon;
+    session.runicGuidanceBoon = runicGuidanceBoon;
     if (activeBoonId != null) {
       session.activeBoon = BloodlineTrait.allBoons
           .where((b) => b.id == activeBoonId)

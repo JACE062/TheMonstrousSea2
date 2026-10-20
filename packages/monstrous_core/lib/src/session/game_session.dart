@@ -11,6 +11,7 @@ import '../model/flagship_blueprint.dart';
 import '../model/item.dart';
 import '../model/monster_intent.dart';
 import '../model/nemesis.dart';
+import '../model/ocean_power.dart';
 import '../persistence/profile_data.dart';
 import '../rng/game_rng.dart';
 import '../rules/combat.dart';
@@ -19,6 +20,7 @@ import '../rules/lineage.dart';
 import '../rules/loot.dart';
 import '../rules/monster_ai.dart';
 import '../rules/sea_chart.dart';
+import '../rules/shrine.dart';
 import '../traits/trait.dart';
 import 'commands.dart';
 import 'events.dart';
@@ -55,6 +57,7 @@ class GameSession {
   CombatRange combatRange = CombatRange.medium;
   HelmOrder lastHelmOrderThisTurn = HelmOrder.holdLine;
   bool _disruptedBossCatastropheThisTurn = false;
+  bool _purgedFrenzyThisTurn = false;
   bool usedQuickConsumableThisTurn = false;
   int quickConsumablesUsedThisTurn = 0;
   List<Item> pendingLoot = <Item>[];
@@ -83,6 +86,9 @@ class GameSession {
       hasForagedAtCurrentIsland;
 
   int gunneryAccuracyBoon = 0;
+
+  /// Runic guidance is retained for every volley of the next combat.
+  int runicGuidanceBoon = 0;
   String currentIslandName = '';
   String currentShipwreckName = '';
   bool hasSalvagedCurrentWreck = false;
@@ -92,6 +98,7 @@ class GameSession {
   String currentShrineName = '';
   String currentShrineLore = '';
   bool hasCommunedAtCurrentShrine = false;
+  List<OceanPower> shrineManifestedPowers = const [];
 
   bool get canEmergencyRepairAtSea =>
       ship != null && ship!.currentHp < (ship!.maxHp * 0.25).ceil();
@@ -194,6 +201,8 @@ class GameSession {
       UpgradeHarborMonument(:final monumentId) =>
         _handleUpgradeHarborMonument(monumentId),
       CommuneWithShrine(:final choice) => _handleCommuneWithShrine(choice),
+      AcceptShrineBlessing(:final power, :final slot) =>
+        _handleAcceptShrineBlessing(power, slot),
       DepartShrine() => _handleDepartShrine(),
       DepartSmuggler() => _handleDepartSmuggler(),
       SteerCourse(:final bearing) => _handleSteerCourse(bearing),
@@ -342,6 +351,7 @@ class GameSession {
       bonusMaxHp: profile.monumentBonusMaxHp,
     );
     newShip.gold = oldGold;
+    newShip.blessings.addAll(ship?.blessings ?? {});
 
     for (final item in oldCargo) {
       if (item is ShipWeapon) continue;
@@ -470,6 +480,11 @@ class GameSession {
       throw StateError('Cannot venture out to sea from $phase');
     }
     final clampedRow = startingRow.clamp(0, seaChart.maxRowReached);
+    // A departure from port begins a fresh voyage; blessings are run-scoped.
+    ship?.blessings.clear();
+    gunneryAccuracyBoon = 0;
+    runicGuidanceBoon = 0;
+    shrineManifestedPowers = const [];
     seaChart.currentRow = clampedRow;
     seaChart.currentCol = 0;
     return _startEncounter();
@@ -670,6 +685,7 @@ class GameSession {
     }
     ship!.resetCombatBoosts();
     ship!.resetWeaponCooldowns();
+    _purgedFrenzyThisTurn = false;
 
     // Reckless Helmsman: steering Port or Starboard grants +10% evasion during combat
     if (activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&
@@ -746,6 +762,7 @@ class GameSession {
       hasCommunedAtCurrentShrine = false;
       currentShrineName = _generateShrineName();
       currentShrineLore = _generateShrineLore();
+      shrineManifestedPowers = selectShrinePowers(ship!, rng);
       final prevPhase = phase.displayName;
       phase = SessionPhase.shrine;
       events.add(PhaseChanged(
@@ -915,7 +932,7 @@ class GameSession {
     final events = <GameEvent>[];
 
     var accuracyBoon = gunneryAccuracyBoon;
-    gunneryAccuracyBoon = 0;
+    gunneryAccuracyBoon = runicGuidanceBoon;
 
     double damageMultiplier = profile.monumentWeaponDamageMultiplier;
     if (activeQuirk?.id == BloodlineTraitId.saltAddict) {
@@ -973,6 +990,8 @@ class GameSession {
       currentMonster!.isObscured = savedObscured;
     }
     events.addAll(volleyEvents);
+    _purgedFrenzyThisTurn =
+        volleyEvents.whereType<SharkFrenzyDisrupted>().isNotEmpty;
 
     // If flagship was destroyed by point-blank mortar backfire
     if (!ship!.isAlive) {
@@ -983,7 +1002,7 @@ class GameSession {
     // Evaluate Post-Loop Eldritch Relic Weapon & Pitch Coating effects on hit
     final resolvedHits = volleyEvents
         .whereType<AttackHit>()
-        .where((e) => e.targetName == currentMonster!.name)
+        .where((e) => e.targetName == currentMonster!.name && !e.isBlessingDamage)
         .toList();
     final carapaceHits = volleyEvents
         .whereType<CarapaceDamaged>()
@@ -991,7 +1010,9 @@ class GameSession {
         .toList();
 
     var totalDamageDealt =
-        resolvedHits.fold<int>(0, (sum, e) => sum + e.damage) +
+        volleyEvents.whereType<AttackHit>()
+            .where((e) => e.targetName == currentMonster!.name)
+            .fold<int>(0, (sum, e) => sum + e.damage) +
             carapaceHits.fold<int>(0, (sum, e) => sum + e.damageDealt);
 
     if (resolvedHits.isNotEmpty || carapaceHits.isNotEmpty) {
@@ -1016,7 +1037,8 @@ class GameSession {
       }
 
       if (hasGhostwake && currentMonster!.isAlive) {
-        final shockDmg = resolvedHits.length * 8;
+        final shockDmg = amplifyMonsterDamage(
+          ship!, currentMonster!, resolvedHits.length * 8);
         currentMonster!.applyDamage(shockDmg);
         totalDamageDealt += shockDmg;
         events.add(NarrationEvent(
@@ -1068,6 +1090,7 @@ class GameSession {
         newRange: combatRange,
         reason: 'Harpoon Winch tightened cables, reeling the quarry closer!',
       ));
+      events.addAll(triggerBoilingWake(ship!, currentMonster!));
       if (ship!.activeTetherTrapDistance != null && currentMonster!.isAlive) {
         ship!.activeTetherTrapDistance = ship!.activeTetherTrapDistance! - 1;
         if (ship!.activeTetherTrapDistance! <= 0) {
@@ -1201,10 +1224,12 @@ class GameSession {
       case ConsumableType.chakram:
         final result = resolveConsumableEffect(item, rng);
         if (result.didHit) {
+          final damage =
+              amplifyMonsterDamage(ship!, currentMonster!, result.damage);
           if (result.damage > 0) {
             if (item.type == ConsumableType.blastPack &&
                 currentMonster!.carapacePlating > 0) {
-              final blastCarapace = result.damage * 2;
+              final blastCarapace = damage * 2;
               if (currentMonster!.carapacePlating > blastCarapace) {
                 currentMonster!.carapacePlating -= blastCarapace;
                 events.add(CarapaceDamaged(
@@ -1216,7 +1241,7 @@ class GameSession {
               } else {
                 final broken = currentMonster!.carapacePlating;
                 final overflow =
-                    max(0, result.damage - (broken ~/ 2));
+                    max(0, damage - (broken ~/ 2));
                 currentMonster!.carapacePlating = 0;
                 events.add(CarapaceDamaged(
                   monsterName: currentMonster!.name,
@@ -1235,10 +1260,10 @@ class GameSession {
                 }
               }
             } else {
-              currentMonster!.applyDamage(result.damage);
+              currentMonster!.applyDamage(damage);
               events.add(AttackHit(
                 targetName: currentMonster!.name,
-                damage: result.damage,
+                damage: damage,
                 damageType: result.damageType.displayName,
                 remainingHp: currentMonster!.currentHp,
               ));
@@ -1253,7 +1278,7 @@ class GameSession {
             ));
           }
           events.addAll(_evaluatePlayerHitIntentInteractions(
-            totalDamageDealt: result.damage,
+            totalDamageDealt: damage,
             consumableType: item.type,
             inflictedStatus: result.statusEffect,
           ));
@@ -1379,6 +1404,14 @@ class GameSession {
         ));
     }
 
+    final blessingEvents = activateUtilityBlessing(ship!, currentMonster!);
+    events.addAll(blessingEvents);
+    _purgedFrenzyThisTurn =
+        blessingEvents.whereType<SharkFrenzyDisrupted>().isNotEmpty;
+    if (!currentMonster!.isAlive) {
+      events.addAll(_resolveMonsterDefeat());
+      return events;
+    }
     // Monster response turn
     events.addAll(_resolveMonsterTurn(usedUtility: true));
     return events;
@@ -1406,6 +1439,7 @@ class GameSession {
     bool usedUtility = false,
   }) {
     final events = <GameEvent>[];
+    final electroJoltWasActiveAtStart = currentMonster!.isElectroJolted;
 
     // Expire single-round ship debuffs after the player's turn has concluded
     ship!.isGrappled = false;
@@ -1419,6 +1453,8 @@ class GameSession {
       seaChart.currentDifficulty,
       rng,
       config,
+      ship!,
+      seaChart.currentRegionIndex,
     );
     events.addAll(monsterStatus.events);
     if (!currentMonster!.isAlive) {
@@ -1428,6 +1464,7 @@ class GameSession {
 
     // Feeding Frenzy Pact: Shark triggers frenzy at <= 60% HP instead of 40%
     if (profile.isPactActive(CovenantPactId.feedingFrenzy) &&
+        !_purgedFrenzyThisTurn &&
         currentMonster!.species == MonsterSpecies.shark &&
         currentMonster!.frenzyStacks == 0 &&
         currentMonster!.currentHp <= (currentMonster!.maxHp * 0.60).round()) {
@@ -1472,20 +1509,23 @@ class GameSession {
       currentMonster!.currentIntent = null;
     }
 
+    finishOceanPowerTurn(ship!, currentMonster!,
+        electroJoltWasActiveAtStart: electroJoltWasActiveAtStart);
+    _purgedFrenzyThisTurn = false;
     _disruptedBossCatastropheThisTurn = false;
     lastHelmOrderThisTurn = HelmOrder.holdLine;
     ship!.isAnchoredThisTurn = false;
     ship!.isBracedByDrill = false;
 
-    // Check if monster died from Tether-Trap detonation during its movement
-    if (!currentMonster!.isAlive) {
-      events.addAll(_resolveMonsterDefeat());
+    // A fatal strike remains fatal even when reactive powers also kill its source.
+    if (!ship!.isAlive) {
+      events.addAll(_resolvePlayerDeath());
       return events;
     }
 
-    // Check if player died
-    if (!ship!.isAlive) {
-      events.addAll(_resolvePlayerDeath());
+    // Check if monster died from reactive powers or a trap during its movement.
+    if (!currentMonster!.isAlive) {
+      events.addAll(_resolveMonsterDefeat());
       return events;
     }
 
@@ -1578,6 +1618,8 @@ class GameSession {
 
   List<GameEvent> _resolveMonsterDefeat() {
     final events = <GameEvent>[];
+    runicGuidanceBoon = 0;
+    gunneryAccuracyBoon = 0;
     monstersDefeatedThisLife++;
     highestDifficultyThisLife = max(
       highestDifficultyThisLife,
@@ -1689,6 +1731,9 @@ class GameSession {
 
   List<GameEvent> _resolvePlayerDeath() {
     final events = <GameEvent>[];
+    ship?.resetCombatBoosts();
+    runicGuidanceBoon = 0;
+    gunneryAccuracyBoon = 0;
     lineage.recordDeath(CaptainRecord(
       captainName: captainName,
       shipName: ship!.name,
@@ -2138,7 +2183,7 @@ class GameSession {
         NarrationEvent("The crew's shore duty is already spent on this island haven; tides compel the ship to depart."),
       ];
     }
-    gunneryAccuracyBoon = 15;
+    gunneryAccuracyBoon = 15 + runicGuidanceBoon;
     hasDrilledAtCurrentIsland = true;
     return const <GameEvent>[
       GunnersDrilled(bonusHitChance: 15),
@@ -2371,6 +2416,30 @@ class GameSession {
     return _handleTakeHelm();
   }
 
+  List<GameEvent> _handleAcceptShrineBlessing(OceanPower power, HardpointType slot) {
+    if (phase != SessionPhase.shrine || ship == null) {
+      throw StateError('Cannot accept a blessing outside of shrine phase');
+    }
+    if (hasCommunedAtCurrentShrine) {
+      return const [
+        NarrationEvent('The altar has gone cold; its blessing is already bestowed.'),
+      ];
+    }
+    if (!shrineManifestedPowers.contains(power)) {
+      throw StateError('That Primordial has not manifested at this shrine');
+    }
+    final blessing = previewShrineBlessing(ship!, power, slot);
+    if (blessing == null) {
+      throw StateError(
+          'This hardpoint is dedicated to another power or already sovereign');
+    }
+    ship!.blessings[slot] = blessing;
+    hasCommunedAtCurrentShrine = true;
+    return [
+      NarrationEvent('${blessing.title}: ${blessing.tierLabel}. ${blessing.description}'),
+    ];
+  }
+
   List<GameEvent> _handleCommuneWithShrine(ShrineChoice choice) {
     if (phase != SessionPhase.shrine || ship == null) {
       throw StateError('Cannot commune at shrine outside of shrine phase');
@@ -2428,7 +2497,8 @@ class GameSession {
         hasCommunedAtCurrentShrine = true;
         final nextRow = seaChart.currentRow + 1;
         seaChart.revealRow(nextRow);
-        gunneryAccuracyBoon += 10;
+        gunneryAccuracyBoon = gunneryAccuracyBoon - runicGuidanceBoon + 10;
+        runicGuidanceBoon = 10;
         events.add(ShrineCommuned(
           shrineName: currentShrineName,
           choice: choice,

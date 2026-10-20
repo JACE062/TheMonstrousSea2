@@ -2,6 +2,7 @@ import '../model/bloodline_trait.dart';
 import '../model/covenant_of_the_deep.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
+import '../model/ocean_power.dart';
 
 /// Base sealed class for all user or bot intents sent into the game engine.
 sealed class Command {
@@ -204,6 +205,13 @@ final class ClaimExpeditionVictory extends Command {
 final class CommuneWithShrine extends Command {
   const CommuneWithShrine(this.choice);
   final ShrineChoice choice;
+}
+
+/// Dedicates an open hardpoint or upgrades its existing Primordial blessing.
+final class AcceptShrineBlessing extends Command {
+  const AcceptShrineBlessing(this.power, this.slot);
+  final OceanPower power;
+  final HardpointType slot;
 }
 
 /// Departs an Ancient Sea Shrine to resume sailing.

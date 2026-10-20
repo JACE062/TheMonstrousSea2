@@ -675,11 +675,11 @@ void main() {
       expect(ticked.woreOff, isTrue);
     });
 
-    test('STUN on monster wears off on d100 > 50 and allows action', () {
+    test('STUN on monster clears after skipping exactly one action', () {
       final monster = createTestMonster();
       monster.addStatus(StatusEffect.stun);
 
-      // Roll 60 (> 25) -> wears off after denying action this turn
+      // Stun duration no longer depends on this random roll.
       final rng = QueueGameRng(d100Rolls: [60]);
       final (canAct, events) = updateStatusEffects(monster, 1, rng);
 
@@ -690,19 +690,19 @@ void main() {
       expect(ticked.woreOff, isTrue);
     });
 
-    test('STUN on monster persists on low d100 and denies action', () {
+    test('STUN on monster also clears with low RNG and denies one action', () {
       final monster = createTestMonster();
       monster.addStatus(StatusEffect.stun);
 
-      // Roll 20 (<= 25) -> remains stunned
+      // A low random roll can no longer prolong a stun.
       final rng = QueueGameRng(d100Rolls: [20]);
       final (canAct, events) = updateStatusEffects(monster, 1, rng);
 
       expect(canAct, isFalse);
-      expect(monster.hasStatus(StatusEffect.stun), isTrue);
+      expect(monster.hasStatus(StatusEffect.stun), isFalse);
 
       final ticked = events.firstWhere((e) => e is StatusEffectTicked) as StatusEffectTicked;
-      expect(ticked.woreOff, isFalse);
+      expect(ticked.woreOff, isTrue);
     });
 
     test('Status effect fatality emits CombatantDefeated and prevents action', () {

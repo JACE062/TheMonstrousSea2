@@ -71,7 +71,9 @@ Welcome! This repository contains the modernization of **The Monstrous Sea** fro
   - Retired weapon weight restriction in favor of Physical Deck Hardpoints and Cargo Stowage.
   - Implemented 3 discrete Range Bands (`Long`, `Medium`, `Short`) with action-driven momentum (Ram charges in, Culverin snipes from afar, Harpoon Winch reels in, Evasive Maneuver tacks away).
   - Scaled damage and accuracy by distance (Long: Culverin/Mortar +25% dmg, Cannon -15% acc, Flagship +15% evasion; Short: Ram +30% collision, Mortar point-blank backfire splash to own hull, Flagship -15% evasion).
-- **Combat Redesign Phase 2 (Telegraphed Monster Intent System):** Next active milestone.
+- **Combat Redesign Phase 2 (Telegraphed Monster Intent System):** Implemented.
+- **Combat Redesign Phase 3A (Intrinsic Hardpoints & Tactical Belt):** Implemented.
+- **Combat Redesign Phase 3B (Primordial Ocean Powers):** Implemented: four powers across three dedication sockets and three tiers, weighted shrine encounters, combat riders and synergies, persistent voyage blessings, responsive shrine/HUD UI, and simulation bot support. See [implementation notes and verification](agents/phase3b_ocean_powers.md) for current details; earlier section test counts describe historical milestones.
 - **Rogue-lite Stage 5 (Atmospheric Immersion, Port Civic Restoration & Audio/Visual VFX):** Queued following combat overhaul.
 
 ---

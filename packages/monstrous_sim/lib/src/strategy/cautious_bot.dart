@@ -1,5 +1,6 @@
 import 'package:monstrous_core/monstrous_core.dart';
 import 'bot_strategy.dart';
+import 'shrine_strategy.dart';
 
 /// Defensive bot that prioritizes survivability, frequent hull repairs,
 /// and tactical retreats when hull integrity drops below critical thresholds.
@@ -193,14 +194,7 @@ class CautiousBot implements BotStrategy {
         return const DepartSmuggler();
 
       case SessionPhase.shrine:
-        if (!session.hasCommunedAtCurrentShrine) {
-          final ship = session.ship;
-          if (ship != null && ship.gold >= 30) {
-            return const CommuneWithShrine(ShrineChoice.tribute);
-          }
-          return const CommuneWithShrine(ShrineChoice.ancientRunes);
-        }
-        return const DepartShrine();
+        return chooseShrineBlessing(session, preferredPowers: const [OceanPower.earthshakerTitan, OceanPower.brinemother], preferredSlots: const [HardpointType.utility, HardpointType.broadside, HardpointType.signature]);
 
       case SessionPhase.helm:
         final ship = session.ship;

@@ -80,12 +80,15 @@ final class AttackHit extends GameEvent {
     required this.damage,
     required this.damageType,
     required this.remainingHp,
+    this.isBlessingDamage = false,
   });
 
   final String targetName;
   final int damage;
   final String damageType;
   final int remainingHp;
+  /// Elemental riders must not count as additional weapon hits for relic procs.
+  final bool isBlessingDamage;
 }
 
 /// An attack missed.

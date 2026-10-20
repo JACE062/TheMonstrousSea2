@@ -1,5 +1,6 @@
 import 'package:monstrous_core/monstrous_core.dart';
 import 'bot_strategy.dart';
+import 'shrine_strategy.dart';
 
 /// Stochastic bot that selects pseudo-randomly among legal game commands.
 class RandomBot implements BotStrategy {
@@ -111,10 +112,7 @@ class RandomBot implements BotStrategy {
         return const DepartSmuggler();
 
       case SessionPhase.shrine:
-        if (!session.hasCommunedAtCurrentShrine) {
-          return const CommuneWithShrine(ShrineChoice.ancientRunes);
-        }
-        return const DepartShrine();
+        return chooseShrineBlessing(session, rng: rng);
 
       case SessionPhase.helm:
         final options = session.seaChart.currentCourseOptions;

@@ -192,31 +192,36 @@ class ShipWeapon extends Weapon {
   });
 
   factory ShipWeapon.fromJson(Map<String, dynamic> json) => ShipWeapon(
-        id: json['id'] as String,
-        name: json['name'] as String,
-        description: json['description'] as String,
-        value: json['value'] as int,
-        rarity: RarityLevel.values.firstWhere(
-          (e) => e.name == json['rarity'],
-          orElse: () => RarityLevel.common,
-        ),
-        damage: json['damage'] as int,
-        hitModifier: json['hitModifier'] as int,
-        chargeTime: json['chargeTime'] as int,
-        chargeCountdown: json['chargeCountdown'] as int?,
-        damageType: DamageType.values.firstWhere(
-          (e) => e.name == json['damageType'],
-          orElse: () => DamageType.piercing,
-        ),
-        statusEffect: json['statusEffect'] != null
-            ? StatusEffect.values.firstWhere((e) => e.name == json['statusEffect'])
-            : null,
-        equipWeight: json['equipWeight'] as int,
-        weaponType: ShipWeaponType.values.firstWhere(
-          (e) => e.name == json['weaponType'],
-          orElse: () => ShipWeaponType.cannon,
-        ),
-      );
+    id: json['id'] as String,
+    name: json['name'] as String,
+    description: json['description'] as String,
+    value: json['value'] as int,
+    rarity: RarityLevel.values.firstWhere(
+      (e) => e.name == json['rarity'],
+      orElse: () => RarityLevel.common,
+    ),
+    damage: json['damage'] as int,
+    hitModifier: json['hitModifier'] as int,
+    chargeTime: json['chargeTime'] as int,
+    chargeCountdown: json['chargeCountdown'] as int?,
+    // Migrate pre-Phase-3B base weapon saves; neither weapon is explosive.
+    damageType: switch (json['weaponType']) {
+      'prowRam' => DamageType.piercing,
+      'shrapnelHowitzer' => DamageType.slicing,
+      _ => DamageType.values.firstWhere(
+        (e) => e.name == json['damageType'],
+        orElse: () => DamageType.piercing,
+      ),
+    },
+    statusEffect: json['statusEffect'] != null
+        ? StatusEffect.values.firstWhere((e) => e.name == json['statusEffect'])
+        : null,
+    equipWeight: json['equipWeight'] as int,
+    weaponType: ShipWeaponType.values.firstWhere(
+      (e) => e.name == json['weaponType'],
+      orElse: () => ShipWeaponType.cannon,
+    ),
+  );
 
   final int equipWeight;
   final ShipWeaponType weaponType;

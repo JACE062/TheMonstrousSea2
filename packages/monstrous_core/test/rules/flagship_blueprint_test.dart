@@ -362,8 +362,17 @@ void main() {
         100,
       );
       expect(result.didHit, isTrue);
-      // 20 base * 1.25 (Spotter Flare +25% Blast) = 25 damage
-      expect(result.damage, equals(25));
+      // Phase 3B: shrapnel is Slicing, so the flare grants no Blast damage bonus.
+      expect(result.damage, equals(20));
+      final mortar = session.ship!.equippedWeapons
+          .firstWhere((w) => w.weaponType == ShipWeaponType.heavyMortar);
+      mortar.damage = 20;
+      final (blastResult, _) = calculateAttack(
+        session.ship!, mortar, monster, SeededGameRng(42),
+        defaultCombatTraits, 100, 1.0, CombatRange.long,
+      );
+      expect(blastResult.didHit, isTrue);
+      expect(blastResult.damage, equals(25));
     });
 
     test('Phase 3A: Hardpoint Tempering (Mk I -> Mk II -> Mk III) and Quick-Action Tactical Belt (0T)', () {

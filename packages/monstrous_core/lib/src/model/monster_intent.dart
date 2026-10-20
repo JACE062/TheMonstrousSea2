@@ -3,6 +3,7 @@ import 'enums.dart';
 
 /// Unique identifiers for all telegraphed monster intents and boss wind-ups.
 enum MonsterIntentId {
+  normalStrike,
   // Shark
   sharkRiptideWake,
   sharkBreachingLunge,
@@ -39,51 +40,49 @@ enum MonsterIntentId {
   bossLeviathanCatastrophe;
 
   MonsterIntentLoreEntry get lore => switch (this) {
-        MonsterIntentId.sharkRiptideWake => MonsterIntentLore.sharkRiptideWake,
-        MonsterIntentId.sharkBreachingLunge =>
-          MonsterIntentLore.sharkBreachingLunge,
-        MonsterIntentId.sharkFrenziedJaws =>
-          MonsterIntentLore.sharkFrenziedJaws,
-        MonsterIntentId.crustaceanCalcifyCarapace =>
-          MonsterIntentLore.crustaceanCalcifyCarapace,
-        MonsterIntentId.crustaceanBrineJet =>
-          MonsterIntentLore.crustaceanBrineJet,
-        MonsterIntentId.crustaceanTremorSlam =>
-          MonsterIntentLore.crustaceanTremorSlam,
-        MonsterIntentId.crustaceanHydraulicGuillotine =>
-          MonsterIntentLore.crustaceanHydraulicGuillotine,
-        MonsterIntentId.jellyfishArcPulse =>
-          MonsterIntentLore.jellyfishArcPulse,
-        MonsterIntentId.jellyfishNematocystCurtain =>
-          MonsterIntentLore.jellyfishNematocystCurtain,
-        MonsterIntentId.jellyfishNeurotoxinEmbrace =>
-          MonsterIntentLore.jellyfishNeurotoxinEmbrace,
-        MonsterIntentId.serpentAbyssalUnderStrike =>
-          MonsterIntentLore.serpentAbyssalUnderStrike,
-        MonsterIntentId.serpentVenomSpitRecoil =>
-          MonsterIntentLore.serpentVenomSpitRecoil,
-        MonsterIntentId.serpentFangedWhipRecoil =>
-          MonsterIntentLore.serpentFangedWhipRecoil,
-        MonsterIntentId.squidFeedingTentacleSnare =>
-          MonsterIntentLore.squidFeedingTentacleSnare,
-        MonsterIntentId.squidSweepingTentacles =>
-          MonsterIntentLore.squidSweepingTentacles,
-        MonsterIntentId.squidConstrictingBeak =>
-          MonsterIntentLore.squidConstrictingBeak,
-        MonsterIntentId.squidInkShroudRecoil =>
-          MonsterIntentLore.squidInkShroudRecoil,
-        MonsterIntentId.bossKrakenWindup => MonsterIntentLore.bossKrakenWindup,
-        MonsterIntentId.bossKrakenCatastrophe =>
-          MonsterIntentLore.bossKrakenCatastrophe,
-        MonsterIntentId.bossWorldSerpentWindup =>
-          MonsterIntentLore.bossWorldSerpentWindup,
-        MonsterIntentId.bossWorldSerpentCatastrophe =>
-          MonsterIntentLore.bossWorldSerpentCatastrophe,
-        MonsterIntentId.bossLeviathanWindup =>
-          MonsterIntentLore.bossLeviathanWindup,
-        MonsterIntentId.bossLeviathanCatastrophe =>
-          MonsterIntentLore.bossLeviathanCatastrophe,
-      };
+    MonsterIntentId.normalStrike => MonsterIntentLore.normalStrike,
+    MonsterIntentId.sharkRiptideWake => MonsterIntentLore.sharkRiptideWake,
+    MonsterIntentId.sharkBreachingLunge =>
+      MonsterIntentLore.sharkBreachingLunge,
+    MonsterIntentId.sharkFrenziedJaws => MonsterIntentLore.sharkFrenziedJaws,
+    MonsterIntentId.crustaceanCalcifyCarapace =>
+      MonsterIntentLore.crustaceanCalcifyCarapace,
+    MonsterIntentId.crustaceanBrineJet => MonsterIntentLore.crustaceanBrineJet,
+    MonsterIntentId.crustaceanTremorSlam =>
+      MonsterIntentLore.crustaceanTremorSlam,
+    MonsterIntentId.crustaceanHydraulicGuillotine =>
+      MonsterIntentLore.crustaceanHydraulicGuillotine,
+    MonsterIntentId.jellyfishArcPulse => MonsterIntentLore.jellyfishArcPulse,
+    MonsterIntentId.jellyfishNematocystCurtain =>
+      MonsterIntentLore.jellyfishNematocystCurtain,
+    MonsterIntentId.jellyfishNeurotoxinEmbrace =>
+      MonsterIntentLore.jellyfishNeurotoxinEmbrace,
+    MonsterIntentId.serpentAbyssalUnderStrike =>
+      MonsterIntentLore.serpentAbyssalUnderStrike,
+    MonsterIntentId.serpentVenomSpitRecoil =>
+      MonsterIntentLore.serpentVenomSpitRecoil,
+    MonsterIntentId.serpentFangedWhipRecoil =>
+      MonsterIntentLore.serpentFangedWhipRecoil,
+    MonsterIntentId.squidFeedingTentacleSnare =>
+      MonsterIntentLore.squidFeedingTentacleSnare,
+    MonsterIntentId.squidSweepingTentacles =>
+      MonsterIntentLore.squidSweepingTentacles,
+    MonsterIntentId.squidConstrictingBeak =>
+      MonsterIntentLore.squidConstrictingBeak,
+    MonsterIntentId.squidInkShroudRecoil =>
+      MonsterIntentLore.squidInkShroudRecoil,
+    MonsterIntentId.bossKrakenWindup => MonsterIntentLore.bossKrakenWindup,
+    MonsterIntentId.bossKrakenCatastrophe =>
+      MonsterIntentLore.bossKrakenCatastrophe,
+    MonsterIntentId.bossWorldSerpentWindup =>
+      MonsterIntentLore.bossWorldSerpentWindup,
+    MonsterIntentId.bossWorldSerpentCatastrophe =>
+      MonsterIntentLore.bossWorldSerpentCatastrophe,
+    MonsterIntentId.bossLeviathanWindup =>
+      MonsterIntentLore.bossLeviathanWindup,
+    MonsterIntentId.bossLeviathanCatastrophe =>
+      MonsterIntentLore.bossLeviathanCatastrophe,
+  };
 }
 
 /// How a monster intent alters the engagement distance between flagship and beast.
@@ -105,11 +104,7 @@ enum IntentMoveDelta {
 }
 
 /// Whether the monster's spatial movement occurs before or after its attack resolves.
-enum IntentMoveTiming {
-  none,
-  beforeAttack,
-  afterAttack,
-}
+enum IntentMoveTiming { none, beforeAttack, afterAttack }
 
 /// Tactical classification of how the player's planned helm maneuver interacts
 /// with the monster's telegraphed intent.
@@ -205,21 +200,22 @@ class MonsterIntent {
 
   /// Human-readable label for the monster's movement behavior.
   String get moveLabel => switch (moveDelta) {
-        IntentMoveDelta.stationary => 'STATIONARY',
-        IntentMoveDelta.closer1 => moveTiming == IntentMoveTiming.beforeAttack
-            ? 'PRE-ATTACK CHARGE (+1 CLOSER)'
-            : 'POST-ATTACK ADVANCE (+1 CLOSER)',
-        IntentMoveDelta.farther1 => 'POST-ATTACK RECOIL (+1 FARTHER)',
-        IntentMoveDelta.pullShipCloser1 => 'POST-ATTACK PULL (REELS SHIP +1)',
-        IntentMoveDelta.ambushToShort => 'PRE-ATTACK AMBUSH (ERUPTS TO SHORT)',
-      };
+    IntentMoveDelta.stationary => 'STATIONARY',
+    IntentMoveDelta.closer1 =>
+      moveTiming == IntentMoveTiming.beforeAttack
+          ? 'PRE-ATTACK CHARGE (+1 CLOSER)'
+          : 'POST-ATTACK ADVANCE (+1 CLOSER)',
+    IntentMoveDelta.farther1 => 'POST-ATTACK RECOIL (+1 FARTHER)',
+    IntentMoveDelta.pullShipCloser1 => 'POST-ATTACK PULL (REELS SHIP +1)',
+    IntentMoveDelta.ambushToShort => 'PRE-ATTACK AMBUSH (ERUPTS TO SHORT)',
+  };
 
   /// Explicit timing badge for whether movement occurs before or after the strike.
   String get moveTimingBadge => switch (moveTiming) {
-        IntentMoveTiming.beforeAttack => 'PRE-ATTACK',
-        IntentMoveTiming.afterAttack => 'POST-ATTACK',
-        IntentMoveTiming.none => 'NONE',
-      };
+    IntentMoveTiming.beforeAttack => 'PRE-ATTACK',
+    IntentMoveTiming.afterAttack => 'POST-ATTACK',
+    IntentMoveTiming.none => 'NONE',
+  };
 
   /// Evaluates the exact spatial outcome if the player issues [selectedHelmOrder]
   /// from [currentRange].
@@ -343,18 +339,18 @@ class MonsterIntent {
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id.name,
-        'threatenedRanges': threatenedRanges.map((e) => e.name).toList(),
-        'moveDelta': moveDelta.name,
-        'moveTiming': moveTiming.name,
-        'damageMultiplier': damageMultiplier,
-        'estimatedDamage': estimatedDamage,
-        'cooldownTurns': cooldownTurns,
-        'isBossWindup': isBossWindup,
-        'isBossCatastropheStrike': isBossCatastropheStrike,
-        'followUpStrikeId': followUpStrikeId?.name,
-        'poiseThreshold': poiseThreshold,
-      };
+    'id': id.name,
+    'threatenedRanges': threatenedRanges.map((e) => e.name).toList(),
+    'moveDelta': moveDelta.name,
+    'moveTiming': moveTiming.name,
+    'damageMultiplier': damageMultiplier,
+    'estimatedDamage': estimatedDamage,
+    'cooldownTurns': cooldownTurns,
+    'isBossWindup': isBossWindup,
+    'isBossCatastropheStrike': isBossCatastropheStrike,
+    'followUpStrikeId': followUpStrikeId?.name,
+    'poiseThreshold': poiseThreshold,
+  };
 
   factory MonsterIntent.fromJson(Map<String, dynamic> json) {
     final idName = json['id'] as String? ?? 'sharkBreachingLunge';
@@ -362,11 +358,14 @@ class MonsterIntent {
       (e) => e.name == idName,
       orElse: () => MonsterIntentId.sharkBreachingLunge,
     );
-    final rangesList = (json['threatenedRanges'] as List<dynamic>?)
-            ?.map((e) => CombatRange.values.firstWhere(
-                  (r) => r.name == e,
-                  orElse: () => CombatRange.medium,
-                ))
+    final rangesList =
+        (json['threatenedRanges'] as List<dynamic>?)
+            ?.map(
+              (e) => CombatRange.values.firstWhere(
+                (r) => r.name == e,
+                orElse: () => CombatRange.medium,
+              ),
+            )
             .toSet() ??
         const <CombatRange>{CombatRange.short, CombatRange.medium};
     final moveDeltaName = json['moveDelta'] as String? ?? 'stationary';
@@ -396,7 +395,8 @@ class MonsterIntent {
       estimatedDamage: json['estimatedDamage'] as int? ?? 15,
       cooldownTurns: json['cooldownTurns'] as int? ?? 0,
       isBossWindup: json['isBossWindup'] as bool? ?? false,
-      isBossCatastropheStrike: json['isBossCatastropheStrike'] as bool? ?? false,
+      isBossCatastropheStrike:
+          json['isBossCatastropheStrike'] as bool? ?? false,
       followUpStrikeId: followUp,
       poiseThreshold: json['poiseThreshold'] as int? ?? 0,
     );
@@ -405,6 +405,18 @@ class MonsterIntent {
   static MonsterIntent fromId(MonsterIntentId id) => catalog[id]!;
 
   static const Map<MonsterIntentId, MonsterIntent> catalog = {
+    MonsterIntentId.normalStrike: MonsterIntent(
+      id: MonsterIntentId.normalStrike,
+      threatenedRanges: {
+        CombatRange.short,
+        CombatRange.medium,
+        CombatRange.long,
+      },
+      moveDelta: IntentMoveDelta.stationary,
+      moveTiming: IntentMoveTiming.none,
+      damageMultiplier: 1.0,
+      estimatedDamage: 15,
+    ),
     // Shark
     MonsterIntentId.sharkRiptideWake: MonsterIntent(
       id: MonsterIntentId.sharkRiptideWake,
@@ -497,7 +509,11 @@ class MonsterIntent {
     // Serpent
     MonsterIntentId.serpentAbyssalUnderStrike: MonsterIntent(
       id: MonsterIntentId.serpentAbyssalUnderStrike,
-      threatenedRanges: {CombatRange.short, CombatRange.medium, CombatRange.long},
+      threatenedRanges: {
+        CombatRange.short,
+        CombatRange.medium,
+        CombatRange.long,
+      },
       moveDelta: IntentMoveDelta.ambushToShort,
       moveTiming: IntentMoveTiming.beforeAttack,
       damageMultiplier: 1.25,
@@ -571,7 +587,11 @@ class MonsterIntent {
     ),
     MonsterIntentId.bossKrakenCatastrophe: MonsterIntent(
       id: MonsterIntentId.bossKrakenCatastrophe,
-      threatenedRanges: {CombatRange.short, CombatRange.medium, CombatRange.long},
+      threatenedRanges: {
+        CombatRange.short,
+        CombatRange.medium,
+        CombatRange.long,
+      },
       moveDelta: IntentMoveDelta.stationary,
       moveTiming: IntentMoveTiming.none,
       damageMultiplier: 1.65,
@@ -593,7 +613,11 @@ class MonsterIntent {
     ),
     MonsterIntentId.bossWorldSerpentCatastrophe: MonsterIntent(
       id: MonsterIntentId.bossWorldSerpentCatastrophe,
-      threatenedRanges: {CombatRange.short, CombatRange.medium, CombatRange.long},
+      threatenedRanges: {
+        CombatRange.short,
+        CombatRange.medium,
+        CombatRange.long,
+      },
       moveDelta: IntentMoveDelta.stationary,
       moveTiming: IntentMoveTiming.none,
       damageMultiplier: 1.65,
@@ -615,7 +639,11 @@ class MonsterIntent {
     ),
     MonsterIntentId.bossLeviathanCatastrophe: MonsterIntent(
       id: MonsterIntentId.bossLeviathanCatastrophe,
-      threatenedRanges: {CombatRange.short, CombatRange.medium, CombatRange.long},
+      threatenedRanges: {
+        CombatRange.short,
+        CombatRange.medium,
+        CombatRange.long,
+      },
       moveDelta: IntentMoveDelta.stationary,
       moveTiming: IntentMoveTiming.none,
       damageMultiplier: 1.75,

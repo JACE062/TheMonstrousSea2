@@ -1,5 +1,6 @@
 import 'package:monstrous_core/monstrous_core.dart';
 import 'bot_strategy.dart';
+import 'shrine_strategy.dart';
 
 /// Wealth-maximizing bot choosing the Freighter class to optimize cargo holds,
 /// banking treasures at port, and avoiding unnecessary expenses.
@@ -143,14 +144,7 @@ class GreedyBot implements BotStrategy {
         return const DepartSmuggler();
 
       case SessionPhase.shrine:
-        if (!session.hasCommunedAtCurrentShrine) {
-          final ship = session.ship;
-          if (ship != null && ship.currentHp > (ship.maxHp * 0.40)) {
-            return const CommuneWithShrine(ShrineChoice.abyssalPact);
-          }
-          return const CommuneWithShrine(ShrineChoice.ancientRunes);
-        }
-        return const DepartShrine();
+        return chooseShrineBlessing(session, preferredPowers: const [OceanPower.brinemother, OceanPower.tempestSovereign]);
 
       case SessionPhase.helm:
         final options = session.seaChart.currentCourseOptions;

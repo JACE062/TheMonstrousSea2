@@ -4,6 +4,7 @@ import '../model/attack_result.dart';
 import '../model/combatant.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
+import '../model/ocean_power.dart';
 import '../rng/game_rng.dart';
 
 /// Pluggable behavioral trait for combat mechanics and subclass actions.
@@ -19,11 +20,7 @@ abstract class CombatTrait {
   ) {}
 
   /// Hook invoked when an active combatant executes its special turn action.
-  String executeSpecialAction(
-    Combatant actor,
-    Combatant target,
-    GameRng rng,
-  ) =>
+  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) =>
       '';
 }
 
@@ -51,11 +48,7 @@ class FortifyTrait extends CombatTrait {
   }
 
   @override
-  String executeSpecialAction(
-    Combatant actor,
-    Combatant target,
-    GameRng rng,
-  ) {
+  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
     if (actor is ShipState &&
         (actor.shipClass == ShipClass.ironclad || actor.dmgReductionMod > 0)) {
       final utilMult = actor.multiplierForHardpointMark(HardpointType.utility);
@@ -81,6 +74,11 @@ class EvasionTrait extends CombatTrait {
   ) {
     if (defender is ShipState && result.didHit) {
       int effectiveEvasion = defender.currentEvasion;
+      if (defender.basaltBarrierHp > 0 && defender.basaltAegisTurns > 0) {
+        effectiveEvasion += defender.blessings[HardpointType.utility]?.tier == 3
+            ? 20
+            : 15;
+      }
       if (result.combatRange == CombatRange.long) {
         effectiveEvasion += 15;
       } else if (result.combatRange == CombatRange.short) {
@@ -100,11 +98,7 @@ class EvasionTrait extends CombatTrait {
   }
 
   @override
-  String executeSpecialAction(
-    Combatant actor,
-    Combatant target,
-    GameRng rng,
-  ) {
+  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
     if (actor is ShipState &&
         (actor.shipClass == ShipClass.corvette ||
             actor.shipClass == ShipClass.clipper ||
@@ -136,11 +130,7 @@ class InkCloudTrait extends CombatTrait {
   }
 
   @override
-  String executeSpecialAction(
-    Combatant actor,
-    Combatant target,
-    GameRng rng,
-  ) {
+  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
     if (actor is MonsterState) {
       actor.isObscured = true;
       return '${actor.name} jets out pitch black ink into the water, obscuring itself from view!';
@@ -168,8 +158,10 @@ class TentacleTrait extends CombatTrait {
             result.shipWeaponType == ShipWeaponType.harpoonWinch) &&
         defender.numberOfTentacles > 0) {
       final effectiveDamage = result.damage - result.nullifiedDamage;
-      final severed =
-          (effectiveDamage / 10).ceil().clamp(0, defender.numberOfTentacles);
+      final severed = (effectiveDamage / 10).ceil().clamp(
+        0,
+        defender.numberOfTentacles,
+      );
       defender.numberOfTentacles -= severed;
       result.tentaclesSevered = severed;
     }
@@ -191,7 +183,50 @@ class CarapaceTrait extends CombatTrait {
     if (defender is MonsterState &&
         defender.carapacePlating > 0 &&
         result.didHit) {
-      if (result.shipWeaponType == ShipWeaponType.precisionCulverin) {
+      final slot =
+          (result.shipWeaponType?.isBlueprintIntrinsic == true ||
+                  result.shipWeaponType == ShipWeaponType.cannon) &&
+              attacker is ShipState
+          ? result.shipWeaponType!.isSignature
+                ? HardpointType.signature
+                : HardpointType.broadside
+          : null;
+      final blessing = attacker is ShipState && slot != null
+          ? attacker.blessings[slot]
+          : null;
+      if (blessing?.power == OceanPower.brinemother) {
+        final signature = slot == HardpointType.signature;
+        final intrinsicShellMultiplier =
+            result.shipWeaponType == ShipWeaponType.heavyMortar ? 2 : 1;
+        final shellDamage =
+            (signature
+                    ? result.damage * intrinsicShellMultiplier
+                    : result.damage * 2 + [4, 8, 12][blessing!.tier - 1])
+                .clamp(0, defender.carapacePlating);
+        defender.carapacePlating -= shellDamage;
+        result.carapaceDamaged = shellDamage;
+        result.wasCarapaceShattered = defender.carapacePlating == 0;
+        if (!signature && result.damageType != DamageType.fire) {
+          result.nullifiedDamage = min(result.damage, shellDamage);
+          result.carapaceAbsorbed = result.nullifiedDamage;
+        }
+      } else if (blessing?.power == OceanPower.earthshakerTitan &&
+          result.damageType != DamageType.fire) {
+        // Preserve the Culverin's penetration and Mortar's superior shell crush.
+        final bypass = result.shipWeaponType == ShipWeaponType.precisionCulverin
+            ? (result.damage * 0.5).round()
+            : 0;
+        final multiplier = result.shipWeaponType == ShipWeaponType.heavyMortar
+            ? 2.0
+            : 1.5;
+        final shellDamage = ((result.damage - bypass) * multiplier)
+            .round()
+            .clamp(0, defender.carapacePlating);
+        defender.carapacePlating -= shellDamage;
+        result.carapaceDamaged = shellDamage;
+        result.nullifiedDamage = min(result.damage - bypass, shellDamage);
+        result.wasCarapaceShattered = defender.carapacePlating == 0;
+      } else if (result.shipWeaponType == ShipWeaponType.precisionCulverin) {
         // Precision Culverin critical strikes bypass 50% of monster Carapace plating!
         // 50% is absorbed by the carapace, while the other 50% penetrates directly to HP.
         final halfDmg = (result.damage * 0.5).round();
@@ -202,9 +237,11 @@ class CarapaceTrait extends CombatTrait {
         result.nullifiedDamage = absorbed;
         result.wasCarapaceShattered = defender.carapacePlating <= 0;
       } else if (result.damageType == DamageType.blast) {
-        // Blast attacks (Torpedo, Prow Ram, Heavy Mortar) deal devastating bonus damage directly to carapace!
+        // Blast attacks deal devastating bonus damage directly to carapace!
         // Heavy Mortar delivers an additional +50% blast bonus (2.0x vs 1.5x)!
-        final multiplier = result.shipWeaponType == ShipWeaponType.heavyMortar ? 2.0 : 1.5;
+        final multiplier = result.shipWeaponType == ShipWeaponType.heavyMortar
+            ? 2.0
+            : 1.5;
         final blastDmg = (result.damage * multiplier).round();
         final absorbedByCarapace = blastDmg.clamp(0, defender.carapacePlating);
         defender.carapacePlating -= absorbedByCarapace;
@@ -228,18 +265,16 @@ class CarapaceTrait extends CombatTrait {
   }
 
   @override
-  String executeSpecialAction(
-    Combatant actor,
-    Combatant target,
-    GameRng rng,
-  ) {
+  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
     if (actor is MonsterState &&
         actor.species == MonsterSpecies.crustacean &&
         actor.carapacePlating > 0 &&
         actor.carapacePlating < actor.maxCarapace) {
       final restored = (actor.maxCarapace * 0.2).ceil();
-      actor.carapacePlating =
-          (actor.carapacePlating + restored).clamp(0, actor.maxCarapace);
+      actor.carapacePlating = (actor.carapacePlating + restored).clamp(
+        0,
+        actor.maxCarapace,
+      );
       return '${actor.name} hunkers down into its armored shell, reinforcing its carapace!';
     }
     return '';
@@ -261,7 +296,8 @@ class SharkFrenzyTrait extends CombatTrait {
     if (defender is MonsterState &&
         defender.species == MonsterSpecies.shark &&
         result.didHit) {
-      final isShockOrStunOrConcussive = result.damageType == DamageType.shock ||
+      final isShockOrStunOrConcussive =
+          result.damageType == DamageType.shock ||
           result.statusEffect == StatusEffect.stun ||
           result.shipWeaponType == ShipWeaponType.heavyMortar;
       if (isShockOrStunOrConcussive && defender.frenzyStacks > 0) {
@@ -272,11 +308,7 @@ class SharkFrenzyTrait extends CombatTrait {
   }
 
   @override
-  String executeSpecialAction(
-    Combatant actor,
-    Combatant target,
-    GameRng rng,
-  ) {
+  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
     if (actor is MonsterState && actor.species == MonsterSpecies.shark) {
       actor.frenzyStacks = (actor.frenzyStacks + 1).clamp(1, 3);
       return '${actor.name} thrashes the sea and lets out a frenzied roar! (Frenzy x${actor.frenzyStacks})';
@@ -313,11 +345,7 @@ class SerpentSlitherTrait extends CombatTrait {
   }
 
   @override
-  String executeSpecialAction(
-    Combatant actor,
-    Combatant target,
-    GameRng rng,
-  ) {
+  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
     if (actor is MonsterState &&
         (actor.species == MonsterSpecies.serpent ||
             actor.species == MonsterSpecies.worldSerpent)) {

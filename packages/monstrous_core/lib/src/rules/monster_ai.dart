@@ -25,12 +25,17 @@ List<GameEvent> detonateTetherTrap(
   ship.activeTetherTrapDistance = null;
   final events = <GameEvent>[];
 
-  final baseDamage = max(1, ship.activeTetherTrapDamage);
+  final baseDamage = amplifyMonsterDamage(
+    ship,
+    monster,
+    max(1, ship.activeTetherTrapDamage),
+  );
   final result = AttackResult(
     didHit: true,
     damage: baseDamage,
     damageType: DamageType.slicing,
-    shipWeaponType: ShipWeaponType.chainShotBroadside,
+    // This is a utility trap, so Broadside blessings must not attach to it.
+    shipWeaponType: null,
     statusEffect: null,
     description: '$reason — Drifting Tether-Trap snares ${monster.name}',
     combatRange: CombatRange.short,
@@ -42,50 +47,64 @@ List<GameEvent> detonateTetherTrap(
   }
 
   if (result.carapaceDamaged > 0 || result.wasCarapaceShattered) {
-    events.add(CarapaceDamaged(
-      monsterName: monster.name,
-      damageDealt: result.carapaceDamaged,
-      remainingCarapace: monster.carapacePlating,
-      wasShattered: result.wasCarapaceShattered,
-    ));
+    events.add(
+      CarapaceDamaged(
+        monsterName: monster.name,
+        damageDealt: result.carapaceDamaged,
+        remainingCarapace: monster.carapacePlating,
+        wasShattered: result.wasCarapaceShattered,
+      ),
+    );
   }
 
   if (result.carapaceAbsorbed > 0) {
-    events.add(CarapaceAbsorbed(
-      monsterName: monster.name,
-      absorbedAmount: result.carapaceAbsorbed,
-      penetratingDamage: result.damage - result.nullifiedDamage,
-    ));
+    events.add(
+      CarapaceAbsorbed(
+        monsterName: monster.name,
+        absorbedAmount: result.carapaceAbsorbed,
+        penetratingDamage: result.damage - result.nullifiedDamage,
+      ),
+    );
   }
 
-  final effectiveDamage =
-      (result.damage - result.nullifiedDamage).clamp(0, monster.currentHp);
+  final effectiveDamage = (result.damage - result.nullifiedDamage).clamp(
+    0,
+    monster.currentHp,
+  );
   monster.applyDamage(effectiveDamage);
   monster.isPinnedThisTurn = true;
 
-  events.add(AttackHit(
-    targetName: monster.name,
-    damage: effectiveDamage,
-    damageType: DamageType.slicing.displayName,
-    remainingHp: monster.currentHp,
-  ));
+  events.add(
+    AttackHit(
+      targetName: monster.name,
+      damage: effectiveDamage,
+      damageType: DamageType.slicing.displayName,
+      remainingHp: monster.currentHp,
+    ),
+  );
 
   if (result.tentaclesSevered > 0) {
-    events.add(TentaclesSevered(
-      countSevered: result.tentaclesSevered,
-      remainingTentacles: monster.numberOfTentacles,
-    ));
+    events.add(
+      TentaclesSevered(
+        countSevered: result.tentaclesSevered,
+        remainingTentacles: monster.numberOfTentacles,
+      ),
+    );
   }
 
-  events.add(NarrationEvent(
-    '$reason — SNARE! Drifting Tether-Trap snares ${monster.name} for $effectiveDamage Slicing damage and inflicts Pinned (1T)!',
-  ));
+  events.add(
+    NarrationEvent(
+      '$reason — SNARE! Drifting Tether-Trap snares ${monster.name} for $effectiveDamage Slicing damage and inflicts Pinned (1T)!',
+    ),
+  );
 
   if (!monster.isAlive) {
-    events.add(CombatantDefeated(
-      name: monster.name,
-      flavorMessage: '${monster.name} has been defeated!',
-    ));
+    events.add(
+      CombatantDefeated(
+        name: monster.name,
+        flavorMessage: '${monster.name} has been defeated!',
+      ),
+    );
   }
   return events;
 }
@@ -115,7 +134,9 @@ MonsterIntent selectNextMonsterIntent(
 }) {
   // 1. Check if a Boss Wind-up just completed Turn 1 and must transition to Turn 2 Strike
   final active = monster.currentIntent;
-  if (active != null && active.isBossWindup && active.followUpStrikeId != null) {
+  if (active != null &&
+      active.isBossWindup &&
+      active.followUpStrikeId != null) {
     return MonsterIntent.fromId(active.followUpStrikeId!);
   }
 
@@ -128,7 +149,9 @@ MonsterIntent selectNextMonsterIntent(
     }
     if (monster.species == MonsterSpecies.worldSerpent &&
         !monster.isIntentOnCooldown(MonsterIntentId.bossWorldSerpentWindup) &&
-        !monster.isIntentOnCooldown(MonsterIntentId.bossWorldSerpentCatastrophe)) {
+        !monster.isIntentOnCooldown(
+          MonsterIntentId.bossWorldSerpentCatastrophe,
+        )) {
       return MonsterIntent.fromId(MonsterIntentId.bossWorldSerpentWindup);
     }
     if (monster.species == MonsterSpecies.ancientLeviathan &&
@@ -142,109 +165,134 @@ MonsterIntent selectNextMonsterIntent(
   switch (monster.species) {
     case MonsterSpecies.shark:
       return switch (currentRange) {
-        CombatRange.long =>
-          MonsterIntent.fromId(MonsterIntentId.sharkRiptideWake),
-        CombatRange.medium =>
-          MonsterIntent.fromId(MonsterIntentId.sharkBreachingLunge),
-        CombatRange.short =>
-          MonsterIntent.fromId(MonsterIntentId.sharkFrenziedJaws),
+        CombatRange.long => MonsterIntent.fromId(
+          MonsterIntentId.sharkRiptideWake,
+        ),
+        CombatRange.medium => MonsterIntent.fromId(
+          MonsterIntentId.sharkBreachingLunge,
+        ),
+        CombatRange.short => MonsterIntent.fromId(
+          MonsterIntentId.sharkFrenziedJaws,
+        ),
       };
 
     case MonsterSpecies.crustacean:
       if (monster.maxCarapace > 0 &&
           monster.carapacePlating < (monster.maxCarapace * 0.5).round() &&
           !monster.isIntentOnCooldown(
-              MonsterIntentId.crustaceanCalcifyCarapace)) {
+            MonsterIntentId.crustaceanCalcifyCarapace,
+          )) {
         return MonsterIntent.fromId(MonsterIntentId.crustaceanCalcifyCarapace);
       }
       return switch (currentRange) {
-        CombatRange.long =>
-          MonsterIntent.fromId(MonsterIntentId.crustaceanBrineJet),
-        CombatRange.medium => (!monster.isIntentOnCooldown(
-                    MonsterIntentId.crustaceanTremorSlam) &&
-                (monster.lastExecutedIntentId ==
-                        MonsterIntentId.crustaceanBrineJet ||
-                    monster.lastExecutedIntentId ==
-                        MonsterIntentId.crustaceanHydraulicGuillotine ||
-                    rng.nextInt(100) < 50))
-            ? MonsterIntent.fromId(MonsterIntentId.crustaceanTremorSlam)
-            : MonsterIntent.fromId(MonsterIntentId.crustaceanBrineJet),
-        CombatRange.short => (!monster.isIntentOnCooldown(
-                    MonsterIntentId.crustaceanTremorSlam) &&
-                monster.lastExecutedIntentId ==
-                    MonsterIntentId.crustaceanBrineJet)
-            ? MonsterIntent.fromId(MonsterIntentId.crustaceanTremorSlam)
-            : MonsterIntent.fromId(
-                MonsterIntentId.crustaceanHydraulicGuillotine),
+        CombatRange.long => MonsterIntent.fromId(
+          MonsterIntentId.crustaceanBrineJet,
+        ),
+        CombatRange.medium =>
+          (!monster.isIntentOnCooldown(MonsterIntentId.crustaceanTremorSlam) &&
+                  (monster.lastExecutedIntentId ==
+                          MonsterIntentId.crustaceanBrineJet ||
+                      monster.lastExecutedIntentId ==
+                          MonsterIntentId.crustaceanHydraulicGuillotine ||
+                      rng.nextInt(100) < 50))
+              ? MonsterIntent.fromId(MonsterIntentId.crustaceanTremorSlam)
+              : MonsterIntent.fromId(MonsterIntentId.crustaceanBrineJet),
+        CombatRange.short =>
+          (!monster.isIntentOnCooldown(MonsterIntentId.crustaceanTremorSlam) &&
+                  monster.lastExecutedIntentId ==
+                      MonsterIntentId.crustaceanBrineJet)
+              ? MonsterIntent.fromId(MonsterIntentId.crustaceanTremorSlam)
+              : MonsterIntent.fromId(
+                  MonsterIntentId.crustaceanHydraulicGuillotine,
+                ),
       };
 
     case MonsterSpecies.jellyfish:
       return switch (currentRange) {
-        CombatRange.long =>
-          MonsterIntent.fromId(MonsterIntentId.jellyfishArcPulse),
-        CombatRange.medium => (monster.lastExecutedIntentId ==
-                MonsterIntentId.jellyfishArcPulse)
-            ? MonsterIntent.fromId(MonsterIntentId.jellyfishNematocystCurtain)
-            : (monster.lastExecutedIntentId ==
+        CombatRange.long => MonsterIntent.fromId(
+          MonsterIntentId.jellyfishArcPulse,
+        ),
+        CombatRange.medium =>
+          (monster.lastExecutedIntentId == MonsterIntentId.jellyfishArcPulse)
+              ? MonsterIntent.fromId(MonsterIntentId.jellyfishNematocystCurtain)
+              : (monster.lastExecutedIntentId ==
                     MonsterIntentId.jellyfishNematocystCurtain)
-                ? MonsterIntent.fromId(MonsterIntentId.jellyfishArcPulse)
-                : (rng.nextInt(100) < 50
+              ? MonsterIntent.fromId(MonsterIntentId.jellyfishArcPulse)
+              : (rng.nextInt(100) < 50
                     ? MonsterIntent.fromId(MonsterIntentId.jellyfishArcPulse)
                     : MonsterIntent.fromId(
-                        MonsterIntentId.jellyfishNematocystCurtain)),
-        CombatRange.short => !monster.isIntentOnCooldown(
-                MonsterIntentId.jellyfishNeurotoxinEmbrace)
-            ? MonsterIntent.fromId(MonsterIntentId.jellyfishNeurotoxinEmbrace)
-            : MonsterIntent.fromId(MonsterIntentId.jellyfishNematocystCurtain),
+                        MonsterIntentId.jellyfishNematocystCurtain,
+                      )),
+        CombatRange.short =>
+          !monster.isIntentOnCooldown(
+                MonsterIntentId.jellyfishNeurotoxinEmbrace,
+              )
+              ? MonsterIntent.fromId(MonsterIntentId.jellyfishNeurotoxinEmbrace)
+              : MonsterIntent.fromId(
+                  MonsterIntentId.jellyfishNematocystCurtain,
+                ),
       };
 
     case MonsterSpecies.serpent:
     case MonsterSpecies.worldSerpent:
       return switch (currentRange) {
-        CombatRange.long =>
-          MonsterIntent.fromId(MonsterIntentId.serpentAbyssalUnderStrike),
-        CombatRange.medium => (monster.lastExecutedIntentId ==
-                    MonsterIntentId.serpentVenomSpitRecoil ||
-                monster.isIntentOnCooldown(
-                    MonsterIntentId.serpentVenomSpitRecoil))
-            ? MonsterIntent.fromId(MonsterIntentId.serpentFangedWhipRecoil)
-            : MonsterIntent.fromId(MonsterIntentId.serpentVenomSpitRecoil),
-        CombatRange.short =>
-          MonsterIntent.fromId(MonsterIntentId.serpentFangedWhipRecoil),
+        CombatRange.long => MonsterIntent.fromId(
+          MonsterIntentId.serpentAbyssalUnderStrike,
+        ),
+        CombatRange.medium =>
+          (monster.lastExecutedIntentId ==
+                      MonsterIntentId.serpentVenomSpitRecoil ||
+                  monster.isIntentOnCooldown(
+                    MonsterIntentId.serpentVenomSpitRecoil,
+                  ))
+              ? MonsterIntent.fromId(MonsterIntentId.serpentFangedWhipRecoil)
+              : MonsterIntent.fromId(MonsterIntentId.serpentVenomSpitRecoil),
+        CombatRange.short => MonsterIntent.fromId(
+          MonsterIntentId.serpentFangedWhipRecoil,
+        ),
       };
 
     case MonsterSpecies.squid:
     case MonsterSpecies.kraken:
       return switch (currentRange) {
-        CombatRange.long =>
-          MonsterIntent.fromId(MonsterIntentId.squidFeedingTentacleSnare),
-        CombatRange.medium => (!monster.isObscured &&
-                !monster.isIntentOnCooldown(
-                    MonsterIntentId.squidInkShroudRecoil) &&
-                rng.nextInt(100) < 45)
-            ? MonsterIntent.fromId(MonsterIntentId.squidInkShroudRecoil)
-            : MonsterIntent.fromId(MonsterIntentId.squidSweepingTentacles),
-        CombatRange.short => (!monster.isObscured &&
-                !monster.isIntentOnCooldown(
-                    MonsterIntentId.squidInkShroudRecoil) &&
-                monster.lastExecutedIntentId ==
-                    MonsterIntentId.squidConstrictingBeak)
-            ? MonsterIntent.fromId(MonsterIntentId.squidInkShroudRecoil)
-            : !monster.isIntentOnCooldown(MonsterIntentId.squidConstrictingBeak)
-                ? MonsterIntent.fromId(MonsterIntentId.squidConstrictingBeak)
-                : MonsterIntent.fromId(MonsterIntentId.squidSweepingTentacles),
+        CombatRange.long => MonsterIntent.fromId(
+          MonsterIntentId.squidFeedingTentacleSnare,
+        ),
+        CombatRange.medium =>
+          (!monster.isObscured &&
+                  !monster.isIntentOnCooldown(
+                    MonsterIntentId.squidInkShroudRecoil,
+                  ) &&
+                  rng.nextInt(100) < 45)
+              ? MonsterIntent.fromId(MonsterIntentId.squidInkShroudRecoil)
+              : MonsterIntent.fromId(MonsterIntentId.squidSweepingTentacles),
+        CombatRange.short =>
+          (!monster.isObscured &&
+                  !monster.isIntentOnCooldown(
+                    MonsterIntentId.squidInkShroudRecoil,
+                  ) &&
+                  monster.lastExecutedIntentId ==
+                      MonsterIntentId.squidConstrictingBeak)
+              ? MonsterIntent.fromId(MonsterIntentId.squidInkShroudRecoil)
+              : !monster.isIntentOnCooldown(
+                  MonsterIntentId.squidConstrictingBeak,
+                )
+              ? MonsterIntent.fromId(MonsterIntentId.squidConstrictingBeak)
+              : MonsterIntent.fromId(MonsterIntentId.squidSweepingTentacles),
       };
 
     case MonsterSpecies.ancientLeviathan:
       return switch (currentRange) {
-        CombatRange.long =>
-          MonsterIntent.fromId(MonsterIntentId.sharkRiptideWake),
-        CombatRange.medium => !monster.isIntentOnCooldown(
-                MonsterIntentId.crustaceanTremorSlam)
-            ? MonsterIntent.fromId(MonsterIntentId.crustaceanTremorSlam)
-            : MonsterIntent.fromId(MonsterIntentId.sharkBreachingLunge),
-        CombatRange.short =>
-          MonsterIntent.fromId(MonsterIntentId.crustaceanHydraulicGuillotine),
+        CombatRange.long => MonsterIntent.fromId(
+          MonsterIntentId.sharkRiptideWake,
+        ),
+        CombatRange.medium =>
+          !monster.isIntentOnCooldown(MonsterIntentId.crustaceanTremorSlam)
+              ? MonsterIntent.fromId(MonsterIntentId.crustaceanTremorSlam)
+              : MonsterIntent.fromId(MonsterIntentId.sharkBreachingLunge),
+        CombatRange.short => MonsterIntent.fromId(
+          MonsterIntentId.crustaceanHydraulicGuillotine,
+        ),
       };
   }
 }
@@ -266,26 +314,28 @@ MonsterIntent selectNextMonsterIntent(
     return (currentRange, const <GameEvent>[]);
   }
 
-  final intent = monster.currentIntent ??
+  final intent =
+      monster.currentIntent ??
       selectNextMonsterIntent(monster, currentRange, rng);
   var range = currentRange;
   final events = <GameEvent>[];
 
   // 1. Boss Wind-up Turn 1 of 2: Telegraphed gathering of catastrophic power
   if (intent.isBossWindup) {
-    events.add(NarrationEvent(
-      '${monster.name} coils with cataclysmic force: ${intent.description}',
-    ));
+    events.add(
+      NarrationEvent(
+        '${monster.name} coils with cataclysmic force: ${intent.description}',
+      ),
+    );
     monster.lastExecutedIntentId = intent.id;
     monster.isPinnedThisTurn = false;
     monster.tickIntentCooldowns();
     if (intent.followUpStrikeId != null) {
       final nextIntent = MonsterIntent.fromId(intent.followUpStrikeId!);
       monster.currentIntent = nextIntent;
-      events.add(MonsterIntentTelegraphed(
-        monsterName: monster.name,
-        intent: nextIntent,
-      ));
+      events.add(
+        MonsterIntentTelegraphed(monsterName: monster.name, intent: nextIntent),
+      );
     } else {
       monster.currentIntent = null;
     }
@@ -295,13 +345,18 @@ MonsterIntent selectNextMonsterIntent(
   // 2. Self-buff / Carapace regeneration intent (Crustacean Calcify Carapace)
   if (intent.id == MonsterIntentId.crustaceanCalcifyCarapace) {
     final restored = max(1, (monster.maxCarapace * 0.35).round());
-    monster.carapacePlating =
-        min(monster.maxCarapace, monster.carapacePlating + restored);
+    monster.carapacePlating = min(
+      monster.maxCarapace,
+      monster.carapacePlating + restored,
+    );
     monster.removeStatus(StatusEffect.burn);
+    monster.burnTurns = 0;
     monster.removeStatus(StatusEffect.poison);
-    events.add(NarrationEvent(
-      '${monster.name} calcifies its shell plates, restoring $restored Carapace (${monster.carapacePlating}/${monster.maxCarapace}) and purging corrosive statuses!',
-    ));
+    events.add(
+      NarrationEvent(
+        '${monster.name} calcifies its shell plates, restoring $restored Carapace (${monster.carapacePlating}/${monster.maxCarapace}) and purging corrosive statuses!',
+      ),
+    );
     monster.tickIntentCooldowns();
     if (intent.cooldownTurns > 0) {
       monster.setIntentCooldown(intent.id, intent.cooldownTurns);
@@ -316,10 +371,12 @@ MonsterIntent selectNextMonsterIntent(
   // so even if the ship maneuvers out of Short Range, the Shark's frenzy still ramps!
   if (intent.id == MonsterIntentId.sharkFrenziedJaws) {
     monster.frenzyStacks++;
-    events.add(SharkFrenzyRoared(
-      monsterName: monster.name,
-      stacks: monster.frenzyStacks,
-    ));
+    events.add(
+      SharkFrenzyRoared(
+        monsterName: monster.name,
+        stacks: monster.frenzyStacks,
+      ),
+    );
   }
 
   // 4. Pre-Attack Movement (Charges & Ambushes)
@@ -327,9 +384,11 @@ MonsterIntent selectNextMonsterIntent(
   if (intent.moveTiming == IntentMoveTiming.beforeAttack &&
       intent.moveDelta != IntentMoveDelta.stationary) {
     if (monster.isPinnedThisTurn) {
-      events.add(NarrationEvent(
-        '${monster.name}\'s ${intent.name} lunge was held in check by pinning ordnance!',
-      ));
+      events.add(
+        NarrationEvent(
+          '${monster.name}\'s ${intent.name} lunge was held in check by pinning ordnance!',
+        ),
+      );
     } else {
       if (intent.moveDelta == IntentMoveDelta.closer1) {
         final targetRange = range.closer;
@@ -340,32 +399,39 @@ MonsterIntent selectNextMonsterIntent(
         if (range != targetRange) {
           final prev = range;
           range = targetRange;
-          events.add(CombatRangeChanged(
-            previousRange: prev,
-            newRange: range,
-            reason:
-                '${monster.name} surged closer with ${intent.name} (${prev.displayName} -> ${range.displayName})!',
-          ));
+          events.add(
+            CombatRangeChanged(
+              previousRange: prev,
+              newRange: range,
+              reason:
+                  '${monster.name} surged closer with ${intent.name} (${prev.displayName} -> ${range.displayName})!',
+            ),
+          );
+          events.addAll(triggerBoilingWake(ship, monster));
         }
         if (ship.activeTetherTrapDistance != null) {
           ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
           if (ship.activeTetherTrapDistance! <= 0) {
-            events.addAll(detonateTetherTrap(
-              ship,
-              monster,
-              rng,
-              traits,
-              reason: '${monster.name} surged directly into the floating net',
-            ));
+            events.addAll(
+              detonateTetherTrap(
+                ship,
+                monster,
+                rng,
+                traits,
+                reason: '${monster.name} surged directly into the floating net',
+              ),
+            );
           }
         }
         if (hadHeadOnCollision && monster.isAlive) {
-          events.add(HeadOnCollisionOccurred(
-            monsterName: monster.name,
-            shipName: ship.name,
-            intentName: intent.name,
-            bonusDamagePercent: 30,
-          ));
+          events.add(
+            HeadOnCollisionOccurred(
+              monsterName: monster.name,
+              shipName: ship.name,
+              intentName: intent.name,
+              bonusDamagePercent: 30,
+            ),
+          );
         }
       } else if (intent.moveDelta == IntentMoveDelta.ambushToShort) {
         while (range != CombatRange.short &&
@@ -373,24 +439,29 @@ MonsterIntent selectNextMonsterIntent(
             monster.isAlive) {
           final prev = range;
           range = range.closer;
-          events.add(CombatRangeChanged(
-            previousRange: prev,
-            newRange: range,
-            reason: range == CombatRange.short
-                ? '${monster.name} vanished beneath the abyss and erupted at point-blank range!'
-                : '${monster.name} surged through the depths (${prev.displayName} -> ${range.displayName})!',
-          ));
+          events.add(
+            CombatRangeChanged(
+              previousRange: prev,
+              newRange: range,
+              reason: range == CombatRange.short
+                  ? '${monster.name} vanished beneath the abyss and erupted at point-blank range!'
+                  : '${monster.name} surged through the depths (${prev.displayName} -> ${range.displayName})!',
+            ),
+          );
+          events.addAll(triggerBoilingWake(ship, monster));
           if (ship.activeTetherTrapDistance != null) {
             ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
             if (ship.activeTetherTrapDistance! <= 0) {
-              events.addAll(detonateTetherTrap(
-                ship,
-                monster,
-                rng,
-                traits,
-                reason:
-                    '${monster.name}\'s ambush charge snared the floating net at ${range.displayName}',
-              ));
+              events.addAll(
+                detonateTetherTrap(
+                  ship,
+                  monster,
+                  rng,
+                  traits,
+                  reason:
+                      '${monster.name}\'s ambush charge snared the floating net at ${range.displayName}',
+                ),
+              );
             }
           }
         }
@@ -407,12 +478,14 @@ MonsterIntent selectNextMonsterIntent(
   var didHitShip = false;
   if (intent.threatenedRanges.isNotEmpty) {
     if (!intent.threatenedRanges.contains(range)) {
-      events.add(MonsterAttackOutOfRange(
-        monsterName: monster.name,
-        intentName: intent.name,
-        shipName: ship.name,
-        currentRange: range,
-      ));
+      events.add(
+        MonsterAttackOutOfRange(
+          monsterName: monster.name,
+          intentName: intent.name,
+          shipName: ship.name,
+          currentRange: range,
+        ),
+      );
     } else {
       final readyWeapons = monster.usableWeapons
           .where((w) => w.chargeCountdown == 0)
@@ -420,29 +493,29 @@ MonsterIntent selectNextMonsterIntent(
       final chosenWeapon = readyWeapons.isNotEmpty
           ? readyWeapons[rng.nextInt(readyWeapons.length)]
           : (monster.usableWeapons.isNotEmpty
-              ? monster.usableWeapons.first
-              : null);
+                ? monster.usableWeapons.first
+                : null);
 
       if (chosenWeapon == null) {
         events.add(MonsterHesitated(monster.name));
       } else {
         var effectiveMultiplier = intent.damageMultiplier;
-        if (monster.species == MonsterSpecies.shark &&
-            monster.frenzyStacks > 0) {
-          effectiveMultiplier *= (1.0 + (monster.frenzyStacks * 0.25));
-        }
         if (hadHeadOnCollision) {
           effectiveMultiplier *= 1.30;
         }
 
         final isMultiTentacleSweep =
             intent.id == MonsterIntentId.squidSweepingTentacles &&
-                chosenWeapon.monsterWeaponType == MonsterWeaponType.tentacle;
+            chosenWeapon.monsterWeaponType == MonsterWeaponType.tentacle;
 
         if (isMultiTentacleSweep) {
           if (monster.numberOfTentacles > 0) {
             for (var i = 0; i < monster.numberOfTentacles; i++) {
-              if (!ship.isAlive) break;
+              if (!ship.isAlive ||
+                  !monster.isAlive ||
+                  monster.hasStatus(StatusEffect.stun)) {
+                break;
+              }
               final (res, attackEvents) = calculateAttack(
                 monster,
                 chosenWeapon,
@@ -493,46 +566,55 @@ MonsterIntent selectNextMonsterIntent(
     switch (intent.id) {
       case MonsterIntentId.sharkRiptideWake:
         ship.tempAccuracyPenalty = max(ship.tempAccuracyPenalty, 10);
-        events.add(NarrationEvent(
-          'Blinding spray from ${monster.name}\'s Riptide Wake fouls gunnery sights (-10% accuracy next turn)!',
-        ));
+        events.add(
+          NarrationEvent(
+            'Blinding spray from ${monster.name}\'s Riptide Wake fouls gunnery sights (-10% accuracy next turn)!',
+          ),
+        );
       case MonsterIntentId.crustaceanBrineJet:
       case MonsterIntentId.jellyfishNematocystCurtain:
       case MonsterIntentId.serpentVenomSpitRecoil:
       case MonsterIntentId.bossWorldSerpentCatastrophe:
         if (!ship.hasStatus(StatusEffect.poison)) {
           ship.addStatus(StatusEffect.poison);
-          events.add(NarrationEvent(
-            '${intent.name} coats ${ship.name} in corrosive abyssal venom (Poison)!',
-          ));
+          events.add(
+            NarrationEvent(
+              '${intent.name} coats ${ship.name} in corrosive abyssal venom (Poison)!',
+            ),
+          );
         }
       case MonsterIntentId.bossLeviathanCatastrophe:
         if (!ship.hasStatus(StatusEffect.burn)) {
           ship.addStatus(StatusEffect.burn);
-          events.add(NarrationEvent(
-            '${intent.name} engulfs ${ship.name} in superheated caldera fire (Burn)!',
-          ));
+          events.add(
+            NarrationEvent(
+              '${intent.name} engulfs ${ship.name} in superheated caldera fire (Burn)!',
+            ),
+          );
         }
       case MonsterIntentId.crustaceanTremorSlam:
         ship.currentEvasion = max(0, ship.currentEvasion - 15);
-        events.add(NarrationEvent(
-          'Abyssal shockwaves from ${intent.name} rattle ${ship.name}\'s rudder (-15% evasion)!',
-        ));
+        events.add(
+          NarrationEvent(
+            'Abyssal shockwaves from ${intent.name} rattle ${ship.name}\'s rudder (-15% evasion)!',
+          ),
+        );
       case MonsterIntentId.jellyfishNeurotoxinEmbrace:
         if (ship.equippedWeapons.isNotEmpty) {
           final targetWeapon =
               ship.equippedWeapons[rng.nextInt(ship.equippedWeapons.length)];
           targetWeapon.chargeCountdown += 1;
-          events.add(NarrationEvent(
-            'Bio-electric neurotoxin shorts out ${targetWeapon.name} (+1 turn cooldown)!',
-          ));
+          events.add(
+            NarrationEvent(
+              'Bio-electric neurotoxin shorts out ${targetWeapon.name} (+1 turn cooldown)!',
+            ),
+          );
         }
       case MonsterIntentId.squidConstrictingBeak:
         ship.isGrappled = true;
-        events.add(ShipGrappled(
-          shipName: ship.name,
-          monsterName: monster.name,
-        ));
+        events.add(
+          ShipGrappled(shipName: ship.name, monsterName: monster.name),
+        );
       default:
         break;
     }
@@ -542,36 +624,41 @@ MonsterIntent selectNextMonsterIntent(
   if (ship.isAlive && monster.isAlive) {
     if (intent.id == MonsterIntentId.serpentVenomSpitRecoil) {
       if (monster.isIlluminatedByFlare) {
-        events.add(NarrationEvent(
-          'Phosphor Spotter Flare illuminates ${monster.name}\'s slithering silhouette, suppressing its evasion!',
-        ));
+        events.add(
+          NarrationEvent(
+            'Phosphor Spotter Flare illuminates ${monster.name}\'s slithering silhouette, suppressing its evasion!',
+          ),
+        );
       } else {
         monster.evasion = min(80, monster.evasion + 20);
-        events.add(SerpentSlithered(
-          monsterName: monster.name,
-          evasionBonus: 20,
-        ));
+        events.add(
+          SerpentSlithered(monsterName: monster.name, evasionBonus: 20),
+        );
       }
     } else if (intent.id == MonsterIntentId.squidInkShroudRecoil) {
       if (monster.isIlluminatedByFlare) {
-        events.add(NarrationEvent(
-          'Phosphor Spotter Flare burns straight through ${monster.name}\'s ink cloud!',
-        ));
+        events.add(
+          NarrationEvent(
+            'Phosphor Spotter Flare burns straight through ${monster.name}\'s ink cloud!',
+          ),
+        );
       } else {
         monster.isObscured = true;
-        events.add(InkCloudDeployed(
-          monsterName: monster.name,
-          acBonus: monster.obscuredAcMod,
-        ));
+        events.add(
+          InkCloudDeployed(
+            monsterName: monster.name,
+            acBonus: monster.obscuredAcMod,
+          ),
+        );
       }
     }
 
     if (intent.moveTiming == IntentMoveTiming.afterAttack &&
         intent.moveDelta != IntentMoveDelta.stationary) {
       if (monster.isPinnedThisTurn) {
-        events.add(NarrationEvent(
-          '${monster.name} could not reposition while pinned!',
-        ));
+        events.add(
+          NarrationEvent('${monster.name} could not reposition while pinned!'),
+        );
       } else if (intent.moveDelta == IntentMoveDelta.farther1 &&
           range != CombatRange.long) {
         final prev = range;
@@ -579,39 +666,48 @@ MonsterIntent selectNextMonsterIntent(
         if (ship.activeTetherTrapDistance != null) {
           ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! + 1;
         }
-        events.add(CombatRangeChanged(
-          previousRange: prev,
-          newRange: range,
-          reason:
-              '${monster.name} recoiled into deeper water (${prev.displayName} -> ${range.displayName})!',
-        ));
+        events.add(
+          CombatRangeChanged(
+            previousRange: prev,
+            newRange: range,
+            reason:
+                '${monster.name} recoiled into deeper water (${prev.displayName} -> ${range.displayName})!',
+          ),
+        );
+        events.addAll(triggerBoilingWake(ship, monster));
       } else if (intent.moveDelta == IntentMoveDelta.pullShipCloser1 &&
           didHitShip &&
           range != CombatRange.short) {
         if (ship.isAnchoredThisTurn) {
-          events.add(NarrationEvent(
-            '${ship.name}\'s fortified iron anchor holds fast against ${monster.name}\'s tentacle pull!',
-          ));
+          events.add(
+            NarrationEvent(
+              '${ship.name}\'s fortified iron anchor holds fast against ${monster.name}\'s tentacle pull!',
+            ),
+          );
         } else {
           final prev = range;
           range = range.closer;
-          events.add(CombatRangeChanged(
-            previousRange: prev,
-            newRange: range,
-            reason:
-                '${monster.name}\'s barbed tentacles dragged ${ship.name} into ${range.displayName}!',
-          ));
+          events.add(
+            CombatRangeChanged(
+              previousRange: prev,
+              newRange: range,
+              reason:
+                  '${monster.name}\'s barbed tentacles dragged ${ship.name} into ${range.displayName}!',
+            ),
+          );
           if (ship.activeTetherTrapDistance != null) {
             ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
             if (ship.activeTetherTrapDistance! <= 0) {
-              events.addAll(detonateTetherTrap(
-                ship,
-                monster,
-                rng,
-                traits,
-                reason:
-                    '${monster.name} dragged ${ship.name}\'s floating tether-trap into its own mass',
-              ));
+              events.addAll(
+                detonateTetherTrap(
+                  ship,
+                  monster,
+                  rng,
+                  traits,
+                  reason:
+                      '${monster.name} dragged ${ship.name}\'s floating tether-trap into its own mass',
+                ),
+              );
             }
           }
         }
@@ -627,14 +723,11 @@ MonsterIntent selectNextMonsterIntent(
   if (intent.isBossCatastropheStrike) {
     switch (intent.id) {
       case MonsterIntentId.bossKrakenCatastrophe:
-        monster.setIntentCooldown(
-            MonsterIntentId.bossKrakenWindup, 3);
+        monster.setIntentCooldown(MonsterIntentId.bossKrakenWindup, 3);
       case MonsterIntentId.bossWorldSerpentCatastrophe:
-        monster.setIntentCooldown(
-            MonsterIntentId.bossWorldSerpentWindup, 3);
+        monster.setIntentCooldown(MonsterIntentId.bossWorldSerpentWindup, 3);
       case MonsterIntentId.bossLeviathanCatastrophe:
-        monster.setIntentCooldown(
-            MonsterIntentId.bossLeviathanWindup, 3);
+        monster.setIntentCooldown(MonsterIntentId.bossLeviathanWindup, 3);
       default:
         break;
     }
@@ -717,20 +810,21 @@ List<GameEvent> takeMonsterTurn(
   void executeSpecial(CombatTrait specialTrait) {
     final msg = specialTrait.executeSpecialAction(monster, ship, rng);
     if (specialTrait is InkCloudTrait) {
-      events.add(InkCloudDeployed(
-        monsterName: monster.name,
-        acBonus: monster.obscuredAcMod,
-      ));
+      events.add(
+        InkCloudDeployed(
+          monsterName: monster.name,
+          acBonus: monster.obscuredAcMod,
+        ),
+      );
     } else if (specialTrait is SharkFrenzyTrait) {
-      events.add(SharkFrenzyRoared(
-        monsterName: monster.name,
-        stacks: monster.frenzyStacks,
-      ));
+      events.add(
+        SharkFrenzyRoared(
+          monsterName: monster.name,
+          stacks: monster.frenzyStacks,
+        ),
+      );
     } else if (specialTrait is SerpentSlitherTrait) {
-      events.add(SerpentSlithered(
-        monsterName: monster.name,
-        evasionBonus: 20,
-      ));
+      events.add(SerpentSlithered(monsterName: monster.name, evasionBonus: 20));
     } else if (msg.isNotEmpty) {
       events.add(NarrationEvent(msg));
     }
@@ -739,7 +833,8 @@ List<GameEvent> takeMonsterTurn(
 
   final isJellyfish = monster.species == MonsterSpecies.jellyfish;
   final isCrustacean = monster.species == MonsterSpecies.crustacean;
-  final wantsAttack = isJellyfish ||
+  final wantsAttack =
+      isJellyfish ||
       (isCrustacean && monster.carapacePlating >= monster.maxCarapace) ||
       (rng.d100() <= config.monsterAttackProbability);
 
@@ -777,18 +872,19 @@ List<GameEvent> takeMonsterTurn(
   final isTentacle =
       chosenWeapon.monsterWeaponType == MonsterWeaponType.tentacle;
 
-  // Apply Shark Frenzy damage scaling if active
+  // calculateAttack evaluates frenzy per strike so reactive purges affect
+  // subsequent attacks immediately.
   final originalDamage = chosenWeapon.damage;
-  if (monster.species == MonsterSpecies.shark && monster.frenzyStacks > 0) {
-    final bonusMultiplier = 1.0 + (monster.frenzyStacks * 0.25);
-    chosenWeapon.damage = (originalDamage * bonusMultiplier).round();
-  }
 
   try {
     if (isTentacle) {
       if (monster.numberOfTentacles > 0) {
         for (var i = 0; i < monster.numberOfTentacles; i++) {
-          if (!ship.isAlive) break;
+          if (!ship.isAlive ||
+              !monster.isAlive ||
+              monster.hasStatus(StatusEffect.stun)) {
+            break;
+          }
           final (_, attackEvents) = calculateAttack(
             monster,
             chosenWeapon,
@@ -834,4 +930,3 @@ List<GameEvent> takeMonsterTurn(
 
   return events;
 }
-

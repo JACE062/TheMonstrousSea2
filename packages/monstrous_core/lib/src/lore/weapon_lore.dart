@@ -83,10 +83,10 @@ class WeaponLore {
     ShipWeaponType.shrapnelHowitzer: ShipWeaponLoreEntry(
       name: 'Shrapnel Howitzer Battery',
       description:
-          'Thick-walled naval howitzers firing fused canisters packed with explosive iron shrapnel.',
-      flavorQuote: 'Set the fuse for mid-water and watch the shell plates crack.',
+          'Thick-walled naval howitzers scattering canister loads of slicing iron shrapnel.',
+      flavorQuote: 'Sweep the waterline with iron and leave no tentacle whole.',
       tacticalTip:
-          'Optimal 100% Blast damage at Medium Range (70% Short, 75% Long). Deals 1.5x damage to Carapace.',
+          'Optimal 100% Slicing damage at Medium Range (70% Short, 75% Long). Explosive shells require a future Master Refit.',
     ),
     ShipWeaponType.twinChasers: ShipWeaponLoreEntry(
       name: 'Twin Bow Chasers',
@@ -102,7 +102,7 @@ class WeaponLore {
           'A massive forged-iron battering beak bolted directly to the ship’s keel.',
       flavorQuote: 'When all powder is spent, the ship itself becomes the cannonball.',
       tacticalTip:
-          '1T Cooldown Signature. Unusable at Long Range. Deals 100% Blast at Short, or 125% Kinetic Charge when lunging from Medium into Short.',
+          '1T Cooldown Signature. Unusable at Long Range. Deals 100% Piercing at Short, or 125% kinetic charge damage when lunging from Medium into Short.',
     ),
     ShipWeaponType.precisionCulverin: ShipWeaponLoreEntry(
       name: 'Precision Culverin',

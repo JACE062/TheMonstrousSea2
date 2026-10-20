@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 
@@ -30,60 +31,73 @@ class CombatLogView extends StatelessWidget {
           // Header legend differentiating the sides
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth < 640) {
+                  return Text(
+                    'CHRONICLE OF BATTLE',
+                    style: InkTheme.caption.copyWith(
+                      fontSize: 11.5,
+                      color: InkTheme.inkMuted,
+                    ),
+                  );
+                }
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: 8,
-                      height: 8,
-                      decoration: const BoxDecoration(
-                        color: InkTheme.verdigrisGreen,
-                        shape: BoxShape.circle,
+                    Row(
+                      children: [
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: const BoxDecoration(
+                            color: InkTheme.verdigrisGreen,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          'VESSEL VOLLEYS',
+                          style: InkTheme.statLabel.copyWith(
+                            fontSize: 11.5,
+                            color: InkTheme.verdigrisGreen,
+                            letterSpacing: 0.8,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      'CHRONICLE OF BATTLE',
+                      style: InkTheme.caption.copyWith(
+                        fontSize: 11.5,
+                        letterSpacing: 1.2,
+                        color: InkTheme.inkMuted,
                       ),
                     ),
-                    const SizedBox(width: 4),
-                    Text(
-                      'VESSEL VOLLEYS',
-                      style: InkTheme.statLabel.copyWith(
-                        fontSize: 11.5,
-                        color: InkTheme.verdigrisGreen,
-                        letterSpacing: 0.8,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          'BEAST STRIKES',
+                          style: InkTheme.statLabel.copyWith(
+                            fontSize: 11.5,
+                            color: InkTheme.crimsonAccent,
+                            letterSpacing: 0.8,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: const BoxDecoration(
+                            color: InkTheme.crimsonAccent,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
-                ),
-                Text(
-                  'CHRONICLE OF BATTLE',
-                  style: InkTheme.caption.copyWith(
-                    fontSize: 11.5,
-                    letterSpacing: 1.2,
-                    color: InkTheme.inkMuted,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'BEAST STRIKES',
-                      style: InkTheme.statLabel.copyWith(
-                        fontSize: 11.5,
-                        color: InkTheme.crimsonAccent,
-                        letterSpacing: 0.8,
-                      ),
-                    ),
-                    const SizedBox(width: 4),
-                    Container(
-                      width: 8,
-                      height: 8,
-                      decoration: const BoxDecoration(
-                        color: InkTheme.crimsonAccent,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                );
+              },
             ),
           ),
           const Divider(height: 1, thickness: 0.8),
@@ -105,7 +119,8 @@ class CombatLogView extends StatelessWidget {
                           ? item
                           : CombatLogEntry(
                               message: item.toString(),
-                              actor: item.toString().contains('beast') ||
+                              actor:
+                                  item.toString().contains('beast') ||
                                       item.toString().contains('Kraken') ||
                                       item.toString().contains('spewed')
                                   ? CombatLogActor.monster
@@ -141,8 +156,12 @@ class CombatLogView extends StatelessWidget {
               style: InkTheme.caption.copyWith(
                 fontSize: 12,
                 fontStyle: FontStyle.italic,
-                color: entry.isCritical ? InkTheme.crimsonAccent : InkTheme.inkMuted,
-                fontWeight: entry.isCritical ? FontWeight.bold : FontWeight.normal,
+                color: entry.isCritical
+                    ? InkTheme.crimsonAccent
+                    : InkTheme.inkMuted,
+                fontWeight: entry.isCritical
+                    ? FontWeight.bold
+                    : FontWeight.normal,
               ),
               textAlign: TextAlign.center,
             ),
@@ -152,8 +171,12 @@ class CombatLogView extends StatelessWidget {
     }
 
     final alignment = isShip ? Alignment.centerLeft : Alignment.centerRight;
-    final borderColor = isShip ? InkTheme.verdigrisGreen : InkTheme.crimsonAccent;
-    final badgeColor = isShip ? InkTheme.verdigrisGreen : InkTheme.crimsonAccent;
+    final borderColor = isShip
+        ? InkTheme.verdigrisGreen
+        : InkTheme.crimsonAccent;
+    final badgeColor = isShip
+        ? InkTheme.verdigrisGreen
+        : InkTheme.crimsonAccent;
     final badgeLabel = isShip ? 'VESSEL' : 'BEAST';
 
     return Padding(
@@ -189,7 +212,10 @@ class CombatLogView extends StatelessWidget {
               children: [
                 if (isShip) ...[
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 4,
+                      vertical: 1,
+                    ),
                     margin: const EdgeInsets.only(right: 6, top: 1),
                     decoration: BoxDecoration(
                       color: badgeColor.withValues(alpha: 0.2),
@@ -213,13 +239,18 @@ class CombatLogView extends StatelessWidget {
                           ? InkTheme.crimsonAccent
                           : InkTheme.inkPrimary,
                       fontSize: 14.5,
-                      fontWeight: entry.isCritical ? FontWeight.bold : FontWeight.normal,
+                      fontWeight: entry.isCritical
+                          ? FontWeight.bold
+                          : FontWeight.normal,
                     ),
                   ),
                 ),
                 if (isMonster) ...[
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 4,
+                      vertical: 1,
+                    ),
                     margin: const EdgeInsets.only(left: 6, top: 1),
                     decoration: BoxDecoration(
                       color: badgeColor.withValues(alpha: 0.2),

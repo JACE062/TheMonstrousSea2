@@ -1,327 +1,330 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
-import '../widgets/pilot_art.dart';
-import '../widgets/svg_asset_view.dart';
 
 /// Screen rendered upon encountering an Ancient Sea Shrine rising from the depths,
 /// presenting the captain with atmospheric regional lore and interactive devotions.
-class ShrineScreen extends StatelessWidget {
+class ShrineScreen extends StatefulWidget {
   const ShrineScreen({
     super.key,
     required this.controller,
     required this.onOpenChart,
   });
-
   final GameController controller;
   final VoidCallback onOpenChart;
 
   @override
+  State<ShrineScreen> createState() => _ShrineScreenState();
+}
+
+class _ShrineScreenState extends State<ShrineScreen> {
+  OceanPower? _selectedPower;
+
+  @override
   Widget build(BuildContext context) {
+    final controller = widget.controller;
     return ListenableBuilder(
       listenable: controller,
       builder: (context, _) {
         final ship = controller.ship;
-        final shrineName = controller.currentShrineName.isNotEmpty
-            ? controller.currentShrineName
-            : 'Shrine of the Abyssal Siren';
-        final lore = controller.currentShrineLore.isNotEmpty
-            ? controller.currentShrineLore
-            : 'Runes carved into barnacled basalt whisper of ancient titans.';
-        final hasCommuned = controller.hasCommunedAtCurrentShrine;
-
-        final tributeCost = 30;
-        final canAffordTribute = (ship?.gold ?? 0) >= tributeCost;
-        final pactDamage = ship != null ? (ship.maxHp * 0.20).round() : 0;
-        final canEndurePact = ship != null && ship.currentHp > pactDamage;
-
+        final powers = controller.shrineManifestedPowers;
+        final selected = powers.contains(_selectedPower)
+            ? _selectedPower
+            : null;
         return ParchmentScaffold(
           body: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 780),
+              constraints: const BoxConstraints(maxWidth: 1000),
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 24,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                // Top Navigation Bar
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkButton(
-                      label: 'SEA CHART',
-                      semanticLabel: 'Open navigation sea chart',
-                      onPressed: onOpenChart,
-                    ),
-                    if (ship != null)
-                      Text(
-                        'PURSE: ${ship.gold}g',
-                        style: InkTheme.statLabel.copyWith(
-                          color: InkTheme.goldAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: InkButton(
+                        label: 'SEA CHART',
+                        onPressed: widget.onOpenChart,
                       ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-
-                // Header
-                Center(
-                  child: SvgAssetView(
-                    assetPath: PilotArt.portHaven,
-                    width: 56,
-                    height: 56,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  shrineName.toUpperCase(),
-                  style: InkTheme.titleLarge.copyWith(fontSize: 26),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  'A luminous monolith rises from foaming brine, inscribed with glyphs of ancient navigators.',
-                  style: InkTheme.subtitle,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 18),
-
-                // Lore Inscription Plaque
-                ParchmentCard(
-                  padding: const EdgeInsets.all(18),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Row(
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      (controller.currentShrineName.isEmpty
+                              ? 'Ancient Sea Shrine'
+                              : controller.currentShrineName)
+                          .toUpperCase(),
+                      style: InkTheme.titleLarge.copyWith(fontSize: 26),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                    ParchmentCard(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.auto_stories, size: 18, color: InkTheme.goldAccent),
-                          const SizedBox(width: 8),
                           Text(
                             'ANCIENT RUNIC INSCRIPTION',
-                            style: InkTheme.caption.copyWith(
-                              color: InkTheme.goldAccent,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.2,
+                            style: InkTheme.statLabel,
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            controller.currentShrineLore.isEmpty
+                                ? 'Four ancient wardens lend their wrath against the Abyssal Font. Each dedication endures for this voyage.'
+                                : controller.currentShrineLore,
+                            style: InkTheme.body.copyWith(
+                              fontStyle: FontStyle.italic,
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        lore,
-                        style: InkTheme.body.copyWith(
-                          fontStyle: FontStyle.italic,
-                          fontSize: 15,
-                          height: 1.4,
-                        ),
+                    ),
+                    if (ship != null) ...[
+                      const SizedBox(height: 12),
+                      HullGauge(
+                        currentHp: ship.currentHp,
+                        maxHp: ship.maxHp,
+                        label: ship.name,
                       ),
                     ],
-                  ),
-                ),
-                const SizedBox(height: 16),
-
-                // Vessel Vitality Gauge
-                if (ship != null) ...[
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          '${ship.name} (Tier ${ship.level} ${ship.shipClass.displayName})',
-                          style: InkTheme.statValue.copyWith(fontSize: 16),
-                        ),
-                        const SizedBox(height: 10),
-                        HullGauge(
-                          currentHp: ship.currentHp,
-                          maxHp: ship.maxHp,
-                          label: 'VESSEL HULL VITALITY',
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                ],
-
-                // Devotion Actions or Departure
-                if (!hasCommuned) ...[
-                  Text(
-                    'CHOOSE YOUR DEVOTION',
-                    style: InkTheme.statValue.copyWith(
-                      color: InkTheme.goldAccent,
-                      letterSpacing: 1.2,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-
-                  // Option 1: Offer Tribute of Gold
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(14),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'OFFER TRIBUTE OF GOLD (30g)',
-                                style: InkTheme.statValue.copyWith(fontSize: 15),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Cast gold doubloons into the deep. Ancient spirits grant favorable wind (+15% accuracy boon on next engagement).',
-                                style: InkTheme.caption.copyWith(fontSize: 12.5),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        InkButton(
-                          label: 'COMMUNE',
-                          isPrimary: true,
-                          semanticLabel: 'Offer 30 gold tribute for accuracy boon',
-                          onPressed: canAffordTribute
-                              ? () => controller.dispatch(
-                                    const CommuneWithShrine(ShrineChoice.tribute),
-                                  )
-                              : null,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-
-                  // Option 2: Abyssal Pact
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(14),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'ABYSSAL PACT (-$pactDamage HP)',
-                                style: InkTheme.statValue.copyWith(
-                                  color: InkTheme.crimsonAccent,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Sacrifice 20% hull integrity to the abyssal void in exchange for a powerful relic naval weapon.',
-                                style: InkTheme.caption.copyWith(fontSize: 12.5),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        InkButton(
-                          label: 'SACRIFICE',
-                          isDanger: true,
-                          semanticLabel: 'Sacrifice hull integrity for a relic weapon',
-                          onPressed: canEndurePact
-                              ? () => controller.dispatch(
-                                    const CommuneWithShrine(ShrineChoice.abyssalPact),
-                                  )
-                              : null,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-
-                  // Option 3: Consult Ancient Runes
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(14),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'CONSULT ANCIENT RUNES (FREE)',
-                                style: InkTheme.statValue.copyWith(fontSize: 15),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Meditate upon navigation glyphs to pierce the fog across the soundings ahead and grant a +10% accuracy boon.',
-                                style: InkTheme.caption.copyWith(fontSize: 12.5),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        InkButton(
-                          label: 'MEDITATE',
-                          semanticLabel: 'Consult runes to reveal next soundings',
-                          onPressed: () => controller.dispatch(
-                            const CommuneWithShrine(ShrineChoice.ancientRunes),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // Sail Past
-                  Center(
-                    child: TextButton(
-                      onPressed: () => controller.dispatch(const DepartShrine()),
-                      child: Text(
-                        'SAIL PAST IN REVERENCE',
-                        style: InkTheme.caption.copyWith(
-                          color: InkTheme.inkMuted,
-                          fontSize: 13,
-                          decoration: TextDecoration.underline,
+                    const SizedBox(height: 20),
+                    if (controller.hasCommunedAtCurrentShrine) ...[
+                      ParchmentCard(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'COMMUNION COMPLETE',
+                              style: InkTheme.statValue,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'The phosphorescent glow dims as the wardens withdraw. The sea ahead awaits your passage.',
+                              style: InkTheme.body,
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ),
-                ] else ...[
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
+                      const SizedBox(height: 16),
+                      InkButton(
+                        label: 'DEPART SHRINE & SET SAIL',
+                        isPrimary: true,
+                        onPressed: () =>
+                            controller.dispatch(const DepartShrine()),
+                      ),
+                    ] else ...[
+                      Text(
+                        '1 · CHOOSE A PRIMORDIAL',
+                        style: InkTheme.statValue,
+                      ),
+                      const SizedBox(height: 8),
+                      if (powers.isEmpty)
                         Text(
-                          'COMMUNION COMPLETE',
-                          style: InkTheme.statValue.copyWith(
-                            color: InkTheme.goldAccent,
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          'The phosphorescent glow dims as the spirits withdraw. The sea ahead awaits your passage.',
+                          'Your dedications are complete. Offer respects and seek guidance in the runes.',
                           style: InkTheme.body,
+                        )
+                      else
+                        _responsiveCards([
+                          for (final power in powers)
+                            _powerCard(power, selected == power),
+                        ], breakpoint: 600),
+                      const SizedBox(height: 20),
+                      if (selected != null && ship != null) ...[
+                        Text(
+                          '2 · DEDICATE A HARDPOINT',
+                          style: InkTheme.statValue,
                         ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'A dedication lasts for this voyage. You may switch wardens above before committing.',
+                          style: InkTheme.caption,
+                        ),
+                        const SizedBox(height: 10),
+                        _responsiveCards([
+                          for (final slot in [
+                            HardpointType.broadside,
+                            HardpointType.signature,
+                            HardpointType.utility,
+                          ])
+                            _hardpointCard(ship, selected, slot),
+                        ], breakpoint: 800),
+                        const SizedBox(height: 20),
                       ],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  InkButton(
-                    label: 'DEPART SHRINE & SET SAIL',
-                    isPrimary: true,
-                    semanticLabel: 'Depart the ancient sea shrine and continue voyage',
-                    onPressed: () => controller.dispatch(const DepartShrine()),
-                  ),
-                ],
-              ],
+                      ParchmentCard(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text('RUNIC GUIDANCE', style: InkTheme.statValue),
+                            const SizedBox(height: 6),
+                            Text(
+                              'Offer respects without a dedication. Gain +10% accuracy in the next combat and reveal adjacent sea chart nodes.',
+                              style: InkTheme.body,
+                            ),
+                            const SizedBox(height: 12),
+                            InkButton(
+                              key: const ValueKey('read-runes'),
+                              label: 'READ THE ANCIENT RUNES',
+                              semanticLabel: 'Read the ancient runes and offer respects for runic guidance',
+                              onPressed: () => controller.dispatch(
+                                const CommuneWithShrine(
+                                  ShrineChoice.ancientRunes,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () =>
+                            controller.dispatch(const DepartShrine()),
+                        child: const Text('SAIL PAST IN REVERENCE'),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
             ),
           ),
-        ),
+        );
+      },
+    );
+  }
+
+  Widget _responsiveCards(List<Widget> cards, {required double breakpoint}) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < breakpoint) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              for (var i = 0; i < cards.length; i++) ...[
+                if (i > 0) const SizedBox(height: 10),
+                cards[i],
+              ],
+            ],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (var i = 0; i < cards.length; i++) ...[
+              if (i > 0) const SizedBox(width: 12),
+              Expanded(child: cards[i]),
+            ],
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _powerCard(OceanPower power, bool selected) {
+    return ParchmentCard(
+      borderColor: selected ? InkTheme.goldAccent : InkTheme.inkMuted,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(power.displayName, style: InkTheme.titleMedium),
+          const SizedBox(height: 8),
+          Text(power.domainLore, style: InkTheme.body),
+          const SizedBox(height: 8),
+          Text(power.synergySummary, style: InkTheme.caption),
+          const SizedBox(height: 12),
+          Semantics(
+            selected: selected,
+            child: InkButton(
+              key: ValueKey('select-${power.name}'),
+              label: selected ? 'COMMUNING' : 'COMMUNE',
+              semanticLabel: 'Commune with ${power.displayName}',
+              isPrimary: selected,
+              onPressed: () => setState(() => _selectedPower = power),
+            ),
+          ),
+        ],
       ),
     );
-      },
+  }
+
+  Widget _hardpointCard(ShipState ship, OceanPower power, HardpointType slot) {
+    final current = ship.blessings[slot];
+    final otherPower = current != null && current.power != power;
+    final maxed = current != null && current.tier >= 3;
+    final locked = otherPower || maxed;
+    final preview = locked
+        ? current
+        : HardpointBlessing(
+            power: power,
+            slot: slot,
+            tier: (current?.tier ?? 0) + 1,
+          );
+    final reason = otherPower
+        ? 'Dedicated to ${current.power.displayName}'
+        : 'Max Sovereign Tier Reached';
+    return ParchmentCard(
+      key: ValueKey('hardpoint-${slot.name}'),
+      borderColor: locked ? InkTheme.inkFaint : InkTheme.goldAccent,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(slot.displayName.toUpperCase(), style: InkTheme.statLabel),
+          const SizedBox(height: 8),
+          Text(preview.title, style: InkTheme.titleMedium),
+          Text(
+            preview.tierLabel,
+            style: InkTheme.statValue.copyWith(color: InkTheme.goldAccent),
+          ),
+          const SizedBox(height: 8),
+          Text(preview.description, style: InkTheme.body),
+          if (!locked && current != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              '${current.tierLabel} → ${preview.tierLabel}',
+              style: InkTheme.statValue.copyWith(
+                color: InkTheme.verdigrisGreen,
+              ),
+            ),
+            if (preview.damageBonus != current.damageBonus)
+              Text(
+                'Weapon damage +${(current.damageBonus * 100).round()}% → +${(preview.damageBonus * 100).round()}%',
+                style: InkTheme.body.copyWith(color: InkTheme.verdigrisGreen),
+              ),
+            if (preview.critChanceBonus != current.critChanceBonus)
+              Text(
+                'Critical chance +${current.critChanceBonus}% → +${preview.critChanceBonus}%',
+                style: InkTheme.body.copyWith(color: InkTheme.verdigrisGreen),
+              ),
+            Text('Current: ${current.description}', style: InkTheme.caption),
+          ],
+          const SizedBox(height: 12),
+          if (locked) ...[
+            Text(reason, style: InkTheme.statLabel),
+            const SizedBox(height: 8),
+          ],
+          InkButton(
+            key: ValueKey('bless-${slot.name}'),
+            label: locked
+                ? 'LOCKED'
+                : current == null
+                ? 'DEDICATE'
+                : 'UPGRADE',
+            semanticLabel: locked
+                ? '${slot.displayName}: $reason'
+                : '${current == null ? 'Dedicate' : 'Upgrade'} ${slot.displayName}: ${preview.title}, ${preview.tierLabel}',
+            isPrimary: !locked,
+            onPressed: locked
+                ? null
+                : () => widget.controller.dispatch(
+                    AcceptShrineBlessing(power, slot),
+                  ),
+          ),
+        ],
+      ),
     );
   }
 }

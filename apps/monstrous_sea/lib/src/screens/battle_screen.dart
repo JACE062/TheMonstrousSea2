@@ -7,6 +7,7 @@ import '../theme/ink_theme.dart';
 import '../widgets/combat_log_view.dart';
 import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
+import '../widgets/ocean_power_badges.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/settings_dialog.dart';
 
@@ -229,6 +230,7 @@ class _BattleScreenState extends State<BattleScreen> {
                         ),
                         const SizedBox(height: 8),
                         HullGauge(currentHp: ship.currentHp, maxHp: ship.maxHp),
+                        ShipPowerStatusBadges(ship: ship),
                       ],
                     ),
                   ),
@@ -319,7 +321,9 @@ class _BattleScreenState extends State<BattleScreen> {
                           maxHp: monster.maxHp,
                           label: 'BEAST INTEGRITY',
                         ),
-                        if (monster.species == MonsterSpecies.crustacean || monster.maxCarapace > 0) ...[
+                        MonsterPowerStatusBadges(monster: monster),
+                        if (monster.species == MonsterSpecies.crustacean ||
+                            monster.maxCarapace > 0) ...[
                           const SizedBox(height: 8),
                           if (monster.carapacePlating > 0) ...[
                             Semantics(
@@ -482,10 +486,30 @@ class _BattleScreenState extends State<BattleScreen> {
                         final weaponsOfType = ship.equippedWeapons.where((w) => w.weaponType == type).toList();
                         final readyCount = weaponsOfType.where((w) => w.isReady).length;
                         final isReady = readyCount > 0;
-                        final maxCd = weaponsOfType.fold<int>(0, (prev, w) => w.chargeCountdown > prev ? w.chargeCountdown : prev);
-                        final isUsableAtRange = isWeaponTypeUsableAtRange(type, previewRange);
-                        final canFire = isReady && isUsableAtRange && !_isActionLocked;
-                        final badgeInfo = _getTacticalWeaponBadge(type, previewRange);
+                        final maxCd = weaponsOfType.fold<int>(
+                          0,
+                          (prev, w) => w.chargeCountdown > prev
+                              ? w.chargeCountdown
+                              : prev,
+                        );
+                        final isUsableAtRange = isWeaponTypeUsableAtRange(
+                          type,
+                          previewRange,
+                        );
+                        final canFire =
+                            isReady && isUsableAtRange && !_isActionLocked;
+                        final badgeInfo = _getTacticalWeaponBadge(
+                          type,
+                          previewRange,
+                        );
+                        final slot =
+                            type == ship.resolvedBlueprintId.signatureWeaponType
+                            ? HardpointType.signature
+                            : type ==
+                                  ship.resolvedBlueprintId.broadsideWeaponType
+                            ? HardpointType.broadside
+                            : null;
+                        final blessing = ship.blessings[slot];
 
                         final labelText = weaponsOfType.length == 1
                             ? (isReady
@@ -495,27 +519,40 @@ class _BattleScreenState extends State<BattleScreen> {
 
                         return Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                            child: Tooltip(
-                              message: badgeInfo?.tip ?? '',
-                              child: InkButton(
-                                label: labelText,
-                                subtitle: isReady
-                                    ? badgeInfo?.badge
-                                    : 'RELOADING (${maxCd}T)',
-                                subtitleColor: !isReady || badgeInfo?.isWarning == true
-                                    ? InkTheme.crimsonAccent
-                                    : InkTheme.goldAccent,
-                                semanticLabel: !isUsableAtRange
-                                    ? '${type.displayName} volley out of range at ${previewRange.displayName}. Advance to strike!'
-                                    : isReady
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 3.0,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                if (blessing != null)
+                                  BlessingBadge(blessing: blessing),
+                                Tooltip(
+                                  message: badgeInfo?.tip ?? '',
+                                  child: InkButton(
+                                    label: labelText,
+                                    subtitle: isReady
+                                        ? badgeInfo?.badge
+                                        : 'RELOADING (${maxCd}T)',
+                                    subtitleColor:
+                                        !isReady || badgeInfo?.isWarning == true
+                                        ? InkTheme.crimsonAccent
+                                        : InkTheme.goldAccent,
+                                    semanticLabel: !isUsableAtRange
+                                        ? '${type.displayName} volley out of range at ${previewRange.displayName}. Advance to strike!'
+                                        : isReady
                                         ? 'Fire ${type.displayName} volley at ${previewRange.displayName}. $readyCount of ${weaponsOfType.length} ready.${badgeInfo != null ? ' ${badgeInfo.badge}.' : ''}'
                                         : '${type.displayName} volley reloading ($maxCd turns remaining).',
-                                isPrimary: canFire,
-                                onPressed: canFire
-                                    ? () => _dispatchCombatAction(FireWeaponVolley(type))
-                                    : null,
-                              ),
+                                    isPrimary: canFire,
+                                    onPressed: canFire
+                                        ? () => _dispatchCombatAction(
+                                            FireWeaponVolley(type),
+                                          )
+                                        : null,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         );
@@ -529,29 +566,42 @@ class _BattleScreenState extends State<BattleScreen> {
                               final utilName = _utilityLabel(ship);
                               final utilMark = ship.markLabelForHardpoint(HardpointType.utility);
                               final utilReady = ship.isUtilityReady;
+                              final blessing =
+                                  ship.blessings[HardpointType.utility];
                               final canUseUtil = utilReady && !_isActionLocked;
                               final utilSubtitle = utilReady
                                   ? 'UTILITY ($utilMark • 2T CD)'
                                   : 'COOLDOWN (${ship.utilityCooldown}T)';
 
-                              return Tooltip(
-                                message: _utilityTooltip(ship, previewRange),
-                                child: InkButton(
-                                  label: utilName,
-                                  subtitle: utilSubtitle,
-                                  subtitleColor: utilReady
-                                      ? InkTheme.goldAccent
-                                      : InkTheme.crimsonAccent,
-                                  semanticLabel: utilReady
-                                      ? 'Activate $utilName utility hardpoint ($utilMark)'
-                                      : '$utilName utility hardpoint cooling down (${ship.utilityCooldown} turns remaining)',
-                                  isPrimary: false,
-                                  onPressed: canUseUtil
-                                      ? () => _dispatchCombatAction(
-                                            const ExecuteShipSpecialAction(),
-                                          )
-                                      : null,
-                                ),
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  if (blessing != null)
+                                    BlessingBadge(blessing: blessing),
+                                  Tooltip(
+                                    message: _utilityTooltip(
+                                      ship,
+                                      previewRange,
+                                    ),
+                                    child: InkButton(
+                                      label: utilName,
+                                      subtitle: utilSubtitle,
+                                      subtitleColor: utilReady
+                                          ? InkTheme.goldAccent
+                                          : InkTheme.crimsonAccent,
+                                      semanticLabel: utilReady
+                                          ? 'Activate $utilName utility hardpoint ($utilMark)'
+                                          : '$utilName utility hardpoint cooling down (${ship.utilityCooldown} turns remaining)',
+                                      isPrimary: false,
+                                      onPressed: canUseUtil
+                                          ? () => _dispatchCombatAction(
+                                              const ExecuteShipSpecialAction(),
+                                            )
+                                          : null,
+                                    ),
+                                  ),
+                                ],
                               );
                             },
                           ),
@@ -1153,8 +1203,9 @@ class _BattleScreenState extends State<BattleScreen> {
         );
       case ShipWeaponType.shrapnelHowitzer:
         return _TacticalBadgeInfo(
-          badge: pct == 100 ? '🎯 100% BLAST' : '$pct% BLAST',
-          tip: 'Shrapnel Howitzers ($pct% Blast damage at ${targetRange.displayName}, 1.5x vs Carapace).',
+          badge: pct == 100 ? '🎯 100% SLICING' : '$pct% SLICING',
+          tip:
+              'Shrapnel Howitzers ($pct% Slicing damage at ${targetRange.displayName}).',
         );
       case ShipWeaponType.harpoonWinch:
         if (targetRange != CombatRange.short) {

@@ -94,12 +94,11 @@ void main() {
       // Verify inscription and options
       expect(find.byType(ShrineScreen), findsOneWidget);
       expect(find.text('ANCIENT RUNIC INSCRIPTION'), findsOneWidget);
-      expect(find.text('CONSULT ANCIENT RUNES (FREE)'), findsOneWidget);
-      expect(find.text('OFFER TRIBUTE OF GOLD (30g)'), findsOneWidget);
-      expect(find.text('MEDITATE'), findsOneWidget);
+      expect(find.text('READ THE ANCIENT RUNES'), findsOneWidget);
+      expect(find.text('1 · CHOOSE A PRIMORDIAL'), findsOneWidget);
 
       // Tap Consult Runes
-      final meditateFinder = find.text('MEDITATE');
+      final meditateFinder = find.text('READ THE ANCIENT RUNES');
       await tester.ensureVisible(meditateFinder);
       await tester.tap(meditateFinder);
       await tester.pumpAndSettle();

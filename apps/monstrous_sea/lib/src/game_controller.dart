@@ -55,6 +55,7 @@ class GameController extends ChangeNotifier {
   List<Item> get smugglerStock => session.smugglerStock;
   String get currentShrineName => session.currentShrineName;
   String get currentShrineLore => session.currentShrineLore;
+  List<OceanPower> get shrineManifestedPowers => session.shrineManifestedPowers;
   bool get hasCareenedAtCurrentIsland => session.hasCareenedAtCurrentIsland;
   bool get hasDrilledAtCurrentIsland => session.hasDrilledAtCurrentIsland;
   bool get hasSalvagedCurrentWreck => session.hasSalvagedCurrentWreck;

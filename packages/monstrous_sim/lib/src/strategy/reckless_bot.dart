@@ -1,5 +1,6 @@
 import 'package:monstrous_core/monstrous_core.dart';
 import 'bot_strategy.dart';
+import 'shrine_strategy.dart';
 
 /// Aggressive bot prioritizing maximum raw damage output and rapid battle advancement.
 /// Never retreats or flees from naval combat.
@@ -120,10 +121,7 @@ class RecklessBot implements BotStrategy {
         return const DepartSmuggler();
 
       case SessionPhase.shrine:
-        if (!session.hasCommunedAtCurrentShrine) {
-          return const CommuneWithShrine(ShrineChoice.abyssalPact);
-        }
-        return const DepartShrine();
+        return chooseShrineBlessing(session, preferredPowers: const [OceanPower.magmaVentLord, OceanPower.earthshakerTitan], preferredSlots: const [HardpointType.signature, HardpointType.broadside, HardpointType.utility]);
 
       case SessionPhase.helm:
         final options = session.seaChart.currentCourseOptions;

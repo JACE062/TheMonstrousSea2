@@ -97,13 +97,13 @@ ShipWeapon generateShipWeapon(
         id: weaponId,
         name: type.displayName,
         description:
-            'Flak-packed deck howitzers firing concussive Blast shells that crack armored Carapace (Short: 70%, Med: 100%, Long: 75%).',
+            'Deck howitzers firing Slicing canister shrapnel across the surface (Short: 70%, Med: 100%, Long: 75%).',
         value: 25 * level,
         rarity: rarity,
         damage: rng.nextIntRange(10, 13) * level,
         hitModifier: 85,
         chargeTime: type.chargeTime,
-        damageType: DamageType.blast,
+        damageType: DamageType.slicing,
         equipWeight: type.equipWeight,
         weaponType: type,
       );
@@ -132,7 +132,7 @@ ShipWeapon generateShipWeapon(
         damage: rng.nextIntRange(20, 25) * level,
         hitModifier: 90,
         chargeTime: type.chargeTime,
-        damageType: DamageType.blast,
+        damageType: DamageType.piercing,
         equipWeight: type.equipWeight,
         weaponType: type,
       );
