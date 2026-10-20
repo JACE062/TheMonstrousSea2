@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/feedback_and_fixes.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Feedback & Remediation Plan: The Monstrous Sea V2
 
 The current open batch is [Playtest backlog — 20 October 2026](PLAYTEST_2026_10_20.md), grouped into focused work chunks with observations, source-review leads, pending design decisions, and acceptance criteria. Its [UI art backlog](UI_ART_BACKLOG.md) is deferred; no new images are being created now.

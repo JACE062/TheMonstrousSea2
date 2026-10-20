@@ -1,5 +1,7 @@
 # ADR 0001: Technical Platform - Flutter & Flame with Decoupled Pure Dart Engine
 
+Status: **Accepted technical architecture.** The platform/package boundary below remains current. The original comparison, Java-parity objective and claims about installed tools or Flutter-driver access record the selection-time context; verify available tools in the current environment. They do not require restoring legacy Java gameplay. Read [the documentation guide](../README.md) and [current developer guide](../../CLAUDE.md) for present implementation and verification instructions.
+
 ## Context
 The original game (`TheMonstrousSea_Original`) is an object-oriented Java console game containing ~40 classes. It featured turn-based naval combat against sea monsters, loot collection, a port economy, and an inheritance mechanic where an heir continues after a captain's death.
 

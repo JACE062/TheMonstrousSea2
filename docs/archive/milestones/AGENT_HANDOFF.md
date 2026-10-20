@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/AGENT_HANDOFF.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Agent Handoff & Quickstart Guide: The Monstrous Sea V2
 
 Welcome! This repository contains the modernization of **The Monstrous Sea** from an educational Java console project to a multiplatform visual roguelike built with **Flutter + Flame (Dart)** and a decoupled domain engine.
@@ -9,12 +11,12 @@ Welcome! This repository contains the modernization of **The Monstrous Sea** fro
 - `TheMonstrousSea_Original/` - The original Java console game (read-only reference).
 - `OriginalProjectIdeas&Planning/` - Initial UML diagrams and concept notes (read-only reference).
 - `docs/`
-  - [`PLAN.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/PLAN.md) - Complete approved architecture & phased execution roadmap.
-  - [`GDD.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/GDD.md) - Exact mathematical game design document reverse-engineered from Java.
-  - [`ROGUE_LITE_DESIGN.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/ROGUE_LITE_DESIGN.md) - Rogue-lite progression, blueprints, hardpoints, nemesis system, and bloodline GDD.
-  - [`COMBAT_SYSTEM_REDESIGN.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/COMBAT_SYSTEM_REDESIGN.md) - Complete tactical combat overhaul specification: 3-band range system, telegraphed intents, 4 ocean powers, and master refits.
-  - [`bugs.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/bugs.md) - Verified bug resolutions (B1 through B6) approved by the user.
-  - [`decisions/0001-platform.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/decisions/0001-platform.md) - Architectural Decision Record for Flutter + Flame + Pure Dart.
+  - [`PLAN.md`](../java/PLAN.md) - Complete approved architecture & phased execution roadmap.
+  - [`GDD.md`](../java/GDD.md) - Exact mathematical game design document reverse-engineered from Java.
+  - [`ROGUE_LITE_DESIGN.md`](../design/ROGUE_LITE_DESIGN.md) - Rogue-lite progression, blueprints, hardpoints, nemesis system, and bloodline GDD.
+  - [`COMBAT_SYSTEM_REDESIGN.md`](../design/COMBAT_SYSTEM_REDESIGN.md) - Complete tactical combat overhaul specification: 3-band range system, telegraphed intents, 4 ocean powers, and master refits.
+  - [`bugs.md`](../java/bugs.md) - Verified bug resolutions (B1 through B6) approved by the user.
+  - [`decisions/0001-platform.md`](../../decisions/0001-platform.md) - Architectural Decision Record for Flutter + Flame + Pure Dart.
 - `tools/java_oracle/` - Java test harness generating ground-truth distribution baselines:
   - Run: `powershell -ExecutionPolicy Bypass -File .\tools\java_oracle\build_fixtures.ps1`
   - Output: `tools/java_oracle/fixtures/*.json` (Monsters, Ships, Item drop distributions).
@@ -73,9 +75,9 @@ Welcome! This repository contains the modernization of **The Monstrous Sea** fro
   - Scaled damage and accuracy by distance (Long: Culverin/Mortar +25% dmg, Cannon -15% acc, Flagship +15% evasion; Short: Ram +30% collision, Mortar point-blank backfire splash to own hull, Flagship -15% evasion).
 - **Combat Redesign Phase 2 (Telegraphed Monster Intent System):** Implemented.
 - **Combat Redesign Phase 3A (Intrinsic Hardpoints & Tactical Belt):** Implemented.
-- **Combat Redesign Phase 3B (Primordial Ocean Powers):** Implemented: four powers across three dedication sockets and three tiers, weighted shrine encounters, combat riders and synergies, persistent voyage blessings, responsive shrine/HUD UI, and simulation bot support. See [implementation notes and verification](agents/phase3b_ocean_powers.md) for current details; earlier section test counts describe historical milestones.
-- **Post-Phase-3B Playtest Remediation:** Implemented. See [19 October playtest notes](PLAYTEST_2026_10_19.md) for Standard-only first-voyage onboarding, enforced blueprint locks, voyage-only refits/tempering, chart/checkpoint fixes, readable inspection UI, and the single-use consumable decision. A native Windows first-voyage integration test now passes.
-- **20 October Playtest Follow-up:** Open, documented only. See the [prioritized backlog](PLAYTEST_2026_10_20.md) for 22 findings and proposed chunks. Start with home-port versus post-boss stronghold lifecycle, blessing/build preservation, and the dead-end Abandon Hunt route; then audit combat and navigation. Shared permanent family names and command-station/chart layouts need design discussion. Master Refits remain planned Phase 4 work. [Art/icon work is deferred](UI_ART_BACKLOG.md); do not generate new assets in this documentation batch.
+- **Combat Redesign Phase 3B (Primordial Ocean Powers):** Implemented: four powers across three dedication sockets and three tiers, weighted shrine encounters, combat riders and synergies, persistent voyage blessings, responsive shrine/HUD UI, and simulation bot support. See [implementation notes and verification](phase3b_ocean_powers.md) for current details; earlier section test counts describe historical milestones.
+- **Post-Phase-3B Playtest Remediation:** Implemented. See [19 October playtest notes](../playtests/PLAYTEST_2026_10_19.md) for Standard-only first-voyage onboarding, enforced blueprint locks, voyage-only refits/tempering, chart/checkpoint fixes, readable inspection UI, and the single-use consumable decision. A native Windows first-voyage integration test now passes.
+- **20 October Playtest Follow-up:** Open, documented only. See the [prioritized backlog](../playtests/PLAYTEST_2026_10_20.md) for 22 findings and proposed chunks. Start with home-port versus post-boss stronghold lifecycle, blessing/build preservation, and the dead-end Abandon Hunt route; then audit combat and navigation. Shared permanent family names and command-station/chart layouts need design discussion. Master Refits remain planned Phase 4 work. [Art/icon work is deferred](../playtests/UI_ART_BACKLOG.md); do not generate new assets in this documentation batch.
 - **Rogue-lite Stage 5 (Atmospheric Immersion, Port Civic Restoration & Audio/Visual VFX):** Queued following combat overhaul.
 
 ---

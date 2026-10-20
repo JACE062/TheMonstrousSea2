@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/GDD.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Game Design Document (GDD): The Monstrous Sea V2
 
 This document reverse-engineers and formalizes every mechanic, mathematical formula, scaling curve, drop table, and rule from the original Java implementation (`TheMonstrousSea_Original`) as the canonical specification for the pure Dart engine (`packages/monstrous_core`).

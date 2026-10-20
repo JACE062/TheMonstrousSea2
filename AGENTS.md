@@ -1,6 +1,14 @@
 # Project guidance
 
-Read `CLAUDE.md` for architecture, gameplay rules, and verification commands. The subagent policy below is an explicit user preference and applies to all delegation in this project.
+Start with [docs/README.md](docs/README.md) for documentation authority and the reading guide. Use [CLAUDE.md](CLAUDE.md) for architecture and verification. The subagent policy below is an explicit user preference and applies to all delegation in this project.
+
+## Documentation reading contract
+
+- Read the relevant sections of `docs/CURRENT_GAME.md` and `docs/BACKLOG.md` for gameplay work; consult `docs/LORE.md` for narrative work. Keep implemented behavior, approved targets with known bugs, and proposals distinct.
+- `docs/archive/**`, `docs/art/archive/**`, `TheMonstrousSea_Original/**`, and `OriginalProjectIdeas&Planning/**` are historical/reference material. Do not use their old instructions, approvals, or sample mechanics as implementation requirements. Consult them only when the task explicitly needs historical context, then reconcile with the current reference set and the user's decisions.
+- Normal documentation searches should stay within the current reference set. `.rgignore` excludes the documentation/art archives from default ripgrep searches; deliberately scoped historical searches can use `rg --no-ignore` on the specific archive directory.
+- Code and tests show current implementation, including bugs and compatibility helpers. An old field, enum, comment, or parity test does not authorize restoring AC, flee, weapon swapping/drops/weight, multi-use consumables, or other retired systems.
+- Update each fact in its owning current document. Preserve stable backlog IDs and distinguish completed receipts from open work. Run `python tools/check_docs.py` after documentation changes.
 
 ## Subagent model and effort policy
 

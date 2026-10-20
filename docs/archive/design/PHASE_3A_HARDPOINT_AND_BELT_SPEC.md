@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/PHASE_3A_HARDPOINT_AND_BELT_SPEC.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Phase 3A Specification: 3-Hardpoint Architecture, Utilities & Tactical Belt
 
 > **Status:** Locked Specification for Phase 3A Implementation  
@@ -8,7 +10,7 @@
 
 ## 1. Core Architectural Shift: Intrinsic 3-Hardpoint Topology
 
-Weapons are no longer generic inventory items dropped by monsters or swapped in and out of untyped slots. Every [`FlagshipBlueprint`](../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) permanently mounts **strictly 3 intrinsic Hardpoints** for the entire voyage:
+Weapons are no longer generic inventory items dropped by monsters or swapped in and out of untyped slots. Every [`FlagshipBlueprint`](../../../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) permanently mounts **strictly 3 intrinsic Hardpoints** for the entire voyage:
 
 1. **Broadside (`HardpointType.broadside`)**: Primary hull battery (`0T` Cooldown). Reliable every-turn attack with a hull-specific firing profile and damage type.
 2. **Signature (`HardpointType.signature`)**: Defining prow/centerline tactical armament (`1T` Cooldown across all ships).
@@ -18,7 +20,7 @@ Weapons are no longer generic inventory items dropped by monsters or swapped in 
 - **Auxiliary Weapon Slot (`HardpointType.auxiliary`)**: Removed. The 4 legacy Java weapons (*Torpedo Launcher*, *Blade Launcher*, *Lightning Railgun*, *Flamethrower*) are retired as standalone lootable items and reserved for Phase 3B Shrine Infusions and Master Refits.
 - **Equip / Unequip Weapon Actions**: Removed. Hardpoints cannot be unequipped into cargo or stacked with duplicate weapons.
 - **Weapon Weight (`maxWeaponWeight`, `equipWeight`)**: Completely removed from `ShipState`, ship factories, and upgrade formulas.
-- **Monster Weapon Drops**: Removed from [`loot.dart`](../packages/monstrous_core/lib/src/rules/loot.dart). Monsters never drop `ShipWeapon` items.
+- **Monster Weapon Drops**: Removed from [`loot.dart`](../../../packages/monstrous_core/lib/src/rules/loot.dart). Monsters never drop `ShipWeapon` items.
 - **Unimplemented "Poise" Vestiges**: Removed (`windupDamageTaken` on `MonsterState`). Staggering/interrupting a Boss Wind-Up or resetting Shark Frenzy is strictly governed by **Stun** effects and specific weapon/refit identities.
 
 ---

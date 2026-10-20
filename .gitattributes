@@ -1,0 +1,3 @@
+# Preserve historical Markdown hard breaks/spacing with the archived prose.
+# The documentation checker enforces whitespace on the active reference set.
+docs/archive/**/*.md whitespace=-blank-at-eol

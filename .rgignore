@@ -1,0 +1,4 @@
+# Historical documents are retained in Git but excluded from routine searches.
+# To inspect history deliberately: rg --no-ignore <pattern> docs/archive
+docs/archive/
+docs/art/archive/

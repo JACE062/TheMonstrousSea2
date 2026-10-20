@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/COMBAT_SYSTEM_REDESIGN.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Combat System Redesign & Tactical Depth Specification: The Monstrous Sea V2
 
 > **Document Status:** Approved Design Blueprint  
@@ -33,7 +35,7 @@ flowchart TD
 **Weapon Weight and generic RPG weapon-swapping are permanently retired.** Flagships no longer loot random cannons from sea monsters or swap weapons in and out of cargo.
 
 ### The Modern Topology: 3 Intrinsic Hardpoints + Tactical Consumable Belt
-See [PHASE_3A_HARDPOINT_AND_BELT_SPEC.md](PHASE_3A_HARDPOINT_AND_BELT_SPEC.md) for the complete locked specification. Every commissioned [`FlagshipBlueprint`](../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) permanently mounts **strictly 3 intrinsic Hardpoints**:
+See [PHASE_3A_HARDPOINT_AND_BELT_SPEC.md](PHASE_3A_HARDPOINT_AND_BELT_SPEC.md) for the complete locked specification. Every commissioned [`FlagshipBlueprint`](../../../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) permanently mounts **strictly 3 intrinsic Hardpoints**:
 
 ```mermaid
 flowchart TD

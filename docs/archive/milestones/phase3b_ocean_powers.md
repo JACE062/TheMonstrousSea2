@@ -1,6 +1,8 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/agents/phase3b_ocean_powers.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Phase 3B implementation handoff
 
-Source of truth: [Phase 3B specification](../PHASE_3B_OCEAN_POWERS_SPEC.md).
+Source of truth: [Phase 3B specification](../design/PHASE_3B_OCEAN_POWERS_SPEC.md).
 
 The implementation follows the repository's existing mutable Dart domain model and command-driven session. The specification's conceptual `models/ship.dart` and `models/monster.dart` correspond to `lib/src/model/combatant.dart`; its combat UI corresponds to `battle_screen.dart`. No Flutter dependencies enter the core package.
 

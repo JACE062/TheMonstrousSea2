@@ -1,0 +1,3030 @@
+{
+  "version": 1,
+  "migration_date": "2026-10-20",
+  "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+  "archive_transform": "Historical warning prepended; Markdown link targets rebased to preserve their destinations. Original prose retained otherwise.",
+  "active_documents": [
+    "docs/README.md",
+    "docs/CURRENT_GAME.md",
+    "docs/LORE.md",
+    "docs/BACKLOG.md",
+    "docs/decisions/0001-platform.md",
+    "CLAUDE.md",
+    "AGENTS.md"
+  ],
+  "documents": [
+    {
+      "source": "docs/GDD.md",
+      "archive": "docs/archive/java/GDD.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "e0b37f10d13508ad3a174c2ca1bc6477d76c8625",
+      "source_sha256": "cc5001362e5edae383f596c0bc24a58900a4388b6cba1acedcce3b361c4a3084",
+      "archive_body_sha256": "cc5001362e5edae383f596c0bc24a58900a4388b6cba1acedcce3b361c4a3084",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Game Design Document (GDD): The Monstrous Sea V2",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "heading": "1. Core Premise & Progression Loop",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "heading": "2. Combat Resolution Formulas",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 30,
+          "level": 3,
+          "heading": "2.1 Attack Roll & Hit Resolution",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 38,
+          "level": 3,
+          "heading": "2.2 Damage & Reductions",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 53,
+          "level": 3,
+          "heading": "2.3 Status Effects",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 60,
+          "level": 3,
+          "heading": "2.4 Flee Mechanics",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "heading": "3. Entities & Stats",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 69,
+          "level": 3,
+          "heading": "3.1 Ships",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 79,
+          "level": 3,
+          "heading": "3.2 Monsters",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "heading": "4. Itemization & Economy",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 93,
+          "level": 3,
+          "heading": "4.1 Rarity & Drop Rates",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 108,
+          "level": 3,
+          "heading": "4.2 Weapons & Weight",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        }
+      ]
+    },
+    {
+      "source": "docs/PLAN.md",
+      "archive": "docs/archive/java/PLAN.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "47cc45be8a6d65ddbdeb2c1eca1c392ffc9ca6cb",
+      "source_sha256": "e56e8dd065c5ec52b0e21886d07f8f926106fbe09c76116e165091d115dc9731",
+      "archive_body_sha256": "e56e8dd065c5ec52b0e21886d07f8f926106fbe09c76116e165091d115dc9731",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "The Monstrous Sea V2: Milestone 1 Implementation Plan",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "heading": "Goal",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "heading": "Platform decision: Flutter + Flame (Dart)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md"
+          ],
+          "reason": "Technical boundaries and deterministic command/event design retained; original Java parity is scoped history."
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "heading": "Status: ✅ APPROVED by user (2026-10-10). All decisions below are final.",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 30,
+          "level": 2,
+          "heading": "Resolved Decisions",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "heading": "Answered Questions (final)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "heading": "Architecture",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md"
+          ],
+          "reason": "Technical boundaries and deterministic command/event design retained; original Java parity is scoped history."
+        },
+        {
+          "line": 92,
+          "level": 3,
+          "heading": "Core idea: commands in → events out",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 154,
+          "level": 3,
+          "heading": "Phase state machine (mirrors the original `GameController` loop)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md"
+          ],
+          "reason": "Technical boundaries and deterministic command/event design retained; original Java parity is scoped history."
+        },
+        {
+          "line": 175,
+          "level": 3,
+          "heading": "Modularity for future expansion",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md"
+          ],
+          "reason": "Technical boundaries and deterministic command/event design retained; original Java parity is scoped history."
+        },
+        {
+          "line": 183,
+          "level": 2,
+          "heading": "Proposed Changes",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 185,
+          "level": 3,
+          "heading": "Repository layout (all new; originals untouched)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 209,
+          "level": 3,
+          "heading": "Component 1: `tools/java_oracle` (parity reference)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 213,
+          "level": 4,
+          "heading": "[NEW] `OracleMain.java`",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 221,
+          "level": 4,
+          "heading": "[NEW] `build_fixtures.ps1`",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 228,
+          "level": 3,
+          "heading": "Component 2: `packages/monstrous_core` (engine)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 284,
+          "level": 3,
+          "heading": "Component 3: `packages/monstrous_sim` (balance simulator, v1)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 286,
+          "level": 4,
+          "heading": "[NEW] `bin/simulate.dart`",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 299,
+          "level": 3,
+          "heading": "Component 4: `apps/monstrous_sea` (Flutter + Flame)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 326,
+          "level": 3,
+          "heading": "Component 5: Visual Styling & Asset Pipeline (SVG & Ink Line Work)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 336,
+          "level": 2,
+          "heading": "Agent Orchestration",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 380,
+          "level": 2,
+          "heading": "Verification Plan",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 382,
+          "level": 3,
+          "heading": "Automated tests",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 400,
+          "level": 3,
+          "heading": "Agent-driven UI verification",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 403,
+          "level": 3,
+          "heading": "Manual verification (you)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 412,
+          "level": 2,
+          "heading": "Beyond Milestone 1 (for context only, not in scope)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        }
+      ]
+    },
+    {
+      "source": "docs/bugs.md",
+      "archive": "docs/archive/java/bugs.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "d477e899101b61f5c39a01e579924319c61fcdc6",
+      "source_sha256": "65676cb7c917d649ed782998d3ecf7530b627cd0ee5449e3592b53d0fe37674c",
+      "archive_body_sha256": "65676cb7c917d649ed782998d3ecf7530b627cd0ee5449e3592b53d0fe37674c",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Original Bug Tracker & Fix Specifications",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 7,
+          "level": 3,
+          "heading": "Bug B1: Unstable Victory Drop Loop Bound",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 19,
+          "level": 3,
+          "heading": "Bug B2: Infinite Loop on Monster Turn Cooldowns",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 36,
+          "level": 3,
+          "heading": "Bug B3: Discrepancy in Flee Probability",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 48,
+          "level": 3,
+          "heading": "Bug B4: Item Category Drop Distribution Bounds",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 59,
+          "level": 3,
+          "heading": "Bug B5: Freighter Heir String Formatting",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 67,
+          "level": 3,
+          "heading": "Bug B6: Static Global State",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md"
+          ],
+          "reason": "Technical boundaries and deterministic command/event design retained; original Java parity is scoped history."
+        }
+      ]
+    },
+    {
+      "source": "docs/ROGUE_LITE_DESIGN.md",
+      "archive": "docs/archive/design/ROGUE_LITE_DESIGN.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "cd3f5d38243cda687813bd8e4539948bc4d082fc",
+      "source_sha256": "ee3ffd0e6178f3502f3cd38e62dae586538fc8f93f5b86f5b1f6182cab33957e",
+      "archive_body_sha256": "20e73a667cea016839837871bbcf428a6703a464856eac018158cafe13378f8c",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "The Monstrous Sea V2 — Rogue-lite Evolution & Progression GDD",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "heading": "1. Overview & Creative Thesis",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 15,
+          "level": 2,
+          "heading": "2. Narrative Foundation: The Abyssal Pact",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 29,
+          "level": 3,
+          "heading": "The Originator's Bargain",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 35,
+          "level": 3,
+          "heading": "The Two-Stage Curse: Salt-Sickness on Shore, Sea-Madness in the Deep",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "heading": "3. The Bloodbound Flagship: Balance Philosophy & Progression",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 54,
+          "level": 3,
+          "heading": "A. The Game Designer's Dilemma: Avoiding Early-Game Trivialization",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 61,
+          "level": 3,
+          "heading": "B. The Lore of the \"Bargain's Reset\"",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 67,
+          "level": 3,
+          "heading": "C. Horizontal & Utility Meta-Progression (What Carries Over)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 82,
+          "level": 3,
+          "heading": "D. In-Run Buildcrafting: Where True Power is Forged",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 105,
+          "level": 3,
+          "heading": "E. Specialized Starting Disciplines (Doctrines)",
+          "disposition": "superseded-or-proposed",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits",
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Old doctrine/auxiliary/weapon-swapping examples are historical; compatible future work requires a reviewed new design."
+        },
+        {
+          "line": 136,
+          "level": 2,
+          "heading": "4. The Two-Tier Economy: In-Run Doubloons vs. Meta-Currencies",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 152,
+          "level": 3,
+          "heading": "In-Run Currency: Gold Doubloons ($\\text{g}$) — \"Use It or Lose It\"",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 157,
+          "level": 3,
+          "heading": "Meta-Currencies: Dual-Source Matrix (Materials vs. Organics)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 176,
+          "level": 2,
+          "heading": "5. Heir Succession & Qualitative Traits",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 182,
+          "level": 3,
+          "heading": "Qualitative Traits: Captain Temperaments & Tactical Rule Alterations",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 185,
+          "level": 4,
+          "heading": "Maritime Boons (Positive Rule Modifiers)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 194,
+          "level": 4,
+          "heading": "Curious Quirks (Tactical Trade-Offs & Flaws)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 205,
+          "level": 2,
+          "heading": "6. The Nemesis Beast System",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 227,
+          "level": 3,
+          "heading": "Nemesis Mechanics & Spawn Rules",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 246,
+          "level": 2,
+          "heading": "7. Port Progression & The Living Harbor",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 250,
+          "level": 3,
+          "heading": "Civic Development & Town Restoration",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 260,
+          "level": 2,
+          "heading": "8. Technical & Systems Roadmap Integration",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 264,
+          "level": 3,
+          "heading": "A. Game State Persistence (Save & Resume)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 268,
+          "level": 3,
+          "heading": "B. Audio & Atmospheric Soundscape (`AudioService`)",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 273,
+          "level": 3,
+          "heading": "C. Visual Polish & Flame Arena VFX",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 278,
+          "level": 3,
+          "heading": "D. Deepened Encounter Variety",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 285,
+          "level": 2,
+          "heading": "8. The Climax at the Edge of the World & The Post-Game Paradox",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 298,
+          "level": 3,
+          "heading": "A. The Primordial Caldera (The Font of Monsters)",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 303,
+          "level": 3,
+          "heading": "B. The Captain's Dilemma",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 306,
+          "level": 4,
+          "heading": "Path 1: Shatter the Font (The Final Release — The True Narrative Ending)",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 318,
+          "level": 4,
+          "heading": "Path 2: Claim the Primordial Core (The Perpetual Cycle — Rogue-lite Continuation)",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 334,
+          "level": 3,
+          "heading": "C. Seeding the Lore Along the Voyage",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 342,
+          "level": 2,
+          "heading": "9. Consensus Specifications: Covenant of the Deep & Titan Trophies",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 348,
+          "level": 3,
+          "heading": "A. The Caldera Dilemma: Shatter vs. Claim",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 355,
+          "level": 3,
+          "heading": "B. The Covenant of the Deep & The Heir's Motivation",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 372,
+          "level": 3,
+          "heading": "C. Titan Trophy Acquisition & Progression Curve",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 388,
+          "level": 3,
+          "heading": "D. Brainstorming Titan Trophy Spenders & Mechanics",
+          "disposition": "superseded-or-proposed",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits",
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Old doctrine/auxiliary/weapon-swapping examples are historical; compatible future work requires a reviewed new design."
+        },
+        {
+          "line": 397,
+          "level": 2,
+          "heading": "10. Technical & Systems Roadmap Integration",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 401,
+          "level": 3,
+          "heading": "A. Game State Persistence (Save & Resume)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 405,
+          "level": 3,
+          "heading": "B. Audio & Atmospheric Soundscape (`AudioService`)",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 410,
+          "level": 3,
+          "heading": "C. Visual Polish & Flame Arena VFX",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 415,
+          "level": 3,
+          "heading": "D. Deepened Encounter Variety",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 422,
+          "level": 2,
+          "heading": "11. The 5-Stage Implementation Roadmap",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-work-retained-from-earlier-plans",
+            "CLAUDE.md"
+          ],
+          "reason": "Future atmosphere, town, encounters and ending delivery retained; already implemented persistence is not a new feature request."
+        },
+        {
+          "line": 433,
+          "level": 3,
+          "heading": "Stage 1: Foundational Profile, Succession & Persistence",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 442,
+          "level": 3,
+          "heading": "Stage 2: In-Run Buildcrafting Engine (\"Hammers\" & \"Boons\")",
+          "disposition": "superseded-or-proposed",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits",
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Old doctrine/auxiliary/weapon-swapping examples are historical; compatible future work requires a reviewed new design."
+        },
+        {
+          "line": 449,
+          "level": 3,
+          "heading": "Stage 3: The Bloodbound Flagship, Blueprints & Hardpoint Architecture [COMPLETED]",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 458,
+          "level": 3,
+          "heading": "Stage 4: Covenant of the Deep, Titan Trophies & Eldritch Post-End Loops [COMPLETED]",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 477,
+          "level": 3,
+          "heading": "Interlude: Core Combat & Tactical Depth Overhaul",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        },
+        {
+          "line": 487,
+          "level": 3,
+          "heading": "Stage 5: Atmospheric Immersion, Civic Port & Final Climax",
+          "disposition": "retained-canon",
+          "targets": [
+            "docs/LORE.md"
+          ],
+          "reason": "Story retained with later Core-fused-to-keel/Pact Burden consensus; presentation ideas distinguished from implemented scenes."
+        },
+        {
+          "line": 497,
+          "level": 2,
+          "heading": "12. Verification & Architectural Integrity",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md",
+            "docs/LORE.md"
+          ],
+          "reason": "Economy, progression, succession and Nemesis intent retained with five-blueprint, three-hardpoint and current Covenant rules."
+        }
+      ]
+    },
+    {
+      "source": "docs/COMBAT_SYSTEM_REDESIGN.md",
+      "archive": "docs/archive/design/COMBAT_SYSTEM_REDESIGN.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "f2b9e7beee2a1203cb2a2fd30d2a17f53354d6f9",
+      "source_sha256": "8ddadbcb81661ee4aa5295eb8718666d09f2f2441247ac737397cc3b45c7ebbf",
+      "archive_body_sha256": "706883041a9bcc20c8f6f8227779d556af1d772f2d9da18c926a6ab3f786ae3c",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Combat System Redesign & Tactical Depth Specification: The Monstrous Sea V2",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "heading": "1. Executive Summary: Overcoming the \"Math-Trading\" Trap",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 11,
+          "level": 3,
+          "heading": "The Problem",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 16,
+          "level": 3,
+          "heading": "The Solution: The Dynamic Tactical Triangle",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 30,
+          "level": 2,
+          "heading": "2. Complete Retirement of Weapon Weight & Generic Weapon Swapping",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 32,
+          "level": 3,
+          "heading": "The Decision",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 35,
+          "level": 3,
+          "heading": "The Modern Topology: 3 Intrinsic Hardpoints + Tactical Consumable Belt",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "heading": "2b. Complete Retirement of the Flee Mechanic",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 68,
+          "level": 3,
+          "heading": "The Decision",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 71,
+          "level": 3,
+          "heading": "Roguelite Reality & Tactical Counterplay",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 78,
+          "level": 2,
+          "heading": "3. The 3 Engagement Range Bands",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 89,
+          "level": 3,
+          "heading": "Range Characteristic Matrix",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 99,
+          "level": 3,
+          "heading": "Action-Driven Mobility (Eliminating the \"Move Tax\")",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 129,
+          "level": 3,
+          "heading": "Blueprint Range Affinities",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 146,
+          "level": 2,
+          "heading": "4. Telegraphed Monster Intent System",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 161,
+          "level": 3,
+          "heading": "The 4 Beast Intent Archetypes & Player Counters",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 172,
+          "level": 2,
+          "heading": "5. Universal Non-Parasitic Combat States",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 177,
+          "level": 3,
+          "heading": "The Baseline: Neutral Cannons",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 182,
+          "level": 3,
+          "heading": "The 5 Universal States",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 197,
+          "level": 2,
+          "heading": "6. The 4 Ocean Powers & Tiered Sea Shrine Blessings",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 210,
+          "level": 3,
+          "heading": "The 4 Ocean Powers Overview",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 212,
+          "level": 4,
+          "heading": "1. The Deep Volcano *(Thermal / Fire / Magma)*",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 217,
+          "level": 4,
+          "heading": "2. The Tempest Sovereign *(Static / Lightning / Storm)*",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 222,
+          "level": 4,
+          "heading": "3. The Trench of Corrosion *(Acid / Brine-Melting / Decay)*",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 227,
+          "level": 4,
+          "heading": "4. The Sunken Titan *(Kinetic / Seismic / Defense)*",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 234,
+          "level": 3,
+          "heading": "Tiered Progression: Specialization vs. Diversification",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 255,
+          "level": 2,
+          "heading": "7. Master Refits: The \"Maritime Hammers\"",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits"
+          ],
+          "reason": "Two post-boss refit opportunities retained; historical example catalogs require reconciliation, including Standard."
+        },
+        {
+          "line": 257,
+          "level": 3,
+          "heading": "Pacing & Scarcity",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits"
+          ],
+          "reason": "Two post-boss refit opportunities retained; historical example catalogs require reconciliation, including Standard."
+        },
+        {
+          "line": 262,
+          "level": 3,
+          "heading": "Blueprint-Tailored Refit Catalog",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits"
+          ],
+          "reason": "Two post-boss refit opportunities retained; historical example catalogs require reconciliation, including Standard."
+        },
+        {
+          "line": 264,
+          "level": 4,
+          "heading": "Ironclad Refits (Battering & Hull Plating)",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits"
+          ],
+          "reason": "Two post-boss refit opportunities retained; historical example catalogs require reconciliation, including Standard."
+        },
+        {
+          "line": 269,
+          "level": 4,
+          "heading": "Clipper Refits (Speed & Surgical Precision)",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits"
+          ],
+          "reason": "Two post-boss refit opportunities retained; historical example catalogs require reconciliation, including Standard."
+        },
+        {
+          "line": 274,
+          "level": 4,
+          "heading": "Bombardier Refits (Artillery & Concussion)",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits"
+          ],
+          "reason": "Two post-boss refit opportunities retained; historical example catalogs require reconciliation, including Standard."
+        },
+        {
+          "line": 279,
+          "level": 4,
+          "heading": "Corsair Refits (Rigging & Harpoon Traps)",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#future-master-refits"
+          ],
+          "reason": "Two post-boss refit opportunities retained; historical example catalogs require reconciliation, including Standard."
+        },
+        {
+          "line": 286,
+          "level": 2,
+          "heading": "8. Step-by-Step Implementation Roadmap",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Current intrinsic topology, intent and later Phase 3B riders replace early range/status sketches."
+        },
+        {
+          "line": 300,
+          "level": 3,
+          "heading": "Phase 1 Completion Summary:",
+          "disposition": "completed-history",
+          "targets": [
+            "docs/archive/README.md"
+          ],
+          "reason": "Dated milestone receipt, not evidence of present correctness."
+        }
+      ]
+    },
+    {
+      "source": "docs/PHASE_3A_HARDPOINT_AND_BELT_SPEC.md",
+      "archive": "docs/archive/design/PHASE_3A_HARDPOINT_AND_BELT_SPEC.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "9a5827c603181ac721644966a93fc39a9363837e",
+      "source_sha256": "3b8fd60c09d20b1597a88240f8d8be3088c723f093fda5df2104a2bf653b7916",
+      "archive_body_sha256": "6222a7a217a7f0bc5625cc10b78f4f98d84feff08ae64786fbe8c4987975e4f0",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Phase 3A Specification: 3-Hardpoint Architecture, Utilities & Tactical Belt",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "heading": "1. Core Architectural Shift: Intrinsic 3-Hardpoint Topology",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 17,
+          "level": 3,
+          "heading": "Retired Legacy Mechanics",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 26,
+          "level": 2,
+          "heading": "2. The 5 Flagship Blueprints: Hardpoint Matrix & Range Math",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 28,
+          "level": 3,
+          "heading": "Normalization Rule",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 31,
+          "level": 3,
+          "heading": "2.1 Broadside Hardpoints (`0T` Cooldown)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 41,
+          "level": 3,
+          "heading": "2.2 Signature Hardpoints (`1T` Cooldown)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "heading": "2.3 Utility Hardpoints (`2T` Cooldown)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "heading": "3. Carapace Shield Interaction (Grounded in Existing Code)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "heading": "4. Tactical Consumable Belt (Replacing Cargo Tonnage)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 76,
+          "level": 3,
+          "heading": "4.1 Slot-Based Belt & Free Quick-Actions",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 83,
+          "level": 3,
+          "heading": "4.2 Core Tactical Consumables",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "heading": "5. Ports, Smugglers, and Progression Economy",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
+          ],
+          "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
+        }
+      ]
+    },
+    {
+      "source": "docs/PHASE_3B_OCEAN_POWERS_SPEC.md",
+      "archive": "docs/archive/design/PHASE_3B_OCEAN_POWERS_SPEC.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "abccfde95006c8490ec3aab8caad8d19f7efc655",
+      "source_sha256": "8882c23f05b7290381aeb789389b035ba39f60a16739037421ca9e39b19efc78",
+      "archive_body_sha256": "7213e2133d813d484b45ca7315e586570a38589e1fc7c1d1659c3860ebcdc844",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Phase 3B Specification: The 4 Primordial Sea Powers & Tiered Shrine Blessings",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "heading": "0. Prerequisite Base Weapon Cleanup (`DamageType.blast` Exclusivity)",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 24,
+          "level": 2,
+          "heading": "1. Lore & The 4 Primordial Powers of the Sea",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "heading": "1.1 Global Combat Math Rule: Percentage Damage Before Range Falloff",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 43,
+          "level": 2,
+          "heading": "2. Detailed Mechanics of the 4 Primordials",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 45,
+          "level": 3,
+          "heading": "2.1 🔥 The Magma Vent-Lord (`OceanPower.magmaVentLord`)",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 60,
+          "level": 3,
+          "heading": "2.2 ⚡ The Tempest Sovereign (`OceanPower.tempestSovereign`)",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 82,
+          "level": 3,
+          "heading": "2.3 🧪 The Brinemother (`OceanPower.brinemother`)",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 98,
+          "level": 3,
+          "heading": "2.4 🪨 The Earthshaker Titan (`OceanPower.earthshakerTitan`)",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 111,
+          "level": 2,
+          "heading": "3. Shrine Encounter Flow (Flow A) & Hardpoint Dedication Rules",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 113,
+          "level": 3,
+          "heading": "3.1 Cooperative Hardpoint Locking (No Overwriting)",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 119,
+          "level": 3,
+          "heading": "3.2 Weighted Primordial Appearance at Shrines",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#ocean-powers-and-shrines",
+            "docs/LORE.md#the-primordial-wardens"
+          ],
+          "reason": "All twelve blessing rows and dedication rules retained with implementation clarifications."
+        },
+        {
+          "line": 126,
+          "level": 3,
+          "heading": "3.3 Two-Step Player Choice at the Shrine (`Flow A`)",
+          "disposition": "completed-history",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Completed conceptual implementation checklist archived; actual mutable models, file paths and enum names are documented from code."
+        },
+        {
+          "line": 139,
+          "level": 2,
+          "heading": "4. Implementation Checklist & Architecture",
+          "disposition": "completed-history",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Completed conceptual implementation checklist archived; actual mutable models, file paths and enum names are documented from code."
+        },
+        {
+          "line": 141,
+          "level": 3,
+          "heading": "Step 1: Core Models (`packages/monstrous_core`)",
+          "disposition": "completed-history",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Completed conceptual implementation checklist archived; actual mutable models, file paths and enum names are documented from code."
+        },
+        {
+          "line": 167,
+          "level": 3,
+          "heading": "Step 2: Combat Resolution (`packages/monstrous_core/lib/src/rules/combat.dart`)",
+          "disposition": "completed-history",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Completed conceptual implementation checklist archived; actual mutable models, file paths and enum names are documented from code."
+        },
+        {
+          "line": 178,
+          "level": 3,
+          "heading": "Step 3: Shrine Session Logic (`packages/monstrous_core/lib/src/rules/shrine.dart` & `game_session.dart`)",
+          "disposition": "completed-history",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Completed conceptual implementation checklist archived; actual mutable models, file paths and enum names are documented from code."
+        },
+        {
+          "line": 183,
+          "level": 3,
+          "heading": "Step 4: Flutter Shrine UI (`apps/monstrous_sea/lib/src/screens/shrine_screen.dart` & `combat_screen.dart`)",
+          "disposition": "completed-history",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Completed conceptual implementation checklist archived; actual mutable models, file paths and enum names are documented from code."
+        },
+        {
+          "line": 187,
+          "level": 3,
+          "heading": "Step 5: Simulation Bots & Verification (`packages/monstrous_sim`)",
+          "disposition": "completed-history",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Completed conceptual implementation checklist archived; actual mutable models, file paths and enum names are documented from code."
+        }
+      ]
+    },
+    {
+      "source": "docs/AGENT_HANDOFF.md",
+      "archive": "docs/archive/milestones/AGENT_HANDOFF.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "ca2b6ed738b42d2ee8e22f14d41dc19b3817d7cf",
+      "source_sha256": "cc007ea67dcf175abbafe1c3cb13b6c6c2f729bd578c6d3d7653517e8f752277",
+      "archive_body_sha256": "3a9e9385749e3ae2c0dcc0b50bdb430b8ba574a045379f35e2b1af58d95ffcb2",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Agent Handoff & Quickstart Guide: The Monstrous Sea V2",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/README.md",
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Reading guide, architecture and current rules retained; stale counts, old flee and obsolete topology no longer govern work."
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "heading": "1. Project Layout & Current State",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/README.md",
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Reading guide, architecture and current rules retained; stale counts, old flee and obsolete topology no longer govern work."
+        },
+        {
+          "line": 40,
+          "level": 2,
+          "heading": "2. User-Approved Design Decisions",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/README.md",
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Reading guide, architecture and current rules retained; stale counts, old flee and obsolete topology no longer govern work."
+        },
+        {
+          "line": 62,
+          "level": 2,
+          "heading": "3. Current Phase & Milestone Status",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/README.md",
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Reading guide, architecture and current rules retained; stale counts, old flee and obsolete topology no longer govern work."
+        },
+        {
+          "line": 83,
+          "level": 2,
+          "heading": "4. Verification Commands",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/README.md",
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Reading guide, architecture and current rules retained; stale counts, old flee and obsolete topology no longer govern work."
+        }
+      ]
+    },
+    {
+      "source": "docs/agents/phase0_foundation.md",
+      "archive": "docs/archive/milestones/phase0_foundation.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "15c5436313048f1bb7f120469a5f894d820de897",
+      "source_sha256": "705b84ecb0749c7beaa128a7bde557571166e549c276e5bcedb4cb978eb762b2",
+      "archive_body_sha256": "705b84ecb0749c7beaa128a7bde557571166e549c276e5bcedb4cb978eb762b2",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Agent Brief: Foundation & Phase 0 (Orchestrator)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "heading": "Mission",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 6,
+          "level": 2,
+          "heading": "Owned Files",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 16,
+          "level": 2,
+          "heading": "Acceptance Criteria",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        }
+      ]
+    },
+    {
+      "source": "docs/agents/phase1_engine.md",
+      "archive": "docs/archive/milestones/phase1_engine.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "c495bbce598ed762ee30e9dd6bf5fbc92523efa2",
+      "source_sha256": "02fe3a8ef724fa0105ffb11958e808b67dce4bff9724c9f051f7a8e9f29b343d",
+      "archive_body_sha256": "02fe3a8ef724fa0105ffb11958e808b67dce4bff9724c9f051f7a8e9f29b343d",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Agent Brief: Phase 1 - Core Game Engine & Simulation",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md"
+          ],
+          "reason": "Technical boundaries and deterministic command/event design retained; original Java parity is scoped history."
+        },
+        {
+          "line": 7,
+          "level": 3,
+          "heading": "Stream 1A: Content & Procedural Names",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 19,
+          "level": 3,
+          "heading": "Stream 1B: Combat Engine & Monster AI",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 34,
+          "level": 3,
+          "heading": "Stream 1C: Economy, Sea Chart & Lineage",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 49,
+          "level": 3,
+          "heading": "Stream 1D: Session Machine & Parity Tests",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        },
+        {
+          "line": 63,
+          "level": 3,
+          "heading": "Stream 1E: Balance Simulator CLI",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries"
+          ],
+          "reason": "Original remake/Java formulas, commands and milestone plans preserved as history; current mechanics supersede them."
+        }
+      ]
+    },
+    {
+      "source": "docs/agents/phase2_visuals.md",
+      "archive": "docs/archive/milestones/phase2_visuals.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "c1ed1505bb61482db741b48c7afdc2342db1de06",
+      "source_sha256": "52fa5a8ca70b6607f32de2201589c6d3d9488cad26f649e51be505beaccce89f",
+      "archive_body_sha256": "52fa5a8ca70b6607f32de2201589c6d3d9488cad26f649e51be505beaccce89f",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Agent Brief: Phase 2 - Visual Presentation Layer (Flutter + Flame)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#persistence-and-presentation",
+            "CLAUDE.md#presentation-and-art",
+            "docs/BACKLOG.md#atmosphere-and-living-port-presentation"
+          ],
+          "reason": "Approved asset provenance preserved; old screen tasks and tool-availability assumptions are historical."
+        },
+        {
+          "line": 7,
+          "level": 3,
+          "heading": "Stream 2A: Ink Theme & UI Screens",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#persistence-and-presentation",
+            "CLAUDE.md#presentation-and-art",
+            "docs/BACKLOG.md#atmosphere-and-living-port-presentation"
+          ],
+          "reason": "Approved asset provenance preserved; old screen tasks and tool-availability assumptions are historical."
+        },
+        {
+          "line": 20,
+          "level": 3,
+          "heading": "Stream 2B: Flame Combat Scene",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#persistence-and-presentation",
+            "CLAUDE.md#presentation-and-art",
+            "docs/BACKLOG.md#atmosphere-and-living-port-presentation"
+          ],
+          "reason": "Approved asset provenance preserved; old screen tasks and tool-availability assumptions are historical."
+        },
+        {
+          "line": 32,
+          "level": 3,
+          "heading": "Stream 2C: Visual Styling & Asset Integration",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#persistence-and-presentation",
+            "CLAUDE.md#presentation-and-art",
+            "docs/BACKLOG.md#atmosphere-and-living-port-presentation"
+          ],
+          "reason": "Approved asset provenance preserved; old screen tasks and tool-availability assumptions are historical."
+        },
+        {
+          "line": 47,
+          "level": 3,
+          "heading": "Stream 2D: Integration QA & Flutter Driver Automation",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "docs/CURRENT_GAME.md#persistence-and-presentation",
+            "CLAUDE.md#presentation-and-art",
+            "docs/BACKLOG.md#atmosphere-and-living-port-presentation"
+          ],
+          "reason": "Approved asset provenance preserved; old screen tasks and tool-availability assumptions are historical."
+        }
+      ]
+    },
+    {
+      "source": "docs/agents/phase3b_ocean_powers.md",
+      "archive": "docs/archive/milestones/phase3b_ocean_powers.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "9d03519d59aca4a5cd3e9dfc1fb1f7c6b6d44a83",
+      "source_sha256": "fcd8ea74c763d491774bc80addf3e675aaa4994ea52c369bd6076a3e97edde12",
+      "archive_body_sha256": "4f64fc627b99c0390e42b6c079bc72fa41bd790e63c796fc49f11291bd725fab",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Phase 3B implementation handoff",
+          "disposition": "completed-history",
+          "targets": [
+            "docs/archive/README.md"
+          ],
+          "reason": "Completed work streams and dated verification preserved as receipts."
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "heading": "Work streams",
+          "disposition": "completed-history",
+          "targets": [
+            "docs/archive/README.md"
+          ],
+          "reason": "Completed work streams and dated verification preserved as receipts."
+        },
+        {
+          "line": 14,
+          "level": 2,
+          "heading": "Implementation decisions",
+          "disposition": "retained-current",
+          "targets": [
+            "docs/CURRENT_GAME.md#integration-and-lifecycle-rules"
+          ],
+          "reason": "Integrated implementation choices resolve conceptual API/type names in the completed spec."
+        },
+        {
+          "line": 27,
+          "level": 2,
+          "heading": "Verification commands",
+          "disposition": "consolidated-current",
+          "targets": [
+            "CLAUDE.md#verification"
+          ],
+          "reason": "Commands retained with current tool names; fixed test counts stay historical."
+        },
+        {
+          "line": 42,
+          "level": 2,
+          "heading": "Verified results (2026-10-19)",
+          "disposition": "completed-history",
+          "targets": [
+            "docs/archive/README.md"
+          ],
+          "reason": "Completed work streams and dated verification preserved as receipts."
+        }
+      ]
+    },
+    {
+      "source": "docs/feedback_and_fixes.md",
+      "archive": "docs/archive/playtests/feedback_and_fixes.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "92e181b245b9a55523e3820e93a5e71db51dfb9f",
+      "source_sha256": "48828d1e96ace15d22d77759b3c0e6928ccfe89a57bd669c76d4160dc7e214c2",
+      "archive_body_sha256": "48828d1e96ace15d22d77759b3c0e6928ccfe89a57bd669c76d4160dc7e214c2",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Feedback & Remediation Plan: The Monstrous Sea V2",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "heading": "1. Asset & Art Pipeline Stream",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Current art goals retained in deferred backlog; old SVG-only prescriptions and retired weapon imagery are superseded."
+        },
+        {
+          "line": 13,
+          "level": 3,
+          "heading": "1.1 Ship SVGs Re-Authoring (Floating Masts Bug)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Current art goals retained in deferred backlog; old SVG-only prescriptions and retired weapon imagery are superseded."
+        },
+        {
+          "line": 18,
+          "level": 3,
+          "heading": "1.2 Individual Consumable Icons",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Current art goals retained in deferred backlog; old SVG-only prescriptions and retired weapon imagery are superseded."
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "heading": "1.3 Individual Weapon Icons",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Current art goals retained in deferred backlog; old SVG-only prescriptions and retired weapon imagery are superseded."
+        },
+        {
+          "line": 36,
+          "level": 2,
+          "heading": "2. Combat Engine & Arena Stream",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 38,
+          "level": 3,
+          "heading": "2.1 Battle Component Spawn Coordinates (Top-Left Jump Bug)",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "heading": "2.2 Ship Visual Consistency Between Screens",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 47,
+          "level": 3,
+          "heading": "2.3 Post-Combat Settle Delay",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "heading": "2.4 Animated Two-Tone Health Bar (`HullGauge`)",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 61,
+          "level": 3,
+          "heading": "2.5 Ironclad Fortification Leak Across Battles (Bug Fix)",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 68,
+          "level": 3,
+          "heading": "2.6 Ironclad Fortify HUD Visibility & Visual FX",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 74,
+          "level": 3,
+          "heading": "2.7 Flee Attempt Feedback",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 78,
+          "level": 3,
+          "heading": "2.8 Combat Chronicle Log Ergonomics",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 86,
+          "level": 2,
+          "heading": "3. Gameplay Mechanics & Original Java Parity Stream",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 88,
+          "level": 3,
+          "heading": "3.1 Rest Area Armory (Weapon Equipping & Swapping)",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 95,
+          "level": 3,
+          "heading": "3.2 Sea Chart Monster Icons & Row-by-Row Fog of War",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Current art goals retained in deferred backlog; old SVG-only prescriptions and retired weapon imagery are superseded."
+        },
+        {
+          "line": 103,
+          "level": 3,
+          "heading": "3.3 Loot Screen: Jettison Cargo to Make Room",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "heading": "4. Economy & Merchant Stream",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 112,
+          "level": 3,
+          "heading": "4.1 Weapon Stat Inspection",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 120,
+          "level": 3,
+          "heading": "4.2 Merchant Markup & \"On Sale\" System",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 127,
+          "level": 3,
+          "heading": "4.3 Disabled Button Visual Distinction",
+          "disposition": "completed-or-reframed",
+          "targets": [
+            "docs/BACKLOG.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed fixes stay historical; current command-station/readability issues have fresh evidence and PT2 acceptance criteria."
+        },
+        {
+          "line": 134,
+          "level": 2,
+          "heading": "5. Implementation Roadmap & Execution Order",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/CURRENT_GAME.md#retired-systems-and-compatibility-boundaries",
+            "docs/BACKLOG.md"
+          ],
+          "reason": "Retired flee/equip/grid/hit-modifier recipes are not active tasks; existing merchant and loot behavior retained in current rules."
+        },
+        {
+          "line": 169,
+          "level": 2,
+          "heading": "6. Prompt Specification for Specialized SVG Generation Model",
+          "disposition": "superseded-history",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Current art goals retained in deferred backlog; old SVG-only prescriptions and retired weapon imagery are superseded."
+        }
+      ]
+    },
+    {
+      "source": "docs/PLAYTEST_2026_10_19.md",
+      "archive": "docs/archive/playtests/PLAYTEST_2026_10_19.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "87838b514fc76dff4f2ab7b266319f14e4d2b2a9",
+      "source_sha256": "63ddc982a440b9f8b65c7f25049ba262dc650eaaa9839e9693a749550f47e2d0",
+      "archive_body_sha256": "d3fad8c0996d974cfdeba4d85563d1ad18257d2322c4337bd8153dc9dc52c79a",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Playtest remediation — 19 October 2026",
+          "disposition": "completed-history",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed receipt preserved; current rules retained without treating later regressions as fixed."
+        },
+        {
+          "line": 20,
+          "level": 2,
+          "heading": "Verification and related fixes",
+          "disposition": "completed-history",
+          "targets": [
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Completed receipt preserved; current rules retained without treating later regressions as fixed."
+        }
+      ]
+    },
+    {
+      "source": "docs/PLAYTEST_2026_10_20.md",
+      "archive": "docs/archive/playtests/PLAYTEST_2026_10_20.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "56c41350fe5c16267bccc2bd369213ef28fe0e67",
+      "source_sha256": "42a7cc0bc1dacff091e2966101b7a512f156c79f133221294391bc332e83dce6",
+      "archive_body_sha256": "733dfa2835c84c9e4d37a7d37e36ff7a2e0ce4879cee1838598465b91e5398af",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Playtest backlog — 20 October 2026",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "heading": "Recommended work chunks",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "heading": "Opening and lineage",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "heading": "PT2-01 — Abrupt first-voyage exposition",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 33,
+          "level": 3,
+          "heading": "PT2-02 — One permanent family name, customizable given names",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 41,
+          "level": 2,
+          "heading": "Inspection, art, and chart design",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "heading": "PT2-03 — Signature armament has two unexplained tier labels",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 50,
+          "level": 3,
+          "heading": "PT2-04 — Home-port navigation feels empty without icons",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 55,
+          "level": 3,
+          "heading": "PT2-05 — Consumable images are incorrectly shared",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 60,
+          "level": 3,
+          "heading": "PT2-06 — Meta-materials lack thematic images",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 65,
+          "level": 3,
+          "heading": "PT2-07 — Current hardpoints need identity-specific art",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 70,
+          "level": 3,
+          "heading": "PT2-08 — Sea chart needs a clearer player purpose",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 78,
+          "level": 2,
+          "heading": "Navigation and encounter feedback",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 80,
+          "level": 3,
+          "heading": "PT2-09 — Redundant post-fight inspection screen",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 88,
+          "level": 3,
+          "heading": "PT2-10 — Headings briefly flash different encounter options",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 94,
+          "level": 3,
+          "heading": "PT2-15 — Reckless Helmsman restriction is not communicated",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 101,
+          "level": 3,
+          "heading": "PT2-16 — Shipwreck salvage promises retired loot and hides the result",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 108,
+          "level": 2,
+          "heading": "Combat mechanics and the command station",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 110,
+          "level": 3,
+          "heading": "PT2-11 — Combat UI does not function as a readable command station",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 118,
+          "level": 3,
+          "heading": "PT2-12 — Apex Serpent evasion feels nearly unbeatable",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 125,
+          "level": 3,
+          "heading": "PT2-13 — Apex names are overlong",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 132,
+          "level": 3,
+          "heading": "PT2-17 — Ink still claims “+25 AC”; avoidance needs a visible HUD explanation",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 139,
+          "level": 3,
+          "heading": "PT2-18 — Kraken's maelstrom is weak and can miss",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 147,
+          "level": 3,
+          "heading": "PT2-22 — Tentacle counterplay and Region 2 squid scaling",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 155,
+          "level": 2,
+          "heading": "Succession, strongholds, and build persistence",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 157,
+          "level": 3,
+          "heading": "PT2-14 — Remove “Abandon Hunt” from heir selection",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 164,
+          "level": 3,
+          "heading": "PT2-19 — Fort Krakenwatch is treated like the ancestral home port",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 171,
+          "level": 3,
+          "heading": "PT2-20 — Stronghold hull upgrades, Mk tempering, and Master Refits are missing",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 179,
+          "level": 3,
+          "heading": "PT2-21 — Shrine blessing disappears entering Region 2",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 186,
+          "level": 2,
+          "heading": "Decisions to resolve before dependent implementation",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        },
+        {
+          "line": 193,
+          "level": 2,
+          "heading": "Verification plan for future implementation",
+          "disposition": "retained-open",
+          "targets": [
+            "docs/BACKLOG.md"
+          ],
+          "reason": "PT2 identities, observations and acceptance criteria retained; links updated."
+        }
+      ]
+    },
+    {
+      "source": "docs/UI_ART_BACKLOG.md",
+      "archive": "docs/archive/playtests/UI_ART_BACKLOG.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "397b23ddc2839bfb679177817c19fa4abef94ccd",
+      "source_sha256": "28dfc56586a63f8ed0fb2ea290f4d34db0107a6bd0d4fdd2f03066929c4e273a",
+      "archive_body_sha256": "3e66319118716a5a5969861a8915adc2a14ebc1feb6e981d43dc2eb9516b55a0",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Deferred UI art and icon backlog",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Merged the complete art backlog under current open work."
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "heading": "Style and workflow",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Merged the complete art backlog under current open work."
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "heading": "Navigation and existing assets",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Merged the complete art backlog under current open work."
+        },
+        {
+          "line": 24,
+          "level": 2,
+          "heading": "Consumables",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Merged the complete art backlog under current open work."
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "heading": "Meta-materials and trophies",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Merged the complete art backlog under current open work."
+        },
+        {
+          "line": 56,
+          "level": 2,
+          "heading": "Hardpoints",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Merged the complete art backlog under current open work."
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "heading": "Completion criteria for the eventual pass",
+          "disposition": "retained-deferred",
+          "targets": [
+            "docs/BACKLOG.md#deferred-ui-art-and-icons"
+          ],
+          "reason": "Merged the complete art backlog under current open work."
+        }
+      ]
+    },
+    {
+      "source": "CLAUDE.md",
+      "archive": "docs/archive/milestones/CLAUDE_2026_10_20.md",
+      "source_commit": "c16a1a2bda1a725a71e39742da8e8852cf4c6f21",
+      "source_blob": "9afa15d6adb0b6f31c6c98371c322683e6343d03",
+      "source_sha256": "cb3827f9c33b5d98a2b1d46d7d9011e05f85d528115456aeaccdd687f0215bb0",
+      "archive_body_sha256": "e7db788e8149e383c47036cd35ddabd9550ab8f6f2a20ec498f1c2d631a235cd",
+      "sections": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "The Monstrous Sea V2 — Project Instructions & Architecture Guide",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "heading": "1. Repository Layout & Architecture",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "heading": "2. Terminal Execution Guidelines & Avoiding Sandbox Stalls",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "heading": "The Protocol for Reliable Command Execution",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "heading": "3. Core Gameplay Rules & Design Systems",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 63,
+          "level": 3,
+          "heading": "A. Dead Reckoning Navigation & Region Structure",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 79,
+          "level": 3,
+          "heading": "B. Respite Islands & Shore Duty",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 99,
+          "level": 3,
+          "heading": "C. Combat Resolution & Armor Class",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 107,
+          "level": 3,
+          "heading": "D. Carapace Plating & Elemental Interactions",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 113,
+          "level": 3,
+          "heading": "E. Apex / Elite Monsters",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 123,
+          "level": 3,
+          "heading": "F. Regional Combat Hazards",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 127,
+          "level": 3,
+          "heading": "G. Visual & Art Asset Pipeline",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 139,
+          "level": 3,
+          "heading": "H. Rogue-lite Succession, Nemesis & Dual-File Persistence (Stage 1)",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 158,
+          "level": 2,
+          "heading": "4. Verification Checklist Before Finishing Tasks",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        },
+        {
+          "line": 190,
+          "level": 2,
+          "heading": "5. Coding Standards & Principles",
+          "disposition": "consolidated-corrected",
+          "targets": [
+            "CLAUDE.md",
+            "docs/CURRENT_GAME.md"
+          ],
+          "reason": "Architecture/tooling retained in developer guide; rules consolidated with later corrections and known gaps."
+        }
+      ]
+    }
+  ],
+  "screenshots": {
+    "docs/playtests/2026-10-20/01-hardpoint-tiers.png": "7ff4004ff826525882da2d84541fe92637ea95a9002e603ca2f42ce1999b134e",
+    "docs/playtests/2026-10-20/02-blueprint-materials.png": "950c5258fc131a871c3ed0081e72ae27d56e90a7da4a01340849ba8091f53da8",
+    "docs/playtests/2026-10-20/03-sea-chart.png": "7111026c3a21fd018f4b0817eb0ba3c57f2318b2e4de3b2ff9e0fdb7a43d1182",
+    "docs/playtests/2026-10-20/04-post-fight-scroll.png": "6eec92f82dc3b56e4dc07ce9a2232fe5282c701c971f881783688fca87a0b585",
+    "docs/playtests/2026-10-20/05-setting-course.png": "b7321cf1a18c6d59fcfe7aaf9f7392cb6adc1e0210467ac6373dc1907862a042",
+    "docs/playtests/2026-10-20/06-battle-command-station.png": "bdbc4e8b5f7d3b4829b54a2ce6ae584a866fb3c6042422a56dc3a5af6e82dfae"
+  },
+  "backlog_ids": [
+    "PT2-01",
+    "PT2-02",
+    "PT2-03",
+    "PT2-04",
+    "PT2-05",
+    "PT2-06",
+    "PT2-07",
+    "PT2-08",
+    "PT2-09",
+    "PT2-10",
+    "PT2-11",
+    "PT2-12",
+    "PT2-13",
+    "PT2-14",
+    "PT2-15",
+    "PT2-16",
+    "PT2-17",
+    "PT2-18",
+    "PT2-19",
+    "PT2-20",
+    "PT2-21",
+    "PT2-22"
+  ],
+  "initial_catalog_promotion": {
+    "date": "2026-10-20",
+    "row_count": 12,
+    "verified_exact_at_migration": true,
+    "source_rows_sha256": "579624b31175e79ac6d55f5a283400bc2b8707201ca26734942d95fe41a37acd",
+    "target": "docs/CURRENT_GAME.md#blessing-catalog",
+    "scope": "Migration-time fidelity only; not an authority over future approved balance changes."
+  }
+}

@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/ROGUE_LITE_DESIGN.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # The Monstrous Sea V2 — Rogue-lite Evolution & Progression GDD
 
 ## 1. Overview & Creative Thesis
@@ -475,7 +477,7 @@ flowchart LR
 * **Exit Gate**: All 197 domain tests and 82 Flutter tests pass; 0 lint errors across the workspace; verified with automated unit and UI widget test suites.
 
 ### Interlude: Core Combat & Tactical Depth Overhaul
-*See full specification in [`docs/COMBAT_SYSTEM_REDESIGN.md`](file:///c:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/COMBAT_SYSTEM_REDESIGN.md).*
+*See full specification in [`docs/COMBAT_SYSTEM_REDESIGN.md`](COMBAT_SYSTEM_REDESIGN.md).*
 * **Scope**:
   1. **Retire Weapon Weight**: Transition fully to the physical Deck Hardpoint Topology (`broadside`, `prow`, `mortar`, `utility`, `auxiliary`).
   2. **3-Band Engagement Ranges**: `Long Range` (Artillery/Kiting), `Medium Range` (Broadsides), `Short Range` (Point-Blank/Rams) with integrated action-driven mobility (no move tax).

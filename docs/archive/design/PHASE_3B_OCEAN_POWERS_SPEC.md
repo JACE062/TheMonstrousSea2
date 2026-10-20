@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/PHASE_3B_OCEAN_POWERS_SPEC.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Phase 3B Specification: The 4 Primordial Sea Powers & Tiered Shrine Blessings
 
 > **Document Status:** Finalized Design & Implementation Specification (Locked for Implementation)  
@@ -7,7 +9,7 @@
 
 ## 0. Prerequisite Base Weapon Cleanup (`DamageType.blast` Exclusivity)
 
-Before or alongside implementing the Blessing rules, fix two leftover base `DamageType` assignments in [`packages/monstrous_core/lib/src/content/ship_weapons.dart`](../packages/monstrous_core/lib/src/content/ship_weapons.dart):
+Before or alongside implementing the Blessing rules, fix two leftover base `DamageType` assignments in [`packages/monstrous_core/lib/src/content/ship_weapons.dart`](../../../packages/monstrous_core/lib/src/content/ship_weapons.dart):
 
 1. **Ironclad `ShipWeaponType.prowRam`**:
    - **Current**: `damageType: DamageType.blast`

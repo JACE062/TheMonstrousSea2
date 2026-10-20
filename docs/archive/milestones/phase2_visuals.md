@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/agents/phase2_visuals.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Agent Brief: Phase 2 - Visual Presentation Layer (Flutter + Flame)
 
 Phase 2 builds the presentation and UI layers on top of `packages/monstrous_core`.

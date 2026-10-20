@@ -1,8 +1,8 @@
-# Playtest backlog — 20 October 2026
+# Open backlog
 
-This is the next open playtest batch after [19 October's remediation](PLAYTEST_2026_10_19.md). It records the player's observations and requested directions, with a limited source review to make follow-up tasks concrete. **No gameplay fixes, new art, or balance changes were implemented in this documentation pass.** Nothing below is marked fixed or runtime-reproduced merely because a related code path was found.
+Status: open work consolidated on 20 October 2026. PT2-01–22 retain the player observations, source-review leads and acceptance criteria from that playtest. **Documentation only: none of these issues is fixed by this reorganization.** Source findings are dated observations, not proof of runtime reproduction.
 
-The six screenshots are retained in [playtests/2026-10-20/](playtests/2026-10-20/). They are evidence of the UI, not instructions embedded in images. Older design documents contain retired systems; do not restore weapon drops, equipment swapping, AC-based combat, or multi-use consumables to resolve these issues.
+Read [Current game](CURRENT_GAME.md) for approved baseline rules and [Lore](LORE.md) for canon. A reported symptom, approved requested outcome, unresolved design choice and deferred feature remain distinct. Preserve the six [screenshot evidence files](playtests/2026-10-20/) and issue IDs when updating status. Historical receipts are indexed in [the archive](archive/README.md).
 
 ## Recommended work chunks
 
@@ -16,7 +16,7 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | D | Discuss the opening and shared family identity | PT2-01, PT2-02 | Agree on a spoiler-light prologue and permanent surname rules, including legacy-save migration, before implementation. |
 | E | Design the command station and useful sea chart | PT2-03, PT2-08, PT2-11, PT2-13 | Review layouts and terminology at realistic window sizes/text scales before replacing the existing presentation. Apex naming can be a small independent fix. |
 | F | Specify and implement post-boss progression / Phase 4 | PT2-20, depends on A | Strongholds offer the agreed hull/mark upgrades and exactly scoped Master Refits, with run persistence and blueprint-specific choices. |
-| Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](UI_ART_BACKLOG.md); audit existing assets first. No image generation in this batch. |
+| Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](#deferred-ui-art-and-icons); audit existing assets first. No image generation in this batch. |
 
 Start with A: an unexplained loss of a build makes later combat and balance observations harder to interpret. B and C are the next focused remediation batches. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
 
@@ -27,7 +27,7 @@ Start with A: an unexplained loss of a build makes later combat and balance obse
 - **Reported:** A short Bloodbound Ship / departure message immediately leads into captain naming, without enough context.
 - **Requested direction:** Add a short, atmospheric introduction explaining the inherited obligation, returning ship, and reason this captain must sail. Preserve discovery of the deeper story; do not reveal the ending or the full pact/Sea-Madness plot.
 - **Design status:** Prose and pacing need review. Keep the agreed direct-to-first-combat onboarding rather than introducing home-port menus again.
-- **Starting points:** [intro_screen.dart](../apps/monstrous_sea/lib/src/screens/intro_screen.dart), [captain_screen.dart](../apps/monstrous_sea/lib/src/screens/captain_screen.dart), [existing curse lore](ROGUE_LITE_DESIGN.md#the-originators-bargain).
+- **Starting points:** [intro_screen.dart](../apps/monstrous_sea/lib/src/screens/intro_screen.dart), [captain_screen.dart](../apps/monstrous_sea/lib/src/screens/captain_screen.dart), [existing curse lore](LORE.md#the-ancestors-bargain).
 - **Acceptance:** A new player understands who they are, why they sail, and why an heir will follow. Returning captains do not replay the full introduction.
 
 ### PT2-02 — One permanent family name, customizable given names
@@ -50,22 +50,22 @@ Start with A: an unexplained loss of a build makes later combat and balance obse
 ### PT2-04 — Home-port navigation feels empty without icons
 
 - **Reported:** Merchant, Blueprints, and Sea Chart buttons lost their imagery during emoji removal, despite an existing themed asset set.
-- **Disposition:** Deferred UI/art work. Audit existing curated nautical assets for reuse; restore appropriate imagery in the later pass. Removing colorful emoji did not mean abandoning thematic illustrations. See [asset backlog](UI_ART_BACKLOG.md#navigation-and-existing-assets).
+- **Disposition:** Deferred UI/art work. Audit existing curated nautical assets for reuse; restore appropriate imagery in the later pass. Removing colorful emoji did not mean abandoning thematic illustrations. See [asset backlog](#art-navigation-and-existing-assets).
 
 ### PT2-05 — Consumable images are incorrectly shared
 
 - **Reported / confirmed mapping:** Hull Patch Kits use Unstable Tincture art; Pitch Flasks and Bottled Kraken Ink use Blast Pack art. [SvgAssetView.pathForItem](../apps/monstrous_sea/lib/src/widgets/svg_asset_view.dart) explicitly contains these fallback mappings.
-- **Disposition:** Deferred dedicated art for every consumable identity, keeping the single-use rule. Inventory and required replacements are in the [asset backlog](UI_ART_BACKLOG.md#consumables).
+- **Disposition:** Deferred dedicated art for every consumable identity, keeping the single-use rule. Inventory and required replacements are in the [asset backlog](#art-consumables).
 
 ### PT2-06 — Meta-materials lack thematic images
 
 - **Evidence:** [Screenshot 2](playtests/2026-10-20/02-blueprint-materials.png) shows generic symbols for the blueprint currencies.
-- **Disposition:** Deferred distinct, readable icons for common/rare materials and organics, then Titan trophies and endgame currency. Do not invent new currencies or substitute misleading item pictures. See [asset backlog](UI_ART_BACKLOG.md#meta-materials-and-trophies).
+- **Disposition:** Deferred distinct, readable icons for common/rare materials and organics, then Titan trophies and endgame currency. Do not invent new currencies or substitute misleading item pictures. See [asset backlog](#art-meta-materials-and-trophies).
 
 ### PT2-07 — Current hardpoints need identity-specific art
 
 - **Reported:** Hardpoint cards lack imagery. Earlier weapon art exists, but many images no longer represent the intrinsic hardpoint identities.
-- **Disposition:** Deferred audit and redesign covering the current broadside, signature, and utility identities for all five blueprints. Keep reusable approved images where they fit; do not automatically reinstate retired standalone weapons. See [asset backlog](UI_ART_BACKLOG.md#hardpoints).
+- **Disposition:** Deferred audit and redesign covering the current broadside, signature, and utility identities for all five blueprints. Keep reusable approved images where they fit; do not automatically reinstate retired standalone weapons. See [asset backlog](#art-hardpoints).
 
 ### PT2-08 — Sea chart needs a clearer player purpose
 
@@ -171,7 +171,7 @@ Start with A: an unexplained loss of a build makes later combat and balance obse
 ### PT2-20 — Stronghold hull upgrades, Mk tempering, and Master Refits are missing
 
 - **Reported:** No ship-tier upgrade, weapon Mk upgrade, or Master Refit was offered at Fort Krakenwatch.
-- **Scope distinction:** Hull refit and hardpoint tempering handlers already exist for midpoint Havens, but the reused home-port screen exposes no such stronghold service. Master Refits are planned in [Combat Redesign §7–8](COMBAT_SYSTEM_REDESIGN.md#7-master-refits-the-maritime-hammers) as **Phase 4**, after Phase 3B; no `MasterRefit` implementation was found in core/app source during this review.
+- **Scope distinction:** Hull refit and hardpoint tempering handlers already exist for midpoint Havens, but the reused home-port screen exposes no such stronghold service. Master Refits are planned in [the retained Phase 4 scope](#future-master-refits) as **Phase 4**, after Phase 3B; no `MasterRefit` implementation was found in core/app source during this review.
 - **Requested direction:** Give post-boss strongholds the intended in-run shipwright progression. Specify and implement Master Refit choices there, separately from permanent ancestral armament upgrades.
 - **Planning constraints:** The existing design calls for exactly two Master Refits per complete three-region run: after the Kraken and World Serpent. Reconcile the old catalog with the current three-hardpoint topology, include Standard, and decide available hull/Mk upgrades, prices/caps, choice timing, and duplicate/refit rules before coding the feature.
 - **Acceptance:** Services are discoverable and affect the current voyage, persist through region transitions/save-load, cannot be claimed twice by reopening or reloading, and reset only at a true new voyage. Midpoint Haven services continue to function.
@@ -190,11 +190,122 @@ Start with A: an unexplained loss of a build makes later combat and balance obse
 3. **Combat semantics:** Agree on Serpent dodge behavior, ink's actual avoidance mechanism, unavoidable Kraken release plus allowed mitigation, and accessible tentacle counterplay. The user's desired maelstrom behavior is recorded; precise damage tuning is still open.
 4. **Stronghold feature scope:** Separate the lifecycle bug fixes from Phase 4 Master Refits and reconcile the catalog/upgrade economy with current hardpoints.
 
-## Verification plan for future implementation
+## Verification plan
 
 - Add targeted core regression tests for lifecycle, avoidance/damage math, loot events, and reward idempotence; use injected RNG rather than judging a few unseeded fights.
 - Add widget/flow coverage for direct course selection, stable departing headings, quirk explanations, salvage receipts, heir continuation, and home/stronghold service differences.
 - Review combat/chart designs visually at realistic desktop sizes, compact layouts, and 115–130% text. Automated layout checks alone did not establish readability in this playtest.
 - Run a native journey across the Kraken/stronghold boundary with a visible blessing and upgrade, then reload and die/continue. Verify both persistence within a run and resets between runs.
 - After mechanic changes, run appropriate analysis/tests and a seeded simulation comparison that states blueprint/unlock conditions. Keep balance observations separate from correctness claims.
-- Documentation pass validation: local links, item coverage, retained screenshot integrity, and diff review. No gameplay tests were rerun for these documentation-only changes.
+- For documentation maintenance, run `python tools/check_docs.py` from the repository root and review the actual diff. Gameplay tests are needed when gameplay code changes, not merely because historical documents move.
+
+## Deferred UI art and icons
+
+Planning only, tied to PT2-04–07. Audit/reuse approved assets before scheduling the user's image workflow. No images are generated by this documentation cleanup.
+
+### Art style and workflow
+
+- Retain the historical nautical, woodcut / ink-and-parchment style of the approved raster collection. Avoid colorful emoji and unrelated generic symbols.
+- Audit [existing art](../apps/monstrous_sea/assets/art/) and [PilotArt](../apps/monstrous_sea/lib/src/widgets/pilot_art.dart) before requesting replacements. Missing UI imagery can be a missing mapping/widget rather than a missing image.
+- Prepare a reviewed asset list and briefs for the user's established image workflow when that work is scheduled. Do not generate a new set now.
+- Distinct gameplay identities need distinct silhouettes at actual UI size, with legible labels and hover/focus descriptions. An icon must not imply an item is a different consumable.
+- Continue using code/vector linework for structural UI where appropriate. Icons supplement readable text; they do not replace accessible names or become the only indicator of an important state.
+
+### Art navigation and existing assets
+
+| UI use | Current concern | Existing candidates to audit later |
+| --- | --- | --- |
+| Home-port Merchant | Button feels empty after icon removal. | `icon_treasure_map.png`, `icon_helm_map.png`; choose by meaning rather than filling space. |
+| Home-port Blueprints | Needs a recognizable shipwright/drafting identity. | Existing art may be insufficient; check the gallery before adding a dedicated drafting image to the production list. |
+| Sea Chart buttons | Thematic imagery is inconsistent or absent depending on screen. | `icon_helm_map.png`, nautical navigation assets, and prior chart imagery. |
+| Other existing navigation controls | Review consistency alongside the above. | `icon_port_haven_map.png`, `icon_anchor_map.png`, `icon_cannons_map.png` as appropriate. |
+
+These are audit candidates, not approved final mappings. Screenshots 4 and 5 in the playtest also show that themed icons still exist in some locations; reconcile usage instead of assuming all icons were removed.
+
+### Art consumables
+
+Every current consumable needs its own accurate image. The current mappings below are confirmed in [SvgAssetView.pathForItem](../apps/monstrous_sea/lib/src/widgets/svg_asset_view.dart).
+
+| Identity / enum | Current art | Later work |
+| --- | --- | --- |
+| Unstable Tincture / `unstableTincture` | `icon_unstable_tincture_map_v4.png` | Audit/reuse approved bottle art. |
+| Hull Patch Kit / `hullPatchKit` | Unstable Tincture image | Dedicated repair materials/toolkit image. |
+| Blast Pack / `blastPack` | `icon_blast_pack_map.png` | Audit/reuse approved explosive bundle art. |
+| Bottled Kraken Ink / `krakenInkBomb` | Blast Pack image | Dedicated ink vessel image, clearly different from pitch and explosives. |
+| Alchemical Pitch Flask / `alchemicalPitch` | Blast Pack image | Dedicated pitch vessel image, clearly different from ink and tincture. |
+| Chakram / `chakram` | `icon_chakram_map.png` | Audit/reuse approved throwing-disc art. |
+
+Apply the eventual mapping consistently to merchants, loot, belt inspection, salvage results, and battle actions. Consumables remain single-use and have no rarity/charge variants requiring separate pictures.
+
+### Art meta-materials and trophies
+
+The [blueprint screenshot](playtests/2026-10-20/02-blueprint-materials.png) shows generic symbols that do not match the intended collection. Plan distinct readable images for every persisted currency in [MetaInventory](../packages/monstrous_core/lib/src/model/meta_inventory.dart).
+
+| Identity | Scope |
+| --- | --- |
+| Sea Glass | Common exploration material. |
+| Monster Bone | Common combat organic. |
+| Depth-Wrought Iron | Rare exploration material. |
+| Abyssal Barnacles | Rare combat organic. |
+| Kraken's Beak | Region 1 Titan trophy. |
+| World Serpent's Scale | Region 2 Titan trophy. |
+| Leviathan Core | Region 3 trophy / ending relevance. |
+| Primordial Cinders | Endgame currency; include when that UI is visible. |
+
+The same material must look the same in costs, inventory, rewards, and progression screens. Counts must remain readable at zero, large quantities, and insufficient-resource states. Do not confuse material rarity with the retired consumable rarity system.
+
+### Art hardpoints
+
+Earlier standalone weapon illustrations exist, including cannon, torpedo, blade launcher, railgun, and flamethrower images. They are not automatically accurate pictures of the current intrinsic weapons. The inspection UI also currently omits hardpoint imagery.
+
+Audit these current blueprint identities against [the catalog](../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) and [weapon content](../packages/monstrous_core/lib/src/content/ship_weapons.dart) when creating the final production brief:
+
+| Blueprint | Broadside | Signature | Utility |
+| --- | --- | --- | --- |
+| Standard | Naval Cannon Battery | Twin Chaser Cannons | Gunnery Drill |
+| Ironclad | Heavy Carronades | Reinforced Prow Ram | Fortify Iron Plates |
+| Clipper | Long-Barrel Swivel Guns | Precision Culverin | Evasive Rigging |
+| Bombardier | Shrapnel Howitzers | Heavy Siege Mortar | Spotter Flare |
+| Corsair | Chain-Shot Broadside | Harpoon Winch | Drifting Tether-Trap |
+
+Use the current source names as the final authority for asset briefs; the table describes the identities to cover. Decide whether Mk marks, blessings, and future Master Refits reuse a base illustration with readable overlays or warrant a variant. Do not generate every combination or illustrate a speculative Master Refit before its design is agreed.
+
+### Art completion criteria for the eventual pass
+
+- Approved asset inventory distinguishes reusable art, mapping-only repairs, and genuinely missing pictures.
+- Each consumable, material, and hardpoint is recognizable and correctly mapped everywhere it appears.
+- Navigation imagery is consistent with the parchment palette and nautical subject matter.
+- Inspect screenshots at real display size and 115–130% text settings; preserve contrast, labels, accessibility, and compact layouts.
+- Add focused mapping/asset-load checks where useful, then review the rendered UI. File existence alone does not establish visual correctness.
+
+## Future work retained from earlier plans
+
+These entries preserve intent without reviving old task briefs. Their detailed designs and implementation timing remain separate from the immediate playtest remediation.
+
+### Future Master Refits
+
+**FUT-01 — Deferred Phase 4, related to PT2-20.** Offer exactly two transformative Master Refit opportunities in a full three-region voyage: at post-Kraken and post-World-Serpent strongholds. They are voyage upgrades, distinct from permanent ancestral armament tiers, shrine blessings and midpoint tempering. First fix stronghold lifecycle/build retention (chunk A).
+
+Prepare a catalog covering Standard as well as Ironclad, Clipper, Bombardier and Corsair against the current three-hardpoint system. Agree on prices versus rewards, offer/choice counts, duplicate stacking, interactions, save/load idempotence, and reset timing. Historical refit examples remain inspiration only; auxiliary mounts, obsolete weapon identities, arbitrary extra stuns and other superseded assumptions are not approved by their presence in an old catalog. A blade-based transformation is a possible design, not guaranteed access to an old Blade Launcher.
+
+Acceptance: review an explicit Phase 4 design before implementation, then verify exactly-once claims across both strongholds, preserved build state, and clear player-facing effects. Post-boss hull/Mk services must also be specified and tested; they are not supplied by a new label alone.
+
+### Atmosphere and living-port presentation
+
+**FUT-02 — Deferred atmospheric/civic work.** Preserve the goals of marine ambience, cannon/monster/impact audio, shanties, legible battle VFX, environmental weather and gradual Sea-Madness cues. Coordinate readability with PT2-11 before adding visual noise.
+
+The broader living town can express the family's sacrifice through a seawall/lighthouse, memorial, tavern, apothecary garden, lore and inhabitants. These are historical future concepts requiring scoped designs, not currently approved free starting items, hirelings, or automatic scouting bonuses. Existing Harbor Monument progression is a separate implemented system. Avoid describing all town or audio work as completed because its hooks or a profile field exist.
+
+### Additional encounters and exploration
+
+**FUT-03 — Proposed, deferred.** Earlier concepts include derelict ghost fleets, rifts/maelstroms, Siren Reefs, and navigation hazards with explicit risk/reward. Define any future leg-skipping, new encounter rewards or curses against current Dead Reckoning and save rules. Existing ordinary wrecks, coves, shrines and smugglers do not prove these additional concepts are implemented.
+
+### Ending delivery and Ancestral Chronicles
+
+**FUT-04 — Deferred presentation/features.** Preserve the intended memorial/peaceful-town epilogue after Shattering, the corrupted returning keel/Covenant awakening after Claiming, a possible Grand Admiralty Crest, and Ancestral Chronicles sandbox/challenge voyages. Ending choice handlers and persistent flags already exist; full cinematics, sandbox modes, atmosphere and civic scenes must be specified and delivered separately. Use [narrative canon](LORE.md#the-caldera-and-ending-choices) for the story and avoid spoiling it in onboarding.
+
+## Maintenance rules
+
+- Keep the PT2 IDs stable; mark work fixed only with an implementation and relevant verification. Do not discard an unresolved observation merely because a similar historical issue once passed tests.
+- Move completed task receipts into the archive when useful, while retaining links and updating canonical rules in their owning document.
+- Old pricing, animation, font, icon, or disabled-button recipes are not new open requirements. Bring a still-observed problem forward as a current issue with evidence; do not reimplement completed fixes from archival imperative prose.

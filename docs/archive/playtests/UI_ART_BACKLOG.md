@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — NOT IMPLEMENTATION GUIDANCE.** Archived 20 October 2026 from `docs/UI_ART_BACKLOG.md` at commit `c16a1a2`. Old approvals, locked specifications, instructions and test counts below apply only to that historical revision. Use the [current documentation guide](../../README.md) and open backlog for present work. Retain this file for explicitly requested historical reference only.
+
 # Deferred UI art and icon backlog
 
 Captured from the [20 October 2026 playtest](PLAYTEST_2026_10_20.md), items PT2-04–07. **Planning only: no icons or illustrations are to be generated or replaced as part of recording this backlog.** Schedule this with the future UI/custom-image pass.
@@ -5,7 +7,7 @@ Captured from the [20 October 2026 playtest](PLAYTEST_2026_10_20.md), items PT2-
 ## Style and workflow
 
 - Retain the historical nautical, woodcut / ink-and-parchment style of the approved raster collection. Avoid colorful emoji and unrelated generic symbols.
-- Audit [existing art](../apps/monstrous_sea/assets/art/) and [PilotArt](../apps/monstrous_sea/lib/src/widgets/pilot_art.dart) before requesting replacements. Missing UI imagery can be a missing mapping/widget rather than a missing image.
+- Audit [existing art](../../../apps/monstrous_sea/assets/art) and [PilotArt](../../../apps/monstrous_sea/lib/src/widgets/pilot_art.dart) before requesting replacements. Missing UI imagery can be a missing mapping/widget rather than a missing image.
 - Prepare a reviewed asset list and briefs for the user's established image workflow when that work is scheduled. Do not generate a new set now.
 - Distinct gameplay identities need distinct silhouettes at actual UI size, with legible labels and hover/focus descriptions. An icon must not imply an item is a different consumable.
 - Continue using code/vector linework for structural UI where appropriate. Icons supplement readable text; they do not replace accessible names or become the only indicator of an important state.
@@ -23,7 +25,7 @@ These are audit candidates, not approved final mappings. Screenshots 4 and 5 in 
 
 ## Consumables
 
-Every current consumable needs its own accurate image. The current mappings below are confirmed in [SvgAssetView.pathForItem](../apps/monstrous_sea/lib/src/widgets/svg_asset_view.dart).
+Every current consumable needs its own accurate image. The current mappings below are confirmed in [SvgAssetView.pathForItem](../../../apps/monstrous_sea/lib/src/widgets/svg_asset_view.dart).
 
 | Identity / enum | Current art | Later work |
 | --- | --- | --- |
@@ -38,7 +40,7 @@ Apply the eventual mapping consistently to merchants, loot, belt inspection, sal
 
 ## Meta-materials and trophies
 
-The [blueprint screenshot](playtests/2026-10-20/02-blueprint-materials.png) shows generic symbols that do not match the intended collection. Plan distinct readable images for every persisted currency in [MetaInventory](../packages/monstrous_core/lib/src/model/meta_inventory.dart).
+The [blueprint screenshot](../../playtests/2026-10-20/02-blueprint-materials.png) shows generic symbols that do not match the intended collection. Plan distinct readable images for every persisted currency in [MetaInventory](../../../packages/monstrous_core/lib/src/model/meta_inventory.dart).
 
 | Identity | Scope |
 | --- | --- |
@@ -57,7 +59,7 @@ The same material must look the same in costs, inventory, rewards, and progressi
 
 Earlier standalone weapon illustrations exist, including cannon, torpedo, blade launcher, railgun, and flamethrower images. They are not automatically accurate pictures of the current intrinsic weapons. The inspection UI also currently omits hardpoint imagery.
 
-Audit these current blueprint identities against [the catalog](../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) and [weapon content](../packages/monstrous_core/lib/src/content/ship_weapons.dart) when creating the final production brief:
+Audit these current blueprint identities against [the catalog](../../../packages/monstrous_core/lib/src/model/flagship_blueprint.dart) and [weapon content](../../../packages/monstrous_core/lib/src/content/ship_weapons.dart) when creating the final production brief:
 
 | Blueprint | Broadside | Signature | Utility |
 | --- | --- | --- | --- |
