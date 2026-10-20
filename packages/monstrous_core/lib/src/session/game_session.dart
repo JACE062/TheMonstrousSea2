@@ -49,6 +49,7 @@ class GameSession {
   BloodlineTrait? activeBoon;
   BloodlineTrait? activeQuirk;
   bool isNemesisBattle = false;
+  SessionPhase merchantReturnPhase = SessionPhase.port;
 
   SessionPhase phase = SessionPhase.captainCreation;
   String captainName = '';
@@ -80,6 +81,15 @@ class GameSession {
   bool get isCurrentIslandHaven =>
       phase == SessionPhase.respiteIsland &&
       seaChart.currentLeg == seaChart.midpointHavenLeg;
+
+  bool get canUseVoyageShipwright =>
+      phase == SessionPhase.stronghold || isCurrentIslandHaven;
+
+  void _requireHomePort() {
+    if (phase != SessionPhase.port) {
+      throw StateError('Permanent progression is only available at the home port');
+    }
+  }
 
   /// Whether the crew has already spent their single shore duty at this island haven.
   bool get hasChosenIslandDuty =>
@@ -320,6 +330,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleUnlockBlueprint(BlueprintId blueprintId) {
+    _requireHomePort();
     final bp = FlagshipBlueprint.catalog[blueprintId];
     if (bp == null) {
       throw ArgumentError('Unknown blueprint: $blueprintId');
@@ -413,6 +424,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleUpgradeBlueprintArmament(BlueprintId blueprintId) {
+    _requireHomePort();
     if (!profile.canUpgradeBlueprintArmament(blueprintId)) {
       throw StateError('Cannot upgrade armament for $blueprintId');
     }
@@ -442,6 +454,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleUnlockAuxiliaryExpansion() {
+    _requireHomePort();
     if (!profile.canUnlockAuxiliaryExpansion()) {
       throw StateError('Cannot unlock Reserve Auxiliary Hardpoint expansion');
     }
@@ -459,6 +472,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleUnlockEldritchRelic(EldritchRelicId relicId) {
+    _requireHomePort();
     if (!profile.canUnlockEldritchRelic(relicId)) {
       throw StateError('Cannot unlock Eldritch Relic $relicId');
     }
@@ -473,6 +487,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleUpgradeHarborMonument(HarborMonumentId monumentId) {
+    _requireHomePort();
     if (!profile.canUpgradeMonument(monumentId)) {
       throw StateError('Cannot upgrade Harbor Monument $monumentId');
     }
@@ -492,6 +507,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleVentureOutToSea([int startingRow = 0]) {
+    if (phase == SessionPhase.stronghold) return _handleTakeHelm();
     if (phase != SessionPhase.port) {
       throw StateError('Cannot venture out to sea from $phase');
     }
@@ -535,6 +551,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleAdvanceToNextBattle() {
+    if (phase == SessionPhase.stronghold) return _handleTakeHelm();
     if (phase == SessionPhase.helm) {
       return _handleSteerCourse(NavigationalBearing.deadAhead);
     }
@@ -581,7 +598,7 @@ class GameSession {
         refreshMerchantStock(seaChart.currentDifficulty);
 
         final prevPhase = phase.displayName;
-        phase = SessionPhase.port;
+        phase = SessionPhase.stronghold;
         return <GameEvent>[
           RegionTransitioned(
             previousRegion: prevRegion,
@@ -624,7 +641,8 @@ class GameSession {
         phase != SessionPhase.shipwreck &&
         phase != SessionPhase.smuggler &&
         phase != SessionPhase.shrine &&
-        phase != SessionPhase.port) {
+        phase != SessionPhase.port &&
+        phase != SessionPhase.stronghold) {
       throw StateError('Cannot take helm from phase $phase');
     }
     if (phase == SessionPhase.port) {
@@ -666,7 +684,7 @@ class GameSession {
         refreshMerchantStock(seaChart.currentDifficulty);
 
         final prevPhase = phase.displayName;
-        phase = SessionPhase.port;
+        phase = SessionPhase.stronghold;
         return <GameEvent>[
           RegionTransitioned(
             previousRegion: prevRegion,
@@ -1967,26 +1985,15 @@ class GameSession {
   }
 
   List<GameEvent> _handleReturnToPort() {
-    if (phase != SessionPhase.restArea) {
-      throw StateError('Cannot return to port from $phase');
-    }
-    seaChart.resetCoordinates();
-    refreshMerchantStock(seaChart.currentDifficulty);
-    final prevPhase = phase.displayName;
-    phase = SessionPhase.port;
-    return <GameEvent>[
-      PhaseChanged(
-        previousPhase: prevPhase,
-        newPhase: phase.displayName,
-      ),
-    ];
+    throw StateError('The home port is only available between voyages after succession');
   }
 
   List<GameEvent> _handleVisitMerchant() {
-    if (phase != SessionPhase.port) {
+    if (phase != SessionPhase.port && phase != SessionPhase.stronghold) {
       throw StateError('Cannot visit merchant from $phase');
     }
     final prevPhase = phase.displayName;
+    merchantReturnPhase = phase;
     phase = SessionPhase.merchant;
     return <GameEvent>[
       PhaseChanged(
@@ -2001,7 +2008,7 @@ class GameSession {
       throw StateError('Cannot leave merchant from $phase');
     }
     final prevPhase = phase.displayName;
-    phase = SessionPhase.port;
+    phase = merchantReturnPhase;
     return <GameEvent>[
       PhaseChanged(
         previousPhase: prevPhase,
@@ -2089,7 +2096,7 @@ class GameSession {
       if (ship!.currentHp >= criticalFloor) {
         return <GameEvent>[
           const NarrationEvent(
-            'The open sea is too turbulent for routine repairs. Careen at a Respite Island or return to port.',
+            'The open sea is too turbulent for routine repairs. Seek a Respite Island or voyage stronghold.',
           ),
         ];
       }
@@ -2138,8 +2145,8 @@ class GameSession {
 
   List<GameEvent> _handleUpgradeShip() {
     if (ship == null) throw StateError('No ship available');
-    if (phase != SessionPhase.respiteIsland) {
-      throw StateError('Ship refits are only available at a voyage Haven');
+    if (phase != SessionPhase.respiteIsland && phase != SessionPhase.stronghold) {
+      throw StateError('Ship refits are only available at a voyage Haven or stronghold');
     }
     if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
       return const <GameEvent>[
@@ -2173,8 +2180,8 @@ class GameSession {
 
   List<GameEvent> _handleTemperHardpoint(HardpointType slot) {
     if (ship == null) throw StateError('No ship available');
-    if (phase != SessionPhase.respiteIsland) {
-      throw StateError('Hardpoint tempering is only available at a voyage Haven');
+    if (phase != SessionPhase.respiteIsland && phase != SessionPhase.stronghold) {
+      throw StateError('Hardpoint tempering is only available at a voyage Haven or stronghold');
     }
     if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
       return const <GameEvent>[

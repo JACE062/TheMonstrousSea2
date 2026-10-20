@@ -21,6 +21,7 @@ class RecklessBot implements BotStrategy {
             ? BlueprintId.ironclad.shipClass : ShipClass.standard);
 
       case SessionPhase.port:
+      case SessionPhase.stronghold:
         final ship = session.ship;
         if (ship != null && ship.currentHp < ship.maxHp) {
           if (ship.gold >= calculateRepairCost(ship, 1.0)) {
@@ -29,7 +30,7 @@ class RecklessBot implements BotStrategy {
             return const RepairShip(0.5);
           }
         }
-        if (ship != null && ship.level < 4) {
+        if (session.phase == SessionPhase.stronghold && ship != null && ship.level < 4) {
           final cost = calculateShipUpgradeCost(ship.level);
           if (cost > 0 && ship.gold >= cost) {
             return const UpgradeShip();
@@ -43,7 +44,8 @@ class RecklessBot implements BotStrategy {
             }
           }
         }
-        return const VentureOutToSea();
+        return session.phase == SessionPhase.stronghold
+            ? const TakeHelm() : const VentureOutToSea();
 
       case SessionPhase.battle:
         final ship = session.ship!;

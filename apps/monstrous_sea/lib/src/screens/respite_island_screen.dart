@@ -9,6 +9,7 @@ import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pilot_art.dart';
+import '../widgets/voyage_shipwright_view.dart';
 import '../widgets/svg_asset_view.dart';
 
 /// Screen rendered when anchoring at a calm Respite Island haven,
@@ -78,12 +79,6 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
         !hasChosenDuty && ship != null && ship.currentHp < ship.maxHp;
     final canDrill = !hasChosenDuty;
     final canForage = !hasChosenDuty;
-
-    final upgradeCost = ship != null && ship.level < 4
-        ? calculateShipUpgradeCost(ship.level)
-        : null;
-    final canAffordUpgrade =
-        upgradeCost != null && (ship?.gold ?? 0) >= upgradeCost;
 
     return ParchmentScaffold(
       body: Center(
@@ -371,101 +366,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // 4. Island Shipwright Refit Card (Only at Grand Haven)
-                if (controller.isCurrentIslandHaven &&
-                    ship != null &&
-                    ship.level < 4)
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(16),
-                    child: _cardRow(
-                      children: [
-                        const SvgAssetView(
-                          assetPath: PilotArt.helm,
-                          width: 44,
-                          height: 44,
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Hermit Shipwright Refit (Tier ${ship.level + 1})',
-                                style: InkTheme.statValue.copyWith(
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Text(
-                                'An old recluse shipwright reinforces ship framing, reinforcing hull vitality, hardpoint damage, and class defenses.',
-                                style: InkTheme.caption,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Refit Fee: ${upgradeCost}g (Purse: ${ship.gold}g)',
-                                style: InkTheme.statLabel.copyWith(
-                                  color: canAffordUpgrade
-                                      ? InkTheme.goldAccent
-                                      : InkTheme.crimsonAccent,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        InkButton(
-                          label: 'UPGRADE TIER',
-                          isPrimary: canAffordUpgrade,
-                          onPressed: canAffordUpgrade
-                              ? () => controller.dispatch(const UpgradeShip())
-                              : null,
-                        ),
-                      ],
-                    ),
-                  ),
-
                 if (controller.isCurrentIslandHaven && ship != null) ...[
+                  VoyageShipwrightView(controller: controller),
                   const SizedBox(height: 16),
-                  ParchmentCard(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          'VOYAGE SHIPWRIGHT · HARDPOINT TEMPERING',
-                          style: InkTheme.statLabel,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Spend voyage gold to temper a hardpoint. These marks last for this run.',
-                          style: InkTheme.body,
-                        ),
-                        const SizedBox(height: 12),
-                        Wrap(
-                          spacing: 8,
-                          runSpacing: 8,
-                          children: [
-                            for (final slot in blessingHardpoints)
-                              InkButton(
-                                label:
-                                    '${slot.displayName} · ${ship.markLabelForHardpoint(slot)}${ship.markForHardpoint(slot) < 3 ? ' · Temper ${calculateHardpointTemperCost(ship.markForHardpoint(slot))}g' : ' · Maximum'}',
-                                onPressed:
-                                    ship.markForHardpoint(slot) < 3 &&
-                                        ship.gold >=
-                                            calculateHardpointTemperCost(
-                                              ship.markForHardpoint(slot),
-                                            )
-                                    ? () {
-                                        controller.dispatch(
-                                          TemperHardpoint(slot),
-                                        );
-                                        setState(() {});
-                                      }
-                                    : null,
-                              ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
                 const SizedBox(height: 20),
 

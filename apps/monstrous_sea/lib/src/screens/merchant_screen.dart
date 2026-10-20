@@ -62,7 +62,8 @@ class MerchantScreen extends StatelessWidget {
                     const SizedBox(width: 12),
                     InkButton(
                       label: 'LEAVE CHANDLERY',
-                      semanticLabel: 'Leave Chandlery and return to port',
+                      semanticLabel: controller.session.merchantReturnPhase == SessionPhase.stronghold
+                          ? 'Leave Chandlery and return to stronghold' : 'Leave Chandlery and return to port',
                       onPressed: () => controller.dispatch(const LeaveMerchant()),
                     ),
                   ],
@@ -280,7 +281,9 @@ class MerchantScreen extends StatelessWidget {
 
                 // Return Button
                 InkButton(
-                  label: 'LEAVE CHANDLERY & RETURN TO PORT',
+                  label: controller.session.merchantReturnPhase == SessionPhase.stronghold
+                      ? 'LEAVE CHANDLERY & RETURN TO STRONGHOLD'
+                      : 'LEAVE CHANDLERY & RETURN TO PORT',
                   onPressed: () => controller.dispatch(const LeaveMerchant()),
                 ),
               ],

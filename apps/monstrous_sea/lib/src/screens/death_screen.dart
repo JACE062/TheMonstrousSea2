@@ -475,25 +475,10 @@ class _DeathScreenState extends State<DeathScreen> {
                 const SizedBox(height: 24),
 
                 // Continuation Buttons
-                Row(
-                  children: [
-                    Expanded(
-                      child: InkButton(
-                        label: 'CONTINUE THE HUNT',
-                        isPrimary: true,
-                        onPressed: _onContinueLineage,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: InkButton(
-                        label: 'ABANDON HUNT',
-                        isDanger: true,
-                        onPressed: () =>
-                            widget.controller.dispatch(const AbandonHunt()),
-                      ),
-                    ),
-                  ],
+                InkButton(
+                  label: 'CONTINUE THE HUNT',
+                  isPrimary: true,
+                  onPressed: _onContinueLineage,
                 ),
               ],
             ),

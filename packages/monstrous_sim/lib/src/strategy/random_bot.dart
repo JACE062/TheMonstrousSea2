@@ -25,6 +25,7 @@ class RandomBot implements BotStrategy {
         return ChooseShip(canonicalClasses[rng.nextInt(canonicalClasses.length)]);
 
       case SessionPhase.port:
+      case SessionPhase.stronghold:
         final roll = rng.nextInt(3);
         final ship = session.ship;
         if (roll == 0 && ship != null && ship.currentHp < ship.maxHp) {
@@ -34,7 +35,8 @@ class RandomBot implements BotStrategy {
         } else if (roll == 1) {
           return const VisitMerchant();
         }
-        return const VentureOutToSea();
+        return session.phase == SessionPhase.stronghold
+            ? const TakeHelm() : const VentureOutToSea();
 
       case SessionPhase.battle:
         final ship = session.ship!;

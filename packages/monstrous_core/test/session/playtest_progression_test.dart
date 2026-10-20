@@ -24,12 +24,12 @@ void main() {
     expect(restored.hasDefeatedCurrentEncounter, isTrue);
     final events = restored.dispatch(const AdvanceToNextBattle());
     expect(events.whereType<RegionTransitioned>(), hasLength(1));
-    expect(restored.phase, SessionPhase.port);
+    expect(restored.phase, SessionPhase.stronghold);
     expect(restored.seaChart.currentRegionIndex, 1);
     expect(restored.seaChart.currentLeg, 0);
   });
 
-  test('earned Haven refits reset on next departure while gold, belt, and meta upgrades survive', () {
+  test('an heir starts a fresh voyage with permanent upgrades and no previous voyage refits', () {
     final session = fresh()..dispatch(const BeginFirstVoyage('Reed'));
     session.profile.blueprintArmamentTiers[BlueprintId.standard.name] = 2;
     session.profile.hasExpandedAuxiliarySlot = true;
@@ -44,14 +44,15 @@ void main() {
     session.dispatch(const UpgradeShip());
     session.dispatch(const TemperHardpoint(HardpointType.broadside));
     session.dispatch(const TemperHardpoint(HardpointType.signature));
-    final gold = session.ship!.gold;
-    session.phase = SessionPhase.restArea;
-    session.dispatch(const ReturnToPort());
+    session.phase = SessionPhase.battle;
+    session.ship!.applyDamage(session.ship!.maxHp);
+    session.dispatch(const ExecuteShipSpecialAction());
+    session.dispatch(const ContinueLineage('Next Reed', ShipClass.standard));
     session.dispatch(const VentureOutToSea());
     expect(session.ship!.level, 1);
     expect(session.ship!.hardpointMarks.values, everyElement(1));
-    expect(session.ship!.gold, gold);
-    expect(session.ship!.cargo, contains(same(beltItem)));
+    expect(session.ship!.gold, 25);
+    expect(session.ship!.cargo, isEmpty);
     expect(
       session.ship!.equippedWeapons.where((w) => w.isSignature).single.name,
       endsWith('II'),

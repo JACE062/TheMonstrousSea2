@@ -17,6 +17,7 @@ class GameController extends ChangeNotifier {
   final StorageService storage;
   final NarrationFormatter narrationFormatter;
   final bool autoSave;
+  Future<void> _pendingPersistence = Future.value();
 
   final List<CombatLogEntry> structuredCombatLog = <CombatLogEntry>[];
   List<String> get combatLog =>
@@ -108,16 +109,31 @@ class GameController extends ChangeNotifier {
   }
 
   /// Persists current profile and voyage states to disk.
-  Future<void> persistState() async {
-    await storage.saveProfile(session.profile);
-    if (phase == SessionPhase.death || phase == SessionPhase.port) {
-      await storage.clearVoyage();
-    } else if (phase == SessionPhase.helm ||
+  Future<void> persistState() {
+    final profileSnapshot = ProfileData.fromJson(session.profile.toJson());
+    final atHome = phase == SessionPhase.port ||
+        (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.port);
+    final clearCheckpoint = phase == SessionPhase.death || phase == SessionPhase.ended || atHome;
+    final checkpointPhase = phase == SessionPhase.stronghold ||
+        (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.stronghold) ||
+        phase == SessionPhase.helm ||
         phase == SessionPhase.restArea ||
-        phase == SessionPhase.respiteIsland) {
-      final snapshot = VoyageSaveData.fromSession(session);
-      await storage.saveVoyage(snapshot);
-    }
+        phase == SessionPhase.respiteIsland;
+    final voyageSnapshot = checkpointPhase
+        ? VoyageSaveData.fromJson(VoyageSaveData.fromSession(session).toJson())
+        : null;
+    // Snapshot before awaiting I/O and serialize writes: an older checkpoint
+    // must never complete after a later death has deleted the active voyage.
+    final operation = _pendingPersistence.then((_) async {
+      await storage.saveProfile(profileSnapshot);
+      if (clearCheckpoint) {
+        await storage.clearVoyage();
+      } else if (voyageSnapshot != null) {
+        await storage.saveVoyage(voyageSnapshot);
+      }
+    });
+    _pendingPersistence = operation.catchError((Object _) {});
+    return operation;
   }
 
   void _handleAutoSave(Command command, List<GameEvent> events) {

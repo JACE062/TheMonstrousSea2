@@ -30,6 +30,7 @@ class VoyageSaveData {
     this.runicGuidanceBoon = 0,
     this.seaChartState,
     this.hasDefeatedCurrentEncounter = false,
+    this.merchantReturnPhase,
   }) : pendingLoot = pendingLoot ?? <Item>[],
        merchantStock = merchantStock ?? <Item>[];
 
@@ -69,6 +70,11 @@ class VoyageSaveData {
       activeBoonId: boonId,
       activeQuirkId: quirkId,
       phase: phase,
+      merchantReturnPhase: json['merchantReturnPhase'] == 'stronghold'
+          ? SessionPhase.stronghold
+          : json['merchantReturnPhase'] == 'port'
+          ? SessionPhase.port
+          : null,
       battleRound: json['battleRound'] as int? ?? 1,
       monstersDefeatedThisLife: json['monstersDefeatedThisLife'] as int? ?? 0,
       highestDifficultyThisLife: json['highestDifficultyThisLife'] as int? ?? 1,
@@ -93,6 +99,7 @@ class VoyageSaveData {
   final BloodlineTraitId? activeBoonId;
   final BloodlineTraitId? activeQuirkId;
   final SessionPhase phase;
+  final SessionPhase? merchantReturnPhase;
   final int battleRound;
   final int monstersDefeatedThisLife;
   final int highestDifficultyThisLife;
@@ -114,6 +121,7 @@ class VoyageSaveData {
     'activeBoonId': activeBoonId?.name,
     'activeQuirkId': activeQuirkId?.name,
     'phase': phase.name,
+    'merchantReturnPhase': merchantReturnPhase?.name,
     'battleRound': battleRound,
     'monstersDefeatedThisLife': monstersDefeatedThisLife,
     'highestDifficultyThisLife': highestDifficultyThisLife,
@@ -141,6 +149,7 @@ class VoyageSaveData {
       activeBoonId: session.activeBoon?.id,
       activeQuirkId: session.activeQuirk?.id,
       phase: session.phase,
+      merchantReturnPhase: session.merchantReturnPhase,
       battleRound: session.battleRound,
       monstersDefeatedThisLife: session.monstersDefeatedThisLife,
       highestDifficultyThisLife: session.highestDifficultyThisLife,
@@ -174,7 +183,8 @@ class VoyageSaveData {
     } else {
       // Older saves only recorded grid coordinates. Preserve their best-known
       // progress; subsequent steps use the authoritative voyage leg counter.
-      session.seaChart.currentLeg = phase == SessionPhase.port
+      session.seaChart.currentLeg =
+          phase == SessionPhase.port || phase == SessionPhase.stronghold || phase == SessionPhase.merchant
           ? 0
           : (currentRow * 5 + currentCol + 1).clamp(
               1,
@@ -183,7 +193,17 @@ class VoyageSaveData {
     }
     session.profile.hasBegunFirstVoyage = true;
     session.hasDefeatedCurrentEncounter = hasDefeatedCurrentEncounter;
-    session.phase = phase;
+    // Old checkpoints reused the home-port phase after defeating a Titan.
+    // Reclassify these visits before any command can perform a new-run reset.
+    session.phase =
+        phase == SessionPhase.port && session.seaChart.currentRegionIndex > 0
+        ? SessionPhase.stronghold
+        : phase;
+    session.merchantReturnPhase =
+        merchantReturnPhase ??
+        (session.seaChart.currentRegionIndex > 0
+            ? SessionPhase.stronghold
+            : SessionPhase.port);
     session.battleRound = battleRound;
     session.monstersDefeatedThisLife = monstersDefeatedThisLife;
     session.highestDifficultyThisLife = highestDifficultyThisLife;

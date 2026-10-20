@@ -2,6 +2,7 @@
 enum SessionPhase {
   captainCreation('Captain Creation'),
   port("Hunter's Respite Port"),
+  stronghold('Voyage Stronghold'),
   merchant('Harpoon & Helm Merchant'),
   helm("The Ship's Helm"),
   battle('Naval Battle'),

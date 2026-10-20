@@ -77,22 +77,10 @@ void main() {
         session.dispatch(const TakeAllLoot());
         expect(session.phase, equals(SessionPhase.restArea));
 
-        // Return to port
-        session.dispatch(const ReturnToPort());
-        expect(session.phase, equals(SessionPhase.port));
-        expect(session.seaChart.isAtStart, isTrue);
-
-        // Visit Merchant
-        session.dispatch(const VisitMerchant());
-        expect(session.phase, equals(SessionPhase.merchant));
-
-        // Sell all treasure
-        final sellEvents = session.dispatch(const SellAllTreasure());
-        expect(sellEvents.whereType<AllTreasureSold>(), isNotEmpty);
-
-        // Leave merchant
-        session.dispatch(const LeaveMerchant());
-        expect(session.phase, equals(SessionPhase.port));
+        // The home port is a between-voyage location, never a rest-area exit.
+        expect(() => session.dispatch(const ReturnToPort()), throwsStateError);
+        session.dispatch(const TakeHelm());
+        expect(session.phase, SessionPhase.helm);
       }
     });
 
@@ -118,34 +106,6 @@ void main() {
       // Freighter 5% gold inheritance (5% of 100 = 5g)
       expect(session.ship!.gold, equals(5));
       expect(session.seaChart.maxRowReached, equals(0)); // Reset for new heir
-    });
-
-    test('Captain returns to port and departs directly at charted depth waypoint (Option A)', () {
-      final session = GameSession(rng: SeededGameRng(101));
-      session.dispatch(const NameCaptain('Deepsea Dan'));
-      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
-      session.dispatch(const ChooseShip(ShipClass.ironclad));
-
-      // Simulate exploring down to Row 2
-      session.seaChart.currentRow = 2;
-      session.seaChart.currentCol = 3;
-      session.seaChart.maxRowReached = 2;
-
-      // Captain visits rest and returns to port
-      session.phase = SessionPhase.restArea;
-      session.dispatch(const ReturnToPort());
-
-      expect(session.phase, equals(SessionPhase.port));
-      expect(session.seaChart.maxRowReached, equals(2)); // Unlocked up to Depth 3
-
-      // Captain chooses to venture directly into Depth 3 (Row 2, Col 0)
-      final sailEvents = session.dispatch(const VentureOutToSea(startingRow: 2));
-
-      expect(session.phase, equals(SessionPhase.battle));
-      expect(session.seaChart.currentRow, equals(2));
-      expect(session.seaChart.currentCol, equals(0)); // Starts at the beginning of the row!
-      expect(sailEvents.whereType<BattleStarted>(), isNotEmpty);
-      expect(session.currentMonster!.level, equals(3));
     });
 
     test('Respite Island Haven: careen hull, drill gunners, and depart', () {
@@ -330,7 +290,7 @@ void main() {
       expect(toRegion1.whereType<RegionTransitioned>(), isNotEmpty);
       expect(session.seaChart.currentRegionIndex, equals(1));
       expect(session.seaChart.currentRegionName, equals('The Sargasso Drift'));
-      expect(session.phase, equals(SessionPhase.port));
+      expect(session.phase, equals(SessionPhase.stronghold));
       expect(session.seaChart.currentPortName, equals('Fort Krakenwatch'));
 
       // Embark from Fort Krakenwatch into Region 1
@@ -349,7 +309,7 @@ void main() {
       expect(toRegion2.whereType<RegionTransitioned>(), isNotEmpty);
       expect(session.seaChart.currentRegionIndex, equals(2));
       expect(session.seaChart.currentRegionName, equals('The Boiling Reach'));
-      expect(session.phase, equals(SessionPhase.port));
+      expect(session.phase, equals(SessionPhase.stronghold));
       expect(session.seaChart.currentPortName, equals('The Iron Bastion'));
 
       // Embark from The Iron Bastion into Region 2

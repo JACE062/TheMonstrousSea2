@@ -119,6 +119,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verify Nemesis banner
+      expect(find.text('ABANDON HUNT'), findsNothing);
       expect(find.text("HEIR'S COMMISSIONED CLASS"), findsNothing);
       expect(find.text('FREIGHTER'), findsNothing);
       expect(find.text('CORVETTE'), findsNothing);

@@ -11,7 +11,7 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | Order | Chunk | Items | Exit condition |
 | --- | --- | --- | --- |
 | Initial follow-up | Restore the guaranteed Nemesis choice; investigate the death ledger | PT2-24, PT2-23 | Nemesis is an optional, reachable second-half course in its killer region; the ledger counts actual deaths rather than candidate heirs. See individual statuses. |
-| A | Protect voyage and succession continuity | PT2-19, PT2-21, PT2-14 | Strongholds preserve the current run and blessings; home-only blueprint actions stay at home; succession cannot lead into a dead menu. |
+| A — implemented, awaiting player replay | Protect voyage and succession continuity | PT2-19, PT2-21, PT2-14; voyage upgrades from PT2-20 | Strongholds preserve the current run and blessings; home-only blueprint actions stay at home; succession cannot lead into a dead menu. |
 | B | Audit combat avoidance, boss damage, and regional scaling | PT2-12, PT2-17, PT2-18, PT2-22 | Seeded examples explain hit/dodge odds, Kraken catastrophe damage, and ordinary squid strength; agreed fixes have deterministic coverage. |
 | C | Shorten navigation and make outcomes explicit | PT2-09, PT2-10, PT2-15, PT2-16 | Ordinary victories lead efficiently to course selection; headings do not flash replacements; restrictions and salvage rewards are visible. |
 | D | Discuss the opening and shared family identity | PT2-01, PT2-02 | Agree on a spoiler-light prologue and permanent surname rules, including legacy-save migration, before implementation. |
@@ -19,7 +19,7 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | F | Specify and implement post-boss progression / Phase 4 | PT2-20, depends on A | Strongholds offer the agreed hull/mark upgrades and exactly scoped Master Refits, with run persistence and blueprint-specific choices. |
 | Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](#deferred-ui-art-and-icons); audit existing assets first. No image generation in this batch. |
 
-The follow-up starts with the concrete Nemesis context bug and death-ledger investigation. Next, work on A: an unexplained loss of a build makes later combat and balance observations harder to interpret. B follows, with the confirmed stacking Serpent evasion first, then C. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
+The Nemesis/death-ledger follow-up and continuity batch A are implemented. Next is B, starting with confirmed stacking Serpent evasion, then C. Player replay should verify the stronghold boundary alongside that combat work. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
 
 ## Opening and lineage
 
@@ -172,12 +172,16 @@ The follow-up starts with the concrete Nemesis context bug and death-ledger inve
 
 ### PT2-14 — Remove “Abandon Hunt” from heir selection
 
+- **Status: implemented and verified; awaiting player replay.** The obsolete control is removed; heir selection continues to home preparation. The headless simulation termination command remains for single-voyage audits and must not be restored as a player-facing button. See the [verification receipt in the archive index](archive/README.md#later-verification-receipts).
+
 - **Reported:** The button returns to the opening menu, whose Start action then does nothing. The bloodline should continue until the curse is broken.
 - **Source finding:** [death_screen.dart](../apps/monstrous_sea/lib/src/screens/death_screen.dart) still dispatches `AbandonHunt` from heir selection.
 - **Requested outcome:** Remove this offered gameplay branch. Preserve normal application exit and legitimate ending choices; do not confuse quitting the app with abandoning the bloodline.
 - **Acceptance:** Every non-final death permits choosing/customizing an heir and continuing. No legacy abandon control or dead-start-menu route remains in that flow, including after restart.
 
 ### PT2-19 — Fort Krakenwatch is treated like the ancestral home port
+
+- **Status: implemented and verified; awaiting player replay.** Both regional transitions enter `stronghold`, with their own screen, shared voyage shipwright, merchant return context, and retained checkpoint. Permanent progression is rejected outside home; the legacy mid-run ReturnToPort shortcut is rejected. Legacy stronghold/merchant checkpoints are migrated on load. [Core regressions](../packages/monstrous_core/test/session/stronghold_continuity_test.dart) cover both strongholds and both advance commands; [app regressions](../apps/monstrous_sea/test/stronghold_flow_test.dart) cover UI, upgrades, merchant returns, disk reload, and save ordering. See the [verification receipt in the archive index](archive/README.md#later-verification-receipts).
 
 - **Reported:** After the Kraken, Fort Krakenwatch feels almost identical to home and offers Blueprints, although unlocking/switching those should happen between runs after succession.
 - **Source finding:** Both regional boss-transition paths in [GameSession](../packages/monstrous_core/lib/src/session/game_session.dart) enter `SessionPhase.port`, reusing the home-port presentation and behavior.
@@ -186,13 +190,17 @@ The follow-up starts with the concrete Nemesis context bug and death-ledger inve
 
 ### PT2-20 — Stronghold hull upgrades, Mk tempering, and Master Refits are missing
 
+- **Status: hull/Mk services implemented; Master Refits remain deferred.** The user approved reusing Haven costs, caps, and upgrade rules at strongholds. Gold buys voyage hull tiers and Mk marks; meta-materials buy permanent blueprint progression at home. Both voyage locations now share one shipwright view and existing core handlers. Master Refit catalogs, prices, and choice rules still require the separate Phase 4 discussion.
+
 - **Reported:** No ship-tier upgrade, weapon Mk upgrade, or Master Refit was offered at Fort Krakenwatch.
-- **Scope distinction:** Hull refit and hardpoint tempering handlers already exist for midpoint Havens, but the reused home-port screen exposes no such stronghold service. Master Refits are planned in [the retained Phase 4 scope](#future-master-refits) as **Phase 4**, after Phase 3B; no `MasterRefit` implementation was found in core/app source during this review.
+- **Original scope finding:** Hull refit and hardpoint tempering handlers existed at midpoint Havens, but the reused home-port screen exposed no stronghold service. That gap is now addressed. Master Refits are planned in [the retained Phase 4 scope](#future-master-refits) as **Phase 4**, after Phase 3B, and are still unimplemented.
 - **Requested direction:** Give post-boss strongholds the intended in-run shipwright progression. Specify and implement Master Refit choices there, separately from permanent ancestral armament upgrades.
-- **Planning constraints:** The existing design calls for exactly two Master Refits per complete three-region run: after the Kraken and World Serpent. Reconcile the old catalog with the current three-hardpoint topology, include Standard, and decide available hull/Mk upgrades, prices/caps, choice timing, and duplicate/refit rules before coding the feature.
+- **Remaining planning constraints:** The existing design calls for exactly two Master Refits per complete three-region run: after the Kraken and World Serpent. Reconcile their catalog with the current three-hardpoint topology, include Standard, and decide Master Refit pricing, choice timing, and duplicate/refit rules. Ordinary hull/Mk services use the approved Haven rules and require no new pricing decision.
 - **Acceptance:** Services are discoverable and affect the current voyage, persist through region transitions/save-load, cannot be claimed twice by reopening or reloading, and reset only at a true new voyage. Midpoint Haven services continue to function.
 
 ### PT2-21 — Shrine blessing disappears entering Region 2
+
+- **Status: implemented and verified; awaiting player replay.** Stronghold departures no longer pass through new-voyage reset logic. Full build and blessing state persists through arrival, merchant visits, checkpoint reloads, helm, and the next combat. Combat-only boosts still reset at combat boundaries; a new heir starts a fresh level-1/Mk-I voyage with permanent unlocks retained. Autosaves are serialized and snapshot before I/O so a delayed checkpoint cannot recreate a voyage after death. See the [verification receipt in the archive index](archive/README.md#later-verification-receipts).
 
 - **Reported:** A blessed weapon lost its blessing without explanation at the first Sargasso Drift battle.
 - **Source finding / leading cause:** A boss transition enters `port` (PT2-19). `_handleTakeHelm` clears `ship.blessings` and calls `_resetVoyageRefits` whenever leaving `port`; `_handleVentureOutToSea` also performs fresh-voyage resets. The source path explains how a stronghold departure can erase a current build. A runtime regression test should confirm the exact route.
@@ -204,7 +212,7 @@ The follow-up starts with the concrete Nemesis context bug and death-ledger inve
 1. **Family identity:** Confirm the shared permanent surname proposal, epithet treatment, and legacy-save migration. This playtest asks to discuss it, not to silently make existing names permanent.
 2. **Flow and chart:** Review direct-to-helm flow and a chart layout with useful scouting/milestone information. Preserve necessary encounter and reward choices.
 3. **Combat semantics:** Agree on Serpent dodge behavior, ink's actual avoidance mechanism, unavoidable Kraken release plus allowed mitigation, and accessible tentacle counterplay. The user's desired maelstrom behavior is recorded; precise damage tuning is still open.
-4. **Stronghold feature scope:** Separate the lifecycle bug fixes from Phase 4 Master Refits and reconcile the catalog/upgrade economy with current hardpoints.
+4. **Master Refit scope:** Haven/stronghold hull and Mk rules are approved and shared. Keep Phase 4 Master Refits separate and reconcile their catalog/upgrade economy with current hardpoints.
 
 ## Verification plan
 

@@ -21,6 +21,7 @@ class GreedyBot implements BotStrategy {
             ? BlueprintId.corsair.shipClass : ShipClass.standard);
 
       case SessionPhase.port:
+      case SessionPhase.stronghold:
         final ship = session.ship;
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;
         if (hasTreasure) {
@@ -34,7 +35,7 @@ class GreedyBot implements BotStrategy {
             return const RepairShip(0.25);
           }
         }
-        if (ship != null && ship.level < 4) {
+        if (session.phase == SessionPhase.stronghold && ship != null && ship.level < 4) {
           final cost = calculateShipUpgradeCost(ship.level);
           if (cost > 0 && ship.gold >= cost) {
             return const UpgradeShip();
@@ -48,7 +49,8 @@ class GreedyBot implements BotStrategy {
             }
           }
         }
-        return const VentureOutToSea();
+        return session.phase == SessionPhase.stronghold
+            ? const TakeHelm() : const VentureOutToSea();
 
       case SessionPhase.battle:
         final ship = session.ship!;

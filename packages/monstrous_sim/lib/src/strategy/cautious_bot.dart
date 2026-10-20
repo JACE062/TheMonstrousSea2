@@ -21,6 +21,7 @@ class CautiousBot implements BotStrategy {
             ? BlueprintId.ironclad.shipClass : ShipClass.standard);
 
       case SessionPhase.port:
+      case SessionPhase.stronghold:
         final ship = session.ship;
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;
         if (hasTreasure) {
@@ -37,7 +38,7 @@ class CautiousBot implements BotStrategy {
             return const RepairShip(0.1);
           }
         }
-        if (ship != null && ship.level < 4) {
+        if (session.phase == SessionPhase.stronghold && ship != null && ship.level < 4) {
           final cost = calculateShipUpgradeCost(ship.level);
           if (cost > 0 && ship.gold >= cost) {
             return const UpgradeShip();
@@ -51,7 +52,8 @@ class CautiousBot implements BotStrategy {
             }
           }
         }
-        return const VentureOutToSea();
+        return session.phase == SessionPhase.stronghold
+            ? const TakeHelm() : const VentureOutToSea();
 
       case SessionPhase.battle:
         final ship = session.ship!;

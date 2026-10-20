@@ -27,7 +27,7 @@ Preserve the [accepted platform boundary](docs/decisions/0001-platform.md): Flut
 
 Storage initialization is shared across concurrent calls. A pending migration journal permits retry before loading a partial save pair; a completion marker prevents stale legacy saves from being resurrected. Existing new-location saves are authoritative. Legacy Documents/temp files remain untouched as backups. `baseDirectory` alone disables migration for isolated tests; pass an explicit `legacyDirectory` to test migration. Do not use production storage in verification. Startup must display a retry state on location/import failure instead of proceeding into a fresh profile.
 
-Keep cross-voyage profile data, current-voyage build/checkpoint data, and combat-only boosts distinct. The current shared-port transition clears more than it should at strongholds; PT2-19/21 in the backlog track this known bug. Do not turn that implementation defect into a persistence requirement. Verify actual checkpoint/load/delete paths when changing lifecycle behavior, including completed-Titan saves and legacy migration.
+Keep cross-voyage profile data, current-voyage build/checkpoint data, and combat-only boosts distinct. `SessionPhase.port` is ancestral home; `SessionPhase.stronghold` is a mid-voyage berth. Stronghold merchants persist their return phase. Legacy regional `port` saves restore as strongholds. Controller persistence snapshots profile/voyage data before awaiting I/O and queues writes, preserving stronghold checkpoints while preventing stale writes after death. Verify completed-Titan saves and legacy migration when changing this lifecycle. Both Havens and strongholds use `VoyageShipwrightView` and the same core costs/caps; permanent progression commands are home-only.
 
 A save reset is a separate user action. Documentation/verification tooling must not modify a real player's profile. Use injected storage and isolated game state in tests.
 
@@ -62,6 +62,7 @@ Run checks appropriate to the change and inspect the actual diff. The commands b
 
 - Gameplay changes need deterministic regression tests for the changed behavior and appropriate package analysis/tests. Changes spanning the engine, strategies and UI need checks across those boundaries.
 - Balance-sensitive changes need representative simulation comparisons. State unlock/blueprint conditions, seed and run count; do not compare a locked-hull bot baseline directly with fresh Standard voyages as though only combat changed.
+- The default simulator audit stops after the Kraken. To evaluate strongholds/later regions, also use `SimulationRunner(endless: true)`; its `won` flag still records crossing the first Kraken boundary, not proof of a full campaign victory. Inspect region progress, exceptions, and deaths separately.
 - Native/integration tests are useful for storage, startup and navigation changes; keep their state isolated. Inspect screenshots when presentation changes.
 - Documentation-only reorganization needs link/anchor, source-section coverage, archive-body integrity and screenshot checks; it does not require rerunning the unrelated game suites.
 - Avoid repeating broad suites after no new changes or unresolved concerns. Never claim a command passed without its result.

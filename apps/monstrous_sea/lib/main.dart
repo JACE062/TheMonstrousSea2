@@ -10,6 +10,7 @@ import 'src/screens/intro_screen.dart';
 import 'src/screens/loot_screen.dart';
 import 'src/screens/merchant_screen.dart';
 import 'src/screens/port_screen.dart';
+import 'src/screens/stronghold_screen.dart';
 import 'src/screens/respite_island_screen.dart';
 import 'src/screens/rest_screen.dart';
 import 'src/screens/sea_chart_screen.dart';
@@ -175,7 +176,7 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
       return SeaChartScreen(
         key: const ValueKey('sea_chart_modal'),
         seaChart: _controller.seaChart,
-        isInPort: _controller.phase == SessionPhase.port,
+        isInPort: _controller.phase == SessionPhase.port || _controller.phase == SessionPhase.stronghold,
         isCurrentDefeated: _controller.isCurrentEncounterDefeated,
         onClose: () => setState(() => _showingChartModal = false),
       );
@@ -199,6 +200,13 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
         return MerchantScreen(
           key: const ValueKey('merchant_screen'),
           controller: _controller,
+        );
+
+      case SessionPhase.stronghold:
+        return StrongholdScreen(
+          key: const ValueKey('stronghold_screen'),
+          controller: _controller,
+          onOpenChart: () => setState(() => _showingChartModal = true),
         );
 
       case SessionPhase.helm:

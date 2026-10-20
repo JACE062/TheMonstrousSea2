@@ -1,6 +1,6 @@
 # Current game rules
 
-Status: consolidated approved rules and implementation baseline as of 20 October 2026, after Phase 3B and the October 19 fixes. Read the [documentation authority rules](README.md#authority-and-status) and relevant [open issues](BACKLOG.md) before changing behavior. This consolidation introduces no gameplay changes or new feature approvals.
+Status: current approved rules and implementation baseline, updated 20 October 2026 through Phase 3B, playtest fixes, and stronghold/home-port separation. Read the [documentation authority rules](README.md#authority-and-status) and relevant [open issues](BACKLOG.md) before changing behavior.
 
 ## Game identity and voyage lifecycle
 
@@ -9,8 +9,9 @@ The game is a generational naval roguelite centered on one Bloodbound Flagship, 
 - A fresh profile sees the brief introduction, names a captain, commissions Standard, and enters the first combat directly. Standard is the only starting unlocked blueprint. Expanded exposition and a permanent family surname are pending design work: PT2-01/02.
 - After death, the next captain chooses from three heirs with boon/quirk pairs, may customize their name, and prepares at the ancestral home port. `Davy Jones` remains the existing hidden Flying Dutchman cheat, not a normal blueprint or starting choice.
 - Home port supports permanent blueprint unlocks/commissioning, ancestral armament progression, and the applicable Covenant/relic/monument systems. Every true new voyage begins at hull level 1 and Mk I hardpoints; permanent armament progression is separate.
-- **Approved target / known gap:** Mid-voyage strongholds must preserve the captain and current run build. They must not offer home-only blueprint switching or trigger new-voyage resets. The current shared `port` phase violates this boundary and can erase blessings/upgrades: PT2-19/21.
-- A captain's ordinary death continues the bloodline; the remaining Abandon Hunt control is to be removed (PT2-14). Application exit and actual ending choices are separate from that gameplay branch.
+- Mid-voyage strongholds have their own `stronghold` phase and preserve the captain, current blueprint, gold, belt, hull tier, hardpoint marks, and blessings. Arrival, merchant visits, reloads, and departure continue the current voyage. Permanent blueprint unlocks/upgrades and commissioning remain home-only, enforced in the engine as well as the UI. Returning home from a rest area is no longer a legal shortcut; home becomes available after succession (PT2-19/21).
+- Havens and strongholds share the same gold-funded voyage shipwright: hull tiers cap at 4 with upgrade costs 100/250/500g; hardpoints cap at Mk III with tempering costs 60/120g. The home port offers neither voyage upgrade. Permanent ancestral armament progression uses meta-materials and is separate from these run tiers. Master Refits remain deferred work (PT2-20).
+- A captain's ordinary death continues the bloodline. Heir selection offers Continue the Hunt, with no Abandon Hunt control (PT2-14). Application exit and actual ending choices are separate; the retained headless termination command is not an offered player action.
 
 Sources: [GameSession](../packages/monstrous_core/lib/src/session/game_session.dart), [ProfileData](../packages/monstrous_core/lib/src/persistence/profile_data.dart), [blueprint catalog](../packages/monstrous_core/lib/src/model/flagship_blueprint.dart). Narrative rationale lives in [Lore](LORE.md).
 
@@ -87,7 +88,7 @@ Sources: [combat rules](../packages/monstrous_core/lib/src/rules/combat.dart), [
 
 ## Ocean Powers and shrines
 
-There are four powers: Magma Vent-Lord, Tempest Sovereign, Brinemother, Earthshaker Titan. Every Broadside, Signature, and Utility socket can hold one dedication at Tier I–III. A socket dedicated to one power cannot be overwritten by another; the same power can upgrade it until Tier III. Blessings are voyage-scoped and should survive region transitions and checkpoints (known violation: PT2-21).
+There are four powers: Magma Vent-Lord, Tempest Sovereign, Brinemother, Earthshaker Titan. Every Broadside, Signature, and Utility socket can hold one dedication at Tier I–III. A socket dedicated to one power cannot be overwritten by another; the same power can upgrade it until Tier III. Blessings are voyage-scoped and survive region transitions and checkpoints (PT2-21).
 
 Shrines sample two eligible powers without replacement, weighted 2.5× toward powers already able to upgrade/expand the current build. Fewer eligible powers produce fewer offerings. The player chooses a manifested power, then a socket to dedicate/upgrade. One dedication or rune choice consumes the shrine. “Read the Ancient Runes” remains the fallback when all sockets are sovereign: it refreshes a non-stacking +10% accuracy benefit for the entire next combat and reveals chart information. The actual command uses `ShrineChoice.ancientRunes`; no nonexistent `divination` enum is required.
 
@@ -137,7 +138,7 @@ The tables below retain the accepted Phase 3B numerical design. Implementation d
 - Corroded stacks cap at three and refresh their three-turn duration. They amplify damage by 8% per stack, or 12% with the relevant Tier III Brinemother upgrade; they are not the older “−15% monster damage / 5 plating per turn” concept.
 - Earthshaker kinetic effects use the existing Piercing damage type with their explicit 1.5× shell multiplier. No extra Kinetic enum is required. Its normal windup cancellation substitutes a plain strike, not an unrelated species special attack.
 - Direct weapon hits and extra blessing-damage events must not proc a relic twice. Simultaneous fatal retaliation must not revive a dead captain by resolving monster defeat first.
-- Barriers, charged rigging, wakes, and other combat-only counters clear between battles; stored dedications persist for the voyage. Old saved Rams/Howitzers migrate to Piercing/Slicing. True new voyages clear dedications; stronghold departures must not do so.
+- Barriers, charged rigging, wakes, and other combat-only counters clear between battles; stored dedications persist for the voyage. Old saved Rams/Howitzers migrate to Piercing/Slicing. True new voyages clear dedications; stronghold departures preserve them.
 
 ## Supplies, encounters, and upgrades
 
@@ -154,7 +155,7 @@ Every consumable is single-use with fixed base potency/value independent of item
 
 The last two currently use 75% hit / 5 base damage in [consumable effects](../packages/monstrous_core/lib/src/content/consumables.dart); no rarity scaling should be restored. Merchants trade tactical supplies with the existing markup/sale rules, not random hardpoint weapons. [Tactical victory loot](../packages/monstrous_core/lib/src/rules/loot.dart) drops consumables; older generic loot helpers are compatibility/parity code rather than the live loot specification.
 
-At islands the three shore duties are mutually exclusive: careen, drill, or forage. Careen restores 30% at a Grand Haven or 20% at a cove; drills currently grant +15% accuracy rather than the old +5% note. Havens offer voyage shipwright refits/tempering; secluded coves do not. Mid-voyage stronghold services are still missing (PT2-20). Shipwreck salvage gives supplies/materials, gold, or healing according to its choice; misleading weapon text and invisible receipts remain PT2-16.
+At islands the three shore duties are mutually exclusive: careen, drill, or forage. Careen restores 30% at a Grand Haven or 20% at a cove; drills currently grant +15% accuracy rather than the old +5% note. Havens and strongholds offer the same voyage shipwright refits/tempering; secluded coves and home do not. Strongholds also offer paid repairs and merchant supplies; Master Refits remain deferred (PT2-20). Shipwreck salvage gives supplies/materials, gold, or healing according to its choice; misleading weapon text and invisible receipts remain PT2-16.
 
 Keep these progression systems distinct:
 
@@ -182,7 +183,7 @@ Permanent signature tiers, blueprint-specific Eldritch Relics (Siphon Ram, Ghost
 
 ## Persistence and presentation
 
-Load storage before deciding onboarding. `player_profile.json` stores cross-voyage lineage, materials and permanent unlocks; `voyage_save.json` stores checkpoint state including chart/history and blessings. New runs and captain death have different lifetimes from stronghold visits. The current controller clears the checkpoint at every `port` phase, which needs the same lifecycle audit as PT2-19/21.
+Load storage before deciding onboarding. `player_profile.json` stores cross-voyage lineage, materials and permanent unlocks; `voyage_save.json` stores checkpoint state including chart/history and blessings. Strongholds and their merchants retain checkpoints, with the merchant's return location persisted. Legacy regional `port` checkpoints restore as strongholds. Home preparation, ordinary death, and actual endings clear the voyage checkpoint. Save operations capture state before I/O and execute in order so an older write cannot resurrect a voyage after death.
 
 [StorageService](../apps/monstrous_sea/lib/src/services/storage_service.dart) stores Windows saves in `%LOCALAPPDATA%\TheMonstrousSea2\Saves`, outside the redirected Documents/OneDrive folder. Other platforms use their application-support directory under `TheMonstrousSea2/Saves`. There is no temporary-directory fallback for new saves. Injected directories isolate tests from real player data.
 
