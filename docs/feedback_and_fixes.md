@@ -1,6 +1,8 @@
 # Feedback & Remediation Plan: The Monstrous Sea V2
 
-The current post-Phase-3B playtest batch is tracked in [Playtest remediation — 19 October 2026](PLAYTEST_2026_10_19.md). Earlier entries below document historical systems; the latest batch supersedes legacy weapon swapping, cargo, and onboarding instructions.
+The current open batch is [Playtest backlog — 20 October 2026](PLAYTEST_2026_10_20.md), grouped into focused work chunks with observations, source-review leads, pending design decisions, and acceptance criteria. Its [UI art backlog](UI_ART_BACKLOG.md) is deferred; no new images are being created now.
+
+[Playtest remediation — 19 October 2026](PLAYTEST_2026_10_19.md) records the previous completed batch and its verification. The new playtest identifies remaining issues and regressions; that earlier completion is not evidence that the new findings are fixed. Earlier entries below document historical systems and do not authorize restoring legacy weapon swapping, cargo, AC, or onboarding behavior.
 
 This document consolidates player feedback from the initial playable build, root-cause analyses, exact solutions, and an actionable remediation plan divided into structured engineering streams.
 
