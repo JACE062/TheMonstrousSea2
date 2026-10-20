@@ -47,6 +47,8 @@ This index describes where material went. It is not a second gameplay manual. Cu
 
 Later implementation receipts: [Stronghold continuity, 20 October 2026](playtests/STRONGHOLD_2026_10_20.md). These record verification for completed work; they do not replace current rules or the live backlog.
 
+Combat receipt: [Serpent evasion, 20 October 2026](playtests/SERPENT_2026_10_20.md), including deterministic hit/dodge odds and a seeded before/after comparison.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

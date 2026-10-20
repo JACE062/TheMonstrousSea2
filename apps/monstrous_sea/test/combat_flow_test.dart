@@ -37,7 +37,11 @@ Future<void> mountBattle(
             .copyWith(textScaler: TextScaler.linear(textScale)),
         child: child!,
       ),
-      home: BattleScreen(controller: controller, game: game),
+      home: ListenableBuilder(
+        listenable: controller,
+        builder: (context, child) =>
+            BattleScreen(controller: controller, game: game),
+      ),
     ),
   );
   await tester.pump(const Duration(milliseconds: 100));
@@ -45,11 +49,46 @@ Future<void> mountBattle(
 }
 
 void main() {
+  testWidgets('Serpent HUD shows effective dodge after Pin and Flare', (
+    WidgetTester tester,
+  ) async {
+    final session = GameSession(rng: SeededGameRng(42));
+    final controller = GameController(session: session, autoSave: false);
+    controller.dispatch(const NameCaptain('Ahab'));
+    controller.dispatch(const ChooseShip(ShipClass.standard));
+    controller.dispatch(const VentureOutToSea());
+    final monster = createMonster(
+      MonsterSpecies.serpent,
+      level: 1,
+      rng: SeededGameRng(42),
+      isApex: true,
+    );
+    session.currentMonster = monster;
+    await mountBattle(tester, controller);
+    expect(find.textContaining('Dodge: 30%'), findsOneWidget);
+    monster.isPinnedThisTurn = true;
+    controller.notify();
+    await tester.pump();
+    expect(find.textContaining('Dodge: 15%'), findsOneWidget);
+    monster.spotterFlareTurns = 1;
+    controller.notify();
+    await tester.pump();
+    expect(find.textContaining('Dodge: 0%'), findsOneWidget);
+    monster.tickSpotterFlare();
+    monster.isPinnedThisTurn = false;
+    controller.notify();
+    await tester.pump();
+    expect(find.textContaining('Dodge: 30%'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox.shrink());
+    controller.dispose();
+  });
+
   testWidgets(
     'BattleScreen renders ship and monster status, and fires weapon volley',
     (WidgetTester tester) async {
       final controller = GameController(
         session: GameSession(rng: SeededGameRng(42)),
+        autoSave: false,
       );
 
       // Commission ship

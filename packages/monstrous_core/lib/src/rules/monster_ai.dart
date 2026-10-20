@@ -622,20 +622,8 @@ MonsterIntent selectNextMonsterIntent(
 
   // 7. Post-Attack Buffs & Movement (Recoils & Tentacle Snares)
   if (ship.isAlive && monster.isAlive) {
-    if (intent.id == MonsterIntentId.serpentVenomSpitRecoil) {
-      if (monster.isIlluminatedByFlare) {
-        events.add(
-          NarrationEvent(
-            'Phosphor Spotter Flare illuminates ${monster.name}\'s slithering silhouette, suppressing its evasion!',
-          ),
-        );
-      } else {
-        monster.evasion = min(80, monster.evasion + 20);
-        events.add(
-          SerpentSlithered(monsterName: monster.name, evasionBonus: 20),
-        );
-      }
-    } else if (intent.id == MonsterIntentId.squidInkShroudRecoil) {
+    // Serpent recoil changes range only; innate dodge never accumulates.
+    if (intent.id == MonsterIntentId.squidInkShroudRecoil) {
       if (monster.isIlluminatedByFlare) {
         events.add(
           NarrationEvent(
@@ -780,10 +768,6 @@ List<GameEvent> takeMonsterTurn(
           monster.species == MonsterSpecies.shark) {
         return trait;
       }
-      if (trait is SerpentSlitherTrait &&
-          monster.species == MonsterSpecies.serpent) {
-        return trait;
-      }
       if (trait is CarapaceTrait &&
           monster.species == MonsterSpecies.crustacean &&
           monster.carapacePlating < monster.maxCarapace) {
@@ -796,9 +780,6 @@ List<GameEvent> takeMonsterTurn(
     }
     if (monster.species == MonsterSpecies.shark) {
       return const SharkFrenzyTrait();
-    }
-    if (monster.species == MonsterSpecies.serpent) {
-      return const SerpentSlitherTrait();
     }
     if (monster.species == MonsterSpecies.crustacean &&
         monster.carapacePlating < monster.maxCarapace) {
@@ -823,8 +804,6 @@ List<GameEvent> takeMonsterTurn(
           stacks: monster.frenzyStacks,
         ),
       );
-    } else if (specialTrait is SerpentSlitherTrait) {
-      events.add(SerpentSlithered(monsterName: monster.name, evasionBonus: 20));
     } else if (msg.isNotEmpty) {
       events.add(NarrationEvent(msg));
     }

@@ -428,7 +428,7 @@ void main() {
       expect(jaws.damage, equals(20));
     });
 
-    test('serpent uses slither on special action, boosting evasion', () {
+    test('legacy serpent attacks instead of spending a turn boosting evasion', () {
       final tail = createMonsterWeapon(type: MonsterWeaponType.tail);
       final serpent = MonsterState(
         id: 'serpent-1',
@@ -453,11 +453,12 @@ void main() {
       );
 
       // d100 = 90 (> 80 -> triggers 20% special action chance)
-      final rng = QueueGameRng(d100Rolls: [90]);
+      final rng = QueueGameRng(d100Rolls: [90, 50, 100]);
       final events = takeMonsterTurn(serpent, ship, rng);
 
-      expect(serpent.evasion, equals(40)); // 20 + 20
-      expect(events.any((e) => e is SerpentSlithered), isTrue);
+      expect(serpent.evasion, equals(20));
+      expect(events.any((e) => e is SerpentSlithered), isFalse);
+      expect(events.whereType<AttackHit>(), isNotEmpty);
     });
   });
 

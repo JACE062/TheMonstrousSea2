@@ -202,7 +202,7 @@ final class SharkFrenzyDisrupted extends GameEvent {
   final String reason;
 }
 
-/// Serpent coiled and slithered, boosting evasion.
+/// Legacy slither event retained for consumers; current recoils only move range.
 final class SerpentSlithered extends GameEvent {
   const SerpentSlithered({
     required this.monsterName,

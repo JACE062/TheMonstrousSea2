@@ -19,7 +19,7 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | F | Specify and implement post-boss progression / Phase 4 | PT2-20, depends on A | Strongholds offer the agreed hull/mark upgrades and exactly scoped Master Refits, with run persistence and blueprint-specific choices. |
 | Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](#deferred-ui-art-and-icons); audit existing assets first. No image generation in this batch. |
 
-The Nemesis/death-ledger follow-up and continuity batch A are implemented. Next is B, starting with confirmed stacking Serpent evasion, then C. Player replay should verify the stronghold boundary alongside that combat work. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
+The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent evasion fix are implemented. Continue B with ink feedback, Kraken catastrophe damage and regional tentacle scaling, then C. Player replay should verify the stronghold boundary and fixed Serpent dodge alongside that combat work. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
 
 ## Opening and lineage
 
@@ -118,11 +118,10 @@ The Nemesis/death-ledger follow-up and continuity batch A are implemented. Next 
 
 ### PT2-12 — Apex Serpent evasion feels nearly unbeatable
 
-- **Reported:** Two deaths to an Apex Serpent that dodged almost everything while displaying 80% evasion; the player was unsure whether that meant 80% chance to hit.
-- **Follow-up observation:** Reviewing a fight showed evasion starting at 30%, later reaching 50%, then 80% before the ship sank. The buildup itself is the problem, not only an ambiguous initial label. The intent implementation adds 20 percentage points on recoil, capped at 80%, explaining how an Apex's starting 30% can accumulate toward that ceiling.
-- **Source finding:** [SerpentSlitherTrait](../packages/monstrous_core/lib/src/traits/trait.dart) uses evasion as a separate dodge roll after a successful accuracy roll. The intent path can raise evasion to 80%; a separate legacy special-action path caps it at 60%. At 85% final accuracy and 80% dodge, an uncountered shot connects only about 17% of the time. This is an explanation of the formula, not a reproduction of the exact runs.
-- **Investigation:** Audit buildup, duration/decay/reset, duplicate avoidance checks, and the discrepancy between paths. Verify accessible counterplay for Standard and other blueprints, including Pin and Spotter Flare interactions. Display weapon accuracy and target dodge as different concepts.
-- **Acceptance:** Seeded tests cover the actual combined connection rate and evasion transitions. Agree on a fair ceiling/counterplay before tuning; do not disguise a mechanical problem by relabeling 80% as hit chance.
+- **Status: Implemented; player replay pending.** Ordinary Serpents retain 20% innate dodge; Apex and World Serpents retain 30%. Recoil changes range without adding dodge. Both intent-driven and legacy special-action paths no longer accumulate evasion.
+- **Reported / reproduced before the fix:** The player observed 30 → 50 → 80% dodge. A seeded forced-recoil sequence reproduced 30 → 50 → 70 → 80 → 80%, persisting after an ordinary action. With 85% final accuracy and 80% dodge, an uncountered shot connected only 17% of the time.
+- **Accepted resolution:** Remove recoil's bonus entirely while preserving retreat. Pin halves innate dodge and prevents recoil movement for that turn; Spotter Flare suppresses dodge. The HUD displays effective **Dodge**, including Pin/Flare, separately from weapon accuracy. Intent text no longer promises an evasion boost.
+- **Verification:** Deterministic tests cover repeated recoils, the legacy path, counter expiration, actual hit/dodge roll combinations and the HUD. At Medium, an unblessed Standard cannon connects 68% against ordinary Serpents and 59.5% against Apex/World Serpents; Pin raises these to 76.5%/72.25%, and Flare reaches the 95% accuracy cap. Range penalties and other modifiers still apply. See the [verification receipts](archive/README.md#later-verification-receipts) for the seeded voyage comparison and limits.
 
 ### PT2-13 — Apex names are overlong
 

@@ -461,7 +461,7 @@ class MonsterState extends Combatant {
   /// Shark damage ramping frenzy stacks (+25% damage per stack, disrupted by shock/stun).
   int frenzyStacks;
 
-  /// Evasion chance percentage (e.g. Serpent slither).
+  /// Innate dodge chance percentage; Serpent recoil does not increase it.
   int evasion;
 
   /// Telegraphed intention for the current combat round.
@@ -498,6 +498,11 @@ class MonsterState extends Combatant {
   int burnTurns;
 
   bool get isIlluminatedByFlare => spotterFlareTurns > 0;
+
+  /// Dodge chance after Pin and Spotter Flare, shared by combat and the HUD.
+  int get effectiveEvasion => isIlluminatedByFlare
+      ? 0
+      : (isPinnedThisTurn ? evasion ~/ 2 : evasion);
 
   int get effectiveArmorClass => (isObscured && !isIlluminatedByFlare)
       ? armorClass + obscuredAcMod

@@ -129,7 +129,7 @@ abstract final class MonsterIntentLore {
     name: 'Venomous Spit-Volley',
     subtitle: 'Hits Med & Long • Retreats 1 Band After',
     description: 'Hurls globules of blinding neuro-venom across outer ranges before slithering backward into the mist.',
-    tacticalTip: 'Hits Medium & Long Range (Safe at Short), then retreats 1 band farther and gains +20% Evasion. Chase or Harpoon it!',
+    tacticalTip: 'Hits Medium & Long Range (Safe at Short), then retreats 1 band farther without gaining dodge. Pin halves its innate dodge and prevents retreat; Spotter Flare suppresses dodge.',
     telegraphLog: 'flares its hood and hisses, preparing a Venomous Spit-Volley before recoiling!',
   );
 

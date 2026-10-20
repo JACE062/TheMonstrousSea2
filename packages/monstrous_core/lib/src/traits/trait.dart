@@ -330,28 +330,12 @@ class SerpentSlitherTrait extends CombatTrait {
   ) {
     if (defender is MonsterState &&
         result.didHit &&
-        defender.evasion > 0 &&
-        !defender.isIlluminatedByFlare) {
-      final effectiveEvasion = defender.isPinnedThisTurn
-          ? (defender.evasion ~/ 2)
-          : defender.evasion;
-      if (effectiveEvasion > 0) {
-        final roll = rng.d100();
-        if (roll <= effectiveEvasion) {
-          result.wasEvaded = true;
-        }
+        defender.effectiveEvasion > 0) {
+      final effectiveEvasion = defender.effectiveEvasion;
+      final roll = rng.d100();
+      if (roll <= effectiveEvasion) {
+        result.wasEvaded = true;
       }
     }
-  }
-
-  @override
-  String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
-    if (actor is MonsterState &&
-        (actor.species == MonsterSpecies.serpent ||
-            actor.species == MonsterSpecies.worldSerpent)) {
-      actor.evasion = (actor.evasion + 20).clamp(0, 60);
-      return '${actor.name} coils beneath the crest of the waves, slithering into an evasive glide!';
-    }
-    return '';
   }
 }

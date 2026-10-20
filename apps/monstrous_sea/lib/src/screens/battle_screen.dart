@@ -348,7 +348,7 @@ class _BattleScreenState extends State<BattleScreen> {
                           'Danger Level ${monster.level}'
                           '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
                           '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
-                          '${monster.evasion > 0 && monster.spotterFlareTurns <= 0 ? ' • Evade: ${monster.evasion}%' : ''}'
+                          '${monster.evasion > 0 ? ' • Dodge: ${monster.effectiveEvasion}%' : ''}'
                           '${monster.isPinnedThisTurn ? ' • Pinned' : ''}'
                           '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'
                           '${ship.activeTetherTrapDistance != null ? ' • 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}' : ''}',
