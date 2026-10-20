@@ -26,9 +26,11 @@ class CombatLogView extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      child: Column(
+      child: LayoutBuilder(builder: (context, bounds) => Column(
         children: [
           // Header legend differentiating the sides
+          // On short windows the latest entry needs the available reading room.
+          if (bounds.maxHeight >= 60) ...[
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
             child: LayoutBuilder(
@@ -102,6 +104,7 @@ class CombatLogView extends StatelessWidget {
           ),
           const Divider(height: 1, thickness: 0.8),
           const SizedBox(height: 4),
+          ],
           Expanded(
             child: entries.isEmpty
                 ? Center(
@@ -132,7 +135,7 @@ class CombatLogView extends StatelessWidget {
                   ),
           ),
         ],
-      ),
+      )),
     );
   }
 

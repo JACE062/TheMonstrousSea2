@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
@@ -18,7 +19,6 @@ class DeathScreen extends StatefulWidget {
 
 class _DeathScreenState extends State<DeathScreen> {
   late final TextEditingController _heirNameController;
-  ShipClass _chosenClass = ShipClass.standard;
   int _selectedCandidateIndex = 0;
 
   @override
@@ -26,7 +26,9 @@ class _DeathScreenState extends State<DeathScreen> {
     super.initState();
     final candidates = widget.controller.pendingHeirCandidates;
     if (candidates.isNotEmpty) {
-      _heirNameController = TextEditingController(text: candidates.first.defaultName);
+      _heirNameController = TextEditingController(
+        text: candidates.first.defaultName,
+      );
     } else {
       final prevName = widget.controller.captainName;
       _heirNameController = TextEditingController(
@@ -45,24 +47,38 @@ class _DeathScreenState extends State<DeathScreen> {
     final name = _heirNameController.text.trim();
     if (name.isEmpty) return;
     final candidates = widget.controller.pendingHeirCandidates;
-    final selected = (candidates.isNotEmpty &&
+    final selected =
+        (candidates.isNotEmpty &&
             _selectedCandidateIndex >= 0 &&
             _selectedCandidateIndex < candidates.length)
         ? candidates[_selectedCandidateIndex]
         : null;
-    widget.controller.dispatch(ContinueLineage(
-      name,
-      _chosenClass,
-      boon: selected?.boon,
-      quirk: selected?.quirk,
-    ));
+    final profile = widget.controller.profile;
+    final blueprint =
+        BlueprintId.values
+            .where(
+              (id) =>
+                  id.name == profile.activeBlueprintId &&
+                  profile.isBlueprintUnlocked(id),
+            )
+            .firstOrNull ??
+        BlueprintId.standard;
+    widget.controller.dispatch(
+      ContinueLineage(
+        name,
+        blueprint.shipClass,
+        boon: selected?.boon,
+        quirk: selected?.quirk,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final lineage = widget.controller.lineage;
     final lastRecord = lineage.history.isNotEmpty ? lineage.history.last : null;
-    final isFreighter = widget.controller.ship?.shipClass == ShipClass.freighter;
+    final isFreighter =
+        widget.controller.ship?.shipClass == ShipClass.freighter;
     final nemesis = widget.controller.activeNemesis;
     final candidates = widget.controller.pendingHeirCandidates;
 
@@ -100,7 +116,10 @@ class _DeathScreenState extends State<DeathScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('CAPTAIN\'S DEMISE LEDGER', style: InkTheme.statLabel),
+                      Text(
+                        'CAPTAIN\'S DEMISE LEDGER',
+                        style: InkTheme.statLabel,
+                      ),
                       const SizedBox(height: 10),
                       if (lastRecord != null) ...[
                         Text(
@@ -108,9 +127,20 @@ class _DeathScreenState extends State<DeathScreen> {
                           style: InkTheme.titleMedium.copyWith(fontSize: 22),
                         ),
                         const SizedBox(height: 6),
-                        Text('Fell to: ${lastRecord.causeOfDeath}', style: InkTheme.bodyBold.copyWith(color: InkTheme.crimsonAccent)),
-                        Text('Monsters Defeated in Life: ${lastRecord.monstersDefeated}', style: InkTheme.body),
-                        Text('Highest Danger Level Reached: ${lastRecord.highestDifficultyReached}', style: InkTheme.body),
+                        Text(
+                          'Fell to: ${lastRecord.causeOfDeath}',
+                          style: InkTheme.bodyBold.copyWith(
+                            color: InkTheme.crimsonAccent,
+                          ),
+                        ),
+                        Text(
+                          'Monsters Defeated in Life: ${lastRecord.monstersDefeated}',
+                          style: InkTheme.body,
+                        ),
+                        Text(
+                          'Highest Danger Level Reached: ${lastRecord.highestDifficultyReached}',
+                          style: InkTheme.body,
+                        ),
                       ],
                       const Divider(height: 20),
                       Text(
@@ -129,7 +159,10 @@ class _DeathScreenState extends State<DeathScreen> {
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: InkTheme.crimsonAccent.withValues(alpha: 0.12),
-                      border: Border.all(color: InkTheme.crimsonAccent, width: 2),
+                      border: Border.all(
+                        color: InkTheme.crimsonAccent,
+                        width: 2,
+                      ),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Column(
@@ -137,7 +170,11 @@ class _DeathScreenState extends State<DeathScreen> {
                       children: [
                         Row(
                           children: [
-                            const Icon(Icons.warning_amber_rounded, color: InkTheme.crimsonAccent, size: 24),
+                            const Icon(
+                              Icons.warning_amber_rounded,
+                              color: InkTheme.crimsonAccent,
+                              size: 24,
+                            ),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
@@ -161,7 +198,10 @@ class _DeathScreenState extends State<DeathScreen> {
                           'The beast grows more cunning and ruthless in the deep. Confront it on a future voyage to avenge your ancestor.',
                           style: InkTheme.body,
                         ),
-                        const Divider(height: 16, color: InkTheme.crimsonAccent),
+                        const Divider(
+                          height: 16,
+                          color: InkTheme.crimsonAccent,
+                        ),
                         Wrap(
                           crossAxisAlignment: WrapCrossAlignment.center,
                           spacing: 4,
@@ -169,11 +209,16 @@ class _DeathScreenState extends State<DeathScreen> {
                           children: [
                             Text(
                               'Vengeance Bounty: ',
-                              style: InkTheme.caption.copyWith(fontWeight: FontWeight.bold),
+                              style: InkTheme.caption.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             Text(
                               '+${nemesis.bountyGold} Gold • +${nemesis.bountySeaGlass} Sea Glass • +${nemesis.bountyMonsterBone} Monster Bone • +${nemesis.bountyBarnacles} Barnacles',
-                              style: InkTheme.caption.copyWith(color: InkTheme.goldAccent, fontWeight: FontWeight.bold),
+                              style: InkTheme.caption.copyWith(
+                                color: InkTheme.goldAccent,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
@@ -193,8 +238,10 @@ class _DeathScreenState extends State<DeathScreen> {
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: Text(
-                      '★ Freighter Safe Stash Salvaged! The next heir will inherit 5% of accumulated gold and stashed cargo hold items.',
-                      style: InkTheme.bodyBold.copyWith(color: InkTheme.goldAccent),
+                      'Freighter Safe Stash Salvaged! The next heir will inherit 5% of accumulated gold and saved tactical belt provisions.',
+                      style: InkTheme.bodyBold.copyWith(
+                        color: InkTheme.goldAccent,
+                      ),
                     ),
                   ),
 
@@ -223,19 +270,25 @@ class _DeathScreenState extends State<DeathScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(14),
                             decoration: BoxDecoration(
-                              color: isSelected ? InkTheme.parchmentHighlight : InkTheme.parchmentSurface,
+                              color: isSelected
+                                  ? InkTheme.parchmentHighlight
+                                  : InkTheme.parchmentSurface,
                               border: Border.all(
-                                color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
+                                color: isSelected
+                                    ? InkTheme.goldAccent
+                                    : InkTheme.inkMuted,
                                 width: isSelected ? 2.5 : 1,
                               ),
                               borderRadius: BorderRadius.circular(6),
                               boxShadow: isSelected
                                   ? [
                                       BoxShadow(
-                                        color: InkTheme.goldAccent.withValues(alpha: 0.25),
+                                        color: InkTheme.goldAccent.withValues(
+                                          alpha: 0.25,
+                                        ),
                                         blurRadius: 8,
                                         offset: const Offset(0, 2),
-                                      )
+                                      ),
                                     ]
                                   : null,
                             ),
@@ -243,7 +296,8 @@ class _DeathScreenState extends State<DeathScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Expanded(
                                       child: Text(
@@ -251,18 +305,29 @@ class _DeathScreenState extends State<DeathScreen> {
                                         style: InkTheme.titleMedium.copyWith(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
-                                          color: isSelected ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+                                          color: isSelected
+                                              ? InkTheme.crimsonAccent
+                                              : InkTheme.inkPrimary,
                                         ),
                                       ),
                                     ),
                                     if (isSelected) ...[
                                       const SizedBox(width: 8),
                                       Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 2,
+                                        ),
                                         decoration: BoxDecoration(
-                                          color: InkTheme.goldAccent.withValues(alpha: 0.2),
-                                          border: Border.all(color: InkTheme.goldAccent),
-                                          borderRadius: BorderRadius.circular(4),
+                                          color: InkTheme.goldAccent.withValues(
+                                            alpha: 0.2,
+                                          ),
+                                          border: Border.all(
+                                            color: InkTheme.goldAccent,
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            4,
+                                          ),
                                         ),
                                         child: Text(
                                           'SELECTED',
@@ -281,10 +346,17 @@ class _DeathScreenState extends State<DeathScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 6,
+                                        vertical: 2,
+                                      ),
                                       decoration: BoxDecoration(
-                                        color: Colors.blue.withValues(alpha: 0.15),
-                                        border: Border.all(color: Colors.blue.shade700),
+                                        color: Colors.blue.withValues(
+                                          alpha: 0.15,
+                                        ),
+                                        border: Border.all(
+                                          color: Colors.blue.shade700,
+                                        ),
                                         borderRadius: BorderRadius.circular(4),
                                       ),
                                       child: Text(
@@ -299,10 +371,17 @@ class _DeathScreenState extends State<DeathScreen> {
                                     const SizedBox(width: 8),
                                     Expanded(
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(candidate.boon.name, style: InkTheme.bodyBold),
-                                          Text(candidate.boon.description, style: InkTheme.caption),
+                                          Text(
+                                            candidate.boon.name,
+                                            style: InkTheme.bodyBold,
+                                          ),
+                                          Text(
+                                            candidate.boon.description,
+                                            style: InkTheme.caption,
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -314,10 +393,17 @@ class _DeathScreenState extends State<DeathScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 6,
+                                        vertical: 2,
+                                      ),
                                       decoration: BoxDecoration(
-                                        color: Colors.deepOrange.withValues(alpha: 0.15),
-                                        border: Border.all(color: Colors.deepOrange.shade700),
+                                        color: Colors.deepOrange.withValues(
+                                          alpha: 0.15,
+                                        ),
+                                        border: Border.all(
+                                          color: Colors.deepOrange.shade700,
+                                        ),
                                         borderRadius: BorderRadius.circular(4),
                                       ),
                                       child: Text(
@@ -332,10 +418,17 @@ class _DeathScreenState extends State<DeathScreen> {
                                     const SizedBox(width: 8),
                                     Expanded(
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(candidate.quirk.name, style: InkTheme.bodyBold),
-                                          Text(candidate.quirk.description, style: InkTheme.caption),
+                                          Text(
+                                            candidate.quirk.name,
+                                            style: InkTheme.bodyBold,
+                                          ),
+                                          Text(
+                                            candidate.quirk.description,
+                                            style: InkTheme.caption,
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -351,12 +444,15 @@ class _DeathScreenState extends State<DeathScreen> {
                   const SizedBox(height: 16),
                 ],
 
-                // Heir Name & Ship Selection
+                // Heir name; ancestral blueprint changes belong at the home port
                 ParchmentCard(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('PROCLAIM HEIR TO THE BLOODLINE', style: InkTheme.statLabel),
+                      Text(
+                        'PROCLAIM HEIR TO THE BLOODLINE',
+                        style: InkTheme.statLabel,
+                      ),
                       const SizedBox(height: 8),
                       TextField(
                         controller: _heirNameController,
@@ -369,40 +465,9 @@ class _DeathScreenState extends State<DeathScreen> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      Text('HEIR\'S COMMISSIONED CLASS', style: InkTheme.statLabel),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: ShipClass.values.map((sClass) {
-                          final isSelected = _chosenClass == sClass;
-                          return Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                              child: InkWell(
-                                onTap: () => setState(() => _chosenClass = sClass),
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(vertical: 8),
-                                  decoration: BoxDecoration(
-                                    color: isSelected ? InkTheme.parchmentHighlight : InkTheme.parchmentSurface,
-                                    border: Border.all(
-                                      color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
-                                      width: isSelected ? 2 : 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    sClass.name.toUpperCase(),
-                                    style: InkTheme.statLabel.copyWith(
-                                      fontSize: 13,
-                                      fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
-                                      color: isSelected ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        }).toList(),
+                      Text(
+                        'The Bloodbound Ship returns to the home port. Prepare the next voyage there and choose from your unlocked ancestral blueprints.',
+                        style: InkTheme.body.copyWith(fontSize: 15),
                       ),
                     ],
                   ),
@@ -424,7 +489,8 @@ class _DeathScreenState extends State<DeathScreen> {
                       child: InkButton(
                         label: 'ABANDON HUNT',
                         isDanger: true,
-                        onPressed: () => widget.controller.dispatch(const AbandonHunt()),
+                        onPressed: () =>
+                            widget.controller.dispatch(const AbandonHunt()),
                       ),
                     ),
                   ],
@@ -437,4 +503,3 @@ class _DeathScreenState extends State<DeathScreen> {
     );
   }
 }
-

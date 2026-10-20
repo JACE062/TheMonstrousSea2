@@ -28,8 +28,10 @@ class VoyageSaveData {
     this.onSaleMerchantIndex,
     this.gunneryAccuracyBoon = 0,
     this.runicGuidanceBoon = 0,
-  })  : pendingLoot = pendingLoot ?? <Item>[],
-        merchantStock = merchantStock ?? <Item>[];
+    this.seaChartState,
+    this.hasDefeatedCurrentEncounter = false,
+  }) : pendingLoot = pendingLoot ?? <Item>[],
+       merchantStock = merchantStock ?? <Item>[];
 
   factory VoyageSaveData.fromJson(Map<String, dynamic> json) {
     final shipJson = json['ship'] as Map<String, dynamic>;
@@ -75,6 +77,10 @@ class VoyageSaveData {
       onSaleMerchantIndex: json['onSaleMerchantIndex'] as int?,
       gunneryAccuracyBoon: json['gunneryAccuracyBoon'] as int? ?? 0,
       runicGuidanceBoon: json['runicGuidanceBoon'] as int? ?? 0,
+      seaChartState: json['seaChartState'] as Map<String, dynamic>?,
+      hasDefeatedCurrentEncounter:
+          json['hasDefeatedCurrentEncounter'] as bool? ??
+          phase == SessionPhase.restArea,
     );
   }
 
@@ -95,26 +101,30 @@ class VoyageSaveData {
   final int? onSaleMerchantIndex;
   final int gunneryAccuracyBoon;
   final int runicGuidanceBoon;
+  final Map<String, dynamic>? seaChartState;
+  final bool hasDefeatedCurrentEncounter;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'captainName': captainName,
-        'ship': ship.toJson(),
-        'regionIndex': regionIndex,
-        'currentRow': currentRow,
-        'currentCol': currentCol,
-        'timesCompleted': timesCompleted,
-        'activeBoonId': activeBoonId?.name,
-        'activeQuirkId': activeQuirkId?.name,
-        'phase': phase.name,
-        'battleRound': battleRound,
-        'monstersDefeatedThisLife': monstersDefeatedThisLife,
-        'highestDifficultyThisLife': highestDifficultyThisLife,
-        'pendingLoot': pendingLoot.map((e) => e.toJson()).toList(),
-        'merchantStock': merchantStock.map((e) => e.toJson()).toList(),
-        'onSaleMerchantIndex': onSaleMerchantIndex,
-        'gunneryAccuracyBoon': gunneryAccuracyBoon,
-        'runicGuidanceBoon': runicGuidanceBoon,
-      };
+    'captainName': captainName,
+    'ship': ship.toJson(),
+    'regionIndex': regionIndex,
+    'currentRow': currentRow,
+    'currentCol': currentCol,
+    'timesCompleted': timesCompleted,
+    'activeBoonId': activeBoonId?.name,
+    'activeQuirkId': activeQuirkId?.name,
+    'phase': phase.name,
+    'battleRound': battleRound,
+    'monstersDefeatedThisLife': monstersDefeatedThisLife,
+    'highestDifficultyThisLife': highestDifficultyThisLife,
+    'pendingLoot': pendingLoot.map((e) => e.toJson()).toList(),
+    'merchantStock': merchantStock.map((e) => e.toJson()).toList(),
+    'onSaleMerchantIndex': onSaleMerchantIndex,
+    'gunneryAccuracyBoon': gunneryAccuracyBoon,
+    'runicGuidanceBoon': runicGuidanceBoon,
+    'seaChartState': seaChartState,
+    'hasDefeatedCurrentEncounter': hasDefeatedCurrentEncounter,
+  };
 
   /// Constructs a [VoyageSaveData] snapshot from an active [GameSession].
   factory VoyageSaveData.fromSession(GameSession session) {
@@ -139,6 +149,10 @@ class VoyageSaveData {
       onSaleMerchantIndex: session.onSaleMerchantIndex,
       gunneryAccuracyBoon: session.gunneryAccuracyBoon,
       runicGuidanceBoon: session.runicGuidanceBoon,
+      seaChartState: session.seaChart.toJson(),
+      hasDefeatedCurrentEncounter:
+          session.hasDefeatedCurrentEncounter ||
+          session.currentMonster?.isAlive == false,
     );
   }
 
@@ -149,6 +163,20 @@ class VoyageSaveData {
     session.seaChart.timesCompleted = timesCompleted;
     session.seaChart.currentRow = currentRow;
     session.seaChart.currentCol = currentCol;
+    if (seaChartState != null) {
+      session.seaChart.restoreFromJson(seaChartState!);
+    } else {
+      // Older saves only recorded grid coordinates. Preserve their best-known
+      // progress; subsequent steps use the authoritative voyage leg counter.
+      session.seaChart.currentLeg = phase == SessionPhase.port
+          ? 0
+          : (currentRow * 5 + currentCol + 1).clamp(
+              1,
+              session.seaChart.totalLegs,
+            );
+    }
+    session.profile.hasBegunFirstVoyage = true;
+    session.hasDefeatedCurrentEncounter = hasDefeatedCurrentEncounter;
     session.phase = phase;
     session.battleRound = battleRound;
     session.monstersDefeatedThisLife = monstersDefeatedThisLife;

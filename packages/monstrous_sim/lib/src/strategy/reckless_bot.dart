@@ -17,7 +17,8 @@ class RecklessBot implements BotStrategy {
         if (session.captainName.isEmpty) {
           return const NameCaptain('Captain Reckless');
         }
-        return const ChooseShip(ShipClass.ironclad);
+        return ChooseShip(session.profile.isBlueprintUnlocked(BlueprintId.ironclad)
+            ? BlueprintId.ironclad.shipClass : ShipClass.standard);
 
       case SessionPhase.port:
         final ship = session.ship;
@@ -46,7 +47,7 @@ class RecklessBot implements BotStrategy {
 
       case SessionPhase.battle:
         final ship = session.ship!;
-        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
+        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable && !item.isDepleted);
         if (!session.usedQuickConsumableThisTurn && consumableIndex >= 0) {
           return UseConsumableItem(consumableIndex);
         }

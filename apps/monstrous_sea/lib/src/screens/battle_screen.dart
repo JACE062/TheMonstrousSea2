@@ -1,6 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../battle/monstrous_sea_battle_game.dart';
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
@@ -36,7 +37,9 @@ class _BattleScreenState extends State<BattleScreen> {
     if (!mounted) return;
     final status = _statusKey.currentContext?.findRenderObject() as RenderBox?;
     final dock = _dockKey.currentContext?.findRenderObject() as RenderBox?;
-    if (status == null || dock == null || !status.hasSize || !dock.hasSize) return;
+    if (status == null || dock == null || !status.hasSize || !dock.hasSize) {
+      return;
+    }
     _battleGame.setArenaInsets(
       top: 16 + status.size.height + 9,
       bottom: 16 + dock.size.height + 9,
@@ -46,10 +49,12 @@ class _BattleScreenState extends State<BattleScreen> {
   @override
   void initState() {
     super.initState();
-    _battleGame = widget.game ?? MonstrousSeaBattleGame(
-      ship: widget.controller.ship!,
-      monster: widget.controller.currentMonster!,
-    );
+    _battleGame =
+        widget.game ??
+        MonstrousSeaBattleGame(
+          ship: widget.controller.ship!,
+          monster: widget.controller.currentMonster!,
+        );
   }
 
   @override
@@ -61,7 +66,9 @@ class _BattleScreenState extends State<BattleScreen> {
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted && _logScrollController.hasClients) {
-        _logScrollController.jumpTo(_logScrollController.position.maxScrollExtent);
+        _logScrollController.jumpTo(
+          _logScrollController.position.maxScrollExtent,
+        );
       }
     });
   }
@@ -88,12 +95,14 @@ class _BattleScreenState extends State<BattleScreen> {
     return switch (bpId) {
       BlueprintId.ironclad =>
         'Fortify Iron Plates (2T CD): Permanently adds +${(ship.dmgReductionMod * mult).round()} Damage Reduction for this battle and anchors your hull against forced push/pull this round.',
-      BlueprintId.clipper =>
-        'Evasive Rigging (2T CD): Doubles current Evasion until next dodge and shifts 1 range band away from the monster.',
+      BlueprintId.clipper => 'Evasive Rigging (2T CD): Doubles current Evasion until next dodge and shifts 1 range band away from the monster.',
       BlueprintId.corsair =>
-        'Drifting Tether-Trap (2T CD): Launches a floating tether-mine 1 band ahead (${previewRange == CombatRange.short ? 'Instant detonation at Short!' : previewRange == CombatRange.medium ? 'Sets at distance 1' : 'Sets at distance 2'}). Detonates for ${(16 + 5 * (ship.level - 1) * mult).round()} Slicing damage and Pins the beast (1T).',
-      BlueprintId.bombardier =>
-        'Phosphor Spotter Flare (2T CD): Illuminates the monster for 2 turns — clears Obscured, suppresses monster Evasion to 0%, grants +15% Accuracy, and increases Blast damage taken by +25%.',
+        'Drifting Tether-Trap (2T CD): Launches a floating tether-mine 1 band ahead (${previewRange == CombatRange.short
+            ? 'Instant detonation at Short!'
+            : previewRange == CombatRange.medium
+            ? 'Sets at distance 1'
+            : 'Sets at distance 2'}). Detonates for ${(16 + 5 * (ship.level - 1) * mult).round()} Slicing damage and Pins the beast (1T).',
+      BlueprintId.bombardier => 'Phosphor Spotter Flare (2T CD): Illuminates the monster for 2 turns — clears Obscured, suppresses monster Evasion to 0%, grants +15% Accuracy, and increases Blast damage taken by +25%.',
       _ =>
         'Gunnery Drill (2T CD): Reduces incoming damage by ${(20 * mult).round()}% this round and empowers your next offensive volley with +15% Accuracy and +${(20 * mult).round()}% Damage.',
     };
@@ -106,7 +115,8 @@ class _BattleScreenState extends State<BattleScreen> {
       _isActionLocked = true;
     });
 
-    final isTurnEndingAction = command is FireWeaponVolley ||
+    final isTurnEndingAction =
+        command is FireWeaponVolley ||
         command is ExecuteShipSpecialAction ||
         command is BraceForImpact;
     final isCombatAction = isTurnEndingAction || command is UseConsumableItem;
@@ -116,22 +126,24 @@ class _BattleScreenState extends State<BattleScreen> {
     // If an advance or fall back order was selected, execute helm order before turn-ending actions
     final currentRange = widget.controller.combatRange;
     final isGrappled = widget.controller.ship?.isGrappled ?? false;
-    final activeOrder = (!isGrappled &&
+    final activeOrder =
+        (!isGrappled &&
             currentRange.availableHelmOrders.contains(_selectedHelmOrder))
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
 
     if (activeOrder != HelmOrder.holdLine && isTurnEndingAction) {
-      events.addAll(widget.controller.dispatch(
-        IssueHelmOrder(activeOrder),
-        deferNotification: true,
-      ));
+      events.addAll(
+        widget.controller.dispatch(
+          IssueHelmOrder(activeOrder),
+          deferNotification: true,
+        ),
+      );
     }
 
-    events.addAll(widget.controller.dispatch(
-      command,
-      deferNotification: isCombatAction,
-    ));
+    events.addAll(
+      widget.controller.dispatch(command, deferNotification: isCombatAction),
+    );
 
     if (isTurnEndingAction) {
       // Reset selected helm order to holdLine for subsequent round
@@ -172,30 +184,36 @@ class _BattleScreenState extends State<BattleScreen> {
     }
 
     final currentRange = widget.controller.combatRange;
-    final activeHelmOrder = (!ship.isGrappled &&
+    final activeHelmOrder =
+        (!ship.isGrappled &&
             currentRange.availableHelmOrders.contains(_selectedHelmOrder))
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
     final previewRange = currentRange.rangeAfterHelmOrder(activeHelmOrder);
     final canFireAnyWeapon = ship.equippedWeaponTypes.any((type) {
-      final ready = ship.equippedWeapons.where((w) => w.weaponType == type).any((w) => w.isReady);
+      final ready = ship.equippedWeapons
+          .where((w) => w.weaponType == type)
+          .any((w) => w.isReady);
       final usable = isWeaponTypeUsableAtRange(type, previewRange);
       return ready && usable;
     });
 
     final maxQuickBeltUses =
-        widget.controller.activeBoon?.id == BloodlineTraitId.drillmaster ? 2 : 1;
+        widget.controller.activeBoon?.id == BloodlineTraitId.drillmaster
+        ? 2
+        : 1;
     final quickUsed = widget.controller.session.quickConsumablesUsedThisTurn;
     final canUseQuickBelt = quickUsed < maxQuickBeltUses;
+    // Quick items and helm orders cannot end the turn. Keep an emergency pass
+    // only when every offensive and utility hardpoint is unavailable.
+    final needsEmergencyPass = !canFireAnyWeapon && !ship.isUtilityReady;
 
     return ParchmentScaffold(
       showBorder: false,
       body: Stack(
         children: [
           // 1. Flame 2D Battle Arena
-          Positioned.fill(
-            child: GameWidget(game: _battleGame),
-          ),
+          Positioned.fill(child: GameWidget(game: _battleGame)),
 
           // 2. Top HUD: Combatant Vitality & Stats
           Positioned(
@@ -209,23 +227,32 @@ class _BattleScreenState extends State<BattleScreen> {
                 // Ship Status Panel (Left)
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 8,
+                    ),
                     decoration: BoxDecoration(
                       color: InkTheme.parchmentSurface.withValues(alpha: 0.9),
-                      border: Border.all(color: InkTheme.inkPrimary, width: 1.5),
+                      border: Border.all(
+                        color: InkTheme.inkPrimary,
+                        width: 1.5,
+                      ),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(ship.name, style: InkTheme.titleMedium.copyWith(fontSize: 20)),
+                        Text(
+                          ship.name,
+                          style: InkTheme.titleMedium.copyWith(fontSize: 20),
+                        ),
                         Text(
                           'Level ${ship.level} ${ship.shipClass.name.toUpperCase()}'
                           '${ship.currentDmgReduction > 0 ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
                           '${ship.currentEvasion > 0 ? ' • Evade: ${ship.currentEvasion}%' : ''}'
-                          '${ship.isAnchoredThisTurn ? ' • ⚓ Anchored' : ''}'
-                          '${ship.gunneryDrillBuffActive ? ' • 🎯 Drill Ready (+15% Hit/+20% Dmg)' : ''}'
-                          '${ship.pitchCoatingActive ? ' • 🔥 Pitch Coated (+25% Fire/Burn)' : ''}',
+                          '${ship.isAnchoredThisTurn ? ' • Anchored' : ''}'
+                          '${ship.gunneryDrillBuffActive ? ' • Drill Ready (+15% Accuracy/+20% Damage)' : ''}'
+                          '${ship.pitchCoatingActive ? ' • Pitch Coated (+25% Fire/Burn)' : ''}',
                           style: InkTheme.caption,
                         ),
                         const SizedBox(height: 8),
@@ -240,11 +267,15 @@ class _BattleScreenState extends State<BattleScreen> {
                 // Monster Status Panel (Right)
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 8,
+                    ),
                     decoration: BoxDecoration(
                       color: InkTheme.parchmentSurface.withValues(alpha: 0.9),
                       border: Border.all(
-                        color: (monster.isApex || monster.name.contains('Kraken'))
+                        color:
+                            (monster.isApex || monster.name.contains('Kraken'))
                             ? InkTheme.crimsonAccent
                             : InkTheme.inkPrimary,
                         width: 1.5,
@@ -264,7 +295,9 @@ class _BattleScreenState extends State<BattleScreen> {
                                 overflow: TextOverflow.ellipsis,
                                 style: InkTheme.titleMedium.copyWith(
                                   fontSize: 20,
-                                  color: (monster.isApex || monster.name.contains('Kraken'))
+                                  color:
+                                      (monster.isApex ||
+                                          monster.name.contains('Kraken'))
                                       ? InkTheme.crimsonAccent
                                       : InkTheme.inkPrimary,
                                 ),
@@ -273,7 +306,10 @@ class _BattleScreenState extends State<BattleScreen> {
                             if (monster.isApex)
                               Container(
                                 margin: const EdgeInsets.only(right: 4),
-                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 6,
+                                  vertical: 2,
+                                ),
                                 decoration: BoxDecoration(
                                   color: InkTheme.crimsonAccent,
                                   borderRadius: BorderRadius.circular(2),
@@ -289,7 +325,10 @@ class _BattleScreenState extends State<BattleScreen> {
                               ),
                             if (monster.isObscured)
                               Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 6,
+                                  vertical: 2,
+                                ),
                                 decoration: BoxDecoration(
                                   color: InkTheme.inkPrimary,
                                   borderRadius: BorderRadius.circular(2),
@@ -310,7 +349,7 @@ class _BattleScreenState extends State<BattleScreen> {
                           '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
                           '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
                           '${monster.evasion > 0 && monster.spotterFlareTurns <= 0 ? ' • Evade: ${monster.evasion}%' : ''}'
-                          '${monster.isPinnedThisTurn ? ' • ⛓️ Pinned' : ''}'
+                          '${monster.isPinnedThisTurn ? ' • Pinned' : ''}'
                           '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'
                           '${ship.activeTetherTrapDistance != null ? ' • 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}' : ''}',
                           style: InkTheme.caption,
@@ -328,13 +367,15 @@ class _BattleScreenState extends State<BattleScreen> {
                           if (monster.carapacePlating > 0) ...[
                             Semantics(
                               label: 'Carapace Armor Plating',
-                              value: '${monster.carapacePlating} of ${monster.maxCarapace} plating intact. Deflects non-blast attacks.',
+                              value:
+                                  '${monster.carapacePlating} of ${monster.maxCarapace} plating intact. Deflects non-blast attacks.',
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Flexible(
                                         child: Text(
@@ -363,19 +404,28 @@ class _BattleScreenState extends State<BattleScreen> {
                                         height: 14,
                                         decoration: BoxDecoration(
                                           color: InkTheme.parchmentDark,
-                                          borderRadius: BorderRadius.circular(2),
-                                          border: Border.all(color: const Color(0xFF6B4226), width: 1.2),
+                                          borderRadius: BorderRadius.circular(
+                                            2,
+                                          ),
+                                          border: Border.all(
+                                            color: const Color(0xFF6B4226),
+                                            width: 1.2,
+                                          ),
                                         ),
                                       ),
                                       FractionallySizedBox(
                                         widthFactor: monster.maxCarapace > 0
-                                            ? (monster.carapacePlating / monster.maxCarapace).clamp(0.0, 1.0)
+                                            ? (monster.carapacePlating /
+                                                      monster.maxCarapace)
+                                                  .clamp(0.0, 1.0)
                                             : 0.0,
                                         child: Container(
                                           height: 14,
                                           decoration: BoxDecoration(
                                             color: const Color(0xFF8B5A2B),
-                                            borderRadius: BorderRadius.circular(1.5),
+                                            borderRadius: BorderRadius.circular(
+                                              1.5,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -396,16 +446,28 @@ class _BattleScreenState extends State<BattleScreen> {
                             ),
                           ] else ...[
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
                               decoration: BoxDecoration(
-                                color: InkTheme.crimsonAccent.withValues(alpha: 0.12),
-                                border: Border.all(color: InkTheme.crimsonAccent, width: 1.2),
+                                color: InkTheme.crimsonAccent.withValues(
+                                  alpha: 0.12,
+                                ),
+                                border: Border.all(
+                                  color: InkTheme.crimsonAccent,
+                                  width: 1.2,
+                                ),
                                 borderRadius: BorderRadius.circular(3),
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.shield_outlined, size: 14, color: InkTheme.crimsonAccent),
+                                  Icon(
+                                    Icons.shield_outlined,
+                                    size: 14,
+                                    color: InkTheme.crimsonAccent,
+                                  ),
                                   const SizedBox(width: 6),
                                   Flexible(
                                     child: Text(
@@ -452,15 +514,25 @@ class _BattleScreenState extends State<BattleScreen> {
                     Builder(
                       builder: (ctx) {
                         final screenHeight = MediaQuery.of(ctx).size.height;
-                        final logHeight = (screenHeight * (screenHeight <= 650 ? 0.11 : 0.16)).clamp(60.0, 200.0);
+                        final logHeight =
+                            (screenHeight * (screenHeight <= 650 ? 0.08 : 0.16))
+                                .clamp(48.0, 200.0);
                         return Container(
                           height: logHeight,
                           margin: const EdgeInsets.only(bottom: 4),
-                          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
-                            color: InkTheme.parchmentDark.withValues(alpha: 0.25),
+                            color: InkTheme.parchmentDark.withValues(
+                              alpha: 0.25,
+                            ),
                             borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: InkTheme.inkMuted, width: 1),
+                            border: Border.all(
+                              color: InkTheme.inkMuted,
+                              width: 1,
+                            ),
                           ),
                           child: CombatLogView(
                             entries: widget.controller.structuredCombatLog,
@@ -483,8 +555,12 @@ class _BattleScreenState extends State<BattleScreen> {
                   Row(
                     children: [
                       ...ship.equippedWeaponTypes.map((type) {
-                        final weaponsOfType = ship.equippedWeapons.where((w) => w.weaponType == type).toList();
-                        final readyCount = weaponsOfType.where((w) => w.isReady).length;
+                        final weaponsOfType = ship.equippedWeapons
+                            .where((w) => w.weaponType == type)
+                            .toList();
+                        final readyCount = weaponsOfType
+                            .where((w) => w.isReady)
+                            .length;
                         final isReady = readyCount > 0;
                         final maxCd = weaponsOfType.fold<int>(
                           0,
@@ -513,8 +589,8 @@ class _BattleScreenState extends State<BattleScreen> {
 
                         final labelText = weaponsOfType.length == 1
                             ? (isReady
-                                ? type.displayName
-                                : '${type.displayName} (${maxCd}T CD)')
+                                  ? type.displayName
+                                  : '${type.displayName} (${maxCd}T CD)')
                             : '${type.displayName} ($readyCount/${weaponsOfType.length})';
 
                         return Expanded(
@@ -564,7 +640,9 @@ class _BattleScreenState extends State<BattleScreen> {
                           child: Builder(
                             builder: (context) {
                               final utilName = _utilityLabel(ship);
-                              final utilMark = ship.markLabelForHardpoint(HardpointType.utility);
+                              final utilMark = ship.markLabelForHardpoint(
+                                HardpointType.utility,
+                              );
                               final utilReady = ship.isUtilityReady;
                               final blessing =
                                   ship.blessings[HardpointType.utility];
@@ -621,17 +699,19 @@ class _BattleScreenState extends State<BattleScreen> {
                           runSpacing: 4,
                           crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
-                            // Universal Brace for Impact / Pass Turn
-                            InkButton(
-                              label: canFireAnyWeapon ? 'Brace for Impact' : 'BRACE & RELOAD',
-                              isPrimary: !canFireAnyWeapon,
-                              semanticLabel: canFireAnyWeapon
-                                  ? 'Brace for impact behind gunwales (+10% Evasion) and pass attack'
-                                  : 'All weapons cooling down or out of range. Brace for impact (+10% Evasion) and reload ordnance',
-                              onPressed: !_isActionLocked
-                                  ? () => _dispatchCombatAction(const BraceForImpact())
-                                  : null,
-                            ),
+                            // Emergency action for future cooldown/range constraints.
+                            if (needsEmergencyPass)
+                              InkButton(
+                                key: const ValueKey('emergency-pass'),
+                                label: 'BRACE & RELOAD',
+                                isPrimary: true,
+                                semanticLabel: 'No hardpoint actions available. Pass the turn and reload.',
+                                onPressed: !_isActionLocked
+                                    ? () => _dispatchCombatAction(
+                                        const BraceForImpact(),
+                                      )
+                                    : null,
+                              ),
 
                             // Tactical Belt Consumables (0T Quick Action)
                             for (var i = 0; i < ship.cargo.length; i++)
@@ -639,18 +719,25 @@ class _BattleScreenState extends State<BattleScreen> {
                                 Builder(
                                   builder: (context) {
                                     final cons = ship.cargo[i] as Consumable;
-                                    final canTrigger = !_isActionLocked && canUseQuickBelt;
+                                    final canTrigger =
+                                        !_isActionLocked &&
+                                        canUseQuickBelt &&
+                                        !cons.isDepleted;
                                     return Tooltip(
                                       message: canUseQuickBelt
-                                          ? 'Quick Action (0T — does not end turn): Trigger ${cons.name} (${cons.usesLeft}/${cons.maxUses} uses left).'
+                                          ? 'Single use. Quick Action (0T — does not end turn): Trigger ${cons.name}.'
                                           : 'Quick-action belt limit reached this round ($quickUsed/$maxQuickBeltUses used).',
                                       child: InkButton(
-                                        label: '⚡ ${cons.name} (${cons.usesLeft})',
+                                        label: cons.name,
+                                        subtitle:
+                                            'SINGLE USE · 0T QUICK ACTION',
                                         semanticLabel: canUseQuickBelt
-                                            ? 'Quick Action: Use ${cons.name} (${cons.usesLeft} uses left, 0 turn cost)'
+                                            ? 'Quick Action: Use ${cons.name} once, 0 turn cost'
                                             : 'Cannot use ${cons.name}, quick action belt already used this round',
                                         onPressed: canTrigger
-                                            ? () => _dispatchCombatAction(UseConsumableItem(i))
+                                            ? () => _dispatchCombatAction(
+                                                UseConsumableItem(i),
+                                              )
                                             : null,
                                       ),
                                     );
@@ -665,14 +752,21 @@ class _BattleScreenState extends State<BattleScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.settings, color: InkTheme.inkSecondary),
+                            icon: const Icon(
+                              Icons.settings,
+                              color: InkTheme.inkSecondary,
+                            ),
                             tooltip: 'Settings & Accessibility',
                             onPressed: () => SettingsDialog.show(context),
                           ),
                           IconButton(
-                            icon: Icon(_showLog ? Icons.menu_book : Icons.book, color: InkTheme.inkPrimary),
+                            icon: Icon(
+                              _showLog ? Icons.menu_book : Icons.book,
+                              color: InkTheme.inkPrimary,
+                            ),
                             tooltip: 'Chronicle Log',
-                            onPressed: () => setState(() => _showLog = !_showLog),
+                            onPressed: () =>
+                                setState(() => _showLog = !_showLog),
                           ),
                         ],
                       ),
@@ -744,7 +838,8 @@ class _BattleScreenState extends State<BattleScreen> {
                       r,
                       currentRange,
                       previewRange,
-                      isThreatened: intent?.threatenedRanges.contains(r) ?? false,
+                      isThreatened:
+                          intent?.threatenedRanges.contains(r) ?? false,
                     ),
                     if (r != CombatRange.short)
                       Text(
@@ -775,15 +870,19 @@ class _BattleScreenState extends State<BattleScreen> {
                   if (ship.isGrappled)
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 5, vertical: 1),
+                        horizontal: 5,
+                        vertical: 1,
+                      ),
                       decoration: BoxDecoration(
                         color: InkTheme.crimsonAccent.withValues(alpha: 0.18),
                         borderRadius: BorderRadius.circular(3),
                         border: Border.all(
-                            color: InkTheme.crimsonAccent, width: 1.0),
+                          color: InkTheme.crimsonAccent,
+                          width: 1.0,
+                        ),
                       ),
                       child: Text(
-                        '⛓️ GRAPPLED',
+                        'GRAPPLED',
                         style: InkTheme.caption.copyWith(
                           fontSize: 9.5,
                           fontWeight: FontWeight.bold,
@@ -839,14 +938,15 @@ class _BattleScreenState extends State<BattleScreen> {
     MonsterState monster,
   ) {
     final isSafe = preview.isSafe;
-    final isSevere = preview.status == IntentPreviewStatus.headOnCollisionDanger ||
+    final isSevere =
+        preview.status == IntentPreviewStatus.headOnCollisionDanger ||
         preview.status == IntentPreviewStatus.bossCatastropheImminent;
 
     final outcomeColor = isSafe
         ? InkTheme.verdigrisGreen
         : isSevere
-            ? InkTheme.crimsonAccent
-            : const Color(0xFF9A6700);
+        ? InkTheme.crimsonAccent
+        : const Color(0xFF9A6700);
 
     return Tooltip(
       message: '${intent.description}\nCounterplay: ${intent.tacticalTip}',
@@ -869,13 +969,17 @@ class _BattleScreenState extends State<BattleScreen> {
                   style: InkTheme.statLabel.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 10.5,
-                    color: (intent.isBossWindup || intent.isBossCatastropheStrike)
+                    color:
+                        (intent.isBossWindup || intent.isBossCatastropheStrike)
                         ? InkTheme.crimsonAccent
                         : InkTheme.inkPrimary,
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 4,
+                    vertical: 1,
+                  ),
                   decoration: BoxDecoration(
                     color: InkTheme.crimsonAccent.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(2),
@@ -895,15 +999,18 @@ class _BattleScreenState extends State<BattleScreen> {
                 ),
                 if (intent.moveDelta != IntentMoveDelta.stationary)
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 5,
+                      vertical: 1.5,
+                    ),
                     decoration: BoxDecoration(
                       color: intent.moveTiming == IntentMoveTiming.beforeAttack
                           ? InkTheme.goldAccent.withValues(alpha: 0.18)
                           : InkTheme.parchmentSurface,
                       borderRadius: BorderRadius.circular(2),
                       border: Border.all(
-                        color: intent.moveTiming == IntentMoveTiming.beforeAttack
+                        color:
+                            intent.moveTiming == IntentMoveTiming.beforeAttack
                             ? InkTheme.goldAccent
                             : InkTheme.inkMuted,
                         width: 1.0,
@@ -914,7 +1021,8 @@ class _BattleScreenState extends State<BattleScreen> {
                       style: InkTheme.caption.copyWith(
                         fontSize: 9.0,
                         fontWeight: FontWeight.bold,
-                        color: intent.moveTiming == IntentMoveTiming.beforeAttack
+                        color:
+                            intent.moveTiming == IntentMoveTiming.beforeAttack
                             ? InkTheme.inkPrimary
                             : InkTheme.inkSecondary,
                       ),
@@ -950,9 +1058,12 @@ class _BattleScreenState extends State<BattleScreen> {
     CombatRange previewRange, {
     bool isThreatened = false,
   }) {
-    final isTargetDestination = band == previewRange && previewRange != currentRange;
-    final isCurrentStation = band == currentRange && previewRange == currentRange;
-    final isDepartingStation = band == currentRange && previewRange != currentRange;
+    final isTargetDestination =
+        band == previewRange && previewRange != currentRange;
+    final isCurrentStation =
+        band == currentRange && previewRange == currentRange;
+    final isDepartingStation =
+        band == currentRange && previewRange != currentRange;
 
     Color bgColor = Colors.transparent;
     Color borderColor = isThreatened
@@ -968,7 +1079,7 @@ class _BattleScreenState extends State<BattleScreen> {
       borderColor = isThreatened ? InkTheme.crimsonAccent : InkTheme.inkPrimary;
       textColor = InkTheme.parchmentHighlight;
       fontWeight = FontWeight.bold;
-      prefix = '⚓ ';
+      prefix = '';
     } else if (isTargetDestination) {
       bgColor = InkTheme.goldAccent.withValues(alpha: 0.25);
       borderColor = InkTheme.goldAccent;
@@ -987,8 +1098,8 @@ class _BattleScreenState extends State<BattleScreen> {
       label: isCurrentStation
           ? 'Current engagement distance: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ''}'
           : isTargetDestination
-              ? 'Pending tactical bearing: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ' (Safe blind spot)'}'
-              : '${band.displayName}${isThreatened ? ' (Threatened)' : ''}',
+          ? 'Pending tactical bearing: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ' (Safe blind spot)'}'
+          : '${band.displayName}${isThreatened ? ' (Threatened)' : ''}',
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
         decoration: BoxDecoration(
@@ -1014,7 +1125,8 @@ class _BattleScreenState extends State<BattleScreen> {
     HelmOrder activeHelmOrder, {
     bool isGrappled = false,
   }) {
-    final isAvailable = (!isGrappled || order == HelmOrder.holdLine) &&
+    final isAvailable =
+        (!isGrappled || order == HelmOrder.holdLine) &&
         currentRange.availableHelmOrders.contains(order);
     final isSelected = activeHelmOrder == order;
 
@@ -1027,7 +1139,8 @@ class _BattleScreenState extends State<BattleScreen> {
     final tooltip = switch (order) {
       _ when isGrappled && order != HelmOrder.holdLine =>
         'Ship is grappled! Helm is locked to Hold Line this round.',
-      HelmOrder.fallBack when !isAvailable => 'Cannot fall back beyond Long Range',
+      HelmOrder.fallBack when !isAvailable =>
+        'Cannot fall back beyond Long Range',
       HelmOrder.fallBack =>
         'Order helm to fall back to ${currentRange.rangeAfterHelmOrder(order).displayName}',
       HelmOrder.holdLine =>
@@ -1041,20 +1154,20 @@ class _BattleScreenState extends State<BattleScreen> {
     final Color bgColor = isSelected
         ? InkTheme.inkPrimary
         : isAvailable
-            ? InkTheme.parchmentSurface
-            : InkTheme.parchmentDark.withValues(alpha: 0.25);
+        ? InkTheme.parchmentSurface
+        : InkTheme.parchmentDark.withValues(alpha: 0.25);
 
     final Color contentColor = isSelected
         ? InkTheme.parchmentHighlight
         : isAvailable
-            ? InkTheme.inkPrimary
-            : InkTheme.inkFaint;
+        ? InkTheme.inkPrimary
+        : InkTheme.inkFaint;
 
     final Color borderColor = isSelected
         ? InkTheme.inkPrimary
         : isAvailable
-            ? InkTheme.inkSecondary
-            : InkTheme.inkFaint;
+        ? InkTheme.inkSecondary
+        : InkTheme.inkFaint;
 
     final canPress = isAvailable && !_isActionLocked;
 
@@ -1075,7 +1188,10 @@ class _BattleScreenState extends State<BattleScreen> {
             decoration: BoxDecoration(
               color: bgColor,
               borderRadius: BorderRadius.circular(3),
-              border: Border.all(color: borderColor, width: isSelected ? 1.5 : 1.0),
+              border: Border.all(
+                color: borderColor,
+                width: isSelected ? 1.5 : 1.0,
+              ),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -1107,13 +1223,13 @@ class _BattleScreenState extends State<BattleScreen> {
       case ShipWeaponType.prowRam:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ OUT OF RANGE',
+            badge: 'OUT OF RANGE',
             tip: 'Cannot fire Prow Ram from Long Range. Advance to engage!',
             isWarning: true,
           );
         } else if (targetRange == CombatRange.medium) {
           return const _TacticalBadgeInfo(
-            badge: '⚡ 125% CHARGE',
+            badge: '125% CHARGE',
             tip: 'Kinetic ram charge from Medium to Short Range (+25% bonus kinetic damage, 1.5x vs Carapace).',
           );
         }
@@ -1124,12 +1240,12 @@ class _BattleScreenState extends State<BattleScreen> {
       case ShipWeaponType.heavyMortar:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '🎯 100% HIGH ARC',
+            badge: '100% HIGH ARC',
             tip: 'Heavy Siege Mortar optimal Long Range (100% damage, 2.0x vs Carapace).',
           );
         } else if (targetRange == CombatRange.short) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ 70% • 25% SPLASH',
+            badge: '70% • 25% SPLASH',
             tip: 'Point-blank mortar fire at Short Range deals 70% damage and splashes 25% backfire onto your hull!',
             isWarning: true,
           );
@@ -1141,12 +1257,12 @@ class _BattleScreenState extends State<BattleScreen> {
       case ShipWeaponType.precisionCulverin:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '🎯 100% SNIPER',
+            badge: '100% SNIPER',
             tip: 'Precision Culverin optimal Long Range (100% damage, pierces 50% Carapace).',
           );
         } else if (targetRange == CombatRange.short) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ 40% CRAMPED',
+            badge: '40% CRAMPED',
             tip: 'Long-barrel culverin suffers severe damage falloff (40%) at Short Range.',
             isWarning: true,
           );
@@ -1157,66 +1273,72 @@ class _BattleScreenState extends State<BattleScreen> {
         );
       case ShipWeaponType.twinChasers:
         return _TacticalBadgeInfo(
-          badge: pct == 100 ? '🎯 100% OPTIMAL' : '$pct% DMG',
-          tip: 'Twin Chaser Cannons ($pct% damage at ${targetRange.displayName}).',
+          badge: pct == 100 ? '100% OPTIMAL' : '$pct% DMG',
+          tip:
+              'Twin Chaser Cannons ($pct% damage at ${targetRange.displayName}).',
         );
       case ShipWeaponType.cannon:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ 65% • -15% HIT',
+            badge: '65% • -15% ACCURACY',
             tip: 'Standard broadside cannons deal 65% damage and suffer -15% accuracy at Long Range.',
             isWarning: true,
           );
         }
         return _TacticalBadgeInfo(
-          badge: pct == 100 ? '🎯 100% OPTIMAL' : '$pct% POINT BLANK',
-          tip: 'Naval Cannon Battery ($pct% damage at ${targetRange.displayName}).',
+          badge: pct == 100 ? '100% OPTIMAL' : '$pct% POINT BLANK',
+          tip:
+              'Naval Cannon Battery ($pct% damage at ${targetRange.displayName}).',
         );
       case ShipWeaponType.heavyCarronade:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ 35% FALLOFF',
+            badge: '35% FALLOFF',
             tip: 'Short-barrel Heavy Carronades deal only 35% damage at Long Range.',
             isWarning: true,
           );
         }
         return _TacticalBadgeInfo(
-          badge: pct == 100 ? '🎯 100% BRAWLER' : '$pct% DMG',
+          badge: pct == 100 ? '100% BRAWLER' : '$pct% DMG',
           tip: 'Heavy Carronades ($pct% damage at ${targetRange.displayName}).',
         );
       case ShipWeaponType.swivelGun:
         return _TacticalBadgeInfo(
-          badge: pct == 100 ? '🎯 100% SKIRMISH' : '$pct% DMG',
-          tip: 'Long-Barrel Swivel Guns ($pct% damage at ${targetRange.displayName}).',
+          badge: pct == 100 ? '100% SKIRMISH' : '$pct% DMG',
+          tip:
+              'Long-Barrel Swivel Guns ($pct% damage at ${targetRange.displayName}).',
         );
       case ShipWeaponType.chainShotBroadside:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
-            badge: '⚠️ 45% FALLOFF',
+            badge: '45% FALLOFF',
             tip: 'Chain-Shot Broadside deals 45% damage at Long Range (+20% vs Pinned targets).',
             isWarning: true,
           );
         }
         return _TacticalBadgeInfo(
-          badge: pct == 100 ? '🎯 100% (+20% VS PIN)' : '$pct% (+20% VS PIN)',
-          tip: 'Chain-Shot Broadside ($pct% Slicing damage at ${targetRange.displayName}, +20% vs Pinned).',
+          badge: pct == 100 ? '100% (+20% VS PIN)' : '$pct% (+20% VS PIN)',
+          tip:
+              'Chain-Shot Broadside ($pct% Slicing damage at ${targetRange.displayName}, +20% vs Pinned).',
         );
       case ShipWeaponType.shrapnelHowitzer:
         return _TacticalBadgeInfo(
-          badge: pct == 100 ? '🎯 100% SLICING' : '$pct% SLICING',
+          badge: pct == 100 ? '100% SLICING' : '$pct% SLICING',
           tip:
               'Shrapnel Howitzers ($pct% Slicing damage at ${targetRange.displayName}).',
         );
       case ShipWeaponType.harpoonWinch:
         if (targetRange != CombatRange.short) {
           return _TacticalBadgeInfo(
-            badge: '⚓ $pct% • PULLS & PINS',
-            tip: 'Harpoon Winch deals $pct% damage, reels the monster 1 range band closer, and Pins it (1T).',
+            badge: '$pct% • PULLS & PINS',
+            tip:
+                'Harpoon Winch deals $pct% damage, reels the monster 1 range band closer, and Pins it (1T).',
           );
         }
         return _TacticalBadgeInfo(
-          badge: '⛓️ $pct% • PINS BEAST',
-          tip: 'Harpoon Winch deals $pct% damage and Pins the monster at Short Range (1T).',
+          badge: '$pct% • PINS BEAST',
+          tip:
+              'Harpoon Winch deals $pct% damage and Pins the monster at Short Range (1T).',
         );
       case ShipWeaponType.torpedoLauncher:
         return const _TacticalBadgeInfo(

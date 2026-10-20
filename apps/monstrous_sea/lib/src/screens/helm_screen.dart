@@ -48,7 +48,10 @@ class _HelmScreenState extends State<HelmScreen> {
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 820),
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 24,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -90,7 +93,9 @@ class _HelmScreenState extends State<HelmScreen> {
                               Flexible(
                                 child: Text(
                                   "THE QUARTERDECK • SETTING COURSE",
-                                  style: InkTheme.titleLarge.copyWith(fontSize: 22),
+                                  style: InkTheme.titleLarge.copyWith(
+                                    fontSize: 22,
+                                  ),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -112,14 +117,13 @@ class _HelmScreenState extends State<HelmScreen> {
 
                     // Prevailing Gale Notice
                     ParchmentCard(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.air,
-                            color: InkTheme.inkMuted,
-                            size: 24,
-                          ),
+                          Icon(Icons.air, color: InkTheme.inkMuted, size: 24),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Column(
@@ -135,7 +139,9 @@ class _HelmScreenState extends State<HelmScreen> {
                                 const SizedBox(height: 2),
                                 Text(
                                   'The wind drives your square riggers relentlessly seaward. A lee shore forbids retreat; survival lies in pressing outward.',
-                                  style: InkTheme.caption.copyWith(fontSize: 11.5),
+                                  style: InkTheme.caption.copyWith(
+                                    fontSize: 11.5,
+                                  ),
                                 ),
                               ],
                             ),
@@ -157,7 +163,10 @@ class _HelmScreenState extends State<HelmScreen> {
 
                     // Armory Toggle
                     ParchmentCard(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -165,9 +174,12 @@ class _HelmScreenState extends State<HelmScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('ARMORY & MUNITIONS', style: InkTheme.statLabel),
                                 Text(
-                                  'Inspect deck batteries and swap mounted weapons.',
+                                  'HARDPOINT & BELT INSPECTION',
+                                  style: InkTheme.statLabel,
+                                ),
+                                Text(
+                                  'Inspect hardpoint marks, blessings, refits, and belt supplies.',
                                   style: InkTheme.caption,
                                 ),
                               ],
@@ -175,8 +187,12 @@ class _HelmScreenState extends State<HelmScreen> {
                           ),
                           const SizedBox(width: 8),
                           InkButton(
-                            label: _showingArmory ? 'HIDE ARMORY' : 'MANAGE ARMORY',
-                            onPressed: () => setState(() => _showingArmory = !_showingArmory),
+                            label: _showingArmory
+                                ? 'CLOSE INSPECTION'
+                                : 'INSPECT VESSEL',
+                            onPressed: () => setState(
+                              () => _showingArmory = !_showingArmory,
+                            ),
                           ),
                         ],
                       ),
@@ -234,10 +250,7 @@ class _HelmScreenState extends State<HelmScreen> {
 }
 
 class _CourseOptionCard extends StatelessWidget {
-  const _CourseOptionCard({
-    required this.option,
-    required this.onSteer,
-  });
+  const _CourseOptionCard({required this.option, required this.onSteer});
 
   final CourseOption option;
   final VoidCallback onSteer;
@@ -245,9 +258,11 @@ class _CourseOptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bearingTitle = switch (option.bearing) {
-      NavigationalBearing.larboardTack => 'BEARING EAST-NORTHEAST • LARBOARD TACK',
+      NavigationalBearing.larboardTack =>
+        'BEARING EAST-NORTHEAST • LARBOARD TACK',
       NavigationalBearing.deadAhead => 'BEARING DUE EAST • DEAD AHEAD',
-      NavigationalBearing.starboardTack => 'BEARING EAST-SOUTHEAST • STARBOARD TACK',
+      NavigationalBearing.starboardTack =>
+        'BEARING EAST-SOUTHEAST • STARBOARD TACK',
     };
 
     final directionIcon = switch (option.bearing) {
@@ -264,11 +279,7 @@ class _CourseOptionCard extends StatelessWidget {
           // Header row with bearing and tag
           Row(
             children: [
-              Icon(
-                directionIcon,
-                color: InkTheme.goldAccent,
-                size: 20,
-              ),
+              Icon(directionIcon, color: InkTheme.goldAccent, size: 20),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
@@ -282,7 +293,10 @@ class _CourseOptionCard extends StatelessWidget {
               ),
               if (option.isIdentified)
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
                     color: InkTheme.goldAccent.withAlpha(40),
                     border: Border.all(color: InkTheme.goldAccent),

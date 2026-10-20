@@ -4,9 +4,10 @@ import 'package:test/test.dart';
 
 void main() {
   group('Bot Strategies Decision Logic Tests', () {
-    test('RecklessBot chooses Ironclad and always attacks or advances', () {
+    test('RecklessBot chooses unlocked Ironclad and always attacks or advances', () {
       const bot = RecklessBot();
       final session = GameSession(rng: SeededGameRng(100));
+      session.profile.unlockedBlueprints.add(BlueprintId.ironclad.name);
 
       // Initial captain naming
       var cmd = bot.decideNextAction(session);
@@ -49,9 +50,10 @@ void main() {
       expect((cmd as ChangeCombatRange).targetRange, equals(CombatRange.long));
     });
 
-    test('GreedyBot selects Corsair to optimize cargo hold and gold hoarding', () {
+    test('GreedyBot selects unlocked Corsair to optimize gold hoarding', () {
       const bot = GreedyBot();
       final session = GameSession(rng: SeededGameRng(300));
+      session.profile.unlockedBlueprints.add(BlueprintId.corsair.name);
 
       session.dispatch(bot.decideNextAction(session));
       final shipCmd = bot.decideNextAction(session);

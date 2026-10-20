@@ -259,7 +259,7 @@ ShipState createFlagshipFromBlueprint(
   final dmgReductionMod = blueprintId == BlueprintId.ironclad ? 2 * level : 0;
 
   final hardpointMarks = <HardpointType, int>{
-    HardpointType.broadside: hasExpandedAuxiliarySlot ? 2 : 1,
+    HardpointType.broadside: 1,
     HardpointType.signature: 1,
     HardpointType.utility: 1,
   };
@@ -344,7 +344,7 @@ int calculateHardpointTemperCost(int currentMark) => switch (currentMark) {
       _ => 0,
     };
 
-/// Permanently tempers [slot] on [ship] (`Mk I -> Mk II -> Mk III`), increasing its base damage/potency by +20% per mark.
+/// Tempers [slot] on this voyage's [ship] (`Mk I -> Mk II -> Mk III`), increasing its base damage/potency by +20% per mark.
 bool temperShipHardpoint(ShipState ship, HardpointType slot) {
   final canonical = slot.canonical;
   final currentMark = ship.markForHardpoint(canonical);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/painters/animated_wave_painter.dart';
@@ -22,12 +23,11 @@ class _IntroScreenState extends State<IntroScreen>
   bool _canProceed = false;
 
   static const String _prologueText =
-      'The Monstrous Sea is vast, salt-bitten, and merciless.\n\n'
-      'Ancient cartographers marked its farthest reaches with a single dread warning: '
-      '"HIC SUNT DRACONES — HERE BE MONSTERS."\n\n'
-      'Rumors tell of The Kraken lurking in the abyssal coordinates [3, 4]. '
-      'Arm your cannons, steel your crew, and venture into the depths... '
-      'or join the countless souls in a watery grave.';
+      'Your bloodline is bound to a ship that will not stay sunk. '
+      'When one captain falls, the Bloodbound Ship returns for an heir.\n\n'
+      'Beyond the Siren Shoals, three Titans guard the path to the Abyssal Font: '
+      'the Kraken, the World Serpent, and the Ancient Leviathan.\n\n'
+      'Hunt them. Break the curse. Bring your family home.';
 
   @override
   void initState() {
@@ -72,7 +72,10 @@ class _IntroScreenState extends State<IntroScreen>
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 620),
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 32,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,14 +95,19 @@ class _IntroScreenState extends State<IntroScreen>
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: InkTheme.parchmentSurface.withValues(alpha: 0.85),
-                        border: Border.all(color: InkTheme.inkMuted, width: 1.5),
+                        color: InkTheme.parchmentSurface.withValues(
+                          alpha: 0.85,
+                        ),
+                        border: Border.all(
+                          color: InkTheme.inkMuted,
+                          width: 1.5,
+                        ),
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: TypewriterText(
                         text: _prologueText,
                         style: InkTheme.body.copyWith(fontSize: 18),
-                        durationPerChar: const Duration(milliseconds: 25),
+                        durationPerChar: const Duration(milliseconds: 12),
                         onFinished: () {
                           if (mounted) {
                             setState(() {

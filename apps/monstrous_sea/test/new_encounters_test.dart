@@ -72,6 +72,7 @@ void main() {
       );
 
       controller.dispatch(const NameCaptain('Nemo'));
+      controller.profile.unlockedBlueprints.add(BlueprintId.clipper.name);
       controller.dispatch(const ChooseShip(ShipClass.corvette));
 
       // Position right before Shrine

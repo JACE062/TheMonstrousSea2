@@ -122,6 +122,7 @@ void main() {
   group('Region Environmental Hazards in Combat', () {
     test('Region 2 (Sargasso Drift): Tangled Kelp (-10% evasion) & Phosphor Haze (monster obscured)', () {
       final session = GameSession(rng: SeededGameRng(999));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corvette).name);
       session.dispatch(const ChooseShip(ShipClass.corvette));
       session.seaChart.timesCompleted = 1; // Region 2
       expect(session.seaChart.currentRegionIndex, 1);
@@ -145,6 +146,7 @@ void main() {
 
     test('Region 3 (Boiling Reach): Thermal Caldera Scald deals 10 thermal damage every 3 rounds', () {
       final session = GameSession(rng: SeededGameRng(1001));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
       session.dispatch(const ChooseShip(ShipClass.ironclad));
       session.seaChart.timesCompleted = 2; // Region 3
       expect(session.seaChart.currentRegionIndex, 2);

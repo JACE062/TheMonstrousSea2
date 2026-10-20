@@ -233,8 +233,7 @@ class MonsterIntent {
         rangeAtStrike: postHelmRange,
         projectedEndOfRoundRange: postHelmRange,
         estimatedDamage: 0,
-        summaryBadge:
-            '⚡ WIND-UP (1/2): No strike this turn! Disrupt with Mortar, Harpoon, Blast Pack, or Stun!',
+        summaryBadge: 'WIND-UP (1/2): No strike this turn! Disrupt with Mortar, Harpoon, Blast Pack, Stun, or a windup-breaking blessing.',
       );
     }
 
@@ -245,7 +244,7 @@ class MonsterIntent {
         rangeAtStrike: postHelmRange,
         projectedEndOfRoundRange: postHelmRange,
         estimatedDamage: 0,
-        summaryBadge: '🛡️ SHELL FORTIFICATION: No direct attack this turn',
+        summaryBadge: 'SHELL FORTIFICATION: No direct attack this turn',
       );
     }
 
@@ -298,7 +297,7 @@ class MonsterIntent {
         projectedEndOfRoundRange: endRange,
         estimatedDamage: 0,
         summaryBadge:
-            '✓ EVADED BY MANEUVER (${rangeAtStrike.displayName} is outside [$threatenedRangesLabel])',
+            'EVADED BY MANEUVER (${rangeAtStrike.displayName} is outside [$threatenedRangesLabel])',
       );
     }
 
@@ -311,7 +310,7 @@ class MonsterIntent {
         projectedEndOfRoundRange: endRange,
         estimatedDamage: collisionDmg,
         summaryBadge:
-            '💥 HEAD-ON COLLISION! (+30% Impact ➔ ~$collisionDmg Dmg if beast survives!)',
+            'HEAD-ON COLLISION! (+30% Impact; ~$collisionDmg Dmg if beast survives!)',
       );
     }
 
@@ -323,7 +322,7 @@ class MonsterIntent {
         projectedEndOfRoundRange: endRange,
         estimatedDamage: estimatedDamage,
         summaryBadge:
-            '🔥 CATASTROPHE IMMINENT: Strikes ALL RANGES (~$estimatedDamage Dmg)! Break Poise or Brace!',
+            'CATASTROPHE IMMINENT: Strikes ALL RANGES (~$estimatedDamage Dmg)! Disrupt with Stun or a windup-breaking blessing, or brace.',
       );
     }
 
@@ -334,7 +333,7 @@ class MonsterIntent {
       projectedEndOfRoundRange: endRange,
       estimatedDamage: estimatedDamage,
       summaryBadge:
-          '⚠️ IN THREAT ZONE (${rangeAtStrike.displayName} • Est. ~$estimatedDamage Dmg)',
+          'IN THREAT ZONE (${rangeAtStrike.displayName} • Est. ~$estimatedDamage Dmg)',
     );
   }
 

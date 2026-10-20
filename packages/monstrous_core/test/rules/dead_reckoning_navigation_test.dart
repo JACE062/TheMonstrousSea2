@@ -72,6 +72,7 @@ void main() {
     test('GameSession workflow: Port -> Helm -> SteerCourse -> Encounter', () {
       final session = GameSession(rng: SeededGameRng(555));
       session.dispatch(const NameCaptain('Drake'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corvette).name);
       session.dispatch(const ChooseShip(ShipClass.corvette));
       expect(session.phase, equals(SessionPhase.port));
 

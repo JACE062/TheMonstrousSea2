@@ -74,6 +74,7 @@ Welcome! This repository contains the modernization of **The Monstrous Sea** fro
 - **Combat Redesign Phase 2 (Telegraphed Monster Intent System):** Implemented.
 - **Combat Redesign Phase 3A (Intrinsic Hardpoints & Tactical Belt):** Implemented.
 - **Combat Redesign Phase 3B (Primordial Ocean Powers):** Implemented: four powers across three dedication sockets and three tiers, weighted shrine encounters, combat riders and synergies, persistent voyage blessings, responsive shrine/HUD UI, and simulation bot support. See [implementation notes and verification](agents/phase3b_ocean_powers.md) for current details; earlier section test counts describe historical milestones.
+- **Post-Phase-3B Playtest Remediation:** Implemented. See [19 October playtest notes](PLAYTEST_2026_10_19.md) for Standard-only first-voyage onboarding, enforced blueprint locks, voyage-only refits/tempering, chart/checkpoint fixes, readable inspection UI, and the single-use consumable decision. A native Windows first-voyage integration test now passes.
 - **Rogue-lite Stage 5 (Atmospheric Immersion, Port Civic Restoration & Audio/Visual VFX):** Queued following combat overhaul.
 
 ---

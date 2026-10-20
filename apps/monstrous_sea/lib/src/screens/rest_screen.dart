@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/armory_view.dart';
@@ -12,7 +13,7 @@ import '../widgets/svg_asset_view.dart';
 import '../widgets/pilot_art.dart';
 
 /// Screen allowing captain to rest upon the open swell, inspect vessel,
-/// manage weapon mounts in the armory, and choose their next move.
+/// inspect fixed hardpoints and tactical belt supplies, and choose their next move.
 class RestScreen extends StatelessWidget {
   const RestScreen({
     super.key,
@@ -58,7 +59,10 @@ class RestScreen extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.settings, color: InkTheme.inkPrimary),
+                      icon: const Icon(
+                        Icons.settings,
+                        color: InkTheme.inkPrimary,
+                      ),
                       tooltip: 'Settings & Accessibility',
                       onPressed: () => SettingsDialog.show(context),
                     ),
@@ -86,11 +90,14 @@ class RestScreen extends StatelessWidget {
                                 children: [
                                   Text(ship.name, style: InkTheme.titleMedium),
                                   Text(
-                                    'Sector [${seaChart.currentRow}, ${seaChart.currentCol}] • Loop ${seaChart.timesCompleted}',
+                                    'Leg ${seaChart.currentLeg} of ${seaChart.totalLegs} • ${seaChart.currentRegionName}',
                                     style: InkTheme.caption,
                                   ),
                                   const SizedBox(height: 8),
-                                  HullGauge(currentHp: ship.currentHp, maxHp: ship.maxHp),
+                                  HullGauge(
+                                    currentHp: ship.currentHp,
+                                    maxHp: ship.maxHp,
+                                  ),
                                 ],
                               ),
                             ),
@@ -101,8 +108,14 @@ class RestScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             _statColumn('GOLD CARRIED', '${ship.gold}g'),
-                            _statColumn('CARGO STOWED', '${ship.cargo.length} / ${ship.maxCargo}'),
-                            _statColumn('BATTERIES', '${ship.equippedWeapons.length} / ${ship.maxHardpointSlots} Mounts'),
+                            _statColumn(
+                              'TACTICAL BELT',
+                              '${ship.cargo.length} / ${ship.maxCargo}',
+                            ),
+                            _statColumn(
+                              'BATTERIES',
+                              '${ship.equippedWeapons.length} / ${ship.maxHardpointSlots} Mounts',
+                            ),
                           ],
                         ),
                       ],
@@ -111,7 +124,7 @@ class RestScreen extends StatelessWidget {
 
                   const SizedBox(height: 18),
 
-                  // 2. Armory & Gun Deck Card (Java Parity: swap equipped weapons)
+                  // 2. Fixed hardpoint and tactical belt inspection
                   ArmoryView(controller: controller),
                   const SizedBox(height: 18),
 
@@ -147,17 +160,21 @@ class RestScreen extends StatelessWidget {
                         Text(
                           controller.canEmergencyRepairAtSea
                               ? 'Hull integrity is critical! The carpenter can hammer emergency cross-beams and canvas tar to patch the hull to the 25% seaworthy floor.'
-                              : 'Open ocean swells are too turbulent for hull careening. Seek a Respite Island or return to port for full shipwright repairs.',
+                              : 'Open ocean swells are too turbulent for hull careening. Seek a Respite Island for hull careening and a voyage shipwright for refits.',
                           style: InkTheme.caption,
                         ),
                         if (controller.canEmergencyRepairAtSea) ...[
                           const SizedBox(height: 10),
                           InkButton(
-                            label: 'EMERGENCY TRIAGE (${controller.emergencyRepairCost}g)',
+                            label:
+                                'EMERGENCY TRIAGE (${controller.emergencyRepairCost}g)',
                             semanticLabel: 'Perform emergency carpenter triage to restore hull to 25% floor',
                             isPrimary: true,
-                            onPressed: (ship.gold >= controller.emergencyRepairCost)
-                                ? () => controller.dispatch(const RepairShip(0.25))
+                            onPressed:
+                                (ship.gold >= controller.emergencyRepairCost)
+                                ? () => controller.dispatch(
+                                    const RepairShip(0.25),
+                                  )
                                 : null,
                           ),
                         ],
@@ -171,19 +188,24 @@ class RestScreen extends StatelessWidget {
                 // Chart button
                 InkButton(
                   label: 'CONSULT SEA CHART',
-                  icon: const SvgAssetView(assetPath: PilotArt.cannons, width: 22, height: 22),
+                  icon: const SvgAssetView(
+                    assetPath: PilotArt.cannons,
+                    width: 22,
+                    height: 22,
+                  ),
                   onPressed: onOpenChart,
                 ),
                 const SizedBox(height: 16),
 
                 // Primary Next Move Choice (No retreat; the wind drives relentlessly outward)
                 InkButton(
-                  label: (seaChart.currentRow == SeaChart.bossRow &&
+                  label:
+                      (seaChart.currentRow == SeaChart.bossRow &&
                           seaChart.currentCol == SeaChart.bossCol &&
                           controller.isCurrentEncounterDefeated)
                       ? (seaChart.currentRegionIndex < SeaChart.totalRegions - 1
-                          ? 'ENTER ${SeaChart.strongholdName(seaChart.currentRegionIndex + 1).toUpperCase()} (STRONGHOLD)'
-                          : 'CLAIM EXPEDITION VICTORY!')
+                            ? 'ENTER ${SeaChart.strongholdName(seaChart.currentRegionIndex + 1).toUpperCase()} (STRONGHOLD)'
+                            : 'CLAIM EXPEDITION VICTORY!')
                       : 'TAKE THE HELM & SET COURSE',
                   isPrimary: true,
                   onPressed: () => controller.dispatch(

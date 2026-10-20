@@ -54,6 +54,8 @@ class GameSession {
   String captainName = '';
   ShipState? ship;
   MonsterState? currentMonster;
+  /// Persists a completed encounter without retaining a live combat object.
+  bool hasDefeatedCurrentEncounter = false;
   CombatRange combatRange = CombatRange.medium;
   HelmOrder lastHelmOrderThisTurn = HelmOrder.holdLine;
   bool _disruptedBossCatastropheThisTurn = false;
@@ -149,6 +151,8 @@ class GameSession {
       NameCaptain(:final name) => _handleNameCaptain(name),
       ChooseShip(:final shipClass, :final customName) =>
         _handleChooseShip(shipClass, customName),
+      BeginFirstVoyage(:final captainName, :final customShipName) =>
+        _handleBeginFirstVoyage(captainName, customShipName),
       VentureOutToSea(:final startingRow) =>
         _handleVentureOutToSea(startingRow),
       FireWeaponVolley(:final weaponType) =>
@@ -222,6 +226,7 @@ class GameSession {
 
     // Davy Jones Easter Egg
     if (name.equalsIgnoreCase('Davy Jones')) {
+      profile.hasBegunFirstVoyage = true;
       final events = <GameEvent>[];
       ship = createFlyingDutchman();
       seaChart.currentRow = 3;
@@ -269,6 +274,9 @@ class GameSession {
       throw StateError('Cannot choose starting ship in phase $phase');
     }
     final bpId = BlueprintId.fromShipClass(shipClass);
+    if (!profile.isBlueprintUnlocked(bpId)) {
+      throw StateError('Blueprint $bpId is not unlocked');
+    }
     ship = createFlagshipFromBlueprint(
       bpId,
       level: 1,
@@ -297,6 +305,18 @@ class GameSession {
         newPhase: phase.displayName,
       ),
     ];
+  }
+
+  List<GameEvent> _handleBeginFirstVoyage(String name, String? shipName) {
+    if (phase != SessionPhase.captainCreation) {
+      throw StateError('Cannot begin a first voyage in phase $phase');
+    }
+    if (name.trim().isEmpty) throw ArgumentError('Captain name cannot be empty');
+    final events = <GameEvent>[..._handleNameCaptain(name.trim())];
+    if (phase == SessionPhase.battle) return events; // Davy Jones.
+    events.addAll(_handleChooseShip(ShipClass.standard, shipName));
+    events.addAll(_handleVentureOutToSea());
+    return events;
   }
 
   List<GameEvent> _handleUnlockBlueprint(BlueprintId blueprintId) {
@@ -334,7 +354,6 @@ class GameSession {
     profile.activeBlueprintId = blueprintId.name;
 
     final oldGold = ship?.gold ?? 25;
-    final oldLevel = ship?.level ?? 1;
     final oldName = (ship != null && ship!.name.isNotEmpty)
         ? ship!.name
         : (captainName.isNotEmpty ? '$captainName\'s Flagship' : null);
@@ -343,7 +362,7 @@ class GameSession {
 
     final newShip = createFlagshipFromBlueprint(
       blueprintId,
-      level: oldLevel,
+      level: 1,
       rng: rng,
       name: oldName,
       armamentTier: profile.armamentTierFor(blueprintId),
@@ -430,14 +449,11 @@ class GameSession {
     if (ship != null) {
       ship!.maxCargo += 1;
       ship!.maxWeaponWeight += 2;
-      if (ship!.markForHardpoint(HardpointType.broadside) < 2) {
-        temperShipHardpoint(ship!, HardpointType.broadside);
-      }
     }
     return const <GameEvent>[
       AuxiliaryExpansionUnlocked(),
       NarrationEvent(
-        'Tactical Belt expanded (+1 Slot) and Broadside pre-tempered to Mk II!',
+        'Tactical Belt expanded (+1 Slot)!',
       ),
     ];
   }
@@ -480,14 +496,42 @@ class GameSession {
       throw StateError('Cannot venture out to sea from $phase');
     }
     final clampedRow = startingRow.clamp(0, seaChart.maxRowReached);
+    profile.hasBegunFirstVoyage = true;
+    _resetVoyageRefits();
     // A departure from port begins a fresh voyage; blessings are run-scoped.
     ship?.blessings.clear();
     gunneryAccuracyBoon = 0;
     runicGuidanceBoon = 0;
     shrineManifestedPowers = const [];
-    seaChart.currentRow = clampedRow;
-    seaChart.currentCol = 0;
+    seaChart.beginVoyage(startingRow: clampedRow);
     return _startEncounter();
+  }
+
+  void _resetVoyageRefits() {
+    final vessel = ship;
+    if (vessel == null || captainName.equalsIgnoreCase('Davy Jones') ||
+        (vessel.level == 1 && vessel.hardpointMarks.values.every((mark) => mark == 1))) {
+      return;
+    }
+    final blueprint = BlueprintId.fromShipClass(vessel.shipClass);
+    final base = createFlagshipFromBlueprint(blueprint, rng: rng,
+        id: vessel.id, name: vessel.name,
+        armamentTier: profile.armamentTierFor(blueprint),
+        hasExpandedAuxiliarySlot: profile.hasExpandedAuxiliarySlot,
+        bonusMaxHp: profile.monumentBonusMaxHp);
+    // Gold and cargo belong to the captain. Only temporary ship refits reset.
+    vessel
+      ..level = 1
+      ..maxHp = base.maxHp
+      ..currentHp = base.maxHp
+      ..armorClass = base.armorClass
+      ..maxCargo = base.maxCargo
+      ..maxWeaponWeight = base.maxWeaponWeight
+      ..baseEvasion = base.baseEvasion
+      ..baseDmgReduction = base.baseDmgReduction
+      ..dmgReductionMod = base.dmgReductionMod;
+    vessel.hardpointMarks..clear()..addAll(base.hardpointMarks);
+    vessel.equippedWeapons..clear()..addAll(base.equippedWeapons);
   }
 
   List<GameEvent> _handleAdvanceToNextBattle() {
@@ -510,11 +554,8 @@ class GameSession {
 
     // Check if we just defeated the Region Boss at [3][4] or leg totalLegs
     if (phase == SessionPhase.restArea &&
-        ((seaChart.currentRow == SeaChart.bossRow &&
-            seaChart.currentCol == SeaChart.bossCol) ||
-            seaChart.currentLeg >= seaChart.totalLegs) &&
-        currentMonster != null &&
-        !currentMonster!.isAlive) {
+        seaChart.isRegionTitan &&
+        (hasDefeatedCurrentEncounter || currentMonster?.isAlive == false)) {
       if (seaChart.currentRegionIndex >= SeaChart.totalRegions - 1) {
         // Slain the Region 3 Final Titan! Grand Victory!
         final prevPhase = phase.displayName;
@@ -556,8 +597,16 @@ class GameSession {
       }
     }
 
-    seaChart.advance(rng);
-    return _startEncounter();
+    final events = _handleTakeHelm();
+    if (phase == SessionPhase.helm) {
+      final options = seaChart.currentCourseOptions;
+      final bearing = activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&
+              options.length > 1
+          ? options.firstWhere((o) => o.bearing != NavigationalBearing.deadAhead).bearing
+          : NavigationalBearing.deadAhead;
+      events.addAll(_handleSteerCourse(bearing));
+    }
+    return events;
   }
 
   List<GameEvent> _handleTakeHelm() {
@@ -569,6 +618,13 @@ class GameSession {
         phase != SessionPhase.port) {
       throw StateError('Cannot take helm from phase $phase');
     }
+    if (phase == SessionPhase.port) {
+      _resetVoyageRefits();
+      ship?.blessings.clear();
+      gunneryAccuracyBoon = 0;
+      runicGuidanceBoon = 0;
+      shrineManifestedPowers = const [];
+    }
     if (phase == SessionPhase.shipwreck && !hasSalvagedCurrentWreck) {
       throw StateError(
           'Must choose a salvage action before departing the shipwreck derelict');
@@ -576,11 +632,8 @@ class GameSession {
 
     // Check if we just defeated the Region Boss at [3][4] or leg totalLegs
     if ((phase == SessionPhase.restArea || phase == SessionPhase.loot) &&
-        ((seaChart.currentRow == SeaChart.bossRow &&
-            seaChart.currentCol == SeaChart.bossCol) ||
-            seaChart.currentLeg >= seaChart.totalLegs) &&
-        currentMonster != null &&
-        !currentMonster!.isAlive) {
+        seaChart.isRegionTitan &&
+        (hasDefeatedCurrentEncounter || currentMonster?.isAlive == false)) {
       if (seaChart.currentRegionIndex >= SeaChart.totalRegions - 1) {
         final prevPhase = phase.displayName;
         phase = SessionPhase.expeditionVictory;
@@ -649,7 +702,8 @@ class GameSession {
 
     // Reckless Helmsman: "Dead Ahead" heading is disabled at sea
     if (activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&
-        bearing == NavigationalBearing.deadAhead) {
+        bearing == NavigationalBearing.deadAhead &&
+        seaChart.currentCourseOptions.length > 1) {
       throw StateError('Reckless Helmsman refuses to steer Dead Ahead!');
     }
 
@@ -666,6 +720,7 @@ class GameSession {
     }
 
     final chosen = seaChart.steerCourse(bearing, rng);
+    profile.hasBegunFirstVoyage = true;
     final events = <GameEvent>[
       CourseSteered(
         bearing: bearing,
@@ -680,6 +735,7 @@ class GameSession {
   }
 
   List<GameEvent> _startEncounter() {
+    hasDefeatedCurrentEncounter = false;
     if (ship == null || !ship!.isAlive) {
       return _resolvePlayerDeath();
     }
@@ -1189,6 +1245,7 @@ class GameSession {
     if (item is! Consumable) {
       throw ArgumentError('Item at index $cargoIndex is not a consumable');
     }
+    if (item.isDepleted) throw StateError('This consumable has already been spent');
     final maxQuickItems =
         activeBoon?.id == BloodlineTraitId.drillmaster ? 2 : 1;
     if (quickConsumablesUsedThisTurn >= maxQuickItems) {
@@ -1621,6 +1678,7 @@ class GameSession {
     runicGuidanceBoon = 0;
     gunneryAccuracyBoon = 0;
     monstersDefeatedThisLife++;
+    hasDefeatedCurrentEncounter = true;
     highestDifficultyThisLife = max(
       highestDifficultyThisLife,
       seaChart.currentDifficulty,
@@ -2062,8 +2120,8 @@ class GameSession {
 
   List<GameEvent> _handleUpgradeShip() {
     if (ship == null) throw StateError('No ship available');
-    if (phase != SessionPhase.port && phase != SessionPhase.respiteIsland) {
-      throw StateError('Can only refit and upgrade ship at port or respite island');
+    if (phase != SessionPhase.respiteIsland) {
+      throw StateError('Ship refits are only available at a voyage Haven');
     }
     if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
       return const <GameEvent>[
@@ -2097,8 +2155,8 @@ class GameSession {
 
   List<GameEvent> _handleTemperHardpoint(HardpointType slot) {
     if (ship == null) throw StateError('No ship available');
-    if (phase != SessionPhase.port && phase != SessionPhase.respiteIsland) {
-      throw StateError('Can only temper hardpoints at port or respite island');
+    if (phase != SessionPhase.respiteIsland) {
+      throw StateError('Hardpoint tempering is only available at a voyage Haven');
     }
     if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
       return const <GameEvent>[
@@ -2592,13 +2650,16 @@ class GameSession {
     if (phase != SessionPhase.death || ship == null) {
       throw StateError('Cannot continue lineage outside of death phase');
     }
+    final blueprintId = BlueprintId.fromShipClass(chosenClass);
+    if (!profile.isBlueprintUnlocked(blueprintId)) {
+      throw StateError('Blueprint $blueprintId is not unlocked');
+    }
     captainName = heirName;
     activeBoon = boon;
     activeQuirk = quirk;
     pendingHeirCandidates = <HeirCandidate>[];
 
     final previousShip = ship!;
-    final blueprintId = BlueprintId.fromShipClass(chosenClass);
     final armamentTier = profile.armamentTierFor(blueprintId);
     final heirShip = createFlagshipFromBlueprint(
       blueprintId,

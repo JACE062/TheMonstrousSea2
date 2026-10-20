@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import 'src/game_controller.dart';
 import 'src/screens/battle_screen.dart';
 import 'src/screens/captain_screen.dart';
@@ -25,7 +26,9 @@ void main() {
 }
 
 class MonstrousSeaApp extends StatelessWidget {
-  const MonstrousSeaApp({super.key});
+  const MonstrousSeaApp({super.key, this.controller});
+
+  final GameController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class MonstrousSeaApp extends StatelessWidget {
               child: child!,
             );
           },
-          home: const GameOrchestratorView(),
+          home: GameOrchestratorView(controller: controller),
         );
       },
     );
@@ -56,10 +59,14 @@ class GameOrchestratorView extends StatefulWidget {
     super.key,
     this.controller,
     this.skipIntro = false,
+    this.loadStorage,
   });
 
   final GameController? controller;
   final bool skipIntro;
+
+  /// Injected controllers normally already contain test or live session state.
+  final bool? loadStorage;
 
   @override
   State<GameOrchestratorView> createState() => _GameOrchestratorViewState();
@@ -69,17 +76,33 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
   late final GameController _controller;
   late bool _introDismissed = widget.skipIntro;
   bool _showingChartModal = false;
+  bool _loadingStorage = false;
 
   @override
   void initState() {
     super.initState();
     _controller = widget.controller ?? GameController();
     _controller.addListener(_onControllerStateChanged);
+    if (widget.loadStorage ?? widget.controller == null) {
+      _loadingStorage = true;
+      _loadStorage();
+    }
+  }
+
+  Future<void> _loadStorage() async {
+    await _controller.initializeStorage();
+    if (mounted) {
+      setState(() {
+        _loadingStorage = false;
+        if (_controller.profile.hasBegunFirstVoyage) _introDismissed = true;
+      });
+    }
   }
 
   @override
   void dispose() {
     _controller.removeListener(_onControllerStateChanged);
+    if (widget.controller == null) _controller.dispose();
     super.dispose();
   }
 
@@ -91,11 +114,18 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
 
   @override
   Widget build(BuildContext context) {
+    if (_loadingStorage) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(
+            semanticsLabel: 'Loading your bloodline and voyage',
+          ),
+        ),
+      );
+    }
     // 1. Initial Atmospheric Intro
     if (!_introDismissed && _controller.phase == SessionPhase.captainCreation) {
-      return IntroScreen(
-        onStart: () => setState(() => _introDismissed = true),
-      );
+      return IntroScreen(onStart: () => setState(() => _introDismissed = true));
     }
 
     // 2. Active Screen based on SessionPhase

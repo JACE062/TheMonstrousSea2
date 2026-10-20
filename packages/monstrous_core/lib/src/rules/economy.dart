@@ -7,10 +7,7 @@ import '../rng/game_rng.dart';
 
 /// Generates 3-5 Tactical Belt [Consumable] items for the merchant's inventory.
 ///
-/// Each item has:
-/// - 50% chance to be at [highestDifficultyReached]
-/// - 25% chance to be at `highestDifficultyReached + 1`
-/// - 25% chance to be at `max(1, highestDifficultyReached - 1)`
+/// Consumable potency and price are fixed across all voyage difficulties.
 List<Item> generateMerchantStock(
   int highestDifficultyReached,
   GameRng rng,
@@ -19,17 +16,7 @@ List<Item> generateMerchantStock(
   final stock = <Item>[];
 
   for (var i = 0; i < count; i++) {
-    final levelRoll = rng.nextInt(4);
-    final int itemLevel;
-    if (levelRoll == 0) {
-      itemLevel = highestDifficultyReached + 1;
-    } else if (levelRoll == 1 || levelRoll == 2) {
-      itemLevel = highestDifficultyReached;
-    } else {
-      itemLevel = max(1, highestDifficultyReached - 1);
-    }
-
-    final item = randomConsumable(itemLevel, rng);
+    final item = randomConsumable(highestDifficultyReached, rng);
     stock.add(item);
   }
 

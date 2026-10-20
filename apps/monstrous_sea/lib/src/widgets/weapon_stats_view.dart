@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../theme/ink_theme.dart';
 
-/// Renders compact antique badges displaying damage, charge time, hit bonus,
-/// weapon battery type, and status effects for weapons and equipment.
+/// Readable parchment badges for damage, cooldowns, base accuracy and provisions.
 class WeaponStatsView extends StatelessWidget {
-  const WeaponStatsView({
-    super.key,
-    required this.item,
-    this.compact = false,
-  });
+  const WeaponStatsView({super.key, required this.item, this.compact = false});
 
   final Item item;
   final bool compact;
@@ -18,9 +14,16 @@ class WeaponStatsView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (item is ShipWeapon) {
       final weapon = item as ShipWeapon;
-      final shortPct = (weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.short) * 100).round();
-      final medPct = (weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.medium) * 100).round();
-      final longPct = isWeaponTypeUsableAtRange(weapon.weaponType, CombatRange.long)
+      final shortPct =
+          (weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.short) *
+                  100)
+              .round();
+      final medPct =
+          (weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.medium) *
+                  100)
+              .round();
+      final longPct =
+          isWeaponTypeUsableAtRange(weapon.weaponType, CombatRange.long)
           ? '${(weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.long) * 100).round()}%'
           : '—';
       return Wrap(
@@ -39,12 +42,12 @@ class WeaponStatsView extends StatelessWidget {
             color: InkTheme.inkPrimary,
           ),
           _statBadge(
-            'S:$shortPct% / M:$medPct% / L:$longPct',
+            'Short $shortPct% · Medium $medPct% · Long $longPct',
             icon: Icons.straighten,
             color: InkTheme.inkSecondary,
           ),
           _statBadge(
-            '+${weapon.hitModifier} Hit',
+            '${weapon.baseAccuracy}% base accuracy',
             icon: Icons.adjust,
             color: InkTheme.verdigrisGreen,
           ),
@@ -59,13 +62,12 @@ class WeaponStatsView extends StatelessWidget {
     }
 
     if (item is Consumable) {
-      final consumable = item as Consumable;
       return Wrap(
         spacing: 6,
         runSpacing: 4,
         children: [
           _statBadge(
-            '${consumable.usesLeft}/${consumable.maxUses} Uses',
+            'Single use',
             icon: Icons.science,
             color: InkTheme.goldAccent,
           ),
@@ -96,15 +98,17 @@ class WeaponStatsView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[
-            Icon(icon, size: compact ? 10 : 12, color: color),
+            Icon(icon, size: compact ? 14 : 16, color: color),
             const SizedBox(width: 3),
           ],
-          Text(
-            label,
-            style: InkTheme.statLabel.copyWith(
-              fontSize: compact ? 10 : 11,
-              color: color,
-              fontWeight: FontWeight.w600,
+          Flexible(
+            child: Text(
+              label,
+              style: InkTheme.statLabel.copyWith(
+                fontSize: compact ? 12 : 14,
+                color: color,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],

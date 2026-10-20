@@ -19,7 +19,9 @@ class RandomBot implements BotStrategy {
           return const NameCaptain('Captain Fortuna');
         }
         final canonicalClasses =
-            BlueprintId.values.map((b) => b.shipClass).toList();
+            BlueprintId.values
+                .where(session.profile.isBlueprintUnlocked)
+                .map((b) => b.shipClass).toList();
         return ChooseShip(canonicalClasses[rng.nextInt(canonicalClasses.length)]);
 
       case SessionPhase.port:
@@ -49,7 +51,7 @@ class RandomBot implements BotStrategy {
           return const ExecuteShipSpecialAction();
         } else if (actionRoll == 8 && !session.usedQuickConsumableThisTurn) {
           final consumableIndex =
-              ship.cargo.indexWhere((item) => item is Consumable);
+              ship.cargo.indexWhere((item) => item is Consumable && !item.isDepleted);
           if (consumableIndex >= 0) {
             return UseConsumableItem(consumableIndex);
           }

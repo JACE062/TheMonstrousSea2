@@ -16,6 +16,7 @@ class ProfileData {
     this.activeNemesis,
     Set<String>? unlockedBlueprints,
     this.activeBlueprintId = 'standard',
+    this.hasBegunFirstVoyage = false,
     Map<String, int>? portCivicLevels,
     int? covenantHeat,
     this.hasUnlockedCovenant = false,
@@ -26,16 +27,16 @@ class ProfileData {
     this.hasExpandedAuxiliarySlot = false,
     Set<String>? unlockedEldritchRelics,
     Set<String>? activeEldritchRelics,
-  })  : metaInventory = metaInventory ?? MetaInventory(),
-        lineageTracker = lineageTracker ?? LineageTracker(),
-        unlockedBlueprints =
-            unlockedBlueprints ?? <String>{BlueprintId.standard.name},
-        portCivicLevels = portCivicLevels ?? <String, int>{},
-        activePacts = activePacts ?? <CovenantPactId>{},
-        blueprintArmamentTiers = blueprintArmamentTiers ?? <String, int>{},
-        unlockedEldritchRelics = unlockedEldritchRelics ?? <String>{},
-        activeEldritchRelics = activeEldritchRelics ?? <String>{},
-        _legacyHeatOverride = covenantHeat {
+  }) : metaInventory = metaInventory ?? MetaInventory(),
+       lineageTracker = lineageTracker ?? LineageTracker(),
+       unlockedBlueprints =
+           unlockedBlueprints ?? <String>{BlueprintId.standard.name},
+       portCivicLevels = portCivicLevels ?? <String, int>{},
+       activePacts = activePacts ?? <CovenantPactId>{},
+       blueprintArmamentTiers = blueprintArmamentTiers ?? <String, int>{},
+       unlockedEldritchRelics = unlockedEldritchRelics ?? <String>{},
+       activeEldritchRelics = activeEldritchRelics ?? <String>{},
+       _legacyHeatOverride = covenantHeat {
     // Ensure standard blueprint is always unlocked
     this.unlockedBlueprints.add(BlueprintId.standard.name);
   }
@@ -57,8 +58,9 @@ class ProfileData {
     if (pactsList != null) {
       for (final raw in pactsList) {
         final name = raw.toString();
-        final match =
-            CovenantPactId.values.where((p) => p.name == name).firstOrNull;
+        final match = CovenantPactId.values
+            .where((p) => p.name == name)
+            .firstOrNull;
         if (match != null) {
           parsedPacts.add(match);
         }
@@ -72,12 +74,29 @@ class ProfileData {
       lineageTracker: lineageJson != null
           ? LineageTracker.fromJson(lineageJson)
           : LineageTracker(),
-      activeNemesis:
-          nemesisJson != null ? NemesisRecord.fromJson(nemesisJson) : null,
+      activeNemesis: nemesisJson != null
+          ? NemesisRecord.fromJson(nemesisJson)
+          : null,
       unlockedBlueprints: blueprintsList != null
           ? blueprintsList.map((e) => e.toString()).toSet()
           : <String>{BlueprintId.standard.name},
       activeBlueprintId: activeBp,
+      // Legacy profiles with earned progress belong to returning captains.
+      hasBegunFirstVoyage:
+          json['hasBegunFirstVoyage'] as bool? ??
+          ((lineageJson?['history'] is List &&
+                  (lineageJson!['history'] as List).isNotEmpty) ||
+              (blueprintsList?.any((id) => id != 'standard') ?? false) ||
+              (metaJson?.values.any((value) => value is num && value > 0) ??
+                  false) ||
+              (civicMap?.isNotEmpty ?? false) ||
+              (armamentMap?.isNotEmpty ?? false) ||
+              (unlockedRelicsList?.isNotEmpty ?? false) ||
+              activeBp != 'standard' ||
+              json['hasExpandedAuxiliarySlot'] == true ||
+              json['hasUnlockedCovenant'] == true ||
+              json['hasShatteredFont'] == true ||
+              nemesisJson != null),
       portCivicLevels: civicMap != null
           ? civicMap.map((k, v) => MapEntry(k, v as int))
           : <String, int>{},
@@ -105,6 +124,7 @@ class ProfileData {
   NemesisRecord? activeNemesis;
   final Set<String> unlockedBlueprints;
   String activeBlueprintId;
+  bool hasBegunFirstVoyage;
   final Map<String, int> portCivicLevels;
 
   bool hasUnlockedCovenant;
@@ -167,11 +187,8 @@ class ProfileData {
   }
 
   /// Returns the current signature armament tier (1..3) for [id].
-  int armamentTierFor(BlueprintId id) =>
-      (blueprintArmamentTiers[id.name] ?? 1).clamp(
-        1,
-        BlueprintArmamentProgression.maxTier,
-      );
+  int armamentTierFor(BlueprintId id) => (blueprintArmamentTiers[id.name] ?? 1)
+      .clamp(1, BlueprintArmamentProgression.maxTier);
 
   bool canUpgradeBlueprintArmament(BlueprintId id) {
     if (!isBlueprintUnlocked(id)) return false;
@@ -270,20 +287,21 @@ class ProfileData {
       1.0 + (monumentRank(HarborMonumentId.calderaBrazier) * 0.05);
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'metaInventory': metaInventory.toJson(),
-        'lineageTracker': lineageTracker.toJson(),
-        'activeNemesis': activeNemesis?.toJson(),
-        'unlockedBlueprints': unlockedBlueprints.toList(),
-        'activeBlueprintId': activeBlueprintId,
-        'portCivicLevels': portCivicLevels,
-        'covenantHeat': totalPactBurden,
-        'hasUnlockedCovenant': hasUnlockedCovenant,
-        'hasShatteredFont': hasShatteredFont,
-        'ascensionLoopCount': ascensionLoopCount,
-        'activePacts': activePacts.map((p) => p.name).toList(),
-        'blueprintArmamentTiers': blueprintArmamentTiers,
-        'hasExpandedAuxiliarySlot': hasExpandedAuxiliarySlot,
-        'unlockedEldritchRelics': unlockedEldritchRelics.toList(),
-        'activeEldritchRelics': activeEldritchRelics.toList(),
-      };
+    'metaInventory': metaInventory.toJson(),
+    'lineageTracker': lineageTracker.toJson(),
+    'activeNemesis': activeNemesis?.toJson(),
+    'unlockedBlueprints': unlockedBlueprints.toList(),
+    'activeBlueprintId': activeBlueprintId,
+    'hasBegunFirstVoyage': hasBegunFirstVoyage,
+    'portCivicLevels': portCivicLevels,
+    'covenantHeat': totalPactBurden,
+    'hasUnlockedCovenant': hasUnlockedCovenant,
+    'hasShatteredFont': hasShatteredFont,
+    'ascensionLoopCount': ascensionLoopCount,
+    'activePacts': activePacts.map((p) => p.name).toList(),
+    'blueprintArmamentTiers': blueprintArmamentTiers,
+    'hasExpandedAuxiliarySlot': hasExpandedAuxiliarySlot,
+    'unlockedEldritchRelics': unlockedEldritchRelics.toList(),
+    'activeEldritchRelics': activeEldritchRelics.toList(),
+  };
 }

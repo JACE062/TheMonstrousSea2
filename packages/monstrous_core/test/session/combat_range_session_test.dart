@@ -24,6 +24,7 @@ void main() {
     test('Prow Ram surges ship into CombatRange.short on strike', () {
       final session = GameSession();
       session.dispatch(const NameCaptain('Nemo'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
       session.dispatch(const ChooseShip(ShipClass.ironclad));
       session.dispatch(const VentureOutToSea());
 
@@ -49,6 +50,7 @@ void main() {
     test('IssueHelmOrder repositions vessel and FireWeaponVolley resolves at new range', () {
       final session = GameSession();
       session.dispatch(const NameCaptain('Hawkins'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.clipper).name);
       session.dispatch(const ChooseShip(ShipClass.clipper));
       session.dispatch(const VentureOutToSea());
 
@@ -116,6 +118,7 @@ void main() {
     test('Prow Ram cannot fire from Long Range, but works at Medium and surges to Short', () {
       final session = GameSession();
       session.dispatch(const NameCaptain('Iron-Grip'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
       session.dispatch(const ChooseShip(ShipClass.ironclad));
       session.dispatch(const VentureOutToSea());
 
@@ -154,6 +157,7 @@ void main() {
     test('Harpoon Winch reels quarry 1 band closer', () {
       final session = GameSession();
       session.dispatch(const NameCaptain('Teach'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corsair).name);
       session.dispatch(const ChooseShip(ShipClass.corsair));
       session.dispatch(const VentureOutToSea());
 
@@ -177,6 +181,7 @@ void main() {
     test('Corvette Evasive Maneuvers opens range by 1 band away from danger', () {
       final session = GameSession();
       session.dispatch(const NameCaptain('Drake'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corvette).name);
       session.dispatch(const ChooseShip(ShipClass.corvette));
       session.dispatch(const VentureOutToSea());
 

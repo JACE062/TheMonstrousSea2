@@ -64,6 +64,7 @@ void main() {
       expect(session.phase, SessionPhase.death);
 
       final chosenCandidate = session.pendingHeirCandidates.first;
+      session.profile.unlockedBlueprints.add(BlueprintId.ironclad.name);
       final events = session.dispatch(ContinueLineage(
         'Captain Cordelia Vane',
         ShipClass.ironclad,
@@ -273,6 +274,7 @@ void main() {
     test('VoyageSaveData snapshots and restores GameSession completely', () {
       final session = GameSession(rng: rng);
       session.dispatch(const NameCaptain('Captain Ulysses'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corvette).name);
       session.dispatch(const ChooseShip(ShipClass.corvette, customName: 'Thunderer'));
       session.dispatch(const VentureOutToSea());
       session.activeBoon = BloodlineTrait.veteranCannoneer;

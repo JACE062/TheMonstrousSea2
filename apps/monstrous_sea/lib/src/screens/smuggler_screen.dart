@@ -72,7 +72,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                     ),
                     if (ship != null)
                       Text(
-                        'PURSE: ${ship.gold}g | HOLD: ${ship.cargo.length}/${ship.maxCargo}',
+                        'PURSE: ${ship.gold}g | TACTICAL BELT: ${ship.cargo.length}/${ship.maxCargo}',
                         style: InkTheme.statLabel.copyWith(
                           color: InkTheme.goldAccent,
                           fontWeight: FontWeight.bold,
@@ -177,7 +177,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                     const SizedBox(width: 8),
                     Expanded(
                       child: InkButton(
-                        label: 'LIQUIDATE CARGO (${ship?.cargo.length ?? 0})',
+                        label: 'SELL FROM BELT (${ship?.cargo.length ?? 0})',
                         isPrimary: _activeTab == 1,
                         onPressed: () => setState(() => _activeTab = 1),
                       ),
@@ -221,24 +221,9 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                                         Text(
                                           item.name,
                                           style: InkTheme.statValue.copyWith(
-                                            color: item.rarity == RarityLevel.legendary
-                                                ? InkTheme.crimsonAccent
-                                                : item.rarity == RarityLevel.epic
-                                                    ? InkTheme.goldAccent
-                                                    : InkTheme.inkPrimary,
+                                            color: InkTheme.inkPrimary,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const SizedBox(width: 8),
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: InkTheme.inkFaint),
-                                            borderRadius: BorderRadius.circular(2),
-                                          ),
-                                          child: Text(
-                                            item.rarity.name.toUpperCase(),
-                                            style: InkTheme.caption.copyWith(fontSize: 10),
                                           ),
                                         ),
                                       ],
@@ -248,7 +233,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                                       WeaponStatsView(item: item, compact: true)
                                     else if (item is Consumable)
                                       Text(
-                                        'Consumable Munition • ${item.usesLeft} use remaining',
+                                        'Single use · Value: ${item.value}g',
                                         style: InkTheme.caption.copyWith(fontSize: 12),
                                       ),
                                   ],
@@ -289,7 +274,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                           InkButton(
                             label: 'EXCHANGE ALL',
                             isPrimary: true,
-                            semanticLabel: 'Sell all treasure spoils in cargo for gold',
+                            semanticLabel: 'Sell all treasure spoils for gold',
                             onPressed: () => controller.dispatch(const SellAllTreasure()),
                           ),
                         ],
@@ -303,7 +288,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                       padding: const EdgeInsets.all(24),
                       child: Center(
                         child: Text(
-                          'Your cargo hold is currently empty.',
+                          'Your Tactical Belt is currently empty.',
                           style: InkTheme.body,
                         ),
                       ),
@@ -320,9 +305,15 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text(
-                                  '${item.name} (${item.rarity.name.toUpperCase()})',
-                                  style: InkTheme.body,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(item.name,
+                                        style: InkTheme.statValue.copyWith(fontSize: 16)),
+                                    if (item is Consumable)
+                                      Text('Single use · Value: ${item.value}g',
+                                          style: InkTheme.caption),
+                                  ],
                                 ),
                               ),
                               InkButton(

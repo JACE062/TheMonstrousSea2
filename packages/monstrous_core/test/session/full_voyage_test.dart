@@ -99,6 +99,7 @@ void main() {
     test('Death and Heir lineage continuation workflow', () {
       final session = GameSession(rng: SeededGameRng(999));
       session.dispatch(const NameCaptain('Old Sal'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.freighter).name);
       session.dispatch(const ChooseShip(ShipClass.freighter, customName: 'Hauler'));
       session.ship!.gold = 100;
       session.ship!.applyDamage(session.ship!.maxHp); // Sinks ship
@@ -109,6 +110,7 @@ void main() {
       expect(session.lineage.captainsLost, equals(1));
 
       // Continue lineage with heir
+      session.profile.unlockedBlueprints.add(BlueprintId.ironclad.name);
       session.dispatch(const ContinueLineage('Young Sal', ShipClass.ironclad));
       expect(session.phase, equals(SessionPhase.port));
       expect(session.captainName, equals('Young Sal'));
@@ -121,6 +123,7 @@ void main() {
     test('Captain returns to port and departs directly at charted depth waypoint (Option A)', () {
       final session = GameSession(rng: SeededGameRng(101));
       session.dispatch(const NameCaptain('Deepsea Dan'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
       session.dispatch(const ChooseShip(ShipClass.ironclad));
 
       // Simulate exploring down to Row 2
@@ -179,6 +182,7 @@ void main() {
       session.phase = SessionPhase.restArea;
 
       // Advance to the island
+      session.seaChart.setNodeTypeAt(islandRow, islandCol, EncounterNodeType.respiteIsland);
       final advanceEvents = session.dispatch(const AdvanceToNextBattle());
 
       expect(session.phase, equals(SessionPhase.respiteIsland));
@@ -216,6 +220,7 @@ void main() {
     test('Shipwreck Derelict Encounter: discover and salvage strongbox', () {
       final session = GameSession(rng: SeededGameRng(444));
       session.dispatch(const NameCaptain('Blackbeard'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.freighter).name);
       session.dispatch(const ChooseShip(ShipClass.freighter));
 
       final startGold = session.ship!.gold;
@@ -250,6 +255,7 @@ void main() {
       session.phase = SessionPhase.restArea;
 
       // Advance to the shipwreck
+      session.seaChart.setNodeTypeAt(wreckRow, wreckCol, EncounterNodeType.shipwreckSalvage);
       final advanceEvents = session.dispatch(const AdvanceToNextBattle());
 
       expect(session.phase, equals(SessionPhase.shipwreck));
@@ -308,6 +314,7 @@ void main() {
     test('Grand Expedition Campaign Victory after slaying Region 3 Final Titan', () {
       final session = GameSession(rng: SeededGameRng(888));
       session.dispatch(const NameCaptain('Odysseus'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
       session.dispatch(const ChooseShip(ShipClass.ironclad));
 
       // 1. Clear Region 0 Kraken

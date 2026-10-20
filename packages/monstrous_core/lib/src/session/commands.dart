@@ -22,6 +22,13 @@ final class ChooseShip extends Command {
   final String? customName;
 }
 
+/// Names the first captain, commissions the Standard flagship, and sails at once.
+final class BeginFirstVoyage extends Command {
+  const BeginFirstVoyage(this.captainName, {this.customShipName});
+  final String captainName;
+  final String? customShipName;
+}
+
 /// Fires all weapons of the specified type in a coordinated volley.
 final class FireWeaponVolley extends Command {
   const FireWeaponVolley(this.weaponType);
@@ -39,7 +46,6 @@ final class ChangeCombatRange extends Command {
   const ChangeCombatRange(this.targetRange);
   final CombatRange targetRange;
 }
-
 
 /// Uses a consumable item from cargo by index.
 final class UseConsumableItem extends Command {
@@ -135,7 +141,7 @@ final class RepairShip extends Command {
   final double percentage;
 }
 
-/// Refits and upgrades the player's vessel level at port drydock.
+/// Refits the player's vessel level at a voyage's midpoint Haven shipwright.
 final class UpgradeShip extends Command {
   const UpgradeShip();
 }
@@ -281,5 +287,3 @@ final class UpgradeHarborMonument extends Command {
   const UpgradeHarborMonument(this.monumentId);
   final HarborMonumentId monumentId;
 }
-
-

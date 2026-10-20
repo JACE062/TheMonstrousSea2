@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../settings/game_settings.dart';
 import '../theme/ink_theme.dart';
 import 'ink_button.dart';
@@ -29,7 +30,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
       builder: (context, _) {
         return Dialog(
           backgroundColor: Colors.transparent,
-          insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          insetPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 24,
+          ),
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 520),
             child: Container(
@@ -58,12 +62,18 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         Expanded(
                           child: Row(
                             children: [
-                              const Icon(Icons.settings, color: InkTheme.inkPrimary, size: 24),
+                              const Icon(
+                                Icons.settings,
+                                color: InkTheme.inkPrimary,
+                                size: 24,
+                              ),
                               const SizedBox(width: 8),
                               Flexible(
                                 child: Text(
                                   'SETTINGS & ACCESSIBILITY',
-                                  style: InkTheme.titleMedium.copyWith(fontSize: 20),
+                                  style: InkTheme.titleMedium.copyWith(
+                                    fontSize: 20,
+                                  ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
@@ -71,7 +81,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                           ),
                         ),
                         IconButton(
-                          icon: const Icon(Icons.close, color: InkTheme.inkSecondary),
+                          icon: const Icon(
+                            Icons.close,
+                            color: InkTheme.inkSecondary,
+                          ),
                           tooltip: 'Close settings',
                           onPressed: () => Navigator.of(context).pop(),
                         ),
@@ -175,7 +188,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'IRONCLAD • 110/110 HP • 12 AC',
+                            'STANDARD FLAGSHIP • 90/90 HP',
                             style: InkTheme.statLabel.copyWith(
                               fontSize: 13,
                               color: InkTheme.goldAccent,
@@ -183,12 +196,12 @@ class _SettingsDialogState extends State<SettingsDialog> {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            '"The leviathan thrashes in the deep swell! Load the blade launchers and brace for impact!"',
+                            '"The leviathan thrashes in the deep swell! Load the broadside cannons and brace for impact!"',
                             style: InkTheme.body.copyWith(fontSize: 15),
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            'Naval Sector II-3: Slain Giant Squid • Loot: 25g Doubloons acquired.',
+                            'The Sargasso Drift: Slain Giant Squid • Loot: 25g Doubloons acquired.',
                             style: InkTheme.caption.copyWith(fontSize: 12.5),
                           ),
                         ],
@@ -197,8 +210,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     const SizedBox(height: 20),
 
                     // Action buttons
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    Wrap(
+                      alignment: WrapAlignment.end,
+                      spacing: 12,
+                      runSpacing: 8,
                       children: [
                         TextButton(
                           onPressed: () => _settings.resetDefaults(),
@@ -210,7 +225,6 @@ class _SettingsDialogState extends State<SettingsDialog> {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 12),
                         InkButton(
                           label: 'DONE',
                           isPrimary: true,
@@ -245,7 +259,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
             decoration: BoxDecoration(
-              color: isSelected ? InkTheme.parchmentHighlight : InkTheme.parchmentDark.withValues(alpha: 0.3),
+              color: isSelected
+                  ? InkTheme.parchmentHighlight
+                  : InkTheme.parchmentDark.withValues(alpha: 0.3),
               border: Border.all(
                 color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
                 width: isSelected ? 2.0 : 1.0,
@@ -259,7 +275,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   style: InkTheme.statLabel.copyWith(
                     fontSize: 12,
                     fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
-                    color: isSelected ? InkTheme.inkPrimary : InkTheme.inkSecondary,
+                    color: isSelected
+                        ? InkTheme.inkPrimary
+                        : InkTheme.inkSecondary,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -267,7 +285,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 Text(
                   subtitle,
                   style: InkTheme.caption.copyWith(
-                    fontSize: 11,
+                    fontSize: 12,
                     color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
                   ),
                   textAlign: TextAlign.center,
@@ -297,7 +315,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
             decoration: BoxDecoration(
-              color: isSelected ? InkTheme.parchmentHighlight : InkTheme.parchmentDark.withValues(alpha: 0.3),
+              color: isSelected
+                  ? InkTheme.parchmentHighlight
+                  : InkTheme.parchmentDark.withValues(alpha: 0.3),
               border: Border.all(
                 color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
                 width: isSelected ? 2.0 : 1.0,
@@ -312,14 +332,16 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   style: InkTheme.statLabel.copyWith(
                     fontSize: 12,
                     fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
-                    color: isSelected ? InkTheme.inkPrimary : InkTheme.inkSecondary,
+                    color: isSelected
+                        ? InkTheme.inkPrimary
+                        : InkTheme.inkSecondary,
                   ),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   subtitle,
                   style: InkTheme.caption.copyWith(
-                    fontSize: 10.5,
+                    fontSize: 12,
                     color: isSelected ? InkTheme.goldAccent : InkTheme.inkMuted,
                   ),
                 ),

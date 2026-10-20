@@ -143,6 +143,7 @@ void main() {
         session: GameSession(rng: SeededGameRng(42)),
       );
       controller.dispatch(const NameCaptain('Captain Ahab'));
+      controller.profile.unlockedBlueprints.add(encounter.shipClass.blueprintId.name);
       controller.dispatch(ChooseShip(encounter.shipClass));
       if (encounter.dutchman) controller.session.ship = createFlyingDutchman();
       controller.session.currentMonster = createMonster(

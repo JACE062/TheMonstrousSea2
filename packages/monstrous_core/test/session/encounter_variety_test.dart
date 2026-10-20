@@ -67,6 +67,7 @@ void main() {
     test('Ancient Sea Shrine: Offer Tribute of Gold grants sea favor accuracy boon', () {
       final session = GameSession(rng: SeededGameRng(202));
       session.dispatch(const NameCaptain('Sinbad'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corvette).name);
       session.dispatch(const ChooseShip(ShipClass.corvette));
 
       session.ship!.gold = 50;
@@ -116,6 +117,7 @@ void main() {
     test('Ancient Sea Shrine: Abyssal Pact sacrifices hull integrity for a relic weapon', () {
       final session = GameSession(rng: SeededGameRng(303));
       session.dispatch(const NameCaptain('Morgan'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
       session.dispatch(const ChooseShip(ShipClass.ironclad));
 
       final startHp = session.ship!.currentHp;
@@ -144,6 +146,7 @@ void main() {
     test('Ancient Sea Shrine: Consult Ancient Runes pierces fog across next soundings', () {
       final session = GameSession(rng: SeededGameRng(404));
       session.dispatch(const NameCaptain('Drake'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.freighter).name);
       session.dispatch(const ChooseShip(ShipClass.freighter));
 
       // Enter shrine on Row 0

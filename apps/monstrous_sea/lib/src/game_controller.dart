@@ -250,7 +250,7 @@ class GameController extends ChangeNotifier {
           actor: CombatLogActor.ambient,
         ),
       ItemAcquired(:final item) => CombatLogEntry(
-          message: 'Stowed ${item.name} into cargo hold.',
+          message: 'Stowed ${item.name} on the tactical belt.',
           actor: CombatLogActor.ambient,
         ),
       ItemSold(:final item, :final goldEarned) => CombatLogEntry(

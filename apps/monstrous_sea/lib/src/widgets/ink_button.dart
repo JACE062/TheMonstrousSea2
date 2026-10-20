@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../theme/ink_theme.dart';
 
 /// Button with vintage typography, double borders, and brass/crimson variants.
@@ -35,16 +36,16 @@ class InkButton extends StatelessWidget {
     final borderColor = !isEnabled
         ? InkTheme.inkFaint
         : isDanger
-            ? InkTheme.crimsonAccent
-            : isPrimary
-                ? InkTheme.goldAccent
-                : InkTheme.inkPrimary;
+        ? InkTheme.crimsonAccent
+        : isPrimary
+        ? InkTheme.goldAccent
+        : InkTheme.inkPrimary;
 
     final textColor = !isEnabled
         ? InkTheme.inkFaint
         : isDanger
-            ? InkTheme.crimsonAccent
-            : InkTheme.inkPrimary;
+        ? InkTheme.crimsonAccent
+        : InkTheme.inkPrimary;
 
     final buttonContent = ConstrainedBox(
       constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -75,10 +76,7 @@ class InkButton extends StatelessWidget {
           children: [
             if (icon != null) ...[
               ExcludeSemantics(
-                child: Opacity(
-                  opacity: isEnabled ? 1.0 : 0.45,
-                  child: icon!,
-                ),
+                child: Opacity(opacity: isEnabled ? 1.0 : 0.45, child: icon!),
               ),
               const SizedBox(width: 6),
             ],
@@ -89,10 +87,10 @@ class InkButton extends StatelessWidget {
                 children: [
                   Text(
                     label,
-                    maxLines: 1,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: InkTheme.titleMedium.copyWith(
-                      fontSize: subtitle != null ? 14 : 18,
+                      fontSize: subtitle != null ? 16 : 18,
                       color: textColor,
                       decoration: !isEnabled ? TextDecoration.none : null,
                     ),
@@ -101,10 +99,10 @@ class InkButton extends StatelessWidget {
                     const SizedBox(height: 1),
                     Text(
                       subtitle!,
-                      maxLines: 1,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: InkTheme.caption.copyWith(
-                        fontSize: 9.5,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: !isEnabled
                             ? InkTheme.inkFaint

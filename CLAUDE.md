@@ -85,8 +85,16 @@ The project is structured as a multiplatform Dart/Flutter monorepo:
   - Uninhabited procedural island. Careening restores **20% max HP**.
   - No shipwright present (tier refits disallowed).
   - Moderate Foraging (25–35 gold).
-- **Armory & Munitions Refit**:
-  - Players may freely swap/refit equipped weapons and cargo outside of combat (at Havens, Coves, Ketch merchants, and at the Helm between encounters).
+- **Hardpoint & Tactical Belt Inspection**:
+  - Intrinsic weapons cannot be equipped, swapped, or removed. The inspection panel shows temper marks, blessings, ancestral armament tiers and active relics, plus single-use belt items that may be jettisoned.
+  - Hull refits and hardpoint tempering are voyage upgrades purchased from Grand Haven shipwrights. Home port has no drydock or run tempering; each departure begins with hull level 1 and Mk I hardpoints. Permanent ancestral armament unlocks are separate.
+- **First Voyage & Blueprint Locks**:
+  - A fresh profile sees a brief Bloodbound Ship prologue, names its captain, and enters combat aboard Standard. No legacy ship picker is shown.
+  - Subsequent captains prepare at port and commission only unlocked canonical blueprints. Legacy hull aliases remain save compatibility data, not additional unlock choices.
+  - Load the profile/checkpoint before deciding whether to show onboarding. Persist voyage legs and their history as well as legacy coordinates.
+- **Consumables & Presentation**:
+  - Every tactical consumable is single-use; rarity does not set charges, potency or pricing. Older charged saves normalize to one remaining use.
+  - Default text size is 115%. Use readable percentage accuracy labels and plain text state badges, without colorful emoji. Brace/reload is an emergency UI action shown only when all turn-ending hardpoints are unavailable.
 
 ### C. Combat Resolution & Armor Class
 - **Armor Class (AC) is Vestigial**:

@@ -17,7 +17,8 @@ class CautiousBot implements BotStrategy {
         if (session.captainName.isEmpty) {
           return const NameCaptain('Captain Cautious');
         }
-        return const ChooseShip(ShipClass.ironclad);
+        return ChooseShip(session.profile.isBlueprintUnlocked(BlueprintId.ironclad)
+            ? BlueprintId.ironclad.shipClass : ShipClass.standard);
 
       case SessionPhase.port:
         final ship = session.ship;
@@ -88,7 +89,7 @@ class CautiousBot implements BotStrategy {
 
         // Check for quick-action consumable if wounded or available
         final consumableIndex =
-            ship.cargo.indexWhere((item) => item is Consumable);
+            ship.cargo.indexWhere((item) => item is Consumable && !item.isDepleted);
         if (!session.usedQuickConsumableThisTurn &&
             consumableIndex >= 0 &&
             hpRatio < 0.80) {

@@ -66,7 +66,7 @@ class LootScreen extends StatelessWidget {
                             '+${controller.lastGoldSalvaged} GOLD SALVAGED DIRECTLY TO PURSE (Purse: ${ship?.gold ?? 0}g)',
                             style: InkTheme.statLabel.copyWith(
                               color: InkTheme.goldAccent,
-                              fontSize: 14,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                             textAlign: TextAlign.center,
@@ -95,14 +95,14 @@ class LootScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'CARGO HOLD: ${ship?.cargo.length ?? 0} / ${ship?.maxCargo ?? 0}',
+                        'TACTICAL BELT: ${ship?.cargo.length ?? 0} / ${ship?.maxCargo ?? 0}',
                         style: InkTheme.statLabel.copyWith(
                           color: isFull ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
                         ),
                       ),
                       if (isFull)
                         Text(
-                          'HOLD IS FULL — Jettison cargo below to stow spoils',
+                          'BELT FULL — Toss an item below to stow spoils',
                           style: InkTheme.statLabel.copyWith(
                             color: InkTheme.crimsonAccent,
                             fontWeight: FontWeight.bold,
@@ -130,7 +130,6 @@ class LootScreen extends StatelessWidget {
                 else
                   ...List.generate(pendingLoot.length, (index) {
                     final item = pendingLoot[index];
-                    final rarityColor = InkTheme.rarityColor(item.rarity);
 
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
@@ -151,7 +150,7 @@ class LootScreen extends StatelessWidget {
                                   Text(
                                     item.name,
                                     style: InkTheme.statValue.copyWith(
-                                      color: rarityColor,
+                                      color: InkTheme.inkPrimary,
                                       fontSize: 16,
                                     ),
                                   ),
@@ -163,7 +162,9 @@ class LootScreen extends StatelessWidget {
                                   WeaponStatsView(item: item),
                                   const SizedBox(height: 2),
                                   Text(
-                                    '${item.rarity.displayName} • Value: ${item.value}g',
+                                    item is Consumable
+                                        ? 'Single use · Value: ${item.value}g'
+                                        : 'Value: ${item.value}g',
                                     style: InkTheme.statLabel.copyWith(
                                       color: InkTheme.goldAccent,
                                       fontSize: 12,
@@ -173,8 +174,8 @@ class LootScreen extends StatelessWidget {
                               ),
                             ),
                             InkButton(
-                              label: isFull ? 'Hold Full' : 'Stow',
-                              semanticLabel: isFull ? 'Cargo hold is full' : 'Stow ${item.name} into cargo hold',
+                              label: isFull ? 'Belt Full' : 'Stow',
+                              semanticLabel: isFull ? 'Tactical Belt is full' : 'Stow ${item.name} on the Tactical Belt',
                               isPrimary: !isFull,
                               onPressed: isFull
                                   ? null
@@ -212,7 +213,7 @@ class LootScreen extends StatelessWidget {
 
                 // Cargo Hold Management (Jettison options to free space)
                 if (ship != null && ship.cargo.isNotEmpty) ...[
-                  Text('ITEMS IN YOUR CARGO HOLD (${ship.cargo.length}/${ship.maxCargo})', style: InkTheme.statLabel),
+                  Text('ITEMS ON YOUR TACTICAL BELT (${ship.cargo.length}/${ship.maxCargo})', style: InkTheme.statLabel),
                   const SizedBox(height: 8),
                   ParchmentCard(
                     child: Column(
@@ -222,7 +223,7 @@ class LootScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Select an item to jettison into the sea to free up hold space:',
+                              'Select an item to jettison into the sea to free up belt space:',
                               style: InkTheme.caption.copyWith(color: InkTheme.crimsonAccent),
                             ),
                           ),
@@ -252,8 +253,8 @@ class LootScreen extends StatelessWidget {
                                       Text(
                                         cargoItem.name,
                                         style: InkTheme.statValue.copyWith(
-                                          color: InkTheme.rarityColor(cargoItem.rarity),
-                                          fontSize: 14,
+                                          color: InkTheme.inkPrimary,
+                                          fontSize: 16,
                                         ),
                                       ),
                                       const SizedBox(height: 2),

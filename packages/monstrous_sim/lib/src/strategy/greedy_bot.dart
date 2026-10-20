@@ -2,7 +2,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 import 'bot_strategy.dart';
 import 'shrine_strategy.dart';
 
-/// Wealth-maximizing bot choosing the Freighter class to optimize cargo holds,
+/// Wealth-maximizing bot preferring the unlocked Corsair flagship,
 /// banking treasures at port, and avoiding unnecessary expenses.
 class GreedyBot implements BotStrategy {
   const GreedyBot();
@@ -17,7 +17,8 @@ class GreedyBot implements BotStrategy {
         if (session.captainName.isEmpty) {
           return const NameCaptain('Captain Midas');
         }
-        return const ChooseShip(ShipClass.corsair);
+        return ChooseShip(session.profile.isBlueprintUnlocked(BlueprintId.corsair)
+            ? BlueprintId.corsair.shipClass : ShipClass.standard);
 
       case SessionPhase.port:
         final ship = session.ship;
@@ -61,7 +62,7 @@ class GreedyBot implements BotStrategy {
           return ChangeCombatRange(session.combatRange.farther);
         }
 
-        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable);
+        final consumableIndex = ship.cargo.indexWhere((item) => item is Consumable && !item.isDepleted);
         if (!session.usedQuickConsumableThisTurn && consumableIndex >= 0) {
           return UseConsumableItem(consumableIndex);
         }

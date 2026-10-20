@@ -225,7 +225,7 @@ void main() {
   group('Consumables Tests', () {
     final rng = SeededGameRng(101);
 
-    test('generateConsumable scales value and uses by rarity', () {
+    test('generateConsumable ignores legacy rarity and remains single-use', () {
       for (final type in ConsumableType.values) {
         final common = generateConsumable(type, RarityLevel.common);
         expect(common.maxUses, equals(1));
@@ -234,16 +234,16 @@ void main() {
         expect(common.type, equals(type));
 
         final rare = generateConsumable(type, RarityLevel.rare);
-        expect(rare.maxUses, equals(2));
-        expect(rare.value, equals(50));
+        expect(rare.maxUses, equals(1));
+        expect(rare.value, equals(25));
 
         final epic = generateConsumable(type, RarityLevel.epic);
-        expect(epic.maxUses, equals(3));
-        expect(epic.value, equals(75));
+        expect(epic.maxUses, equals(1));
+        expect(epic.value, equals(25));
 
         final leg = generateConsumable(type, RarityLevel.legendary);
-        expect(leg.maxUses, equals(4));
-        expect(leg.value, equals(100));
+        expect(leg.maxUses, equals(1));
+        expect(leg.value, equals(25));
       }
     });
 
@@ -266,9 +266,9 @@ void main() {
       expect(observedEffects.contains(StatusEffect.stun), isTrue);
     });
 
-    test('Blast Pack: 75% hit rate and 5 * rarity dmg', () {
+    test('Blast Pack: 75% hit rate and fixed 5 damage', () {
       final pack =
-          generateConsumable(ConsumableType.blastPack, RarityLevel.epic); // rarity level 3
+          generateConsumable(ConsumableType.blastPack, RarityLevel.epic);
       var hits = 0;
       var misses = 0;
 
@@ -277,7 +277,7 @@ void main() {
         expect(result.damageType, equals(DamageType.blast));
         if (result.didHit) {
           hits++;
-          expect(result.damage, equals(15)); // 5 * 3
+          expect(result.damage, equals(5));
         } else {
           misses++;
           expect(result.damage, equals(0));
@@ -289,9 +289,9 @@ void main() {
       expect(misses, inInclusiveRange(200, 300));
     });
 
-    test('Chakram: 75% hit rate and 5 * rarity dmg', () {
+    test('Chakram: 75% hit rate and fixed 5 damage', () {
       final chakram =
-          generateConsumable(ConsumableType.chakram, RarityLevel.rare); // rarity level 2
+          generateConsumable(ConsumableType.chakram, RarityLevel.rare);
       var hits = 0;
 
       for (var i = 0; i < 1000; i++) {
@@ -299,7 +299,7 @@ void main() {
         expect(result.damageType, equals(DamageType.slicing));
         if (result.didHit) {
           hits++;
-          expect(result.damage, equals(10)); // 5 * 2
+          expect(result.damage, equals(5));
         } else {
           expect(result.damage, equals(0));
         }

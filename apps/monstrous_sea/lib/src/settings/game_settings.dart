@@ -6,7 +6,7 @@ class GameSettings extends ChangeNotifier {
 
   static final GameSettings instance = GameSettings._();
 
-  double _fontScale = 1.0;
+  double _fontScale = 1.15;
   bool _highLegibilityFont = false;
 
   /// Current text scaling multiplier (1.0 = standard, 1.15 = large, 1.30 = extra large).
@@ -28,7 +28,7 @@ class GameSettings extends ChangeNotifier {
   }
 
   void resetDefaults() {
-    _fontScale = 1.0;
+    _fontScale = 1.15;
     _highLegibilityFont = false;
     notifyListeners();
   }

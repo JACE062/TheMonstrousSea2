@@ -18,24 +18,28 @@ void main() {
       }
     });
 
-    test('stock item levels are within highestDifficulty +/- 1 clamped to 1', () {
+    test('consumable stock has fixed price and use count at every difficulty', () {
       final rng = SeededGameRng(99);
 
-      // highestDiff = 1: levels can be 1-1 (clamped to 1), 1, or 2
+      // Difficulty does not introduce consumable tiers.
       final stock1 = generateMerchantStock(1, rng);
       for (final item in stock1) {
         if (item is Consumable) {
-          expect(item.rarity.level, inInclusiveRange(1, 2));
+          expect(item.rarity, RarityLevel.common);
+          expect(item.value, 25);
+          expect(item.maxUses, 1);
         } else if (item is ShipWeapon) {
           expect(item.rarity.level, inInclusiveRange(1, 2));
         }
       }
 
-      // highestDiff = 3: levels can be 2, 3, or 4
+      // Later voyages stock the same single-use items.
       final stock3 = generateMerchantStock(3, rng);
       for (final item in stock3) {
         if (item is Consumable) {
-          expect(item.rarity.level, inInclusiveRange(2, 4));
+          expect(item.rarity, RarityLevel.common);
+          expect(item.value, 25);
+          expect(item.maxUses, 1);
         } else if (item is ShipWeapon) {
           expect(item.rarity.level, inInclusiveRange(2, 4));
         }
@@ -84,9 +88,9 @@ void main() {
         gold: 15,
       );
 
-      // Item costs 50g
+      // Every single-use item costs 25g before merchant markup.
       final itemToBuy = generateConsumable(ConsumableType.blastPack, RarityLevel.rare);
-      expect(itemToBuy.value, 50);
+      expect(itemToBuy.value, 25);
 
       final success = buyItem(ship, itemToBuy);
       expect(success, isFalse);

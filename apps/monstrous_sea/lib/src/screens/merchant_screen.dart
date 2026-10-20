@@ -40,7 +40,7 @@ class MerchantScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('HARPOON & HELM CHANDLERY', style: InkTheme.titleLarge.copyWith(fontSize: 28)),
-                          Text('Purveyor of Fine Naval Arms & Rare Supplies', style: InkTheme.subtitle),
+                          Text('Purveyor of Fine Naval Arms & Tactical Supplies', style: InkTheme.subtitle),
                         ],
                       ),
                     ),
@@ -141,8 +141,8 @@ class MerchantScreen extends StatelessWidget {
                                                   child: Text(
                                                     item.name,
                                                     style: InkTheme.statValue.copyWith(
-                                                      color: InkTheme.rarityColor(item.rarity),
-                                                      fontSize: 14,
+                                                      color: InkTheme.inkPrimary,
+                                                      fontSize: 16,
                                                     ),
                                                   ),
                                                 ),
@@ -169,7 +169,7 @@ class MerchantScreen extends StatelessWidget {
                                             WeaponStatsView(item: item, compact: true),
                                             const SizedBox(height: 3),
                                             Text(
-                                              'Cost: ${askingPrice}g'
+                                              '${item is Consumable ? 'Single use · Value: ${item.value}g\n' : ''}Cost: ${askingPrice}g'
                                               '${isOnSale ? ' (was ${(item.value * 1.35).round()}g)' : ''}',
                                               style: InkTheme.statLabel.copyWith(
                                                 color: canAfford ? InkTheme.goldAccent : InkTheme.crimsonAccent,
@@ -184,12 +184,12 @@ class MerchantScreen extends StatelessWidget {
                                         label: !canAfford
                                             ? 'Lacks Gold'
                                             : !hasRoom
-                                                ? 'Hold Full'
+                                                ? 'Belt Full'
                                                 : 'Buy',
                                         semanticLabel: !canAfford
                                             ? 'Cannot purchase ${item.name}, lacks gold (costs ${askingPrice}g, have ${ship?.gold ?? 0}g)'
                                             : !hasRoom
-                                                ? 'Cannot purchase ${item.name}, cargo hold is full'
+                                                ? 'Cannot purchase ${item.name}, Tactical Belt is full'
                                                 : 'Buy ${item.name} for $askingPrice gold',
                                         isPrimary: canAfford && hasRoom,
                                         onPressed: canAfford && hasRoom
@@ -211,11 +211,11 @@ class MerchantScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text('SHIP CARGO HOLD (${cargo.length}/${ship?.maxCargo ?? 0})', style: InkTheme.statLabel),
+                          Text('TACTICAL BELT (${cargo.length}/${ship?.maxCargo ?? 0})', style: InkTheme.statLabel),
                           const SizedBox(height: 8),
                           if (cargo.isEmpty)
                             ParchmentCard(
-                              child: Text('Your cargo hold is empty.', style: InkTheme.caption),
+                              child: Text('Your Tactical Belt is empty.', style: InkTheme.caption),
                             )
                           else
                             ...List.generate(cargo.length, (index) {
@@ -240,8 +240,8 @@ class MerchantScreen extends StatelessWidget {
                                             Text(
                                               item.name,
                                               style: InkTheme.statValue.copyWith(
-                                                color: InkTheme.rarityColor(item.rarity),
-                                                fontSize: 14,
+                                                color: InkTheme.inkPrimary,
+                                                fontSize: 16,
                                               ),
                                             ),
                                             Text(item.description, style: InkTheme.caption.copyWith(fontSize: 13.5)),
@@ -249,7 +249,9 @@ class MerchantScreen extends StatelessWidget {
                                             WeaponStatsView(item: item, compact: true),
                                             const SizedBox(height: 3),
                                             Text(
-                                              'Sell: ${item.value}g',
+                                              item is Consumable
+                                                  ? 'Single use · Value: ${item.value}g'
+                                                  : 'Sell: ${item.value}g',
                                               style: InkTheme.statLabel.copyWith(
                                                 color: InkTheme.goldAccent,
                                                 fontSize: 13.5,

@@ -178,14 +178,14 @@ void main() {
           .damage;
       expect(tier3Damage, (tier1Damage * 1.45).round());
 
-      // Unlock Auxiliary Expansion (+1 Tactical Belt slot and Broadside Mk II pre-temper)
+      // Unlock Auxiliary Expansion (+1 Tactical Belt slot; no voyage temper).
       final weightBefore = session.ship!.maxWeaponWeight;
       final cargoBefore = session.ship!.maxCargo;
       session.dispatch(const UnlockAuxiliaryExpansion());
       expect(session.profile.hasExpandedAuxiliarySlot, isTrue);
       expect(session.ship!.maxWeaponWeight, weightBefore + 2);
       expect(session.ship!.maxCargo, cargoBefore + 1);
-      expect(session.ship!.markForHardpoint(HardpointType.broadside), 2);
+      expect(session.ship!.markForHardpoint(HardpointType.broadside), 1);
     });
 
     test('Chapter 2 & 3 Progression: Eldritch Relics and Cursed Harbor Monuments', () {

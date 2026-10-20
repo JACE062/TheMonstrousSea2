@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_scaffold.dart';
@@ -25,8 +26,8 @@ class SeaChartScreen extends StatelessWidget {
 
   /// The active expedition leg (0 when in port, 1..totalLegs underway).
   int get effectiveLeg {
-    if (seaChart.currentLeg > 0) return seaChart.currentLeg;
     if (isInPort) return 0;
+    if (seaChart.currentLeg > 0) return seaChart.currentLeg;
     // Fallback if initialized via legacy coordinates (currentRow, currentCol)
     return (seaChart.currentRow * SeaChart.totalCols + seaChart.currentCol + 1)
         .clamp(1, seaChart.totalLegs);
@@ -56,7 +57,10 @@ class SeaChartScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.settings, color: InkTheme.inkPrimary),
+                      icon: const Icon(
+                        Icons.settings,
+                        color: InkTheme.inkPrimary,
+                      ),
                       tooltip: 'Settings & Accessibility',
                       onPressed: () => SettingsDialog.show(context),
                     ),
@@ -100,13 +104,18 @@ class SeaChartScreen extends StatelessWidget {
                       : 'Harbor Haven: ${seaChart.currentPortName}. Vessel has set sail into open soundings.',
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 18),
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
                     decoration: BoxDecoration(
                       color: isInPort
                           ? InkTheme.parchmentHighlight
                           : InkTheme.parchmentSurface,
                       border: Border.all(
-                        color: isInPort ? InkTheme.goldAccent : InkTheme.inkMuted,
+                        color: isInPort
+                            ? InkTheme.goldAccent
+                            : InkTheme.inkMuted,
                         width: isInPort ? 2.0 : 1.2,
                       ),
                       borderRadius: BorderRadius.circular(4),
@@ -118,9 +127,13 @@ class SeaChartScreen extends StatelessWidget {
                           width: 50,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: InkTheme.parchmentDark.withValues(alpha: 0.35),
+                            color: InkTheme.parchmentDark.withValues(
+                              alpha: 0.35,
+                            ),
                             border: Border.all(
-                              color: isInPort ? InkTheme.goldAccent : InkTheme.inkPrimary,
+                              color: isInPort
+                                  ? InkTheme.goldAccent
+                                  : InkTheme.inkPrimary,
                               width: 1.5,
                             ),
                             borderRadius: BorderRadius.circular(4),
@@ -137,11 +150,17 @@ class SeaChartScreen extends StatelessWidget {
                                 Positioned(
                                   bottom: 2,
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 5,
+                                      vertical: 1,
+                                    ),
                                     decoration: BoxDecoration(
                                       color: InkTheme.goldAccent,
                                       borderRadius: BorderRadius.circular(2),
-                                      border: Border.all(color: InkTheme.inkPrimary, width: 0.8),
+                                      border: Border.all(
+                                        color: InkTheme.inkPrimary,
+                                        width: 0.8,
+                                      ),
                                     ),
                                     child: Text(
                                       'VESSEL',
@@ -171,14 +190,22 @@ class SeaChartScreen extends StatelessWidget {
                                     seaChart.currentRegionIndex == 0
                                         ? "PORT OF DEPARTURE: ${seaChart.currentPortName.toUpperCase()}"
                                         : "EXPEDITION STRONGHOLD: ${seaChart.currentPortName.toUpperCase()}",
-                                    style: InkTheme.titleMedium.copyWith(fontSize: 16),
+                                    style: InkTheme.titleMedium.copyWith(
+                                      fontSize: 16,
+                                    ),
                                   ),
                                   if (isInPort)
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 6,
+                                        vertical: 2,
+                                      ),
                                       decoration: BoxDecoration(
-                                        color: InkTheme.verdigrisGreen.withValues(alpha: 0.2),
-                                        border: Border.all(color: InkTheme.verdigrisGreen),
+                                        color: InkTheme.verdigrisGreen
+                                            .withValues(alpha: 0.2),
+                                        border: Border.all(
+                                          color: InkTheme.verdigrisGreen,
+                                        ),
                                         borderRadius: BorderRadius.circular(2),
                                       ),
                                       child: Text(
@@ -197,7 +224,9 @@ class SeaChartScreen extends StatelessWidget {
                                 isInPort
                                     ? "Your vessel is moored safely in harbor at ${seaChart.currentPortName}. Take the helm to steer out into Soundings I."
                                     : "Vessel has set sail from ${seaChart.currentPortName}. Harbor is left in your wake as you press outward to sea.",
-                                style: InkTheme.caption.copyWith(fontSize: 13.5),
+                                style: InkTheme.caption.copyWith(
+                                  fontSize: 13.5,
+                                ),
                               ),
                             ],
                           ),
@@ -210,7 +239,8 @@ class SeaChartScreen extends StatelessWidget {
                 // Soundings I • Inshore Waters (Legs 1 to midpointHavenLeg)
                 _buildSoundingsTrack(
                   trackTitle: 'SOUNDINGS I • INSHORE WATERS',
-                  subtitle: 'Inshore soundings leading to the Midpoint Respite Haven',
+                  subtitle:
+                      'Inshore soundings leading to the Midpoint Respite Haven',
                   startLeg: 1,
                   endLeg: seaChart.midpointHavenLeg,
                 ),
@@ -229,10 +259,7 @@ class SeaChartScreen extends StatelessWidget {
                 _buildVoyageLog(),
 
                 const SizedBox(height: 24),
-                InkButton(
-                  label: 'CLOSE SEA CHART',
-                  onPressed: onClose,
-                ),
+                InkButton(label: 'CLOSE SEA CHART', onPressed: onClose),
               ],
             ),
           ),
@@ -272,17 +299,12 @@ class SeaChartScreen extends StatelessWidget {
             ),
           ],
         ),
-        Text(
-          subtitle,
-          style: InkTheme.caption.copyWith(fontSize: 12),
-        ),
+        Text(subtitle, style: InkTheme.caption.copyWith(fontSize: 12)),
         const SizedBox(height: 8),
         Row(
           children: List.generate(endLeg - startLeg + 1, (index) {
             final leg = startLeg + index;
-            return Expanded(
-              child: _buildWaypointCard(leg),
-            );
+            return Expanded(child: _buildWaypointCard(leg));
           }),
         ),
       ],
@@ -300,21 +322,26 @@ class SeaChartScreen extends StatelessWidget {
     final isRevealed = isCompleted || isCurrent || isHaven || isBoss;
 
     // Look up voyage record if logged
-    final VoyageLegRecord? record =
-        (leg <= seaChart.voyageLog.length) ? seaChart.voyageLog[leg - 1] : null;
+    final VoyageLegRecord? record = (leg <= seaChart.voyageLog.length)
+        ? seaChart.voyageLog[leg - 1]
+        : null;
 
     // Determine node type and species
-    final EncounterNodeType nodeType = record?.nodeType ??
+    final EncounterNodeType nodeType =
+        record?.nodeType ??
         (isHaven
             ? EncounterNodeType.respiteIsland
             : isBoss
-                ? EncounterNodeType.regionTitan
-                : isCurrent
-                    ? seaChart.currentNodeType
-                    : EncounterNodeType.beastCombat);
+            ? EncounterNodeType.regionTitan
+            : isCurrent
+            ? seaChart.currentNodeType
+            : EncounterNodeType.beastCombat);
 
-    final MonsterSpecies? species = record?.monsterSpecies ??
-        (isCurrent ? seaChart.speciesAt(seaChart.currentRow, seaChart.currentCol) : null);
+    final MonsterSpecies? species =
+        record?.monsterSpecies ??
+        (isCurrent
+            ? seaChart.speciesAt(seaChart.currentRow, seaChart.currentCol)
+            : null);
 
     final nodeLabel = switch (nodeType) {
       EncounterNodeType.respiteIsland => 'Respite Haven',
@@ -322,15 +349,21 @@ class SeaChartScreen extends StatelessWidget {
       EncounterNodeType.smugglerTrader => 'Smuggler trader',
       EncounterNodeType.ancientShrine => 'Ancient Sea Shrine',
       EncounterNodeType.regionTitan => 'Region Titan lair',
-      EncounterNodeType.beastCombat => species != null ? species.name : 'Sea beast',
+      EncounterNodeType.beastCombat =>
+        species != null ? species.name : 'Sea beast',
     };
 
-    final semanticsLabel = 'Expedition Leg $leg. '
+    final semanticsLabel =
+        'Expedition Leg $leg. '
         'Danger level ${difficultyForLeg(leg)}. '
         '${isCurrent ? "Current ship location. " : ""}'
         '${isBoss ? "Final Titan sector. " : ""}'
         '${isHaven ? "Midpoint Haven. " : ""}'
-        '${!isRevealed ? "Unexplored fog of war." : isCompleted ? "Completed sector: $nodeLabel." : nodeLabel}';
+        '${!isRevealed
+            ? "Unexplored fog of war."
+            : isCompleted
+            ? "Completed sector: $nodeLabel."
+            : nodeLabel}';
 
     return Semantics(
       label: semanticsLabel,
@@ -342,20 +375,20 @@ class SeaChartScreen extends StatelessWidget {
           color: isCurrent
               ? InkTheme.parchmentHighlight
               : isCompleted
-                  ? InkTheme.parchmentDark.withValues(alpha: 0.4)
-                  : !isRevealed
-                      ? InkTheme.parchmentDark.withValues(alpha: 0.65)
-                      : InkTheme.parchmentSurface,
+              ? InkTheme.parchmentDark.withValues(alpha: 0.4)
+              : !isRevealed
+              ? InkTheme.parchmentDark.withValues(alpha: 0.65)
+              : InkTheme.parchmentSurface,
           border: Border.all(
             color: isCurrent
                 ? InkTheme.goldAccent
                 : isBoss
-                    ? InkTheme.crimsonAccent
-                    : isHaven
-                        ? InkTheme.goldAccent
-                        : !isRevealed
-                            ? InkTheme.inkFaint
-                            : InkTheme.inkMuted,
+                ? InkTheme.crimsonAccent
+                : isHaven
+                ? InkTheme.goldAccent
+                : !isRevealed
+                ? InkTheme.inkFaint
+                : InkTheme.inkMuted,
             width: isCurrent || isBoss || isHaven ? 2.0 : 1.0,
           ),
           borderRadius: BorderRadius.circular(4),
@@ -417,16 +450,16 @@ class SeaChartScreen extends StatelessWidget {
                       assetPath: isHaven
                           ? PilotArt.anchor
                           : isBoss
-                              ? PilotArt.kraken
-                              : nodeType == EncounterNodeType.shipwreckSalvage
-                                  ? PilotArt.treasure
-                                  : nodeType == EncounterNodeType.smugglerTrader
-                                      ? PilotArt.helm
-                                      : nodeType == EncounterNodeType.ancientShrine
-                                          ? PilotArt.portHaven
-                                          : species != null
-                                              ? SvgAssetView.pathForSpecies(species)
-                                              : PilotArt.kraken,
+                          ? PilotArt.kraken
+                          : nodeType == EncounterNodeType.shipwreckSalvage
+                          ? PilotArt.treasure
+                          : nodeType == EncounterNodeType.smugglerTrader
+                          ? PilotArt.helm
+                          : nodeType == EncounterNodeType.ancientShrine
+                          ? PilotArt.portHaven
+                          : species != null
+                          ? SvgAssetView.pathForSpecies(species)
+                          : PilotArt.kraken,
                       width: isBoss ? 38 : 30,
                       height: isBoss ? 38 : 30,
                     ),
@@ -435,16 +468,16 @@ class SeaChartScreen extends StatelessWidget {
                       isHaven
                           ? 'HAVEN'
                           : isBoss
-                              ? 'TITAN'
-                              : nodeType == EncounterNodeType.shipwreckSalvage
-                                  ? 'WRECK'
-                                  : nodeType == EncounterNodeType.smugglerTrader
-                                      ? 'SMUGGLER'
-                                      : nodeType == EncounterNodeType.ancientShrine
-                                          ? 'SHRINE'
-                                          : species != null
-                                              ? species.name.toUpperCase()
-                                              : 'BEAST',
+                          ? 'TITAN'
+                          : nodeType == EncounterNodeType.shipwreckSalvage
+                          ? 'WRECK'
+                          : nodeType == EncounterNodeType.smugglerTrader
+                          ? 'SMUGGLER'
+                          : nodeType == EncounterNodeType.ancientShrine
+                          ? 'SHRINE'
+                          : species != null
+                          ? species.name.toUpperCase()
+                          : 'BEAST',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: InkTheme.caption.copyWith(
@@ -452,8 +485,8 @@ class SeaChartScreen extends StatelessWidget {
                         color: isBoss
                             ? InkTheme.crimsonAccent
                             : isHaven
-                                ? InkTheme.goldAccent
-                                : InkTheme.inkPrimary,
+                            ? InkTheme.goldAccent
+                            : InkTheme.inkPrimary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -466,7 +499,10 @@ class SeaChartScreen extends StatelessWidget {
               Positioned(
                 top: 3,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5,
+                    vertical: 1,
+                  ),
                   decoration: BoxDecoration(
                     color: InkTheme.goldAccent,
                     borderRadius: BorderRadius.circular(3),
@@ -540,7 +576,10 @@ class SeaChartScreen extends StatelessWidget {
               children: seaChart.voyageLog.map((entry) {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 6),
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: InkTheme.parchmentDark.withValues(alpha: 0.35),
                     border: Border.all(color: InkTheme.inkFaint),
@@ -550,10 +589,16 @@ class SeaChartScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: InkTheme.goldAccent.withValues(alpha: 0.2),
-                          border: Border.all(color: InkTheme.goldAccent, width: 0.8),
+                          border: Border.all(
+                            color: InkTheme.goldAccent,
+                            width: 0.8,
+                          ),
                           borderRadius: BorderRadius.circular(2),
                         ),
                         child: Text(
@@ -568,10 +613,18 @@ class SeaChartScreen extends StatelessWidget {
                       if (entry.isApex) ...[
                         const SizedBox(width: 6),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
-                            color: InkTheme.crimsonAccent.withValues(alpha: 0.2),
-                            border: Border.all(color: InkTheme.crimsonAccent, width: 0.8),
+                            color: InkTheme.crimsonAccent.withValues(
+                              alpha: 0.2,
+                            ),
+                            border: Border.all(
+                              color: InkTheme.crimsonAccent,
+                              width: 0.8,
+                            ),
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: Text(

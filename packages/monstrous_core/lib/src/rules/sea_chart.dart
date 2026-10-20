@@ -37,19 +37,18 @@ class CourseOption {
     bool? isApex,
     String? apexTitle,
     bool? isNemesis,
-  }) =>
-      CourseOption(
-        bearing: bearing,
-        nodeType: nodeType,
-        difficultyLevel: difficultyLevel,
-        lookoutCall: lookoutCall,
-        seaConditions: seaConditions,
-        monsterSpecies: monsterSpecies,
-        isIdentified: isIdentified ?? this.isIdentified,
-        isApex: isApex ?? this.isApex,
-        apexTitle: apexTitle ?? this.apexTitle,
-        isNemesis: isNemesis ?? this.isNemesis,
-      );
+  }) => CourseOption(
+    bearing: bearing,
+    nodeType: nodeType,
+    difficultyLevel: difficultyLevel,
+    lookoutCall: lookoutCall,
+    seaConditions: seaConditions,
+    monsterSpecies: monsterSpecies,
+    isIdentified: isIdentified ?? this.isIdentified,
+    isApex: isApex ?? this.isApex,
+    apexTitle: apexTitle ?? this.apexTitle,
+    isNemesis: isNemesis ?? this.isNemesis,
+  );
 }
 
 /// A permanent dead-reckoning record of an expedition leg completed during the voyage.
@@ -108,14 +107,15 @@ class SeaChart {
 
   /// Returns the total expedition legs for region [regionIndex] (10 in R1, 12 in R2, 14 in R3).
   static int totalLegsForRegion(int regionIndex) => switch (regionIndex) {
-        0 => 10,
-        1 => 12,
-        2 => 14,
-        _ => 14,
-      };
+    0 => 10,
+    1 => 12,
+    2 => 14,
+    _ => 14,
+  };
 
   /// Returns the guaranteed midpoint haven leg for region [regionIndex] (5 in R1, 6 in R2, 7 in R3).
-  static int midpointHavenLegForRegion(int regionIndex) => switch (regionIndex) {
+  static int midpointHavenLegForRegion(int regionIndex) =>
+      switch (regionIndex) {
         0 => 5,
         1 => 6,
         2 => 7,
@@ -143,6 +143,157 @@ class SeaChart {
   final List<VoyageLegRecord> _voyageLog = <VoyageLegRecord>[];
   List<VoyageLegRecord> get voyageLog => List.unmodifiable(_voyageLog);
 
+  /// Begins a fresh voyage at its first actual encounter, recording Leg 1.
+  void beginVoyage({int startingRow = 0}) {
+    resetCoordinates();
+    currentRow = startingRow.clamp(0, totalRows - 1);
+    currentLeg = 1;
+    _gridNodeTypes[currentRow][currentCol] = EncounterNodeType.beastCombat;
+    _voyageLog.add(
+      VoyageLegRecord(
+        leg: currentLeg,
+        bearing: NavigationalBearing.deadAhead,
+        nodeType: currentNodeType,
+        lookoutCall: 'The flagship clears the harbor and enters open water.',
+        chartRow: currentRow,
+        chartCol: currentCol,
+        monsterSpecies: currentNodeType == EncounterNodeType.beastCombat
+            ? speciesAt(currentRow, currentCol)
+            : null,
+      ),
+    );
+  }
+
+  /// Full navigation snapshot: the current leg, actual trail, and offered courses
+  /// must resume together rather than inferring progress from old grid cells.
+  Map<String, dynamic> toJson() => {
+    'currentRow': currentRow,
+    'currentCol': currentCol,
+    'currentLeg': currentLeg,
+    'timesCompleted': timesCompleted,
+    'maxRowReached': maxRowReached,
+    'currentIsApex': currentIsApex,
+    'currentIsNemesis': currentIsNemesis,
+    'hasEncounteredNemesisThisVoyage': hasEncounteredNemesisThisVoyage,
+    'revealedRows': _revealedRows.toList(),
+    'gridSpecies': _gridSpecies
+        .map((row) => row.map((s) => s.name).toList())
+        .toList(),
+    'gridNodeTypes': _gridNodeTypes
+        .map((row) => row.map((n) => n.name).toList())
+        .toList(),
+    'voyageLog': _voyageLog
+        .map(
+          (entry) => {
+            'leg': entry.leg,
+            'bearing': entry.bearing.name,
+            'nodeType': entry.nodeType.name,
+            'lookoutCall': entry.lookoutCall,
+            'chartRow': entry.chartRow,
+            'chartCol': entry.chartCol,
+            'monsterSpecies': entry.monsterSpecies?.name,
+            'isApex': entry.isApex,
+            'isNemesis': entry.isNemesis,
+          },
+        )
+        .toList(),
+    'courseOptions': _currentCourseOptions
+        .map(
+          (option) => {
+            'bearing': option.bearing.name,
+            'nodeType': option.nodeType.name,
+            'difficultyLevel': option.difficultyLevel,
+            'lookoutCall': option.lookoutCall,
+            'seaConditions': option.seaConditions,
+            'monsterSpecies': option.monsterSpecies?.name,
+            'isIdentified': option.isIdentified,
+            'isApex': option.isApex,
+            'apexTitle': option.apexTitle,
+            'isNemesis': option.isNemesis,
+          },
+        )
+        .toList(),
+  };
+
+  void restoreFromJson(Map<String, dynamic> json) {
+    currentRow = json['currentRow'] as int;
+    currentCol = json['currentCol'] as int;
+    currentLeg = json['currentLeg'] as int;
+    timesCompleted = json['timesCompleted'] as int;
+    maxRowReached = json['maxRowReached'] as int? ?? currentRow;
+    currentIsApex = json['currentIsApex'] as bool? ?? false;
+    currentIsNemesis = json['currentIsNemesis'] as bool? ?? false;
+    hasEncounteredNemesisThisVoyage =
+        json['hasEncounteredNemesisThisVoyage'] as bool? ?? false;
+    _revealedRows
+      ..clear()
+      ..addAll((json['revealedRows'] as List? ?? []).cast<int>());
+    _overriddenNodeTypes.clear();
+    _gridSpecies = (json['gridSpecies'] as List)
+        .map(
+          (row) => (row as List)
+              .map((name) => MonsterSpecies.values.byName(name as String))
+              .toList(),
+        )
+        .toList();
+    _gridNodeTypes = (json['gridNodeTypes'] as List)
+        .map(
+          (row) => (row as List)
+              .map((name) => EncounterNodeType.values.byName(name as String))
+              .toList(),
+        )
+        .toList();
+    _voyageLog
+      ..clear()
+      ..addAll(
+        (json['voyageLog'] as List).map(
+          (entry) => VoyageLegRecord(
+            leg: entry['leg'] as int,
+            bearing: NavigationalBearing.values.byName(
+              entry['bearing'] as String,
+            ),
+            nodeType: EncounterNodeType.values.byName(
+              entry['nodeType'] as String,
+            ),
+            lookoutCall: entry['lookoutCall'] as String,
+            chartRow: entry['chartRow'] as int,
+            chartCol: entry['chartCol'] as int,
+            monsterSpecies: entry['monsterSpecies'] == null
+                ? null
+                : MonsterSpecies.values.byName(
+                    entry['monsterSpecies'] as String,
+                  ),
+            isApex: entry['isApex'] as bool? ?? false,
+            isNemesis: entry['isNemesis'] as bool? ?? false,
+          ),
+        ),
+      );
+    _currentCourseOptions = (json['courseOptions'] as List)
+        .map(
+          (option) => CourseOption(
+            bearing: NavigationalBearing.values.byName(
+              option['bearing'] as String,
+            ),
+            nodeType: EncounterNodeType.values.byName(
+              option['nodeType'] as String,
+            ),
+            difficultyLevel: option['difficultyLevel'] as int,
+            lookoutCall: option['lookoutCall'] as String,
+            seaConditions: option['seaConditions'] as String? ?? '',
+            monsterSpecies: option['monsterSpecies'] == null
+                ? null
+                : MonsterSpecies.values.byName(
+                    option['monsterSpecies'] as String,
+                  ),
+            isIdentified: option['isIdentified'] as bool? ?? false,
+            isApex: option['isApex'] as bool? ?? false,
+            apexTitle: option['apexTitle'] as String?,
+            isNemesis: option['isNemesis'] as bool? ?? false,
+          ),
+        )
+        .toList();
+  }
+
   List<CourseOption> _currentCourseOptions = <CourseOption>[];
   List<CourseOption> get currentCourseOptions =>
       List.unmodifiable(_currentCourseOptions);
@@ -152,41 +303,41 @@ class SeaChart {
 
   /// Returns the grand nautical title for region [regionIndex].
   static String regionName(int regionIndex) => switch (regionIndex) {
-        0 => 'The Siren Shoals',
-        1 => 'The Sargasso Drift',
-        2 => 'The Boiling Reach',
-        _ => 'Uncharted Swell (Loop ${regionIndex + 1})',
-      };
+    0 => 'The Siren Shoals',
+    1 => 'The Sargasso Drift',
+    2 => 'The Boiling Reach',
+    _ => 'Uncharted Swell (Loop ${regionIndex + 1})',
+  };
 
   /// Current region title.
   String get currentRegionName => regionName(currentRegionIndex);
 
   /// Returns atmospheric narrative subtitle for region [regionIndex].
   static String regionSubtitle(int regionIndex) => switch (regionIndex) {
-        0 => 'Coastal reefs and foggy soundings echoing with deadly siren songs.',
-        1 => 'Tangled doldrum weeds and derelict ghost ships adrift in phosphorescent haze.',
-        2 => 'Boiling thermal calderas, rising steam plumes, and volcanic obsidian spires.',
-        _ => 'Endless uncharted brine stretching past the rim of the world.',
-      };
+    0 => 'Coastal reefs and foggy soundings echoing with deadly siren songs.',
+    1 => 'Tangled doldrum weeds and derelict ghost ships adrift in phosphorescent haze.',
+    2 => 'Boiling thermal calderas, rising steam plumes, and volcanic obsidian spires.',
+    _ => 'Endless uncharted brine stretching past the rim of the world.',
+  };
 
   /// Current region subtitle.
   String get currentRegionSubtitle => regionSubtitle(currentRegionIndex);
 
   /// Returns the fortified stronghold / harbor name for [regionIndex].
   static String strongholdName(int regionIndex) => switch (regionIndex) {
-        0 => "Hunter's Respite",
-        1 => 'Fort Krakenwatch',
-        2 => 'The Iron Bastion',
-        _ => 'Outpost ${regionIndex + 1}',
-      };
+    0 => "Hunter's Respite",
+    1 => 'Fort Krakenwatch',
+    2 => 'The Iron Bastion',
+    _ => 'Outpost ${regionIndex + 1}',
+  };
 
   /// Returns descriptive subtitle for the stronghold at [regionIndex].
   static String strongholdSubtitle(int regionIndex) => switch (regionIndex) {
-        0 => 'Sanctuary Harbor & Fortified Haven',
-        1 => 'Naval Bastion at the Edge of the Sargasso Drift',
-        2 => 'Volcanic Citadel at the Threshold of The Boiling Reach',
-        _ => 'Forward Expedition Outpost',
-      };
+    0 => 'Sanctuary Harbor & Fortified Haven',
+    1 => 'Naval Bastion at the Edge of the Sargasso Drift',
+    2 => 'Volcanic Citadel at the Threshold of The Boiling Reach',
+    _ => 'Forward Expedition Outpost',
+  };
 
   /// The active stronghold/harbor name based on current region.
   String get currentPortName => strongholdName(currentRegionIndex);
@@ -280,34 +431,38 @@ class SeaChart {
   EncounterNodeType get currentNodeType => nodeTypeAt(currentRow, currentCol);
 
   /// Returns true if current cell is a Respite Island.
-  bool get isRespiteIsland => currentNodeType == EncounterNodeType.respiteIsland;
+  bool get isRespiteIsland =>
+      currentNodeType == EncounterNodeType.respiteIsland;
 
   /// Returns true if current cell is a Shipwreck Salvage cache.
   bool get isShipwreck => currentNodeType == EncounterNodeType.shipwreckSalvage;
 
   /// Returns true if current cell is a Smuggler's Ketch encounter.
-  bool get isSmugglerTrader => currentNodeType == EncounterNodeType.smugglerTrader;
+  bool get isSmugglerTrader =>
+      currentNodeType == EncounterNodeType.smugglerTrader;
 
   /// Returns true if current cell is an Ancient Sea Shrine.
-  bool get isAncientShrine => currentNodeType == EncounterNodeType.ancientShrine;
+  bool get isAncientShrine =>
+      currentNodeType == EncounterNodeType.ancientShrine;
 
   /// Returns true if current cell is a Region Titan encounter.
   bool get isRegionTitan =>
       currentNodeType == EncounterNodeType.regionTitan ||
       (currentLeg >= totalLegs && currentLeg > 0) ||
-      (currentRow == bossRow && currentCol == bossCol);
+      (currentLeg == 0 && currentRow == bossRow && currentCol == bossCol);
 
   /// Returns true if facing the final titan of the entire 3-region campaign.
-  bool get isFinalTitan => isRegionTitan && currentRegionIndex == totalRegions - 1;
+  bool get isFinalTitan =>
+      isRegionTitan && currentRegionIndex == totalRegions - 1;
 
   /// Returns a descriptive nautical name for depth stratum [row].
   static String depthName(int row) => switch (row) {
-        0 => 'Coastal Waters',
-        1 => 'The Open Ocean',
-        2 => 'Abyssal Trenches',
-        3 => 'The Leviathan Trench',
-        _ => 'Depth ${row + 1}',
-      };
+    0 => 'Coastal Waters',
+    1 => 'The Open Ocean',
+    2 => 'Abyssal Trenches',
+    3 => 'The Leviathan Trench',
+    _ => 'Depth ${row + 1}',
+  };
 
   /// Returns region-specific sounding name for stratum [row].
   static String regionDepthName(int regionIndex, int row) {
@@ -340,7 +495,8 @@ class SeaChart {
   }
 
   /// Current depth stratum name styled for active region.
-  String get currentDepthName => regionDepthName(currentRegionIndex, currentRow);
+  String get currentDepthName =>
+      regionDepthName(currentRegionIndex, currentRow);
 
   final Set<int> _revealedRows = <int>{};
 
@@ -468,7 +624,9 @@ class SeaChart {
     final effectiveRng =
         rng ?? SeededGameRng(42 + currentLeg * 19 + timesCompleted * 101);
     final targetLeg = currentLeg + 1;
-    final isDivined = _revealedRows.contains(targetLeg) || _revealedRows.contains(currentRow + 1);
+    final isDivined =
+        _revealedRows.contains(targetLeg) ||
+        _revealedRows.contains(currentRow + 1);
 
     if (targetLeg == midpointHavenLeg) {
       return [
@@ -476,21 +634,17 @@ class SeaChart {
           bearing: NavigationalBearing.deadAhead,
           nodeType: EncounterNodeType.respiteIsland,
           difficultyLevel: currentDifficulty,
-          lookoutCall:
-              'Landfall dead ahead! High verdant cliffs and a sheltered lagoon of the Midpoint Haven sighted through the ocean haze! Cormorants circling the haven canopy, Captain!',
+          lookoutCall: 'Landfall dead ahead! High verdant cliffs and a sheltered lagoon of the Midpoint Haven sighted through the ocean haze! Cormorants circling the haven canopy, Captain!',
           isIdentified: true,
         ),
       ];
     }
 
-    if (targetLeg >= totalLegs || (currentRow == bossRow && currentCol == bossCol - 1)) {
+    if (targetLeg >= totalLegs) {
       final titanCall = switch (currentRegionIndex) {
-        0 =>
-            'Great God above... The Kraken rises! Massive suckered arms shattering the churning foam dead ahead!',
-        1 =>
-            'Twin yellow eyes piercing through the phosphor haze! The Abyssal Wyrm rears its crested head dead ahead!',
-        _ =>
-            'Boiling steam geysers erupting across the caldera! The Leviathan Prime surfaces dead ahead, blocking all passage!',
+        0 => 'Great God above... The Kraken rises! Massive suckered arms shattering the churning foam dead ahead!',
+        1 => 'Twin yellow eyes piercing through the phosphor haze! The Abyssal Wyrm rears its crested head dead ahead!',
+        _ => 'Boiling steam geysers erupting across the caldera! The Leviathan Prime surfaces dead ahead, blocking all passage!',
       };
 
       final bossDiff = bossRow + 2 + timesCompleted * 4;
@@ -515,19 +669,25 @@ class SeaChart {
       NavigationalBearing.starboardTack,
     ];
 
-    final shouldSpawnNemesis = activeNemesis != null &&
+    final shouldSpawnNemesis =
+        activeNemesis != null &&
         !hasEncounteredNemesisThisVoyage &&
         currentRegionIndex == activeNemesis.regionIndex &&
         targetLeg >= 3 &&
         targetLeg != midpointHavenLeg &&
         !(currentRow == bossRow && (currentCol + 1) == bossCol);
-    final nemesisBearingIndex = shouldSpawnNemesis ? effectiveRng.nextInt(bearings.length) : -1;
+    final nemesisBearingIndex = shouldSpawnNemesis
+        ? effectiveRng.nextInt(bearings.length)
+        : -1;
 
     for (var i = 0; i < bearings.length; i++) {
       final bearing = bearings[i];
       final targetRow = switch (bearing) {
         NavigationalBearing.larboardTack => max(0, currentRow - 1),
-        NavigationalBearing.deadAhead => currentRow,
+        NavigationalBearing.deadAhead =>
+          currentCol == totalCols - 1
+              ? min(totalRows - 1, currentRow + 1)
+              : currentRow,
         NavigationalBearing.starboardTack => min(totalRows - 1, currentRow + 1),
       };
       final targetCol = (currentCol + 1) % totalCols;
@@ -545,7 +705,8 @@ class SeaChart {
       } else if (targetLeg == 1 && i == 1) {
         type = EncounterNodeType.beastCombat;
       } else {
-        final isDepartingIsland = currentNodeType == EncounterNodeType.respiteIsland;
+        final isDepartingIsland =
+            currentNodeType == EncounterNodeType.respiteIsland;
         final roll = effectiveRng.nextInt(100);
         if (roll < 55) {
           type = EncounterNodeType.beastCombat;
@@ -575,11 +736,13 @@ class SeaChart {
                 MonsterSpecies.squid,
               ]
             : MonsterSpecies.values
-                .where((s) =>
-                    s != MonsterSpecies.kraken &&
-                    s != MonsterSpecies.worldSerpent &&
-                    s != MonsterSpecies.ancientLeviathan)
-                .toList();
+                  .where(
+                    (s) =>
+                        s != MonsterSpecies.kraken &&
+                        s != MonsterSpecies.worldSerpent &&
+                        s != MonsterSpecies.ancientLeviathan,
+                  )
+                  .toList();
         species = speciesList[effectiveRng.nextInt(speciesList.length)];
 
         // Apex predator chance scales by region: 20% in R1, 35% in R2, 50% in R3
@@ -626,17 +789,19 @@ class SeaChart {
           ? 'Dense phosphor fog muffles the lookout; waters $direction are completely obscured!'
           : baseLookout;
 
-      options.add(CourseOption(
-        bearing: bearing,
-        nodeType: type,
-        monsterSpecies: species,
-        difficultyLevel: targetDifficulty,
-        lookoutCall: lookout,
-        isIdentified: isDivined,
-        isApex: isApex,
-        apexTitle: apexTitle,
-        isNemesis: isNemesis,
-      ));
+      options.add(
+        CourseOption(
+          bearing: bearing,
+          nodeType: type,
+          monsterSpecies: species,
+          difficultyLevel: targetDifficulty,
+          lookoutCall: lookout,
+          isIdentified: isDivined,
+          isApex: isApex,
+          apexTitle: apexTitle,
+          isNemesis: isNemesis,
+        ),
+      );
     }
 
     return options;
@@ -770,22 +935,25 @@ class SeaChart {
       maxRowReached = currentRow;
     }
 
-    setNodeTypeAt(currentRow, currentCol, chosen.nodeType);
+    // Actual history is not a forced future encounter override when tracks cross.
+    _gridNodeTypes[currentRow][currentCol] = chosen.nodeType;
     if (chosen.monsterSpecies != null) {
       _gridSpecies[currentRow][currentCol] = chosen.monsterSpecies!;
     }
 
-    _voyageLog.add(VoyageLegRecord(
-      leg: currentLeg,
-      bearing: bearing,
-      nodeType: chosen.nodeType,
-      lookoutCall: chosen.lookoutCall,
-      chartRow: currentRow,
-      chartCol: currentCol,
-      monsterSpecies: chosen.monsterSpecies,
-      isApex: chosen.isApex,
-      isNemesis: chosen.isNemesis,
-    ));
+    _voyageLog.add(
+      VoyageLegRecord(
+        leg: currentLeg,
+        bearing: bearing,
+        nodeType: chosen.nodeType,
+        lookoutCall: chosen.lookoutCall,
+        chartRow: currentRow,
+        chartCol: currentCol,
+        monsterSpecies: chosen.monsterSpecies,
+        isApex: chosen.isApex,
+        isNemesis: chosen.isNemesis,
+      ),
+    );
 
     _currentCourseOptions = generateCourseOptions(effectiveRng);
     return chosen;

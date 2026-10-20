@@ -293,6 +293,7 @@ void main() {
       final session = GameSession(rng: SeededGameRng(42));
       session.dispatch(const NameCaptain('Corsair Vane'));
       session.profile.unlockedBlueprints.add(BlueprintId.corsair.name);
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corsair).name);
       session.dispatch(const ChooseShip(ShipClass.corsair));
       session.dispatch(const VentureOutToSea());
 
@@ -333,6 +334,7 @@ void main() {
       final session = GameSession(rng: SeededGameRng(42));
       session.dispatch(const NameCaptain('Bombardier Locke'));
       session.profile.unlockedBlueprints.add(BlueprintId.bombardier.name);
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.bombardier).name);
       session.dispatch(const ChooseShip(ShipClass.bombardier));
       session.dispatch(const VentureOutToSea());
 
@@ -386,6 +388,8 @@ void main() {
       final baseDamage = broadside.damage;
 
       // Temper Broadside to Mk II (60g, 1.20x)
+      session.phase = SessionPhase.respiteIsland;
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
       final temper1 = session.dispatch(const TemperHardpoint(HardpointType.broadside));
       expect(temper1.whereType<HardpointTempered>().single.newMark, equals(2));
       expect(ship.gold, equals(240));
@@ -403,6 +407,7 @@ void main() {
       );
       ship.addCargo(pitchFlask);
 
+      session.phase = SessionPhase.port;
       session.dispatch(const VentureOutToSea());
       final roundBefore = session.battleRound;
       session.dispatch(const UseConsumableItem(0));

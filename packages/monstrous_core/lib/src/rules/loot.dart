@@ -170,9 +170,7 @@ List<Item> generateTacticalVictoryLoot(
   final items = <Item>[];
 
   for (var i = 0; i < dropCount; i++) {
-    final itemLevel =
-        calculateLootLevel(isApex ? monsterLevel + 1 : monsterLevel, rng);
-    items.add(randomConsumable(itemLevel, rng));
+    items.add(randomConsumable(monsterLevel, rng));
   }
 
   items.sort();

@@ -13,7 +13,10 @@ void main() {
     test('Ironclad upgrade expands HP, weight, and damage reduction', () {
       final session = GameSession(rng: SeededGameRng(42));
       session.dispatch(const NameCaptain('Iron Mike'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.ironclad).name);
       session.dispatch(const ChooseShip(ShipClass.ironclad));
+      session.phase = SessionPhase.respiteIsland;
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
 
       final ship = session.ship!;
       expect(ship.level, equals(1));
@@ -41,7 +44,10 @@ void main() {
     test('Corvette upgrade expands HP, weight, and passive evasion', () {
       final session = GameSession(rng: SeededGameRng(42));
       session.dispatch(const NameCaptain('Swift Sally'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.corvette).name);
       session.dispatch(const ChooseShip(ShipClass.corvette));
+      session.phase = SessionPhase.respiteIsland;
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
 
       final ship = session.ship!;
       expect(ship.level, equals(1));
@@ -61,6 +67,8 @@ void main() {
       final session = GameSession(rng: SeededGameRng(42));
       session.dispatch(const NameCaptain('Broke Bob'));
       session.dispatch(const ChooseShip(ShipClass.standard));
+      session.phase = SessionPhase.respiteIsland;
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
 
       session.ship!.gold = 25; // Needs 100
       final events = session.dispatch(const UpgradeShip());
@@ -73,7 +81,10 @@ void main() {
     test('Upgrade caps at Level 4', () {
       final session = GameSession(rng: SeededGameRng(42));
       session.dispatch(const NameCaptain('Maximus'));
+      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.freighter).name);
       session.dispatch(const ChooseShip(ShipClass.freighter));
+      session.phase = SessionPhase.respiteIsland;
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
 
       final ship = session.ship!;
       ship.gold = 5000;

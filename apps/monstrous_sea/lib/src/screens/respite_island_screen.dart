@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/armory_view.dart';
@@ -30,6 +31,37 @@ class RespiteIslandScreen extends StatefulWidget {
 class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
   bool _showingArmory = false;
 
+  Widget _cardRow({
+    required List<Widget> children,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+  }) => LayoutBuilder(
+    builder: (context, constraints) {
+      if (constraints.maxWidth < 650) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final child in children)
+              if (child is Expanded)
+                child.child
+              else if (child is SizedBox)
+                const SizedBox(height: 10)
+              else if (child is SvgAssetView)
+                Align(alignment: Alignment.centerLeft, child: child)
+              else
+                child,
+          ],
+        );
+      }
+      return Row(
+        mainAxisAlignment: mainAxisAlignment,
+        children: [
+          for (final child in children)
+            if (child is Column) Expanded(child: child) else child,
+        ],
+      );
+    },
+  );
+
   @override
   Widget build(BuildContext context) {
     final controller = widget.controller;
@@ -42,14 +74,16 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
     final hasDrilled = controller.hasDrilledAtCurrentIsland;
     final hasForaged = controller.session.hasForagedAtCurrentIsland;
     final hasBoon = controller.gunneryAccuracyBoon > 0;
-    final canCareen = !hasChosenDuty && ship != null && ship.currentHp < ship.maxHp;
+    final canCareen =
+        !hasChosenDuty && ship != null && ship.currentHp < ship.maxHp;
     final canDrill = !hasChosenDuty;
     final canForage = !hasChosenDuty;
 
     final upgradeCost = ship != null && ship.level < 4
         ? calculateShipUpgradeCost(ship.level)
         : null;
-    final canAffordUpgrade = upgradeCost != null && (ship?.gold ?? 0) >= upgradeCost;
+    final canAffordUpgrade =
+        upgradeCost != null && (ship?.gold ?? 0) >= upgradeCost;
 
     return ParchmentScaffold(
       body: Center(
@@ -61,8 +95,10 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Top Navigation Bar
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  spacing: 12,
+                  runSpacing: 8,
                   children: [
                     InkButton(
                       label: 'SEA CHART',
@@ -114,8 +150,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Wrap(
+                          spacing: 12,
+                          runSpacing: 8,
                           children: [
                             Text(
                               '${ship.name} (Tier ${ship.level} ${ship.shipClass.displayName})',
@@ -123,10 +160,17 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                             ),
                             if (hasBoon)
                               Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
                                 decoration: BoxDecoration(
-                                  color: InkTheme.goldAccent.withValues(alpha: 0.15),
-                                  border: Border.all(color: InkTheme.goldAccent),
+                                  color: InkTheme.goldAccent.withValues(
+                                    alpha: 0.15,
+                                  ),
+                                  border: Border.all(
+                                    color: InkTheme.goldAccent,
+                                  ),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 child: Text(
@@ -157,7 +201,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                       ? 'CREW SHORE DUTY COMPLETED (PREPARING TO DEPART)'
                       : 'CREW SHORE DUTY (CHOOSE ONE BEFORE TIDE TURNS)',
                   style: InkTheme.statValue.copyWith(
-                    color: hasChosenDuty ? InkTheme.inkMuted : InkTheme.goldAccent,
+                    color: hasChosenDuty
+                        ? InkTheme.inkMuted
+                        : InkTheme.goldAccent,
                     fontSize: 13,
                     letterSpacing: 1.0,
                   ),
@@ -167,7 +213,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                 // 1. Careen Hull Card
                 ParchmentCard(
                   padding: const EdgeInsets.all(16),
-                  child: Row(
+                  child: _cardRow(
                     children: [
                       const SvgAssetView(
                         assetPath: PilotArt.anchor,
@@ -192,7 +238,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                               controller.isCurrentIslandHaven
                                   ? 'Restores 30% Max Hull • Shore Duty Option'
                                   : 'Restores 20% Max Hull • Shore Duty Option',
-                              style: InkTheme.statLabel.copyWith(color: InkTheme.greenAccent),
+                              style: InkTheme.statLabel.copyWith(
+                                color: InkTheme.inkPrimary,
+                              ),
                             ),
                           ],
                         ),
@@ -202,13 +250,18 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                         label: hasCareened
                             ? 'CAREENED'
                             : (hasChosenDuty
-                                ? 'DUTY SPENT'
-                                : (ship != null && ship.currentHp == ship.maxHp
-                                    ? 'HULL FULL'
-                                    : (controller.isCurrentIslandHaven ? 'CAREEN (+30%)' : 'CAREEN (+20%)'))),
+                                  ? 'DUTY SPENT'
+                                  : (ship != null &&
+                                            ship.currentHp == ship.maxHp
+                                        ? 'HULL FULL'
+                                        : (controller.isCurrentIslandHaven
+                                              ? 'CAREEN (+30%)'
+                                              : 'CAREEN (+20%)'))),
                         isPrimary: canCareen,
                         onPressed: canCareen
-                            ? () => controller.dispatch(const CareenHullAtIsland())
+                            ? () => controller.dispatch(
+                                const CareenHullAtIsland(),
+                              )
                             : null,
                       ),
                     ],
@@ -219,7 +272,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                 // 2. Drill Gunners Card
                 ParchmentCard(
                   padding: const EdgeInsets.all(16),
-                  child: Row(
+                  child: _cardRow(
                     children: [
                       const SvgAssetView(
                         assetPath: PilotArt.cannons,
@@ -242,7 +295,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                             const SizedBox(height: 4),
                             Text(
                               '+15% Accuracy Boon on Next Battle • Shore Duty Option',
-                              style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
+                              style: InkTheme.statLabel.copyWith(
+                                color: InkTheme.inkPrimary,
+                              ),
                             ),
                           ],
                         ),
@@ -254,7 +309,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                             : (hasChosenDuty ? 'DUTY SPENT' : 'DRILL GUNS'),
                         isPrimary: canDrill,
                         onPressed: canDrill
-                            ? () => controller.dispatch(const DrillGunnersAtIsland())
+                            ? () => controller.dispatch(
+                                const DrillGunnersAtIsland(),
+                              )
                             : null,
                       ),
                     ],
@@ -265,7 +322,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                 // 3. Forage Shoals Card
                 ParchmentCard(
                   padding: const EdgeInsets.all(16),
-                  child: Row(
+                  child: _cardRow(
                     children: [
                       const SvgAssetView(
                         assetPath: PilotArt.treasure,
@@ -290,7 +347,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                               controller.isCurrentIslandHaven
                                   ? 'Recovers 40–60 Gold Doubloons • Shore Duty Option'
                                   : 'Recovers 25–35 Gold Doubloons • Shore Duty Option',
-                              style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
+                              style: InkTheme.statLabel.copyWith(
+                                color: InkTheme.inkPrimary,
+                              ),
                             ),
                           ],
                         ),
@@ -302,7 +361,9 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                             : (hasChosenDuty ? 'DUTY SPENT' : 'FORAGE SHOALS'),
                         isPrimary: canForage,
                         onPressed: canForage
-                            ? () => controller.dispatch(const ForageShoalsAtIsland())
+                            ? () => controller.dispatch(
+                                const ForageShoalsAtIsland(),
+                              )
                             : null,
                       ),
                     ],
@@ -311,10 +372,12 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                 const SizedBox(height: 16),
 
                 // 4. Island Shipwright Refit Card (Only at Grand Haven)
-                if (controller.isCurrentIslandHaven && ship != null && ship.level < 4)
+                if (controller.isCurrentIslandHaven &&
+                    ship != null &&
+                    ship.level < 4)
                   ParchmentCard(
                     padding: const EdgeInsets.all(16),
-                    child: Row(
+                    child: _cardRow(
                       children: [
                         const SvgAssetView(
                           assetPath: PilotArt.helm,
@@ -328,10 +391,12 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                             children: [
                               Text(
                                 'Hermit Shipwright Refit (Tier ${ship.level + 1})',
-                                style: InkTheme.statValue.copyWith(fontSize: 16),
+                                style: InkTheme.statValue.copyWith(
+                                  fontSize: 16,
+                                ),
                               ),
                               Text(
-                                'An old recluse shipwright reinforces ship framing, expanding max HP, cargo space, and class defenses.',
+                                'An old recluse shipwright reinforces ship framing, reinforcing hull vitality, hardpoint damage, and class defenses.',
                                 style: InkTheme.caption,
                               ),
                               const SizedBox(height: 4),
@@ -358,27 +423,80 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                     ),
                   ),
 
+                if (controller.isCurrentIslandHaven && ship != null) ...[
+                  const SizedBox(height: 16),
+                  ParchmentCard(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          'VOYAGE SHIPWRIGHT · HARDPOINT TEMPERING',
+                          style: InkTheme.statLabel,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          'Spend voyage gold to temper a hardpoint. These marks last for this run.',
+                          style: InkTheme.body,
+                        ),
+                        const SizedBox(height: 12),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            for (final slot in blessingHardpoints)
+                              InkButton(
+                                label:
+                                    '${slot.displayName} · ${ship.markLabelForHardpoint(slot)}${ship.markForHardpoint(slot) < 3 ? ' · Temper ${calculateHardpointTemperCost(ship.markForHardpoint(slot))}g' : ' · Maximum'}',
+                                onPressed:
+                                    ship.markForHardpoint(slot) < 3 &&
+                                        ship.gold >=
+                                            calculateHardpointTemperCost(
+                                              ship.markForHardpoint(slot),
+                                            )
+                                    ? () {
+                                        controller.dispatch(
+                                          TemperHardpoint(slot),
+                                        );
+                                        setState(() {});
+                                      }
+                                    : null,
+                              ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 20),
 
                 // Armory Toggle
                 ParchmentCard(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  child: Row(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  child: _cardRow(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('ARMORY & MUNITIONS', style: InkTheme.statLabel),
                           Text(
-                            'Equip deck weapons, swap ordnance, and manage cargo.',
+                            'HARDPOINT & BELT INSPECTION',
+                            style: InkTheme.statLabel,
+                          ),
+                          Text(
+                            'Inspect hardpoint marks, blessings, refits, and belt supplies.',
                             style: InkTheme.caption,
                           ),
                         ],
                       ),
                       InkButton(
-                        label: _showingArmory ? 'HIDE ARMORY' : 'MANAGE ARMORY',
-                        onPressed: () => setState(() => _showingArmory = !_showingArmory),
+                        label: _showingArmory
+                            ? 'CLOSE INSPECTION'
+                            : 'INSPECT VESSEL',
+                        onPressed: () =>
+                            setState(() => _showingArmory = !_showingArmory),
                       ),
                     ],
                   ),

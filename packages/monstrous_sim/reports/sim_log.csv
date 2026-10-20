@@ -1,1001 +1,1001 @@
 run_index,strategy,won,died,ship_class,monsters_defeated,highest_difficulty,loops_completed,gold,battle_rounds,cause_of_death,total_steps
-1,Reckless,false,true,ironclad,9,1,0,220,111,"The Kraken",101
-2,Reckless,false,true,ironclad,9,2,0,295,125,"The Kraken",94
-3,Reckless,false,true,ironclad,4,2,0,139,55,"Apex Phosphor Wyrm Mire Serpent",55
-4,Reckless,false,true,ironclad,9,2,0,265,52,"The Kraken",78
-5,Reckless,false,true,ironclad,2,1,0,64,37,"Apex Phosphor Wyrm Lurking Coil",30
-6,Reckless,false,true,ironclad,6,3,0,251,66,"Vanishing Viper",70
-7,Reckless,false,true,ironclad,0,0,0,25,25,"Writhing Curse",17
-8,Reckless,false,true,ironclad,7,2,0,173,24,"Frenzied Maw",57
-9,Reckless,false,true,ironclad,8,1,0,208,67,"Frenzied Maw",75
-10,Reckless,false,true,ironclad,4,2,0,143,34,"Jagged Lurker",41
-11,Reckless,true,false,ironclad,10,5,1,754,147,"None (Survived)",95
-12,Reckless,false,true,ironclad,5,2,0,150,38,"Apex Phosphor Wyrm Twisting Terror",55
-13,Reckless,false,true,ironclad,9,1,0,198,33,"The Kraken",70
-14,Reckless,false,true,ironclad,9,1,0,215,41,"The Kraken",73
-15,Reckless,true,false,ironclad,10,5,1,713,59,"None (Survived)",82
-16,Reckless,false,true,ironclad,9,1,0,244,70,"The Kraken",93
-17,Reckless,true,false,ironclad,10,5,1,667,106,"None (Survived)",101
-18,Reckless,false,true,ironclad,9,1,0,216,38,"The Kraken",80
-19,Reckless,false,true,ironclad,4,1,0,91,48,"Abyssal Constrictor",53
-20,Reckless,false,true,ironclad,5,1,0,124,31,"Apex Blood-Frenzy Megalodon Crimson Hunter",49
-21,Reckless,false,true,ironclad,3,2,0,120,31,"Writhing Curse",37
-22,Reckless,false,true,ironclad,7,2,0,210,39,"Crimson Hunter",65
-23,Reckless,false,true,ironclad,4,2,0,115,28,"Apex Phosphor Wyrm Mire Serpent",40
-24,Reckless,false,true,ironclad,7,1,0,213,52,"Apex Phosphor Wyrm Twisting Terror",78
-25,Reckless,false,true,ironclad,9,2,0,273,38,"The Kraken",75
-26,Reckless,false,true,ironclad,7,1,0,170,49,"The Kraken",70
-27,Reckless,true,false,ironclad,10,5,1,690,55,"None (Survived)",74
-28,Reckless,false,true,ironclad,2,1,0,64,34,"Apex Phosphor Wyrm Eerie Elainaling",35
-29,Reckless,false,true,ironclad,6,1,0,143,34,"Apex Blood-Frenzy Megalodon Thrashing Great White",52
-30,Reckless,false,true,ironclad,3,1,0,89,20,"Eerie Elainaling",29
-31,Reckless,false,true,ironclad,2,1,0,69,25,"Apex Phosphor Wyrm Mire Serpent",25
-32,Reckless,false,true,ironclad,8,2,0,202,57,"The Kraken",78
-33,Reckless,false,true,ironclad,6,2,0,172,56,"The Kraken",69
-34,Reckless,false,true,ironclad,9,1,0,204,76,"The Kraken",78
-35,Reckless,false,true,ironclad,5,1,0,120,39,"Apex Phosphor Wyrm Twisting Terror",54
-36,Reckless,false,true,ironclad,9,1,0,231,65,"The Kraken",81
-37,Reckless,false,true,ironclad,4,2,0,129,27,"Apex Blood-Frenzy Megalodon Thrashing Great White",45
-38,Reckless,false,true,ironclad,2,1,0,62,16,"Apex Blood-Frenzy Megalodon Terror of the Tides",26
-39,Reckless,false,true,ironclad,3,1,0,93,22,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",33
-40,Reckless,false,true,ironclad,8,1,0,211,84,"Apex Abyssal Krakenling Razor Tendrils",83
-41,Reckless,false,true,ironclad,9,1,0,226,56,"The Kraken",87
-42,Reckless,false,true,ironclad,3,1,0,89,27,"Apex Blood-Frenzy Megalodon Apex Shredder",35
-43,Reckless,false,true,ironclad,6,1,0,174,35,"Pulsating Jellyfish",62
-44,Reckless,false,true,ironclad,9,1,0,204,29,"The Kraken",72
-45,Reckless,false,true,ironclad,4,2,0,123,35,"Slithery Devil",47
-46,Reckless,false,true,ironclad,7,1,0,158,44,"Twisting Terror",71
-47,Reckless,true,false,ironclad,9,5,1,718,73,"None (Survived)",85
-48,Reckless,false,true,ironclad,9,2,0,283,58,"The Kraken",79
-49,Reckless,false,true,ironclad,9,2,0,261,57,"The Kraken",86
-50,Reckless,false,true,ironclad,9,1,0,228,54,"The Kraken",83
-51,Reckless,false,true,ironclad,9,3,0,373,69,"The Kraken",89
-52,Reckless,false,true,ironclad,5,2,0,194,28,"Depth Lurker",51
-53,Reckless,false,true,ironclad,9,1,0,221,70,"The Kraken",92
-54,Reckless,false,true,ironclad,5,1,0,120,41,"Apex Phosphor Wyrm Lurking Coil",56
-55,Reckless,true,false,ironclad,8,5,1,658,45,"None (Survived)",73
-56,Reckless,false,true,ironclad,9,1,0,223,58,"The Kraken",73
-57,Reckless,true,false,ironclad,10,5,1,699,76,"None (Survived)",95
-58,Reckless,false,true,ironclad,7,1,0,190,85,"The Kraken",88
-59,Reckless,false,true,ironclad,4,2,0,142,27,"Vanishing Viper",41
-60,Reckless,false,true,ironclad,8,2,0,276,150,"The Kraken",83
-61,Reckless,false,true,ironclad,4,2,0,139,30,"Apex Abyssal Krakenling Hundred-Limbed Horror",39
-62,Reckless,true,false,ironclad,10,5,1,692,81,"None (Survived)",85
-63,Reckless,false,true,ironclad,9,1,0,205,92,"The Kraken",89
-64,Reckless,false,true,ironclad,6,1,0,139,26,"Apex Blood-Frenzy Megalodon Apex Shredder",50
-65,Reckless,false,true,ironclad,9,2,0,286,66,"The Kraken",82
-66,Reckless,false,true,ironclad,9,1,0,209,42,"The Kraken",86
-67,Reckless,false,true,ironclad,9,1,0,224,83,"The Kraken",94
-68,Reckless,false,true,ironclad,8,2,0,251,45,"The Kraken",77
-69,Reckless,false,true,ironclad,9,2,0,264,63,"The Kraken",91
-70,Reckless,false,true,ironclad,0,0,0,25,23,"Vanishing Viper",16
-71,Reckless,false,true,ironclad,4,2,0,203,83,"Apex Blood-Frenzy Megalodon Apex Shredder",48
-72,Reckless,true,false,ironclad,10,5,1,719,57,"None (Survived)",87
-73,Reckless,false,true,ironclad,3,1,0,79,26,"Apex Blood-Frenzy Megalodon Crimson Hunter",35
-74,Reckless,false,true,ironclad,9,1,0,244,80,"The Kraken",91
-75,Reckless,false,true,ironclad,5,2,0,180,35,"Crimson Hunter",54
-76,Reckless,false,true,ironclad,2,1,0,65,33,"Apex Phosphor Wyrm Sussy Seaweed",36
-77,Reckless,false,true,ironclad,8,1,0,211,48,"Apex Phosphor Wyrm Abyssal Constrictor",72
-78,Reckless,false,true,ironclad,5,1,0,133,37,"Gargantuan Squid",55
-79,Reckless,true,false,ironclad,10,5,1,677,67,"None (Survived)",98
-80,Reckless,false,true,ironclad,3,1,0,78,31,"Apex Phosphor Wyrm Twisting Terror",39
-81,Reckless,false,true,ironclad,5,1,0,130,38,"Apex Phosphor Wyrm Elusive Eell",55
-82,Reckless,false,true,ironclad,3,2,0,99,25,"Apex Blood-Frenzy Megalodon Terror of the Tides",34
-83,Reckless,true,false,ironclad,10,5,1,696,30,"None (Survived)",76
-84,Reckless,false,true,ironclad,8,2,0,233,41,"The Kraken",75
-85,Reckless,false,true,ironclad,9,1,0,216,61,"The Kraken",79
-86,Reckless,false,true,ironclad,7,1,0,179,40,"Vanishing Viper",60
-87,Reckless,false,true,ironclad,9,1,0,231,50,"The Kraken",76
-88,Reckless,false,true,ironclad,1,1,0,50,27,"Slithery Devil",24
-89,Reckless,false,true,ironclad,5,1,0,135,88,"Apex Phosphor Wyrm Lurking Coil",72
-90,Reckless,false,true,ironclad,2,1,0,60,39,"Lurking Coil",31
-91,Reckless,false,true,ironclad,2,1,0,66,18,"Ragefin",23
-92,Reckless,false,true,ironclad,9,2,0,232,44,"The Kraken",79
-93,Reckless,false,true,ironclad,4,1,0,115,17,"Crimson Hunter",34
-94,Reckless,false,true,ironclad,5,2,0,178,40,"Razor Tendrils",50
-95,Reckless,false,true,ironclad,4,2,0,128,30,"Apex Blood-Frenzy Megalodon Fang of the Abyss",39
-96,Reckless,false,true,ironclad,2,1,0,67,30,"Bloodthirsty Bull Shark",25
-97,Reckless,false,true,ironclad,9,1,0,226,72,"The Kraken",86
-98,Reckless,false,true,ironclad,2,1,0,62,25,"Abyssal Constrictor",29
-99,Reckless,false,true,ironclad,9,2,0,238,79,"The Kraken",82
-100,Reckless,false,true,ironclad,9,2,0,271,89,"The Kraken",93
-101,Reckless,false,true,ironclad,9,1,0,228,88,"The Kraken",85
-102,Reckless,true,false,ironclad,10,5,1,682,79,"None (Survived)",84
-103,Reckless,false,true,ironclad,9,1,0,202,53,"The Kraken",79
-104,Reckless,false,true,ironclad,7,1,0,163,40,"Apex Phosphor Wyrm Elusive Eell",65
-105,Reckless,true,false,ironclad,10,5,1,704,93,"None (Survived)",86
-106,Reckless,false,true,ironclad,8,2,0,235,44,"The Kraken",79
-107,Reckless,false,true,ironclad,6,1,0,163,43,"Vanishing Viper",60
-108,Reckless,false,true,ironclad,3,1,0,88,24,"Thrashing Great White",33
-109,Reckless,false,true,ironclad,3,2,0,111,22,"Death by Ink",31
-110,Reckless,false,true,ironclad,6,2,0,204,36,"Thrashing Great White",58
-111,Reckless,false,true,ironclad,6,1,0,142,44,"Grasping Abyss",64
-112,Reckless,false,true,ironclad,9,1,0,232,82,"The Kraken",92
-113,Reckless,false,true,ironclad,9,1,0,213,40,"The Kraken",86
-114,Reckless,false,true,ironclad,3,1,0,76,18,"Terror of the Tides",28
-115,Reckless,false,true,ironclad,9,1,0,201,108,"The Kraken",84
-116,Reckless,false,true,ironclad,6,1,0,151,60,"Apex Blood-Frenzy Megalodon Thrashing Great White",66
-117,Reckless,false,true,ironclad,4,1,0,103,39,"Apex Phosphor Wyrm Twisting Terror",46
-118,Reckless,false,true,ironclad,2,1,0,64,19,"Bloodthirsty Bull Shark",23
-119,Reckless,false,true,ironclad,8,1,0,200,61,"Apex Phosphor Wyrm Eerie Elainaling",82
-120,Reckless,false,true,ironclad,3,1,0,89,34,"Tide Coiler",38
-121,Reckless,false,true,ironclad,4,1,0,102,25,"Darting Death",34
-122,Reckless,false,true,ironclad,1,1,0,47,25,"Abyssal Constrictor",22
-123,Reckless,false,true,ironclad,8,1,0,187,50,"Behemoth Mako",85
-124,Reckless,true,false,ironclad,10,5,1,713,66,"None (Survived)",89
-125,Reckless,false,true,ironclad,1,1,0,44,26,"Abyssal Constrictor",22
-126,Reckless,false,true,ironclad,5,1,0,137,31,"Apex Shredder",56
-127,Reckless,false,true,ironclad,2,1,0,65,31,"Apex Phosphor Wyrm Elusive Eell",33
-128,Reckless,false,true,ironclad,9,1,0,220,100,"The Kraken",86
-129,Reckless,false,true,ironclad,4,2,0,171,132,"Twisting Terror",51
-130,Reckless,false,true,ironclad,4,2,0,154,31,"Pulsating Jellyfish",40
-131,Reckless,false,true,ironclad,2,1,0,61,26,"Mire Serpent",32
-132,Reckless,true,false,ironclad,10,5,1,717,85,"None (Survived)",82
-133,Reckless,false,true,ironclad,3,1,0,99,29,"Apex Phosphor Wyrm Lurking Coil",40
-134,Reckless,false,true,ironclad,9,2,0,290,59,"The Kraken",88
-135,Reckless,false,true,ironclad,9,1,0,236,117,"The Kraken",99
-136,Reckless,false,true,ironclad,2,1,0,64,27,"Tide Coiler",29
-137,Reckless,false,true,ironclad,6,1,0,161,35,"Apex Blood-Frenzy Megalodon Apex Shredder",51
-138,Reckless,false,true,ironclad,1,1,0,49,27,"Mire Serpent",24
-139,Reckless,false,true,ironclad,7,1,0,176,36,"The Kraken",73
-140,Reckless,false,true,ironclad,8,2,0,250,137,"The Kraken",91
-141,Reckless,false,true,ironclad,3,1,0,78,33,"Apex Phosphor Wyrm Slithery Devil",39
-142,Reckless,false,true,ironclad,2,1,0,61,15,"Colossal Tiger Shark",23
-143,Reckless,false,true,ironclad,4,1,0,107,23,"Lurking Coil",37
-144,Reckless,false,true,ironclad,9,2,0,231,53,"The Kraken",76
-145,Reckless,false,true,ironclad,9,1,0,210,117,"The Kraken",83
-146,Reckless,false,true,ironclad,5,2,0,167,56,"Apex Blood-Frenzy Megalodon Ragefin",56
-147,Reckless,false,true,ironclad,3,1,0,85,27,"Apex Phosphor Wyrm Eerie Elainaling",32
-148,Reckless,false,true,ironclad,8,2,0,277,54,"The Kraken",88
-149,Reckless,false,true,ironclad,9,1,0,227,123,"The Kraken",101
-150,Reckless,false,true,ironclad,4,1,0,107,35,"Vanishing Viper",45
-151,Reckless,false,true,ironclad,5,1,0,142,54,"Apex Phosphor Wyrm Writhing Curse",59
-152,Reckless,false,true,ironclad,7,1,0,188,82,"The Kraken",76
-153,Reckless,false,true,ironclad,7,1,0,164,71,"The Kraken",76
-154,Reckless,false,true,ironclad,9,2,0,255,35,"The Kraken",78
-155,Reckless,false,true,ironclad,4,1,0,94,18,"Eerie Elainaling",38
-156,Reckless,false,true,ironclad,8,2,0,236,50,"The Kraken",80
-157,Reckless,false,true,ironclad,0,0,0,25,21,"Darting Death",15
-158,Reckless,false,true,ironclad,5,2,0,172,45,"Medusa’s Grasp",56
-159,Reckless,false,true,ironclad,9,1,0,211,126,"The Kraken",85
-160,Reckless,false,true,ironclad,2,1,0,65,42,"Apex Volcanic Shock-Bell Medusa’s Grasp",40
-161,Reckless,false,true,ironclad,9,1,0,202,42,"The Kraken",78
-162,Reckless,false,true,ironclad,8,2,0,223,80,"The Kraken",85
-163,Reckless,false,true,ironclad,8,2,0,287,53,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",80
-164,Reckless,false,true,ironclad,5,1,0,143,74,"Fang of the Abyss",70
-165,Reckless,false,true,ironclad,9,1,0,213,95,"The Kraken",85
-166,Reckless,false,true,ironclad,1,1,0,46,20,"Darting Death",19
-167,Reckless,false,true,ironclad,5,2,0,143,21,"Ragefin",44
-168,Reckless,false,true,ironclad,9,1,0,212,78,"The Kraken",76
-169,Reckless,false,true,ironclad,9,1,0,196,42,"The Kraken",81
-170,Reckless,false,true,ironclad,2,1,0,61,16,"Bioluminescent Terror",21
-171,Reckless,false,true,ironclad,6,1,0,138,58,"Apex Phosphor Wyrm Tide Coiler",75
-172,Reckless,false,true,ironclad,8,1,0,182,36,"Apex Phosphor Wyrm Slithery Devil",65
-173,Reckless,false,true,ironclad,2,1,0,62,29,"Eerie Elainaling",28
-174,Reckless,false,true,ironclad,7,2,0,199,41,"Elusive Eell",65
-175,Reckless,false,true,ironclad,4,1,0,102,30,"Apex Phosphor Wyrm Vanishing Viper",46
-176,Reckless,false,true,ironclad,9,2,0,262,82,"The Kraken",85
-177,Reckless,false,true,ironclad,9,1,0,195,83,"The Kraken",80
-178,Reckless,false,true,ironclad,9,1,0,239,54,"The Kraken",85
-179,Reckless,false,true,ironclad,9,1,0,232,42,"The Kraken",81
-180,Reckless,false,true,ironclad,7,1,0,177,85,"The Kraken",73
-181,Reckless,false,true,ironclad,9,1,0,223,120,"The Kraken",90
-182,Reckless,false,true,ironclad,9,1,0,222,134,"The Kraken",96
-183,Reckless,false,true,ironclad,9,1,0,233,40,"The Kraken",76
-184,Reckless,false,true,ironclad,5,1,0,118,64,"The Kraken",70
-185,Reckless,false,true,ironclad,9,1,0,230,45,"The Kraken",78
-186,Reckless,false,true,ironclad,9,1,0,213,81,"The Kraken",87
-187,Reckless,false,true,ironclad,8,2,0,205,89,"The Kraken",85
-188,Reckless,false,true,ironclad,4,2,0,118,28,"Darting Death",46
-189,Reckless,false,true,ironclad,2,1,0,65,27,"Apex Phosphor Wyrm Vanishing Viper",30
-190,Reckless,false,true,ironclad,9,1,0,229,103,"The Kraken",101
-191,Reckless,true,false,ironclad,9,5,1,721,114,"None (Survived)",89
-192,Reckless,false,true,ironclad,8,2,0,211,65,"The Kraken",78
-193,Reckless,false,true,ironclad,9,1,0,199,92,"The Kraken",88
-194,Reckless,false,true,ironclad,9,1,0,190,86,"The Kraken",84
-195,Reckless,false,true,ironclad,9,1,0,207,32,"The Kraken",74
-196,Reckless,false,true,ironclad,4,2,0,137,28,"Apex Volcanic Shock-Bell Floating Veil",39
-197,Reckless,false,true,ironclad,5,2,0,158,45,"Razor Tendrils",58
-198,Reckless,true,false,ironclad,10,5,1,672,102,"None (Survived)",83
-199,Reckless,false,true,ironclad,2,1,0,74,27,"Apex Volcanic Shock-Bell Medusa’s Grasp",31
-200,Reckless,false,true,ironclad,9,1,0,221,64,"The Kraken",89
-201,Reckless,false,true,ironclad,8,2,0,237,77,"The Kraken",78
-202,Reckless,false,true,ironclad,9,1,0,204,104,"The Kraken",92
-203,Reckless,false,true,ironclad,9,1,0,228,90,"The Kraken",98
-204,Reckless,false,true,ironclad,5,2,0,169,28,"Many-tentacled beast",47
-205,Reckless,false,true,ironclad,5,1,0,128,28,"Apex Blood-Frenzy Megalodon Behemoth Mako",49
-206,Reckless,false,true,ironclad,2,1,0,59,27,"Apex Phosphor Wyrm Lurking Coil",29
-207,Reckless,false,true,ironclad,3,1,0,85,24,"Jagged Lurker",33
-208,Reckless,false,true,ironclad,7,2,0,248,37,"The Kraken",66
-209,Reckless,false,true,ironclad,4,1,0,104,27,"Medusa’s Grasp",39
-210,Reckless,false,true,ironclad,8,1,0,194,44,"Elusive Eell",76
-211,Reckless,false,true,ironclad,6,2,0,225,80,"Elusive Eell",73
-212,Reckless,false,true,ironclad,8,2,0,245,62,"The Kraken",72
-213,Reckless,false,true,ironclad,4,1,0,98,53,"Tide Coiler",49
-214,Reckless,false,true,ironclad,4,1,0,103,49,"Eerie Elainaling",47
-215,Reckless,false,true,ironclad,2,1,0,61,33,"Eerie Elainaling",27
-216,Reckless,false,true,ironclad,5,3,0,227,77,"Bloodthirsty Bull Shark",53
-217,Reckless,false,true,ironclad,6,2,0,183,52,"The Kraken",80
-218,Reckless,false,true,ironclad,9,1,0,206,69,"The Kraken",79
-219,Reckless,false,true,ironclad,7,2,0,274,149,"The Kraken",88
-220,Reckless,false,true,ironclad,4,2,0,178,70,"Apex Phosphor Wyrm Darting Death",64
-221,Reckless,false,true,ironclad,2,1,0,58,32,"Depth Lurker",28
-222,Reckless,false,true,ironclad,3,1,0,80,33,"Writhing Curse",36
-223,Reckless,false,true,ironclad,9,2,0,235,44,"The Kraken",80
-224,Reckless,false,true,ironclad,9,2,0,257,111,"The Kraken",94
-225,Reckless,false,true,ironclad,9,1,0,198,48,"The Kraken",84
-226,Reckless,false,true,ironclad,9,2,0,243,121,"The Kraken",99
-227,Reckless,false,true,ironclad,0,0,0,25,23,"Eerie Elainaling",16
-228,Reckless,false,true,ironclad,8,2,0,234,101,"The Kraken",89
-229,Reckless,false,true,ironclad,6,1,0,159,20,"Apex Volcanic Shock-Bell Medusa’s Grasp",53
-230,Reckless,true,false,ironclad,10,5,1,694,85,"None (Survived)",88
-231,Reckless,false,true,ironclad,2,1,0,62,28,"Apex Volcanic Shock-Bell Ghostly-Tendriled Creature",24
-232,Reckless,false,true,ironclad,9,1,0,232,53,"The Kraken",90
-233,Reckless,false,true,ironclad,9,1,0,226,84,"The Kraken",82
-234,Reckless,false,true,ironclad,9,1,0,227,49,"The Kraken",84
-235,Reckless,false,true,ironclad,9,1,0,207,107,"The Kraken",87
-236,Reckless,false,true,ironclad,9,1,0,246,90,"The Kraken",90
-237,Reckless,false,true,ironclad,4,3,0,203,30,"Frenzied Maw",41
-238,Reckless,false,true,ironclad,9,1,0,204,81,"The Kraken",80
-239,Reckless,false,true,ironclad,9,1,0,215,76,"The Kraken",83
-240,Reckless,false,true,ironclad,9,1,0,218,41,"The Kraken",78
-241,Reckless,false,true,ironclad,7,1,0,180,84,"The Kraken",75
-242,Reckless,false,true,ironclad,6,1,0,150,33,"Apex Volcanic Shock-Bell Venom-Inflicter",54
-243,Reckless,false,true,ironclad,9,2,0,261,109,"The Kraken",89
-244,Reckless,false,true,ironclad,6,1,0,140,22,"Apex Blood-Frenzy Megalodon Ragefin",52
-245,Reckless,false,true,ironclad,0,0,0,25,10,"Colossal Tiger Shark",9
-246,Reckless,false,true,ironclad,7,1,0,174,76,"The Kraken",84
-247,Reckless,false,true,ironclad,9,2,0,261,71,"The Kraken",84
-248,Reckless,false,true,ironclad,7,1,0,183,64,"The Kraken",83
-249,Reckless,false,true,ironclad,5,1,0,133,56,"Lurking Coil",68
-250,Reckless,false,true,ironclad,8,1,0,214,68,"Apex Phosphor Wyrm Sussy Seaweed",83
-1,Cautious,false,true,ironclad,4,1,0,61,73,"Vanishing Viper",107
-2,Cautious,true,false,ironclad,8,5,1,861,108,"None (Survived)",165
-3,Cautious,false,true,ironclad,5,3,0,271,65,"The Kraken",110
-4,Cautious,false,true,ironclad,6,3,0,386,58,"The Kraken",107
-5,Cautious,false,true,ironclad,3,2,0,96,150,"The Kraken",133
-6,Cautious,false,true,ironclad,4,3,0,93,130,"The Kraken",116
-7,Cautious,false,true,ironclad,1,1,0,50,34,"Apex Phosphor Wyrm Tide Coiler",53
-8,Cautious,false,true,ironclad,5,2,0,115,87,"The Kraken",122
-9,Cautious,false,true,ironclad,2,1,0,64,60,"Apex Phosphor Wyrm Lurking Coil",80
-10,Cautious,false,true,ironclad,6,2,0,284,69,"The Kraken",120
-11,Cautious,false,true,ironclad,4,2,0,260,54,"Lurking Coil",96
-12,Cautious,false,true,ironclad,5,2,0,165,37,"The Kraken",84
-13,Cautious,false,true,ironclad,5,2,0,163,99,"The Kraken",132
-14,Cautious,true,false,ironclad,5,5,1,1096,102,"None (Survived)",130
-15,Cautious,false,true,ironclad,1,1,0,50,89,"Apex Abyssal Krakenling Depth Lurker",91
-16,Cautious,false,true,ironclad,3,1,0,87,39,"The Kraken",74
-17,Cautious,false,true,ironclad,7,2,0,232,139,"The Kraken",184
-18,Cautious,false,true,ironclad,6,2,0,296,63,"The Kraken",110
-19,Cautious,true,false,ironclad,4,5,1,656,86,"None (Survived)",122
-20,Cautious,false,true,ironclad,4,2,0,455,22,"The Kraken",75
-21,Cautious,false,true,ironclad,4,2,0,264,112,"Apex Abyssal Krakenling Many-tentacled beast",145
-22,Cautious,false,true,ironclad,6,2,0,390,77,"The Kraken",124
-23,Cautious,true,false,ironclad,6,5,1,769,80,"None (Survived)",100
-24,Cautious,false,true,ironclad,5,2,0,327,68,"The Kraken",112
-25,Cautious,false,true,ironclad,6,2,0,446,78,"The Kraken",108
-26,Cautious,false,true,ironclad,3,1,0,84,56,"The Kraken",85
-27,Cautious,false,true,ironclad,5,2,0,243,53,"The Kraken",96
-28,Cautious,true,false,ironclad,4,5,1,698,48,"None (Survived)",104
-29,Cautious,false,true,ironclad,5,2,0,226,101,"The Kraken",153
-30,Cautious,false,true,ironclad,7,2,0,226,60,"The Kraken",106
-31,Cautious,true,false,ironclad,8,5,1,671,59,"None (Survived)",114
-32,Cautious,true,false,ironclad,7,5,1,683,77,"None (Survived)",139
-33,Cautious,true,false,ironclad,5,5,1,886,65,"None (Survived)",114
-34,Cautious,false,true,ironclad,2,1,0,243,60,"The Kraken",70
-35,Cautious,false,true,ironclad,5,2,0,235,119,"Apex Abyssal Krakenling Death by Ink",149
-36,Cautious,false,true,ironclad,3,2,0,125,23,"Venomous Shroud",51
-37,Cautious,false,true,ironclad,7,3,0,363,48,"The Kraken",103
-38,Cautious,false,true,ironclad,3,1,0,291,46,"Tide Coiler",85
-39,Cautious,false,true,ironclad,7,2,0,229,101,"The Kraken",172
-40,Cautious,false,true,ironclad,3,2,0,69,77,"The Kraken",117
-41,Cautious,false,true,ironclad,7,2,0,349,119,"The Kraken",168
-42,Cautious,true,false,ironclad,7,5,1,812,73,"None (Survived)",123
-43,Cautious,false,true,ironclad,5,2,0,167,59,"The Kraken",102
-44,Cautious,false,true,ironclad,4,1,0,116,78,"Vanishing Viper",122
-45,Cautious,false,true,ironclad,5,1,0,128,64,"The Kraken",111
-46,Cautious,true,false,ironclad,5,5,1,746,47,"None (Survived)",90
-47,Cautious,false,true,ironclad,4,3,0,213,65,"The Kraken",110
-48,Cautious,false,true,ironclad,4,3,0,254,99,"The Kraken",134
-49,Cautious,false,true,ironclad,5,2,0,259,122,"The Kraken",160
-50,Cautious,false,true,ironclad,3,2,0,228,58,"The Kraken",99
-51,Cautious,false,true,ironclad,6,3,0,225,90,"The Kraken",136
-52,Cautious,true,false,ironclad,4,5,1,546,49,"None (Survived)",84
-53,Cautious,true,false,ironclad,4,5,1,720,40,"None (Survived)",76
-54,Cautious,false,true,ironclad,2,1,0,69,92,"Apex Abyssal Krakenling Krakenling",114
-55,Cautious,false,true,ironclad,5,2,0,196,87,"The Kraken",138
-56,Cautious,false,true,ironclad,4,2,0,351,64,"The Kraken",106
-57,Cautious,false,true,ironclad,5,2,0,143,113,"The Kraken",151
-58,Cautious,false,true,ironclad,4,3,0,110,84,"The Kraken",121
-59,Cautious,true,false,ironclad,4,5,1,892,60,"None (Survived)",109
-60,Cautious,true,false,ironclad,5,5,1,886,65,"None (Survived)",100
-61,Cautious,false,true,ironclad,6,3,0,375,54,"The Kraken",112
-62,Cautious,false,true,ironclad,5,2,0,222,124,"The Kraken",155
-63,Cautious,true,false,ironclad,8,5,1,742,96,"None (Survived)",153
-64,Cautious,false,true,ironclad,5,3,0,223,89,"Fang of the Abyss",133
-65,Cautious,false,true,ironclad,5,2,0,235,97,"The Kraken",129
-66,Cautious,false,true,ironclad,3,2,0,99,62,"Apex Blood-Frenzy Megalodon Terror of the Tides",104
-67,Cautious,false,true,ironclad,7,2,0,198,66,"The Kraken",120
-68,Cautious,false,true,ironclad,3,1,0,84,71,"Apex Phosphor Wyrm Vanishing Viper",101
-69,Cautious,false,true,ironclad,6,2,0,158,66,"Tide Coiler",109
-70,Cautious,false,true,ironclad,5,2,0,270,90,"The Kraken",133
-71,Cautious,true,false,ironclad,4,5,1,668,142,"None (Survived)",127
-72,Cautious,true,false,ironclad,5,5,1,844,113,"None (Survived)",163
-73,Cautious,false,true,ironclad,2,2,0,198,36,"The Kraken",67
-74,Cautious,false,true,ironclad,7,2,0,193,63,"The Kraken",111
-75,Cautious,false,true,ironclad,4,1,0,186,86,"The Kraken",117
-76,Cautious,false,true,ironclad,1,1,0,46,49,"Eerie Elainaling",60
-77,Cautious,false,true,ironclad,5,2,0,251,92,"Krakenling",126
-78,Cautious,true,false,ironclad,2,5,1,668,48,"None (Survived)",75
-79,Cautious,false,true,ironclad,6,2,0,137,79,"The Kraken",123
-80,Cautious,false,true,ironclad,6,2,0,179,61,"Lurking Coil",111
-81,Cautious,false,true,ironclad,7,2,0,538,87,"The Kraken",142
-82,Cautious,false,true,ironclad,7,2,0,397,93,"The Kraken",140
-83,Cautious,true,false,ironclad,5,5,1,592,68,"None (Survived)",109
-84,Cautious,false,true,ironclad,6,2,0,308,117,"Apex Phosphor Wyrm Tide Coiler",159
-85,Cautious,false,true,ironclad,5,2,0,172,99,"The Kraken",130
-86,Cautious,true,false,ironclad,5,5,1,728,82,"None (Survived)",117
-87,Cautious,false,true,ironclad,5,1,0,323,84,"The Kraken",121
-88,Cautious,false,true,ironclad,0,0,0,25,47,"Writhing Curse",54
-89,Cautious,true,false,ironclad,4,5,1,571,59,"None (Survived)",101
-90,Cautious,false,true,ironclad,6,3,0,245,125,"The Kraken",152
-91,Cautious,false,true,ironclad,6,2,0,341,134,"The Kraken",173
-92,Cautious,false,true,ironclad,8,2,0,303,89,"The Kraken",153
-93,Cautious,false,true,ironclad,7,2,0,219,204,"The Kraken",244
-94,Cautious,false,true,ironclad,5,1,0,315,91,"The Kraken",133
-95,Cautious,false,true,ironclad,6,2,0,272,58,"The Kraken",105
-96,Cautious,true,false,ironclad,4,5,1,579,123,"None (Survived)",131
-97,Cautious,false,true,ironclad,8,2,0,223,152,"The Kraken",200
-98,Cautious,false,true,ironclad,6,2,0,270,65,"The Kraken",107
-99,Cautious,false,true,ironclad,6,2,0,378,129,"The Kraken",174
-100,Cautious,false,true,ironclad,3,2,0,253,57,"Vanishing Viper",95
-101,Cautious,false,true,ironclad,8,2,0,255,94,"The Kraken",142
-102,Cautious,false,true,ironclad,3,3,0,114,102,"The Kraken",133
-103,Cautious,false,true,ironclad,6,2,0,258,83,"Eerie Elainaling",134
-104,Cautious,true,false,ironclad,4,5,1,487,102,"None (Survived)",100
-105,Cautious,false,true,ironclad,4,2,0,169,52,"Vanishing Viper",90
-106,Cautious,false,true,ironclad,4,1,0,187,75,"The Kraken",107
-107,Cautious,false,true,ironclad,7,2,0,226,81,"The Kraken",132
-108,Cautious,false,true,ironclad,4,3,0,393,57,"The Kraken",99
-109,Cautious,false,true,ironclad,5,2,0,96,67,"The Kraken",116
-110,Cautious,false,true,ironclad,4,2,0,94,78,"The Kraken",103
-111,Cautious,false,true,ironclad,5,2,0,263,119,"Apex Abyssal Krakenling Razor Tendrils",163
-112,Cautious,false,true,ironclad,6,4,0,307,57,"The Kraken",109
-113,Cautious,false,true,ironclad,6,2,0,285,61,"The Kraken",119
-114,Cautious,false,true,ironclad,5,2,0,295,74,"The Kraken",107
-115,Cautious,false,true,ironclad,3,1,0,43,51,"Vanishing Viper",78
-116,Cautious,false,true,ironclad,5,2,0,102,111,"The Kraken",132
-117,Cautious,false,true,ironclad,6,2,0,232,80,"The Kraken",125
-118,Cautious,false,true,ironclad,3,2,0,211,90,"The Kraken",139
-119,Cautious,false,true,ironclad,1,1,0,45,55,"Vanishing Viper",68
-120,Cautious,false,true,ironclad,5,2,0,183,105,"The Kraken",128
-121,Cautious,false,true,ironclad,7,2,0,114,82,"The Kraken",125
-122,Cautious,false,true,ironclad,6,3,0,308,137,"Suffocating Embrace",174
-123,Cautious,false,true,ironclad,2,1,0,336,47,"The Kraken",80
-124,Cautious,false,true,ironclad,3,1,0,80,80,"The Kraken",109
-125,Cautious,false,true,ironclad,5,2,0,164,65,"The Kraken",106
-126,Cautious,false,true,ironclad,4,2,0,80,69,"The Kraken",118
-127,Cautious,true,false,ironclad,4,5,1,752,93,"None (Survived)",116
-128,Cautious,true,false,ironclad,6,5,1,727,87,"None (Survived)",126
-129,Cautious,false,true,ironclad,3,2,0,58,40,"The Kraken",78
-130,Cautious,false,true,ironclad,3,1,0,268,45,"The Kraken",83
-131,Cautious,false,true,ironclad,1,1,0,46,42,"The Kraken",72
-132,Cautious,false,true,ironclad,4,2,0,344,50,"The Kraken",89
-133,Cautious,false,true,ironclad,3,2,0,177,51,"The Kraken",89
-134,Cautious,false,true,ironclad,5,2,0,73,63,"The Kraken",104
-135,Cautious,false,true,ironclad,4,2,0,176,85,"The Kraken",128
-136,Cautious,false,true,ironclad,4,3,0,285,46,"Apex Blood-Frenzy Megalodon Fang of the Abyss",85
-137,Cautious,false,true,ironclad,6,2,0,348,106,"The Kraken",151
-138,Cautious,false,true,ironclad,5,2,0,147,62,"The Kraken",104
-139,Cautious,false,true,ironclad,4,1,0,285,137,"Apex Phosphor Wyrm Darting Death",173
-140,Cautious,false,true,ironclad,6,2,0,326,87,"The Kraken",124
-141,Cautious,false,true,ironclad,5,2,0,156,85,"Mire Serpent",125
-142,Cautious,false,true,ironclad,2,1,0,181,28,"The Kraken",63
-143,Cautious,false,true,ironclad,4,1,0,39,64,"Elusive Eell",105
-144,Cautious,true,false,ironclad,5,5,1,579,88,"None (Survived)",123
-145,Cautious,false,true,ironclad,4,2,0,198,101,"The Kraken",134
-146,Cautious,false,true,ironclad,5,2,0,194,79,"The Kraken",121
-147,Cautious,false,true,ironclad,6,2,0,370,85,"Elusive Eell",137
-148,Cautious,false,true,ironclad,5,2,0,216,48,"Apex Phosphor Wyrm Writhing Curse",93
-149,Cautious,false,true,ironclad,4,2,0,209,72,"The Kraken",111
-150,Cautious,true,false,ironclad,5,5,1,580,45,"None (Survived)",86
-151,Cautious,false,true,ironclad,6,2,0,332,100,"The Kraken",147
-152,Cautious,false,true,ironclad,5,2,0,151,78,"Apex Phosphor Wyrm Vanishing Viper",116
-153,Cautious,false,true,ironclad,1,1,0,143,35,"Apex Phosphor Wyrm Slithery Devil",53
-154,Cautious,false,true,ironclad,2,1,0,261,26,"The Kraken",64
-155,Cautious,true,false,ironclad,5,5,1,662,41,"None (Survived)",100
-156,Cautious,false,true,ironclad,7,2,0,189,169,"The Kraken",202
-157,Cautious,true,false,ironclad,4,5,1,561,80,"None (Survived)",136
-158,Cautious,false,true,ironclad,5,1,0,142,130,"Apex Phosphor Wyrm Slithery Devil",162
-159,Cautious,false,true,ironclad,6,2,0,464,87,"The Kraken",129
-160,Cautious,false,true,ironclad,3,3,0,256,103,"The Kraken",124
-161,Cautious,false,true,ironclad,3,2,0,110,63,"The Kraken",93
-162,Cautious,false,true,ironclad,4,1,0,163,70,"The Kraken",116
-163,Cautious,false,true,ironclad,6,2,0,439,52,"The Kraken",104
-164,Cautious,false,true,ironclad,4,3,0,154,55,"Apex Blood-Frenzy Megalodon Fang of the Abyss",92
-165,Cautious,false,true,ironclad,4,2,0,152,81,"Elusive Eell",125
-166,Cautious,false,true,ironclad,2,2,0,116,42,"Apex Phosphor Wyrm Twisting Terror",76
-167,Cautious,false,true,ironclad,3,1,0,49,25,"Jagged Lurker",61
-168,Cautious,false,true,ironclad,6,2,0,222,104,"The Kraken",148
-169,Cautious,true,false,ironclad,4,5,1,580,78,"None (Survived)",111
-170,Cautious,false,true,ironclad,6,2,0,407,79,"The Kraken",124
-171,Cautious,false,true,ironclad,3,2,0,134,48,"Slithery Devil",87
-172,Cautious,false,true,ironclad,5,2,0,340,69,"The Kraken",116
-173,Cautious,false,true,ironclad,8,2,0,229,124,"The Kraken",172
-174,Cautious,false,true,ironclad,4,1,0,181,73,"The Kraken",108
-175,Cautious,false,true,ironclad,5,1,0,126,54,"The Kraken",90
-176,Cautious,false,true,ironclad,4,1,0,238,83,"The Kraken",125
-177,Cautious,false,true,ironclad,7,2,0,324,37,"The Kraken",90
-178,Cautious,true,false,ironclad,8,5,1,729,172,"None (Survived)",207
-179,Cautious,false,true,ironclad,5,3,0,239,130,"The Kraken",163
-180,Cautious,false,true,ironclad,4,2,0,176,68,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",116
-181,Cautious,true,false,ironclad,5,5,1,807,72,"None (Survived)",125
-182,Cautious,false,true,ironclad,3,2,0,160,62,"The Kraken",93
-183,Cautious,false,true,ironclad,6,2,0,298,102,"The Kraken",145
-184,Cautious,false,true,ironclad,6,3,0,373,122,"The Kraken",170
-185,Cautious,false,true,ironclad,7,2,0,350,72,"The Kraken",125
-186,Cautious,false,true,ironclad,7,3,0,365,73,"The Kraken",142
-187,Cautious,false,true,ironclad,3,2,0,292,108,"The Kraken",116
-188,Cautious,false,true,ironclad,5,2,0,278,60,"The Kraken",103
-189,Cautious,true,false,ironclad,8,5,1,782,83,"None (Survived)",137
-190,Cautious,true,false,ironclad,8,5,1,710,86,"None (Survived)",134
-191,Cautious,false,true,ironclad,1,1,0,44,36,"Apex Phosphor Wyrm Vanishing Viper",53
-192,Cautious,false,true,ironclad,6,2,0,295,70,"Lurking Coil",120
-193,Cautious,false,true,ironclad,3,1,0,280,25,"The Kraken",68
-194,Cautious,false,true,ironclad,2,1,0,64,68,"Apex Phosphor Wyrm Abyssal Constrictor",90
-195,Cautious,true,false,ironclad,8,5,1,657,135,"None (Survived)",136
-196,Cautious,false,true,ironclad,2,1,0,141,74,"Apex Phosphor Wyrm Sussy Seaweed",91
-197,Cautious,false,true,ironclad,5,2,0,155,128,"Hundred-Limbed Horror",151
-198,Cautious,false,true,ironclad,3,1,0,71,78,"Apex Abyssal Krakenling Cephalopod Tyrant",103
-199,Cautious,false,true,ironclad,4,3,0,252,65,"The Kraken",107
-200,Cautious,true,false,ironclad,7,5,1,645,98,"None (Survived)",140
-201,Cautious,false,true,ironclad,3,2,0,127,69,"The Kraken",109
-202,Cautious,false,true,ironclad,7,2,0,266,62,"The Kraken",122
-203,Cautious,false,true,ironclad,3,3,0,228,61,"The Kraken",103
-204,Cautious,false,true,ironclad,3,3,0,250,44,"The Kraken",79
-205,Cautious,false,true,ironclad,4,1,0,107,48,"Twisting Terror",82
-206,Cautious,true,false,ironclad,7,5,1,880,100,"None (Survived)",151
-207,Cautious,true,false,ironclad,4,5,1,551,52,"None (Survived)",97
-208,Cautious,false,true,ironclad,5,4,0,360,57,"The Kraken",110
-209,Cautious,false,true,ironclad,4,2,0,202,64,"The Kraken",101
-210,Cautious,false,true,ironclad,5,2,0,213,55,"The Kraken",102
-211,Cautious,false,true,ironclad,7,2,0,201,94,"The Kraken",141
-212,Cautious,false,true,ironclad,4,4,0,333,54,"Slithery Devil",105
-213,Cautious,false,true,ironclad,6,2,0,146,103,"The Kraken",142
-214,Cautious,true,false,ironclad,4,5,1,600,53,"None (Survived)",86
-215,Cautious,false,true,ironclad,2,1,0,243,50,"Apex Phosphor Wyrm Darting Death",77
-216,Cautious,false,true,ironclad,5,2,0,135,71,"The Kraken",121
-217,Cautious,false,true,ironclad,6,2,0,376,130,"The Kraken",175
-218,Cautious,false,true,ironclad,5,2,0,267,120,"The Kraken",156
-219,Cautious,true,false,ironclad,4,5,1,818,94,"None (Survived)",110
-220,Cautious,false,true,ironclad,4,2,0,344,48,"The Kraken",86
-221,Cautious,false,true,ironclad,3,2,0,32,91,"Lurking Coil",129
-222,Cautious,false,true,ironclad,2,1,0,142,29,"Apex Phosphor Wyrm Elusive Eell",58
-223,Cautious,false,true,ironclad,6,2,0,175,119,"Razor Tendrils",146
-224,Cautious,false,true,ironclad,4,2,0,155,183,"The Kraken",121
-225,Cautious,false,true,ironclad,4,2,0,227,178,"The Kraken",198
-226,Cautious,true,false,ironclad,8,5,1,536,153,"None (Survived)",190
-227,Cautious,true,false,ironclad,8,5,1,783,88,"None (Survived)",137
-228,Cautious,false,true,ironclad,4,3,0,198,84,"Apex Blood-Frenzy Megalodon Ragefin",114
-229,Cautious,false,true,ironclad,3,1,0,352,48,"The Kraken",95
-230,Cautious,false,true,ironclad,6,2,0,224,89,"The Kraken",132
-231,Cautious,true,false,ironclad,7,5,1,531,78,"None (Survived)",137
-232,Cautious,true,false,ironclad,5,5,1,755,74,"None (Survived)",120
-233,Cautious,false,true,ironclad,6,2,0,305,152,"The Kraken",181
-234,Cautious,false,true,ironclad,3,2,0,273,69,"The Kraken",106
-235,Cautious,false,true,ironclad,5,2,0,136,140,"Death by Ink",162
-236,Cautious,false,true,ironclad,1,1,0,47,34,"Mire Serpent",46
-237,Cautious,false,true,ironclad,7,2,0,258,89,"The Kraken",132
-238,Cautious,false,true,ironclad,5,2,0,342,117,"The Kraken",123
-239,Cautious,false,true,ironclad,6,2,0,236,99,"Apex Phosphor Wyrm Slithery Devil",145
-240,Cautious,false,true,ironclad,5,2,0,168,117,"Darting Death",146
-241,Cautious,false,true,ironclad,7,3,0,315,55,"The Kraken",121
-242,Cautious,false,true,ironclad,5,1,0,277,58,"The Kraken",99
-243,Cautious,false,true,ironclad,7,2,0,307,91,"The Kraken",146
-244,Cautious,false,true,ironclad,3,1,0,242,58,"The Kraken",89
-245,Cautious,false,true,ironclad,4,1,0,179,89,"The Kraken",102
-246,Cautious,false,true,ironclad,5,2,0,263,131,"The Kraken",154
-247,Cautious,false,true,ironclad,3,2,0,181,81,"Apex Phosphor Wyrm Twisting Terror",107
-248,Cautious,false,true,ironclad,3,2,0,288,58,"The Kraken",91
-249,Cautious,true,false,ironclad,5,5,1,600,58,"None (Survived)",102
-250,Cautious,true,false,ironclad,7,5,1,700,94,"None (Survived)",129
-1,Greedy,false,true,corsair,3,1,0,456,37,"The Kraken",54
-2,Greedy,false,true,corsair,2,1,0,245,19,"Many-tentacled beast",39
-3,Greedy,false,true,corsair,1,1,0,42,13,"Bloodthirsty Bull Shark",15
-4,Greedy,false,true,corsair,2,1,0,127,23,"Apex Phosphor Wyrm Mire Serpent",32
-5,Greedy,false,true,corsair,5,2,0,136,42,"Elusive Eell",58
-6,Greedy,false,true,corsair,2,2,0,397,20,"Frenzied Maw",40
-7,Greedy,false,true,corsair,3,1,0,186,32,"Ghostly-Tendriled Creature",51
-8,Greedy,false,true,corsair,3,1,0,309,67,"The Kraken",83
-9,Greedy,false,true,corsair,2,1,0,68,18,"Jagged Lurker",23
-10,Greedy,false,true,corsair,1,1,0,155,16,"Frenzied Maw",21
-11,Greedy,false,true,corsair,3,1,0,267,49,"Cephalopod Tyrant",53
-12,Greedy,false,true,corsair,2,2,0,634,21,"Fang of the Abyss",50
-13,Greedy,false,true,corsair,4,2,0,607,58,"The Kraken",65
-14,Greedy,false,true,corsair,1,1,0,43,10,"Colossal Tiger Shark",19
-15,Greedy,false,true,corsair,2,2,0,197,32,"Apex Blood-Frenzy Megalodon Bloodrage Shark",34
-16,Greedy,false,true,corsair,0,0,0,25,15,"Sussy Seaweed",13
-17,Greedy,false,true,corsair,4,2,0,293,55,"The Kraken",59
-18,Greedy,false,true,corsair,2,1,0,453,21,"The Kraken",55
-19,Greedy,false,true,corsair,0,0,0,25,17,"Elusive Eell",15
-20,Greedy,false,true,corsair,3,1,0,572,27,"The Kraken",59
-21,Greedy,false,true,corsair,2,1,0,70,14,"Abyssal Stinger",28
-22,Greedy,false,true,corsair,3,1,0,319,39,"The Kraken",52
-23,Greedy,false,true,corsair,1,1,0,42,14,"Bloodthirsty Bull Shark",20
-24,Greedy,false,true,corsair,0,0,0,25,10,"Thrashing Great White",9
-25,Greedy,false,true,corsair,1,1,0,304,17,"Elusive Eell",28
-26,Greedy,false,true,corsair,1,1,0,151,15,"Tide Coiler",27
-27,Greedy,false,true,corsair,3,1,0,681,39,"The Kraken",54
-28,Greedy,false,true,corsair,2,1,0,317,24,"The Kraken",50
-29,Greedy,false,true,corsair,2,1,0,563,49,"The Kraken",63
-30,Greedy,false,true,corsair,3,1,0,88,17,"Apex Volcanic Shock-Bell Medusa’s Grasp",30
-31,Greedy,false,true,corsair,2,1,0,355,44,"Depth Lurker",52
-32,Greedy,false,true,corsair,1,1,0,327,37,"The Kraken",40
-33,Greedy,false,true,corsair,2,1,0,174,70,"Apex Abyssal Krakenling Cephalopod Tyrant",50
-34,Greedy,false,true,corsair,3,2,0,199,44,"Tide Coiler",54
-35,Greedy,false,true,corsair,2,1,0,424,24,"The Kraken",53
-36,Greedy,false,true,corsair,1,1,0,42,21,"Elusive Eell",22
-37,Greedy,false,true,corsair,3,1,0,79,23,"Behemoth Mako",43
-38,Greedy,false,true,corsair,0,0,0,25,8,"Fang of the Abyss",8
-39,Greedy,false,true,corsair,2,1,0,242,24,"Vanishing Viper",36
-40,Greedy,false,true,corsair,1,1,0,157,13,"Apex Volcanic Shock-Bell Abyssal Stinger",20
-41,Greedy,false,true,corsair,2,2,0,529,30,"Apex Phosphor Wyrm Writhing Curse",53
-42,Greedy,true,false,corsair,6,5,1,813,64,"None (Survived)",85
-43,Greedy,false,true,corsair,0,0,0,25,18,"Mire Serpent",14
-44,Greedy,false,true,corsair,3,1,0,179,30,"Vanishing Viper",52
-45,Greedy,false,true,corsair,2,1,0,560,16,"The Kraken",49
-46,Greedy,false,true,corsair,2,1,0,458,38,"The Kraken",46
-47,Greedy,false,true,corsair,3,1,0,567,44,"The Kraken",60
-48,Greedy,false,true,corsair,1,1,0,266,18,"Bioluminescent Terror",29
-49,Greedy,false,true,corsair,2,1,0,143,24,"Apex Volcanic Shock-Bell Drifting Wraith",36
-50,Greedy,false,true,corsair,3,2,0,175,36,"Razor Tendrils",43
-51,Greedy,false,true,corsair,3,1,0,235,19,"Apex Volcanic Shock-Bell Medusa’s Grasp",46
-52,Greedy,false,true,corsair,1,1,0,161,20,"Eerie Elainaling",25
-53,Greedy,false,true,corsair,2,2,0,163,16,"Mire Serpent",31
-54,Greedy,false,true,corsair,2,1,0,70,16,"Darting Death",25
-55,Greedy,false,true,corsair,3,1,0,146,33,"Apex Volcanic Shock-Bell Pulsating Jellyfish",48
-56,Greedy,false,true,corsair,4,1,0,105,53,"Suffocating Embrace",49
-57,Greedy,false,true,corsair,4,1,0,299,27,"Apex Phosphor Wyrm Mire Serpent",53
-58,Greedy,false,true,corsair,2,1,0,62,16,"Behemoth Mako",39
-59,Greedy,false,true,corsair,5,2,0,339,43,"The Kraken",64
-60,Greedy,false,true,corsair,1,1,0,555,24,"The Kraken",48
-61,Greedy,false,true,corsair,3,1,0,277,36,"The Kraken",70
-62,Greedy,false,true,corsair,1,1,0,610,33,"The Kraken",54
-63,Greedy,false,true,corsair,1,1,0,375,29,"The Kraken",43
-64,Greedy,false,true,corsair,1,1,0,40,12,"Frenzied Maw",15
-65,Greedy,false,true,corsair,2,1,0,529,48,"The Kraken",50
-66,Greedy,false,true,corsair,2,1,0,249,23,"The Kraken",47
-67,Greedy,false,true,corsair,3,1,0,240,22,"Pulsating Jellyfish",44
-68,Greedy,false,true,corsair,2,1,0,277,40,"The Kraken",47
-69,Greedy,false,true,corsair,4,1,0,224,42,"Vanishing Viper",60
-70,Greedy,false,true,corsair,1,1,0,197,19,"Floating Veil",27
-71,Greedy,false,true,corsair,3,1,0,500,46,"The Kraken",53
-72,Greedy,false,true,corsair,2,1,0,169,18,"Apex Volcanic Shock-Bell Ghostly-Tendriled Creature",31
-73,Greedy,false,true,corsair,3,1,0,483,36,"The Kraken",48
-74,Greedy,false,true,corsair,1,1,0,44,17,"Vanishing Viper",20
-75,Greedy,false,true,corsair,2,1,0,147,30,"Frenzied Maw",42
-76,Greedy,false,true,corsair,1,1,0,43,13,"Grasping Abyss",17
-77,Greedy,false,true,corsair,3,1,0,84,42,"Apex Phosphor Wyrm Vanishing Viper",44
-78,Greedy,false,true,corsair,3,1,0,282,32,"The Kraken",55
-79,Greedy,false,true,corsair,2,1,0,74,35,"Apex Phosphor Wyrm Tide Coiler",36
-80,Greedy,false,true,corsair,2,1,0,267,14,"Apex Blood-Frenzy Megalodon Jagged Lurker",33
-81,Greedy,false,true,corsair,1,1,0,488,22,"The Kraken",49
-82,Greedy,false,true,corsair,1,1,0,353,23,"Sussy Seaweed",37
-83,Greedy,false,true,corsair,1,1,0,151,24,"Apex Phosphor Wyrm Eerie Elainaling",27
-84,Greedy,false,true,corsair,3,1,0,629,54,"The Kraken",73
-85,Greedy,false,true,corsair,1,1,0,43,14,"Vanishing Viper",21
-86,Greedy,false,true,corsair,1,1,0,41,15,"Venom-Inflicter",20
-87,Greedy,false,true,corsair,1,1,0,47,24,"Mire Serpent",23
-88,Greedy,false,true,corsair,0,0,0,25,23,"Writhing Curse",19
-89,Greedy,false,true,corsair,1,1,0,712,23,"The Kraken",48
-90,Greedy,false,true,corsair,4,2,0,340,42,"The Kraken",62
-91,Greedy,false,true,corsair,1,1,0,372,34,"The Kraken",38
-92,Greedy,false,true,corsair,3,1,0,90,28,"Apex Phosphor Wyrm Abyssal Constrictor",40
-93,Greedy,false,true,corsair,2,1,0,358,21,"The Kraken",52
-94,Greedy,false,true,corsair,5,2,0,326,32,"The Kraken",62
-95,Greedy,false,true,corsair,0,0,0,25,8,"Jagged Lurker",8
-96,Greedy,false,true,corsair,2,1,0,238,23,"Apex Blood-Frenzy Megalodon Thrashing Great White",38
-97,Greedy,false,true,corsair,0,0,0,25,25,"Vanishing Viper",20
-98,Greedy,false,true,corsair,2,1,0,376,31,"Fang of the Abyss",42
-99,Greedy,false,true,corsair,1,1,0,226,9,"Apex Blood-Frenzy Megalodon Apex Shredder",20
-100,Greedy,false,true,corsair,3,1,0,364,20,"Apex Abyssal Krakenling Death by Ink",43
-101,Greedy,false,true,corsair,5,2,0,345,59,"Apex Abyssal Krakenling Death by Ink",74
-102,Greedy,false,true,corsair,4,2,0,210,56,"Tide Coiler",72
-103,Greedy,false,true,corsair,2,1,0,65,27,"Apex Phosphor Wyrm Lurking Coil",33
-104,Greedy,false,true,corsair,3,1,0,305,33,"Floating Veil",47
-105,Greedy,false,true,corsair,2,1,0,67,28,"Mire Serpent",38
-106,Greedy,false,true,corsair,3,1,0,481,33,"The Kraken",45
-107,Greedy,false,true,corsair,2,1,0,447,27,"The Kraken",50
-108,Greedy,false,true,corsair,3,2,0,256,24,"Drifting Wraith",43
-109,Greedy,false,true,corsair,2,1,0,64,16,"Bloodthirsty Bull Shark",21
-110,Greedy,false,true,corsair,2,1,0,67,20,"Apex Phosphor Wyrm Darting Death",31
-111,Greedy,false,true,corsair,2,1,0,171,31,"Vanishing Viper",31
-112,Greedy,false,true,corsair,5,1,0,203,45,"Behemoth Mako",67
-113,Greedy,false,true,corsair,3,2,0,446,50,"The Kraken",57
-114,Greedy,false,true,corsair,2,1,0,145,20,"Apex Blood-Frenzy Megalodon Behemoth Mako",27
-115,Greedy,false,true,corsair,2,1,0,718,27,"The Kraken",53
-116,Greedy,false,true,corsair,3,1,0,81,34,"Eerie Elainaling",47
-117,Greedy,false,true,corsair,3,1,0,297,37,"The Kraken",55
-118,Greedy,false,true,corsair,1,1,0,452,31,"The Kraken",40
-119,Greedy,false,true,corsair,2,1,0,155,26,"Twisting Terror",41
-120,Greedy,false,true,corsair,2,2,0,171,20,"Apex Blood-Frenzy Megalodon Crimson Hunter",30
-121,Greedy,false,true,corsair,3,1,0,450,42,"The Kraken",58
-122,Greedy,false,true,corsair,2,1,0,133,20,"Apex Blood-Frenzy Megalodon Behemoth Mako",33
-123,Greedy,false,true,corsair,0,0,0,25,17,"Twisting Terror",15
-124,Greedy,false,true,corsair,4,3,0,481,46,"The Kraken",62
-125,Greedy,false,true,corsair,1,1,0,267,17,"Apex Blood-Frenzy Megalodon Behemoth Mako",31
-126,Greedy,false,true,corsair,2,1,0,256,14,"Colossal Tiger Shark",36
-127,Greedy,false,true,corsair,2,1,0,59,38,"Apex Abyssal Krakenling Razor Tendrils",32
-128,Greedy,false,true,corsair,2,1,0,276,23,"Floating Veil",44
-129,Greedy,false,true,corsair,2,1,0,66,26,"Bloodrage Shark",32
-130,Greedy,false,true,corsair,0,0,0,25,16,"Darting Death",15
-131,Greedy,false,true,corsair,3,1,0,433,26,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",54
-132,Greedy,false,true,corsair,2,1,0,339,22,"The Kraken",45
-133,Greedy,true,false,corsair,4,5,1,701,59,"None (Survived)",94
-134,Greedy,false,true,corsair,1,1,0,50,12,"Mire Serpent",16
-135,Greedy,false,true,corsair,2,1,0,157,20,"Apex Volcanic Shock-Bell Venomous Shroud",30
-136,Greedy,false,true,corsair,3,3,0,315,35,"Many-tentacled beast",53
-137,Greedy,false,true,corsair,3,1,0,524,38,"The Kraken",59
-138,Greedy,false,true,corsair,4,1,0,364,56,"The Kraken",86
-139,Greedy,false,true,corsair,2,1,0,128,15,"Medusa’s Grasp",37
-140,Greedy,true,false,corsair,2,5,1,636,52,"None (Survived)",53
-141,Greedy,false,true,corsair,4,1,0,232,28,"Apex Volcanic Shock-Bell Nerveburn Jelly",48
-142,Greedy,false,true,corsair,0,0,0,25,8,"Colossal Tiger Shark",8
-143,Greedy,false,true,corsair,4,1,0,115,38,"Frenzied Maw",50
-144,Greedy,false,true,corsair,2,1,0,147,27,"Apex Volcanic Shock-Bell Venomous Shroud",35
-145,Greedy,false,true,corsair,3,2,0,273,25,"The Kraken",49
-146,Greedy,false,true,corsair,2,1,0,175,21,"Phantasmal Bell",33
-147,Greedy,false,true,corsair,3,1,0,227,21,"Thrashing Great White",46
-148,Greedy,false,true,corsair,2,2,0,572,30,"The Kraken",55
-149,Greedy,false,true,corsair,0,0,0,25,16,"Twisting Terror",14
-150,Greedy,false,true,corsair,3,1,0,582,24,"The Kraken",48
-151,Greedy,false,true,corsair,3,1,0,157,34,"Twisting Terror",49
-152,Greedy,false,true,corsair,2,1,0,62,12,"Apex Abyssal Krakenling Cephalopod Tyrant",22
-153,Greedy,false,true,corsair,4,1,0,101,40,"Mire Serpent",52
-154,Greedy,false,true,corsair,4,2,0,228,25,"Twisting Terror",56
-155,Greedy,false,true,corsair,1,1,0,218,13,"Vanishing Viper",30
-156,Greedy,false,true,corsair,5,2,0,329,51,"The Kraken",77
-157,Greedy,false,true,corsair,1,1,0,277,21,"The Kraken",31
-158,Greedy,false,true,corsair,2,1,0,707,63,"The Kraken",75
-159,Greedy,false,true,corsair,4,1,0,225,28,"Thrashing Great White",51
-160,Greedy,false,true,corsair,2,1,0,573,61,"The Kraken",75
-161,Greedy,false,true,corsair,3,3,0,439,24,"The Kraken",54
-162,Greedy,false,true,corsair,4,1,0,226,61,"Darting Death",66
-163,Greedy,false,true,corsair,1,1,0,536,34,"The Kraken",68
-164,Greedy,false,true,corsair,1,1,0,235,26,"Hundred-Limbed Horror",27
-165,Greedy,false,true,corsair,2,1,0,245,32,"Gargantuan Squid",45
-166,Greedy,false,true,corsair,2,1,0,142,19,"Abyssal Stinger",29
-167,Greedy,false,true,corsair,1,1,0,43,18,"Tide Coiler",20
-168,Greedy,false,true,corsair,1,1,0,246,23,"Apex Phosphor Wyrm Elusive Eell",29
-169,Greedy,false,true,corsair,3,1,0,173,30,"Writhing Curse",53
-170,Greedy,false,true,corsair,2,1,0,182,16,"Cephalopod Tyrant",26
-171,Greedy,false,true,corsair,2,1,0,67,13,"Apex Blood-Frenzy Megalodon Jagged Lurker",24
-172,Greedy,false,true,corsair,2,1,0,398,16,"The Kraken",46
-173,Greedy,false,true,corsair,1,1,0,50,22,"Darting Death",23
-174,Greedy,false,true,corsair,3,1,0,535,28,"The Kraken",65
-175,Greedy,false,true,corsair,1,1,0,46,24,"Grasping Abyss",27
-176,Greedy,false,true,corsair,1,1,0,456,13,"The Kraken",39
-177,Greedy,false,true,corsair,2,1,0,154,18,"Venomous Shroud",35
-178,Greedy,false,true,corsair,1,1,0,161,35,"Apex Abyssal Krakenling Cephalopod Tyrant",28
-179,Greedy,false,true,corsair,3,1,0,200,31,"Apex Phosphor Wyrm Mire Serpent",43
-180,Greedy,false,true,corsair,3,1,0,204,35,"Gargantuan Squid",44
-181,Greedy,false,true,corsair,4,1,0,577,45,"The Kraken",57
-182,Greedy,false,true,corsair,2,1,0,366,32,"The Kraken",60
-183,Greedy,false,true,corsair,1,1,0,270,36,"Grasping Abyss",29
-184,Greedy,false,true,corsair,3,3,0,619,54,"The Kraken",58
-185,Greedy,false,true,corsair,0,0,0,25,18,"Sussy Seaweed",15
-186,Greedy,false,true,corsair,4,1,0,333,33,"Darting Death",61
-187,Greedy,false,true,corsair,1,1,0,42,20,"Elusive Eell",24
-188,Greedy,false,true,corsair,3,2,0,354,20,"The Kraken",54
-189,Greedy,false,true,corsair,3,1,0,224,32,"Frenzied Maw",46
-190,Greedy,false,true,corsair,3,1,0,80,26,"Drifting Wraith",45
-191,Greedy,false,true,corsair,6,2,0,173,55,"Apex Volcanic Shock-Bell Nerveburn Jelly",74
-192,Greedy,false,true,corsair,2,1,0,432,52,"The Kraken",63
-193,Greedy,false,true,corsair,3,2,0,296,43,"The Kraken",52
-194,Greedy,false,true,corsair,3,1,0,159,51,"Death by Ink",55
-195,Greedy,false,true,corsair,2,1,0,271,22,"Darting Death",34
-196,Greedy,false,true,corsair,1,1,0,43,20,"Elusive Eell",21
-197,Greedy,false,true,corsair,2,1,0,345,18,"Terror of the Tides",35
-198,Greedy,false,true,corsair,3,1,0,163,23,"Apex Phosphor Wyrm Slithery Devil",36
-199,Greedy,false,true,corsair,3,1,0,371,48,"The Kraken",60
-200,Greedy,false,true,corsair,1,1,0,683,38,"The Kraken",50
-201,Greedy,false,true,corsair,1,1,0,364,43,"The Kraken",53
-202,Greedy,false,true,corsair,2,1,0,269,25,"The Kraken",62
-203,Greedy,false,true,corsair,1,1,0,46,10,"Behemoth Mako",14
-204,Greedy,false,true,corsair,1,1,0,220,18,"Eerie Elainaling",34
-205,Greedy,false,true,corsair,2,1,0,357,15,"Apex Blood-Frenzy Megalodon Bloodrage Shark",38
-206,Greedy,false,true,corsair,1,1,0,552,36,"The Kraken",44
-207,Greedy,false,true,corsair,2,1,0,280,14,"Venomous Shroud",34
-208,Greedy,false,true,corsair,2,1,0,761,17,"The Kraken",48
-209,Greedy,false,true,corsair,5,3,0,283,23,"The Kraken",55
-210,Greedy,false,true,corsair,1,1,0,40,11,"Phantasmal Bell",20
-211,Greedy,false,true,corsair,5,2,0,395,43,"Apex Abyssal Krakenling Razor Tendrils",70
-212,Greedy,false,true,corsair,0,0,0,25,8,"Apex Shredder",8
-213,Greedy,false,true,corsair,3,1,0,512,35,"The Kraken",63
-214,Greedy,false,true,corsair,3,1,0,556,49,"The Kraken",58
-215,Greedy,false,true,corsair,3,1,0,158,27,"Apex Blood-Frenzy Megalodon Apex Shredder",36
-216,Greedy,false,true,corsair,5,1,0,133,40,"Ragefin",55
-217,Greedy,false,true,corsair,2,1,0,64,30,"Abyssal Stinger",29
-218,Greedy,false,true,corsair,3,1,0,320,19,"Apex Blood-Frenzy Megalodon Frenzied Maw",45
-219,Greedy,false,true,corsair,3,1,0,200,48,"Krakenling",52
-220,Greedy,false,true,corsair,1,1,0,163,17,"Ragefin",24
-221,Greedy,false,true,corsair,3,1,0,426,30,"The Kraken",58
-222,Greedy,false,true,corsair,4,1,0,268,28,"Apex Phosphor Wyrm Tide Coiler",51
-223,Greedy,false,true,corsair,1,1,0,362,15,"The Kraken",42
-224,Greedy,false,true,corsair,2,1,0,65,31,"Apex Abyssal Krakenling Razor Tendrils",36
-225,Greedy,false,true,corsair,2,1,0,125,38,"Sussy Seaweed",50
-226,Greedy,false,true,corsair,3,1,0,89,29,"Venomous Shroud",34
-227,Greedy,false,true,corsair,0,0,0,25,29,"Eerie Elainaling",21
-228,Greedy,false,true,corsair,2,2,0,321,13,"Medusa’s Grasp",36
-229,Greedy,false,true,corsair,2,1,0,169,23,"Crimson Hunter",32
-230,Greedy,false,true,corsair,2,1,0,581,33,"The Kraken",58
-231,Greedy,false,true,corsair,1,1,0,498,10,"Lurking Coil",35
-232,Greedy,true,false,corsair,3,5,1,793,35,"None (Survived)",66
-233,Greedy,false,true,corsair,2,2,0,84,24,"Apex Volcanic Shock-Bell Venomous Shroud",29
-234,Greedy,false,true,corsair,4,2,0,137,53,"Phantasmal Bell",55
-235,Greedy,false,true,corsair,0,0,0,25,10,"Bloodthirsty Bull Shark",9
-236,Greedy,false,true,corsair,4,1,0,218,22,"Behemoth Mako",49
-237,Greedy,false,true,corsair,4,1,0,341,37,"Behemoth Mako",69
-238,Greedy,false,true,corsair,3,2,0,394,35,"Terror of the Tides",58
-239,Greedy,false,true,corsair,4,2,0,234,39,"The Kraken",62
-240,Greedy,false,true,corsair,2,1,0,62,70,"Apex Abyssal Krakenling Depth Lurker",40
-241,Greedy,false,true,corsair,2,1,0,62,35,"Apex Volcanic Shock-Bell Drifting Wraith",41
-242,Greedy,false,true,corsair,1,1,0,46,18,"Slithery Devil",21
-243,Greedy,false,true,corsair,3,1,0,498,42,"The Kraken",55
-244,Greedy,false,true,corsair,1,1,0,119,22,"Colossal Tiger Shark",33
-245,Greedy,false,true,corsair,0,0,0,25,8,"Colossal Tiger Shark",8
-246,Greedy,false,true,corsair,0,0,0,25,8,"Ragefin",8
-247,Greedy,false,true,corsair,2,2,0,278,27,"Apex Volcanic Shock-Bell Abyssal Stinger",37
-248,Greedy,false,true,corsair,2,1,0,408,33,"Cephalopod Tyrant",43
-249,Greedy,false,true,corsair,2,1,0,774,39,"The Kraken",51
-250,Greedy,false,true,corsair,4,2,0,660,52,"The Kraken",70
-1,Random,false,true,bombardier,1,1,0,79,23,"Mire Serpent",22
-2,Random,false,true,corsair,1,1,0,44,18,"Elusive Eell",28
-3,Random,false,true,standard,1,1,0,75,13,"Mire Serpent",21
-4,Random,false,true,bombardier,3,1,0,174,25,"The Kraken",52
-5,Random,false,true,ironclad,2,1,0,66,16,"Apex Phosphor Wyrm Vanishing Viper",36
-6,Random,false,true,bombardier,1,1,0,140,27,"Krakenling",31
-7,Random,false,true,bombardier,0,0,0,25,19,"Writhing Curse",15
-8,Random,false,true,ironclad,1,1,0,50,16,"Frenzied Maw",24
-9,Random,false,true,standard,4,1,0,96,37,"Apex Abyssal Krakenling Razor Tendrils",39
-10,Random,false,true,corsair,1,1,0,151,21,"Terror of the Tides",24
-11,Random,false,true,ironclad,1,1,0,43,18,"Vanishing Viper",23
-12,Random,false,true,ironclad,3,1,0,284,36,"The Kraken",59
-13,Random,false,true,bombardier,2,1,0,157,22,"Fang of the Abyss",42
-14,Random,false,true,clipper,1,1,0,48,13,"Jagged Lurker",17
-15,Random,false,true,corsair,2,1,0,62,20,"Terror of the Tides",26
-16,Random,false,true,corsair,0,0,0,25,14,"Sussy Seaweed",11
-17,Random,false,true,corsair,2,2,0,162,42,"Cephalopod Tyrant",33
-18,Random,false,true,ironclad,2,2,0,281,83,"The Kraken",56
-19,Random,false,true,clipper,0,0,0,25,16,"Elusive Eell",14
-20,Random,false,true,standard,3,1,0,175,26,"Suffocating Embrace",45
-21,Random,false,true,bombardier,1,1,0,46,13,"Writhing Curse",16
-22,Random,false,true,corsair,2,1,0,62,19,"Crimson Hunter",39
-23,Random,false,true,corsair,1,1,0,46,22,"Mire Serpent",25
-24,Random,false,true,standard,2,1,0,69,25,"Eerie Elainaling",28
-25,Random,false,true,bombardier,3,1,0,74,22,"Slithery Devil",30
-26,Random,false,true,clipper,1,1,0,41,15,"Vanishing Viper",15
-27,Random,false,true,standard,0,0,0,25,12,"Tide Coiler",11
-28,Random,false,true,clipper,1,1,0,77,28,"Apex Volcanic Shock-Bell Floating Veil",40
-29,Random,false,true,ironclad,4,1,0,148,62,"Elusive Eell",58
-30,Random,false,true,corsair,1,1,0,146,11,"Slithery Devil",21
-31,Random,false,true,corsair,0,0,0,25,11,"Ragefin",11
-32,Random,false,true,clipper,2,1,0,70,28,"Colossal Tiger Shark",24
-33,Random,false,true,corsair,1,1,0,47,14,"Floating Veil",18
-34,Random,false,true,corsair,2,1,0,90,17,"Abyssal Stinger",40
-35,Random,false,true,standard,2,1,0,62,18,"Vanishing Viper",23
-36,Random,false,true,ironclad,3,2,0,109,40,"Behemoth Mako",33
-37,Random,false,true,clipper,1,1,0,42,10,"Phantasmal Bell",14
-38,Random,false,true,standard,0,0,0,25,9,"Fang of the Abyss",9
-39,Random,false,true,standard,1,1,0,50,14,"Mire Serpent",15
-40,Random,false,true,standard,1,1,0,44,9,"Colossal Tiger Shark",21
-41,Random,false,true,ironclad,1,1,0,47,9,"Sussy Seaweed",23
-42,Random,false,true,corsair,2,2,0,180,29,"The Kraken",33
-43,Random,false,true,ironclad,0,0,0,25,21,"Mire Serpent",17
-44,Random,false,true,ironclad,3,1,0,82,16,"Apex Phosphor Wyrm Tide Coiler",24
-45,Random,false,true,ironclad,4,4,0,418,129,"Sussy Seaweed",69
-46,Random,false,true,bombardier,0,0,0,25,12,"Slithery Devil",12
-47,Random,false,true,clipper,0,0,0,25,19,"Sussy Seaweed",15
-48,Random,false,true,clipper,0,0,0,25,18,"Sussy Seaweed",16
-49,Random,false,true,standard,4,1,0,105,43,"Gargantuan Squid",46
-50,Random,false,true,corsair,2,1,0,61,17,"Drifting Wraith",26
-51,Random,false,true,standard,2,1,0,70,24,"Terror of the Tides",25
-52,Random,false,true,bombardier,1,1,0,47,14,"Floating Veil",21
-53,Random,false,true,clipper,1,1,0,45,13,"Lurking Coil",20
-54,Random,false,true,ironclad,4,2,0,125,58,"Hundred-Limbed Horror",44
-55,Random,false,true,bombardier,2,1,0,80,51,"Abyssal Constrictor",34
-56,Random,false,true,bombardier,2,1,0,67,16,"Fang of the Abyss",33
-57,Random,false,true,ironclad,2,1,0,110,28,"Apex Blood-Frenzy Megalodon Frenzied Maw",32
-58,Random,false,true,clipper,3,2,0,116,52,"Apex Abyssal Krakenling Razor Tendrils",43
-59,Random,false,true,ironclad,2,2,0,90,35,"Behemoth Mako",31
-60,Random,false,true,ironclad,2,1,0,163,21,"Apex Blood-Frenzy Megalodon Ragefin",28
-61,Random,false,true,clipper,0,0,0,25,10,"Sussy Seaweed",9
-62,Random,false,true,corsair,2,1,0,65,24,"Tide Coiler",28
-63,Random,false,true,standard,1,1,0,46,18,"Sussy Seaweed",21
-64,Random,false,true,standard,1,1,0,45,19,"Lurking Coil",18
-65,Random,false,true,clipper,2,1,0,66,38,"Abyssal Constrictor",44
-66,Random,false,true,clipper,2,1,0,96,19,"Medusa’s Grasp",27
-67,Random,false,true,ironclad,2,2,0,160,55,"Apex Volcanic Shock-Bell Pulsating Jellyfish",37
-68,Random,false,true,clipper,0,0,0,25,11,"Thrashing Great White",12
-69,Random,false,true,clipper,1,1,0,164,25,"Vanishing Viper",20
-70,Random,false,true,standard,0,0,0,25,17,"Vanishing Viper",13
-71,Random,false,true,ironclad,2,1,0,143,40,"Tide Coiler",34
-72,Random,false,true,ironclad,2,1,0,68,28,"Vanishing Viper",44
-73,Random,false,true,bombardier,2,1,0,66,17,"Apex Blood-Frenzy Megalodon Crimson Hunter",26
-74,Random,false,true,bombardier,2,1,0,66,16,"Apex Blood-Frenzy Megalodon Fang of the Abyss",24
-75,Random,false,true,bombardier,2,1,0,98,23,"Apex Blood-Frenzy Megalodon Frenzied Maw",32
-76,Random,false,true,standard,2,1,0,59,17,"Apex Phosphor Wyrm Sussy Seaweed",22
-77,Random,false,true,bombardier,2,1,0,250,27,"Apex Blood-Frenzy Megalodon Crimson Hunter",45
-78,Random,false,true,ironclad,2,2,0,85,27,"Ghostly-Tendriled Creature",27
-79,Random,false,true,standard,2,3,0,183,21,"Lurking Coil",41
-80,Random,false,true,bombardier,0,0,0,25,12,"Sussy Seaweed",12
-81,Random,false,true,bombardier,1,1,0,41,15,"Suffocating Embrace",21
-82,Random,false,true,standard,1,1,0,47,20,"Bloodthirsty Bull Shark",17
-83,Random,false,true,standard,2,2,0,89,20,"Phantasmal Bell",27
-84,Random,false,true,bombardier,1,1,0,50,17,"Abyssal Stinger",18
-85,Random,false,true,clipper,0,0,0,25,8,"Colossal Tiger Shark",8
-86,Random,false,true,standard,3,2,0,147,24,"Apex Blood-Frenzy Megalodon Bloodrage Shark",48
-87,Random,false,true,bombardier,1,1,0,44,22,"Sussy Seaweed",25
-88,Random,false,true,bombardier,1,1,0,41,18,"Abyssal Stinger",22
-89,Random,false,true,clipper,1,1,0,102,23,"Crimson Hunter",26
-90,Random,false,true,bombardier,1,1,0,43,22,"Crimson Hunter",21
-91,Random,false,true,ironclad,1,1,0,47,12,"Frenzied Maw",14
-92,Random,false,true,standard,1,1,0,41,22,"Crimson Hunter",19
-93,Random,false,true,standard,0,0,0,25,9,"Terror of the Tides",9
-94,Random,false,true,bombardier,1,1,0,48,19,"Apex Phosphor Wyrm Mire Serpent",27
-95,Random,false,true,bombardier,3,2,0,123,24,"Apex Blood-Frenzy Megalodon Terror of the Tides",33
-96,Random,false,true,clipper,2,1,0,70,37,"Apex Volcanic Shock-Bell Phantasmal Bell",28
-97,Random,false,true,corsair,0,0,0,25,23,"Vanishing Viper",18
-98,Random,false,true,clipper,3,1,0,76,33,"Writhing Curse",37
-99,Random,false,true,corsair,1,1,0,43,16,"Tide Coiler",25
-100,Random,false,true,standard,3,1,0,166,18,"Behemoth Mako",44
-101,Random,false,true,clipper,1,1,0,48,19,"Twisting Terror",21
-102,Random,false,true,bombardier,1,1,0,47,20,"Thrashing Great White",24
-103,Random,false,true,ironclad,0,0,0,25,26,"Eerie Elainaling",19
-104,Random,false,true,clipper,1,1,0,41,17,"Mire Serpent",18
-105,Random,false,true,ironclad,3,1,0,148,25,"Colossal Tiger Shark",43
-106,Random,false,true,bombardier,1,1,0,50,12,"Abyssal Constrictor",17
-107,Random,false,true,bombardier,1,1,0,41,13,"Behemoth Mako",18
-108,Random,false,true,standard,3,1,0,90,23,"Bloodrage Shark",45
-109,Random,false,true,corsair,1,1,0,46,42,"Cephalopod Tyrant",19
-110,Random,false,true,bombardier,1,1,0,49,13,"Frenzied Maw",16
-111,Random,false,true,clipper,3,1,0,196,40,"Darting Death",51
-112,Random,false,true,standard,1,1,0,44,13,"Sussy Seaweed",23
-113,Random,false,true,bombardier,2,2,0,116,46,"Grasping Abyss",32
-114,Random,false,true,ironclad,3,3,0,246,26,"Crimson Hunter",41
-115,Random,false,true,clipper,1,1,0,42,15,"Hundred-Limbed Horror",13
-116,Random,false,true,ironclad,2,1,0,60,29,"Lurking Coil",25
-117,Random,false,true,bombardier,1,1,0,48,42,"Grasping Abyss",23
-118,Random,false,true,standard,2,1,0,68,13,"Apex Abyssal Krakenling Death by Ink",21
-119,Random,false,true,corsair,2,1,0,67,23,"Vanishing Viper",36
-120,Random,false,true,clipper,2,1,0,68,18,"Venom-Inflicter",25
-121,Random,false,true,corsair,1,1,0,42,9,"Abyssal Constrictor",13
-122,Random,false,true,corsair,0,0,0,25,13,"Mire Serpent",11
-123,Random,false,true,clipper,0,0,0,25,15,"Twisting Terror",12
-124,Random,false,true,standard,2,1,0,65,29,"Elusive Eell",29
-125,Random,false,true,clipper,1,1,0,40,12,"Jagged Lurker",17
-126,Random,false,true,clipper,1,1,0,41,11,"Floating Veil",18
-127,Random,false,true,bombardier,2,1,0,60,21,"Apex Blood-Frenzy Megalodon Crimson Hunter",31
-128,Random,false,true,corsair,2,1,0,60,16,"Jagged Lurker",32
-129,Random,false,true,standard,1,1,0,45,13,"Apex Shredder",17
-130,Random,false,true,corsair,0,0,0,25,15,"Darting Death",13
-131,Random,false,true,standard,3,1,0,75,39,"Colossal Tiger Shark",39
-132,Random,false,true,corsair,2,1,0,68,49,"Gargantuan Squid",38
-133,Random,false,true,standard,2,1,0,93,30,"Abyssal Constrictor",31
-134,Random,false,true,clipper,1,1,0,50,15,"Pulsating Jellyfish",20
-135,Random,false,true,bombardier,2,1,0,59,28,"Apex Abyssal Krakenling Krakenling",34
-136,Random,false,true,ironclad,1,1,0,47,24,"Abyssal Constrictor",29
-137,Random,false,true,clipper,2,1,0,186,34,"Bloodrage Shark",37
-138,Random,false,true,standard,1,1,0,44,17,"Elusive Eell",19
-139,Random,false,true,bombardier,2,1,0,63,41,"Hundred-Limbed Horror",33
-140,Random,false,true,clipper,1,1,0,46,18,"Apex Phosphor Wyrm Lurking Coil",20
-141,Random,false,true,corsair,2,1,0,63,22,"Elusive Eell",26
-142,Random,false,true,bombardier,3,1,0,96,33,"Hundred-Limbed Horror",42
-143,Random,false,true,standard,1,1,0,41,14,"Mire Serpent",18
-144,Random,false,true,ironclad,2,2,0,106,19,"Suffocating Embrace",39
-145,Random,false,true,corsair,2,1,0,150,16,"Twisting Terror",27
-146,Random,false,true,standard,2,1,0,214,12,"Colossal Tiger Shark",35
-147,Random,false,true,standard,1,1,0,137,12,"Sussy Seaweed",18
-148,Random,false,true,ironclad,3,1,0,91,19,"Cephalopod Tyrant",36
-149,Random,false,true,standard,2,1,0,61,24,"Apex Blood-Frenzy Megalodon Frenzied Maw",27
-150,Random,false,true,ironclad,4,1,0,149,24,"Apex Abyssal Krakenling Inkborn Terror",39
-151,Random,false,true,corsair,1,1,0,210,15,"Mire Serpent",33
-152,Random,false,true,ironclad,4,2,0,160,91,"Writhing Curse",74
-153,Random,false,true,clipper,4,1,0,92,49,"Hundred-Limbed Horror",44
-154,Random,false,true,bombardier,1,1,0,79,12,"Ragefin",21
-155,Random,false,true,bombardier,2,1,0,65,17,"Phantasmal Bell",22
-156,Random,false,true,corsair,2,1,0,68,18,"Abyssal Stinger",26
-157,Random,false,true,clipper,0,0,0,25,12,"Darting Death",16
-158,Random,false,true,clipper,2,1,0,68,21,"Venom-Inflicter",39
-159,Random,false,true,bombardier,1,1,0,50,13,"Fang of the Abyss",16
-160,Random,false,true,bombardier,3,1,0,90,26,"Apex Blood-Frenzy Megalodon Fang of the Abyss",35
-161,Random,false,true,clipper,0,0,0,25,7,"Crimson Hunter",11
-162,Random,false,true,standard,1,1,0,46,15,"Bloodthirsty Bull Shark",17
-163,Random,true,false,ironclad,5,5,1,585,81,"None (Survived)",59
-164,Random,false,true,standard,0,0,0,25,9,"Bloodthirsty Bull Shark",9
-165,Random,false,true,clipper,0,0,0,25,15,"Writhing Curse",12
-166,Random,false,true,ironclad,2,2,0,83,71,"Bloodthirsty Bull Shark",33
-167,Random,false,true,ironclad,1,1,0,43,18,"Tide Coiler",17
-168,Random,false,true,bombardier,1,1,0,186,17,"Floating Veil",28
-169,Random,false,true,clipper,3,1,0,76,31,"Cephalopod Tyrant",35
-170,Random,false,true,ironclad,1,1,0,45,13,"Apex Blood-Frenzy Megalodon Terror of the Tides",30
-171,Random,false,true,clipper,1,1,0,40,15,"Thrashing Great White",19
-172,Random,false,true,clipper,2,1,0,67,24,"Colossal Tiger Shark",26
-173,Random,false,true,corsair,3,1,0,88,27,"Apex Phosphor Wyrm Elusive Eell",33
-174,Random,false,true,ironclad,1,1,0,43,23,"Tide Coiler",23
-175,Random,false,true,corsair,1,1,0,41,21,"Grasping Abyss",17
-176,Random,false,true,ironclad,2,2,0,85,94,"Gargantuan Squid",42
-177,Random,false,true,corsair,1,1,0,155,17,"Apex Volcanic Shock-Bell Pulsating Jellyfish",30
-178,Random,false,true,standard,1,1,0,125,11,"Phantasmal Bell",24
-179,Random,false,true,ironclad,2,1,0,60,19,"Apex Phosphor Wyrm Mire Serpent",26
-180,Random,false,true,standard,1,1,0,46,14,"Many-tentacled beast",17
-181,Random,false,true,ironclad,4,2,0,188,120,"Gargantuan Squid",61
-182,Random,false,true,clipper,1,1,0,48,22,"Sussy Seaweed",21
-183,Random,false,true,corsair,1,1,0,150,19,"Sussy Seaweed",28
-184,Random,false,true,corsair,1,1,0,42,16,"Darting Death",21
-185,Random,false,true,clipper,1,1,0,46,26,"Bloodthirsty Bull Shark",24
-186,Random,false,true,clipper,1,1,0,45,29,"Vanishing Viper",26
-187,Random,false,true,clipper,0,0,0,25,8,"Apex Shredder",14
-188,Random,false,true,standard,0,0,0,25,9,"Crimson Hunter",11
-189,Random,false,true,standard,1,1,0,43,16,"Frenzied Maw",17
-190,Random,false,true,corsair,1,1,0,50,13,"Bloodrage Shark",16
-191,Random,false,true,clipper,1,1,0,46,16,"Apex Volcanic Shock-Bell Venomous Shroud",23
-192,Random,false,true,ironclad,3,2,0,114,33,"Krakenling",41
-193,Random,false,true,ironclad,3,2,0,95,17,"Thrashing Great White",40
-194,Random,false,true,ironclad,4,1,0,105,27,"Vanishing Viper",41
-195,Random,false,true,clipper,1,1,0,43,15,"Twisting Terror",18
-196,Random,false,true,clipper,2,2,0,94,29,"Apex Phosphor Wyrm Lurking Coil",35
-197,Random,false,true,ironclad,2,1,0,76,18,"Apex Shredder",36
-198,Random,false,true,clipper,1,1,0,50,15,"Darting Death",16
-199,Random,false,true,ironclad,1,1,0,156,74,"The Kraken",47
-200,Random,false,true,corsair,0,0,0,25,12,"Darting Death",11
-201,Random,false,true,corsair,1,1,0,48,15,"Fang of the Abyss",19
-202,Random,false,true,clipper,4,1,0,230,63,"The Kraken",65
-203,Random,false,true,clipper,1,1,0,49,22,"Bloodrage Shark",32
-204,Random,false,true,corsair,1,1,0,48,13,"Bioluminescent Terror",21
-205,Random,false,true,corsair,2,1,0,59,14,"Behemoth Mako",23
-206,Random,false,true,corsair,1,1,0,43,17,"Apex Phosphor Wyrm Elusive Eell",22
-207,Random,false,true,bombardier,1,1,0,131,18,"Cephalopod Tyrant",21
-208,Random,false,true,ironclad,2,2,0,112,18,"Jagged Lurker",41
-209,Random,false,true,clipper,3,1,0,86,22,"Darting Death",33
-210,Random,false,true,corsair,1,1,0,40,9,"Abyssal Constrictor",15
-211,Random,false,true,ironclad,2,1,0,65,28,"Darting Death",30
-212,Random,false,true,bombardier,1,1,0,45,13,"Death by Ink",19
-213,Random,false,true,bombardier,0,0,0,25,14,"Tide Coiler",13
-214,Random,false,true,standard,2,1,0,96,28,"Abyssal Constrictor",29
-215,Random,false,true,standard,1,1,0,46,23,"Jagged Lurker",19
-216,Random,false,true,corsair,1,1,0,40,13,"Thrashing Great White",17
-217,Random,false,true,standard,1,1,0,50,22,"Thrashing Great White",19
-218,Random,false,true,clipper,6,2,0,201,85,"Gargantuan Squid",87
-219,Random,false,true,ironclad,1,1,0,41,31,"Bloodthirsty Bull Shark",22
-220,Random,false,true,bombardier,2,1,0,130,11,"Terror of the Tides",21
-221,Random,false,true,clipper,1,1,0,45,17,"Colossal Tiger Shark",23
-222,Random,false,true,ironclad,3,1,0,86,18,"Apex Phosphor Wyrm Twisting Terror",29
-223,Random,false,true,standard,1,1,0,44,12,"Sussy Seaweed",30
-224,Random,false,true,corsair,1,1,0,40,13,"Frenzied Maw",17
-225,Random,false,true,clipper,0,0,0,25,16,"Twisting Terror",12
-226,Random,false,true,ironclad,3,2,0,141,48,"Jagged Lurker",46
-227,Random,false,true,standard,1,1,0,43,21,"Death by Ink",22
-228,Random,false,true,bombardier,2,1,0,88,19,"Apex Volcanic Shock-Bell Bioluminescent Terror",29
-229,Random,false,true,standard,1,1,0,49,13,"Lurking Coil",15
-230,Random,false,true,standard,2,1,0,63,26,"Twisting Terror",28
-231,Random,false,true,corsair,2,1,0,74,28,"Apex Volcanic Shock-Bell Bioluminescent Terror",40
-232,Random,false,true,bombardier,2,1,0,70,55,"Apex Abyssal Krakenling Inkborn Terror",33
-233,Random,false,true,clipper,1,1,0,47,20,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",30
-234,Random,false,true,ironclad,2,2,0,90,37,"Writhing Curse",33
-235,Random,false,true,corsair,1,1,0,45,12,"Venomous Shroud",18
-236,Random,false,true,ironclad,4,3,0,318,71,"Apex Volcanic Shock-Bell Ghostly-Tendriled Creature",70
-237,Random,false,true,standard,2,1,0,63,29,"Slithery Devil",41
-238,Random,false,true,standard,1,1,0,42,32,"Depth Lurker",26
-239,Random,false,true,corsair,0,0,0,25,21,"Abyssal Constrictor",15
-240,Random,false,true,bombardier,4,1,0,226,59,"Many-tentacled beast",52
-241,Random,false,true,standard,2,1,0,97,22,"Apex Blood-Frenzy Megalodon Fang of the Abyss",28
-242,Random,false,true,corsair,1,1,0,46,20,"Gargantuan Squid",17
-243,Random,false,true,bombardier,1,1,0,43,17,"Bloodthirsty Bull Shark",20
-244,Random,false,true,bombardier,0,0,0,25,11,"Twisting Terror",13
-245,Random,false,true,corsair,0,0,0,25,8,"Colossal Tiger Shark",8
-246,Random,false,true,standard,0,0,0,25,8,"Ragefin",8
-247,Random,false,true,ironclad,6,2,0,255,49,"The Kraken",68
-248,Random,false,true,standard,1,1,0,45,25,"Vanishing Viper",25
-249,Random,false,true,bombardier,2,1,0,69,20,"Apex Shredder",28
-250,Random,false,true,corsair,4,2,0,278,55,"The Kraken",63
+1,Reckless,false,true,standard,2,1,0,80,40,"Krakenling",41
+2,Reckless,false,true,standard,3,2,0,106,26,"Razor Tendrils",38
+3,Reckless,false,true,standard,4,2,0,133,29,"Grasping Abyss",42
+4,Reckless,false,true,standard,1,1,0,46,15,"Apex Blood-Frenzy Megalodon Bloodrage Shark",16
+5,Reckless,false,true,standard,2,1,0,63,20,"Apex Phosphor Wyrm Mire Serpent",25
+6,Reckless,false,true,standard,3,1,0,88,29,"Many-tentacled beast",31
+7,Reckless,false,true,standard,1,1,0,44,19,"Apex Phosphor Wyrm Lurking Coil",18
+8,Reckless,false,true,standard,2,2,0,81,66,"Grasping Abyss",28
+9,Reckless,false,true,standard,2,1,0,64,20,"Apex Blood-Frenzy Megalodon Jagged Lurker",23
+10,Reckless,false,true,standard,3,1,0,88,32,"Apex Volcanic Shock-Bell Medusa’s Grasp",33
+11,Reckless,false,true,standard,1,1,0,40,14,"Apex Phosphor Wyrm Tide Coiler",17
+12,Reckless,false,true,standard,1,1,0,46,13,"Apex Blood-Frenzy Megalodon Behemoth Mako",15
+13,Reckless,false,true,standard,0,0,0,25,14,"Twisting Terror",11
+14,Reckless,false,true,standard,1,1,0,40,11,"Vanishing Viper",14
+15,Reckless,false,true,standard,4,2,0,136,26,"Crimson Hunter",41
+16,Reckless,false,true,standard,0,0,0,25,12,"Elusive Eell",10
+17,Reckless,false,true,standard,1,1,0,40,17,"Apex Phosphor Wyrm Slithery Devil",18
+18,Reckless,false,true,standard,3,1,0,78,35,"Abyssal Constrictor",33
+19,Reckless,false,true,standard,1,1,0,42,13,"Twisting Terror",15
+20,Reckless,false,true,standard,3,2,0,98,23,"Colossal Tiger Shark",31
+21,Reckless,false,true,standard,4,1,0,107,25,"Apex Abyssal Krakenling Death by Ink",39
+22,Reckless,false,true,standard,2,2,0,97,23,"Apex Blood-Frenzy Megalodon Terror of the Tides",27
+23,Reckless,false,true,standard,2,1,0,69,35,"Terror of the Tides",28
+24,Reckless,false,true,standard,1,1,0,42,12,"Apex Phosphor Wyrm Darting Death",19
+25,Reckless,false,true,standard,1,1,0,46,18,"Abyssal Stinger",18
+26,Reckless,false,true,standard,1,1,0,45,11,"Apex Phosphor Wyrm Vanishing Viper",17
+27,Reckless,false,true,standard,0,0,0,25,14,"Elusive Eell",11
+28,Reckless,false,true,standard,1,1,0,41,20,"Apex Volcanic Shock-Bell Bioluminescent Terror",19
+29,Reckless,false,true,standard,1,1,0,43,13,"Phantasmal Bell",16
+30,Reckless,false,true,standard,2,1,0,67,15,"Apex Blood-Frenzy Megalodon Jagged Lurker",23
+31,Reckless,false,true,standard,2,1,0,61,22,"Apex Phosphor Wyrm Darting Death",26
+32,Reckless,false,true,standard,1,1,0,42,27,"Apex Phosphor Wyrm Eerie Elainaling",21
+33,Reckless,false,true,standard,2,1,0,73,24,"Apex Shredder",25
+34,Reckless,false,true,standard,0,0,0,25,8,"Terror of the Tides",8
+35,Reckless,false,true,standard,2,1,0,65,19,"Floating Veil",24
+36,Reckless,false,true,standard,1,1,0,44,25,"Eerie Elainaling",22
+37,Reckless,false,true,standard,1,1,0,47,11,"Twisting Terror",14
+38,Reckless,false,true,standard,4,1,0,122,71,"Apex Abyssal Krakenling Hundred-Limbed Horror",44
+39,Reckless,false,true,standard,0,0,0,25,12,"Slithery Devil",10
+40,Reckless,false,true,standard,1,1,0,47,14,"Apex Phosphor Wyrm Writhing Curse",16
+41,Reckless,false,true,standard,2,1,0,57,18,"Writhing Curse",25
+42,Reckless,false,true,standard,7,1,0,173,79,"The Kraken",67
+43,Reckless,false,true,standard,3,1,0,82,33,"Death by Ink",33
+44,Reckless,false,true,standard,2,1,0,75,48,"Elusive Eell",31
+45,Reckless,false,true,standard,3,1,0,84,24,"Apex Phosphor Wyrm Tide Coiler",31
+46,Reckless,false,true,standard,0,0,0,25,16,"Twisting Terror",12
+47,Reckless,false,true,standard,2,1,0,75,18,"Mire Serpent",22
+48,Reckless,false,true,standard,4,1,0,102,24,"Krakenling",40
+49,Reckless,false,true,standard,4,2,0,157,52,"Mire Serpent",51
+50,Reckless,false,true,standard,6,1,0,145,53,"Darting Death",60
+51,Reckless,false,true,standard,3,1,0,85,24,"Apex Blood-Frenzy Megalodon Fang of the Abyss",32
+52,Reckless,false,true,standard,3,1,0,92,20,"Darting Death",38
+53,Reckless,false,true,standard,4,1,0,103,66,"Apex Abyssal Krakenling Suffocating Embrace",48
+54,Reckless,false,true,standard,2,1,0,62,13,"Colossal Tiger Shark",21
+55,Reckless,false,true,standard,1,1,0,48,17,"Apex Phosphor Wyrm Twisting Terror",20
+56,Reckless,false,true,standard,1,1,0,48,16,"Bioluminescent Terror",18
+57,Reckless,false,true,standard,3,1,0,87,22,"Apex Blood-Frenzy Megalodon Thrashing Great White",27
+58,Reckless,false,true,standard,3,1,0,87,28,"Pulsating Jellyfish",35
+59,Reckless,false,true,standard,2,1,0,69,18,"Apex Phosphor Wyrm Elusive Eell",21
+60,Reckless,false,true,standard,3,1,0,99,25,"Lurking Coil",36
+61,Reckless,false,true,standard,2,1,0,63,24,"Apex Blood-Frenzy Megalodon Terror of the Tides",24
+62,Reckless,false,true,standard,4,1,0,109,32,"Lurking Coil",44
+63,Reckless,false,true,standard,3,1,0,82,21,"Apex Blood-Frenzy Megalodon Jagged Lurker",26
+64,Reckless,false,true,standard,3,2,0,102,29,"Grasping Abyss",35
+65,Reckless,false,true,standard,1,1,0,49,21,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",18
+66,Reckless,false,true,standard,1,1,0,40,13,"Lurking Coil",17
+67,Reckless,false,true,standard,8,1,0,191,67,"The Kraken",72
+68,Reckless,false,true,standard,3,1,0,96,30,"Apex Volcanic Shock-Bell Bioluminescent Terror",35
+69,Reckless,false,true,standard,6,1,0,167,50,"Darting Death",62
+70,Reckless,false,true,standard,2,1,0,69,26,"Frenzied Maw",22
+71,Reckless,false,true,standard,2,1,0,62,41,"Abyssal Stinger",28
+72,Reckless,false,true,standard,4,1,0,110,25,"Apex Volcanic Shock-Bell Pulsating Jellyfish",42
+73,Reckless,false,true,standard,1,1,0,48,11,"Apex Phosphor Wyrm Mire Serpent",14
+74,Reckless,false,true,standard,2,1,0,70,17,"Inkborn Terror",22
+75,Reckless,false,true,standard,4,1,0,91,33,"Apex Phosphor Wyrm Vanishing Viper",42
+76,Reckless,false,true,standard,1,1,0,46,13,"Twisting Terror",15
+77,Reckless,false,true,standard,3,1,0,94,32,"Apex Phosphor Wyrm Darting Death",36
+78,Reckless,false,true,standard,1,1,0,40,23,"Apex Phosphor Wyrm Slithery Devil",18
+79,Reckless,false,true,standard,0,0,0,25,20,"Slithery Devil",14
+80,Reckless,false,true,standard,2,1,0,62,22,"Mire Serpent",24
+81,Reckless,false,true,standard,4,1,0,106,21,"Abyssal Constrictor",38
+82,Reckless,false,true,standard,2,1,0,64,22,"Thrashing Great White",23
+83,Reckless,false,true,standard,1,1,0,50,15,"Mire Serpent",17
+84,Reckless,false,true,standard,2,1,0,69,20,"Medusa’s Grasp",26
+85,Reckless,false,true,standard,1,1,0,48,11,"Elusive Eell",14
+86,Reckless,false,true,standard,3,1,0,86,32,"Jagged Lurker",31
+87,Reckless,false,true,standard,2,1,0,75,29,"Inkborn Terror",28
+88,Reckless,false,true,standard,0,0,0,25,10,"Lurking Coil",9
+89,Reckless,false,true,standard,1,1,0,41,11,"Behemoth Mako",14
+90,Reckless,false,true,standard,1,1,0,40,19,"Apex Phosphor Wyrm Elusive Eell",19
+91,Reckless,false,true,standard,4,1,0,93,24,"Venom-Inflicter",41
+92,Reckless,false,true,standard,1,1,0,42,44,"Phantasmal Bell",22
+93,Reckless,false,true,standard,4,1,0,110,34,"Apex Phosphor Wyrm Darting Death",46
+94,Reckless,false,true,standard,2,1,0,65,16,"Apex Blood-Frenzy Megalodon Bloodrage Shark",28
+95,Reckless,false,true,standard,4,1,0,110,39,"Apex Volcanic Shock-Bell Drifting Wraith",42
+96,Reckless,false,true,standard,2,1,0,69,24,"Tide Coiler",26
+97,Reckless,false,true,standard,0,0,0,25,12,"Abyssal Constrictor",10
+98,Reckless,false,true,standard,2,1,0,59,22,"Apex Abyssal Krakenling Gargantuan Squid",23
+99,Reckless,false,true,standard,2,1,0,61,43,"Apex Abyssal Krakenling Gargantuan Squid",29
+100,Reckless,false,true,standard,1,1,0,40,11,"Abyssal Constrictor",14
+101,Reckless,false,true,standard,2,1,0,66,23,"Apex Phosphor Wyrm Mire Serpent",26
+102,Reckless,false,true,standard,3,1,0,91,33,"Apex Shredder",33
+103,Reckless,false,true,standard,0,0,0,25,10,"Abyssal Constrictor",9
+104,Reckless,false,true,standard,4,1,0,114,27,"Apex Shredder",42
+105,Reckless,false,true,standard,4,2,0,144,40,"Fang of the Abyss",40
+106,Reckless,false,true,standard,0,0,0,25,12,"Abyssal Constrictor",10
+107,Reckless,false,true,standard,1,1,0,40,11,"Slithery Devil",14
+108,Reckless,false,true,standard,6,1,0,165,33,"Writhing Curse",59
+109,Reckless,false,true,standard,5,1,0,127,43,"Apex Volcanic Shock-Bell Ghostly-Tendriled Creature",46
+110,Reckless,false,true,standard,0,0,0,25,10,"Apex Shredder",9
+111,Reckless,false,true,standard,5,2,0,154,49,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",50
+112,Reckless,false,true,standard,2,1,0,63,16,"Jagged Lurker",22
+113,Reckless,false,true,standard,4,1,0,114,29,"Death by Ink",39
+114,Reckless,false,true,standard,1,1,0,44,25,"Apex Blood-Frenzy Megalodon Terror of the Tides",20
+115,Reckless,false,true,standard,4,1,0,120,22,"Bloodrage Shark",38
+116,Reckless,false,true,standard,2,1,0,69,48,"Apex Phosphor Wyrm Lurking Coil",30
+117,Reckless,false,true,standard,3,1,0,93,20,"Apex Phosphor Wyrm Eerie Elainaling",37
+118,Reckless,false,true,standard,2,1,0,69,36,"Eerie Elainaling",23
+119,Reckless,false,true,standard,1,1,0,45,14,"Vanishing Viper",16
+120,Reckless,false,true,standard,1,1,0,43,17,"Apex Phosphor Wyrm Writhing Curse",18
+121,Reckless,false,true,standard,4,1,0,109,43,"Apex Abyssal Krakenling Razor Tendrils",42
+122,Reckless,false,true,standard,0,0,0,25,10,"Tide Coiler",9
+123,Reckless,false,true,standard,0,0,0,25,10,"Sussy Seaweed",9
+124,Reckless,false,true,standard,2,1,0,72,24,"Apex Volcanic Shock-Bell Pulsating Jellyfish",28
+125,Reckless,false,true,standard,2,1,0,72,24,"Mire Serpent",26
+126,Reckless,false,true,standard,6,1,0,146,30,"Bloodthirsty Bull Shark",57
+127,Reckless,false,true,standard,2,1,0,59,16,"Mire Serpent",22
+128,Reckless,false,true,standard,1,1,0,40,19,"Lurking Coil",18
+129,Reckless,false,true,standard,0,0,0,25,20,"Tide Coiler",14
+130,Reckless,false,true,standard,4,1,0,114,32,"Cephalopod Tyrant",44
+131,Reckless,false,true,standard,1,1,0,46,20,"Apex Phosphor Wyrm Slithery Devil",19
+132,Reckless,false,true,standard,3,1,0,80,25,"Sussy Seaweed",32
+133,Reckless,false,true,standard,1,1,0,47,17,"Bloodrage Shark",20
+134,Reckless,false,true,standard,1,1,0,40,17,"Gargantuan Squid",18
+135,Reckless,false,true,standard,4,1,0,110,23,"Apex Phosphor Wyrm Eerie Elainaling",39
+136,Reckless,false,true,standard,3,1,0,77,23,"Apex Shredder",36
+137,Reckless,false,true,standard,4,1,0,105,47,"Fang of the Abyss",44
+138,Reckless,false,true,standard,3,1,0,104,22,"Apex Phosphor Wyrm Twisting Terror",37
+139,Reckless,false,true,standard,5,1,0,135,61,"Terror of the Tides",58
+140,Reckless,false,true,standard,2,1,0,69,22,"Apex Phosphor Wyrm Eerie Elainaling",24
+141,Reckless,false,true,standard,1,1,0,45,19,"Apex Blood-Frenzy Megalodon Ragefin",18
+142,Reckless,false,true,standard,5,1,0,129,46,"Apex Blood-Frenzy Megalodon Ragefin",59
+143,Reckless,false,true,standard,1,1,0,47,11,"Thrashing Great White",15
+144,Reckless,false,true,standard,2,1,0,67,14,"Drifting Wraith",20
+145,Reckless,false,true,standard,1,1,0,50,15,"Apex Blood-Frenzy Megalodon Ragefin",16
+146,Reckless,false,true,standard,4,1,0,110,40,"Inkborn Terror",43
+147,Reckless,false,true,standard,6,1,0,162,41,"Venomous Shroud",53
+148,Reckless,false,true,standard,2,1,0,70,35,"Apex Abyssal Krakenling Razor Tendrils",28
+149,Reckless,false,true,standard,0,0,0,25,14,"Lurking Coil",11
+150,Reckless,false,true,standard,4,1,0,98,21,"Crimson Hunter",36
+151,Reckless,false,true,standard,1,1,0,49,15,"Razor Tendrils",16
+152,Reckless,false,true,standard,1,1,0,46,11,"Apex Abyssal Krakenling Hundred-Limbed Horror",14
+153,Reckless,false,true,standard,2,1,0,62,17,"Mire Serpent",22
+154,Reckless,false,true,standard,3,1,0,92,33,"Abyssal Constrictor",32
+155,Reckless,false,true,standard,2,2,0,97,19,"Colossal Tiger Shark",24
+156,Reckless,false,true,standard,3,1,0,93,39,"Eerie Elainaling",35
+157,Reckless,false,true,standard,1,1,0,50,17,"Abyssal Constrictor",20
+158,Reckless,false,true,standard,5,1,0,123,30,"Darting Death",48
+159,Reckless,false,true,standard,0,0,0,25,10,"Tide Coiler",9
+160,Reckless,false,true,standard,2,1,0,63,20,"Lurking Coil",27
+161,Reckless,false,true,standard,2,1,0,71,45,"Apex Phosphor Wyrm Twisting Terror",23
+162,Reckless,false,true,standard,1,1,0,48,15,"Writhing Curse",16
+163,Reckless,false,true,standard,0,0,0,25,12,"Elusive Eell",10
+164,Reckless,false,true,standard,2,1,0,78,19,"Bloodthirsty Bull Shark",23
+165,Reckless,false,true,standard,0,0,0,25,10,"Mire Serpent",9
+166,Reckless,false,true,standard,4,1,0,110,42,"Grasping Abyss",47
+167,Reckless,false,true,standard,1,1,0,40,13,"Apex Blood-Frenzy Megalodon Ragefin",16
+168,Reckless,false,true,standard,2,1,0,62,18,"Grasping Abyss",22
+169,Reckless,false,true,standard,2,1,0,63,24,"Drifting Wraith",28
+170,Reckless,false,true,standard,1,1,0,45,14,"Fang of the Abyss",17
+171,Reckless,false,true,standard,1,1,0,47,11,"Ghostly-Tendriled Creature",14
+172,Reckless,false,true,standard,3,1,0,84,27,"Tide Coiler",30
+173,Reckless,false,true,standard,2,1,0,73,18,"Bioluminescent Terror",23
+174,Reckless,false,true,standard,2,1,0,67,46,"Writhing Curse",28
+175,Reckless,false,true,standard,2,1,0,63,17,"Floating Veil",24
+176,Reckless,false,true,standard,6,1,0,128,38,"Ragefin",58
+177,Reckless,false,true,standard,8,1,0,210,69,"The Kraken",72
+178,Reckless,false,true,standard,1,1,0,40,18,"Apex Phosphor Wyrm Twisting Terror",18
+179,Reckless,false,true,standard,3,1,0,81,20,"Crimson Hunter",29
+180,Reckless,false,true,standard,0,0,0,25,18,"Writhing Curse",13
+181,Reckless,false,true,standard,2,1,0,65,28,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",26
+182,Reckless,false,true,standard,1,1,0,40,13,"Behemoth Mako",16
+183,Reckless,false,true,standard,2,1,0,67,38,"Apex Phosphor Wyrm Slithery Devil",32
+184,Reckless,false,true,standard,3,1,0,74,22,"Eerie Elainaling",30
+185,Reckless,false,true,standard,0,0,0,25,14,"Eerie Elainaling",11
+186,Reckless,false,true,standard,5,1,0,150,43,"Abyssal Constrictor",53
+187,Reckless,false,true,standard,0,0,0,25,8,"Colossal Tiger Shark",8
+188,Reckless,false,true,standard,1,1,0,41,17,"Darting Death",18
+189,Reckless,false,true,standard,3,1,0,102,28,"Vanishing Viper",37
+190,Reckless,false,true,standard,6,2,0,161,45,"Jagged Lurker",60
+191,Reckless,false,true,standard,1,1,0,50,14,"Apex Volcanic Shock-Bell Venom-Inflicter",16
+192,Reckless,false,true,standard,1,1,0,48,58,"Apex Abyssal Krakenling Hundred-Limbed Horror",23
+193,Reckless,false,true,standard,7,1,0,167,30,"Terror of the Tides",56
+194,Reckless,false,true,standard,1,1,0,46,15,"Gargantuan Squid",16
+195,Reckless,false,true,standard,1,1,0,40,16,"Apex Phosphor Wyrm Elusive Eell",17
+196,Reckless,false,true,standard,1,1,0,46,19,"Colossal Tiger Shark",17
+197,Reckless,false,true,standard,0,0,0,25,8,"Thrashing Great White",8
+198,Reckless,false,true,standard,1,1,0,40,28,"Apex Abyssal Krakenling Gargantuan Squid",16
+199,Reckless,false,true,standard,1,1,0,45,28,"Apex Volcanic Shock-Bell Bioluminescent Terror",19
+200,Reckless,false,true,standard,0,0,0,25,10,"Elusive Eell",9
+201,Reckless,false,true,standard,0,0,0,25,16,"Vanishing Viper",12
+202,Reckless,false,true,standard,4,1,0,110,28,"Bloodrage Shark",44
+203,Reckless,false,true,standard,0,0,0,25,12,"Sussy Seaweed",10
+204,Reckless,false,true,standard,1,1,0,48,22,"Razor Tendrils",15
+205,Reckless,false,true,standard,1,1,0,47,31,"Apex Abyssal Krakenling Death by Ink",18
+206,Reckless,false,true,standard,2,1,0,63,28,"Hundred-Limbed Horror",29
+207,Reckless,false,true,standard,2,1,0,57,25,"Sussy Seaweed",27
+208,Reckless,false,true,standard,1,1,0,45,14,"Apex Blood-Frenzy Megalodon Jagged Lurker",16
+209,Reckless,false,true,standard,2,1,0,70,17,"Apex Blood-Frenzy Megalodon Terror of the Tides",24
+210,Reckless,false,true,standard,1,1,0,49,11,"Phantasmal Bell",14
+211,Reckless,false,true,standard,1,1,0,41,19,"Apex Shredder",18
+212,Reckless,false,true,standard,2,1,0,68,22,"Apex Phosphor Wyrm Tide Coiler",24
+213,Reckless,false,true,standard,0,0,0,25,14,"Vanishing Viper",11
+214,Reckless,false,true,standard,2,1,0,63,52,"Apex Abyssal Krakenling Grasping Abyss",30
+215,Reckless,false,true,standard,2,1,0,65,22,"Phantasmal Bell",23
+216,Reckless,false,true,standard,4,1,0,113,38,"Tide Coiler",45
+217,Reckless,false,true,standard,4,1,0,118,62,"Krakenling",44
+218,Reckless,false,true,standard,2,1,0,68,52,"Vanishing Viper",30
+219,Reckless,false,true,standard,2,1,0,62,64,"Apex Abyssal Krakenling Inkborn Terror",28
+220,Reckless,false,true,standard,1,1,0,49,32,"Apex Abyssal Krakenling Suffocating Embrace",18
+221,Reckless,false,true,standard,1,1,0,43,11,"Eerie Elainaling",14
+222,Reckless,false,true,standard,2,1,0,59,22,"Abyssal Constrictor",25
+223,Reckless,false,true,standard,4,2,0,115,24,"Lurking Coil",43
+224,Reckless,false,true,standard,1,1,0,40,19,"Lurking Coil",19
+225,Reckless,false,true,standard,3,1,0,87,27,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",32
+226,Reckless,false,true,standard,7,1,0,162,43,"Fang of the Abyss",61
+227,Reckless,false,true,standard,2,1,0,56,21,"Apex Phosphor Wyrm Darting Death",24
+228,Reckless,false,true,standard,2,1,0,62,19,"Writhing Curse",23
+229,Reckless,false,true,standard,2,1,0,62,15,"Apex Blood-Frenzy Megalodon Thrashing Great White",21
+230,Reckless,false,true,standard,2,1,0,83,23,"Slithery Devil",26
+231,Reckless,false,true,standard,4,1,0,123,51,"Elusive Eell",46
+232,Reckless,false,true,standard,2,1,0,60,26,"Mire Serpent",24
+233,Reckless,false,true,standard,3,2,0,116,43,"Abyssal Constrictor",40
+234,Reckless,false,true,standard,5,1,0,141,39,"Bloodrage Shark",49
+235,Reckless,false,true,standard,3,1,0,80,17,"Behemoth Mako",28
+236,Reckless,false,true,standard,2,1,0,72,18,"Nerveburn Jelly",23
+237,Reckless,false,true,standard,4,1,0,104,44,"Vanishing Viper",45
+238,Reckless,false,true,standard,1,1,0,40,11,"Apex Blood-Frenzy Megalodon Crimson Hunter",17
+239,Reckless,false,true,standard,3,1,0,81,43,"Apex Abyssal Krakenling Gargantuan Squid",37
+240,Reckless,false,true,standard,2,1,0,69,22,"Apex Blood-Frenzy Megalodon Crimson Hunter",24
+241,Reckless,false,true,standard,3,1,0,90,31,"Apex Blood-Frenzy Megalodon Ragefin",37
+242,Reckless,false,true,standard,4,1,0,100,23,"Terror of the Tides",42
+243,Reckless,false,true,standard,3,1,0,82,20,"Tide Coiler",38
+244,Reckless,false,true,standard,4,1,0,109,25,"Apex Blood-Frenzy Megalodon Fang of the Abyss",40
+245,Reckless,false,true,standard,0,0,0,25,10,"Frenzied Maw",9
+246,Reckless,false,true,standard,0,0,0,25,8,"Bloodrage Shark",8
+247,Reckless,false,true,standard,3,2,0,130,25,"Terror of the Tides",40
+248,Reckless,false,true,standard,3,1,0,85,25,"Abyssal Constrictor",33
+249,Reckless,false,true,standard,1,1,0,48,15,"Slithery Devil",16
+250,Reckless,false,true,standard,4,1,0,110,31,"Apex Abyssal Krakenling Gargantuan Squid",40
+1,Cautious,false,true,standard,1,1,0,217,31,"The Kraken",57
+2,Cautious,false,true,standard,4,3,0,303,58,"The Kraken",100
+3,Cautious,false,true,standard,2,1,0,170,33,"Apex Phosphor Wyrm Lurking Coil",51
+4,Cautious,false,true,standard,6,2,0,238,45,"The Kraken",98
+5,Cautious,false,true,standard,5,1,0,149,75,"The Kraken",112
+6,Cautious,true,false,standard,5,5,1,837,43,"None (Survived)",82
+7,Cautious,true,false,standard,6,5,1,622,44,"None (Survived)",95
+8,Cautious,false,true,standard,3,2,0,130,30,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",66
+9,Cautious,false,true,standard,2,2,0,103,21,"Apex Phosphor Wyrm Twisting Terror",38
+10,Cautious,false,true,standard,3,2,0,122,49,"The Kraken",85
+11,Cautious,true,false,standard,4,5,1,783,77,"None (Survived)",108
+12,Cautious,false,true,standard,3,2,0,118,28,"Bloodrage Shark",60
+13,Cautious,true,false,standard,4,5,1,615,41,"None (Survived)",81
+14,Cautious,false,true,standard,4,2,0,207,31,"The Kraken",73
+15,Cautious,false,true,standard,3,2,0,85,30,"Apex Blood-Frenzy Megalodon Crimson Hunter",55
+16,Cautious,false,true,standard,4,1,0,189,54,"The Kraken",85
+17,Cautious,false,true,standard,4,3,0,331,40,"The Kraken",84
+18,Cautious,false,true,standard,2,1,0,280,40,"The Kraken",69
+19,Cautious,false,true,standard,2,2,0,101,49,"Hundred-Limbed Horror",67
+20,Cautious,false,true,standard,3,2,0,283,31,"Jagged Lurker",64
+21,Cautious,false,true,standard,1,1,0,151,25,"Vanishing Viper",50
+22,Cautious,false,true,standard,3,2,0,117,29,"The Kraken",69
+23,Cautious,false,true,standard,5,1,0,232,59,"The Kraken",97
+24,Cautious,false,true,standard,2,1,0,156,32,"Eerie Elainaling",57
+25,Cautious,false,true,standard,2,3,0,150,25,"The Kraken",58
+26,Cautious,false,true,standard,1,1,0,48,26,"Apex Phosphor Wyrm Lurking Coil",39
+27,Cautious,false,true,standard,3,1,0,78,34,"Mire Serpent",59
+28,Cautious,false,true,standard,2,1,0,69,39,"Apex Phosphor Wyrm Mire Serpent",53
+29,Cautious,false,true,standard,1,1,0,43,26,"Writhing Curse",38
+30,Cautious,false,true,standard,5,2,0,314,39,"The Kraken",86
+31,Cautious,false,true,standard,3,3,0,193,31,"Apex Phosphor Wyrm Slithery Devil",59
+32,Cautious,true,false,standard,3,5,1,720,58,"None (Survived)",85
+33,Cautious,false,true,standard,3,2,0,209,45,"The Kraken",74
+34,Cautious,false,true,standard,2,1,0,59,27,"Apex Phosphor Wyrm Writhing Curse",51
+35,Cautious,false,true,standard,2,1,0,139,36,"Apex Phosphor Wyrm Elusive Eell",56
+36,Cautious,false,true,standard,5,2,0,259,55,"The Kraken",90
+37,Cautious,false,true,standard,3,1,0,97,32,"Apex Blood-Frenzy Megalodon Behemoth Mako",57
+38,Cautious,false,true,standard,2,1,0,23,28,"Apex Phosphor Wyrm Sussy Seaweed",52
+39,Cautious,false,true,standard,2,1,0,69,36,"Apex Phosphor Wyrm Eerie Elainaling",55
+40,Cautious,false,true,standard,1,1,0,47,21,"Apex Phosphor Wyrm Tide Coiler",33
+41,Cautious,false,true,standard,3,2,0,110,45,"The Kraken",81
+42,Cautious,false,true,standard,4,1,0,63,69,"The Kraken",103
+43,Cautious,false,true,standard,3,2,0,344,41,"The Kraken",85
+44,Cautious,false,true,standard,5,2,0,209,79,"The Kraken",120
+45,Cautious,false,true,standard,6,1,0,224,72,"The Kraken",106
+46,Cautious,false,true,standard,1,1,0,42,39,"Apex Phosphor Wyrm Abyssal Constrictor",57
+47,Cautious,false,true,standard,4,3,0,167,38,"Apex Phosphor Wyrm Slithery Devil",79
+48,Cautious,false,true,standard,3,2,0,182,41,"The Kraken",72
+49,Cautious,false,true,standard,2,1,0,140,34,"Vanishing Viper",54
+50,Cautious,false,true,standard,3,2,0,117,48,"The Kraken",79
+51,Cautious,false,true,standard,3,2,0,200,22,"The Kraken",73
+52,Cautious,false,true,standard,2,1,0,71,25,"Slithery Devil",49
+53,Cautious,false,true,standard,2,1,0,125,25,"Sussy Seaweed",54
+54,Cautious,false,true,standard,3,3,0,177,25,"Apex Phosphor Wyrm Darting Death",58
+55,Cautious,false,true,standard,4,2,0,282,69,"The Kraken",103
+56,Cautious,false,true,standard,3,2,0,188,40,"The Kraken",74
+57,Cautious,false,true,standard,3,2,0,185,47,"The Kraken",76
+58,Cautious,false,true,standard,5,2,0,190,51,"The Kraken",95
+59,Cautious,false,true,standard,5,3,0,215,41,"The Kraken",85
+60,Cautious,false,true,standard,3,3,0,123,80,"Death by Ink",104
+61,Cautious,false,true,standard,6,2,0,171,48,"The Kraken",99
+62,Cautious,false,true,standard,4,2,0,129,76,"The Kraken",109
+63,Cautious,false,true,standard,4,2,0,211,39,"The Kraken",71
+64,Cautious,false,true,standard,5,2,0,182,52,"The Kraken",94
+65,Cautious,false,true,standard,4,2,0,152,47,"Darting Death",91
+66,Cautious,false,true,standard,7,2,0,223,54,"The Kraken",97
+67,Cautious,false,true,standard,4,2,0,209,27,"The Kraken",65
+68,Cautious,false,true,standard,3,1,0,93,49,"Apex Phosphor Wyrm Writhing Curse",84
+69,Cautious,false,true,standard,2,1,0,71,41,"Apex Phosphor Wyrm Abyssal Constrictor",62
+70,Cautious,false,true,standard,3,1,0,295,47,"The Kraken",81
+71,Cautious,false,true,standard,4,1,0,119,40,"The Kraken",76
+72,Cautious,true,false,standard,5,5,1,665,87,"None (Survived)",123
+73,Cautious,true,false,standard,2,5,1,613,28,"None (Survived)",55
+74,Cautious,false,true,standard,3,2,0,188,32,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",72
+75,Cautious,false,true,standard,2,1,0,154,41,"The Kraken",70
+76,Cautious,false,true,standard,3,1,0,94,37,"Apex Phosphor Wyrm Slithery Devil",62
+77,Cautious,false,true,standard,2,1,0,289,31,"Twisting Terror",61
+78,Cautious,true,false,standard,5,5,1,855,52,"None (Survived)",90
+79,Cautious,false,true,standard,3,1,0,98,35,"Mire Serpent",64
+80,Cautious,false,true,standard,5,2,0,140,75,"The Kraken",115
+81,Cautious,false,true,standard,0,0,0,25,22,"Mire Serpent",27
+82,Cautious,false,true,standard,2,3,0,578,35,"The Kraken",75
+83,Cautious,false,true,standard,5,2,0,283,69,"The Kraken",106
+84,Cautious,false,true,standard,3,3,0,124,33,"Thrashing Great White",65
+85,Cautious,false,true,standard,3,1,0,88,35,"Apex Phosphor Wyrm Sussy Seaweed",62
+86,Cautious,false,true,standard,5,2,0,167,62,"Eerie Elainaling",90
+87,Cautious,false,true,standard,3,3,0,150,32,"Bloodthirsty Bull Shark",70
+88,Cautious,false,true,standard,0,0,0,25,22,"Lurking Coil",27
+89,Cautious,false,true,standard,4,2,0,314,51,"The Kraken",84
+90,Cautious,false,true,standard,3,2,0,159,48,"The Kraken",81
+91,Cautious,false,true,standard,3,2,0,338,39,"The Kraken",74
+92,Cautious,false,true,standard,4,2,0,212,49,"The Kraken",91
+93,Cautious,true,false,standard,3,5,1,626,41,"None (Survived)",70
+94,Cautious,false,true,standard,4,1,0,112,38,"Vanishing Viper",72
+95,Cautious,false,true,standard,4,2,0,436,26,"The Kraken",68
+96,Cautious,false,true,standard,4,2,0,139,53,"The Kraken",92
+97,Cautious,true,false,standard,5,5,1,691,38,"None (Survived)",77
+98,Cautious,false,true,standard,2,1,0,176,34,"Apex Phosphor Wyrm Darting Death",63
+99,Cautious,false,true,standard,3,2,0,258,42,"The Kraken",82
+100,Cautious,false,true,standard,4,2,0,126,34,"The Kraken",78
+101,Cautious,false,true,standard,2,1,0,63,39,"Apex Phosphor Wyrm Lurking Coil",56
+102,Cautious,false,true,standard,2,2,0,269,20,"Twisting Terror",49
+103,Cautious,true,false,standard,4,5,1,997,36,"None (Survived)",83
+104,Cautious,false,true,standard,5,2,0,190,41,"The Kraken",83
+105,Cautious,false,true,standard,1,1,0,165,16,"Apex Blood-Frenzy Megalodon Bloodrage Shark",41
+106,Cautious,false,true,standard,5,1,0,144,58,"The Kraken",102
+107,Cautious,false,true,standard,2,2,0,173,33,"Mire Serpent",59
+108,Cautious,false,true,standard,5,1,0,122,51,"The Kraken",94
+109,Cautious,false,true,standard,2,2,0,404,55,"The Kraken",82
+110,Cautious,true,false,standard,5,5,1,785,73,"None (Survived)",101
+111,Cautious,false,true,standard,3,1,0,96,45,"Lurking Coil",71
+112,Cautious,false,true,standard,2,2,0,101,43,"Inkborn Terror",63
+113,Cautious,false,true,standard,2,1,0,288,20,"Darting Death",46
+114,Cautious,false,true,standard,5,2,0,274,38,"The Kraken",85
+115,Cautious,false,true,standard,2,1,0,162,29,"Slithery Devil",53
+116,Cautious,false,true,standard,4,2,0,139,50,"The Kraken",88
+117,Cautious,false,true,standard,5,2,0,292,62,"The Kraken",102
+118,Cautious,true,false,standard,4,5,1,683,37,"None (Survived)",82
+119,Cautious,false,true,standard,7,2,0,260,83,"The Kraken",125
+120,Cautious,false,true,standard,3,2,0,5,54,"The Kraken",89
+121,Cautious,false,true,standard,3,2,0,317,68,"The Kraken",91
+122,Cautious,false,true,standard,0,0,0,25,22,"Tide Coiler",27
+123,Cautious,false,true,standard,2,3,0,59,45,"Ragefin",72
+124,Cautious,false,true,standard,4,2,0,219,76,"The Kraken",114
+125,Cautious,false,true,standard,3,3,0,231,43,"The Kraken",75
+126,Cautious,false,true,standard,2,2,0,297,18,"Suffocating Embrace",55
+127,Cautious,false,true,standard,4,3,0,551,76,"The Kraken",107
+128,Cautious,false,true,standard,4,2,0,127,47,"Apex Blood-Frenzy Megalodon Thrashing Great White",78
+129,Cautious,false,true,standard,4,1,0,205,52,"The Kraken",90
+130,Cautious,false,true,standard,4,2,0,130,40,"The Kraken",80
+131,Cautious,false,true,standard,4,3,0,213,42,"Eerie Elainaling",81
+132,Cautious,false,true,standard,2,2,0,163,38,"The Kraken",68
+133,Cautious,false,true,standard,1,1,0,41,14,"Apex Shredder",24
+134,Cautious,false,true,standard,4,2,0,244,60,"The Kraken",95
+135,Cautious,false,true,standard,4,1,0,213,36,"The Kraken",72
+136,Cautious,true,false,standard,4,5,1,751,52,"None (Survived)",87
+137,Cautious,false,true,standard,4,2,0,289,35,"Frenzied Maw",72
+138,Cautious,false,true,standard,6,1,0,155,48,"Lurking Coil",105
+139,Cautious,false,true,standard,2,1,0,36,33,"Ragefin",58
+140,Cautious,false,true,standard,2,2,0,117,32,"The Kraken",71
+141,Cautious,false,true,standard,2,1,0,143,44,"Slithery Devil",68
+142,Cautious,false,true,standard,3,2,0,266,37,"The Kraken",70
+143,Cautious,false,true,standard,3,2,0,123,49,"The Kraken",83
+144,Cautious,false,true,standard,2,3,0,197,22,"The Kraken",61
+145,Cautious,false,true,standard,5,2,0,235,43,"The Kraken",93
+146,Cautious,false,true,standard,6,2,0,342,76,"The Kraken",110
+147,Cautious,false,true,standard,4,2,0,135,36,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",76
+148,Cautious,false,true,standard,2,1,0,149,25,"Apex Phosphor Wyrm Tide Coiler",51
+149,Cautious,false,true,standard,4,2,0,348,48,"The Kraken",88
+150,Cautious,false,true,standard,4,1,0,113,47,"Apex Phosphor Wyrm Lurking Coil",87
+151,Cautious,false,true,standard,5,2,0,224,80,"The Kraken",114
+152,Cautious,false,true,standard,6,2,0,167,64,"The Kraken",107
+153,Cautious,false,true,standard,3,4,0,391,39,"Apex Shredder",75
+154,Cautious,false,true,standard,4,2,0,219,80,"The Kraken",117
+155,Cautious,false,true,standard,4,2,0,267,37,"The Kraken",80
+156,Cautious,false,true,standard,2,1,0,220,46,"The Kraken",75
+157,Cautious,false,true,standard,0,0,0,25,28,"Sussy Seaweed",33
+158,Cautious,false,true,standard,3,1,0,239,31,"Apex Blood-Frenzy Megalodon Ragefin",58
+159,Cautious,false,true,standard,0,0,0,25,20,"Tide Coiler",24
+160,Cautious,false,true,standard,2,2,0,95,49,"Thrashing Great White",68
+161,Cautious,true,false,standard,5,5,1,631,53,"None (Survived)",90
+162,Cautious,false,true,standard,5,2,0,169,62,"The Kraken",101
+163,Cautious,true,false,standard,7,5,1,657,94,"None (Survived)",125
+164,Cautious,true,false,standard,6,5,1,635,42,"None (Survived)",87
+165,Cautious,false,true,standard,0,0,0,25,18,"Mire Serpent",22
+166,Cautious,false,true,standard,5,2,0,275,41,"The Kraken",90
+167,Cautious,false,true,standard,2,1,0,73,24,"Crimson Hunter",48
+168,Cautious,false,true,standard,2,1,0,67,45,"Apex Phosphor Wyrm Writhing Curse",60
+169,Cautious,false,true,standard,2,1,0,188,22,"Terror of the Tides",42
+170,Cautious,true,false,standard,4,5,1,704,64,"None (Survived)",98
+171,Cautious,false,true,standard,2,2,0,198,36,"The Kraken",73
+172,Cautious,false,true,standard,3,2,0,407,39,"Darting Death",77
+173,Cautious,false,true,standard,3,1,0,153,54,"Apex Phosphor Wyrm Darting Death",82
+174,Cautious,false,true,standard,5,2,0,270,49,"The Kraken",95
+175,Cautious,false,true,standard,4,2,0,159,56,"Vanishing Viper",90
+176,Cautious,false,true,standard,2,1,0,302,21,"Apex Blood-Frenzy Megalodon Thrashing Great White",53
+177,Cautious,false,true,standard,6,2,0,137,50,"The Kraken",101
+178,Cautious,false,true,standard,5,2,0,138,38,"Apex Phosphor Wyrm Writhing Curse",78
+179,Cautious,false,true,standard,4,2,0,199,70,"The Kraken",97
+180,Cautious,false,true,standard,3,3,0,160,51,"The Kraken",85
+181,Cautious,false,true,standard,2,1,0,271,43,"Abyssal Constrictor",67
+182,Cautious,false,true,standard,2,1,0,150,35,"Vanishing Viper",56
+183,Cautious,true,false,standard,3,5,1,782,32,"None (Survived)",69
+184,Cautious,true,false,standard,4,5,1,723,40,"None (Survived)",85
+185,Cautious,false,true,standard,2,2,0,80,38,"Slithery Devil",61
+186,Cautious,false,true,standard,5,2,0,333,78,"The Kraken",115
+187,Cautious,true,false,standard,4,5,1,747,53,"None (Survived)",85
+188,Cautious,false,true,standard,1,1,0,46,16,"Writhing Curse",28
+189,Cautious,false,true,standard,2,2,0,104,29,"Apex Blood-Frenzy Megalodon Ragefin",58
+190,Cautious,false,true,standard,5,2,0,316,60,"The Kraken",95
+191,Cautious,false,true,standard,4,2,0,250,47,"Apex Phosphor Wyrm Vanishing Viper",86
+192,Cautious,false,true,standard,3,1,0,197,33,"Apex Phosphor Wyrm Tide Coiler",64
+193,Cautious,false,true,standard,5,2,0,146,33,"The Kraken",79
+194,Cautious,false,true,standard,1,1,0,45,35,"Apex Abyssal Krakenling Depth Lurker",42
+195,Cautious,false,true,standard,4,3,0,221,47,"The Kraken",87
+196,Cautious,false,true,standard,4,2,0,217,39,"The Kraken",79
+197,Cautious,false,true,standard,1,1,0,125,15,"Apex Blood-Frenzy Megalodon Thrashing Great White",38
+198,Cautious,false,true,standard,5,2,0,308,48,"The Kraken",97
+199,Cautious,false,true,standard,2,1,0,63,27,"Abyssal Constrictor",53
+200,Cautious,false,true,standard,3,3,0,445,39,"The Kraken",87
+201,Cautious,false,true,standard,3,2,0,96,35,"Crimson Hunter",72
+202,Cautious,false,true,standard,1,1,0,46,22,"Darting Death",41
+203,Cautious,false,true,standard,3,2,0,121,47,"Apex Volcanic Shock-Bell Pulsating Jellyfish",91
+204,Cautious,false,true,standard,3,2,0,133,26,"Apex Phosphor Wyrm Slithery Devil",55
+205,Cautious,false,true,standard,2,1,0,148,36,"Sussy Seaweed",65
+206,Cautious,false,true,standard,2,1,0,154,26,"Tide Coiler",63
+207,Cautious,false,true,standard,1,1,0,48,51,"Apex Phosphor Wyrm Elusive Eell",69
+208,Cautious,false,true,standard,2,1,0,161,37,"Slithery Devil",64
+209,Cautious,false,true,standard,4,2,0,129,40,"Abyssal Constrictor",77
+210,Cautious,true,false,standard,4,5,1,714,64,"None (Survived)",93
+211,Cautious,false,true,standard,5,2,0,4,86,"The Kraken",126
+212,Cautious,false,true,standard,3,1,0,230,41,"The Kraken",73
+213,Cautious,false,true,standard,2,1,0,173,31,"Abyssal Constrictor",49
+214,Cautious,false,true,standard,4,2,0,297,32,"The Kraken",74
+215,Cautious,false,true,standard,1,1,0,144,32,"Depth Lurker",47
+216,Cautious,false,true,standard,4,2,0,211,42,"Vanishing Viper",82
+217,Cautious,true,false,standard,5,5,1,587,50,"None (Survived)",96
+218,Cautious,false,true,standard,1,1,0,40,41,"Apex Abyssal Krakenling Inkborn Terror",56
+219,Cautious,false,true,standard,1,1,0,168,25,"Lurking Coil",45
+220,Cautious,false,true,standard,3,2,0,117,28,"Apex Phosphor Wyrm Elusive Eell",50
+221,Cautious,false,true,standard,6,2,0,235,66,"The Kraken",112
+222,Cautious,false,true,standard,4,3,0,196,61,"The Kraken",96
+223,Cautious,false,true,standard,3,3,0,213,31,"The Kraken",70
+224,Cautious,false,true,standard,6,2,0,268,80,"The Kraken",116
+225,Cautious,false,true,standard,4,1,0,213,78,"The Kraken",116
+226,Cautious,false,true,standard,2,2,0,410,29,"The Kraken",57
+227,Cautious,false,true,standard,5,2,0,188,93,"The Kraken",136
+228,Cautious,false,true,standard,5,1,0,120,66,"The Kraken",99
+229,Cautious,false,true,standard,6,2,0,222,83,"The Kraken",125
+230,Cautious,false,true,standard,4,2,0,358,55,"The Kraken",89
+231,Cautious,false,true,standard,3,1,0,83,40,"Lurking Coil",69
+232,Cautious,false,true,standard,5,2,0,160,33,"The Kraken",80
+233,Cautious,false,true,standard,4,3,0,233,46,"The Kraken",83
+234,Cautious,false,true,standard,5,2,0,293,61,"The Kraken",90
+235,Cautious,false,true,standard,5,2,0,307,50,"Apex Phosphor Wyrm Slithery Devil",86
+236,Cautious,false,true,standard,3,2,0,100,35,"The Kraken",71
+237,Cautious,false,true,standard,2,2,0,193,31,"The Kraken",62
+238,Cautious,false,true,standard,1,1,0,43,18,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",30
+239,Cautious,false,true,standard,4,2,0,158,36,"Nerveburn Jelly",81
+240,Cautious,false,true,standard,4,1,0,111,54,"Darting Death",83
+241,Cautious,false,true,standard,3,4,0,328,67,"Apex Abyssal Krakenling Cephalopod Tyrant",87
+242,Cautious,false,true,standard,2,1,0,127,19,"Twisting Terror",48
+243,Cautious,false,true,standard,3,2,0,99,38,"Apex Blood-Frenzy Megalodon Frenzied Maw",68
+244,Cautious,false,true,standard,5,2,0,182,76,"The Kraken",109
+245,Cautious,false,true,standard,4,2,0,197,25,"The Kraken",68
+246,Cautious,false,true,standard,1,1,0,121,35,"Twisting Terror",56
+247,Cautious,false,true,standard,3,1,0,163,40,"The Kraken",84
+248,Cautious,false,true,standard,5,2,0,269,45,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",82
+249,Cautious,false,true,standard,4,2,0,96,56,"The Kraken",95
+250,Cautious,false,true,standard,5,2,0,87,43,"The Kraken",82
+1,Greedy,false,true,standard,2,1,0,568,47,"The Kraken",45
+2,Greedy,false,true,standard,2,1,0,332,34,"The Kraken",45
+3,Greedy,false,true,standard,2,1,0,174,24,"Eerie Elainaling",28
+4,Greedy,false,true,standard,1,1,0,247,15,"Bloodrage Shark",25
+5,Greedy,false,true,standard,3,1,0,258,46,"The Kraken",64
+6,Greedy,false,true,standard,2,1,0,323,45,"The Kraken",45
+7,Greedy,false,true,standard,3,1,0,93,19,"Vanishing Viper",30
+8,Greedy,false,true,standard,3,2,0,487,32,"The Kraken",54
+9,Greedy,false,true,standard,3,1,0,420,27,"Mire Serpent",47
+10,Greedy,false,true,standard,2,1,0,438,43,"The Kraken",42
+11,Greedy,false,true,standard,1,1,0,173,10,"Apex Blood-Frenzy Megalodon Crimson Hunter",21
+12,Greedy,false,true,standard,2,1,0,244,15,"Nerveburn Jelly",30
+13,Greedy,false,true,standard,0,0,0,25,16,"Twisting Terror",14
+14,Greedy,false,true,standard,4,2,0,136,63,"The Kraken",60
+15,Greedy,false,true,standard,3,1,0,476,49,"The Kraken",50
+16,Greedy,false,true,standard,0,0,0,25,12,"Elusive Eell",11
+17,Greedy,false,true,standard,2,1,0,236,22,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",40
+18,Greedy,false,true,standard,1,1,0,287,12,"Venomous Shroud",33
+19,Greedy,false,true,standard,1,1,0,42,13,"Twisting Terror",15
+20,Greedy,false,true,standard,3,2,0,223,47,"Many-tentacled beast",43
+21,Greedy,false,true,standard,3,1,0,336,25,"Eerie Elainaling",45
+22,Greedy,false,true,standard,2,1,0,273,61,"Apex Abyssal Krakenling Grasping Abyss",49
+23,Greedy,false,true,standard,1,1,0,297,18,"Apex Volcanic Shock-Bell Medusa’s Grasp",39
+24,Greedy,false,true,standard,1,1,0,162,12,"Apex Phosphor Wyrm Darting Death",19
+25,Greedy,false,true,standard,1,1,0,222,13,"Mire Serpent",27
+26,Greedy,false,true,standard,2,2,0,198,16,"Twisting Terror",34
+27,Greedy,false,true,standard,0,0,0,25,14,"Elusive Eell",12
+28,Greedy,false,true,standard,1,1,0,41,20,"Bloodthirsty Bull Shark",21
+29,Greedy,false,true,standard,2,1,0,230,19,"Apex Volcanic Shock-Bell Drifting Wraith",39
+30,Greedy,false,true,standard,3,1,0,303,31,"Fang of the Abyss",51
+31,Greedy,false,true,standard,1,1,0,354,18,"The Kraken",41
+32,Greedy,false,true,standard,1,1,0,154,23,"Abyssal Constrictor",26
+33,Greedy,false,true,standard,3,2,0,321,64,"The Kraken",65
+34,Greedy,false,true,standard,0,0,0,25,8,"Terror of the Tides",8
+35,Greedy,false,true,standard,2,2,0,299,15,"Colossal Tiger Shark",35
+36,Greedy,false,true,standard,4,1,0,242,48,"The Kraken",50
+37,Greedy,false,true,standard,1,1,0,47,11,"Twisting Terror",15
+38,Greedy,false,true,standard,3,1,0,164,25,"The Kraken",51
+39,Greedy,false,true,standard,1,1,0,114,13,"Mire Serpent",20
+40,Greedy,false,true,standard,2,1,0,448,48,"The Kraken",47
+41,Greedy,false,true,standard,1,1,0,247,10,"Sussy Seaweed",21
+42,Greedy,false,true,standard,2,1,0,476,31,"The Kraken",42
+43,Greedy,false,true,standard,2,1,0,166,27,"Mire Serpent",42
+44,Greedy,false,true,standard,3,1,0,91,24,"Apex Shredder",30
+45,Greedy,false,true,standard,4,1,0,352,37,"Twisting Terror",56
+46,Greedy,false,true,standard,0,0,0,25,16,"Twisting Terror",13
+47,Greedy,false,true,standard,3,1,0,276,22,"Medusa’s Grasp",40
+48,Greedy,false,true,standard,1,1,0,121,15,"Twisting Terror",20
+49,Greedy,false,true,standard,1,1,0,49,24,"Apex Volcanic Shock-Bell Nerveburn Jelly",22
+50,Greedy,false,true,standard,2,1,0,159,24,"Tide Coiler",37
+51,Greedy,false,true,standard,2,1,0,66,30,"Apex Volcanic Shock-Bell Phantasmal Bell",35
+52,Greedy,false,true,standard,2,1,0,136,19,"Twisting Terror",33
+53,Greedy,false,true,standard,3,1,0,510,38,"The Kraken",44
+54,Greedy,false,true,standard,2,1,0,223,30,"Elusive Eell",42
+55,Greedy,false,true,standard,2,1,0,225,40,"Apex Abyssal Krakenling Death by Ink",39
+56,Greedy,false,true,standard,2,1,0,159,14,"Sussy Seaweed",32
+57,Greedy,false,true,standard,1,1,0,43,17,"Behemoth Mako",20
+58,Greedy,false,true,standard,1,1,0,230,13,"Venomous Shroud",22
+59,Greedy,false,true,standard,2,1,0,595,19,"The Kraken",44
+60,Greedy,false,true,standard,1,1,0,506,23,"The Kraken",38
+61,Greedy,false,true,standard,1,1,0,342,14,"Bloodrage Shark",32
+62,Greedy,false,true,standard,1,1,0,355,29,"The Kraken",46
+63,Greedy,false,true,standard,3,1,0,82,21,"Jagged Lurker",27
+64,Greedy,false,true,standard,2,1,0,63,51,"Apex Abyssal Krakenling Depth Lurker",40
+65,Greedy,false,true,standard,1,1,0,49,21,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",18
+66,Greedy,false,true,standard,3,3,0,401,25,"Sussy Seaweed",48
+67,Greedy,false,true,standard,2,1,0,273,30,"The Kraken",41
+68,Greedy,false,true,standard,2,1,0,64,24,"Sussy Seaweed",30
+69,Greedy,false,true,standard,2,1,0,429,30,"The Kraken",49
+70,Greedy,false,true,standard,2,1,0,344,22,"Abyssal Constrictor",47
+71,Greedy,false,true,standard,3,1,0,269,52,"The Kraken",60
+72,Greedy,false,true,standard,2,1,0,226,27,"Cephalopod Tyrant",34
+73,Greedy,false,true,standard,1,1,0,252,15,"Mire Serpent",23
+74,Greedy,false,true,standard,2,1,0,69,21,"Sussy Seaweed",32
+75,Greedy,false,true,standard,2,1,0,217,38,"The Kraken",49
+76,Greedy,false,true,standard,1,1,0,237,11,"Frenzied Maw",20
+77,Greedy,false,true,standard,3,1,0,490,20,"The Kraken",48
+78,Greedy,false,true,standard,3,2,0,306,52,"The Kraken",52
+79,Greedy,false,true,standard,0,0,0,25,20,"Slithery Devil",15
+80,Greedy,false,true,standard,4,1,0,103,31,"Lurking Coil",47
+81,Greedy,false,true,standard,1,1,0,281,15,"Apex Phosphor Wyrm Elusive Eell",29
+82,Greedy,false,true,standard,2,2,0,318,25,"Apex Phosphor Wyrm Tide Coiler",40
+83,Greedy,false,true,standard,1,1,0,161,15,"Apex Phosphor Wyrm Vanishing Viper",24
+84,Greedy,false,true,standard,3,2,0,267,35,"The Kraken",55
+85,Greedy,false,true,standard,2,1,0,219,59,"Apex Abyssal Krakenling Grasping Abyss",43
+86,Greedy,false,true,standard,2,1,0,239,69,"Apex Abyssal Krakenling Krakenling",39
+87,Greedy,false,true,standard,4,2,0,390,36,"Apex Abyssal Krakenling Razor Tendrils",59
+88,Greedy,false,true,standard,0,0,0,25,10,"Lurking Coil",9
+89,Greedy,false,true,standard,1,1,0,409,14,"Ragefin",33
+90,Greedy,false,true,standard,3,1,0,84,29,"Apex Blood-Frenzy Megalodon Bloodthirsty Bull Shark",41
+91,Greedy,false,true,standard,1,1,0,511,29,"The Kraken",34
+92,Greedy,false,true,standard,0,0,0,25,35,"Grasping Abyss",15
+93,Greedy,false,true,standard,2,2,0,291,41,"Mire Serpent",45
+94,Greedy,false,true,standard,3,1,0,489,16,"The Kraken",47
+95,Greedy,false,true,standard,2,2,0,283,71,"Tide Coiler",46
+96,Greedy,false,true,standard,3,1,0,232,28,"The Kraken",49
+97,Greedy,false,true,standard,0,0,0,25,12,"Abyssal Constrictor",11
+98,Greedy,false,true,standard,1,1,0,429,20,"Apex Phosphor Wyrm Eerie Elainaling",39
+99,Greedy,false,true,standard,1,1,0,527,29,"The Kraken",48
+100,Greedy,false,true,standard,1,1,0,512,44,"The Kraken",36
+101,Greedy,false,true,standard,2,1,0,182,20,"Apex Blood-Frenzy Megalodon Fang of the Abyss",27
+102,Greedy,false,true,standard,2,2,0,78,43,"Vanishing Viper",32
+103,Greedy,false,true,standard,0,0,0,25,10,"Abyssal Constrictor",9
+104,Greedy,false,true,standard,3,1,0,351,46,"The Kraken",53
+105,Greedy,false,true,standard,2,1,0,406,32,"Gargantuan Squid",37
+106,Greedy,false,true,standard,0,0,0,25,12,"Abyssal Constrictor",11
+107,Greedy,false,true,standard,1,1,0,279,27,"The Kraken",47
+108,Greedy,false,true,standard,1,1,0,504,27,"The Kraken",39
+109,Greedy,false,true,standard,2,2,0,178,26,"Lurking Coil",28
+110,Greedy,false,true,standard,0,0,0,25,10,"Apex Shredder",9
+111,Greedy,false,true,standard,2,1,0,237,33,"Bioluminescent Terror",33
+112,Greedy,false,true,standard,2,1,0,455,17,"The Kraken",44
+113,Greedy,false,true,standard,4,1,0,278,27,"The Kraken",56
+114,Greedy,false,true,standard,4,1,0,352,36,"The Kraken",53
+115,Greedy,false,true,standard,3,2,0,414,38,"The Kraken",43
+116,Greedy,false,true,standard,1,1,0,180,15,"Bloodrage Shark",32
+117,Greedy,false,true,standard,2,2,0,102,38,"Apex Blood-Frenzy Megalodon Ragefin",38
+118,Greedy,false,true,standard,1,1,0,295,42,"The Kraken",43
+119,Greedy,false,true,standard,3,2,0,435,21,"The Kraken",49
+120,Greedy,false,true,standard,2,1,0,421,24,"The Kraken",53
+121,Greedy,false,true,standard,3,2,0,397,19,"Apex Volcanic Shock-Bell Abyssal Stinger",47
+122,Greedy,false,true,standard,0,0,0,25,10,"Tide Coiler",9
+123,Greedy,false,true,standard,0,0,0,25,10,"Sussy Seaweed",9
+124,Greedy,false,true,standard,3,1,0,157,39,"Apex Blood-Frenzy Megalodon Apex Shredder",47
+125,Greedy,false,true,standard,2,1,0,288,24,"Twisting Terror",36
+126,Greedy,false,true,standard,1,1,0,274,14,"Sussy Seaweed",29
+127,Greedy,false,true,standard,1,1,0,40,13,"Apex Phosphor Wyrm Mire Serpent",16
+128,Greedy,false,true,standard,2,2,0,410,36,"The Kraken",50
+129,Greedy,false,true,standard,0,0,0,25,20,"Tide Coiler",15
+130,Greedy,false,true,standard,2,2,0,287,31,"The Kraken",42
+131,Greedy,false,true,standard,3,1,0,250,37,"The Kraken",52
+132,Greedy,false,true,standard,2,1,0,241,17,"Sussy Seaweed",34
+133,Greedy,false,true,standard,1,1,0,160,19,"Tide Coiler",30
+134,Greedy,false,true,standard,1,1,0,280,15,"Eerie Elainaling",31
+135,Greedy,false,true,standard,1,1,0,41,11,"Mire Serpent",24
+136,Greedy,false,true,standard,2,1,0,56,23,"Tide Coiler",30
+137,Greedy,false,true,standard,1,1,0,117,31,"Apex Phosphor Wyrm Mire Serpent",27
+138,Greedy,false,true,standard,2,1,0,65,29,"Apex Phosphor Wyrm Twisting Terror",32
+139,Greedy,false,true,standard,1,1,0,296,17,"Bloodthirsty Bull Shark",30
+140,Greedy,false,true,standard,2,1,0,69,22,"Apex Phosphor Wyrm Eerie Elainaling",25
+141,Greedy,false,true,standard,3,1,0,435,34,"The Kraken",54
+142,Greedy,false,true,standard,1,1,0,158,19,"Darting Death",25
+143,Greedy,false,true,standard,2,1,0,430,34,"The Kraken",42
+144,Greedy,false,true,standard,1,1,0,43,11,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",14
+145,Greedy,false,true,standard,1,1,0,234,11,"Apex Shredder",26
+146,Greedy,false,true,standard,2,1,0,134,16,"Bloodrage Shark",36
+147,Greedy,false,true,standard,3,3,0,385,41,"The Kraken",52
+148,Greedy,false,true,standard,2,2,0,206,15,"Apex Phosphor Wyrm Vanishing Viper",31
+149,Greedy,false,true,standard,0,0,0,25,14,"Lurking Coil",11
+150,Greedy,false,true,standard,1,1,0,198,21,"Depth Lurker",27
+151,Greedy,false,true,standard,1,1,0,231,19,"Writhing Curse",32
+152,Greedy,false,true,standard,1,1,0,280,16,"Grasping Abyss",37
+153,Greedy,false,true,standard,1,1,0,350,27,"The Kraken",47
+154,Greedy,false,true,standard,2,1,0,332,13,"Krakenling",39
+155,Greedy,false,true,standard,4,1,0,353,24,"The Kraken",52
+156,Greedy,false,true,standard,3,2,0,348,47,"The Kraken",52
+157,Greedy,false,true,standard,1,1,0,114,31,"Twisting Terror",32
+158,Greedy,false,true,standard,2,1,0,65,18,"Lurking Coil",25
+159,Greedy,false,true,standard,0,0,0,25,10,"Tide Coiler",9
+160,Greedy,false,true,standard,2,1,0,498,50,"Apex Phosphor Wyrm Twisting Terror",48
+161,Greedy,false,true,standard,2,1,0,75,47,"Slithery Devil",30
+162,Greedy,false,true,standard,1,1,0,48,15,"Writhing Curse",17
+163,Greedy,false,true,standard,0,0,0,25,12,"Elusive Eell",11
+164,Greedy,false,true,standard,3,1,0,81,19,"Behemoth Mako",36
+165,Greedy,false,true,standard,0,0,0,25,10,"Mire Serpent",9
+166,Greedy,false,true,standard,3,3,0,338,23,"Twisting Terror",45
+167,Greedy,false,true,standard,1,1,0,123,15,"Apex Phosphor Wyrm Lurking Coil",22
+168,Greedy,false,true,standard,2,2,0,219,19,"The Kraken",44
+169,Greedy,false,true,standard,2,1,0,130,24,"Writhing Curse",40
+170,Greedy,false,true,standard,2,1,0,211,66,"The Kraken",53
+171,Greedy,false,true,standard,1,1,0,149,11,"Mire Serpent",18
+172,Greedy,false,true,standard,3,2,0,526,19,"The Kraken",48
+173,Greedy,false,true,standard,1,1,0,574,32,"The Kraken",53
+174,Greedy,false,true,standard,1,1,0,43,19,"Crimson Hunter",18
+175,Greedy,false,true,standard,2,1,0,174,29,"Twisting Terror",46
+176,Greedy,false,true,standard,1,1,0,411,25,"The Kraken",37
+177,Greedy,false,true,standard,3,2,0,341,16,"Elusive Eell",42
+178,Greedy,false,true,standard,2,2,0,250,27,"Abyssal Constrictor",39
+179,Greedy,false,true,standard,3,1,0,331,40,"The Kraken",51
+180,Greedy,false,true,standard,0,0,0,25,18,"Writhing Curse",14
+181,Greedy,false,true,standard,4,1,0,401,50,"The Kraken",55
+182,Greedy,false,true,standard,2,1,0,278,18,"Tide Coiler",37
+183,Greedy,false,true,standard,1,1,0,293,32,"The Kraken",48
+184,Greedy,false,true,standard,3,1,0,411,49,"The Kraken",52
+185,Greedy,false,true,standard,0,0,0,25,14,"Eerie Elainaling",11
+186,Greedy,false,true,standard,2,1,0,267,60,"Apex Abyssal Krakenling Gargantuan Squid",40
+187,Greedy,false,true,standard,0,0,0,25,8,"Colossal Tiger Shark",8
+188,Greedy,false,true,standard,1,1,0,41,17,"Darting Death",19
+189,Greedy,false,true,standard,3,1,0,162,28,"Apex Volcanic Shock-Bell Floating Veil",50
+190,Greedy,false,true,standard,2,1,0,71,29,"Lurking Coil",34
+191,Greedy,false,true,standard,1,1,0,50,23,"Apex Phosphor Wyrm Eerie Elainaling",28
+192,Greedy,false,true,standard,1,1,0,462,46,"The Kraken",49
+193,Greedy,false,true,standard,3,1,0,175,42,"The Kraken",57
+194,Greedy,false,true,standard,3,2,0,325,24,"The Kraken",49
+195,Greedy,false,true,standard,3,1,0,182,21,"Vanishing Viper",35
+196,Greedy,false,true,standard,1,1,0,46,17,"Apex Shredder",18
+197,Greedy,false,true,standard,1,1,0,41,13,"Apex Volcanic Shock-Bell Nerveburn Jelly",21
+198,Greedy,false,true,standard,1,1,0,40,11,"Darting Death",14
+199,Greedy,false,true,standard,1,1,0,181,51,"The Kraken",44
+200,Greedy,false,true,standard,0,0,0,25,10,"Elusive Eell",9
+201,Greedy,false,true,standard,0,0,0,25,16,"Vanishing Viper",13
+202,Greedy,false,true,standard,1,1,0,217,18,"Apex Phosphor Wyrm Mire Serpent",30
+203,Greedy,false,true,standard,0,0,0,25,12,"Sussy Seaweed",11
+204,Greedy,false,true,standard,1,1,0,522,33,"The Kraken",40
+205,Greedy,false,true,standard,2,1,0,325,47,"The Kraken",48
+206,Greedy,false,true,standard,1,1,0,159,13,"Apex Phosphor Wyrm Elusive Eell",19
+207,Greedy,false,true,standard,3,2,0,97,25,"Lurking Coil",39
+208,Greedy,false,true,standard,2,1,0,388,23,"The Kraken",45
+209,Greedy,false,true,standard,3,1,0,175,17,"Apex Volcanic Shock-Bell Pulsating Jellyfish",36
+210,Greedy,false,true,standard,1,1,0,205,15,"Slithery Devil",29
+211,Greedy,false,true,standard,2,1,0,424,24,"Jagged Lurker",46
+212,Greedy,false,true,standard,3,4,0,410,63,"The Kraken",56
+213,Greedy,false,true,standard,0,0,0,25,14,"Vanishing Viper",12
+214,Greedy,false,true,standard,2,1,0,527,67,"The Kraken",56
+215,Greedy,false,true,standard,2,1,0,291,24,"Apex Blood-Frenzy Megalodon Frenzied Maw",35
+216,Greedy,false,true,standard,2,1,0,68,33,"Writhing Curse",30
+217,Greedy,false,true,standard,2,1,0,517,29,"Fang of the Abyss",47
+218,Greedy,false,true,standard,2,1,0,58,46,"Cephalopod Tyrant",34
+219,Greedy,false,true,standard,2,1,0,552,46,"The Kraken",47
+220,Greedy,false,true,standard,2,1,0,443,45,"The Kraken",65
+221,Greedy,false,true,standard,1,1,0,210,13,"Behemoth Mako",26
+222,Greedy,false,true,standard,2,1,0,328,26,"Apex Phosphor Wyrm Twisting Terror",40
+223,Greedy,false,true,standard,3,2,0,384,33,"The Kraken",51
+224,Greedy,false,true,standard,2,2,0,304,33,"The Kraken",52
+225,Greedy,false,true,standard,3,2,0,516,71,"The Kraken",69
+226,Greedy,false,true,standard,5,2,0,275,68,"The Kraken",69
+227,Greedy,false,true,standard,1,1,0,40,18,"Apex Volcanic Shock-Bell Abyssal Stinger",19
+228,Greedy,false,true,standard,3,1,0,89,19,"Apex Volcanic Shock-Bell Abyssal Stinger",34
+229,Greedy,false,true,standard,2,1,0,70,15,"Twisting Terror",23
+230,Greedy,false,true,standard,2,1,0,159,19,"Apex Phosphor Wyrm Eerie Elainaling",28
+231,Greedy,false,true,standard,1,1,0,46,20,"Apex Phosphor Wyrm Mire Serpent",20
+232,Greedy,false,true,standard,2,1,0,141,28,"Apex Phosphor Wyrm Lurking Coil",36
+233,Greedy,false,true,standard,1,1,0,209,24,"Apex Blood-Frenzy Megalodon Behemoth Mako",38
+234,Greedy,false,true,standard,2,1,0,173,23,"Jagged Lurker",30
+235,Greedy,false,true,standard,2,1,0,60,19,"Frenzied Maw",27
+236,Greedy,false,true,standard,1,1,0,50,17,"Ghostly-Tendriled Creature",19
+237,Greedy,false,true,standard,2,1,0,274,46,"Apex Phosphor Wyrm Sussy Seaweed",46
+238,Greedy,false,true,standard,1,1,0,331,13,"Frenzied Maw",29
+239,Greedy,false,true,standard,1,1,0,40,19,"Apex Blood-Frenzy Megalodon Fang of the Abyss",22
+240,Greedy,false,true,standard,2,1,0,250,23,"Apex Phosphor Wyrm Tide Coiler",39
+241,Greedy,false,true,standard,3,1,0,83,57,"Apex Abyssal Krakenling Hundred-Limbed Horror",49
+242,Greedy,false,true,standard,2,1,0,60,22,"Sussy Seaweed",28
+243,Greedy,false,true,standard,1,1,0,297,10,"Apex Volcanic Shock-Bell Medusa’s Grasp",29
+244,Greedy,false,true,standard,2,1,0,282,16,"Thrashing Great White",37
+245,Greedy,false,true,standard,0,0,0,25,10,"Frenzied Maw",9
+246,Greedy,false,true,standard,0,0,0,25,8,"Bloodrage Shark",8
+247,Greedy,false,true,standard,1,1,0,347,9,"Fang of the Abyss",33
+248,Greedy,false,true,standard,1,1,0,236,19,"Mire Serpent",30
+249,Greedy,false,true,standard,2,1,0,364,24,"Apex Blood-Frenzy Megalodon Bloodrage Shark",44
+250,Greedy,false,true,standard,3,1,0,80,57,"Depth Lurker",40
+1,Random,false,true,standard,2,1,0,70,26,"Apex Volcanic Shock-Bell Phantasmal Bell",27
+2,Random,false,true,standard,2,1,0,228,20,"Colossal Tiger Shark",43
+3,Random,false,true,standard,0,0,0,25,9,"Terror of the Tides",9
+4,Random,false,true,standard,3,1,0,87,31,"Thrashing Great White",34
+5,Random,false,true,standard,1,1,0,48,12,"Twisting Terror",16
+6,Random,false,true,standard,1,1,0,71,16,"Floating Veil",38
+7,Random,false,true,standard,0,0,0,25,9,"Writhing Curse",14
+8,Random,false,true,standard,1,1,0,44,10,"Bloodthirsty Bull Shark",15
+9,Random,false,true,standard,1,1,0,75,25,"Fang of the Abyss",35
+10,Random,false,true,standard,1,1,0,146,50,"Apex Abyssal Krakenling Krakenling",23
+11,Random,false,true,standard,1,1,0,47,14,"Darting Death",17
+12,Random,false,true,standard,1,1,0,45,15,"Behemoth Mako",18
+13,Random,false,true,standard,0,0,0,25,9,"Twisting Terror",9
+14,Random,false,true,standard,1,1,0,43,20,"Gargantuan Squid",17
+15,Random,false,true,standard,2,1,0,64,15,"Apex Phosphor Wyrm Darting Death",25
+16,Random,false,true,standard,0,0,0,25,11,"Elusive Eell",11
+17,Random,false,true,standard,0,0,0,25,7,"Crimson Hunter",8
+18,Random,false,true,standard,1,1,0,44,15,"Phantasmal Bell",19
+19,Random,false,true,standard,0,0,0,25,17,"Elusive Eell",16
+20,Random,false,true,standard,2,1,0,68,15,"Medusa’s Grasp",22
+21,Random,false,true,standard,1,1,0,50,16,"Terror of the Tides",24
+22,Random,false,true,standard,2,1,0,119,30,"Apex Shredder",41
+23,Random,false,true,standard,1,1,0,159,37,"Death by Ink",37
+24,Random,false,true,standard,3,1,0,195,24,"Twisting Terror",39
+25,Random,false,true,standard,1,1,0,40,19,"Bioluminescent Terror",23
+26,Random,false,true,standard,1,1,0,80,14,"Twisting Terror",26
+27,Random,false,true,standard,0,0,0,25,14,"Elusive Eell",13
+28,Random,false,true,standard,0,0,0,25,11,"Elusive Eell",12
+29,Random,false,true,standard,2,1,0,118,20,"Depth Lurker",37
+30,Random,false,true,standard,2,1,0,59,15,"Jagged Lurker",28
+31,Random,false,true,standard,0,0,0,25,10,"Terror of the Tides",9
+32,Random,false,true,standard,3,1,0,78,32,"Apex Volcanic Shock-Bell Floating Veil",39
+33,Random,false,true,standard,2,1,0,67,17,"Apex Phosphor Wyrm Mire Serpent",23
+34,Random,false,true,standard,1,1,0,42,14,"Behemoth Mako",34
+35,Random,false,true,standard,1,1,0,120,13,"Fang of the Abyss",28
+36,Random,false,true,standard,1,1,0,49,42,"Death by Ink",22
+37,Random,false,true,standard,0,0,0,25,11,"Elusive Eell",10
+38,Random,false,true,standard,0,0,0,25,9,"Behemoth Mako",9
+39,Random,false,true,standard,0,0,0,25,12,"Slithery Devil",10
+40,Random,false,true,standard,1,1,0,49,15,"Venom-Inflicter",23
+41,Random,false,true,standard,1,1,0,130,17,"Sussy Seaweed",27
+42,Random,false,true,standard,1,1,0,49,14,"Bloodrage Shark",19
+43,Random,false,true,standard,1,1,0,41,17,"Grasping Abyss",15
+44,Random,false,true,standard,1,1,0,40,43,"Many-tentacled beast",30
+45,Random,false,true,standard,1,1,0,47,14,"Terror of the Tides",25
+46,Random,false,true,standard,1,1,0,158,16,"Fang of the Abyss",28
+47,Random,false,true,standard,0,0,0,25,14,"Vanishing Viper",14
+48,Random,false,true,standard,0,0,0,25,19,"Eerie Elainaling",17
+49,Random,false,true,standard,2,1,0,126,32,"Twisting Terror",38
+50,Random,false,true,standard,1,1,0,49,19,"Crimson Hunter",23
+51,Random,false,true,standard,1,1,0,49,15,"Behemoth Mako",22
+52,Random,false,true,standard,1,1,0,140,27,"Death by Ink",21
+53,Random,false,true,standard,0,0,0,25,11,"Crimson Hunter",10
+54,Random,false,true,standard,1,1,0,50,10,"Thrashing Great White",18
+55,Random,false,true,standard,1,1,0,118,51,"Apex Abyssal Krakenling Grasping Abyss",21
+56,Random,false,true,standard,2,1,0,78,36,"Frenzied Maw",43
+57,Random,false,true,standard,2,1,0,68,28,"Sussy Seaweed",35
+58,Random,false,true,standard,1,1,0,42,50,"Apex Abyssal Krakenling Hundred-Limbed Horror",24
+59,Random,false,true,standard,1,1,0,50,21,"Apex Volcanic Shock-Bell Venomous Shroud",24
+60,Random,false,true,standard,1,1,0,144,14,"Inkborn Terror",21
+61,Random,false,true,standard,1,1,0,48,19,"Grasping Abyss",16
+62,Random,false,true,standard,1,1,0,50,23,"Eerie Elainaling",26
+63,Random,false,true,standard,1,1,0,44,22,"Bloodthirsty Bull Shark",22
+64,Random,false,true,standard,1,1,0,42,11,"Frenzied Maw",19
+65,Random,false,true,standard,1,1,0,49,23,"Apex Blood-Frenzy Megalodon Colossal Tiger Shark",27
+66,Random,false,true,standard,1,1,0,40,12,"Lurking Coil",14
+67,Random,false,true,standard,1,1,0,49,18,"Darting Death",20
+68,Random,false,true,standard,1,1,0,49,18,"Elusive Eell",29
+69,Random,false,true,standard,1,1,0,79,36,"Apex Volcanic Shock-Bell Abyssal Stinger",29
+70,Random,false,true,standard,1,1,0,47,17,"Suffocating Embrace",16
+71,Random,false,true,standard,4,2,0,135,56,"Vanishing Viper",48
+72,Random,false,true,standard,3,1,0,83,27,"Behemoth Mako",30
+73,Random,false,true,standard,1,1,0,140,12,"Colossal Tiger Shark",17
+74,Random,false,true,standard,2,2,0,92,17,"Fang of the Abyss",28
+75,Random,false,true,standard,2,2,0,83,42,"Frenzied Maw",31
+76,Random,false,true,standard,2,2,0,91,19,"Fang of the Abyss",22
+77,Random,false,true,standard,2,2,0,97,40,"Razor Tendrils",36
+78,Random,false,true,standard,2,1,0,63,61,"Apex Abyssal Krakenling Krakenling",36
+79,Random,false,true,standard,0,0,0,25,15,"Slithery Devil",12
+80,Random,false,true,standard,2,2,0,89,19,"Writhing Curse",35
+81,Random,false,true,standard,1,1,0,45,14,"Lurking Coil",19
+82,Random,false,true,standard,2,1,0,69,45,"Suffocating Embrace",27
+83,Random,false,true,standard,1,1,0,40,15,"Lurking Coil",20
+84,Random,false,true,standard,2,1,0,220,22,"Drifting Wraith",33
+85,Random,false,true,standard,0,0,0,25,8,"Bloodrage Shark",8
+86,Random,false,true,standard,3,1,0,128,23,"Pulsating Jellyfish",38
+87,Random,false,true,standard,3,2,0,167,24,"Fang of the Abyss",42
+88,Random,false,true,standard,0,0,0,25,15,"Lurking Coil",13
+89,Random,false,true,standard,1,1,0,47,25,"Tide Coiler",17
+90,Random,false,true,standard,2,1,0,59,38,"Krakenling",31
+91,Random,false,true,standard,1,1,0,40,43,"Grasping Abyss",28
+92,Random,false,true,standard,1,1,0,48,24,"Venom-Inflicter",22
+93,Random,false,true,standard,0,0,0,25,9,"Thrashing Great White",10
+94,Random,false,true,standard,1,1,0,154,10,"Jagged Lurker",20
+95,Random,false,true,standard,0,0,0,25,7,"Ragefin",8
+96,Random,false,true,standard,1,1,0,46,35,"Apex Volcanic Shock-Bell Pulsating Jellyfish",19
+97,Random,false,true,standard,0,0,0,25,12,"Abyssal Constrictor",11
+98,Random,false,true,standard,1,1,0,47,31,"Death by Ink",23
+99,Random,false,true,standard,1,1,0,41,12,"Terror of the Tides",28
+100,Random,false,true,standard,2,1,0,92,13,"Darting Death",32
+101,Random,false,true,standard,2,1,0,63,47,"Apex Abyssal Krakenling Grasping Abyss",28
+102,Random,false,true,standard,1,1,0,49,24,"Inkborn Terror",19
+103,Random,false,true,standard,1,1,0,45,18,"Ragefin",19
+104,Random,false,true,standard,3,1,0,88,18,"Apex Phosphor Wyrm Writhing Curse",37
+105,Random,false,true,standard,3,1,0,81,44,"Apex Blood-Frenzy Megalodon Frenzied Maw",37
+106,Random,false,true,standard,0,0,0,25,11,"Abyssal Constrictor",12
+107,Random,false,true,standard,1,1,0,187,11,"Pulsating Jellyfish",22
+108,Random,false,true,standard,1,1,0,49,19,"Elusive Eell",20
+109,Random,false,true,standard,2,1,0,59,41,"Apex Abyssal Krakenling Cephalopod Tyrant",46
+110,Random,false,true,standard,1,1,0,43,24,"Death by Ink",19
+111,Random,false,true,standard,1,1,0,46,20,"Mire Serpent",19
+112,Random,false,true,standard,1,1,0,49,9,"Terror of the Tides",14
+113,Random,false,true,standard,1,1,0,42,21,"Abyssal Constrictor",23
+114,Random,false,true,standard,1,1,0,45,29,"Ragefin",24
+115,Random,false,true,standard,2,1,0,64,18,"Frenzied Maw",39
+116,Random,false,true,standard,0,0,0,25,9,"Ragefin",11
+117,Random,false,true,standard,2,2,0,93,36,"Apex Blood-Frenzy Megalodon Ragefin",44
+118,Random,false,true,standard,3,2,0,186,53,"Apex Abyssal Krakenling Cephalopod Tyrant",55
+119,Random,false,true,standard,2,1,0,81,28,"Apex Phosphor Wyrm Sussy Seaweed",38
+120,Random,false,true,standard,1,1,0,50,31,"Gargantuan Squid",21
+121,Random,false,true,standard,2,1,0,167,61,"Cephalopod Tyrant",35
+122,Random,false,true,standard,0,0,0,25,15,"Tide Coiler",13
+123,Random,false,true,standard,0,0,0,25,10,"Sussy Seaweed",10
+124,Random,false,true,standard,3,1,0,80,25,"Twisting Terror",45
+125,Random,false,true,standard,0,0,0,25,8,"Ragefin",9
+126,Random,false,true,standard,2,1,0,185,39,"The Kraken",50
+127,Random,false,true,standard,0,0,0,25,11,"Jagged Lurker",10
+128,Random,false,true,standard,1,1,0,40,17,"Lurking Coil",22
+129,Random,false,true,standard,0,0,0,25,21,"Tide Coiler",18
+130,Random,false,true,standard,0,0,0,25,15,"Slithery Devil",13
+131,Random,false,true,standard,2,1,0,139,38,"Depth Lurker",38
+132,Random,false,true,standard,3,1,0,229,49,"The Kraken",63
+133,Random,false,true,standard,1,1,0,40,14,"Twisting Terror",20
+134,Random,false,true,standard,0,0,0,25,7,"Jagged Lurker",10
+135,Random,false,true,standard,1,1,0,40,18,"Apex Phosphor Wyrm Mire Serpent",19
+136,Random,false,true,standard,2,2,0,90,24,"Crimson Hunter",30
+137,Random,false,true,standard,2,1,0,66,22,"Apex Phosphor Wyrm Vanishing Viper",23
+138,Random,false,true,standard,2,2,0,217,43,"Apex Abyssal Krakenling Death by Ink",40
+139,Random,false,true,standard,2,1,0,241,29,"Cephalopod Tyrant",35
+140,Random,false,true,standard,3,1,0,94,27,"Apex Blood-Frenzy Megalodon Ragefin",32
+141,Random,false,true,standard,1,1,0,44,28,"Slithery Devil",25
+142,Random,false,true,standard,1,1,0,41,19,"Vanishing Viper",23
+143,Random,false,true,standard,1,1,0,47,11,"Slithery Devil",21
+144,Random,false,true,standard,0,0,0,25,9,"Ragefin",9
+145,Random,false,true,standard,1,1,0,50,25,"Apex Blood-Frenzy Megalodon Terror of the Tides",26
+146,Random,false,true,standard,1,1,0,43,13,"Bloodrage Shark",16
+147,Random,false,true,standard,1,1,0,74,14,"Apex Shredder",21
+148,Random,false,true,standard,2,1,0,65,18,"Apex Phosphor Wyrm Tide Coiler",30
+149,Random,false,true,standard,0,0,0,25,20,"Lurking Coil",16
+150,Random,false,true,standard,2,1,0,61,17,"Terror of the Tides",26
+151,Random,false,true,standard,1,1,0,77,16,"Pulsating Jellyfish",26
+152,Random,false,true,standard,1,1,0,46,12,"Terror of the Tides",17
+153,Random,false,true,standard,1,1,0,41,17,"Darting Death",19
+154,Random,false,true,standard,2,1,0,70,21,"Apex Abyssal Krakenling Death by Ink",26
+155,Random,false,true,standard,3,1,0,126,24,"Apex Phosphor Wyrm Mire Serpent",48
+156,Random,false,true,standard,1,1,0,46,24,"Floating Veil",25
+157,Random,false,true,standard,0,0,0,25,14,"Sussy Seaweed",13
+158,Random,false,true,standard,4,1,0,249,47,"Colossal Tiger Shark",55
+159,Random,false,true,standard,0,0,0,25,9,"Tide Coiler",11
+160,Random,false,true,standard,2,1,0,226,29,"The Kraken",58
+161,Random,false,true,standard,1,1,0,43,15,"Apex Phosphor Wyrm Mire Serpent",22
+162,Random,false,true,standard,0,0,0,25,9,"Bloodrage Shark",9
+163,Random,false,true,standard,0,0,0,25,10,"Elusive Eell",10
+164,Random,false,true,standard,1,1,0,42,16,"Tide Coiler",19
+165,Random,false,true,standard,0,0,0,25,10,"Mire Serpent",10
+166,Random,false,true,standard,1,1,0,46,17,"Krakenling",17
+167,Random,false,true,standard,1,1,0,40,15,"Apex Blood-Frenzy Megalodon Ragefin",17
+168,Random,false,true,standard,1,1,0,47,28,"Pulsating Jellyfish",19
+169,Random,false,true,standard,2,1,0,80,25,"Apex Abyssal Krakenling Cephalopod Tyrant",43
+170,Random,false,true,standard,1,1,0,202,14,"Medusa’s Grasp",36
+171,Random,false,true,standard,1,1,0,47,11,"Apex Blood-Frenzy Megalodon Behemoth Mako",21
+172,Random,false,true,standard,1,1,0,45,27,"Medusa’s Grasp",22
+173,Random,false,true,standard,2,2,0,95,21,"Vanishing Viper",31
+174,Random,false,true,standard,1,1,0,187,28,"Apex Phosphor Wyrm Slithery Devil",35
+175,Random,false,true,standard,1,1,0,46,15,"Depth Lurker",19
+176,Random,false,true,standard,1,1,0,41,48,"Grasping Abyss",25
+177,Random,false,true,standard,2,1,0,66,19,"Grasping Abyss",21
+178,Random,false,true,standard,1,1,0,40,20,"Apex Phosphor Wyrm Twisting Terror",21
+179,Random,false,true,standard,2,2,0,94,19,"Apex Phosphor Wyrm Slithery Devil",28
+180,Random,false,true,standard,1,1,0,44,13,"Cephalopod Tyrant",16
+181,Random,false,true,standard,1,1,0,46,45,"Apex Blood-Frenzy Megalodon Crimson Hunter",28
+182,Random,false,true,standard,0,0,0,25,19,"Abyssal Constrictor",16
+183,Random,false,true,standard,1,1,0,47,47,"Razor Tendrils",22
+184,Random,false,true,standard,1,1,0,47,13,"Bloodrage Shark",18
+185,Random,false,true,standard,1,1,0,42,16,"Fang of the Abyss",19
+186,Random,false,true,standard,1,1,0,44,10,"Slithery Devil",13
+187,Random,false,true,standard,0,0,0,25,7,"Colossal Tiger Shark",8
+188,Random,false,true,standard,1,1,0,41,18,"Darting Death",22
+189,Random,false,true,standard,2,1,0,70,18,"Eerie Elainaling",25
+190,Random,false,true,standard,1,1,0,79,11,"Apex Blood-Frenzy Megalodon Crimson Hunter",28
+191,Random,false,true,standard,0,0,0,25,10,"Apex Shredder",13
+192,Random,false,true,standard,1,1,0,43,18,"Jagged Lurker",20
+193,Random,false,true,standard,2,1,0,62,16,"Writhing Curse",24
+194,Random,false,true,standard,0,0,0,25,13,"Elusive Eell",11
+195,Random,false,true,standard,1,1,0,45,11,"Twisting Terror",17
+196,Random,false,true,standard,2,1,0,75,51,"Razor Tendrils",35
+197,Random,false,true,standard,0,0,0,25,8,"Thrashing Great White",8
+198,Random,false,true,standard,1,1,0,46,14,"Jagged Lurker",24
+199,Random,false,true,standard,1,1,0,47,18,"Medusa’s Grasp",27
+200,Random,false,true,standard,1,1,0,50,18,"Vanishing Viper",24
+201,Random,false,true,standard,0,0,0,25,20,"Vanishing Viper",16
+202,Random,false,true,standard,3,1,0,137,20,"Medusa’s Grasp",36
+203,Random,false,true,standard,1,1,0,41,18,"Abyssal Constrictor",26
+204,Random,false,true,standard,2,1,0,71,13,"Ragefin",23
+205,Random,false,true,standard,1,1,0,48,13,"Bloodthirsty Bull Shark",20
+206,Random,false,true,standard,3,1,0,79,41,"Suffocating Embrace",50
+207,Random,false,true,standard,2,1,0,139,12,"Lurking Coil",31
+208,Random,false,true,standard,2,1,0,96,14,"Sussy Seaweed",29
+209,Random,false,true,standard,4,2,0,141,45,"Jagged Lurker",60
+210,Random,false,true,standard,1,1,0,43,21,"Razor Tendrils",24
+211,Random,false,true,standard,0,0,0,25,14,"Writhing Curse",11
+212,Random,false,true,standard,1,1,0,45,45,"Suffocating Embrace",25
+213,Random,false,true,standard,0,0,0,25,13,"Vanishing Viper",12
+214,Random,false,true,standard,1,1,0,40,30,"Colossal Tiger Shark",21
+215,Random,false,true,standard,2,1,0,97,28,"Twisting Terror",29
+216,Random,false,true,standard,5,1,0,217,50,"The Kraken",53
+217,Random,false,true,standard,1,1,0,45,43,"Bloodthirsty Bull Shark",24
+218,Random,false,true,standard,2,1,0,59,20,"Thrashing Great White",29
+219,Random,false,true,standard,2,2,0,89,21,"Eerie Elainaling",25
+220,Random,false,true,standard,1,1,0,49,14,"Mire Serpent",18
+221,Random,false,true,standard,0,0,0,25,11,"Tide Coiler",12
+222,Random,false,true,standard,3,2,0,122,55,"Apex Phosphor Wyrm Elusive Eell",53
+223,Random,false,true,standard,2,1,0,62,24,"Mire Serpent",29
+224,Random,false,true,standard,1,1,0,40,13,"Abyssal Stinger",21
+225,Random,false,true,standard,1,1,0,66,16,"Eerie Elainaling",23
+226,Random,false,true,standard,3,1,0,80,36,"The Kraken",49
+227,Random,false,true,standard,1,1,0,40,16,"Many-tentacled beast",22
+228,Random,false,true,standard,2,1,0,65,14,"Ghostly-Tendriled Creature",27
+229,Random,false,true,standard,2,1,0,101,11,"Floating Veil",22
+230,Random,false,true,standard,1,1,0,45,39,"Abyssal Stinger",30
+231,Random,false,true,standard,1,1,0,46,18,"Apex Phosphor Wyrm Mire Serpent",20
+232,Random,false,true,standard,4,2,0,138,43,"Elusive Eell",51
+233,Random,false,true,standard,3,2,0,129,51,"Many-tentacled beast",49
+234,Random,false,true,standard,1,1,0,48,34,"Venomous Shroud",20
+235,Random,false,true,standard,1,1,0,43,36,"Krakenling",20
+236,Random,false,true,standard,1,1,0,40,16,"Venomous Shroud",21
+237,Random,false,true,standard,1,1,0,145,35,"Apex Volcanic Shock-Bell Bioluminescent Terror",25
+238,Random,false,true,standard,1,1,0,42,26,"Apex Abyssal Krakenling Inkborn Terror",17
+239,Random,false,true,standard,0,0,0,25,23,"Slithery Devil",19
+240,Random,false,true,standard,3,2,0,120,45,"Suffocating Embrace",44
+241,Random,false,true,standard,0,0,0,25,18,"Tide Coiler",13
+242,Random,false,true,standard,1,1,0,47,14,"Apex Blood-Frenzy Megalodon Bloodrage Shark",19
+243,Random,false,true,standard,2,1,0,74,14,"Frenzied Maw",19
+244,Random,false,true,standard,0,0,0,25,11,"Abyssal Constrictor",14
+245,Random,false,true,standard,0,0,0,25,9,"Frenzied Maw",9
+246,Random,false,true,standard,1,1,0,68,37,"Inkborn Terror",25
+247,Random,false,true,standard,2,2,0,213,44,"The Kraken",44
+248,Random,false,true,standard,2,1,0,73,37,"Apex Shredder",28
+249,Random,false,true,standard,0,0,0,25,13,"Tide Coiler",12
+250,Random,false,true,standard,2,1,0,101,15,"Bloodrage Shark",33
