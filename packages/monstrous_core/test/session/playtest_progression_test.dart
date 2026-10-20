@@ -234,7 +234,7 @@ void main() {
       expect(chart.currentLeg, 4);
       expect(chart.isRegionTitan, isFalse);
       expect(
-        chart.currentCourseOptions.single.nodeType,
+        chart.ensureCourseOptions().single.nodeType,
         EncounterNodeType.respiteIsland,
       );
     },
@@ -260,7 +260,8 @@ void main() {
   test('voyage save restores trail, current leg, current encounter, and exact offered courses', () {
     final session = fresh()..dispatch(const BeginFirstVoyage('Navigator'));
     session.seaChart.steerCourse(NavigationalBearing.starboardTack);
-    session.phase = SessionPhase.helm;
+    session.phase = SessionPhase.restArea;
+    session.dispatch(const TakeHelm());
     final original = session.seaChart.toJson();
     final encoded = jsonEncode(VoyageSaveData.fromSession(session).toJson());
     final save = VoyageSaveData.fromJson(

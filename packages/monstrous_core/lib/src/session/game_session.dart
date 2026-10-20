@@ -600,10 +600,19 @@ class GameSession {
     final events = _handleTakeHelm();
     if (phase == SessionPhase.helm) {
       final options = seaChart.currentCourseOptions;
-      final bearing = activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&
-              options.length > 1
-          ? options.firstWhere((o) => o.bearing != NavigationalBearing.deadAhead).bearing
-          : NavigationalBearing.deadAhead;
+      final compelledNemesis = activeQuirk?.id == BloodlineTraitId.bloodOath
+          ? options.where((option) => option.isNemesis).firstOrNull
+          : null;
+      final bearing =
+          compelledNemesis?.bearing ??
+          (activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&
+                  options.length > 1
+              ? options
+                    .firstWhere(
+                      (o) => o.bearing != NavigationalBearing.deadAhead,
+                    )
+                    .bearing
+              : NavigationalBearing.deadAhead);
       events.addAll(_handleSteerCourse(bearing));
     }
     return events;
@@ -699,6 +708,15 @@ class GameSession {
     if (phase != SessionPhase.helm) {
       throw StateError('Cannot steer course from phase $phase');
     }
+
+    // Also support restored/legacy helm states with no cached offers. Never
+    // let SeaChart's context-free fallback generate a session's course choices.
+    seaChart.ensureCourseOptions(
+      rng,
+      profile.activeNemesis,
+      profile.isPactActive(CovenantPactId.chokingFog),
+      profile.isPactActive(CovenantPactId.apexEmergence),
+    );
 
     // Reckless Helmsman: "Dead Ahead" heading is disabled at sea
     if (activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&

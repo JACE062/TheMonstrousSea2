@@ -1,8 +1,8 @@
-# Open backlog
+# Playtest backlog
 
-Status: open work consolidated on 20 October 2026. PT2-01–22 retain the player observations, source-review leads and acceptance criteria from that playtest. **Documentation only: none of these issues is fixed by this reorganization.** Source findings are dated observations, not proof of runtime reproduction.
+Status: work consolidated on 20 October 2026. PT2-01–22 retain the original playtest observations; PT2-23/24 record the follow-up. Issues remain open unless explicitly marked resolved or implemented below. Source findings are dated observations, not proof of runtime reproduction.
 
-Read [Current game](CURRENT_GAME.md) for approved baseline rules and [Lore](LORE.md) for canon. A reported symptom, approved requested outcome, unresolved design choice and deferred feature remain distinct. Preserve the six [screenshot evidence files](playtests/2026-10-20/) and issue IDs when updating status. Historical receipts are indexed in [the archive](archive/README.md).
+Read [Current game](CURRENT_GAME.md) for approved baseline rules and [Lore](LORE.md) for canon. A reported symptom, approved requested outcome, unresolved design choice and deferred feature remain distinct. Preserve the six original [screenshot evidence files](playtests/2026-10-20/), follow-up evidence, and issue IDs when updating status. Historical receipts are indexed in [the archive](archive/README.md).
 
 ## Recommended work chunks
 
@@ -10,6 +10,7 @@ Each chunk should produce a reviewable change and focused verification. These ar
 
 | Order | Chunk | Items | Exit condition |
 | --- | --- | --- | --- |
+| Initial follow-up | Restore the guaranteed Nemesis choice; investigate the death ledger | PT2-24, PT2-23 | Nemesis is an optional, reachable second-half course in its killer region; the ledger counts actual deaths rather than candidate heirs. See individual statuses. |
 | A | Protect voyage and succession continuity | PT2-19, PT2-21, PT2-14 | Strongholds preserve the current run and blessings; home-only blueprint actions stay at home; succession cannot lead into a dead menu. |
 | B | Audit combat avoidance, boss damage, and regional scaling | PT2-12, PT2-17, PT2-18, PT2-22 | Seeded examples explain hit/dodge odds, Kraken catastrophe damage, and ordinary squid strength; agreed fixes have deterministic coverage. |
 | C | Shorten navigation and make outcomes explicit | PT2-09, PT2-10, PT2-15, PT2-16 | Ordinary victories lead efficiently to course selection; headings do not flash replacements; restrictions and salvage rewards are visible. |
@@ -18,7 +19,7 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | F | Specify and implement post-boss progression / Phase 4 | PT2-20, depends on A | Strongholds offer the agreed hull/mark upgrades and exactly scoped Master Refits, with run persistence and blueprint-specific choices. |
 | Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](#deferred-ui-art-and-icons); audit existing assets first. No image generation in this batch. |
 
-Start with A: an unexplained loss of a build makes later combat and balance observations harder to interpret. B and C are the next focused remediation batches. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
+The follow-up starts with the concrete Nemesis context bug and death-ledger investigation. Next, work on A: an unexplained loss of a build makes later combat and balance observations harder to interpret. B follows, with the confirmed stacking Serpent evasion first, then C. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
 
 ## Opening and lineage
 
@@ -118,6 +119,7 @@ Start with A: an unexplained loss of a build makes later combat and balance obse
 ### PT2-12 — Apex Serpent evasion feels nearly unbeatable
 
 - **Reported:** Two deaths to an Apex Serpent that dodged almost everything while displaying 80% evasion; the player was unsure whether that meant 80% chance to hit.
+- **Follow-up observation:** Reviewing a fight showed evasion starting at 30%, later reaching 50%, then 80% before the ship sank. The buildup itself is the problem, not only an ambiguous initial label. The intent implementation adds 20 percentage points on recoil, capped at 80%, explaining how an Apex's starting 30% can accumulate toward that ceiling.
 - **Source finding:** [SerpentSlitherTrait](../packages/monstrous_core/lib/src/traits/trait.dart) uses evasion as a separate dodge roll after a successful accuracy roll. The intent path can raise evasion to 80%; a separate legacy special-action path caps it at 60%. At 85% final accuracy and 80% dodge, an uncountered shot connects only about 17% of the time. This is an explanation of the formula, not a reproduction of the exact runs.
 - **Investigation:** Audit buildup, duration/decay/reset, duplicate avoidance checks, and the discrepancy between paths. Verify accessible counterplay for Standard and other blueprints, including Pin and Spotter Flare interactions. Display weapon accuracy and target dodge as different concepts.
 - **Acceptance:** Seeded tests cover the actual combined connection rate and evasion transitions. Agree on a fair ceiling/counterplay before tuning; do not disguise a mechanical problem by relabeling 80% as hit chance.
@@ -153,6 +155,20 @@ Start with A: an unexplained loss of a build makes later combat and balance obse
 - **Acceptance:** Deterministic and simulated encounters cover all five blueprints, with/without armor and relevant refits. A common enemy should not inherit boss-level threat merely by crossing a region boundary; viable counterplay must be available before the damage becomes overwhelming.
 
 ## Succession, strongholds, and build persistence
+
+### PT2-23 — Death ledger appears to count unchosen heirs
+
+- **Reported:** The second voyage in the latest playtest showed four captains lost. The player suspected the two unchosen heir candidates were counted. [Follow-up screenshot](playtests/2026-10-20/07-captain-death-count.png).
+- **Status: resolved investigation — retained earlier history.** Read-only inspection of the active profile found four distinct completed captain records: two from earlier playtesting and the latest two voyages. Their recorded kills total 14, matching the screenshot. Candidate generation does not call `recordDeath`; the saved aggregate agrees with its history. No player save was edited or reset, and no history was deleted to force the counter to two.
+- **Regression coverage:** [playtest_nemesis_continuity_test.dart](../packages/monstrous_core/test/session/playtest_nemesis_continuity_test.dart) exercises two actual deaths, three generated candidates per death, succession, and profile serialization. It requires exactly two captain records and a count of two. If a clean profile later reproduces an excess count, reopen with the before/after history rather than assuming candidate generation is responsible.
+
+### PT2-24 — Nemesis never offered on the following voyage
+
+- **Reported / approved rule:** The previous captain's killer must be guaranteed as one navigation option in the second half of its original region, after the midpoint Haven and before the Titan. It must not replace all three headings with a forced encounter. The player's “Vendetta” quirk refers to the existing Blood Oath behavior, which compels engagement when that option appears.
+- **Confirmed cause:** [SeaChart.steerCourse](../packages/monstrous_core/lib/src/rules/sea_chart.dart) eagerly generated the following courses without the active Nemesis or Covenant context. `ensureCourseOptions` then reused these nonempty, context-free offers. Separate eligibility logic allowed first-half appearances and used obsolete boss coordinates as an exclusion.
+- **Status: implemented and automatically verified, 20 October 2026; awaiting player replay.** Generate unseen courses on approaching the helm with the current profile context. Eligibility uses actual region legs, never old grid coordinates. Offer one Nemesis side heading on each eligible second-half leg until engaged, preserving two alternatives; a side heading also remains reachable for Reckless Helmsman. Blood Oath still rejects alternatives, and the legacy automatic-advance command selects the compelled course. Once engaged, do not offer it again that voyage. Haven and Titan convergence remain unchanged.
+- **Persistence:** Restore already offered helm choices exactly. Discard unseen cached future offers from older encounter checkpoints so they regenerate with the restored profile. Do not erase or reroll the current voyage trail.
+- **Verification:** [New regressions](../packages/monstrous_core/test/session/playtest_nemesis_continuity_test.dart) cover complete regional navigation, optional avoidance, all three regions, wrong-region exclusion, old boss-coordinate overlap, no repeat after engagement, checkpoint/helm reloads, later-leg Covenant context, and compelled automatic advance. [Succession flow tests](../packages/monstrous_core/test/session/stage1_roguelite_flow_test.dart) cover Blood Oath enforcement and actual Nemesis combat/bounty. All 339 core, 29 simulator, and 107 Flutter tests passed; core and simulator analysis were clean. These checks do not resolve the separate stronghold or Serpent issues.
 
 ### PT2-14 — Remove “Abandon Hunt” from heir selection
 

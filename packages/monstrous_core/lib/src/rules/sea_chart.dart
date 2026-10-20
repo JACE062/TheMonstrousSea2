@@ -298,6 +298,9 @@ class SeaChart {
   List<CourseOption> get currentCourseOptions =>
       List.unmodifiable(_currentCourseOptions);
 
+  /// Discards unoffered courses so the helm can generate them with voyage context.
+  void clearPendingCourses() => _currentCourseOptions.clear();
+
   /// The active region index (0: The Siren Shoals, 1: The Sargasso Drift, 2: The Boiling Reach).
   int get currentRegionIndex => timesCompleted.clamp(0, totalRegions - 1);
 
@@ -673,11 +676,12 @@ class SeaChart {
         activeNemesis != null &&
         !hasEncounteredNemesisThisVoyage &&
         currentRegionIndex == activeNemesis.regionIndex &&
-        targetLeg >= 3 &&
-        targetLeg != midpointHavenLeg &&
-        !(currentRow == bossRow && (currentCol + 1) == bossCol);
+        targetLeg > midpointHavenLeg &&
+        targetLeg < totalLegs;
+    // A side heading stays reachable even for a Reckless Helmsman. The other
+    // two headings remain alternatives unless Blood Oath compels engagement.
     final nemesisBearingIndex = shouldSpawnNemesis
-        ? effectiveRng.nextInt(bearings.length)
+        ? (effectiveRng.nextInt(2) == 0 ? 0 : 2)
         : -1;
 
     for (var i = 0; i < bearings.length; i++) {
@@ -955,7 +959,10 @@ class SeaChart {
       ),
     );
 
-    _currentCourseOptions = generateCourseOptions(effectiveRng);
+    // Generate the next offers on approaching the helm, where the session
+    // supplies the active Nemesis and Covenant modifiers. Eager generation
+    // here cached context-free choices and prevented the Nemesis from appearing.
+    clearPendingCourses();
     return chosen;
   }
 
@@ -991,7 +998,7 @@ class SeaChart {
       return;
     }
 
-    _currentCourseOptions = generateCourseOptions(rng);
+    clearPendingCourses();
   }
 
   /// Advances the sea chart to the next region after slaying the regional titan.

@@ -123,7 +123,9 @@ def check_migration(manifest):
         require(path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == expected, f"Screenshot missing or altered: {name}")
     backlog = (ROOT / "docs/BACKLOG.md").read_text(encoding="utf-8")
     ids = re.findall(r"^### (PT2-\d{2}) ", backlog, re.M)
-    require(Counter(ids) == Counter(manifest["backlog_ids"]), "Open backlog must retain each original PT2 issue exactly once")
+    counts = Counter(ids)
+    require(all(counts[issue] == 1 for issue in manifest["backlog_ids"]), "Backlog must retain each original PT2 issue exactly once")
+    require(all(count == 1 for count in counts.values()), "Backlog issue IDs must be unique, including follow-up issues")
     original_spec = next(r for r in manifest["documents"] if r["source"] == "docs/PHASE_3B_OCEAN_POWERS_SPEC.md")
     spec = (ROOT / original_spec["archive"]).read_text(encoding="utf-8")
     rows = [line for line in spec.splitlines() if line.startswith("| **")]
@@ -149,7 +151,8 @@ def main():
         for error in ERRORS:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
-    print(f"Documentation OK: {len(files)} Markdown files, {links} local links, {len(manifest['documents'])} archived sources / {sections} section dispositions, 22 PT2 issues, catalog-promotion receipt, six unchanged screenshots.")
+    issue_count = len(re.findall(r"^### PT2-\d{2} ", (ROOT / "docs/BACKLOG.md").read_text(encoding="utf-8"), re.M))
+    print(f"Documentation OK: {len(files)} Markdown files, {links} local links, {len(manifest['documents'])} archived sources / {sections} section dispositions, {issue_count} PT2 issues, catalog-promotion receipt, six unchanged original screenshots.")
     return 0
 
 

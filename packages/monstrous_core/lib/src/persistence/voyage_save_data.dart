@@ -165,6 +165,12 @@ class VoyageSaveData {
     session.seaChart.currentCol = currentCol;
     if (seaChartState != null) {
       session.seaChart.restoreFromJson(seaChartState!);
+      // Older checkpoints eagerly cached context-free future offers during an
+      // encounter. Keep already offered helm choices stable, but generate unseen
+      // choices with the restored profile's Nemesis and pacts on the next helm.
+      if (phase != SessionPhase.helm) {
+        session.seaChart.clearPendingCourses();
+      }
     } else {
       // Older saves only recorded grid coordinates. Preserve their best-known
       // progress; subsequent steps use the authoritative voyage leg counter.

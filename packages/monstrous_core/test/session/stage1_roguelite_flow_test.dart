@@ -133,8 +133,8 @@ void main() {
       session.dispatch(const TakeAllLoot());
       expect(session.phase, SessionPhase.restArea);
 
-      // Fast forward leg to 3 so Nemesis eligibility trigger fires
-      session.seaChart.currentLeg = 3;
+      // The first eligible Nemesis course follows the midpoint Haven.
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
       session.dispatch(const TakeHelm());
 
       expect(session.phase, SessionPhase.helm);
@@ -207,13 +207,13 @@ void main() {
       );
       profile.activeNemesis = nemesis;
 
-      // Reach helm at leg 3
+      // Reach the helm after the midpoint Haven.
       session.dispatch(const VentureOutToSea());
       session.currentMonster!.applyDamage(session.currentMonster!.maxHp);
       session.dispatch(FireWeaponVolley(session.ship!.equippedWeapons.first.weaponType));
       session.dispatch(const TakeAllLoot());
 
-      session.seaChart.currentLeg = 3;
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
       session.dispatch(const TakeHelm());
       expect(session.phase, SessionPhase.helm);
 
