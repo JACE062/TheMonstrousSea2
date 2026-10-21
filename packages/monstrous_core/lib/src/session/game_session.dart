@@ -104,6 +104,7 @@ class GameSession {
   String currentIslandName = '';
   String currentShipwreckName = '';
   bool hasSalvagedCurrentWreck = false;
+  List<String> wreckSalvageReceipt = <String>[];
 
   String currentSmugglerName = '';
   List<Item> smugglerStock = <Item>[];
@@ -564,6 +565,9 @@ class GameSession {
     if (phase != SessionPhase.restArea && phase != SessionPhase.shipwreck) {
       throw StateError('Cannot advance to next battle from $phase');
     }
+    if (phase == SessionPhase.shipwreck && pendingLoot.isNotEmpty) {
+      throw StateError('Stow or leave the remaining wreck supplies before departing');
+    }
     if (phase == SessionPhase.shipwreck && !hasSalvagedCurrentWreck) {
       throw StateError(
           'Must choose a salvage action before departing the shipwreck derelict');
@@ -652,6 +656,9 @@ class GameSession {
       runicGuidanceBoon = 0;
       shrineManifestedPowers = const [];
     }
+    if (phase == SessionPhase.shipwreck && pendingLoot.isNotEmpty) {
+      throw StateError('Stow or leave the remaining wreck supplies before departing');
+    }
     if (phase == SessionPhase.shipwreck && !hasSalvagedCurrentWreck) {
       throw StateError(
           'Must choose a salvage action before departing the shipwreck derelict');
@@ -736,24 +743,8 @@ class GameSession {
       profile.isPactActive(CovenantPactId.apexEmergence),
     );
 
-    // Reckless Helmsman: "Dead Ahead" heading is disabled at sea
-    if (activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&
-        bearing == NavigationalBearing.deadAhead &&
-        seaChart.currentCourseOptions.length > 1) {
-      throw StateError('Reckless Helmsman refuses to steer Dead Ahead!');
-    }
-
-    // Blood Oath: If Nemesis is visible on the helm, wheel locks onto it
-    if (activeQuirk?.id == BloodlineTraitId.bloodOath) {
-      final nemesisCourse = seaChart.currentCourseOptions
-          .where((opt) => opt.isNemesis)
-          .firstOrNull;
-      if (nemesisCourse != null && bearing != nemesisCourse.bearing) {
-        throw StateError(
-          'Blood Oath compels the wheel: you cannot steer away from your Nemesis!',
-        );
-      }
-    }
+    final restriction = courseRestriction(bearing);
+    if (restriction != null) throw StateError(restriction);
 
     final chosen = seaChart.steerCourse(bearing, rng);
     profile.hasBegunFirstVoyage = true;
@@ -768,6 +759,29 @@ class GameSession {
 
     events.addAll(_startEncounter());
     return events;
+  }
+
+  /// Shared course lock explanation for presentation and engine validation.
+  /// Single-heading Haven/Titan approaches remain reachable.
+  String? courseRestriction(NavigationalBearing bearing) {
+    // Reckless Helmsman: "Dead Ahead" heading is disabled at sea
+    if (activeQuirk?.id == BloodlineTraitId.recklessHelmsman &&
+        bearing == NavigationalBearing.deadAhead &&
+        seaChart.currentCourseOptions.length > 1) {
+      return 'Reckless Helmsman refuses to steer Dead Ahead!';
+    }
+
+    // Blood Oath: If Nemesis is visible on the helm, wheel locks onto it
+    if (activeQuirk?.id == BloodlineTraitId.bloodOath) {
+      final nemesisCourse = seaChart.currentCourseOptions
+          .where((opt) => opt.isNemesis)
+          .firstOrNull;
+      if (nemesisCourse != null && bearing != nemesisCourse.bearing) {
+        return 'Blood Oath compels the wheel: you cannot steer away from your Nemesis!';
+      }
+    }
+
+    return null;
   }
 
   List<GameEvent> _startEncounter() {
@@ -818,6 +832,8 @@ class GameSession {
 
     if (nodeType == EncounterNodeType.shipwreckSalvage) {
       hasSalvagedCurrentWreck = false;
+      wreckSalvageReceipt = <String>[];
+      pendingLoot.clear();
       currentShipwreckName = _generateShipwreckName();
       final prevPhase = phase.displayName;
       phase = SessionPhase.shipwreck;
@@ -1873,7 +1889,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleTakeLootItem(int lootIndex) {
-    if (phase != SessionPhase.loot || ship == null) {
+    if ((phase != SessionPhase.loot && phase != SessionPhase.shipwreck) || ship == null) {
       throw StateError('Cannot take loot outside of loot phase');
     }
     if (lootIndex < 0 || lootIndex >= pendingLoot.length) {
@@ -1883,7 +1899,7 @@ class GameSession {
     if (ship!.addCargo(item)) {
       pendingLoot.removeAt(lootIndex);
       final events = <GameEvent>[ItemAcquired(item: item)];
-      if (pendingLoot.isEmpty) {
+      if (pendingLoot.isEmpty && phase == SessionPhase.loot) {
         final prevPhase = phase.displayName;
         phase = SessionPhase.restArea;
         events.add(PhaseChanged(
@@ -1899,7 +1915,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleTakeAllLoot() {
-    if (phase != SessionPhase.loot || ship == null) {
+    if ((phase != SessionPhase.loot && phase != SessionPhase.shipwreck) || ship == null) {
       throw StateError('Cannot take loot outside of loot phase');
     }
     final events = <GameEvent>[];
@@ -1913,7 +1929,7 @@ class GameSession {
       }
     }
     pendingLoot = itemsToKeep;
-    if (pendingLoot.isEmpty) {
+    if (pendingLoot.isEmpty && phase == SessionPhase.loot) {
       final prevPhase = phase.displayName;
       phase = SessionPhase.restArea;
       events.add(PhaseChanged(
@@ -1925,10 +1941,14 @@ class GameSession {
   }
 
   List<GameEvent> _handleLeaveRemainingLoot() {
-    if (phase != SessionPhase.loot) {
-      throw StateError('Cannot leave loot outside of loot phase');
+    if (phase != SessionPhase.loot && phase != SessionPhase.shipwreck) {
+      throw StateError('Cannot leave loot outside of a reward encounter');
     }
     pendingLoot.clear();
+    if (phase == SessionPhase.shipwreck) {
+      wreckSalvageReceipt.add('Unclaimed supplies left aboard the wreck.');
+      return const <GameEvent>[NarrationEvent('Unclaimed wreck supplies left behind.')];
+    }
     final prevPhase = phase.displayName;
     phase = SessionPhase.restArea;
     return <GameEvent>[
@@ -2090,8 +2110,8 @@ class GameSession {
       ];
     }
 
-    // In open sea rest area, open repairs are limited to Carpenter's Emergency Triage (<25% HP floor)
-    if (phase == SessionPhase.restArea) {
+    // Preserve emergency triage when the UI skips the compatibility rest stop.
+    if (phase == SessionPhase.restArea || phase == SessionPhase.helm) {
       final criticalFloor = (ship!.maxHp * 0.25).ceil();
       if (ship!.currentHp >= criticalFloor) {
         return <GameEvent>[
@@ -2321,31 +2341,39 @@ class GameSession {
 
     switch (choice) {
       case ShipwreckChoice.munitions:
-        final itemLevel = max(1, seaChart.currentDifficulty);
-        final item = randomConsumable(itemLevel, rng);
-        if (ship!.cargo.length < ship!.maxCargo) {
-          ship!.addCargo(item);
-          events.add(ItemAcquired(item: item));
+        final seaGlass = rng.nextIntRange(2, 4);
+        final iron = rng.nextInt(100) < 25 ? 1 : 0;
+        profile.metaInventory.add(seaGlass: seaGlass, depthWroughtIron: iron);
+        wreckSalvageReceipt.add('$seaGlass Sea Glass');
+        if (iron > 0) wreckSalvageReceipt.add('$iron Depth-Wrought Iron');
+        events.add(MetaCurrenciesAwarded(
+          seaGlass: seaGlass,
+          depthWroughtIron: iron,
+          reason: 'Recovered exploration materials from the wreck',
+        ));
+        if (rng.nextInt(100) < 50) {
+          final item = randomConsumable(max(1, seaChart.currentDifficulty), rng);
+          wreckSalvageReceipt.add('Recovered ${item.name}.');
+          if (ship!.addCargo(item)) {
+            events.add(ItemAcquired(item: item));
+          } else {
+            pendingLoot.add(item);
+          }
         } else {
-          pendingLoot.add(item);
-        }
-        if (seaChart.currentRegionIndex >= 1 && rng.nextInt(100) < 50) {
-          profile.metaInventory.add(depthWroughtIron: 1);
-          events.add(const MetaCurrenciesAwarded(
-            depthWroughtIron: 1,
-            reason: 'Salvaged depth-wrought iron plating from wreck',
-          ));
+          wreckSalvageReceipt.add('No usable consumable found.');
         }
         events.add(ShipwreckSalvaged(
-          flavorMessage: 'Recovered military-grade ${item.name} from the shattered armory!',
+          flavorMessage: wreckSalvageReceipt.join(' • '),
           choice: choice,
         ));
 
       case ShipwreckChoice.strongbox:
         final bounty = rng.nextIntRange(60, 120);
         ship!.gold += bounty;
+        wreckSalvageReceipt.add('$bounty gold doubloons');
         final seaGlass = rng.nextIntRange(2, 4);
         profile.metaInventory.add(seaGlass: seaGlass);
+        wreckSalvageReceipt.add('$seaGlass Sea Glass');
         events.add(ShipwreckSalvaged(
           flavorMessage: "Cracked the captain's iron lockbox and salvaged $bounty gold doubloons!",
           choice: choice,
@@ -2367,8 +2395,10 @@ class GameSession {
           heal = (heal * 0.75).round();
         }
         ship!.heal(heal);
+        wreckSalvageReceipt.add('Restored $heal hull HP.');
         final seaGlass = rng.nextIntRange(1, 2);
         profile.metaInventory.add(seaGlass: seaGlass);
+        wreckSalvageReceipt.add('$seaGlass Sea Glass');
         events.add(ShipwreckSalvaged(
           flavorMessage: 'Stripped stout oak and copper plating from the wreck, restoring $heal HP to hull!',
           choice: choice,

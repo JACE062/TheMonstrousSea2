@@ -8,7 +8,7 @@ import 'package:monstrous_sea/main.dart';
 import 'package:monstrous_sea/src/game_controller.dart';
 import 'package:monstrous_sea/src/screens/captain_screen.dart';
 import 'package:monstrous_sea/src/screens/intro_screen.dart';
-import 'package:monstrous_sea/src/screens/rest_screen.dart';
+import 'package:monstrous_sea/src/screens/helm_screen.dart';
 import 'package:monstrous_sea/src/services/storage_service.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
 
@@ -83,7 +83,7 @@ void main() {
       expect(find.byType(CaptainScreen), findsNothing);
       profileReady.complete(ProfileData(hasBegunFirstVoyage: true));
       await tester.pumpAndSettle();
-      expect(find.byType(RestScreen), findsOneWidget);
+      expect(find.byType(HelmScreen), findsOneWidget);
       expect(controller.captainName, 'Returning Captain');
       expect(controller.seaChart.currentLeg, 2);
       expect(find.byType(IntroScreen), findsNothing);

@@ -53,6 +53,8 @@ Combat receipt: [Kraken release and ink, 20 October 2026](playtests/KRAKEN_INK_2
 
 Combat receipt: [Tentacle scaling and counterplay, 20 October 2026](playtests/TENTACLES_2026_10_20.md), including all-blueprint controls, predictable sweeps and 24,000 isolated encounters per version.
 
+Navigation receipt: [Course flow and salvage, 20 October 2026](playtests/NAVIGATION_2026_10_20.md), including transition stability, quirk restrictions, retained emergency triage and persistent wreck rewards.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

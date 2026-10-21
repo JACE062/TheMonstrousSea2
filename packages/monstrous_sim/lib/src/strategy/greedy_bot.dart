@@ -137,6 +137,7 @@ class GreedyBot implements BotStrategy {
         if (!session.hasSalvagedCurrentWreck) {
           return const SalvageShipwreck(ShipwreckChoice.strongbox);
         }
+        if (session.pendingLoot.isNotEmpty) return const LeaveRemainingLoot();
         return const TakeHelm();
 
       case SessionPhase.smuggler:

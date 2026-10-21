@@ -203,7 +203,7 @@ class LootScreen extends StatelessWidget {
                     if (pendingLoot.isNotEmpty && !isFull) const SizedBox(width: 12),
                     Expanded(
                       child: InkButton(
-                        label: pendingLoot.isEmpty ? 'PROCEED TO NEXT REST' : 'LEAVE LEFTOVER & PROCEED',
+                        label: pendingLoot.isEmpty ? 'CONTINUE VOYAGE' : 'LEAVE LEFTOVER & CONTINUE',
                         onPressed: () => controller.dispatch(const LeaveRemainingLoot()),
                       ),
                     ),

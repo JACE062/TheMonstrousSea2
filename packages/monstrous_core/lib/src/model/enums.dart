@@ -339,7 +339,7 @@ enum EncounterNodeType {
 
 /// Strategic salvaging choices available when encountering a floating shipwreck derelict.
 enum ShipwreckChoice {
-  munitions('Salvage Munitions & Weaponry'),
+  munitions('Search Hold for Materials & Supplies'),
   strongbox("Crack the Captain's Strongbox"),
   timbers('Strip Plating & Repair Hull');
 

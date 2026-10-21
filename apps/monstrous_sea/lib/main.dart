@@ -167,6 +167,22 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
     // 2. Active Screen based on SessionPhase
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 350),
+      layoutBuilder: (current, previous) => Stack(
+        alignment: Alignment.center,
+        children: [
+          for (final outgoing in previous)
+            IgnorePointer(
+              key: outgoing.key,
+              child: ExcludeFocus(child: outgoing),
+            ),
+          if (current != null)
+            IgnorePointer(
+              key: current.key,
+              ignoring: false,
+              child: ExcludeFocus(excluding: false, child: current),
+            ),
+        ],
+      ),
       child: _resolveScreenForPhase(),
     );
   }

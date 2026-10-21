@@ -8,6 +8,7 @@ import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pilot_art.dart';
 import '../widgets/svg_asset_view.dart';
+import '../widgets/wreck_supplies_view.dart';
 
 /// Screen rendered upon discovering a floating shipwreck derelict,
 /// offering tactical choices between salvaging munitions, cracking the gold
@@ -40,8 +41,10 @@ class ShipwreckScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Top Navigation Bar
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Wrap(
+                  spacing: 16,
+                  runSpacing: 8,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     InkButton(
                       label: 'SEA CHART',
@@ -125,16 +128,16 @@ class ShipwreckScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Scour Hold for Munitions & Weaponry',
+                                'Search Hold for Materials & Supplies',
                                 style: InkTheme.statValue.copyWith(fontSize: 16),
                               ),
                               Text(
-                                'Send a boarding party to pry open armory lockers for heavy naval weapons or exotic alchemy.',
+                                'Search sealed lockers for salvage materials and usable tactical supplies.',
                                 style: InkTheme.caption,
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'Rewards 1 Military-Grade Weapon or Consumable',
+                                '2–4 Sea Glass • 25% chance: 1 Depth-Wrought Iron • 50% chance: 1 consumable',
                                 style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
                               ),
                             ],
@@ -142,7 +145,7 @@ class ShipwreckScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 12),
                         InkButton(
-                          label: 'SALVAGE ARMS',
+                          label: 'SEARCH HOLD',
                           isPrimary: true,
                           onPressed: () => controller.dispatch(
                             const SalvageShipwreck(ShipwreckChoice.munitions),
@@ -178,7 +181,7 @@ class ShipwreckScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'Rewards 60–120 Gold Doubloons Directly to Purse',
+                                '60–120 gold doubloons + 2–4 Sea Glass',
                                 style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
                               ),
                             ],
@@ -222,7 +225,7 @@ class ShipwreckScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'Restores 25% Max Hull Vitality',
+                                'Restore up to 25% max hull (healing penalties apply) + 1–2 Sea Glass',
                                 style: InkTheme.statLabel.copyWith(color: InkTheme.greenAccent),
                               ),
                             ],
@@ -259,7 +262,7 @@ class ShipwreckScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 6),
                         Text(
-                          'The derelict begins to sink beneath the rolling swells. Your hold is secured and the wind is rising.',
+                          controller.session.wreckSalvageReceipt.join('\n'),
                           style: InkTheme.body,
                           textAlign: TextAlign.center,
                         ),
@@ -268,12 +271,18 @@ class ShipwreckScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // Depart Button
+                  if (controller.pendingLoot.isNotEmpty) ...[
+                    WreckSuppliesView(controller: controller),
+                    const SizedBox(height: 16),
+                  ],
+                  // Depart only after explicitly resolving any overflow.
                   InkButton(
                     label: 'LEAVE WRECK & TAKE THE HELM',
                     semanticLabel: 'Leave the salvaged derelict and take the helm to set course',
                     isPrimary: true,
-                    onPressed: () => controller.dispatch(const TakeHelm()),
+                    onPressed: controller.pendingLoot.isNotEmpty
+                        ? null
+                        : () => controller.dispatch(const TakeHelm()),
                   ),
                 ],
               ],

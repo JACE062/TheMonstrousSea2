@@ -1,6 +1,6 @@
 # Playtest backlog
 
-Status: work consolidated on 20 October 2026. PT2-01–22 retain the original playtest observations; PT2-23/24 record the follow-up. Issues remain open unless explicitly marked resolved or implemented below. Source findings are dated observations, not proof of runtime reproduction.
+Status: work consolidated on 20 October 2026. PT2-01–22 retain the original playtest observations; PT2-23/24 record the follow-up; PT2-25 records the later ship-asset failure; PT2-26 tracks the heir trait review. Issues remain open unless explicitly marked resolved or implemented below. Source findings are dated observations, not proof of runtime reproduction.
 
 Read [Current game](CURRENT_GAME.md) for approved baseline rules and [Lore](LORE.md) for canon. A reported symptom, approved requested outcome, unresolved design choice and deferred feature remain distinct. Preserve the six original [screenshot evidence files](playtests/2026-10-20/), follow-up evidence, and issue IDs when updating status. Historical receipts are indexed in [the archive](archive/README.md).
 
@@ -13,13 +13,14 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | Initial follow-up | Restore the guaranteed Nemesis choice; investigate the death ledger | PT2-24, PT2-23 | Nemesis is an optional, reachable second-half course in its killer region; the ledger counts actual deaths rather than candidate heirs. See individual statuses. |
 | A — implemented, awaiting player replay | Protect voyage and succession continuity | PT2-19, PT2-21, PT2-14; voyage upgrades from PT2-20 | Strongholds preserve the current run and blessings; home-only blueprint actions stay at home; succession cannot lead into a dead menu. |
 | B | Audit combat avoidance, boss damage, and regional scaling | PT2-12, PT2-17, PT2-18, PT2-22 | Seeded examples explain hit/dodge odds, Kraken catastrophe damage, and ordinary squid strength; agreed fixes have deterministic coverage. |
-| C | Shorten navigation and make outcomes explicit | PT2-09, PT2-10, PT2-15, PT2-16 | Ordinary victories lead efficiently to course selection; headings do not flash replacements; restrictions and salvage rewards are visible. |
+| C — implemented, positive player replay | Shorten navigation and make outcomes explicit | PT2-09, PT2-10, PT2-15, PT2-16 | Ordinary victories lead efficiently to course selection; headings do not flash replacements; restrictions and salvage rewards are visible. |
 | D | Discuss the opening and shared family identity | PT2-01, PT2-02 | Agree on a spoiler-light prologue and permanent surname rules, including legacy-save migration, before implementation. |
 | E | Design the command station and useful sea chart | PT2-03, PT2-08, PT2-11, PT2-13 | Review layouts and terminology at realistic window sizes/text scales before replacing the existing presentation. Apex naming can be a small independent fix. |
 | F | Specify and implement post-boss progression / Phase 4 | PT2-20, depends on A | Strongholds offer the agreed hull/mark upgrades and exactly scoped Master Refits, with run persistence and blueprint-specific choices. |
+| G — discussion required | Revamp heir Boons and Quirks | PT2-26 | Audit all ten traits against current mechanics, agree on meaningful effects/tradeoffs and saved-heir handling, then implement with accurate descriptions. |
 | Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](#deferred-ui-art-and-icons); audit existing assets first. No image generation in this batch. |
 
-The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and Kraken release fixes are implemented. B's initial tentacle/regional-scaling values are also implemented. Player replay should evaluate the stronghold boundary and combat changes; next implementation chunk is C. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
+The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and Kraken release fixes are implemented. B's initial tentacle/regional-scaling values are also implemented. Navigation chunk C is also implemented, and the player reports the changes are looking good in playtesting. Broader replay should still evaluate the stronghold boundary and combat changes. The newly reported arena asset failure (PT2-25) remains open. F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
 
 ## Opening and lineage
 
@@ -80,6 +81,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-09 — Redundant post-fight inspection screen
 
+- **Status: implemented; positive player replay reported.** The app resolves the core's compatibility Rest checkpoint directly into Setting Course after loot decisions. Titan rewards instead reach the stronghold/final resolution through the existing engine route. Inspection defaults closed below the headings, and emergency triage remains available on the helm with its existing 25% floor and gold cost. Restored old Rest checkpoints follow the same route. No island, shrine, or wreck decision is skipped.
+
 - **Evidence:** [Screenshot 4](playtests/2026-10-20/04-post-fight-scroll.png) requires scrolling through hardpoints, belt items, and the unavailable carpenter's workbench to reach navigation. [Screenshot 5](playtests/2026-10-20/05-setting-course.png) already offers the chart, collapsible inspection, hull status, and headings.
 - **Proposed direction:** After ordinary victory/loot collection, proceed directly to Setting Course and keep inspection collapsed by default. Remove or bypass the redundant Rest screen in that flow. Preserve any meaningful rewards or decisions rather than silently skipping them.
 - **Exceptions to design explicitly:** Titan victory must reach the stronghold or final resolution; island duties, shrine choices, and shipwreck salvage still require their own decisions. Empty loot and a full belt must also lead somewhere valid.
@@ -88,11 +91,15 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-10 — Headings briefly flash different encounter options
 
+- **Status: transition fix implemented and verified; positive player replay reported.** The outgoing Helm screen retains its rendered view during AnimatedSwitcher's fade rather than rebuilding from the next encounter's mutable chart. Steering is guarded against duplicate activation; outgoing screens also ignore input/focus. Offered helm choices and resolved loot/wreck checkpoints retain their saved state across reload. This does not add mid-combat resume; battles still use the existing between-encounter checkpoint policy.
+
 - **Reported:** Clicking a heading briefly replaces the three lookout options before the next screen appears. No screenshot was captured.
 - **Investigation lead:** [SeaChart.steerCourse](../packages/monstrous_core/lib/src/rules/sea_chart.dart) generates the next options while the UI observes mutable controller state. [HelmScreen](../apps/monstrous_sea/lib/src/screens/helm_screen.dart) renders those live options. Confirm notification/transition ordering before calling this the cause.
 - **Acceptance:** Once committed, the chosen course remains stable until departure. No replacement options flash, duplicate clicks cannot steer twice, and reload does not roll a new encounter.
 
 ### PT2-15 — Reckless Helmsman restriction is not communicated
+
+- **Status: implemented; positive player replay reported.** The UI and engine share the course-restriction reason. Restricted cards show a disabled heading button, persistent readable explanation, tooltip and semantic hint. Blood Oath alternatives use the same presentation; guaranteed Haven/Titan approaches remain reachable.
 
 - **Reported:** Dead Ahead does not look clearly unavailable for an heir with that quirk.
 - **Requested outcome:** Disable and visibly distinguish the restricted heading; hover/focus explains the active quirk, and touch users have an equivalent explanation. An engine rejection alone is insufficient.
@@ -101,12 +108,21 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-16 — Shipwreck salvage promises retired loot and hides the result
 
+- **Status: approved starting rewards implemented; positive player replay reported.** Search Hold always grants 2–4 Sea Glass, independently rolls a 25% chance of 1 Depth-Wrought Iron and a 50% chance of one single-use consumable, in every region. The user approved these values. Strongbox remains 60–120 gold + 2–4 Sea Glass; timbers retain up-to-25% hull healing, existing penalties and 1–2 Sea Glass. Exact receipts (including no consumable/zero healing), the spent salvage choice and any belt overflow persist. Full belts offer jettison/stow/leave controls and require an explicit resolution before departure; rewards cannot be claimed twice after reload. See the [verification receipt](archive/README.md#later-verification-receipts).
+
 - **Reported:** “Scour Hold for Munitions & Weaponry” promises a military-grade weapon or consumable, despite weapons no longer dropping. The completion screen does not show what was received.
-- **Source finding:** [_handleSalvageShipwreck](../packages/monstrous_core/lib/src/session/game_session.dart) currently awards a consumable, with a possible Depth-Wrought Iron reward in later regions; other salvage choices award gold/healing and Sea Glass. The [screen](../apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart) ends with generic “SALVAGE COMPLETE” text even though reward events exist.
-- **Requested direction:** Describe the desired exploration salvage as common materials, sometimes rare materials, and perhaps a consumable. Exact rates and whether a consumable is guaranteed remain to be agreed; do not claim those probabilities are already implemented. Keep strongbox/timber alternatives distinct.
+- **Source finding before the fix:** [_handleSalvageShipwreck](../packages/monstrous_core/lib/src/session/game_session.dart) currently awards a consumable, with a possible Depth-Wrought Iron reward in later regions; other salvage choices award gold/healing and Sea Glass. The [screen](../apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart) ends with generic “SALVAGE COMPLETE” text even though reward events exist.
+- **Requested direction:** Describe the desired exploration salvage as common materials, sometimes rare materials, and perhaps a consumable. The approved rates above now resolve the previously open probability decision; they remain starting values for playtesting. Keep strongbox/timber alternatives distinct.
 - **Acceptance:** Preview matches the actual reward table. Display exact materials, quantities, item, gold, or healing received; explain a no-item result. A full belt offers visible overflow/claim/jettison handling, rather than an invisible item left in `pendingLoot`. Rewards cannot be claimed twice and their persistence is verified.
 
 ## Combat mechanics and the command station
+
+### PT2-25 — Battle arena fails to load the Standard ship image
+
+- **Reported:** The arena turns red with Flutter's `Unable to load asset: assets/art/ship_standard_map.png` error beneath the ship HUD. [Screenshot](playtests/2026-10-20/08-missing-standard-ship-asset.png).
+- **Status: recorded; runtime reproduction pending.** The PNG exists in the source asset directory. That does not establish that the running build contains it or that Flame loaded it successfully; the cause remains unconfirmed.
+- **Starting points:** [PilotArt](../apps/monstrous_sea/lib/src/widgets/pilot_art.dart), [battle scene loading](../apps/monstrous_sea/lib/src/battle/monstrous_sea_battle_game.dart), and the Flutter asset bundle/build.
+- **Acceptance:** Repeated battles and scene transitions load approved ship art in a clean Windows build; loading failure has a readable fallback instead of replacing the arena with a raw error. Keep this separate from deferred new art generation.
 
 ### PT2-11 — Combat UI does not function as a readable command station
 
@@ -159,6 +175,24 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 - **Balance follow-up:** The [reproducible audit](../packages/monstrous_sim/bin/audit_tentacles.dart) compares 24,000 isolated full-health fights per version across five blueprints, six encounter types, stock/Hull-II-Mk-II builds, simple fire-only/helm-and-utility tactics and starting-armor controls. Starting-armor controls still permit active utility to add armor; no blessings, consumables, permanent stat upgrades or unavailable Master Refits are assumed. The same 100 seeds per cell improve upgraded Standard's opening-R2 result from 92 to 99 victories and late-R2 from 12 to 74; the earlier 10 step-limit outcomes disappear. These are encounter comparisons, not human voyage win rates or proof that the old limit cases were soft locks. Armor remains valuable; later-region whole-run difficulty still needs playtesting.
 
 ## Succession, strongholds, and build persistence
+
+### PT2-26 — Revamp heir Boons and Quirks for current mechanics
+
+- **Reported / requested:** Several heir traits describe obsolete systems, overlap baseline abilities or promise benefits that are not apparent in play. Schedule a separate design discussion and implementation task; replacement effects and values are **not yet agreed**. Review the whole five-Boon/five-Quirk catalog, starting with the four below.
+- **Status: open — discussion required.** These are source observations from 20 October 2026, not runtime reproductions or approved replacement rules.
+
+| Trait | Player concern | Current source finding / discussion scope |
+| --- | --- | --- |
+| Drillmaster | Says consumables do not consume an action, which is already standard behavior. | The live consumable handler and battle UI actually allow **two quick consumables per round instead of one**. The heir description and special narration still describe the old advantage. Decide whether to keep this existing distinct benefit with truthful copy or redesign it. |
+| Iron Constitution | Promises 50% instead of 25% Burn/Poison wear-off, apparently conflicting with timed statuses and uncertain enemy application. | No runtime use of this Boon ID was found outside its catalog. Enemies **can** Poison the ship (including Brine Jet, Nematocyst Curtain and Serpent venom); Leviathan's release can Burn it. The shared status processor still uses probabilistic recovery for ship Burn/Poison, whereas Magma Burn on monsters has a turn counter. Reconcile this remaining mixed status model and decide the Boon's role; do not assume all effects are already timed or that the promised doubled recovery is implemented. |
+| Storm-Seer | References high gales and drift damage; unclear whether this means regional hazards. | No gameplay hook for this Boon ID was found. The current trait copy alone does not establish a gale encounter or +10 HP conversion. Discuss a useful navigation/environment benefit tied to encounters that actually exist, without inventing gales to justify the old text. |
+| Superstitious | Refuses obsolete Abyssal Pacts and promises immunity to absent Siren charms, confusion and fear. Blocking current Blessings could undermine normal run scaling. | The restriction exists in the old `CommuneWithShrine(abyssalPact)` branch; the current `AcceptShrineBlessing` handler does **not** check Superstitious. No current immunity implementation was found for the named effects. Distinguish this inactive legacy restriction from live Blessings; agree on a meaningful current tradeoff rather than automatically extending the prohibition to Blessings. |
+
+- **Sources:** [trait descriptions](../packages/monstrous_core/lib/src/lore/trait_lore.dart), [trait/heir IDs and serialization](../packages/monstrous_core/lib/src/model/bloodline_trait.dart), [session handlers](../packages/monstrous_core/lib/src/session/game_session.dart), [monster status application](../packages/monstrous_core/lib/src/rules/monster_ai.dart), [status processing](../packages/monstrous_core/lib/src/rules/combat.dart), and [battle quick-item controls](../apps/monstrous_sea/lib/src/screens/battle_screen.dart).
+- **Discussion / implementation scope:** Audit every trait's actual hook, frequency of usefulness, downside and description against the three-hardpoint, single-use belt, heading, blessing and regional systems. Decide which traits stay, change or are replaced; distinguish Boons from Quirks with benefits/costs the player can understand before selecting an heir. Review current and pending heirs in existing saves before changing stable trait IDs or silently reinterpreting a saved choice.
+- **Constraints:** Retired mechanics and compatibility handlers are not requirements. Do not introduce charms/fear/confusion, gale encounters, old shrine pacts or a new status-duration model merely to make old descriptions true. Any such new system needs its own explicit design decision. Preserve essential blessing access unless an alternative progression path is deliberately agreed.
+- **Acceptance:** Every offered trait describes an implemented, reachable and meaningful effect; the heir screen and in-run reminders agree with the engine. Test accepted effects, restrictions, status/quick-action interactions, and save/reload of active and pending heirs. No dead benefit, baseline ability presented as a unique Boon, or unimplemented immunity remains in the offered catalog.
+
 
 ### PT2-23 — Death ledger appears to count unchosen heirs
 

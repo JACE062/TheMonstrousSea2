@@ -69,6 +69,7 @@ class GameController extends ChangeNotifier {
   /// Returns true if the encounter at the sea chart coordinate has been slain
   /// (e.g. during loot or rest area).
   bool get isCurrentEncounterDefeated =>
+      session.hasDefeatedCurrentEncounter ||
       phase == SessionPhase.restArea ||
       phase == SessionPhase.loot ||
       (currentMonster != null && !currentMonster!.isAlive);
@@ -77,6 +78,12 @@ class GameController extends ChangeNotifier {
   /// triggers persistence if enabled, and notifies UI listeners.
   List<GameEvent> dispatch(Command command, {bool deferNotification = false}) {
     final events = session.dispatch(command);
+    // Resolve the core's compatibility rest checkpoint without displaying an
+    // extra inspection stop. TakeHelm owns Titan/stronghold/ending routing.
+    if ((command is TakeLootItem || command is TakeAllLoot || command is LeaveRemainingLoot) &&
+        session.phase == SessionPhase.restArea) {
+      events.addAll(session.dispatch(const TakeHelm()));
+    }
     lastEvents = events;
 
     for (final event in events) {
@@ -104,6 +111,10 @@ class GameController extends ChangeNotifier {
     final activeVoyage = await storage.loadVoyage();
     if (activeVoyage != null) {
       activeVoyage.restoreToSession(session);
+      if (session.phase == SessionPhase.restArea) {
+        session.dispatch(const TakeHelm());
+        if (autoSave) await persistState();
+      }
     }
     notifyListeners();
   }
@@ -116,6 +127,8 @@ class GameController extends ChangeNotifier {
     final clearCheckpoint = phase == SessionPhase.death || phase == SessionPhase.ended || atHome;
     final checkpointPhase = phase == SessionPhase.stronghold ||
         (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.stronghold) ||
+        phase == SessionPhase.shipwreck ||
+        phase == SessionPhase.loot ||
         phase == SessionPhase.helm ||
         phase == SessionPhase.restArea ||
         phase == SessionPhase.respiteIsland;

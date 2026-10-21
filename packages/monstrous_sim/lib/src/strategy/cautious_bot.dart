@@ -183,6 +183,7 @@ class CautiousBot implements BotStrategy {
           }
           return const SalvageShipwreck(ShipwreckChoice.strongbox);
         }
+        if (session.pendingLoot.isNotEmpty) return const LeaveRemainingLoot();
         return const TakeHelm();
 
       case SessionPhase.smuggler:

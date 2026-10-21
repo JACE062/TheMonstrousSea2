@@ -29,6 +29,19 @@ class HelmScreen extends StatefulWidget {
 
 class _HelmScreenState extends State<HelmScreen> {
   bool _showingArmory = false;
+  bool _departing = false;
+  Widget? _lastHelmView;
+
+  void _steer(NavigationalBearing bearing) {
+    if (_departing || widget.controller.phase != SessionPhase.helm) return;
+    setState(() => _departing = true);
+    try {
+      widget.controller.dispatch(SteerCourse(bearing));
+    } catch (_) {
+      if (mounted) setState(() => _departing = false);
+      rethrow;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +49,16 @@ class _HelmScreenState extends State<HelmScreen> {
       listenable: widget.controller,
       builder: (context, _) {
         final controller = widget.controller;
+        // AnimatedSwitcher keeps the outgoing screen alive during its fade.
+        // Preserve that rendered view instead of reading the next encounter's
+        // mutable chart state, and prevent a second click during departure.
+        if (_departing || controller.phase != SessionPhase.helm) {
+          return IgnorePointer(
+            child: ExcludeFocus(
+              child: _lastHelmView ?? const SizedBox.shrink(),
+            ),
+          );
+        }
         final onOpenChart = widget.onOpenChart;
         final ship = controller.ship;
         final options = controller.currentCourseOptions;
@@ -43,7 +66,7 @@ class _HelmScreenState extends State<HelmScreen> {
         final totalLegs = controller.totalLegs;
         final regionTitle = controller.seaChart.currentRegionName;
 
-        return ParchmentScaffold(
+        return _lastHelmView = ParchmentScaffold(
           body: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 820),
@@ -56,8 +79,10 @@ class _HelmScreenState extends State<HelmScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     // Top Bar
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Wrap(
+                      spacing: 16,
+                      runSpacing: 8,
+                      crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
                         InkButton(
                           label: 'CONSULT SEA CHART',
@@ -161,6 +186,74 @@ class _HelmScreenState extends State<HelmScreen> {
                       const SizedBox(height: 16),
                     ],
 
+                    if (controller.canEmergencyRepairAtSea) ...[
+                      ParchmentCard(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              'EMERGENCY HULL TRIAGE',
+                              style: InkTheme.statValue,
+                            ),
+                            Text(
+                              'Patch the hull to 25% integrity before choosing a heading.',
+                              style: InkTheme.body,
+                            ),
+                            InkButton(
+                              label:
+                                  'PATCH TO 25% · ${controller.emergencyRepairCost}g',
+                              onPressed:
+                                  ship != null &&
+                                      ship.gold >=
+                                          controller.emergencyRepairCost
+                                  ? () => controller.dispatch(
+                                      const RepairShip(0.25),
+                                    )
+                                  : null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                    ],
+                    Text(
+                      options.length == 1
+                          ? 'LOOKOUT OBSERVATION • CONVERGENT APPROACH'
+                          : 'LOOKOUT OBSERVATIONS & COURSES',
+                      style: InkTheme.statValue.copyWith(
+                        color: InkTheme.goldAccent,
+                        letterSpacing: 1.2,
+                        fontSize: 14,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+
+                    // Course Option Cards
+                    if (options.isEmpty)
+                      ParchmentCard(
+                        padding: const EdgeInsets.all(24),
+                        child: Center(
+                          child: Text(
+                            'Awaiting the navigator to verify current soundings...',
+                            style: InkTheme.body,
+                          ),
+                        ),
+                      )
+                    else
+                      ...options.map((option) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: _CourseOptionCard(
+                            option: option,
+                            restriction: controller.session.courseRestriction(
+                              option.bearing,
+                            ),
+                            onSteer: _departing
+                                ? null
+                                : () => _steer(option.bearing),
+                          ),
+                        );
+                      }),
                     // Armory Toggle
                     ParchmentCard(
                       padding: const EdgeInsets.symmetric(
@@ -202,42 +295,6 @@ class _HelmScreenState extends State<HelmScreen> {
                       ArmoryView(controller: controller),
                     ],
                     const SizedBox(height: 20),
-
-                    Text(
-                      options.length == 1
-                          ? 'LOOKOUT OBSERVATION • CONVERGENT APPROACH'
-                          : 'LOOKOUT OBSERVATIONS & COURSES',
-                      style: InkTheme.statValue.copyWith(
-                        color: InkTheme.goldAccent,
-                        letterSpacing: 1.2,
-                        fontSize: 14,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-
-                    // Course Option Cards
-                    if (options.isEmpty)
-                      ParchmentCard(
-                        padding: const EdgeInsets.all(24),
-                        child: Center(
-                          child: Text(
-                            'Awaiting the navigator to verify current soundings...',
-                            style: InkTheme.body,
-                          ),
-                        ),
-                      )
-                    else
-                      ...options.map((option) {
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 12),
-                          child: _CourseOptionCard(
-                            option: option,
-                            onSteer: () => controller.dispatch(
-                              SteerCourse(option.bearing),
-                            ),
-                          ),
-                        );
-                      }),
                   ],
                 ),
               ),
@@ -250,10 +307,15 @@ class _HelmScreenState extends State<HelmScreen> {
 }
 
 class _CourseOptionCard extends StatelessWidget {
-  const _CourseOptionCard({required this.option, required this.onSteer});
+  const _CourseOptionCard({
+    required this.option,
+    required this.onSteer,
+    this.restriction,
+  });
 
   final CourseOption option;
-  final VoidCallback onSteer;
+  final VoidCallback? onSteer;
+  final String? restriction;
 
   @override
   Widget build(BuildContext context) {
@@ -351,11 +413,24 @@ class _CourseOptionCard extends StatelessWidget {
           const SizedBox(height: 12),
 
           // Steer Button
-          InkButton(
-            label: 'STEER THIS HEADING',
-            isPrimary: option.bearing == NavigationalBearing.deadAhead,
-            semanticLabel: 'Steer ship heading ${option.bearing.displayName}',
-            onPressed: onSteer,
+          if (restriction != null) ...[
+            Text(
+              restriction!,
+              style: InkTheme.body.copyWith(color: InkTheme.crimsonAccent),
+            ),
+            const SizedBox(height: 8),
+          ],
+          Tooltip(
+            message: restriction ?? 'Steer ${option.bearing.displayName}',
+            child: InkButton(
+              label: restriction != null
+                  ? 'HEADING UNAVAILABLE'
+                  : 'STEER THIS HEADING',
+              isPrimary: option.bearing == NavigationalBearing.deadAhead,
+              semanticLabel: 'Steer ship heading ${option.bearing.displayName}',
+              semanticHint: restriction,
+              onPressed: restriction != null ? null : onSteer,
+            ),
           ),
         ],
       ),

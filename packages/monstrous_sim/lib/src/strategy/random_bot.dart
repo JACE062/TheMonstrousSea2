@@ -110,6 +110,7 @@ class RandomBot implements BotStrategy {
           final choices = ShipwreckChoice.values;
           return SalvageShipwreck(choices[rng.nextInt(choices.length)]);
         }
+        if (session.pendingLoot.isNotEmpty) return const LeaveRemainingLoot();
         return const TakeHelm();
 
       case SessionPhase.smuggler:

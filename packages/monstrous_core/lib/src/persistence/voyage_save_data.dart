@@ -21,6 +21,7 @@ class VoyageSaveData {
     this.activeQuirkId,
     required this.phase,
     this.battleRound = 1,
+    this.lastGoldSalvaged = 0,
     this.monstersDefeatedThisLife = 0,
     this.highestDifficultyThisLife = 1,
     List<Item>? pendingLoot,
@@ -31,6 +32,9 @@ class VoyageSaveData {
     this.seaChartState,
     this.hasDefeatedCurrentEncounter = false,
     this.merchantReturnPhase,
+    this.hasSalvagedCurrentWreck = false,
+    this.currentShipwreckName = '',
+    this.wreckSalvageReceipt = const [],
   }) : pendingLoot = pendingLoot ?? <Item>[],
        merchantStock = merchantStock ?? <Item>[];
 
@@ -70,12 +74,16 @@ class VoyageSaveData {
       activeBoonId: boonId,
       activeQuirkId: quirkId,
       phase: phase,
+      hasSalvagedCurrentWreck: json['hasSalvagedCurrentWreck'] as bool? ?? false,
+      currentShipwreckName: json['currentShipwreckName'] as String? ?? '',
+      wreckSalvageReceipt: (json['wreckSalvageReceipt'] as List?)?.cast<String>() ?? const [],
       merchantReturnPhase: json['merchantReturnPhase'] == 'stronghold'
           ? SessionPhase.stronghold
           : json['merchantReturnPhase'] == 'port'
           ? SessionPhase.port
           : null,
       battleRound: json['battleRound'] as int? ?? 1,
+      lastGoldSalvaged: json['lastGoldSalvaged'] as int? ?? 0,
       monstersDefeatedThisLife: json['monstersDefeatedThisLife'] as int? ?? 0,
       highestDifficultyThisLife: json['highestDifficultyThisLife'] as int? ?? 1,
       pendingLoot: lootList,
@@ -99,8 +107,12 @@ class VoyageSaveData {
   final BloodlineTraitId? activeBoonId;
   final BloodlineTraitId? activeQuirkId;
   final SessionPhase phase;
+  final bool hasSalvagedCurrentWreck;
+  final String currentShipwreckName;
+  final List<String> wreckSalvageReceipt;
   final SessionPhase? merchantReturnPhase;
   final int battleRound;
+  final int lastGoldSalvaged;
   final int monstersDefeatedThisLife;
   final int highestDifficultyThisLife;
   final List<Item> pendingLoot;
@@ -121,8 +133,12 @@ class VoyageSaveData {
     'activeBoonId': activeBoonId?.name,
     'activeQuirkId': activeQuirkId?.name,
     'phase': phase.name,
+    'hasSalvagedCurrentWreck': hasSalvagedCurrentWreck,
+    'currentShipwreckName': currentShipwreckName,
+    'wreckSalvageReceipt': wreckSalvageReceipt,
     'merchantReturnPhase': merchantReturnPhase?.name,
     'battleRound': battleRound,
+    'lastGoldSalvaged': lastGoldSalvaged,
     'monstersDefeatedThisLife': monstersDefeatedThisLife,
     'highestDifficultyThisLife': highestDifficultyThisLife,
     'pendingLoot': pendingLoot.map((e) => e.toJson()).toList(),
@@ -149,8 +165,12 @@ class VoyageSaveData {
       activeBoonId: session.activeBoon?.id,
       activeQuirkId: session.activeQuirk?.id,
       phase: session.phase,
+      hasSalvagedCurrentWreck: session.hasSalvagedCurrentWreck,
+      currentShipwreckName: session.currentShipwreckName,
+      wreckSalvageReceipt: List<String>.from(session.wreckSalvageReceipt),
       merchantReturnPhase: session.merchantReturnPhase,
       battleRound: session.battleRound,
+      lastGoldSalvaged: session.lastGoldSalvaged,
       monstersDefeatedThisLife: session.monstersDefeatedThisLife,
       highestDifficultyThisLife: session.highestDifficultyThisLife,
       pendingLoot: List<Item>.from(session.pendingLoot),
@@ -205,9 +225,13 @@ class VoyageSaveData {
             ? SessionPhase.stronghold
             : SessionPhase.port);
     session.battleRound = battleRound;
+    session.lastGoldSalvaged = lastGoldSalvaged;
     session.monstersDefeatedThisLife = monstersDefeatedThisLife;
     session.highestDifficultyThisLife = highestDifficultyThisLife;
     session.pendingLoot = List<Item>.from(pendingLoot);
+    session.hasSalvagedCurrentWreck = hasSalvagedCurrentWreck;
+    session.currentShipwreckName = currentShipwreckName;
+    session.wreckSalvageReceipt = List<String>.from(wreckSalvageReceipt);
     session.merchantStock = List<Item>.from(merchantStock);
     session.onSaleMerchantIndex = onSaleMerchantIndex;
     session.gunneryAccuracyBoon = gunneryAccuracyBoon;

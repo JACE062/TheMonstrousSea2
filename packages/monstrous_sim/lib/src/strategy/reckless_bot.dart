@@ -118,6 +118,7 @@ class RecklessBot implements BotStrategy {
         if (!session.hasSalvagedCurrentWreck) {
           return const SalvageShipwreck(ShipwreckChoice.munitions);
         }
+        if (session.pendingLoot.isNotEmpty) return const LeaveRemainingLoot();
         return const TakeHelm();
 
       case SessionPhase.smuggler:

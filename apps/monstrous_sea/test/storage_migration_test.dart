@@ -60,7 +60,7 @@ void main() {
       expect(controller.profile.metaInventory.seaGlass, 15);
       expect(controller.profile.metaInventory.monsterBone, 8);
       expect(controller.captainName, 'Returning Captain');
-      expect(controller.phase, SessionPhase.restArea);
+      expect(controller.phase, SessionPhase.helm);
       expect(controller.seaChart.currentLeg, 1);
       for (final name in [
         StorageService.profileFileName,
