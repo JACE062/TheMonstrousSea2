@@ -156,7 +156,7 @@ abstract final class MonsterIntentLore {
     name: 'Sweeping Tentacles',
     subtitle: 'Stationary • Hits Short & Med',
     description: 'Thrashes all intact arms in a violent broadside sweep that batters close and mid-range vessels.',
-    tacticalTip: 'Multi-hit sweep across Short and Medium Range. Sever tentacles with Slicing weapons or retreat to Long Range!',
+    tacticalTip: 'One strike per remaining tentacle across Short and Medium Range. Retreat to Long to avoid the sweep; Slicing weapons and Harpoon Winch sever limbs to weaken later sweeps. Armor and bracing reduce each hit.',
     telegraphLog: 'raises its writhing crown of arms for a broadside Sweeping Tentacles thrash!',
   );
 

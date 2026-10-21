@@ -491,6 +491,13 @@ MonsterIntent selectNextMonsterIntent(
       final readyWeapons = monster.usableWeapons
           .where((w) => w.chargeCountdown == 0)
           .toList();
+      final isTentacleSweep = intent.id == MonsterIntentId.squidSweepingTentacles;
+      final tentacleWeapon = readyWeapons
+              .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
+              .firstOrNull ??
+          monster.usableWeapons
+              .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
+              .firstOrNull;
       // A catastrophe is a dedicated release, never a random tentacle/ram.
       final chosenWeapon = intent.isUnavoidable
           ? MonsterWeapon(
@@ -504,6 +511,8 @@ MonsterIntent selectNextMonsterIntent(
               damageType: DamageType.blast,
               monsterWeaponType: MonsterWeaponType.ram,
             )
+          : isTentacleSweep
+          ? tentacleWeapon
           : readyWeapons.isNotEmpty
           ? readyWeapons[rng.nextInt(readyWeapons.length)]
           : (monster.usableWeapons.isNotEmpty
@@ -548,7 +557,9 @@ MonsterIntent selectNextMonsterIntent(
               }
             }
           } else {
-            events.add(AttackMissed(targetName: ship.name));
+            events.add(NarrationEvent(
+              '${monster.name} has no intact tentacles left to sweep!',
+            ));
           }
         } else {
           final (res, attackEvents) = calculateAttack(
@@ -896,7 +907,9 @@ List<GameEvent> takeMonsterTurn(
           events.addAll(attackEvents);
         }
       } else {
-        events.add(AttackMissed(targetName: ship.name));
+        events.add(NarrationEvent(
+          '${monster.name} has no intact tentacles left to strike!',
+        ));
       }
     } else {
       final (_, attackEvents) = calculateAttack(

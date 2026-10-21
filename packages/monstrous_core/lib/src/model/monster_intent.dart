@@ -228,6 +228,8 @@ class MonsterIntent {
     required CombatRange currentRange,
     required HelmOrder selectedHelmOrder,
     bool isMonsterPinned = false,
+    int? tentacleCount,
+    int? damagePerTentacle,
   }) {
     final postHelmRange = currentRange.rangeAfterHelmOrder(selectedHelmOrder);
 
@@ -330,6 +332,24 @@ class MonsterIntent {
             isUnavoidable
                 ? 'UNAVOIDABLE: ALL RANGES • $krakenMaelstromBaseDamage base Blast damage before weakening and defenses. Interrupt or brace!'
                 : 'CATASTROPHE IMMINENT: Strikes ALL RANGES (~$estimatedDamage Dmg)! Disrupt with Stun or a windup-breaking blessing, or brace.',
+      );
+    }
+
+    if (id == MonsterIntentId.squidSweepingTentacles &&
+        tentacleCount != null && damagePerTentacle != null) {
+      final perHit = (damagePerTentacle * damageMultiplier).round();
+      final total = tentacleCount * perHit;
+      return IntentPreviewOutcome(
+        status: tentacleCount > 0
+            ? IntentPreviewStatus.inThreatZone
+            : IntentPreviewStatus.nonAttackBuff,
+        playerPostHelmRange: postHelmRange,
+        rangeAtStrike: rangeAtStrike,
+        projectedEndOfRoundRange: endRange,
+        estimatedDamage: total,
+        summaryBadge: tentacleCount > 0
+            ? 'TENTACLE SWEEP: $tentacleCount x $perHit base Blast (up to $total before accuracy, dodge and defenses). Retreat to Long or sever limbs!'
+            : 'NO TENTACLES: No sweep strikes remain.',
       );
     }
 

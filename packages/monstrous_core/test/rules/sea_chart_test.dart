@@ -53,7 +53,7 @@ void main() {
       expect(monster.level, 5);
       expect(monster.maxHp, 300);
       expect(monster.armorClass, 18);
-      expect(monster.numberOfTentacles, 25);
+      expect(monster.numberOfTentacles, 12);
     });
 
     test('non-boss cells on loop 0 spawn random monsters matching row difficulty', () {

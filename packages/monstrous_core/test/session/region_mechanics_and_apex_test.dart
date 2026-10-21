@@ -220,7 +220,7 @@ void main() {
         isApex: true,
       );
       expect(apexSquid.carapacePlating, 35);
-      expect(apexSquid.numberOfTentacles, 5 * 3 + 5);
+      expect(apexSquid.numberOfTentacles, 8); // Six ordinary limbs plus two Apex.
       expect(apexSquid.obscuredAcMod, 25);
 
       // Test Apex Crustacean

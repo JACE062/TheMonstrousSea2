@@ -202,7 +202,7 @@ void main() {
 
       expect(game.images.containsKey(shipArt), isTrue);
       expect(game.images.containsKey(monsterArt), isTrue);
-      if (isBoss) expect(find.textContaining('25 Tentacles'), findsOneWidget);
+      if (isBoss) expect(find.textContaining('12 Tentacles'), findsOneWidget);
       expect(tester.takeException(), isNull);
 
       Future<void> expectVisibleArt() async {

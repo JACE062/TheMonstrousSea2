@@ -272,7 +272,7 @@ void main() {
       final events = takeMonsterTurn(squid, ship, rng);
 
       expect(events.length, equals(1));
-      expect(events.first, isA<AttackMissed>());
+      expect(events.first, isA<NarrationEvent>());
       expect(ship.currentHp, equals(100)); // No damage
     });
   });

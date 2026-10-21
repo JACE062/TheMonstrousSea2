@@ -186,8 +186,13 @@ void main() {
       }
     });
 
-    test('Tentacle: charge 0, blast [2..4] flat, hitMod 70', () {
-      for (var level = 1; level <= 5; level++) {
+    test('Tentacle: preserves early damage and grows every two levels', () {
+      const expected = [
+        (2, 3), (2, 3), (3, 3), (3, 3),
+        (4, 4), (4, 4), (5, 5), (5, 5),
+        (6, 6), (6, 6), (7, 7), (7, 7),
+      ];
+      for (var level = 1; level <= expected.length; level++) {
         final weapon =
             generateMonsterWeapon(MonsterWeaponType.tentacle, level, rng);
         expect(weapon.monsterWeaponType, equals(MonsterWeaponType.tentacle));
@@ -195,7 +200,8 @@ void main() {
         expect(weapon.damageType, equals(DamageType.blast));
         expect(weapon.hitModifier, equals(70));
         expect(weapon.statusEffect, isNull);
-        expect(weapon.damage, inInclusiveRange(2, 4));
+        final (min, max) = expected[level - 1];
+        expect(weapon.damage, inInclusiveRange(min, max), reason: 'Level $level');
       }
     });
 
@@ -445,14 +451,14 @@ void main() {
       }
     });
 
-    test('Squid: HP 45*L, AC 6 + 2*L, tentacles 5*L, obscuredAcMod 20', () {
+    test('Squid: HP 40 + 20*(L-1), tentacles grow from 4 to 8', () {
       for (var level = 1; level <= 4; level++) {
         final squid = createSquid(level: level, rng: rng);
         expect(squid.species, equals(MonsterSpecies.squid));
         expect(squid.level, equals(level));
-        expect(squid.maxHp, equals(45 * level));
+        expect(squid.maxHp, equals(40 + 20 * (level - 1)));
         expect(squid.armorClass, equals(6 + 2 * level));
-        expect(squid.numberOfTentacles, equals(5 * level));
+        expect(squid.numberOfTentacles, equals((level + 3).clamp(4, 8)));
         expect(squid.obscuredAcMod, equals(20));
         final weaponTypes =
             squid.usableWeapons.map((w) => w.monsterWeaponType).toList();
@@ -485,13 +491,13 @@ void main() {
       expect(weaponTypes, equals([MonsterWeaponType.ram, MonsterWeaponType.claw]));
     });
 
-    test('The Kraken: lvl 5, 300 HP, 18 AC, 25 tentacles, obscuredAcMod 25', () {
+    test('The Kraken: lvl 5, 300 HP, 18 AC, 12 tentacles, obscuredAcMod 25', () {
       final kraken = createKraken();
       expect(kraken.name, equals('The Kraken'));
       expect(kraken.level, equals(5));
       expect(kraken.maxHp, equals(300));
       expect(kraken.armorClass, equals(18));
-      expect(kraken.numberOfTentacles, equals(25));
+      expect(kraken.numberOfTentacles, equals(12));
       expect(kraken.obscuredAcMod, equals(25));
       final weaponTypes =
           kraken.usableWeapons.map((w) => w.monsterWeaponType).toList();

@@ -106,11 +106,11 @@ MonsterState createJellyfish({
 /// Factory function to create a [MonsterState] for a Squid.
 ///
 /// Stats:
-/// - HP: `45 * level`
-/// - AC: `6 + 2 * level`
+/// - HP: `40 + 20 * (level - 1)`
+/// - AC: `6 + 2 * level` (legacy compatibility)
 /// - Weapons: Ram, Tentacle
-/// - Tentacles: `5 * level`
-/// - Obscured AC Modifier: `20` (-20% hit chance)
+/// - Tentacles: `level + 3`, clamped to 4..8; Apex adds 2
+/// - Obscurity: 20 percentage points of shot accuracy
 MonsterState createSquid({
   required int level,
   required GameRng rng,
@@ -129,11 +129,11 @@ MonsterState createSquid({
     id: monsterId,
     name: monsterName,
     level: level,
-    maxHp: 45 * level,
+    maxHp: 40 + 20 * (level - 1),
     armorClass: 6 + 2 * level,
     species: MonsterSpecies.squid,
     usableWeapons: weapons,
-    numberOfTentacles: 5 * level,
+    numberOfTentacles: (level + 3).clamp(4, 8),
     obscuredAcMod: 20,
   );
 }
@@ -179,7 +179,7 @@ MonsterState createCrustacean({
 /// - Level: 5 (default) or 3 for Region 1
 /// - HP: 300 (lvl 5) or 180 (lvl 3)
 /// - AC: 18 (lvl 5) or 14 (lvl 3)
-/// - Tentacles: 25 (lvl 5) or 15 (lvl 3)
+/// - Tentacles: 12 (dedicated boss profile)
 /// - Obscured AC Modifier: 25
 /// - Weapons: Ram, Tentacle
 MonsterState createKraken({
@@ -192,7 +192,7 @@ MonsterState createKraken({
   final effectiveRng = rng ?? SeededGameRng(42);
   final hp = level == 5 ? 300 : (level == 3 ? 180 : 60 * level);
   final ac = level == 5 ? 18 : (6 + 2 * level);
-  final tentacles = level == 3 ? 15 : 25;
+  const tentacles = 12;
   final obscured = level == 5 ? 25 : (5 * level);
   final weapons = <MonsterWeapon>[
     generateMonsterWeapon(MonsterWeaponType.ram, level, effectiveRng),
@@ -337,7 +337,7 @@ void applyApexEnhancements(MonsterState monster, GameRng rng) {
       );
     case MonsterSpecies.squid:
       monster.apexTitle = 'Apex Abyssal Krakenling';
-      monster.numberOfTentacles += 5;
+      monster.numberOfTentacles += 2;
       monster.obscuredAcMod += 5;
     case MonsterSpecies.crustacean:
       monster.apexTitle = 'Apex Obsidian Carapace Drake';

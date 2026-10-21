@@ -13,7 +13,7 @@ int _monsterWeaponIdCounter = 0;
 /// - Tail: charge 1, blast [14..18]*L, hitMod 75
 /// - Jaws: charge 1, piercing [18..22]*L, hitMod 75
 /// - Claw: charge 0, slicing [8..12]*L, hitMod 80
-/// - Tentacle: charge 0, blast [2..3]*L, hitMod 70
+/// - Tentacle: charge 0, blast 2..3 at L1–2; then +1 every two levels, hitMod 70
 /// - StingingTendrils: charge 2, shock [6..10]*L, hitMod 70, stuns
 MonsterWeapon generateMonsterWeapon(
   MonsterWeaponType type,
@@ -78,7 +78,7 @@ MonsterWeapon generateMonsterWeapon(
       );
     case MonsterWeaponType.tentacle:
       final tentacleDmg =
-          level <= 2 ? rng.nextIntRange(2, 3) : (level <= 4 ? 3 : 4);
+          level <= 2 ? rng.nextIntRange(2, 3) : 2 + ((level - 1) ~/ 2);
       return MonsterWeapon(
         id: weaponId,
         name: type.displayName,

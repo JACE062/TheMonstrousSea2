@@ -797,6 +797,10 @@ class _BattleScreenState extends State<BattleScreen> {
       currentRange: currentRange,
       selectedHelmOrder: activeHelmOrder,
       isMonsterPinned: monster.isPinnedThisTurn,
+      tentacleCount: monster.numberOfTentacles,
+      damagePerTentacle: monster.usableWeapons
+          .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
+          .firstOrNull?.damage,
     );
 
     return Container(
