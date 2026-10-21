@@ -147,9 +147,15 @@ final class TentaclesSevered extends GameEvent {
 
 /// An Ink cloud was deployed obscuring the monster.
 final class InkCloudDeployed extends GameEvent {
-  const InkCloudDeployed({required this.monsterName, required this.acBonus});
+  const InkCloudDeployed({
+    required this.monsterName,
+    required this.accuracyPenalty,
+  });
   final String monsterName;
-  final int acBonus;
+  final int accuracyPenalty;
+
+  /// Compatibility accessor for the legacy name; no AC mechanic is applied.
+  int get acBonus => accuracyPenalty;
 }
 
 /// Crustacean carapace absorbed incoming damage.

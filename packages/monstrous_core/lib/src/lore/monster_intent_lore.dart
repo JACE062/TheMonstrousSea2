@@ -172,7 +172,7 @@ abstract final class MonsterIntentLore {
     name: 'Ink-Shroud Lash',
     subtitle: 'Hits Short & Med • Cloaks in Ink & Retreats',
     description: 'Whips the hull while jetting backward in a blinding cloud of abyssal ink.',
-    tacticalTip: 'Hits Short & Medium Range, cloaks the beast in Obscuring Ink, and retreats 1 band farther.',
+    tacticalTip: 'Hits Short & Medium Range, cloaks the beast in ink that lowers shot accuracy (not dodge), and retreats 1 band farther. Successful hits have a 25% chance to disperse ink; Spotter Flare clears it.',
     telegraphLog: 'pressurizes its mantle siphon, preparing an Ink-Shroud Lash to blind and retreat!',
   );
 
@@ -182,15 +182,15 @@ abstract final class MonsterIntentLore {
     name: 'Maelstrom Crush (Wind-Up 1/2)',
     subtitle: 'Gathering Power • No Strike This Turn',
     description: 'The Kraken raises all colossal limbs forty feet above the waves as a whirlpool forms beneath the ship.',
-    tacticalTip: '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Disrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Stun!',
+    tacticalTip: '2-TURN BOSS WIND-UP! Release cannot miss or be dodged at any range. Disrupt with Heavy Mortar, Harpoon Winch, Blast Pack, Stun or a windup-breaking blessing; defenses still reduce damage.',
     telegraphLog: 'heaves its titanic bulk skyward—initiating a 2-turn wind-up for Maelstrom Crush!',
   );
 
   static const bossKrakenCatastrophe = MonsterIntentLoreEntry(
     name: 'Maelstrom Crush (IMMINENT 2/2)',
-    subtitle: 'STRIKES ALL RANGES THIS TURN!',
+    subtitle: 'UNAVOIDABLE • ALL RANGES THIS TURN!',
     description: 'Towering tentacles descend across the entire sea lane in an inescapable cataclysm of foam and timber.',
-    tacticalTip: 'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or brace for impact!',
+    tacticalTip: 'UNAVOIDABLE RELEASE! Interrupt with Heavy Mortar, Harpoon Winch, Blast Pack, Stun or a windup-breaking blessing. Armor, Gunnery Drill, barriers and damage weakening still apply.',
     telegraphLog: 'roars from the abyss—Maelstrom Crush will strike ALL RANGES at the end of this turn!',
   );
 

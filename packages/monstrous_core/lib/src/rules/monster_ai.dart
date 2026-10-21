@@ -4,6 +4,7 @@ import '../config/balance_config.dart';
 import '../model/attack_result.dart';
 import '../model/combatant.dart';
 import '../model/enums.dart';
+import '../model/item.dart';
 import '../model/monster_intent.dart';
 import '../rng/game_rng.dart';
 import '../session/events.dart';
@@ -490,7 +491,20 @@ MonsterIntent selectNextMonsterIntent(
       final readyWeapons = monster.usableWeapons
           .where((w) => w.chargeCountdown == 0)
           .toList();
-      final chosenWeapon = readyWeapons.isNotEmpty
+      // A catastrophe is a dedicated release, never a random tentacle/ram.
+      final chosenWeapon = intent.isUnavoidable
+          ? MonsterWeapon(
+              id: 'kraken_maelstrom',
+              name: intent.name,
+              description: intent.description,
+              rarity: RarityLevel.common,
+              damage: MonsterIntent.krakenMaelstromBaseDamage,
+              hitModifier: 100,
+              chargeTime: 0,
+              damageType: DamageType.blast,
+              monsterWeaponType: MonsterWeaponType.ram,
+            )
+          : readyWeapons.isNotEmpty
           ? readyWeapons[rng.nextInt(readyWeapons.length)]
           : (monster.usableWeapons.isNotEmpty
                 ? monster.usableWeapons.first
@@ -499,7 +513,9 @@ MonsterIntent selectNextMonsterIntent(
       if (chosenWeapon == null) {
         events.add(MonsterHesitated(monster.name));
       } else {
-        var effectiveMultiplier = intent.damageMultiplier;
+        var effectiveMultiplier = intent.isUnavoidable
+            ? 1.0
+            : intent.damageMultiplier;
         if (hadHeadOnCollision) {
           effectiveMultiplier *= 1.30;
         }
@@ -544,6 +560,7 @@ MonsterIntent selectNextMonsterIntent(
             0,
             effectiveMultiplier,
             range,
+            intent.isUnavoidable,
           );
           events.addAll(attackEvents);
           if (res.didHit && !res.wasEvaded) {
@@ -635,7 +652,7 @@ MonsterIntent selectNextMonsterIntent(
         events.add(
           InkCloudDeployed(
             monsterName: monster.name,
-            acBonus: monster.obscuredAcMod,
+            accuracyPenalty: monster.obscuredAcMod,
           ),
         );
       }
@@ -760,6 +777,7 @@ List<GameEvent> takeMonsterTurn(
   CombatTrait? findSpecialTrait() {
     for (final trait in traits) {
       if (trait is InkCloudTrait &&
+          !monster.isIlluminatedByFlare &&
           (monster.species == MonsterSpecies.squid ||
               monster.species == MonsterSpecies.kraken)) {
         return trait;
@@ -774,8 +792,9 @@ List<GameEvent> takeMonsterTurn(
         return trait;
       }
     }
-    if (monster.species == MonsterSpecies.squid ||
-        monster.species == MonsterSpecies.kraken) {
+    if (!monster.isIlluminatedByFlare &&
+        (monster.species == MonsterSpecies.squid ||
+            monster.species == MonsterSpecies.kraken)) {
       return const InkCloudTrait();
     }
     if (monster.species == MonsterSpecies.shark) {
@@ -794,7 +813,7 @@ List<GameEvent> takeMonsterTurn(
       events.add(
         InkCloudDeployed(
           monsterName: monster.name,
-          acBonus: monster.obscuredAcMod,
+          accuracyPenalty: monster.obscuredAcMod,
         ),
       );
     } else if (specialTrait is SharkFrenzyTrait) {

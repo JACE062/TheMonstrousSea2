@@ -36,7 +36,7 @@ Completed work and historical test counts belong in the archive. An old passing 
 
 ## Current work
 
-The [October 20 backlog](BACKLOG.md#recommended-work-chunks) contains PT2-01 through PT2-24, the six original screenshots, and follow-up death-ledger evidence. Each issue records its status. Nemesis placement, captain-count investigation, and stronghold/home-port continuity are implemented, with player replay still valuable. The stacking Serpent evasion fix is also implemented; next combat work covers ink feedback, Kraken catastrophe damage, and tentacle/regional scaling. Story/name decisions and UI layouts remain separate design work. Master Refits remain deferred Phase 4 work; art generation is also deferred.
+The [October 20 backlog](BACKLOG.md#recommended-work-chunks) contains PT2-01 through PT2-24, the six original screenshots, and follow-up death-ledger evidence. Each issue records its status. Nemesis placement, captain-count investigation, and stronghold/home-port continuity are implemented, with player replay still valuable. Serpent evasion, ink feedback and the Kraken release are also corrected. A successful player Kraken replay used a shrine-heavy route and timed defenses; keep the current damage while evaluating more builds/routes. Next combat work covers tentacle counterplay and regional scaling. Story/name decisions and UI layouts remain separate design work. Master Refits remain deferred Phase 4 work; art generation is also deferred.
 
 ## History and maintenance
 

@@ -323,36 +323,23 @@ class _BattleScreenState extends State<BattleScreen> {
                                   ),
                                 ),
                               ),
-                            if (monster.isObscured)
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 6,
-                                  vertical: 2,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: InkTheme.inkPrimary,
-                                  borderRadius: BorderRadius.circular(2),
-                                ),
-                                child: Text(
-                                  'OBSCURED',
-                                  style: InkTheme.caption.copyWith(
-                                    color: InkTheme.parchmentHighlight,
-                                    fontSize: 11.5,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
                           ],
                         ),
-                        Text(
-                          'Danger Level ${monster.level}'
-                          '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
-                          '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
-                          '${monster.evasion > 0 ? ' • Dodge: ${monster.effectiveEvasion}%' : ''}'
-                          '${monster.isPinnedThisTurn ? ' • Pinned' : ''}'
-                          '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'
-                          '${ship.activeTetherTrapDistance != null ? ' • 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}' : ''}',
-                          style: InkTheme.caption,
+                        Tooltip(
+                          message: monster.obscurityAccuracyPenalty > 0
+                              ? 'Obscurity lowers shot accuracy by ${monster.obscurityAccuracyPenalty} percentage points, separately from dodge. Successful hits have a 25% chance to disperse it; Spotter Flare clears it. There is no fixed turn duration.'
+                              : '',
+                          child: Text(
+                            'Danger Level ${monster.level}'
+                            '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
+                            '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
+                            '${monster.evasion > 0 ? ' • Dodge: ${monster.effectiveEvasion}%' : ''}'
+                            '${monster.obscurityAccuracyPenalty > 0 ? ' • Obscurity: -${monster.obscurityAccuracyPenalty}pp shot accuracy' : ''}'
+                            '${monster.isPinnedThisTurn ? ' • Pinned' : ''}'
+                            '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'
+                            '${ship.activeTetherTrapDistance != null ? ' • 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}' : ''}',
+                            style: InkTheme.caption,
+                          ),
                         ),
                         const SizedBox(height: 8),
                         HullGauge(
@@ -586,6 +573,23 @@ class _BattleScreenState extends State<BattleScreen> {
                             ? HardpointType.broadside
                             : null;
                         final blessing = ship.blessings[slot];
+                        final ignoresObscurity =
+                            type == ShipWeaponType.precisionCulverin &&
+                            widget.controller.profile.isEldritchRelicActive(
+                              EldritchRelicId.ghostwakeCulverin,
+                            );
+                        final shotAccuracy = calculateHitChance(
+                          ship,
+                          weaponsOfType.first,
+                          monster,
+                          accuracyBonus: widget.controller.gunneryAccuracyBoon +
+                              (ship.gunneryDrillBuffActive ? 15 : 0),
+                          range: previewRange,
+                          ignoreObscurity: ignoresObscurity,
+                        );
+                        final accuracyTip =
+                            'Opening shot accuracy: $shotAccuracy% before ${monster.effectiveEvasion}% target dodge.'
+                            '${ignoresObscurity ? ' Ghostwake ignores obscurity.' : monster.obscurityAccuracyPenalty > 0 ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty} percentage points from accuracy.' : ''}';
 
                         final labelText = weaponsOfType.length == 1
                             ? (isReady
@@ -605,7 +609,7 @@ class _BattleScreenState extends State<BattleScreen> {
                                 if (blessing != null)
                                   BlessingBadge(blessing: blessing),
                                 Tooltip(
-                                  message: badgeInfo?.tip ?? '',
+                                  message: '${badgeInfo?.tip ?? ''} $accuracyTip',
                                   child: InkButton(
                                     label: labelText,
                                     subtitle: isReady

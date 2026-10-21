@@ -199,8 +199,8 @@ class GameController extends ChangeNotifier {
           message: 'Severed $countSevered tentacles! ($remainingTentacles remaining)',
           actor: CombatLogActor.ship,
         ),
-      InkCloudDeployed(:final monsterName, :final acBonus) => CombatLogEntry(
-          message: '$monsterName spewed a dense ink cloud! (+$acBonus AC)',
+      InkCloudDeployed() => CombatLogEntry(
+          message: narrationFormatter.format(event),
           actor: CombatLogActor.monster,
         ),
       CarapaceAbsorbed(:final monsterName, :final absorbedAmount, :final penetratingDamage) => CombatLogEntry(

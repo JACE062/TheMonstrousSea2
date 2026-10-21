@@ -110,7 +110,7 @@ class EvasionTrait extends CombatTrait {
   }
 }
 
-/// Squid ink cloud: obscures vision boosting AC, 25% chance to disperse upon hit.
+/// Squid ink cloud: lowers shot accuracy, 25% chance to disperse upon hit.
 class InkCloudTrait extends CombatTrait {
   const InkCloudTrait();
 
@@ -131,7 +131,7 @@ class InkCloudTrait extends CombatTrait {
 
   @override
   String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
-    if (actor is MonsterState) {
+    if (actor is MonsterState && !actor.isIlluminatedByFlare) {
       actor.isObscured = true;
       return '${actor.name} jets out pitch black ink into the water, obscuring itself from view!';
     }

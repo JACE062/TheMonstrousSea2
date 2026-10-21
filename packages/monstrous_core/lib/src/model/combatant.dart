@@ -499,6 +499,10 @@ class MonsterState extends Combatant {
 
   bool get isIlluminatedByFlare => spotterFlareTurns > 0;
 
+  /// Percentage points subtracted from shot accuracy, not a dodge roll.
+  int get obscurityAccuracyPenalty =>
+      isObscured && !isIlluminatedByFlare ? obscuredAcMod : 0;
+
   /// Dodge chance after Pin and Spotter Flare, shared by combat and the HUD.
   int get effectiveEvasion => isIlluminatedByFlare
       ? 0

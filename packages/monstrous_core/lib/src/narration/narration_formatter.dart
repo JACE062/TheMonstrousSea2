@@ -51,8 +51,8 @@ class NarrationFormatter {
           countSevered: countSevered,
           remainingTentacles: remainingTentacles,
         ),
-      InkCloudDeployed(:final monsterName) =>
-        ChronicleStrings.inkCloudDeployed(monsterName),
+      InkCloudDeployed(:final monsterName, :final accuracyPenalty) =>
+        ChronicleStrings.inkCloudDeployed(monsterName, accuracyPenalty),
       CarapaceAbsorbed(:final monsterName, :final absorbedAmount) =>
         ChronicleStrings.carapaceAbsorbed(
           monsterName: monsterName,

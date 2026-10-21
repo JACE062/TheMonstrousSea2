@@ -12,6 +12,7 @@ Future<void> mountBattle(
   WidgetTester tester,
   GameController controller, {
   double textScale = 1.15,
+  Key? captureKey,
 }) async {
   InkTheme.disableGoogleFonts = true;
   final game = MonstrousSeaBattleGame(
@@ -31,16 +32,19 @@ Future<void> mountBattle(
     }
   });
   await tester.pumpWidget(
-    MaterialApp(
-      builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context)
-            .copyWith(textScaler: TextScaler.linear(textScale)),
-        child: child!,
-      ),
-      home: ListenableBuilder(
-        listenable: controller,
-        builder: (context, child) =>
-            BattleScreen(controller: controller, game: game),
+    RepaintBoundary(
+      key: captureKey,
+      child: MaterialApp(
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: TextScaler.linear(textScale)),
+          child: child!,
+        ),
+        home: ListenableBuilder(
+          listenable: controller,
+          builder: (context, child) =>
+              BattleScreen(controller: controller, game: game),
+        ),
       ),
     ),
   );

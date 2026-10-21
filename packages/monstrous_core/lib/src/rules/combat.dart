@@ -138,6 +138,7 @@ int calculateHitChance(
   Combatant defender, {
   int accuracyBonus = 0,
   CombatRange range = CombatRange.medium,
+  bool ignoreObscurity = false,
 }) {
   int chance = weapon.baseAccuracy + accuracyBonus;
   if (attacker is MonsterState) {
@@ -157,8 +158,8 @@ int calculateHitChance(
   if (defender is MonsterState) {
     if (defender.isIlluminatedByFlare) {
       chance += defender.spotterFlareAccuracyBonus;
-    } else if (defender.isObscured) {
-      chance -= defender.obscuredAcMod;
+    } else if (!ignoreObscurity) {
+      chance -= defender.obscurityAccuracyPenalty;
     }
     final isMassiveBeast =
         defender.species == MonsterSpecies.kraken ||
@@ -178,6 +179,8 @@ int calculateHitChance(
 /// Resolves a bounded d100 percentage hit roll against calculated accuracy,
 /// rolls damage, triggers applicable [traits] hooks, applies final effective
 /// damage and status effects, and emits the corresponding [GameEvent]s.
+/// [unavoidable] bypasses accuracy and dodge only, preserving mitigation and
+/// damage riders. It is used by the Kraken's dedicated catastrophe release.
 (AttackResult result, List<GameEvent> events) calculateAttack(
   Combatant attacker,
   Weapon weapon,
@@ -187,26 +190,37 @@ int calculateHitChance(
   int accuracyBonus = 0,
   double damageMultiplier = 1.0,
   CombatRange range = CombatRange.medium,
+  bool unavoidable = false,
 ]) {
   final events = <GameEvent>[];
-  final hitChance = calculateHitChance(
-    attacker,
-    weapon,
-    defender,
-    accuracyBonus: accuracyBonus,
-    range: range,
-  );
-  final roll = rng.d100();
-  final didHit = roll <= hitChance;
+  final hitChance = unavoidable
+      ? 100
+      : calculateHitChance(
+          attacker,
+          weapon,
+          defender,
+          accuracyBonus: accuracyBonus,
+          range: range,
+        );
+  final roll = unavoidable ? 0 : rng.d100();
+  final didHit = unavoidable || roll <= hitChance;
 
-  events.add(
-    AttackAttempted(
-      attackerName: attacker.name,
-      weaponName: weapon.name,
-      roll: roll,
-      targetAc: hitChance,
-    ),
-  );
+  if (unavoidable) {
+    events.add(
+      NarrationEvent(
+        '${attacker.name} unleashes ${weapon.name}: the release cannot miss or be dodged!',
+      ),
+    );
+  } else {
+    events.add(
+      AttackAttempted(
+        attackerName: attacker.name,
+        weaponName: weapon.name,
+        roll: roll,
+        targetAc: hitChance,
+      ),
+    );
+  }
 
   var effectiveMultiplier = damageMultiplier;
   final blessing =
@@ -336,16 +350,26 @@ int calculateHitChance(
   );
 
   final activeTraits = traits.isNotEmpty ? traits : defaultCombatTraits;
+  final wasObscured = defender is MonsterState && defender.isObscured;
   // Resolve avoidance before any hit rider mutates armor, ink, or tentacles.
-  for (final trait in activeTraits.where(
-    (trait) => trait is EvasionTrait || trait is SerpentSlitherTrait,
-  )) {
-    trait.onIncomingAttack(defender, attacker, result, rng);
+  if (!unavoidable) {
+    for (final trait in activeTraits.where(
+      (trait) => trait is EvasionTrait || trait is SerpentSlitherTrait,
+    )) {
+      trait.onIncomingAttack(defender, attacker, result, rng);
+    }
   }
   for (final trait in activeTraits) {
     if (result.wasEvaded) break;
     if (trait is EvasionTrait || trait is SerpentSlitherTrait) continue;
     trait.onIncomingAttack(defender, attacker, result, rng);
+  }
+  if (wasObscured && !defender.isObscured) {
+    events.add(
+      NarrationEvent(
+        '${defender.name}\'s obscuring cloud dispersed; its accuracy penalty is cleared.',
+      ),
+    );
   }
 
   if (result.wasEvaded) {

@@ -154,6 +154,11 @@ class IntentPreviewOutcome {
 
 /// Immutable representation of a monster's telegraphed turn intention.
 class MonsterIntent {
+  static const krakenMaelstromBaseDamage = 38;
+
+  /// Other Titans retain ordinary accuracy/dodge until separately reviewed.
+  bool get isUnavoidable => id == MonsterIntentId.bossKrakenCatastrophe;
+
   const MonsterIntent({
     required this.id,
     required this.threatenedRanges,
@@ -322,7 +327,9 @@ class MonsterIntent {
         projectedEndOfRoundRange: endRange,
         estimatedDamage: estimatedDamage,
         summaryBadge:
-            'CATASTROPHE IMMINENT: Strikes ALL RANGES (~$estimatedDamage Dmg)! Disrupt with Stun or a windup-breaking blessing, or brace.',
+            isUnavoidable
+                ? 'UNAVOIDABLE: ALL RANGES • $krakenMaelstromBaseDamage base Blast damage before weakening and defenses. Interrupt or brace!'
+                : 'CATASTROPHE IMMINENT: Strikes ALL RANGES (~$estimatedDamage Dmg)! Disrupt with Stun or a windup-breaking blessing, or brace.',
       );
     }
 
@@ -593,8 +600,8 @@ class MonsterIntent {
       },
       moveDelta: IntentMoveDelta.stationary,
       moveTiming: IntentMoveTiming.none,
-      damageMultiplier: 1.65,
-      estimatedDamage: 38,
+      damageMultiplier: 1.0,
+      estimatedDamage: krakenMaelstromBaseDamage,
       isBossCatastropheStrike: true,
       poiseThreshold: 45,
       cooldownTurns: 3,
