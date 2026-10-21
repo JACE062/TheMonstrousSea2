@@ -13,6 +13,7 @@ import 'package:monstrous_sea/src/game_controller.dart';
 import 'package:monstrous_sea/src/screens/battle_screen.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
 import 'package:monstrous_sea/src/widgets/ink_button.dart';
+import 'package:monstrous_sea/src/widgets/combat_log_view.dart';
 import 'package:monstrous_sea/src/widgets/pilot_art.dart';
 
 class ControlledArtworkBundle extends CachingAssetBundle {
@@ -305,5 +306,54 @@ void main() {
       await retry;
     });
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('battle entry, action playback and reopening respect the Chronicle', (tester) async {
+    tester.view.physicalSize = const Size(1280, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final controller = combat();
+    addTearDown(controller.dispose);
+    controller.structuredCombatLog.insertAll(0, List.generate(120, (i) => CombatLogEntry(
+      message: 'Earlier encounter action $i', actor: CombatLogActor.ship,
+    )));
+    final game = MonstrousSeaBattleGame(ship: controller.ship!, monster: controller.currentMonster!);
+    final captureKey = GlobalKey();
+    await mountCold(tester, controller, game, scale: 1.3, captureKey: captureKey);
+    game.pauseEngine();
+    await tester.pumpAndSettle();
+    final scrollable = find.descendant(of: find.byType(CombatLogView), matching: find.byType(Scrollable));
+    var position = tester.state<ScrollableState>(scrollable).position;
+    expect(position.extentAfter, 0, reason: 'Entry should show the intent before any action');
+    await tester.drag(scrollable, const Offset(0, 100));
+    await tester.pumpAndSettle();
+    final readingOffset = position.pixels;
+    final count = controller.structuredCombatLog.length;
+    game.resumeEngine();
+    await tester.tap(find.text('Naval Cannon Battery'));
+    for (var i = 0; i < 30; i++) {
+      await tester.pump(const Duration(milliseconds: 200));
+    }
+    game.pauseEngine();
+    await tester.pumpAndSettle();
+    expect(controller.structuredCombatLog.length, greaterThan(count));
+    expect(position.pixels, closeTo(readingOffset, 0.01));
+    expect(find.text('LATEST MESSAGES'), findsOneWidget);
+    if (_reviewFontPath.isNotEmpty) {
+      await captureReview(tester, captureKey, 'chronicle-history');
+    }
+    await tester.tap(find.byTooltip('Chronicle Log'));
+    await tester.pump();
+    expect(find.byType(CombatLogView), findsNothing);
+    await tester.tap(find.byTooltip('Chronicle Log'));
+    await tester.pumpAndSettle();
+    position = tester.state<ScrollableState>(scrollable).position;
+    expect(position.extentAfter, 0);
+    if (_reviewFontPath.isNotEmpty) {
+      await captureReview(tester, captureKey, 'chronicle-latest');
+    }
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
   });
 }

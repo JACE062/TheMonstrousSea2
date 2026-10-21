@@ -29,7 +29,6 @@ class _BattleScreenState extends State<BattleScreen> {
   bool _isActionLocked = false;
   bool _showLog = true;
   HelmOrder _selectedHelmOrder = HelmOrder.holdLine;
-  final ScrollController _logScrollController = ScrollController();
   final GlobalKey _statusKey = GlobalKey();
   final GlobalKey _dockKey = GlobalKey();
 
@@ -76,18 +75,7 @@ class _BattleScreenState extends State<BattleScreen> {
   @override
   void dispose() {
     _battleGame.artworkRevision.removeListener(_onArtworkChanged);
-    _logScrollController.dispose();
     super.dispose();
-  }
-
-  void _scrollToBottom() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted && _logScrollController.hasClients) {
-        _logScrollController.jumpTo(
-          _logScrollController.position.maxScrollExtent,
-        );
-      }
-    });
   }
 
   String _utilityLabel(ShipState ship) {
@@ -167,8 +155,6 @@ class _BattleScreenState extends State<BattleScreen> {
       _selectedHelmOrder = HelmOrder.holdLine;
     }
 
-    _scrollToBottom();
-
     _battleGame.playEvents(events, () async {
       final isBattleEnding = widget.controller.phase != SessionPhase.battle;
       if (isBattleEnding) {
@@ -182,7 +168,6 @@ class _BattleScreenState extends State<BattleScreen> {
         if (isCombatAction) {
           widget.controller.notify();
         }
-        _scrollToBottom();
       }
     });
   }
@@ -542,7 +527,6 @@ class _BattleScreenState extends State<BattleScreen> {
                           ),
                           child: CombatLogView(
                             entries: widget.controller.structuredCombatLog,
-                            scrollController: _logScrollController,
                           ),
                         );
                       },

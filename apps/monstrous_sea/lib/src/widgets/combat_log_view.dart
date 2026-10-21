@@ -6,19 +6,98 @@ import '../theme/ink_theme.dart';
 /// Scrollable maritime combat log drawer displaying the chronicle of battle
 /// with clear visual separation: ship actions on the left, beast actions on the right,
 /// and ambient events centered.
-class CombatLogView extends StatelessWidget {
-  const CombatLogView({
-    super.key,
-    required this.entries,
-    this.scrollController,
-  });
+class CombatLogView extends StatefulWidget {
+  const CombatLogView({super.key, required this.entries});
 
   /// Accepts either [List<CombatLogEntry>] or [List<String>] for maximum versatility.
   final List<dynamic> entries;
-  final ScrollController? scrollController;
+
+  @override
+  State<CombatLogView> createState() => _CombatLogViewState();
+}
+
+class _CombatLogViewState extends State<CombatLogView> {
+  final _scrollController = ScrollController();
+  bool _followingLatest = true;
+  bool _userScrolling = false;
+  bool _scrollScheduled = false;
+  bool _jumpingToLatest = false;
+  late int _entryCount;
+
+  @override
+  void initState() {
+    super.initState();
+    _entryCount = widget.entries.length;
+    _scheduleLatest();
+  }
+
+  @override
+  void didUpdateWidget(covariant CombatLogView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // The controller appends to the same list; oldWidget.entries is not a
+    // snapshot. Keep a separate count rather than comparing list identities.
+    if (_entryCount != widget.entries.length) {
+      _entryCount = widget.entries.length;
+      if (_followingLatest) _scheduleLatest();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scheduleLatest() {
+    if (_scrollScheduled) return;
+    _scrollScheduled = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollScheduled = false;
+      if (!mounted ||
+          !_followingLatest ||
+          _userScrolling ||
+          !_scrollController.hasClients) {
+        return;
+      }
+      final position = _scrollController.position;
+      if (position.extentAfter > 0) {
+        _jumpingToLatest = true;
+        try {
+          _scrollController.jumpTo(position.maxScrollExtent);
+        } finally {
+          _jumpingToLatest = false;
+        }
+        // Lazy, variable-height rows can revise the extent after this jump.
+        // Continue after layout until the real end is reached.
+        _scheduleLatest();
+      }
+    });
+    WidgetsBinding.instance.scheduleFrame();
+  }
+
+  bool _onScroll(ScrollNotification notification) {
+    if (notification.depth != 0 || _jumpingToLatest) return false;
+    // Includes drag, wheel, scrollbar and keyboard scrolling, while ignoring
+    // the synchronous notifications from our own live-end jumps.
+    if (notification is ScrollStartNotification) {
+      _userScrolling = true;
+    }
+    if (_userScrolling) {
+      final atLatest = notification.metrics.extentAfter <= 24;
+      if (_followingLatest != atLatest) {
+        setState(() => _followingLatest = atLatest);
+      }
+      if (notification is ScrollEndNotification) {
+        _userScrolling = false;
+        if (_followingLatest) _scheduleLatest();
+      }
+    }
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final entries = widget.entries;
     return Container(
       decoration: BoxDecoration(
         color: InkTheme.parchmentSurface,
@@ -26,116 +105,165 @@ class CombatLogView extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      child: LayoutBuilder(builder: (context, bounds) => Column(
-        children: [
-          // Header legend differentiating the sides
-          // On short windows the latest entry needs the available reading room.
-          if (bounds.maxHeight >= 60) ...[
-          Padding(
-            padding: const EdgeInsets.only(bottom: 6),
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                if (constraints.maxWidth < 640) {
-                  return Text(
-                    'CHRONICLE OF BATTLE',
-                    style: InkTheme.caption.copyWith(
-                      fontSize: 11.5,
-                      color: InkTheme.inkMuted,
-                    ),
-                  );
-                }
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
+      child: LayoutBuilder(
+        builder: (context, bounds) => Column(
+          children: [
+            // Header legend differentiating the sides
+            // On short windows the latest entry needs the available reading room.
+            if (bounds.maxHeight >= 60) ...[
+              Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    if (constraints.maxWidth < 640) {
+                      return Text(
+                        'CHRONICLE OF BATTLE',
+                        style: InkTheme.caption.copyWith(
+                          fontSize: 11.5,
+                          color: InkTheme.inkMuted,
+                        ),
+                      );
+                    }
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: 8,
-                          height: 8,
-                          decoration: const BoxDecoration(
-                            color: InkTheme.verdigrisGreen,
-                            shape: BoxShape.circle,
+                        Row(
+                          children: [
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                color: InkTheme.verdigrisGreen,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              'VESSEL VOLLEYS',
+                              style: InkTheme.statLabel.copyWith(
+                                fontSize: 11.5,
+                                color: InkTheme.verdigrisGreen,
+                                letterSpacing: 0.8,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'CHRONICLE OF BATTLE',
+                          style: InkTheme.caption.copyWith(
+                            fontSize: 11.5,
+                            letterSpacing: 1.2,
+                            color: InkTheme.inkMuted,
                           ),
                         ),
-                        const SizedBox(width: 4),
-                        Text(
-                          'VESSEL VOLLEYS',
-                          style: InkTheme.statLabel.copyWith(
-                            fontSize: 11.5,
-                            color: InkTheme.verdigrisGreen,
-                            letterSpacing: 0.8,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              'BEAST STRIKES',
+                              style: InkTheme.statLabel.copyWith(
+                                fontSize: 11.5,
+                                color: InkTheme.crimsonAccent,
+                                letterSpacing: 0.8,
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                color: InkTheme.crimsonAccent,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
-                    ),
-                    Text(
-                      'CHRONICLE OF BATTLE',
-                      style: InkTheme.caption.copyWith(
-                        fontSize: 11.5,
-                        letterSpacing: 1.2,
-                        color: InkTheme.inkMuted,
+                    );
+                  },
+                ),
+              ),
+              const Divider(height: 1, thickness: 0.8),
+              const SizedBox(height: 4),
+            ],
+            Expanded(
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: NotificationListener<ScrollMetricsNotification>(
+                      onNotification: (_) {
+                        if (_followingLatest) _scheduleLatest();
+                        return false;
+                      },
+                      child: NotificationListener<ScrollNotification>(
+                        onNotification: _onScroll,
+                        child: entries.isEmpty
+                            ? Center(
+                                child: Text(
+                                  'The open swell is calm... for now.',
+                                  style: InkTheme.caption,
+                                ),
+                              )
+                            : ListView.builder(
+                                controller: _scrollController,
+                                itemCount: entries.length,
+                                itemBuilder: (context, index) {
+                                  final item = entries[index];
+                                  final CombatLogEntry entry =
+                                      item is CombatLogEntry
+                                      ? item
+                                      : CombatLogEntry(
+                                          message: item.toString(),
+                                          actor:
+                                              item.toString().contains(
+                                                    'beast',
+                                                  ) ||
+                                                  item.toString().contains(
+                                                    'Kraken',
+                                                  ) ||
+                                                  item.toString().contains(
+                                                    'spewed',
+                                                  )
+                                              ? CombatLogActor.monster
+                                              : CombatLogActor.ship,
+                                        );
+
+                                  return _buildEntryRow(entry);
+                                },
+                              ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          'BEAST STRIKES',
-                          style: InkTheme.statLabel.copyWith(
-                            fontSize: 11.5,
-                            color: InkTheme.crimsonAccent,
-                            letterSpacing: 0.8,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Container(
-                          width: 8,
-                          height: 8,
-                          decoration: const BoxDecoration(
-                            color: InkTheme.crimsonAccent,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
-          const Divider(height: 1, thickness: 0.8),
-          const SizedBox(height: 4),
-          ],
-          Expanded(
-            child: entries.isEmpty
-                ? Center(
-                    child: Text(
-                      'The open swell is calm... for now.',
-                      style: InkTheme.caption,
-                    ),
-                  )
-                : ListView.builder(
-                    controller: scrollController,
-                    itemCount: entries.length,
-                    itemBuilder: (context, index) {
-                      final item = entries[index];
-                      final CombatLogEntry entry = item is CombatLogEntry
-                          ? item
-                          : CombatLogEntry(
-                              message: item.toString(),
-                              actor:
-                                  item.toString().contains('beast') ||
-                                      item.toString().contains('Kraken') ||
-                                      item.toString().contains('spewed')
-                                  ? CombatLogActor.monster
-                                  : CombatLogActor.ship,
-                            );
-
-                      return _buildEntryRow(entry);
-                    },
                   ),
-          ),
-        ],
-      )),
+                  if (!_followingLatest)
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: InkTheme.parchmentHighlight,
+                          foregroundColor: InkTheme.inkPrimary,
+                          minimumSize: const Size(0, 28),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        onPressed: () {
+                          setState(() => _followingLatest = true);
+                          _scheduleLatest();
+                        },
+                        child: const Text(
+                          'LATEST MESSAGES',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

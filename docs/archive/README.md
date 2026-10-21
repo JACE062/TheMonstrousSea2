@@ -57,6 +57,8 @@ Navigation receipt: [Course flow and salvage, 20 October 2026](playtests/NAVIGAT
 
 Reliability receipt: [Test-save isolation and battle-art recovery, 20 October 2026](playtests/STORAGE_ART_2026_10_20.md). This also corrects earlier blanket claims of full-suite storage isolation: inherited UI fixtures could write production profiles until this fix.
 
+Chronicle receipt: [Voyage history and scrolling, 20 October 2026](playtests/CHRONICLE_2026_10_20.md). This covers the lifecycle and scroll-position follow-ups within PT2-11; the larger command-station redesign remains open.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

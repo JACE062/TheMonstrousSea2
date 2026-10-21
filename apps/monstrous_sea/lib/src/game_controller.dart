@@ -77,6 +77,7 @@ class GameController extends ChangeNotifier {
   /// Dispatches [command] to domain engine, processes resulting events into logs,
   /// triggers persistence if enabled, and notifies UI listeners.
   List<GameEvent> dispatch(Command command, {bool deferNotification = false}) {
+    final previousPhase = session.phase;
     final events = session.dispatch(command);
     // Resolve the core's compatibility rest checkpoint without displaying an
     // extra inspection stop. TakeHelm owns Titan/stronghold/ending routing.
@@ -85,6 +86,16 @@ class GameController extends ChangeNotifier {
       events.addAll(session.dispatch(const TakeHelm()));
     }
     lastEvents = events;
+
+    // Succession and actual home departures start a fresh live chronicle.
+    // Preserve this voyage's earlier encounters, including stronghold visits.
+    final beginsVoyage =
+        (previousPhase == SessionPhase.captainCreation ||
+            previousPhase == SessionPhase.port) &&
+        (session.phase == SessionPhase.battle || session.phase == SessionPhase.helm);
+    if (beginsVoyage || events.any((event) => event is HeirSelected)) {
+      structuredCombatLog.clear();
+    }
 
     for (final event in events) {
       final entry = _formatEventForLog(event);

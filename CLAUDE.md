@@ -37,6 +37,8 @@ Test fixtures that do not test persistence must set `autoSave: false`; persisten
 
 A save reset is a separate user action. Documentation/verification tooling must not modify a real player's profile. Use injected storage and isolated game state in tests.
 
+The controller clears the live Chronicle after successful succession/fresh home departure, before appending those events; normal encounters and stronghold departures preserve it. `CombatLogView` owns its scroll state, including initial/live-end layout settlement and manual-history pause/resume. Battle playback must not force a reader back to the bottom. The mutable log list requires a stored prior count to detect appends across widget rebuilds; logs are not checkpoint data.
+
 ## Presentation and art
 
 Use the approved ink-and-parchment palette, fonts and transparent curated nautical PNGs selected through `PilotArt` / `SvgAssetView`. Preserve actual alpha, approved ship/monster silhouettes, sparse contours and asset orientation (ships/weapons right, monsters left). Only approved app art belongs in the Flutter bundle; neither archive belongs there.
