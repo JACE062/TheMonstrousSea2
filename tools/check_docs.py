@@ -144,7 +144,13 @@ def check_migration(manifest):
 
 def main():
     manifest = json.loads((ARCHIVE / "migration_manifest.json").read_text(encoding="utf-8"))
-    files = sorted((ROOT / "docs").rglob("*.md")) + [ROOT / "CLAUDE.md", ROOT / "AGENTS.md"]
+    files = sorted((ROOT / "docs").rglob("*.md")) + [
+        ROOT / "README.md",
+        ROOT / "apps/monstrous_sea/README.md",
+        ROOT / "packages/monstrous_core/README.md",
+        ROOT / "CLAUDE.md",
+        ROOT / "AGENTS.md",
+    ]
     links = check_links(files)
     sections = check_migration(manifest)
     if ERRORS:

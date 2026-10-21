@@ -1,5 +1,7 @@
 # Documentation guide
 
+For a game overview, setup instructions, and how to play, start with the [project README](../README.md). This directory contains the detailed development and design references, including story spoilers.
+
 Start here for The Monstrous Sea V2. This guide replaced the overlapping handoff, original remake plan, and milestone specifications on 20 October 2026.
 
 ## Current reference set

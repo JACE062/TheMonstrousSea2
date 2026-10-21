@@ -1,39 +1,30 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# monstrous_core
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+The pure Dart gameplay engine for [The Monstrous Sea 2](../../README.md). It contains combat rules, encounter content, navigation, flagship builds, lineage progression, narration, and serialized save models. It has no Flutter or Flame dependencies.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/tools/pub/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+The desktop app and headless simulator both use this package. `GameSession` receives commands and returns game events, while an injectable random-number source supports reproducible scenarios.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+## Example
 
 ```dart
-const like = 'sample';
+import 'package:monstrous_core/monstrous_core.dart';
+
+void main() {
+  final session = GameSession(rng: SeededGameRng(42));
+  final events = session.dispatch(const BeginFirstVoyage('Mara'));
+  print(session.phase);
+  print('${events.length} opening events');
+}
 ```
 
-## Additional information
+## Validation
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+From this directory, using Dart 3.13 or newer:
+
+```powershell
+dart pub get
+dart analyze
+dart test
+```
+
+See the [developer guide](../../CLAUDE.md) for architecture and the [documentation guide](../../docs/README.md) for current game rules and design references. Narrative documentation contains spoilers.

@@ -1,17 +1,21 @@
-# monstrous_sea
+# The Monstrous Sea 2 — Desktop app
 
-A new Flutter project.
+The Flutter application for The Monstrous Sea 2, with Flame battle rendering, the ink-and-parchment interface, curated art, and platform save storage.
 
-## Getting Started
+See the [project README](../../README.md) for an overview, Windows setup, how to play, and release-build instructions.
 
-This project is a starting point for a Flutter application.
+From this directory, with the Windows Flutter toolchain installed:
 
-A few resources to get you started if this is your first Flutter project:
+```powershell
+flutter pub get
+flutter run -d windows
+```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+App validation:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```powershell
+flutter analyze
+flutter test
+```
+
+The test harness uses disposable save directories. For architecture, persistence behavior, and native verification guidance, see the [developer guide](../../CLAUDE.md).

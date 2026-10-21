@@ -1,0 +1,88 @@
+# The Monstrous Sea 2
+
+A turn-based naval roguelite about an inherited ship, a cursed bloodline, and the monsters waiting beyond the harbor.
+
+Command the Bloodbound Flagship through dangerous waters, build around its fixed armaments, and decide which risks are worth taking. When a captain falls, an heir takes command with new strengths and quirks. Recovered materials and ancestral blueprints help the family prepare for its next voyage.
+
+A spiritual successor to the original Java console game, built with **Flutter**, **Flame**, and a **Dart gameplay engine**, with an ink-and-parchment nautical aesthetic.
+
+**Status:** In active development and playtesting. Windows desktop is the primary development target. Combat balance, presentation, story delivery, and later progression are still evolving.
+
+## What you can play
+
+- **Tactical sea battles:** Read the monster's next intent, choose a helm order, and use Short, Medium, and Long range to control the fight.
+- **Five flagship blueprints:** Start with Standard and unlock Ironclad, Clipper, Bombardier, and Corsair. Each has its own Broadside, Signature, and Utility hardpoints.
+- **Voyage builds:** Combine shrine blessings, gold-funded hull upgrades, hardpoint tempering, and single-use belt supplies.
+- **Exploration:** Choose lookout headings across three regions, finding beasts, wrecks, shrines, traders, and places to repair.
+- **A continuing bloodline:** Choose an heir after defeat, invest recovered materials at home, and face the beast that took the previous captain as a Nemesis.
+
+## Run on Windows
+
+These instructions run the game from source. Clone or download this repository, then open a terminal in its root directory.
+
+### Prerequisites
+
+- Flutter with **Dart 3.13 or newer**, matching the packages' SDK constraints.
+- The Windows desktop toolchain, including Visual Studio's **Desktop development with C++** workload. Visual Studio Code can be used as your editor; the native build tools come from Visual Studio.
+
+Follow [Flutter's Windows setup guide](https://docs.flutter.dev/platform-integration/windows/setup) to install and verify the toolchain. Check your local setup with:
+
+```powershell
+flutter doctor -v
+flutter devices
+```
+
+The device list should include Windows. From the repository root, launch the game:
+
+```powershell
+cd apps/monstrous_sea
+flutter pub get
+flutter run -d windows
+```
+
+The local gameplay package is resolved through the app's dependency configuration; it does not need to be installed separately.
+
+## Your first voyage
+
+1. Name your captain. A fresh profile starts with the Standard flagship and enters its first battle directly.
+2. Read the monster's intent and threatened ranges before choosing your attack. Select a helm order to move with your next turn-ending action.
+3. Use your Broadside, Signature, and Utility as they become available. Consumables are single-use quick actions with a per-turn limit.
+4. After encounters, collect or leave supplies and choose your next heading. Seek shelter for repairs and voyage upgrades, and inspect your ship when planning a build.
+5. If the captain falls, choose an heir and prepare the next voyage at home. Permanent blueprint purchases use recovered materials; upgrades earned at sea belong to that voyage.
+
+Use Settings to adjust text size. Hover over battle controls and status labels for their current effects, restrictions, and tactical details.
+
+## Save data
+
+On Windows, saves are stored in:
+
+```text
+%LOCALAPPDATA%\TheMonstrousSea2\Saves
+```
+
+`player_profile.json` holds permanent progress. `voyage_save.json` holds the active voyage checkpoint. Autosaves occur at supported checkpoints between encounters; individual combat turns are not saved for mid-battle resume.
+
+## Build a Windows release
+
+From `apps/monstrous_sea`:
+
+```powershell
+flutter build windows --release
+```
+
+The x64 output is in `build/windows/x64/runner/Release/`. To share a build, include the entire release folder, including its DLLs and `data` directory, together with the executable.
+
+## Project layout
+
+| Directory | Contents |
+| --- | --- |
+| [`apps/monstrous_sea`](apps/monstrous_sea/) | Flutter application, Flame battle presentation, interface, assets, and platform storage. |
+| [`packages/monstrous_core`](packages/monstrous_core/) | Gameplay rules, content, commands/events, and save models in pure Dart. |
+| [`packages/monstrous_sim`](packages/monstrous_sim/) | Automated voyages and balance simulation tools. |
+| [`docs`](docs/README.md) | Detailed design references, development backlog, and historical evidence. Contains story spoilers. |
+
+## Development and feedback
+
+For architecture, test commands, and development workflows, see the [developer guide](CLAUDE.md). The [backlog](docs/BACKLOG.md) tracks known issues and planned work; narrative references contain ending spoilers.
+
+If you report a playtest issue, include what happened, what you expected, your region and ship blueprint, steps to reproduce it, and a screenshot when useful.
