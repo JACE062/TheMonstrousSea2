@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -11,7 +12,23 @@ import 'package:path_provider/path_provider.dart';
 /// - `voyage_save.json`: Transient mid-voyage save snapshot (strictly auto-deleted upon captain demise
 ///   or returning to port).
 class StorageService {
-  StorageService({this.baseDirectory, this.legacyDirectory});
+  StorageService({Directory? baseDirectory, this.legacyDirectory})
+    : baseDirectory =
+          baseDirectory ??
+          (Zone.current[_isolatedDirectoryKey] as Directory?) ??
+          testDefaultDirectory;
+
+  /// Test-harness fallback across test-runner zones. Production leaves this
+  /// null; fixtures still prefer explicit directories or disabled autosave.
+  static Directory? testDefaultDirectory;
+
+  static const _isolatedDirectoryKey = #monstrousSeaIsolatedStorage;
+
+  /// Scope default services to isolated storage, including asynchronous work.
+  /// Explicit constructor directories still take precedence. An injected base
+  /// disables legacy migration unless a legacy directory is explicitly supplied.
+  static R withIsolatedStorage<R>(Directory directory, R Function() action) =>
+      runZoned(action, zoneValues: {_isolatedDirectoryKey: directory});
 
   /// Explicit storage directories isolate tests from the player's real saves.
   /// Migration is disabled for an injected base unless a legacy source is given.

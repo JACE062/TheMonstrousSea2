@@ -52,3 +52,8 @@ The player described the Kraken as strong but appropriate for roguelite progress
 - Documentation checks and `git diff --check` completed with this batch. New tests and probes used isolated game state and disabled autosave; no player saves were changed.
 
 Generated simulator report churn and temporary probes were removed from the working diff. No gameplay art was generated or replaced.
+
+
+## Later correction — inherited UI fixtures were not fully isolated
+
+An audit on 20 October 2026 found older UI/art fixtures with default autosave and no injected storage. Full app test runs that included those fixtures could overwrite production profiles with fixture data, including unpaid blueprint unlocks. Earlier blanket statements that verification left production saves untouched were not established for those runs; the passing test counts above do not prove isolation. The specialized tests that explicitly disabled autosave/injected storage remain distinct from that inherited full-suite risk. The fixtures are now corrected and a tested per-suite disposable storage fallback protects future default controllers. See the test-save isolation and battle-art receipt in the archive index and PT2-27 in the live backlog. No historical test result is being relabeled as a storage-isolation check.

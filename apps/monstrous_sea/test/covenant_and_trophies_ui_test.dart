@@ -18,6 +18,7 @@ void main() {
 
         final controller = GameController(
           session: GameSession(rng: SeededGameRng(42)),
+          autoSave: false,
         );
         controller.dispatch(const NameCaptain('Aurelius'));
         controller.profile.unlockedBlueprints.add(BlueprintId.ironclad.name);
@@ -65,6 +66,7 @@ void main() {
 
         final controller = GameController(
           session: GameSession(rng: SeededGameRng(42)),
+          autoSave: false,
         );
         controller.dispatch(const NameCaptain('Cyrus'));
         controller.profile.unlockedBlueprints.add(BlueprintId.ironclad.name);
@@ -106,6 +108,7 @@ void main() {
 
         final controller = GameController(
           session: GameSession(rng: SeededGameRng(42)),
+          autoSave: false,
         );
         controller.dispatch(const NameCaptain('Nautilus'));
         controller.profile.unlockedBlueprints.add(BlueprintId.clipper.name);
@@ -141,6 +144,7 @@ void main() {
 
         final controller = GameController(
           session: GameSession(rng: SeededGameRng(42)),
+          autoSave: false,
         );
         controller.dispatch(const NameCaptain('Hector'));
         controller.dispatch(const ChooseShip(ShipClass.standard));
@@ -235,6 +239,7 @@ void main() {
 
       final controller = GameController(
         session: GameSession(rng: SeededGameRng(42)),
+        autoSave: false,
       );
       controller.dispatch(const NameCaptain('CovenantMaster'));
       controller.dispatch(const ChooseShip(ShipClass.standard));

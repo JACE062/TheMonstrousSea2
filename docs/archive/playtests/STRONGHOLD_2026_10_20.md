@@ -36,3 +36,8 @@ A second comparison used `SimulationRunner(endless: true)` with the same conditi
 - These outcomes establish removal of the post-Kraken progression failure. They do not establish fair Serpent evasion, squid scaling, Kraken damage, or late-region balance; those remain the combat backlog.
 
 The temporary comparison checkout and probe were removed. The generated report was restored to avoid committing unrelated audit-output churn.
+
+
+## Later correction — inherited UI fixtures were not fully isolated
+
+An audit on 20 October 2026 found older UI/art fixtures with default autosave and no injected storage. Full app test runs that included those fixtures could overwrite production profiles with fixture data, including unpaid blueprint unlocks. Earlier blanket statements that verification left production saves untouched were not established for those runs; the passing test counts above do not prove isolation. The specialized tests that explicitly disabled autosave/injected storage remain distinct from that inherited full-suite risk. The fixtures are now corrected and a tested per-suite disposable storage fallback protects future default controllers. See the test-save isolation and battle-art receipt in the archive index and PT2-27 in the live backlog. No historical test result is being relabeled as a storage-isolation check.

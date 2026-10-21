@@ -15,6 +15,7 @@ void main() {
 
       final controller = GameController(
         session: GameSession(rng: SeededGameRng(777)),
+        autoSave: false,
       );
 
       controller.dispatch(const NameCaptain('Ahab'));

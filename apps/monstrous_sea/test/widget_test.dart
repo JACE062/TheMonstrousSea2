@@ -36,6 +36,7 @@ void main() {
     (WidgetTester tester) async {
       final controller = GameController(
         session: GameSession(rng: SeededGameRng(42)),
+        autoSave: false,
       );
 
       await tester.pumpWidget(

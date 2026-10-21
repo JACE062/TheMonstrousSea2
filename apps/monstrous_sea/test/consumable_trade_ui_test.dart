@@ -17,6 +17,7 @@ void main() {
         addTearDown(tester.view.resetDevicePixelRatio);
         final controller = GameController(
           session: GameSession(rng: SeededGameRng(13)),
+          autoSave: false,
         );
         controller.dispatch(const NameCaptain('Bottle Trader'));
         controller.dispatch(const ChooseShip(ShipClass.standard));

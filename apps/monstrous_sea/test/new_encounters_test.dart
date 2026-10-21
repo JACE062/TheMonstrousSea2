@@ -16,6 +16,7 @@ void main() {
 
       final controller = GameController(
         session: GameSession(rng: SeededGameRng(123)),
+        autoSave: false,
       );
 
       controller.dispatch(const NameCaptain('Sparrow'));
@@ -69,6 +70,7 @@ void main() {
 
       final controller = GameController(
         session: GameSession(rng: SeededGameRng(456)),
+        autoSave: false,
       );
 
       controller.dispatch(const NameCaptain('Nemo'));
