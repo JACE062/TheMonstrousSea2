@@ -55,10 +55,27 @@ class _BattleScreenState extends State<BattleScreen> {
           ship: widget.controller.ship!,
           monster: widget.controller.currentMonster!,
         );
+    _battleGame.artworkRevision.addListener(_onArtworkChanged);
   }
+
+  void _onArtworkChanged() {
+    if (mounted) setState(() {});
+  }
+
+  Widget _artRecoveryNotice() => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text('Illustration unavailable. Battle actions remain ready.', style: InkTheme.caption),
+      TextButton(
+        onPressed: _battleGame.isRetryingArtwork ? null : _battleGame.retryArtwork,
+        child: Text(_battleGame.isRetryingArtwork ? 'LOADING ART...' : 'RETRY ART'),
+      ),
+    ],
+  );
 
   @override
   void dispose() {
+    _battleGame.artworkRevision.removeListener(_onArtworkChanged);
     _logScrollController.dispose();
     super.dispose();
   }
@@ -258,6 +275,7 @@ class _BattleScreenState extends State<BattleScreen> {
                         const SizedBox(height: 8),
                         HullGauge(currentHp: ship.currentHp, maxHp: ship.maxHp),
                         ShipPowerStatusBadges(ship: ship),
+                        if (_battleGame.isShipArtUnavailable) _artRecoveryNotice(),
                       ],
                     ),
                   ),
@@ -347,6 +365,7 @@ class _BattleScreenState extends State<BattleScreen> {
                           maxHp: monster.maxHp,
                           label: 'BEAST INTEGRITY',
                         ),
+                        if (_battleGame.isMonsterArtUnavailable) _artRecoveryNotice(),
                         MonsterPowerStatusBadges(monster: monster),
                         if (monster.species == MonsterSpecies.crustacean ||
                             monster.maxCarapace > 0) ...[

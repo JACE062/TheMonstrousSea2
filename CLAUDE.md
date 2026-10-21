@@ -33,6 +33,8 @@ The app controller resolves the core's compatibility Rest checkpoint with `TakeH
 
 `SessionPhase.port` is ancestral home; `SessionPhase.stronghold` is a mid-voyage berth. Stronghold merchants persist their return phase. Legacy regional `port` saves restore as strongholds. Controller persistence snapshots profile/voyage data before awaiting I/O and queues writes, preserving stronghold checkpoints while preventing stale writes after death. Verify completed-Titan saves and legacy migration when changing this lifecycle. Both Havens and strongholds use `VoyageShipwrightView` and the same core costs/caps; permanent progression commands are home-only.
 
+Test fixtures that do not test persistence must set `autoSave: false`; persistence fixtures must inject disposable directories. The app's root `flutter_test_config.dart` also installs a per-suite disposable default via `StorageService.testDefaultDirectory` for the suite's actual `setUpAll`/`tearDownAll` lifetime. Test runner zones do not retain a `main()`-only zone override. `StorageService.withIsolatedStorage` scopes nested asynchronous work; explicit constructor directories take priority. Injected default roots disable legacy import. Never run an unguarded UI fixture against production saves: an audit found older art/UI tests doing exactly that (PT2-27).
+
 A save reset is a separate user action. Documentation/verification tooling must not modify a real player's profile. Use injected storage and isolated game state in tests.
 
 ## Presentation and art
@@ -42,6 +44,8 @@ Use the approved ink-and-parchment palette, fonts and transparent curated nautic
 Retain the [asset manifest](docs/art/sea_map_art_manifest.json), [revision records](docs/art/sea_map_revisions_v5.json), and [chart-marker provenance](docs/art/chart_icon_prompts.json). These preserve details such as the approved Freighter, Ironclad, Squid and Kraken revisions; generic future styling instructions must not overwrite those choices.
 
 SVG and `CustomPainter` remain appropriate for structural cartouches, compass roses, animated waves, borders and gauges. New entity/item art uses the user's established curated workflow when that work is explicitly scheduled. Do not generate art during a documentation or mapping audit. Missing/misassigned images are tracked in the backlog's deferred-art section.
+
+Battle scenes load/decode illustration bytes before caching successful images; Flame 1.38.2's failed image futures can emit unhandled errors even when awaited in a catch. Failures must leave the scene/event queue usable with a labeled placeholder and retry, while approved art remains unchanged. Retry only failed assets and handle scene removal before asynchronous completion. Do not rebuild the shared Windows output while a player's game is running; widget/engine checks and font-loaded widget captures can verify recovery without replacing that executable/bundle.
 
 Preserve readable controls and labels at 115% default text and the larger supported scales. A passing overflow check does not establish that intent, logs or damage effects are readable; review realistic desktop and compact layouts when UI changes.
 

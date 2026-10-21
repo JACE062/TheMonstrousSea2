@@ -3,6 +3,7 @@ import 'package:flame/cache.dart';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 import '../theme/ink_theme.dart';
@@ -14,13 +15,20 @@ class MonstrousSeaBattleGame extends FlameGame {
   MonstrousSeaBattleGame({
     required this.ship,
     required this.monster,
+    AssetBundle? assetBundle,
   }) {
     // A local cache owns the scene's full asset paths and decoded images.
-    images = Images(prefix: '');
+    images = Images(prefix: '', bundle: assetBundle ?? rootBundle);
   }
 
   final ShipState ship;
   final MonsterState monster;
+  final ValueNotifier<int> artworkRevision = ValueNotifier(0);
+  final Set<String> _unavailableArtwork = {};
+  bool isRetryingArtwork = false;
+  bool _removed = false;
+  bool get isShipArtUnavailable => _unavailableArtwork.contains(PilotArt.forShip(ship));
+  bool get isMonsterArtUnavailable => _unavailableArtwork.contains(PilotArt.forMonster(monster));
 
   late _RollingWavesComponent _waves;
   late _ShipBattleComponent _shipVisual;
@@ -35,6 +43,8 @@ class MonstrousSeaBattleGame extends FlameGame {
 
   @override
   void onRemove() {
+    _removed = true;
+    artworkRevision.dispose();
     if (_combatantsReady) {
       _shipVisual.pictureInfo?.picture.dispose();
       _monsterVisual.pictureInfo?.picture.dispose();
@@ -54,20 +64,13 @@ class MonstrousSeaBattleGame extends FlameGame {
     final shipPath = PilotArt.forShip(ship);
     final monsterPath = PilotArt.forMonster(monster);
 
-    PictureInfo? shipPicture;
-    Sprite? shipSprite;
-    if (shipPath.toLowerCase().endsWith('.svg')) {
-      shipPicture = await vg.loadPicture(SvgAssetLoader(shipPath), null);
-    } else {
-      shipSprite = Sprite(await images.load(shipPath));
-    }
-
-    PictureInfo? monsterPicture;
-    Sprite? monsterSprite;
-    if (monsterPath.toLowerCase().endsWith('.svg')) {
-      monsterPicture = await vg.loadPicture(SvgAssetLoader(monsterPath), null);
-    } else {
-      monsterSprite = Sprite(await images.load(monsterPath));
+    final (shipSprite, shipPicture) = await _loadArtwork(shipPath);
+    final (monsterSprite, monsterPicture) = await _loadArtwork(monsterPath);
+    if (_removed) {
+      shipPicture?.picture.dispose();
+      monsterPicture?.picture.dispose();
+      images.clearCache();
+      return;
     }
 
     // Ship on left side
@@ -87,6 +90,77 @@ class MonstrousSeaBattleGame extends FlameGame {
     add(_monsterVisual);
     _combatantsReady = true;
     _layoutCombatants();
+    if (!_removed) artworkRevision.value++;
+  }
+
+  Future<(Sprite?, PictureInfo?)> _loadArtwork(String path) async {
+    try {
+      Sprite? sprite;
+      PictureInfo? picture;
+      if (path.toLowerCase().endsWith('.svg')) {
+        picture = await vg.loadPicture(SvgAssetLoader(path), null);
+      } else if (images.containsKey(path)) {
+        sprite = Sprite(await images.load(path));
+      } else {
+        // Flame 1.38's failed-load cache forks an unhandled error future even
+        // when its caller catches the original. Decode first; cache successes
+        // only, so a missing illustration is recoverable rather than fatal.
+        final data = await images.bundle.load(path);
+        final decoded = await decodeImageFromList(
+          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+        );
+        if (_removed) {
+          decoded.dispose();
+          return (null, null);
+        }
+        images.add(path, decoded);
+        sprite = Sprite(decoded);
+      }
+      if (_removed) {
+        picture?.picture.dispose();
+        images.clearCache();
+        return (null, null);
+      }
+      _unavailableArtwork.remove(path);
+      return (sprite, picture);
+    } catch (error) {
+      _unavailableArtwork.add(path);
+      debugPrint('Battle illustration unavailable ($path): $error');
+      return (null, null);
+    }
+  }
+
+  /// Illustration failure must not prevent the combat scene/event queue loading.
+  /// Only failed assets are retried; successfully decoded images stay cached.
+  Future<void> retryArtwork() async {
+    if (_removed || !_combatantsReady || isRetryingArtwork) return;
+    isRetryingArtwork = true;
+    artworkRevision.value++;
+    try {
+      for (final path in List<String>.of(_unavailableArtwork)) {
+        images.clear(path);
+        images.bundle.evict(path);
+        final (sprite, picture) = await _loadArtwork(path);
+        if (_removed) {
+          picture?.picture.dispose();
+          images.clear(path);
+          continue;
+        }
+        if (path == PilotArt.forShip(ship)) {
+          _shipVisual.sprite = sprite;
+          _shipVisual.pictureInfo = picture;
+        } else {
+          _monsterVisual.sprite = sprite;
+          _monsterVisual.pictureInfo = picture;
+        }
+      }
+    } finally {
+      if (!_removed) {
+        isRetryingArtwork = false;
+        _layoutCombatants();
+        artworkRevision.value++;
+      }
+    }
   }
 
   @override
@@ -342,8 +416,8 @@ class _ShipBattleComponent extends PositionComponent with HasGameReference<Monst
       : super(anchor: Anchor.center);
 
   final ShipState ship;
-  final Sprite? sprite;
-  final PictureInfo? pictureInfo;
+  Sprite? sprite;
+  PictureInfo? pictureInfo;
   double _time = 0;
   double _fortifyFlash = 0;
 
@@ -394,51 +468,7 @@ class _ShipBattleComponent extends PositionComponent with HasGameReference<Monst
       }
       return;
     }
-    final paint = Paint()
-      ..color = InkTheme.inkPrimary
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.5;
-
-    final fillPaint = Paint()
-      ..color = InkTheme.parchmentSurface
-      ..style = PaintingStyle.fill;
-
-    // Stylized vessel silhouette on canvas
-    final hull = Path()
-      ..moveTo(-50, 15)
-      ..lineTo(-60, 0)
-      ..lineTo(55, 0)
-      ..lineTo(70, -10)
-      ..lineTo(60, 15)
-      ..quadraticBezierTo(0, 30, -50, 15)
-      ..close();
-
-    canvas.drawPath(hull, fillPaint);
-    canvas.drawPath(hull, paint);
-
-    // Masts & sails
-    canvas.drawLine(const Offset(-20, 0), const Offset(-20, -55), paint);
-    canvas.drawLine(const Offset(20, 0), const Offset(20, -65), paint);
-
-    final sailPaint = Paint()
-      ..color = InkTheme.parchmentHighlight
-      ..style = PaintingStyle.fill;
-
-    final sail1 = Path()
-      ..moveTo(-35, -50)
-      ..quadraticBezierTo(-20, -45, -5, -50)
-      ..lineTo(-20, -15)
-      ..close();
-    canvas.drawPath(sail1, sailPaint);
-    canvas.drawPath(sail1, paint);
-
-    final sail2 = Path()
-      ..moveTo(5, -60)
-      ..quadraticBezierTo(20, -55, 35, -60)
-      ..lineTo(20, -20)
-      ..close();
-    canvas.drawPath(sail2, sailPaint);
-    canvas.drawPath(sail2, paint);
+    _renderArtPlaceholder(canvas, size, 'VESSEL');
   }
 }
 
@@ -447,8 +477,8 @@ class _MonsterBattleComponent extends PositionComponent with HasGameReference<Mo
       : super(anchor: Anchor.center);
 
   final MonsterState monster;
-  final Sprite? sprite;
-  final PictureInfo? pictureInfo;
+  Sprite? sprite;
+  PictureInfo? pictureInfo;
   double _time = 0;
   int displayedTentacles = 8;
   double _severFlash = 0;
@@ -518,39 +548,27 @@ class _MonsterBattleComponent extends PositionComponent with HasGameReference<Mo
       );
       return;
     }
-    final strokePaint = Paint()
-      ..color = InkTheme.inkPrimary
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.5;
-
-    final bodyPaint = Paint()
-      ..color = monster.isObscured ? InkTheme.inkMuted : InkTheme.parchmentDark
-      ..style = PaintingStyle.fill;
-
-    // Head / Mantle
-    final head = Path()
-      ..moveTo(-35, 20)
-      ..quadraticBezierTo(0, -65, 35, 20)
-      ..close();
-    canvas.drawPath(head, bodyPaint);
-    canvas.drawPath(head, strokePaint);
-
-    // Red menacing eyes
-    final eyePaint = Paint()..color = InkTheme.crimsonAccent..style = PaintingStyle.fill;
-    canvas.drawCircle(const Offset(-14, 5), 5, eyePaint);
-    canvas.drawCircle(const Offset(14, 5), 5, eyePaint);
-
-    // Dynamic tentacles
-    final tentacleCount = displayedTentacles > 0 ? displayedTentacles : 4;
-    for (var i = 0; i < tentacleCount; i++) {
-      final spread = (i - (tentacleCount / 2)) * 14.0;
-      final wave = sin(_time * 2.5 + i) * 8.0;
-      final tentacle = Path()
-        ..moveTo(spread * 0.5, 20)
-        ..quadraticBezierTo(spread + wave, 50, spread * 1.2, 75);
-      canvas.drawPath(tentacle, strokePaint);
-    }
+    _renderArtPlaceholder(canvas, size, 'BEAST');
   }
+}
+
+/// A labeled cartouche is not replacement creature/ship art.
+void _renderArtPlaceholder(Canvas canvas, Vector2 size, String label) {
+  final rect = RRect.fromRectAndRadius(
+    Rect.fromLTWH(0, 0, size.x, size.y), const Radius.circular(4),
+  );
+  canvas.drawRRect(rect, Paint()..color = InkTheme.parchmentSurface);
+  canvas.drawRRect(rect, Paint()
+    ..color = InkTheme.inkMuted
+    ..style = PaintingStyle.stroke);
+  final text = TextPainter(
+    text: TextSpan(text: label, style: TextStyle(
+      color: InkTheme.inkMuted, fontFamily: 'Arial', fontSize: min(16, size.x / 7),
+    )),
+    textDirection: TextDirection.ltr,
+  )..layout(maxWidth: max(1, size.x - 4));
+  text.paint(canvas, Offset((size.x - text.width) / 2, (size.y - text.height) / 2));
+  text.dispose();
 }
 
 class _DamageNumberComponent extends PositionComponent {
