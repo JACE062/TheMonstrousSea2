@@ -58,7 +58,7 @@ void main() {
   }
 
   test(
-    'ink log explains percentage points and clearing without AC language',
+    'ink log briefly explains the penalty without naming a counter hardpoint',
     () {
       const event = InkCloudDeployed(
         monsterName: 'Kraken',
@@ -66,8 +66,8 @@ void main() {
       );
       final text = const NarrationFormatter().format(event);
       expect(text, contains('25 percentage points'));
-      expect(text, contains('25% chance'));
-      expect(text, contains('Spotter Flare'));
+      expect(text, contains('disperse'));
+      expect(text, isNot(contains('Spotter Flare')));
       expect(text, isNot(contains(' AC')));
       expect(
         event.acBonus,

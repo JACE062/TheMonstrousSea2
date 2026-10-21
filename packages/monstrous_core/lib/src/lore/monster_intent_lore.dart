@@ -42,17 +42,17 @@ abstract final class MonsterIntentLore {
   static const sharkBreachingLunge = MonsterIntentLoreEntry(
     name: 'Breaching Lunge',
     subtitle: 'Charges 1 Band • Hits Short & Med',
-    description: 'The predator coils its tail to launch a high-speed lunging bite that tracks retreating hulls.',
+    description: 'The predator whips its tail around to launch a high-speed lunging bite that tracks retreating hulls.',
     tacticalTip: 'Closes 1 band before striking Short and Medium Range. Pin with a Harpoon or stun with a Mortar to halt its charge!',
-    telegraphLog: 'drops beneath the whitecaps, coiling for a relentless Breaching Lunge!',
+    telegraphLog: 'drops beneath the whitecaps, readying for a relentless Breaching Lunge!',
   );
 
   static const sharkFrenziedJaws = MonsterIntentLoreEntry(
     name: 'Frenzied Jaws',
     subtitle: '+1 Frenzy Stack • Hits Short Range',
-    description: 'Whipped into a blood frenzy, the shark snaps its serrated jaws at point-blank hulls.',
+    description: 'Whipped into a vicious frenzy, the shark snaps its serrated jaws at point-blank hulls.',
     tacticalTip: 'Gains +1 Frenzy stack before striking Short Range. Fall back to Medium Range to evade the bite!',
-    telegraphLog: 'rolls its eyes back in bloodlust, jaws gaping for a point-blank Frenzied Jaws strike!',
+    telegraphLog: 'stares with eyes full of bloodlust, jaws gaping for a point-blank Frenzied Jaws strike!',
   );
 
   // ── CRUSTACEAN INTENTS ─────────────────────────────────────────────────────
@@ -60,16 +60,16 @@ abstract final class MonsterIntentLore {
   static const crustaceanCalcifyCarapace = MonsterIntentLoreEntry(
     name: 'Calcify Carapace',
     subtitle: 'Self-Buff • Restores 35% Carapace',
-    description: 'The armored colossus secretes rapid-hardening abyssal lime to seal fractures in its shell.',
+    description: 'The armored colossus secretes rapid-hardening abyssal ooze to seal fractures in its shell.',
     tacticalTip: 'No attack this turn. Restores 35% of maximum Carapace plating and cleanses surface status effects.',
-    telegraphLog: 'draws its limbs inward as mineral foam bubbles across its shell to Calcify Carapace!',
+    telegraphLog: 'pulls its limbs inward as it draws power from inside itself to Calcify Carapace!',
   );
 
   static const crustaceanBrineJet = MonsterIntentLoreEntry(
     name: 'Pressurized Brine Jet',
-    subtitle: 'Stationary • Hits Med & Long (Safe at Short)',
+    subtitle: 'Stationary • Hits Med & Long',
     description: 'Fires a scalding, high-pressure stream of corrosive trench brine in a high arc.',
-    tacticalTip: 'Hits Medium and Long Range (inflicts Poison/Acid). Advance into Short Range to slip underneath the stream!',
+    tacticalTip: 'Hits Medium and Long Range (inflicts Poison). Advance into Short Range to slip underneath the arc!',
     telegraphLog: 'vents a hissing siphon, aiming a Pressurized Brine Jet across Medium and Long Range!',
   );
 
@@ -78,15 +78,15 @@ abstract final class MonsterIntentLore {
     subtitle: 'Stationary • Hits Short & Med',
     description: 'Raises its entire armored bulk and crashes down, sending a concussive shockwave through nearby water.',
     tacticalTip: 'Sweeps both Short and Medium Range, rattling rigging (-15% Evasion). Fall back to Long Range or Fortify!',
-    telegraphLog: 'rears its massiveplated bulk above the waterline for a wide Tremor Shell-Slam!',
+    telegraphLog: 'rears its massive plated bulk above the waterline for a wide Tremor Shell-Slam!',
   );
 
   static const crustaceanHydraulicGuillotine = MonsterIntentLoreEntry(
-    name: 'Hydraulic Guillotine',
+    name: 'Crushing Claw',
     subtitle: 'Stationary • Hits Short Range',
-    description: 'Cocks its colossal crushing claw to snap timber and iron plating in half at collision distance.',
+    description: 'Raises its colossal hydraulic claw to snap timber and iron plating in half at collision distance.',
     tacticalTip: 'Devastating point-blank damage at Short Range only. Fall back to Medium Range to avoid the pincer!',
-    telegraphLog: 'ratchets open its colossal crushing claw for a point-blank Hydraulic Guillotine!',
+    telegraphLog: 'ratchets open its colossal crushing claw for a point-blank Crushing Claw!',
   );
 
   // ── JELLYFISH INTENTS ──────────────────────────────────────────────────────

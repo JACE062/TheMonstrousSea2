@@ -84,9 +84,9 @@ class WeaponLore {
       name: 'Shrapnel Howitzer Battery',
       description:
           'Thick-walled naval howitzers scattering canister loads of slicing iron shrapnel.',
-      flavorQuote: 'Sweep the waterline with iron and leave no tentacle whole.',
+      flavorQuote: 'Sweep the waterline with iron and leave no beast whole.',
       tacticalTip:
-          'Optimal 100% Slicing damage at Medium Range (70% Short, 75% Long). Explosive shells require a future Master Refit.',
+          'Optimal 100% Slicing damage at Medium Range (70% Short, 75% Long).',
     ),
     ShipWeaponType.twinChasers: ShipWeaponLoreEntry(
       name: 'Twin Bow Chasers',
@@ -99,7 +99,7 @@ class WeaponLore {
     ShipWeaponType.prowRam: ShipWeaponLoreEntry(
       name: 'Reinforced Prow Ram',
       description:
-          'A massive forged-iron battering beak bolted directly to the ship’s keel.',
+          'A massive forged-iron battering ram bolted directly to the ship’s keel.',
       flavorQuote: 'When all powder is spent, the ship itself becomes the cannonball.',
       tacticalTip:
           '1T Cooldown Signature. Unusable at Long Range. Deals 100% Piercing at Short, or 125% kinetic charge damage when lunging from Medium into Short.',
@@ -116,30 +116,30 @@ class WeaponLore {
       name: 'Heavy Siege Mortar',
       description:
           'A stubby, high-angle naval bombard that lofts explosive hollow shells over waves.',
-      flavorQuote: 'A thunderous arc that falls like a dying star.',
+      flavorQuote: 'A thunderous arc that falls like a shooting star.',
       tacticalTip:
           '1T Cooldown Signature. Optimal 100% Blast at Long Range (85% Medium) and 2.0x vs Carapace. Point-blank fire at Short Range deals 70% damage with 25% self-splash!',
     ),
     ShipWeaponType.harpoonWinch: ShipWeaponLoreEntry(
       name: 'Harpoon Winch',
       description:
-          'Steam-assisted pneumatic winch launching heavy barbed steel tethers.',
-      flavorQuote: 'Drive the barb deep and let the steam engine haul the titan in.',
+          'Sturdy launcher & winch with heavy barbed steel harpoons.',
+      flavorQuote: 'Drive the barbs deep and haul the titan in.',
       tacticalTip:
           '1T Cooldown Signature. Optimal 100% damage at Medium Range (85% Short/Long). Pulls the monster 1 range band closer and inflicts Pinned (1T).',
     ),
     ShipWeaponType.torpedoLauncher: ShipWeaponLoreEntry(
       name: 'Sub-Surface Torpedo Launcher',
       description:
-          'Pneumatic keel tubes launching compressed-air explosive torpedoes beneath the waterline.',
+          'Pneumatic keel tubes launching explosive torpedoes beneath the waterline.',
       flavorQuote: 'A trailing bubble wake, then an underwater upheaval.',
       tacticalTip:
-          'High blast damage that cracks carapace plates and breaches submerged hulls.',
+          'High blast damage that cracks carapace plates and breaches submerged beasts.',
     ),
     ShipWeaponType.bladeLauncher: ShipWeaponLoreEntry(
       name: 'Whirling Blade Launcher',
       description:
-          'Spring-loaded rotary dispenser hurling spinning tempered steel circular sawblades.',
+          'Spring-loaded rotary dispenser hurling spinning circular sawblades.',
       flavorQuote: 'Hissing razor discs that shear flesh and sever grasping limbs.',
       tacticalTip:
           'Slicing damage severs kraken and squid tentacles, permanently diminishing enemy attack batteries.',
@@ -175,7 +175,7 @@ class WeaponLore {
     MonsterWeaponType.tail: MonsterWeaponLoreEntry(
       name: 'Sweeping Tail Thrash',
       description:
-          'A muscular muscular tail whip capable of shattering gunwales and throwing crew.',
+          'A muscular tail whip capable of shattering gunwales and throwing crew.',
       telegraphWarning:
           'A titan fin coils beneath the stern, coiling for a crushing lateral sweep!',
     ),
@@ -215,7 +215,7 @@ class WeaponLore {
     ConsumableType.hullPatchKit: ConsumableLoreEntry(
       name: 'Hull Patch Kit',
       description:
-          'Pre-fitted oak shoring timbers, tarred oakum, and copper hull plates ready for emergency combat patching.',
+          'Pre-fitted oak shoring timbers and pitch ready for emergency combat patching.',
       flavorUse:
           'Quick Action (0T): Braces breached planking mid-battle, immediately restoring 30% of Max Hull HP.',
     ),
@@ -231,7 +231,7 @@ class WeaponLore {
       description:
           'Volatile naphtha-distilled sea pitch that ignites upon contact with air and cannon flash.',
       flavorUse:
-          'Quick Action (0T): Coats your next hardpoint volley this turn with incendiary pitch (+25% Fire damage & inflicts Burn).',
+          'Quick Action (0T): Coats your next volley this turn with incendiary pitch (+25% Fire damage & inflicts Burn).',
     ),
     ConsumableType.unstableTincture: ConsumableLoreEntry(
       name: 'Unstable Tincture',

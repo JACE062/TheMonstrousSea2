@@ -85,7 +85,7 @@ class NameForge {
   static const List<String> serpentNames = [
     'Slithery Devil',
     'Eerie Elainaling',
-    'Sussy Seaweed',
+    'False Seaweed',
     'Elusive Eell',
     'Writhing Curse',
     'Lurking Coil',
@@ -120,7 +120,7 @@ class NameForge {
     'Grasping Abyss',
     'Suffocating Embrace',
     'Razor Tendrils',
-    'Death by Ink',
+    'Inky Death',
     'Depth Lurker',
     'Cephalopod Tyrant',
   ];

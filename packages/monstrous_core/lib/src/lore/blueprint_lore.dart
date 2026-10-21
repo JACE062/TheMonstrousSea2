@@ -21,11 +21,11 @@ class BlueprintLore {
 
   static const standard = BlueprintLoreEntry(
     name: 'Blueprint: Standard',
-    subtitle: 'The Returning Keel',
+    subtitle: 'The Bloodbound Keel',
     description:
         'The plain, unadorned war-barque. Balanced and dependable, waiting to be shaped by the bloodline.',
     tacticalRole:
-        'Balanced baseline hull equipped with dual broadside batteries and an auxiliary weapon mount.',
+        'Balanced baseline hull equipped with dual broadside batteries and a defensive/offensive utility buff.',
   );
 
   static const ironclad = BlueprintLoreEntry(
@@ -34,16 +34,16 @@ class BlueprintLore {
     description:
         'Bolts thick charcoal-smelted iron plates onto the hull and fits a reinforced ram to the prow.',
     tacticalRole:
-        'Absorbs multi-hit strikes with damage thresholding; crushes carapace with momentum-driven kinetic prow strikes.',
+        'Absorbs damage with strike-resistant plating; crushes flesh and carapace with its high-impact ram.',
   );
 
   static const clipper = BlueprintLoreEntry(
     name: 'Blueprint: Clipper',
-    subtitle: 'The Razor Skiff',
+    subtitle: 'The Evasive Skiff',
     description:
-        'Strikes away excess deadweight, installing a streamlined entry, cloud of canvas, and precision outrigger culverin.',
+        'Tosses excess deadweight, installing a streamlined entry, cloud of canvas, and precision outrigger culverin.',
     tacticalRole:
-        'Evades heavy blows with superior speed; surgical critical strikes bypass 50% of monster Carapace plating.',
+        'Evades heavy blows with superior speed; culverin critical hits strike at the seams of a monster\'s Carapace.',
   );
 
   static const bombardier = BlueprintLoreEntry(
@@ -52,7 +52,7 @@ class BlueprintLore {
     description:
         'Heavily reinforces deck joists to support a high-trajectory naval mortar and expanded powder magazine.',
     tacticalRole:
-        'Shatters thick armor with explosive mortar blasts (+50% vs Carapace); concussive impact staggers enemy windups.',
+        'Shatters carapace with explosive mortar blasts; concussive impact staggers enemy windups.',
   );
 
   static const corsair = BlueprintLoreEntry(

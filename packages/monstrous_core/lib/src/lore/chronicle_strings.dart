@@ -63,13 +63,13 @@ class ChronicleStrings {
       'Slicing blades sever $countSevered tentacles! ($remainingTentacles remaining).';
 
   static String inkCloudDeployed(String monsterName, int accuracyPenalty) =>
-      '$monsterName spewed a dense ink cloud! Shot accuracy reduced by $accuracyPenalty percentage points. Successful hits have a 25% chance to disperse it; Spotter Flare clears it.';
+      '$monsterName spewed a dense ink cloud! Shot accuracy reduced by $accuracyPenalty percentage points. Hit the monster repeatedly to disperse!';
 
   static String carapaceAbsorbed({
     required String monsterName,
     required int absorbedAmount,
   }) =>
-      'The thick carapace of $monsterName deflects $absorbedAmount damage!';
+      'The thick carapace of $monsterName absorbs $absorbedAmount damage!';
 
   static String carapaceDamaged({
     required String monsterName,
@@ -78,14 +78,14 @@ class ChronicleStrings {
     required bool wasShattered,
   }) =>
       wasShattered
-          ? 'A massive explosion shatters the carapace of $monsterName! The beast is exposed!'
-          : 'Explosives blast away $damageDealt carapace plating from $monsterName ($remainingCarapace remaining).';
+          ? 'A massive hit shatters the carapace of $monsterName! The beast is exposed!'
+          : 'The strike breaks away $damageDealt carapace plating from $monsterName ($remainingCarapace remaining).';
 
   static String sharkFrenzyRoared({
     required String monsterName,
     required int stacks,
   }) =>
-      'The $monsterName lets out a terrifying roar, entering a feeding frenzy! (Frenzy x$stacks)';
+      'The $monsterName lets out a terrifying roar, boosting its angered frenzy! (Frenzy x$stacks)';
 
   static String sharkFrenzyDisrupted(String monsterName) =>
       'The electrical shock rattles $monsterName, completely disrupting its frenzy!';
@@ -108,7 +108,7 @@ class ChronicleStrings {
       'The $name $flavorMessage!';
 
   static String monsterHesitated(String monsterName) => monsterName.isNotEmpty
-      ? 'The $monsterName circles cautiously, weapons cooling.'
+      ? 'The $monsterName circles cautiously, hesitating in its attacks.'
       : 'The sea beast circles warily in the waves.';
 
   static String tacticalRangeShift({
@@ -137,7 +137,7 @@ class ChronicleStrings {
     required String shipName,
     required String currentRangeName,
   }) =>
-      'EVADED BY POSITION! The $monsterName unleashes $intentName, but The $shipName is safely out of reach at $currentRangeName!';
+      'STRIKE EVADED! The $monsterName unleashes $intentName, but The $shipName maneuvers safely out of reach at $currentRangeName!';
 
   static String headOnCollision({
     required String monsterName,
@@ -157,5 +157,5 @@ class ChronicleStrings {
     required String monsterName,
     required String shipName,
   }) =>
-      'GRAPPLED! The $monsterName latches onto The $shipName\'s hull, locking the helm to Hold Line for the next round!';
+      'GRAPPLED! The $monsterName latches onto The $shipName\'s hull, locking the ship in place for the next round!';
 }

@@ -58,19 +58,29 @@ class EldritchLore {
   static const calderaClimax = <CalderaClimaxChoice, CalderaClimaxLoreEntry>{
     CalderaClimaxChoice.shatterCore: CalderaClimaxLoreEntry(
       displayName: 'Shatter the Core',
-      promptTitle: 'Break the Leviathan Core within the Abyssal Font',
+      promptTitle: 'Use the Leviathan Core to destroy the Abyssal Font',
       narrativeOutcome:
-          'With a deafening detonation, you cast the Leviathan Core into the incandescent rift. '
-          'The primordial birthplace of leviathans collapses in fire and steam, curing the generational '
-          'salt-sickness and bringing peace to the bloodline at last.',
+          'With a steeled determination, you push forward and cast the Core into the incandescent rift. '
+          'The primordial birthplace of leviathans shatters in a deafening detonation, the wailing of an '
+          'ancient eldritch being resounding in your head before it abruptly ceases. '
+          'As your splintered ship careens its way into the depths, you feel the curse lifting from you, '
+          'the noise of the Sea-Madness finally gone from your mind. '
+          'The ship will not return to port this time, but it gives you a sense of relief, '
+          'knowing your bloodline, and the Sea, will know peace at last.',
     ),
     CalderaClimaxChoice.claimCore: CalderaClimaxLoreEntry(
       displayName: 'Claim the Core',
       promptTitle: 'Bind the Leviathan Core into the flagship’s living keel',
       narrativeOutcome:
-          'Deep-sea madness whispers sweet promises in your mind. You hoist the throbbing, bioluminescent '
-          'organ and bolt it to the keel timbers. The flagship hums with dark power. Returning to port, '
-          'the ancient covenant altar awakens—welcoming you into the endless abyss.',
+          'The Sea-Madness whispers sweet promises in your mind you cannot ignore. '
+          'You hoist the humming, glowing core over your head, before slamming it into the deck. '
+          'It fuses to the splintered timbers with a horrible sound, but it integrates perfectly, '
+          'the orb looking, strangely, like it was always meant to be there. '
+          'As you feel the thrum of dark power from the hull of the flagship, the voice in your head cackles with delight '
+          'at what you’ve done, growing louder than ever before... '
+          '\n\n'
+          'The Bloodbound Ship slowly drifts into port once more, the keel just as bare as every other time, '
+          'save for the orb-like altar fused into the wall of the captain’s quarters, humming invitingly...',
     ),
   };
 
@@ -79,7 +89,7 @@ class EldritchLore {
   static const pacts = <CovenantPactId, CovenantPactLoreEntry>{
     CovenantPactId.abyssalVigor: CovenantPactLoreEntry(
       name: 'Abyssal Vigor',
-      flavor: 'Beasts gorge upon hydrothermal nutrients rising from the rift.',
+      flavor: 'Beasts gorge upon ancient energies pulsing out from the rift.',
       effectDescription: 'All sea monsters have +25% Max HP.',
     ),
     CovenantPactId.calcifiedCarapace: CovenantPactLoreEntry(
@@ -95,9 +105,9 @@ class EldritchLore {
     ),
     CovenantPactId.chokingFog: CovenantPactLoreEntry(
       name: 'Choking Fog',
-      flavor: 'Thick bioluminescent vapor blankets the shipping lanes.',
+      flavor: 'Dark, strange mists blanket the seas.',
       effectDescription:
-          'Lookout calls on dead-reckoning headings are muffled and obscured by fog.',
+          'Lookout calls on navigation headings are muffled and obscured by fog.',
     ),
     CovenantPactId.brittleOak: CovenantPactLoreEntry(
       name: 'Brittle Oak',
@@ -109,13 +119,13 @@ class EldritchLore {
       name: 'Volatile Environs',
       flavor: 'The ocean itself rebels against the bloodbound keel.',
       effectDescription:
-          'Sargasso kelp drag doubles (-20% evasion); Boiling Reach scald deals 15 damage every 2 rounds.',
+          'Sargasso kelp drag doubles; Boiling Reach scald deals greater damage, more often.',
     ),
     CovenantPactId.apexEmergence: CovenantPactLoreEntry(
       name: 'Apex Emergence',
-      flavor: 'Ancient terrors abandon the trenches to stalk the surface.',
+      flavor: 'Dark power drives ancient terrors from deep trenches to stalk the surface.',
       effectDescription:
-          'Non-boss encounters have double the chance (50%) to spawn as Apex beasts.',
+          'Non-boss encounters have double the chance to spawn as Apex beasts.',
     ),
   };
 
@@ -125,9 +135,9 @@ class EldritchLore {
     EldritchRelicId.siphonRam: EldritchRelicLoreEntry(
       name: 'Abyssal Siphon Ram',
       description:
-          'A jagged prow forged from hollow leviathan bone that drinks the lifeblood of rammed beasts.',
+          'A jagged prow forged from hollow leviathan bone that drinks lifeblood and dark power from rammed beasts.',
       effectSummary:
-          'Shatters Carapace and heals the flagship for 30% of hull damage dealt.',
+          'Shatters Carapace and heals the flagship for 30% of damage dealt to flesh.',
     ),
     EldritchRelicId.ghostwakeCulverin: EldritchRelicLoreEntry(
       name: 'Ghostwake Rail-Culverin',
@@ -139,7 +149,7 @@ class EldritchLore {
     EldritchRelicId.brimstoneMortar: EldritchRelicLoreEntry(
       name: 'Caldera Brimstone Mortar',
       description:
-          'Fires hollow shells packed with pressurized hydrothermal sulfur from the world’s rim.',
+          'Fires hollow shells packed with pressurized sulfur from the world’s boiling rim.',
       effectSummary:
           '2.0x Blast vs Carapace, disrupts frenzy, and inflicts Burn on every hit.',
     ),
@@ -167,7 +177,7 @@ class EldritchLore {
     ),
     HarborMonumentId.calderaBrazier: HarborMonumentLoreEntry(
       name: 'Brazier of the Eternal Rim',
-      subtitle: 'Burns with undying hydrothermal cinders',
+      subtitle: 'Burns with sulfurous, undying cinders',
       bonusPerRankDescription: '+5% Weapon Damage per rank',
     ),
   };
