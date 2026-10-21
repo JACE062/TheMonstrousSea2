@@ -19,6 +19,7 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | F | Specify and implement post-boss progression / Phase 4 | PT2-20, depends on A | Strongholds offer the agreed hull/mark upgrades and exactly scoped Master Refits, with run persistence and blueprint-specific choices. |
 | G — discussion required | Revamp heir Boons and Quirks | PT2-26 | Audit all ten traits against current mechanics, agree on meaningful effects/tradeoffs and saved-heir handling, then implement with accurate descriptions. |
 | Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](#deferred-ui-art-and-icons); audit existing assets first. No image generation in this batch. |
+| Later — substantial cleanup | Audit and retire vestigial core content | FUT-05 | Inventory live content, legacy helpers and save dependencies; reconcile ship/monster naming and weapon identities, then remove or isolate obsolete paths in scoped changes. See [cleanup scope](#deferred-core-cleanup). |
 
 The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and Kraken release fixes are implemented. B's initial tentacle/regional-scaling values are also implemented. Navigation chunk C is also implemented, and the player reports the changes are looking good in playtesting. Broader replay should still evaluate the stronghold boundary and combat changes. The arena asset failure now has recovery/retry handling (PT2-25); its original trigger still needs player replay. A verified test-save leak that can create unpaid blueprint unlocks has been fixed (PT2-27). F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
 
@@ -356,6 +357,26 @@ Use the current source names as the final authority for asset briefs; the table 
 - Navigation imagery is consistent with the parchment palette and nautical subject matter.
 - Inspect screenshots at real display size and 115–130% text settings; preserve contrast, labels, accessibility, and compact layouts.
 - Add focused mapping/asset-load checks where useful, then review the rendered UI. File existence alone does not establish visual correctness.
+
+## Deferred core cleanup
+
+**FUT-05 — Requested 21 October 2026; substantial deferred maintenance project.** Audit vestigial content and naming across `monstrous_core` after the successive gameplay revisions. This records future work, not authorization to delete every old-looking enum or helper now. Coordinate with PT2-02 (family identity), PT2-13 (Apex names), PT2-26 (heir traits) and the separate narrative integration work.
+
+### Reported scope and initial source findings
+
+- **Ship adjectives and identities:** [NameForge](../packages/monstrous_core/lib/src/content/names/name_forge.dart) still has Freighter/Corvette adjective pools, reused by Corsair/Clipper; Bombardier shares Ironclad's pool. [Ship content](../packages/monstrous_core/lib/src/content/ships.dart) retains older ship factories alongside the flagship/blueprint factory. Audit which names suit the current five blueprints and the one ancestral flagship, rather than perpetuating obsolete ship-selection identities. Final replacement names remain undecided.
+- **Retired weapons and mechanics:** [Ship weapon generation](../packages/monstrous_core/lib/src/content/ship_weapons.dart), [monster weapon generation](../packages/monstrous_core/lib/src/content/monster_weapons.dart), [enums](../packages/monstrous_core/lib/src/model/enums.dart) and [weapon lore](../packages/monstrous_core/lib/src/lore/weapon_lore.dart) retain identities, factories, formulas and text from older systems. Inventory obsolete ship/monster weapons and distinguish them from still-used intrinsic hardpoints and monster attack implementations. Also audit rarity, weight, equip/swap/drop, AC and other compatibility references; their existence does not authorize restoring retired mechanics.
+- **Titan naming inconsistency:** `NameForge` offers multiple Kraken titles, including `Ancient Leviathan`, while its World Serpent and Ancient Leviathan names are fixed. However, the actual [Kraken factory](../packages/monstrous_core/lib/src/content/monsters.dart) already defaults to `The Kraken`; the shared generator's title pool is not proof that normal Titan encounters randomize it. `generateKrakenTitle` has a direct content-test caller in the inspected source. Audit all factory/generator/custom-name paths and choose one authoritative policy for the three Titans. Avoid a Region 1 title colliding with the Region 3 Titan's identity. Preserve intentional custom/Nemesis identity where applicable.
+- **Duplicated presentation sources:** Trace names, descriptions and narrative outcomes from catalogs through enums, events, session narration and app widgets. Retire or connect unused lore tables and remove stale hardcoded copies deliberately so an edit to the designated source actually reaches the player. Preserve the user's revised narrative intent; old copy is not the authority simply because a live widget still contains it.
+
+### Suggested execution chunks and safeguards
+
+1. Build a reachability/disposition inventory: current runtime content, supported save readers/migrations, legacy/parity-only helpers, plausible future concepts, and unused content. Check engine, app, simulator, public exports and tests; a reference in an old parity test alone does not establish a current gameplay requirement.
+2. Agree on ship/Titan/Apex naming and current weapon identities, then consolidate their live sources without silently renaming historical captain/Nemesis records. A future Master Refit concept does not make an obsolete weapon an approved drop or current mount.
+3. Remove demonstrably unused content in small commits. Isolate still-needed compatibility adapters from active catalogs; remove serialized IDs/fields only with an explicit migration and old-save coverage.
+4. Update descriptions, comments and tests to the surviving contracts. Keep meaningful regression coverage rather than preserving obsolete behavior solely to satisfy historical tests. Check seeded RNG consumption when removing random name choices, since changing draws can alter later encounters and balance probes.
+
+**Acceptance:** A reviewed inventory explains what was retained, removed or migrated. The current five blueprints, intrinsic weapons, monster intents and three Titan identities have authoritative live sources, with no accidental access to retired content. Existing supported profiles/voyage saves still load; current run progression, Nemesis identity and deterministic behavior remain verified. Run the affected core/app/simulator checks and documentation validation for each chunk. This initial note is not an exhaustive audit or a claim that every legacy monster weapon is unused.
 
 ## Future work retained from earlier plans
 

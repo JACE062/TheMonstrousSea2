@@ -40,6 +40,8 @@ The [October 20 backlog](BACKLOG.md#recommended-work-chunks) contains PT2-01 thr
 
 Chronicle continuity and scrolling are now fixed within PT2-11: each voyage starts fresh, battle entry shows the latest messages, and manual history reading survives incoming events. The full command-station layout still needs design review.
 
+A substantial [core content and compatibility cleanup](BACKLOG.md#deferred-core-cleanup) is recorded as FUT-05 on 21 October 2026. It covers vestigial ship/weapon content, Titan naming and duplicated text sources; implementation is deferred pending a reachability and save-compatibility inventory.
+
 ## History and maintenance
 
 Use the [archive index and disposition ledger](archive/README.md) only when a task needs historical rationale. The archive preserves source documents and records where every original section was retained, superseded, or left as history. Normal ripgrep searches exclude it through [`.rgignore`](../.rgignore). To deliberately inspect history, scope an explicit `rg --no-ignore` search to `docs/archive`.
