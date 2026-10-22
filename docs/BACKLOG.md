@@ -412,6 +412,17 @@ The broader living town can express the family's sacrifice through a seawall/lig
 
 **Implemented textual integration, 21 October 2026:** The user's rewritten Caldera outcomes now feed runtime narration and a dedicated reading screen. Pre-choice summaries explain loss of captain/ship versus the returning ship and awakened Covenant, without the old ascension claim. Acknowledgement reaches the finished hunt or heir selection; both the pending choice and resolved outcome/read state survive restart, including fixed heir offers. No reward is reapplied by acknowledgement/reload. Older completed profiles no longer lead to a dead Start menu. The Claim altar is aboard the returning ship in the captain's quarters, as in the revised canon. The cinematic memorial, town presentation and Ancestral Chronicles remain deferred. See the [verification receipt](archive/README.md#later-verification-receipts).
 
+### Completed hunts, lineage saves and alternate fates
+
+**FUT-06 — Plan accepted 21 October 2026; staged delivery.** A completed Shatter hunt needs a useful way out and future ways to keep playing without erasing its ending. The agreed order is:
+
+1. **Immediate — implemented 21 October 2026:** Exit Game on the completed-hunt screen finishes saving the ending before requesting native application exit; saving or closing failures show a retryable error. Debug playtest sessions remain unsaved.
+2. **Next:** Build a proper title menu with Continue, New Lineage, Settings and Exit, backed by separate lineage save slots. Each lineage owns its captains, materials, unlocks and ending. Keep completed lineages as records; starting another must not overwrite them. Ordinary death still continues the current bloodline. Specify slot selection, naming, migration of the existing single save and failure recovery before implementation.
+3. **Then:** Offer “Explore the Other Fate” as a distinct branch from a dedicated pre-Caldera-choice snapshot. Preserve the completed Shatter lineage and create an independent copy where the player can Claim and pursue Covenant progression. The current resolved-ending checkpoint is not a substitute for this snapshot. Define branch ownership, rewards and repeat-branch behavior so no choice reward is applied twice to a lineage.
+4. **Later, with FUT-04:** Completing Shatter unlocks Ancestral Chronicles challenges/configurable voyages framed as ancestral tales, preserving the peaceful ending. Agree on challenge rules and progression boundaries before implementation; the debug playtest launcher is development support, not delivery of this player feature.
+
+Only the immediate exit button is in the current implementation scope. Menu/save slots, alternate-fate branching and Chronicles remain unimplemented planned work.
+
 ## Maintenance rules
 
 - Keep the PT2 IDs stable; mark work fixed only with an implementation and relevant verification. Do not discard an unresolved observation merely because a similar historical issue once passed tests.

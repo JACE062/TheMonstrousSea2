@@ -124,6 +124,11 @@ void main() {
             expect(find.byType(HuntEndedScreen), findsOneWidget);
             expect(find.text(EldritchLore.huntEndedMessage), findsOneWidget);
             expect(find.text('START'), findsNothing);
+            expect(find.text('EXIT GAME'), findsOneWidget);
+            await tester.ensureVisible(find.text('EXIT GAME'));
+            if (fontPath.isNotEmpty && scale == 1.3) {
+              await capture(tester, key, '${width.toInt()}-completed');
+            }
           }
           expect(tester.takeException(), isNull);
         });

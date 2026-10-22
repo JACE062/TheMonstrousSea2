@@ -1,4 +1,7 @@
+import 'dart:ui' show AppExitResponse, AppExitType;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 
 import '../game_controller.dart';
@@ -66,8 +69,47 @@ class CalderaOutcomeScreen extends StatelessWidget {
 }
 
 /// A completed hunt has no Start control that can restart a finished session.
-class HuntEndedScreen extends StatelessWidget {
-  const HuntEndedScreen({super.key});
+class HuntEndedScreen extends StatefulWidget {
+  const HuntEndedScreen({super.key, required this.controller});
+
+  final GameController controller;
+
+  @override
+  State<HuntEndedScreen> createState() => _HuntEndedScreenState();
+}
+
+class _HuntEndedScreenState extends State<HuntEndedScreen> {
+  bool _exiting = false;
+  String? _exitError;
+
+  Future<void> _exitGame() async {
+    if (_exiting) return;
+    setState(() {
+      _exiting = true;
+      _exitError = null;
+    });
+    var failureMessage =
+        'Your completed hunt could not be saved. Please try Exit Game again.';
+    try {
+      // Queue a final snapshot after any pending autosaves. Debug playtests
+      // deliberately remain unsaved, including when leaving the application.
+      if (widget.controller.autoSave) {
+        await widget.controller.persistState();
+      }
+      if (!mounted) return;
+      failureMessage = 'The game could not close. Please try Exit Game again.';
+      final response = await ServicesBinding.instance.exitApplication(
+        AppExitType.required,
+      );
+      if (mounted && response != AppExitResponse.exit) {
+        setState(() => _exitError = failureMessage);
+      }
+    } catch (_) {
+      if (mounted) setState(() => _exitError = failureMessage);
+    } finally {
+      if (mounted) setState(() => _exiting = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) => ParchmentScaffold(
@@ -89,6 +131,26 @@ class HuntEndedScreen extends StatelessWidget {
                 style: InkTheme.body,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 32),
+              InkButton(
+                label: _exiting ? 'EXITING…' : 'EXIT GAME',
+                semanticLabel: 'Exit game',
+                isPrimary: true,
+                onPressed: _exiting ? null : _exitGame,
+              ),
+              if (_exitError != null) ...[
+                const SizedBox(height: 16),
+                Semantics(
+                  liveRegion: true,
+                  child: Text(
+                    _exitError!,
+                    style: InkTheme.body.copyWith(
+                      color: InkTheme.crimsonAccent,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
             ],
           ),
         ),

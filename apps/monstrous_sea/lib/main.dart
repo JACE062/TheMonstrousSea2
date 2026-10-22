@@ -307,7 +307,8 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
         );
 
       case SessionPhase.ended:
-        return const HuntEndedScreen(key: ValueKey('ended_screen'));
+        return HuntEndedScreen(
+          key: const ValueKey('ended_screen'), controller: _controller);
     }
   }
 }
