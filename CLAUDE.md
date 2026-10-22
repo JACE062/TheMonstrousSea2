@@ -39,6 +39,8 @@ A save reset is a separate user action. Documentation/verification tooling must 
 
 The controller clears the live Chronicle after successful succession/fresh home departure, before appending those events; normal encounters and stronghold departures preserve it. `CombatLogView` owns its scroll state, including initial/live-end layout settlement and manual-history pause/resume. Battle playback must not force a reader back to the bottom. The mutable log list requires a stored prior count to detect appends across widget rebuilds; logs are not checkpoint data.
 
+Caldera choice/outcome checkpoints are exceptions to ordinary terminal-checkpoint deletion. `VoyageSaveData` retains `calderaOutcome`, its acknowledgement flag and the exact offered heirs; the controller also checkpoints `expeditionVictory` before choice. `ResolveCalderaClimax` applies the existing consequences once and reads prose from `EldritchLore`; `AcknowledgeCalderaOutcome` changes only the read flag. Keep core `death`/`ended` phases for headless consumers. The app renders the unread outcome before routing to succession or the completed-hunt screen. Claim's checkpoint clears on actual succession; Shatter remains complete across restart. Historical ascension records can render using the current neutral heading without rewriting saved records.
+
 ## Presentation and art
 
 Use the approved ink-and-parchment palette, fonts and transparent curated nautical PNGs selected through `PilotArt` / `SvgAssetView`. Preserve actual alpha, approved ship/monster silhouettes, sparse contours and asset orientation (ships/weapons right, monsters left). Only approved app art belongs in the Flutter bundle; neither archive belongs there.
@@ -56,6 +58,14 @@ Preserve readable controls and labels at 115% default text and the larger suppor
 Dart/Flutter analysis and test workers can stall in restricted Windows sandboxes because they use child processes and local IPC/loopback. Use the execution tool's supported permission override when needed; the available API here is `sandbox_permissions: "require_escalated"`, not the historical `BypassSandbox` / `manage_task` arguments.
 
 Run commands from the relevant package directory, and never analyze the monorepo root indiscriminately. Use the tools actually available in the current session; a historical Flutter-driver or MCP capability description does not establish present access. Poll a running process through its returned session identifier at reasonable intervals and report material progress.
+
+## Development playtesting
+
+The root README owns [playtest menu access and launch instructions](README.md#playtest-menu-debug-builds). `MonstrousSeaApp` wraps the normal orchestrator in `PlaytestHost` only under `kDebugMode`. F10/the debug toolbar opens a separate route; `PLAYTEST=true` opens it directly and defers mounting the normal game until the route closes. Release/profile builds have no entry point, and scenario creation itself rejects non-debug builds.
+
+[PlaytestConfig](apps/monstrous_sea/lib/src/playtest/playtest_config.dart) is an app-side debug adapter, not a new core gameplay command or progression entitlement. It creates a fresh profile/session with an explicit seed, the selected blueprint/ancestral tier, a factory-built hull, real `temperShipHardpoint` upgrades, and canonical `HardpointBlessing`s. Region advancement uses the chart's normal generation. A synthetic rest checkpoint approaches the helm without triggering home's intentional new-voyage reset; Titan launches use the real convergent heading and encounter startup, including regional hazards/intents. Caldera launches provide a test Core and the actual ending decision. Subsequent rewards, strongholds and endings use normal commands.
+
+Each scenario controller explicitly disables autosave and injects a separate temporary storage path, with implicit legacy migration disabled. No test folder is created during normal scenario use. Never reuse the live controller/profile/storage for a test build. Menu edits remain available across relaunch, but every launch creates a fresh independent controller; outgoing widgets unmount before their controller is disposed. Test sessions are disposable and do not survive application restart.
 
 ## Verification
 

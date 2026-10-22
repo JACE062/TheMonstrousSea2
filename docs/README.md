@@ -46,6 +46,8 @@ A substantial [core content and compatibility cleanup](BACKLOG.md#deferred-core-
 
 The revised Caldera endings are integrated into the runtime choice, narration and readable outcome screens. Ending acknowledgement and offered heirs persist across restart; cinematic epilogues and Ancestral Chronicles remain deferred under FUT-04. See [ending canon](LORE.md#the-caldera-and-ending-choices) for spoilers and [current behavior](CURRENT_GAME.md#meta-progression-heirs-and-endings) for the implementation.
 
+The debug [playtest menu](../README.md#playtest-menu-debug-builds) now launches configurable builds at region starts, Titans or the Caldera choice, with isolated unsaved sessions and repeatable seeds. This supports faster replay of the remaining backlog without changing real lineage progress.
+
 ## History and maintenance
 
 Use the [archive index and disposition ledger](archive/README.md) only when a task needs historical rationale. The archive preserves source documents and records where every original section was retained, superseded, or left as history. Normal ripgrep searches exclude it through [`.rgignore`](../.rgignore). To deliberately inspect history, scope an explicit `rg --no-ignore` search to `docs/archive`.

@@ -61,6 +61,8 @@ Chronicle receipt: [Voyage history and scrolling, 20 October 2026](playtests/CHR
 
 Ending receipt: [Caldera prose and continuation, 21 October 2026](playtests/ENDINGS_2026_10_21.md), including canonical text, readable outcomes, retained acknowledgement/heir checkpoints and old-save defaults. Cinematic epilogues remain deferred.
 
+Development-tool receipt: [Configurable playtest menu, 21 October 2026](playtests/PLAYTEST_MENU_2026_10_21.md), covering seeded builds, region/Titan/ending shortcuts, isolated unsaved sessions and returning to normal play.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

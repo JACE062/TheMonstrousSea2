@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:monstrous_core/monstrous_core.dart';
 
 import 'src/game_controller.dart';
+import 'src/playtest/playtest_host.dart';
 import 'src/screens/battle_screen.dart';
 import 'src/screens/caldera_outcome_screen.dart';
 import 'src/screens/captain_screen.dart';
@@ -49,7 +51,13 @@ class MonstrousSeaApp extends StatelessWidget {
               child: child!,
             );
           },
-          home: GameOrchestratorView(controller: controller),
+          home: kDebugMode
+              ? PlaytestHost(
+                  gameBuilder: (testController) => GameOrchestratorView(
+                    controller: testController, skipIntro: true),
+                  child: GameOrchestratorView(controller: controller),
+                )
+              : GameOrchestratorView(controller: controller),
         );
       },
     );

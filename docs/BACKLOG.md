@@ -20,8 +20,13 @@ Each chunk should produce a reviewable change and focused verification. These ar
 | G — discussion required | Revamp heir Boons and Quirks | PT2-26 | Audit all ten traits against current mechanics, agree on meaningful effects/tradeoffs and saved-heir handling, then implement with accurate descriptions. |
 | Later | Curated art and icon pass | PT2-04–07 | Use the [deferred asset backlog](#deferred-ui-art-and-icons); audit existing assets first. No image generation in this batch. |
 | Later — substantial cleanup | Audit and retire vestigial core content | FUT-05 | Inventory live content, legacy helpers and save dependencies; reconcile ship/monster naming and weapon identities, then remove or isolate obsolete paths in scoped changes. See [cleanup scope](#deferred-core-cleanup). |
+| Development support — implemented | Launch configurable isolated playtest scenarios | Requested 21 October 2026 | Debug menu selects loadout, region start/Titan or the Caldera choice; repeatable relaunch and return to the normal game preserve real progress. |
 
 The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and Kraken release fixes are implemented. B's initial tentacle/regional-scaling values are also implemented. Navigation chunk C is also implemented, and the player reports the changes are looking good in playtesting. Broader replay should still evaluate the stronghold boundary and combat changes. The arena asset failure now has recovery/retry handling (PT2-25); its original trigger still needs player replay. A verified test-save leak that can create unpaid blueprint unlocks has been fixed (PT2-27). F is new feature work, rather than a claim that Master Refits were already completed in Phase 3B.
+
+## Development playtesting
+
+**Implemented, 21 October 2026.** The debug playtest menu permits choosing any current blueprint, hull tier, ancestral signature tier, independent hardpoint Mk marks and blessing dedications/tiers, gold and seed. Start at a selected region's first course choices, face its Titan directly, or skip combat to the Caldera decision. Relaunch repeats the configured scenario; Change Scenario retains the configuration for edits. Test sessions use fresh profiles with autosave disabled and isolated storage, and returning to the normal game preserves its controller. The menu and factory are debug-only; none of these starting grants alter normal progression rules. See [access instructions](../README.md#playtest-menu-debug-builds), [technical behavior](../CLAUDE.md#development-playtesting) and the [verification receipt](archive/README.md#later-verification-receipts).
 
 ## Opening and lineage
 

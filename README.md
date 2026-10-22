@@ -52,6 +52,20 @@ The local gameplay package is resolved through the app's dependency configuratio
 
 Use Settings to adjust text size. Hover over battle controls and status labels for their current effects, restrictions, and tactical details.
 
+## Playtest menu (debug builds)
+
+Click **Playtest Menu** at the top of the window, or press **F10**, to configure a fresh test session. Choose a blueprint, hull and ancestral signature tiers, each hardpoint's Mk and blessing dedication/tier, starting gold, and a repeatable random seed. Launch at a region's opening course choices, its Titan, or the **Caldera ending choice** to test both endings without combat.
+
+During a test, **Relaunch** resets the same scenario and seed; **Change Scenario** returns to the configuration. Close the menu to resume your normal game. Test sessions do not autosave or change your real profile.
+
+To open the menu directly, run this from `apps/monstrous_sea`:
+
+```powershell
+flutter run -d windows --dart-define=PLAYTEST=true
+```
+
+Direct playtest startup defers loading the normal game until you return to it. The menu is available only in debug builds.
+
 ## Save data
 
 On Windows, saves are stored in:
