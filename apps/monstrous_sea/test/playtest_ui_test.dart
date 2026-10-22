@@ -92,15 +92,18 @@ void main() {
   );
 
   testWidgets(
-    'Intro explains curse and Titans without legacy map coordinates',
+    'Intro explains the inherited obligation without revealing the ending choices',
     (tester) async {
       await tester.pumpWidget(largeTextApp(IntroScreen(onStart: () {})));
       final copy = tester
           .widget<TypewriterText>(find.byType(TypewriterText))
           .text;
       expect(copy, contains('Bloodbound Ship'));
-      expect(copy, contains('World Serpent'));
-      expect(copy, contains('Ancient Leviathan'));
+      expect(copy, contains('Salt-Sickness'));
+      expect(copy, contains('heir'));
+      expect(copy, isNot(contains('Abyssal Font')));
+      expect(copy, isNot(contains('Claim the Core')));
+      expect(copy, isNot(contains('Shatter the Core')));
       expect(copy, isNot(contains('[3, 4]')));
       await tester.pumpWidget(const SizedBox());
     },
