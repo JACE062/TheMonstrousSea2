@@ -1164,6 +1164,7 @@ class _PortScreenState extends State<PortScreen> {
                     padding: const EdgeInsets.all(12),
                     child: Row(
                       children: [
+                        // Placeholder; replace with curated Covenant art (BACKLOG art pass).
                         const Icon(
                           Icons.local_fire_department,
                           color: InkTheme.crimsonAccent,
@@ -1217,7 +1218,7 @@ class _PortScreenState extends State<PortScreen> {
                               ),
                               const SizedBox(height: 2),
                               Text(
-                                'The Leviathan Core hums in the keel. Enact Pacts for Primordial Cinders, forge Eldritch Relics, or consecrate Harbor Monuments.',
+                                'The altar hums in the captain’s quarters. Enact Pacts for Primordial Cinders, forge Eldritch Relics, or consecrate Harbor Monuments.',
                                 style: InkTheme.caption.copyWith(fontSize: 12),
                               ),
                             ],
@@ -1256,12 +1257,6 @@ class _PortScreenState extends State<PortScreen> {
                           label: 'BLUEPRINTS',
                           onPressed: () => _showBlueprintsDialog(context),
                         ),
-                        if (profile.hasUnlockedCovenant)
-                          InkButton(
-                            width: width,
-                            label: 'COVENANT',
-                            onPressed: () => _showCovenantDialog(context),
-                          ),
                         InkButton(
                           width: width,
                           label: 'SEA CHART',

@@ -303,6 +303,7 @@ Planning only, tied to PT2-04–07. Audit/reuse approved assets before schedulin
 | Home-port Merchant | Button feels empty after icon removal. | `icon_treasure_map.png`, `icon_helm_map.png`; choose by meaning rather than filling space. |
 | Home-port Blueprints | Needs a recognizable shipwright/drafting identity. | Existing art may be insufficient; check the gallery before adding a dedicated drafting image to the production list. |
 | Sea Chart buttons | Thematic imagery is inconsistent or absent depending on screen. | `icon_helm_map.png`, nautical navigation assets, and prior chart imagery. |
+| Covenant altar / pacts | The altar banner's Material fire icon is an intentional temporary placeholder (21 October 2026), not approved final art. | Audit existing assets, then commission a custom nautical/parchment Covenant or pact icon during the art pass. Retain the banner's COMMUNE entry; the duplicate lower Covenant action has been removed. |
 | Other existing navigation controls | Review consistency alongside the above. | `icon_port_haven_map.png`, `icon_anchor_map.png`, `icon_cannons_map.png` as appropriate. |
 
 These are audit candidates, not approved final mappings. Screenshots 4 and 5 in the playtest also show that themed icons still exist in some locations; reconcile usage instead of assuming all icons were removed.

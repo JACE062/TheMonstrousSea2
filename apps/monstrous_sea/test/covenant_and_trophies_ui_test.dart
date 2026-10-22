@@ -274,10 +274,18 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Banner and button now exist
+      // The altar banner is the sole Covenant entry; port actions stay separate.
       expect(find.text('COVENANT ALTAR OF THE DEEP'), findsOneWidget);
-      expect(find.text('COVENANT'), findsOneWidget);
+      expect(find.text('COVENANT'), findsNothing);
       expect(find.text('COMMUNE'), findsOneWidget);
+      expect(
+        find.textContaining('The altar hums in the captain’s quarters.'),
+        findsOneWidget,
+      );
+      expect(find.textContaining('hums in the keel'), findsNothing);
+      for (final action in ['MERCHANT', 'BLUEPRINTS', 'SEA CHART']) {
+        expect(find.text(action), findsOneWidget);
+      }
 
       // Open dialog via COMMUNE button
       await tester.tap(find.text('COMMUNE'));
