@@ -1,12 +1,12 @@
 # Narrative canon
 
-Status: consolidated story canon, with the user's revised Caldera outcomes integrated on 21 October 2026. This is a writer/developer reference containing ending spoilers. Mechanics belong to [Current game](CURRENT_GAME.md); delivery gaps and proposals belong to [Backlog](BACKLOG.md). Canon describes the intended story, not a claim that every scene or effect is implemented.
+Status: consolidated story canon, including the author's clarification of hope, sacrifice and the curse's purpose on 21 October 2026. This is a writer/developer reference containing ending spoilers. Mechanics belong to [Current game](CURRENT_GAME.md); delivery gaps and proposals belong to [Backlog](BACKLOG.md). Canon describes the intended story, not a claim that every scene or effect is implemented.
 
 ## The Bloodbound Flagship
 
 The player inherits one ancestral flagship bound to a family line. Different blueprints reshape its naval role; they do not represent unrelated ships purchased and discarded between lives. Each voyage advances the family's understanding and legacy even when its captain dies.
 
-The ship's return is guaranteed. Its captain and crew are not protected. When the vessel washes back into harbor empty, another heir receives the call to sea. The bloodline's obligation continues until the curse is broken; ordinary succession has no narrative “abandon the hunt” escape.
+While the curse endures, the ship's return is guaranteed. Its captain and crew are not protected. No chosen captain has returned alive from their fateful voyage; when the vessel washes back into harbor empty, another heir receives the call to sea. The bloodline's obligation continues until the curse is broken; ordinary succession has no narrative “abandon the hunt” escape.
 
 ## The ancestor's bargain
 
@@ -16,9 +16,21 @@ The ancestor was a frightened person trying to save their crew, not an infallibl
 
 ## The two-stage curse
 
-**Salt-Sickness on shore:** The heir withers on land: skin cracks like salt, strength fades, and phantom surf is heard even inland. The town recognizes that the bloodline has been called. Stepping aboard and sailing brings physical relief, making the next voyage feel like a compulsion as well as a choice.
+**Salt-Sickness on shore:** The heir withers on land: skin cracks like salt, strength fades, and phantom surf is heard even inland. The town recognizes that the bloodline has been called. Physical sickness forces the heir toward the water; stepping aboard and sailing brings relief. This is the first trap, not safety or freedom from the curse.
 
-**Sea-Madness in the deep:** Relief conceals a second trap. Farther into the Sargasso Drift and Boiling Reach, sunken chimes, impossible shadows and whispers distort the captain's judgment. The ocean's power becomes intoxicating. This explains the temptation to preserve the source of the curse at the climax without treating that choice as an objectively necessary rescue of the world.
+**Sea-Madness in the deep:** Physical Salt-Sickness gives way to mental Sea-Madness. It draws the captain ever closer to the Font and grows stronger with proximity. Sunken chimes, impossible shadows and the curse's originator whispering false promises distort judgment. The attraction of power becomes increasingly intoxicating as the captain approaches the choice that will determine the family's fate. These are narrative conditions; they do not by themselves establish an implemented shore-damage timer, madness meter or forced-choice rule.
+
+## Hope, sacrifice and the lure of power
+
+The heir hopes to break the curse **and come home alive**. That desire is sincere despite the fate of every predecessor. It belongs to the character's limited knowledge and longing, not a promise from the game about its victory conditions. Preserve it in the prologue and later writing: the final sacrifice matters because the captain has a life, hopes and dreams to relinquish.
+
+At the Font, the captain must give up that hoped-for return to destroy the curse. Beneath the Sea-Madness, some part of them recognizes the right choice, but knowing it does not make it easy. The sacrifice also destroys the Bloodbound Ship, a beloved family heirloom and the source of the lineage's fame and power over generations. Liberation means rejecting both the offered power and the inherited identity built around it; the family gains a future even though this captain will not share it.
+
+Claiming the Core is the easier temptation. The whispers invite the captain to believe that more power will let them escape the bargain, survive and bring the ancestral ship home. This is deception, not a second reliable route to personal survival or an objectively necessary way to protect the world. The captain's wish to live and preserve the heirloom helps them accept the lie.
+
+The abyssal power behind the curse is also behind the increasing number and deadliness of the sea monsters. It wants the Core bound to the ship: the captain's soul is consumed, an altar returns beside the next heir, and the bloodline becomes an instrument for extending its influence. Covenant Pacts turn the family's pursuit of power into participation in that expansion. Existing escalation, including stronger enemies reaching the shallows, can express this complicity; this narrative purpose does not specify new balance formulas or currency rewards.
+
+The intended emotional contrast is hope and self-sacrifice against seductive power and self-deception, within a mystery about the abyssal presence manipulating the family. Let players discover its intentions through the voyage rather than explaining the whole mechanism at the outset.
 
 ## The bargain's reset and the legacy
 
@@ -65,15 +77,17 @@ The Ancient Leviathan guards the Primordial Caldera, the Cradle of Behemoths and
 
 ### Shatter the Core
 
-The captain casts the Core into the Font. An ancient being's final wail ceases as the birthplace of monsters shatters. The captain and splintered flagship sink, with the Sea-Madness finally silent; the ship will not return this time. The family is released from Salt-Sickness and the seas know peace. The intended memorial honors the captains whose losses allowed later generations to inherit a safe shore; the family has not vanished into meaningless oblivion.
+The captain deliberately sails into the swirling rift and shatters the Core at its center to destroy the Font and the power behind the curse. It cannot be destroyed from a safe distance with a living escape; the captain knowingly gives up their hoped-for homecoming. An ancient being's final wail ceases as the birthplace of monsters shatters. Captain and flagship sink, with the Sea-Madness finally silent; the ship will not return this time. The family is released from Salt-Sickness and the seas know peace. The intended memorial honors the captains whose losses allowed later generations to inherit a safe shore; the family has not vanished into meaningless oblivion.
 
 The memorial's intended sentiment is: “They bore the salt and faced the night so our children might inherit the shore.” A cinematic town epilogue, Grand Admiralty Crest and Ancestral Chronicles sandbox/challenges are retained future delivery ideas, not assumed current functionality.
 
 ### Claim the Core
 
-The Sea-Madness whispers promises the captain cannot ignore. They drive the Core into the deck, where it fuses with the timbers as if meant to be there. The voice delights in their choice and grows louder. The Bloodbound Ship returns to port bare as before, except for the orb-like altar fused into the wall of the captain's quarters. The returning ship is alone; the prose leaves the captain's precise fate unresolved rather than declaring a triumphant ascension.
+The Sea-Madness offers the false hope that the captain can take the Core's power, survive and return home with the family ship. They yield to the whispers and drive the Core into the deck, where it fuses with the timbers as if meant to be there. The voice delights in the choice and grows louder. **The authorial truth is that the captain's soul is consumed.** The Bloodbound Ship returns alone, bare as before except for the orb-like altar fused into the wall of the captain's quarters. Existing runtime prose leaves consumption implicit by showing the empty returning ship; that restraint is player-facing presentation, not uncertainty about canon or a triumphant ascension.
 
-The heir inherits the whispering vessel and its altar. The Covenant is accessible during home preparation; its pacts offer greater rewards while drawing corruption toward shore. The thematic irony is that the family can become a conduit carrying the primordial nightmare toward the humanity it believed it protected. Stronger curse/corruption presentation remains future atmospheric work, not an extra implemented penalty invented by this prose.
+The heir inherits the whispering vessel and its altar. The Covenant is accessible during home preparation; its pacts offer greater rewards while allowing the curse's originator greater influence over the bloodline and the sea. The family can become a conduit carrying the primordial nightmare toward the humanity it seeks to consume. Stronger curse/corruption presentation remains future atmospheric work, not an extra implemented penalty invented by this prose.
+
+**Proposed extension, not settled canon or implemented behavior:** The altar's presence in the captain's quarters throughout later voyages may intensify Sea-Madness, making successive captains more susceptible to the same deception and repeated Core binding. Whether this remains atmosphere or changes later choice availability/progression requires a separate design decision; see [FUT-04](BACKLOG.md#ending-delivery-and-ancestral-chronicles).
 
 The game now presents a consequence summary before the choice and the complete canonical outcome afterward, with an explicit continuation. Shatter reaches a completed-hunt screen; Claim reaches heir selection. The textual outcome and its read state survive restart. These screens do not implement the deferred memorial cinematic or a town epilogue.
 
@@ -82,6 +96,7 @@ Use **Pact Burden** for the current difficulty system. The older “Heat” lang
 ## Reveal and delivery boundaries
 
 - The first-voyage introduction should establish the returning ship, inherited obligation and reason to sail without giving away the entire bargain or climax. Exact expanded prose/pacing is PT2-01.
+- A character's hope of returning alive is intentional dramatic perspective. Do not remove it as a supposed mechanics error because the writer knows the endings. Preserve the difference between the captain's belief, the deceiver's promises and authorial truth.
 - The implemented ending choice and Covenant systems do not establish that the complete cinematic, town, madness, voice/audio, or sandbox presentation has shipped.
 - Narrative possibilities become implementation work through explicit backlog/design decisions. Do not resurrect retired weapon shops, auxiliary mounts or other discarded systems merely because an old story example mentions them.
 - Runtime player-facing prose is centralized under [core lore](../packages/monstrous_core/lib/src/lore/). Keep it consistent with canon while distinguishing a copy bug from an intentional story change.
