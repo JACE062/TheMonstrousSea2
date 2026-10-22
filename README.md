@@ -15,6 +15,7 @@ A spiritual successor to the original Java console game, built with **Flutter**,
 - **Voyage builds:** Combine shrine blessings, gold-funded hull upgrades, hardpoint tempering, and single-use belt supplies.
 - **Exploration:** Choose lookout headings across three regions, finding beasts, wrecks, shrines, traders, and places to repair.
 - **A continuing bloodline:** Choose an heir after defeat, invest recovered materials at home, and face the beast that took the previous captain as a Nemesis.
+- **Separate lineage saves:** Continue different hunts from the title menu. A completed hunt with a saved final-choice snapshot can explore one independent alternate fate while preserving its original ending.
 
 ## Run on Windows
 

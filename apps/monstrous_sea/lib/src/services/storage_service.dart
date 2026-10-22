@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:monstrous_core/monstrous_core.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'caldera_snapshot.dart';
+
 /// Service managing persistent disk storage for player profile and transient voyage saves.
 ///
 /// Implements dual-file anti-scumming architecture:
@@ -212,6 +214,25 @@ class StorageService {
     final file = await _getFile(voyageFileName);
     final encoder = const JsonEncoder.withIndent('  ');
     await file.writeAsString(encoder.convert(voyage.toJson()));
+  }
+
+  static const calderaSnapshotFileName = 'pre_caldera_choice.json';
+
+  /// Publish both halves together; a failed write preserves the previous pair.
+  Future<void> saveCalderaSnapshot(CalderaSnapshot snapshot) async {
+    final file = await _getFile(calderaSnapshotFileName);
+    final pending = File('${file.path}.pending');
+    await pending.writeAsString(jsonEncode(snapshot.toJson()), flush: true);
+    await pending.rename(file.path);
+  }
+
+  /// Missing legacy snapshots are unavailable, never guessed from ending data.
+  Future<CalderaSnapshot?> loadCalderaSnapshot() async {
+    final file = await _getFile(calderaSnapshotFileName);
+    if (!await file.exists()) return null;
+    return CalderaSnapshot.fromJson(
+      jsonDecode(await file.readAsString()) as Map<String, dynamic>,
+    );
   }
 
   /// Deletes the transient voyage save file to prevent save-scumming.

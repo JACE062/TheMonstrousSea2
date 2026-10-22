@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 import 'package:monstrous_sea/src/game_controller.dart';
 import 'package:monstrous_sea/src/services/lineage_store.dart';
+import 'package:monstrous_sea/src/services/caldera_snapshot.dart';
 import 'package:monstrous_sea/src/services/storage_service.dart';
 
 void main() {
@@ -36,6 +37,153 @@ void main() {
     await controller.initializeStorage();
     return controller;
   }
+
+  Future<LineageSlot> completedWithSnapshot() async {
+    final slot = await store.create('Peaceful lineage');
+    final controller = await loadController(slot.id);
+    controller.session.dispatch(const BeginFirstVoyage('Mara Thorne'));
+    controller.profile.metaInventory.add(leviathanCore: 1, seaGlass: 23);
+    controller.session.phase = SessionPhase.expeditionVictory;
+    await controller.persistState();
+    controller.dispatch(
+      const ResolveCalderaClimax(CalderaClimaxChoice.shatterCore),
+    );
+    controller.dispatch(const AcknowledgeCalderaOutcome());
+    await controller.persistState();
+    return slot;
+  }
+
+  test('alternate copies pre-choice progress and keeps the completed source byte-for-byte', () async {
+    final source = await completedWithSnapshot();
+    final sourceProfile = await slotFile(
+      source.id,
+      StorageService.profileFileName,
+    ).readAsString();
+    final sourceVoyage = await slotFile(
+      source.id,
+      StorageService.voyageFileName,
+    ).readAsString();
+    final before = await (await store.open(source.id)).loadCalderaSnapshot();
+    final alternate = await store.exploreOtherFate(source.id);
+    expect(alternate.alternateOf, source.id);
+    final branch = await loadController(alternate.id);
+    expect(branch.phase, SessionPhase.expeditionVictory);
+    expect(branch.profile.toJson(), before!.profile.toJson());
+    expect(
+      VoyageSaveData.fromSession(branch.session).toJson(),
+      before.voyage.toJson(),
+    );
+    expect(branch.profile.hasShatteredFont, isFalse);
+    expect(branch.profile.metaInventory.leviathanCore, 1);
+    branch.dispatch(const ResolveCalderaClimax(CalderaClimaxChoice.claimCore));
+    branch.dispatch(const AcknowledgeCalderaOutcome());
+    branch.profile.metaInventory.add(seaGlass: 8);
+    await branch.persistState();
+    final repeat = await Future.wait(
+      List.generate(3, (_) => store.exploreOtherFate(source.id)),
+    );
+    expect(repeat.map((s) => s.id).toSet(), {alternate.id});
+    final resumed = await loadController(alternate.id);
+    expect(resumed.phase, SessionPhase.death);
+    expect(resumed.profile.ascensionLoopCount, 1);
+    expect(resumed.profile.metaInventory.seaGlass, 31);
+    expect(resumed.profile.hasUnlockedCovenant, isTrue);
+    expect(resumed.profile.metaInventory.leviathanCore, 1);
+    expect(
+      resumed.pendingHeirCandidates.map((h) => h.toJson()),
+      branch.pendingHeirCandidates.map((h) => h.toJson()),
+    );
+    expect((await store.load()).slots, hasLength(2));
+    expect(
+      await slotFile(source.id, StorageService.profileFileName).readAsString(),
+      sourceProfile,
+    );
+    expect(
+      await slotFile(source.id, StorageService.voyageFileName).readAsString(),
+      sourceVoyage,
+    );
+    await expectLater(
+      store.exploreOtherFate(alternate.id),
+      throwsArgumentError,
+    );
+  });
+
+  test(
+    'a damaged published alternate is never replaced with a fresh branch',
+    () async {
+      final source = await completedWithSnapshot();
+      final alternate = await store.exploreOtherFate(source.id);
+      final damaged = slotFile(alternate.id, StorageService.profileFileName);
+      await damaged.writeAsString('{damaged existing progression');
+      await expectLater(
+        store.exploreOtherFate(source.id),
+        throwsFormatException,
+      );
+      expect(await damaged.readAsString(), '{damaged existing progression');
+      expect((await store.load()).slots, hasLength(2));
+      expect((await loadController(source.id)).phase, SessionPhase.ended);
+    },
+  );
+
+  test('branch publication failure retries without exposing or duplicating staged data', () async {
+    final source = await completedWithSnapshot();
+    final pending = Directory(
+      '${root.path}/${LineageStore.catalogName}.pending',
+    );
+    await pending.create();
+    await expectLater(
+      store.exploreOtherFate(source.id),
+      throwsA(isA<FileSystemException>()),
+    );
+    expect((await store.load()).slots, hasLength(1));
+    await pending.delete();
+    final branch = await store.exploreOtherFate(source.id);
+    expect((await store.load()).slots, hasLength(2));
+    expect(
+      (await loadController(branch.id)).phase,
+      SessionPhase.expeditionVictory,
+    );
+  });
+
+  test('missing or damaged snapshots leave legacy endings readable without fabricating a branch', () async {
+    final source = await completedWithSnapshot();
+    final file = slotFile(source.id, StorageService.calderaSnapshotFileName);
+    for (final contents in [
+      null,
+      '{broken',
+      jsonEncode({'version': 99}),
+    ]) {
+      if (contents == null) {
+        await file.delete();
+      } else {
+        await file.writeAsString(contents);
+      }
+      final summary = (await store.summaries()).single;
+      expect(summary.readable, isTrue);
+      expect(summary.canExploreOtherFate, isFalse);
+      await expectLater(store.exploreOtherFate(source.id), throwsA(anything));
+      expect((await store.load()).slots, hasLength(1));
+      expect((await loadController(source.id)).phase, SessionPhase.ended);
+    }
+  });
+
+  test(
+    'uncompleted and already resolved snapshots cannot be used for branching',
+    () async {
+      final slot = await store.create('Unfinished');
+      await expectLater(store.exploreOtherFate(slot.id), throwsStateError);
+      final session = voyage()..phase = SessionPhase.expeditionVictory;
+      final snapshot = CalderaSnapshot.fromSession(session).toJson();
+      for (final phase in ['ended', 'death', 'port']) {
+        final changed =
+            jsonDecode(jsonEncode(snapshot)) as Map<String, dynamic>;
+        (changed['voyage'] as Map)['phase'] = phase;
+        expect(() => CalderaSnapshot.fromJson(changed), throwsFormatException);
+      }
+      (snapshot['profile'] as Map)['hasShatteredFont'] = true;
+      expect(() => CalderaSnapshot.fromJson(snapshot), throwsFormatException);
+    },
+  );
 
   test(
     'empty root creates no fabricated lineage; labels never become paths',

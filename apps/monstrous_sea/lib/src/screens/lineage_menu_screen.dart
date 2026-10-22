@@ -122,6 +122,26 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
     }
   }
 
+  Future<void> _exploreOtherFate(String sourceId) async {
+    if (_busy) return;
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    try {
+      final slot = await _store.exploreOtherFate(sourceId);
+      await _reload();
+      if (mounted && _error == null) await _open(slot.id);
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _error = 'The alternate fate could not be opened. Your completed hunt and any existing branch remain preserved. Retry to reload.';
+        });
+      }
+    }
+  }
+
   Future<void> _exitGame() async {
     if (_busy) return;
     setState(() {
@@ -223,6 +243,26 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
                       ? null
                       : () => _open(selected.slot.id),
                 ),
+                if (selected?.profile?.hasShatteredFont == true &&
+                    selected!.slot.alternateOf == null) ...[
+                  const SizedBox(height: 12),
+                  InkButton(
+                    label: selected.alternateId == null
+                        ? 'EXPLORE THE OTHER FATE'
+                        : 'CONTINUE OTHER FATE',
+                    onPressed:
+                        _busy || _error != null || !selected.canExploreOtherFate
+                        ? null
+                        : () => _exploreOtherFate(selected.slot.id),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    selected.canExploreOtherFate
+                        ? 'Your peaceful ending stays intact. The other fate is a separate save with its own progress. Returning here continues that same branch.'
+                        : 'This completed hunt has no usable pre-choice snapshot. Its ending is preserved; older endings cannot be safely reconstructed.',
+                    style: InkTheme.caption,
+                  ),
+                ],
                 const SizedBox(height: 12),
                 Wrap(
                   alignment: WrapAlignment.center,
@@ -269,6 +309,11 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
                         Text(summary.slot.label, style: InkTheme.titleMedium),
                         const SizedBox(height: 6),
                         Text(summary.description, style: InkTheme.body),
+                        if (summary.slot.alternateOf != null)
+                          Text(
+                            'Independent alternate fate',
+                            style: InkTheme.caption,
+                          ),
                         if (!summary.readable)
                           TextButton(
                             onPressed: _busy

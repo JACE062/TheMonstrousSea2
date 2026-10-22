@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 import 'services/storage_service.dart';
+import 'services/caldera_snapshot.dart';
 
 /// Central presentation coordinator bridging the Flutter UI and Flame battle scene
 /// to the pure domain [GameSession].
@@ -22,6 +23,7 @@ class GameController extends ChangeNotifier {
   /// Lineage slots can resume home preparation and the exact offered heirs.
   final bool retainPreparationCheckpoints;
   Future<void> _pendingPersistence = Future.value();
+  CalderaSnapshot? _pendingCalderaSnapshot;
 
   final List<CombatLogEntry> structuredCombatLog = <CombatLogEntry>[];
   List<String> get combatLog =>
@@ -82,6 +84,11 @@ class GameController extends ChangeNotifier {
   /// triggers persistence if enabled, and notifies UI listeners.
   List<GameEvent> dispatch(Command command, {bool deferNotification = false}) {
     final previousPhase = session.phase;
+    // Capture a loaded choice checkpoint before an ending changes progression.
+    if (autoSave && previousPhase == SessionPhase.expeditionVictory &&
+        (command is ResolveCalderaClimax || command is ClaimExpeditionVictory)) {
+      _pendingCalderaSnapshot = CalderaSnapshot.fromSession(session);
+    }
     final events = session.dispatch(command);
     // Resolve the core's compatibility rest checkpoint without displaying an
     // extra inspection stop. TakeHelm owns Titan/stronghold/ending routing.
@@ -140,6 +147,10 @@ class GameController extends ChangeNotifier {
 
   /// Persists current profile and voyage states to disk.
   Future<void> persistState() {
+    if (phase == SessionPhase.expeditionVictory) {
+      _pendingCalderaSnapshot = CalderaSnapshot.fromSession(session);
+    }
+    final fateSnapshot = _pendingCalderaSnapshot;
     final profileSnapshot = ProfileData.fromJson(session.profile.toJson());
     final atHome = phase == SessionPhase.port ||
         (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.port);
@@ -164,6 +175,13 @@ class GameController extends ChangeNotifier {
     // Snapshot before awaiting I/O and serialize writes: an older checkpoint
     // must never complete after a later death has deleted the active voyage.
     final operation = _pendingPersistence.then((_) async {
+      if (fateSnapshot != null) {
+        // Retry failed snapshot publication before writing a resolved ending.
+        await storage.saveCalderaSnapshot(fateSnapshot);
+        if (identical(_pendingCalderaSnapshot, fateSnapshot)) {
+          _pendingCalderaSnapshot = null;
+        }
+      }
       await storage.saveProfile(profileSnapshot);
       if (clearCheckpoint) {
         await storage.clearVoyage();

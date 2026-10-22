@@ -3,15 +3,21 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:monstrous_core/monstrous_core.dart';
+import 'package:crypto/crypto.dart';
 
 import 'storage_service.dart';
 
 class LineageSlot {
-  const LineageSlot({required this.id, required this.label});
+  const LineageSlot({required this.id, required this.label, this.alternateOf});
   final String id;
   final String label;
+  final String? alternateOf;
 
-  Map<String, Object> toJson() => {'id': id, 'label': label};
+  Map<String, Object> toJson() => {
+    'id': id,
+    'label': label,
+    'alternateOf': ?alternateOf,
+  };
 }
 
 class LineageCatalog {
@@ -46,7 +52,23 @@ class LineageCatalog {
           label.length > 60) {
         throw const FormatException('Invalid lineage identity');
       }
-      slots.add(LineageSlot(id: id, label: label));
+      final alternateOf = entry['alternateOf'];
+      if (alternateOf != null && alternateOf is! String) {
+        throw const FormatException('Invalid alternate lineage');
+      }
+      slots.add(
+        LineageSlot(id: id, label: label, alternateOf: alternateOf as String?),
+      );
+    }
+    final parents = <String>{};
+    for (final slot in slots) {
+      if (slot.alternateOf == null) continue;
+      final parent = slots.where((s) => s.id == slot.alternateOf).firstOrNull;
+      if (parent == null ||
+          parent.alternateOf != null ||
+          !parents.add(parent.id)) {
+        throw const FormatException('Invalid alternate lineage relationship');
+      }
     }
     final activeId = json['activeId'];
     if (activeId != null && (activeId is! String || !ids.contains(activeId))) {
@@ -57,10 +79,18 @@ class LineageCatalog {
 }
 
 class LineageSummary {
-  const LineageSummary(this.slot, {this.profile, this.error});
+  const LineageSummary(
+    this.slot, {
+    this.profile,
+    this.error,
+    this.canExploreOtherFate = false,
+    this.alternateId,
+  });
   final LineageSlot slot;
   final ProfileData? profile;
   final String? error;
+  final bool canExploreOtherFate;
+  final String? alternateId;
   bool get readable => error == null;
   String get description {
     if (error != null) return error!;
@@ -195,7 +225,28 @@ class LineageStore {
         final profile = await storage.loadProfile();
         final voyage = await storage.loadVoyage();
         if (voyage != null) profile.hasBegunFirstVoyage = true;
-        results.add(LineageSummary(slot, profile: profile));
+        final alternate = catalog.slots
+            .where((s) => s.alternateOf == slot.id)
+            .firstOrNull;
+        var canExplore = false;
+        if (profile.hasShatteredFont && slot.alternateOf == null) {
+          // A damaged optional snapshot must not make the completed hunt unreadable.
+          try {
+            canExplore =
+                alternate != null ||
+                await storage.loadCalderaSnapshot() != null;
+          } catch (_) {
+            /* The ending remains available without a valid snapshot. */
+          }
+        }
+        results.add(
+          LineageSummary(
+            slot,
+            profile: profile,
+            canExploreOtherFate: canExplore,
+            alternateId: alternate?.id,
+          ),
+        );
       } catch (_) {
         results.add(
           LineageSummary(
@@ -237,6 +288,55 @@ class LineageStore {
       LineageCatalog([...catalog.slots, slot], activeId: slot.id),
     );
     return slot;
+  });
+
+  /// One independent alternate per completed source. Its stable identity makes
+  /// retries after partial publication safe; published branches are never reset.
+  Future<LineageSlot> exploreOtherFate(String sourceId) => _serial(() async {
+    final root = await rootStorage.initializeDirectory();
+    final catalog = await _catalog(root);
+    final source = catalog.slots.where((s) => s.id == sourceId).firstOrNull;
+    if (source == null || source.alternateOf != null) {
+      throw ArgumentError('Choose an original completed lineage');
+    }
+    await _requireProfile(root, source);
+    final sourceStorage = _storage(root, source);
+    if (!(await sourceStorage.loadProfile()).hasShatteredFont) {
+      throw StateError('This hunt has not ended');
+    }
+    final existing = catalog.slots
+        .where((s) => s.alternateOf == sourceId)
+        .firstOrNull;
+    if (existing != null) {
+      await _requireProfile(root, existing);
+      final saved = _storage(root, existing);
+      await saved.loadProfile();
+      await saved.loadVoyage();
+      return existing;
+    }
+    final snapshot = await sourceStorage.loadCalderaSnapshot();
+    if (snapshot == null) {
+      throw StateError('No pre-choice snapshot is available');
+    }
+    final alternate = LineageSlot(
+      id: 'fate-${sha256.convert(utf8.encode(source.id)).toString().substring(0, 59)}',
+      label:
+          '${source.label.length > 43 ? source.label.substring(0, 43) : source.label} — Other Fate',
+      alternateOf: source.id,
+    );
+    if (catalog.slots.any((s) => s.id == alternate.id)) {
+      throw StateError('Alternate lineage identity collision');
+    }
+    final storage = _storage(root, alternate);
+    // Only unpublished staging files can be replaced on retry. Both halves are
+    // written before exposing the slot; neither ending command is replayed here.
+    await storage.saveProfile(snapshot.profile);
+    await storage.saveVoyage(snapshot.voyage);
+    await _saveCatalog(
+      root,
+      LineageCatalog([...catalog.slots, alternate], activeId: alternate.id),
+    );
+    return alternate;
   });
 
   Future<StorageService> open(String id) => _serial(() async {

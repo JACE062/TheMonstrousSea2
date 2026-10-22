@@ -15,12 +15,13 @@ import 'package:monstrous_sea/src/screens/intro_screen.dart';
 import 'package:monstrous_sea/src/screens/lineage_menu_screen.dart';
 import 'package:monstrous_sea/src/screens/port_screen.dart';
 import 'package:monstrous_sea/src/services/lineage_store.dart';
+import 'package:monstrous_sea/src/services/caldera_snapshot.dart';
+import 'package:monstrous_sea/src/settings/game_settings.dart';
 import 'package:monstrous_sea/src/services/storage_service.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
 import 'package:monstrous_sea/src/widgets/parchment_scaffold.dart';
-import 'package:monstrous_sea/src/widgets/painters/cartouche_border_painter.dart';
-import 'package:monstrous_sea/src/settings/game_settings.dart';
 import 'package:monstrous_sea/src/widgets/ink_button.dart';
+import 'package:monstrous_sea/src/widgets/painters/cartouche_border_painter.dart';
 import 'package:monstrous_sea/src/widgets/settings_dialog.dart';
 
 const reviewFont = String.fromEnvironment('lineageFontPath');
@@ -47,6 +48,14 @@ class MemorySlotStorage extends StorageService {
   bool failSave = false;
   Completer<void>? saveGate;
   int writes = 0;
+  CalderaSnapshot? snapshot;
+  @override
+  Future<void> saveCalderaSnapshot(CalderaSnapshot value) async {
+    snapshot = CalderaSnapshot.fromJson(value.toJson());
+  }
+
+  @override
+  Future<CalderaSnapshot?> loadCalderaSnapshot() async => snapshot;
   @override
   Future<ProfileData> loadProfile() async =>
       ProfileData.fromJson(profile.toJson());
@@ -83,7 +92,12 @@ class MemoryLineages extends LineageStore {
   bool failCreate = false;
   final unreadable = <String>{};
 
-  LineageSlot seed(String label, {bool completed = false}) {
+  LineageSlot seed(
+    String label, {
+    bool completed = false,
+    bool withSnapshot = false,
+  }) {
+    CalderaSnapshot? snapshot;
     final session = GameSession(rng: SeededGameRng(42))
       ..dispatch(NameCaptain('Captain $label'))
       ..dispatch(const ChooseShip(ShipClass.standard));
@@ -91,6 +105,7 @@ class MemoryLineages extends LineageStore {
     if (completed) {
       session.profile.metaInventory.add(leviathanCore: 1);
       session.phase = SessionPhase.expeditionVictory;
+      if (withSnapshot) snapshot = CalderaSnapshot.fromSession(session);
       session.dispatch(
         const ResolveCalderaClimax(CalderaClimaxChoice.shatterCore),
       );
@@ -101,7 +116,7 @@ class MemoryLineages extends LineageStore {
     saves[slot.id] = MemorySlotStorage(
       session.profile,
       voyage: VoyageSaveData.fromSession(session),
-    );
+    )..snapshot = snapshot;
     active ??= slot.id;
     return slot;
   }
@@ -119,6 +134,13 @@ class MemoryLineages extends LineageStore {
         slot,
         profile: saves[slot.id]!.profile,
         error: unreadable.contains(slot.id) ? 'Save could not be read.' : null,
+        canExploreOtherFate:
+            saves[slot.id]!.snapshot != null ||
+            slots.any((s) => s.alternateOf == slot.id),
+        alternateId: slots
+            .where((s) => s.alternateOf == slot.id)
+            .firstOrNull
+            ?.id,
       ),
   ];
   @override
@@ -127,6 +149,29 @@ class MemoryLineages extends LineageStore {
     final slot = LineageSlot(id: 'test-${slots.length}', label: label);
     slots.add(slot);
     saves[slot.id] = MemorySlotStorage(ProfileData());
+    active = slot.id;
+    return slot;
+  }
+
+  int branchCalls = 0;
+  bool failBranch = false;
+  @override
+  Future<LineageSlot> exploreOtherFate(String sourceId) async {
+    branchCalls++;
+    if (failBranch) throw const FileSystemException('Fixture branch failure');
+    final existing = slots.where((s) => s.alternateOf == sourceId).firstOrNull;
+    if (existing != null) return existing;
+    final snapshot = saves[sourceId]!.snapshot!;
+    final slot = LineageSlot(
+      id: 'test-${slots.length}',
+      label: 'Other Fate',
+      alternateOf: sourceId,
+    );
+    slots.add(slot);
+    saves[slot.id] = MemorySlotStorage(
+      ProfileData.fromJson(snapshot.profile.toJson()),
+      voyage: VoyageSaveData.fromJson(snapshot.voyage.toJson()),
+    );
     active = slot.id;
     return slot;
   }
@@ -162,8 +207,10 @@ void main() {
   setUpAll(() async {
     InkTheme.disableGoogleFonts = true;
     if (reviewFont.isNotEmpty) {
-      await (FontLoader('Roboto')
-        ..addFont(File(reviewFont).readAsBytes().then(ByteData.sublistView))).load();
+      await (FontLoader(
+            'Roboto',
+          )..addFont(File(reviewFont).readAsBytes().then(ByteData.sublistView)))
+          .load();
       await (FontLoader(
             'LineageReview',
           )..addFont(File(reviewFont).readAsBytes().then(ByteData.sublistView)))
@@ -209,6 +256,47 @@ void main() {
       await click(tester, 'TITLE MENU');
       expect(find.byType(LineageMenuScreen), findsOneWidget);
       expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'other fate opens a branch, retries failure, then resumes the same changed save',
+    (tester) async {
+      final store = MemoryLineages();
+      final source = store.seed(
+        'Peaceful',
+        completed: true,
+        withSnapshot: true,
+      );
+      await tester.pumpWidget(MonstrousSeaApp(lineageStore: store));
+      await tester.pumpAndSettle();
+      store.failBranch = true;
+      await click(tester, 'EXPLORE THE OTHER FATE');
+      expect(store.slots, hasLength(1));
+      expect(
+        find.textContaining('alternate fate could not be opened'),
+        findsOneWidget,
+      );
+      store.failBranch = false;
+      await click(tester, 'RETRY');
+      await click(tester, 'EXPLORE THE OTHER FATE');
+      expect(store.slots, hasLength(2));
+      final choice = EldritchLore.calderaClimax[CalderaClimaxChoice.claimCore]!;
+      await click(tester, choice.displayName.toUpperCase());
+      await click(tester, 'CHOOSE AN HEIR');
+      await click(tester, 'TITLE MENU');
+      final alternate = store.slots.last;
+      expect(alternate.alternateOf, source.id);
+      expect(store.saves[alternate.id]!.profile.ascensionLoopCount, 1);
+      expect(store.saves[source.id]!.profile.hasShatteredFont, isTrue);
+      await tester.ensureVisible(find.byKey(ValueKey('select-${source.id}')));
+      await tester.tap(find.byKey(ValueKey('select-${source.id}')));
+      await tester.pumpAndSettle();
+      await click(tester, 'CONTINUE OTHER FATE');
+      expect(store.slots, hasLength(2));
+      expect(find.text(choice.promptTitle), findsNothing);
+      expect(store.saves[alternate.id]!.profile.ascensionLoopCount, 1);
+      await click(tester, 'TITLE MENU');
     },
   );
 
