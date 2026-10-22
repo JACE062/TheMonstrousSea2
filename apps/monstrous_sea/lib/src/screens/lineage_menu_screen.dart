@@ -444,11 +444,12 @@ class _LineageGameState extends State<_LineageGame> {
                           message: allowed
                               ? 'Save and return to your lineages'
                               : 'Finish this encounter, then return from Set Course.',
-                          child: TextButton(
+                          child: InkButton(
+                            label: _returning ? 'SAVING…' : 'TITLE MENU',
+                            compact: true,
                             onPressed: allowed && !_returning
                                 ? _returnToMenu
                                 : null,
-                            child: Text(_returning ? 'SAVING…' : 'TITLE MENU'),
                           ),
                         ),
                       ],

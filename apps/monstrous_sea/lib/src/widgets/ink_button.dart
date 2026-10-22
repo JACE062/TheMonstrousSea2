@@ -13,6 +13,7 @@ class InkButton extends StatelessWidget {
     this.subtitleColor,
     this.isDanger = false,
     this.isPrimary = false,
+    this.compact = false,
     this.width,
     this.semanticLabel,
     this.semanticHint,
@@ -25,6 +26,9 @@ class InkButton extends StatelessWidget {
   final Color? subtitleColor;
   final bool isDanger;
   final bool isPrimary;
+
+  /// Smaller secondary actions in headers and overlays, using the same styling.
+  final bool compact;
   final double? width;
   final String? semanticLabel;
   final String? semanticHint;
@@ -48,9 +52,12 @@ class InkButton extends StatelessWidget {
         : InkTheme.inkPrimary;
 
     final buttonContent = ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+      constraints: BoxConstraints(minWidth: 48, minHeight: compact ? 36 : 48),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: EdgeInsets.symmetric(
+          horizontal: compact ? 8 : 10,
+          vertical: compact ? 4 : 10,
+        ),
         decoration: BoxDecoration(
           color: isEnabled
               ? InkTheme.parchmentSurface
@@ -90,7 +97,7 @@ class InkButton extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: InkTheme.titleMedium.copyWith(
-                      fontSize: subtitle != null ? 16 : 18,
+                      fontSize: compact || subtitle != null ? 16 : 18,
                       color: textColor,
                       decoration: !isEnabled ? TextDecoration.none : null,
                     ),

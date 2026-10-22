@@ -474,7 +474,7 @@ void main() {
         await tester.pumpAndSettle();
         expect(
           tester
-              .widget<TextButton>(find.widgetWithText(TextButton, 'TITLE MENU'))
+              .widget<InkButton>(find.widgetWithText(InkButton, 'TITLE MENU'))
               .onPressed,
           isNull,
         );

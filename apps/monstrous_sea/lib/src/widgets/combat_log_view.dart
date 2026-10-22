@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
+import 'ink_button.dart';
 
 /// Scrollable maritime combat log drawer displaying the chronicle of battle
 /// with clear visual separation: ship actions on the left, beast actions on the right,
@@ -237,25 +238,13 @@ class _CombatLogViewState extends State<CombatLogView> {
                     Positioned(
                       bottom: 0,
                       right: 0,
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: InkTheme.parchmentHighlight,
-                          foregroundColor: InkTheme.inkPrimary,
-                          minimumSize: const Size(0, 28),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
+                      child: InkButton(
+                        label: 'LATEST MESSAGES',
+                        compact: true,
                         onPressed: () {
                           setState(() => _followingLatest = true);
                           _scheduleLatest();
                         },
-                        child: const Text(
-                          'LATEST MESSAGES',
-                          style: TextStyle(fontSize: 12),
-                        ),
                       ),
                     ),
                 ],
