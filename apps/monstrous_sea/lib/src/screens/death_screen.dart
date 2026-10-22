@@ -77,6 +77,9 @@ class _DeathScreenState extends State<DeathScreen> {
   Widget build(BuildContext context) {
     final lineage = widget.controller.lineage;
     final lastRecord = lineage.history.isNotEmpty ? lineage.history.last : null;
+    final claimedCore = widget.controller.session.calderaOutcome == CalderaClimaxChoice.claimCore ||
+        lastRecord?.causeOfDeath == EldritchLore.claimLedgerCause ||
+        lastRecord?.causeOfDeath.contains('Ascended') == true;
     final isFreighter =
         widget.controller.ship?.shipClass == ShipClass.freighter;
     final nemesis = widget.controller.activeNemesis;
@@ -92,8 +95,8 @@ class _DeathScreenState extends State<DeathScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  lastRecord?.causeOfDeath.contains('Ascended') == true
-                      ? 'ASCENDED INTO THE DEEP'
+                  claimedCore
+                      ? EldritchLore.claimSuccessionTitle
                       : 'A WATERY GRAVE',
                   style: InkTheme.titleLarge.copyWith(
                     fontSize: 36,
@@ -102,8 +105,8 @@ class _DeathScreenState extends State<DeathScreen> {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  lastRecord?.causeOfDeath.contains('Ascended') == true
-                      ? 'The captain claimed the Primordial Core. The flagship returns alone to harbor with the Covenant awoken.'
+                  claimedCore
+                      ? EldritchLore.claimSuccessionSubtitle
                       : 'The timbers splintered. The deep claimed another valiant captain.',
                   style: InkTheme.subtitle,
                   textAlign: TextAlign.center,
@@ -128,7 +131,7 @@ class _DeathScreenState extends State<DeathScreen> {
                         ),
                         const SizedBox(height: 6),
                         Text(
-                          'Fell to: ${lastRecord.causeOfDeath}',
+                          '${claimedCore ? 'Last voyage' : 'Fell to'}: ${lastRecord.causeOfDeath}',
                           style: InkTheme.bodyBold.copyWith(
                             color: InkTheme.crimsonAccent,
                           ),

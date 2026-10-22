@@ -1,6 +1,6 @@
 # Narrative canon
 
-Status: consolidated story canon, 20 October 2026. This is a writer/developer reference containing ending spoilers. Mechanics belong to [Current game](CURRENT_GAME.md); delivery gaps and proposals belong to [Backlog](BACKLOG.md). Canon describes the intended story, not a claim that every scene or effect is implemented.
+Status: consolidated story canon, with the user's revised Caldera outcomes integrated on 21 October 2026. This is a writer/developer reference containing ending spoilers. Mechanics belong to [Current game](CURRENT_GAME.md); delivery gaps and proposals belong to [Backlog](BACKLOG.md). Canon describes the intended story, not a claim that every scene or effect is implemented.
 
 ## The Bloodbound Flagship
 
@@ -65,15 +65,17 @@ The Ancient Leviathan guards the Primordial Caldera, the Cradle of Behemoths and
 
 ### Shatter the Core
 
-The captain expends the Core to collapse the Font, sacrifices their life, and releases the family from Salt-Sickness. The seas become peaceful and the town endures. The intended memorial honors the captains whose losses allowed later generations to inherit a safe shore; the family has not vanished into meaningless oblivion.
+The captain casts the Core into the Font. An ancient being's final wail ceases as the birthplace of monsters shatters. The captain and splintered flagship sink, with the Sea-Madness finally silent; the ship will not return this time. The family is released from Salt-Sickness and the seas know peace. The intended memorial honors the captains whose losses allowed later generations to inherit a safe shore; the family has not vanished into meaningless oblivion.
 
 The memorial's intended sentiment is: “They bore the salt and faced the night so our children might inherit the shore.” A cinematic town epilogue, Grand Admiralty Crest and Ancestral Chronicles sandbox/challenges are retained future delivery ideas, not assumed current functionality.
 
 ### Claim the Core
 
-Under the deep's influence, the captain rationalizes preserving the Font: only their line can supposedly contain its power. The Core fuses into the flagship's keel/capstan, profoundly altering the returning vessel. The captain is consumed or ascends into the caldera's legend; the heir inherits a stronger Salt-Sickness and the whispering ship.
+The Sea-Madness whispers promises the captain cannot ignore. They drive the Core into the deck, where it fuses with the timbers as if meant to be there. The voice delights in their choice and grows louder. The Bloodbound Ship returns to port bare as before, except for the orb-like altar fused into the wall of the captain's quarters. The returning ship is alone; the prose leaves the captain's precise fate unresolved rather than declaring a triumphant ascension.
 
-The Covenant altar rises at home. Its pacts offer greater rewards while drawing corruption toward shore. The thematic irony is that the family can become a conduit carrying the primordial nightmare toward the humanity it believed it protected.
+The heir inherits the whispering vessel and its altar. The Covenant is accessible during home preparation; its pacts offer greater rewards while drawing corruption toward shore. The thematic irony is that the family can become a conduit carrying the primordial nightmare toward the humanity it believed it protected. Stronger curse/corruption presentation remains future atmospheric work, not an extra implemented penalty invented by this prose.
+
+The game now presents a consequence summary before the choice and the complete canonical outcome afterward, with an explicit continuation. Shatter reaches a completed-hunt screen; Claim reaches heir selection. The textual outcome and its read state survive restart. These screens do not implement the deferred memorial cinematic or a town epilogue.
 
 Use **Pact Burden** for the current difficulty system. The older “Heat” language and speculative doctrine/relic catalogs are not current mechanical requirements. Broad corruption-of-the-world presentation remains future atmospheric work.
 

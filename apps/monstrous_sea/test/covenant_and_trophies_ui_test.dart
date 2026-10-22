@@ -33,14 +33,14 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        expect(find.text('THE CALDERA DILEMMA'), findsOneWidget);
-        expect(find.text('SHATTER THE CORE — BREAK THE CYCLE'), findsOneWidget);
+        expect(find.text(EldritchLore.calderaTitle), findsOneWidget);
+        expect(find.text(EldritchLore.calderaClimax[CalderaClimaxChoice.shatterCore]!.promptTitle), findsOneWidget);
         expect(
-          find.text('CLAIM THE CORE — ASCEND INTO THE COVENANT'),
+          find.text(EldritchLore.calderaClimax[CalderaClimaxChoice.claimCore]!.promptTitle),
           findsOneWidget,
         );
 
-        final shatterBtn = find.text('SHATTER THE CORE (CONCLUDE QUEST)');
+        final shatterBtn = find.text('SHATTER THE CORE');
         expect(shatterBtn, findsOneWidget);
 
         await tester.tap(shatterBtn);
@@ -57,7 +57,7 @@ void main() {
     );
 
     testWidgets(
-      'Claim the Core triggers deep ascension, unlocking Covenant and transitioning to death/heir succession',
+      'Claim the Core unlocks Covenant and prepares heir succession',
       (tester) async {
         tester.view.physicalSize = const Size(1200, 1600);
         tester.view.devicePixelRatio = 1.0;
@@ -80,7 +80,7 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        final claimBtn = find.text('CLAIM THE CORE (ASCEND & LOOP)');
+        final claimBtn = find.text('CLAIM THE CORE');
         expect(claimBtn, findsOneWidget);
 
         await tester.tap(claimBtn);
@@ -97,9 +97,9 @@ void main() {
     );
   });
 
-  group('DeathScreen Ascension Adaptation', () {
+  group('DeathScreen Caldera Adaptation', () {
     testWidgets(
-      'Displays ascension subtitle when captain merged with the deep',
+      'Displays the returning-ship subtitle after the Core is claimed',
       (tester) async {
         tester.view.physicalSize = const Size(1200, 1600);
         tester.view.devicePixelRatio = 1.0;
@@ -127,8 +127,8 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        expect(find.text('ASCENDED INTO THE DEEP'), findsOneWidget);
-        expect(find.textContaining('Covenant awoken'), findsOneWidget);
+        expect(find.text(EldritchLore.claimSuccessionTitle), findsOneWidget);
+        expect(find.text(EldritchLore.claimSuccessionSubtitle), findsOneWidget);
       },
     );
   });

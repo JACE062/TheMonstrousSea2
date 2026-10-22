@@ -9,15 +9,14 @@ enum CalderaClimaxChoice {
   /// Detonates the Leviathan Core inside the Abyssal Font, destroying the
   /// primordial birthplace of monsters, curing the generational salt-sickness,
   /// and concluding the main narrative loop.
-  shatterCore('Shatter the Core'),
+  shatterCore,
 
   /// Retains the Leviathan Core. The captain is consumed by deep-sea madness,
-  /// and the flagship returns to port with the Core fused into its keel—
+  /// and the flagship returns with an altar in the captain's quarters—
   /// unlocking the Covenant of the Deep and the post-end eldritch loop.
-  claimCore('Claim the Core');
+  claimCore;
 
-  const CalderaClimaxChoice(this.displayName);
-  final String displayName;
+  String get displayName => EldritchLore.calderaClimax[this]!.displayName;
 }
 
 /// Identifiers for pacts ratified at the Abyssal Covenant Altar in Port.

@@ -3,6 +3,7 @@ import 'dart:math';
 import '../config/balance_config.dart';
 import '../content/consumables.dart';
 import '../content/ships.dart';
+import '../lore/eldritch_lore.dart';
 import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
 import '../model/covenant_of_the_deep.dart';
@@ -55,6 +56,8 @@ class GameSession {
   String captainName = '';
   ShipState? ship;
   MonsterState? currentMonster;
+  CalderaClimaxChoice? calderaOutcome;
+  bool hasReadCalderaOutcome = false;
   /// Persists a completed encounter without retaining a live combat object.
   bool hasDefeatedCurrentEncounter = false;
   CombatRange combatRange = CombatRange.medium;
@@ -159,6 +162,7 @@ class GameSession {
   /// Dispatches [command] to update session state and returns resulting events.
   List<GameEvent> dispatch(Command command) {
     return switch (command) {
+      AcknowledgeCalderaOutcome() => _handleAcknowledgeCalderaOutcome(),
       NameCaptain(:final name) => _handleNameCaptain(name),
       ChooseShip(:final shipClass, :final customName) =>
         _handleChooseShip(shipClass, customName),
@@ -2421,6 +2425,9 @@ class GameSession {
       throw StateError('Cannot resolve caldera climax from $phase');
     }
 
+    final narrative = EldritchLore.calderaClimax[choice]!.narrativeOutcome;
+    calderaOutcome = choice;
+    hasReadCalderaOutcome = false;
     switch (choice) {
       case CalderaClimaxChoice.shatterCore:
         // Consume the Leviathan Core to detonate and collapse the Abyssal Font
@@ -2430,8 +2437,6 @@ class GameSession {
         profile.hasShatteredFont = true;
         final prevPhase = phase.displayName;
         phase = SessionPhase.ended;
-        const narrative =
-            'The Leviathan Core shatters inside the hydrothermal fissure! The Abyssal Font implodes, quenching the birthplace of monsters forever and lifting the salt-sickness from your bloodline.';
         return <GameEvent>[
           PhaseChanged(previousPhase: prevPhase, newPhase: phase.displayName),
           CalderaClimaxResolved(
@@ -2440,7 +2445,7 @@ class GameSession {
             narrative: narrative,
           ),
           NarrationEvent(
-            'Captain $captainName has conquered The Monstrous Sea! $narrative',
+            narrative,
           ),
         ];
 
@@ -2454,7 +2459,7 @@ class GameSession {
           shipClass: ship?.shipClass ?? ShipClass.standard,
           monstersDefeated: monstersDefeatedThisLife,
           highestDifficultyReached: highestDifficultyThisLife,
-          causeOfDeath: 'Ascended as Warden of the Primordial Caldera',
+          causeOfDeath: EldritchLore.claimLedgerCause,
         ));
         pendingHeirCandidates = generateHeirCandidates(
           rng: rng,
@@ -2464,8 +2469,6 @@ class GameSession {
         );
         final prevPhase = phase.displayName;
         phase = SessionPhase.death;
-        const narrative =
-            'Overcome by deep-sea madness, the captain claims the Primordial Core! The flagship returns alone to harbor with the glowing Core fused into its keel, awakening the Covenant of the Deep.';
         return <GameEvent>[
           PhaseChanged(previousPhase: prevPhase, newPhase: phase.displayName),
           CalderaClimaxResolved(
@@ -2473,9 +2476,18 @@ class GameSession {
             captainName: captainName,
             narrative: narrative,
           ),
-          const NarrationEvent(narrative),
+          NarrationEvent(narrative),
         ];
     }
+  }
+
+  List<GameEvent> _handleAcknowledgeCalderaOutcome() {
+    if (calderaOutcome == null ||
+        (phase != SessionPhase.death && phase != SessionPhase.ended)) {
+      throw StateError('No Caldera outcome is awaiting acknowledgement');
+    }
+    hasReadCalderaOutcome = true;
+    return <GameEvent>[];
   }
 
   static const List<String> _islandAdjectives = [
@@ -2710,6 +2722,8 @@ class GameSession {
       throw StateError('Blueprint $blueprintId is not unlocked');
     }
     captainName = heirName;
+    calderaOutcome = null;
+    hasReadCalderaOutcome = false;
     activeBoon = boon;
     activeQuirk = quirk;
     pendingHeirCandidates = <HeirCandidate>[];

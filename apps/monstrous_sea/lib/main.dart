@@ -3,6 +3,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 
 import 'src/game_controller.dart';
 import 'src/screens/battle_screen.dart';
+import 'src/screens/caldera_outcome_screen.dart';
 import 'src/screens/captain_screen.dart';
 import 'src/screens/death_screen.dart';
 import 'src/screens/helm_screen.dart';
@@ -188,6 +189,12 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
   }
 
   Widget _resolveScreenForPhase() {
+    if (_controller.session.calderaOutcome != null &&
+        !_controller.session.hasReadCalderaOutcome &&
+        (_controller.phase == SessionPhase.death || _controller.phase == SessionPhase.ended)) {
+      return CalderaOutcomeScreen(
+        key: const ValueKey('caldera_outcome'), controller: _controller);
+    }
     if (_showingChartModal) {
       return SeaChartScreen(
         key: const ValueKey('sea_chart_modal'),
@@ -292,15 +299,7 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
         );
 
       case SessionPhase.ended:
-        return IntroScreen(
-          key: const ValueKey('ended_screen'),
-          onStart: () {
-            setState(() {
-              _introDismissed = false;
-              _showingChartModal = false;
-            });
-          },
-        );
+        return const HuntEndedScreen(key: ValueKey('ended_screen'));
     }
   }
 }

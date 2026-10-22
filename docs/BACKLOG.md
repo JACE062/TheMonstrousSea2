@@ -402,7 +402,9 @@ The broader living town can express the family's sacrifice through a seawall/lig
 
 ### Ending delivery and Ancestral Chronicles
 
-**FUT-04 — Deferred presentation/features.** Preserve the intended memorial/peaceful-town epilogue after Shattering, the corrupted returning keel/Covenant awakening after Claiming, a possible Grand Admiralty Crest, and Ancestral Chronicles sandbox/challenge voyages. Ending choice handlers and persistent flags already exist; full cinematics, sandbox modes, atmosphere and civic scenes must be specified and delivered separately. Use [narrative canon](LORE.md#the-caldera-and-ending-choices) for the story and avoid spoiling it in onboarding.
+**FUT-04 — Deferred presentation/features.** Preserve the intended memorial/peaceful-town epilogue after Shattering, the corrupted returning ship and its Covenant altar after Claiming, a possible Grand Admiralty Crest, and Ancestral Chronicles sandbox/challenge voyages. Ending choice handlers and persistent flags already exist; full cinematics, sandbox modes, atmosphere and civic scenes must be specified and delivered separately. Use [narrative canon](LORE.md#the-caldera-and-ending-choices) for the story and avoid spoiling it in onboarding.
+
+**Implemented textual integration, 21 October 2026:** The user's rewritten Caldera outcomes now feed runtime narration and a dedicated reading screen. Pre-choice summaries explain loss of captain/ship versus the returning ship and awakened Covenant, without the old ascension claim. Acknowledgement reaches the finished hunt or heir selection; both the pending choice and resolved outcome/read state survive restart, including fixed heir offers. No reward is reapplied by acknowledgement/reload. Older completed profiles no longer lead to a dead Start menu. The Claim altar is aboard the returning ship in the captain's quarters, as in the revised canon. The cinematic memorial, town presentation and Ancestral Chronicles remain deferred. See the [verification receipt](archive/README.md#later-verification-receipts).
 
 ## Maintenance rules
 

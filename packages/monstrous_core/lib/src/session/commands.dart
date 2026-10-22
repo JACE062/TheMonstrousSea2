@@ -9,6 +9,11 @@ sealed class Command {
   const Command();
 }
 
+/// Acknowledges the ending prose without applying its consequences again.
+final class AcknowledgeCalderaOutcome extends Command {
+  const AcknowledgeCalderaOutcome();
+}
+
 /// Sets the initial captain name or heir name.
 final class NameCaptain extends Command {
   const NameCaptain(this.name);

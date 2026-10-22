@@ -9,8 +9,8 @@ import 'package:path_provider/path_provider.dart';
 ///
 /// Implements dual-file anti-scumming architecture:
 /// - `player_profile.json`: Persistent profile (meta-inventory, lineage history, nemesis, town progress).
-/// - `voyage_save.json`: Transient mid-voyage save snapshot (strictly auto-deleted upon captain demise
-///   or returning to port).
+/// - `voyage_save.json`: Encounter/ending checkpoint. Ordinary death and home
+///   preparation clear it; resolved Caldera prose and offered heirs can resume.
 class StorageService {
   StorageService({Directory? baseDirectory, this.legacyDirectory})
     : baseDirectory =

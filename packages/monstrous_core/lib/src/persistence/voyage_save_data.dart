@@ -1,5 +1,6 @@
 import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
+import '../model/covenant_of_the_deep.dart';
 import '../model/item.dart';
 import '../session/game_session.dart';
 import '../session/session_phase.dart';
@@ -7,8 +8,8 @@ import '../session/session_phase.dart';
 /// Captures transient mid-voyage session state so that players can pause
 /// and resume a run across application launches.
 ///
-/// This file is strictly auto-deleted upon captain demise or returning to port,
-/// preventing save-scumming.
+/// Ordinary death/home preparation clears the checkpoint. Resolved Caldera
+/// outcomes remain readable across restart, including the offered heirs.
 class VoyageSaveData {
   VoyageSaveData({
     required this.captainName,
@@ -35,6 +36,9 @@ class VoyageSaveData {
     this.hasSalvagedCurrentWreck = false,
     this.currentShipwreckName = '',
     this.wreckSalvageReceipt = const [],
+    this.calderaOutcome,
+    this.hasReadCalderaOutcome = false,
+    this.pendingHeirCandidates = const [],
   }) : pendingLoot = pendingLoot ?? <Item>[],
        merchantStock = merchantStock ?? <Item>[];
 
@@ -74,6 +78,14 @@ class VoyageSaveData {
       activeBoonId: boonId,
       activeQuirkId: quirkId,
       phase: phase,
+      calderaOutcome: CalderaClimaxChoice.values
+          .where((choice) => choice.name == json['calderaOutcome'])
+          .firstOrNull,
+      hasReadCalderaOutcome: json['hasReadCalderaOutcome'] as bool? ?? false,
+      pendingHeirCandidates: (json['pendingHeirCandidates'] as List?)
+          ?.map((candidate) => HeirCandidate.fromJson(
+            candidate as Map<String, dynamic>))
+          .toList() ?? const [],
       hasSalvagedCurrentWreck: json['hasSalvagedCurrentWreck'] as bool? ?? false,
       currentShipwreckName: json['currentShipwreckName'] as String? ?? '',
       wreckSalvageReceipt: (json['wreckSalvageReceipt'] as List?)?.cast<String>() ?? const [],
@@ -107,6 +119,9 @@ class VoyageSaveData {
   final BloodlineTraitId? activeBoonId;
   final BloodlineTraitId? activeQuirkId;
   final SessionPhase phase;
+  final CalderaClimaxChoice? calderaOutcome;
+  final bool hasReadCalderaOutcome;
+  final List<HeirCandidate> pendingHeirCandidates;
   final bool hasSalvagedCurrentWreck;
   final String currentShipwreckName;
   final List<String> wreckSalvageReceipt;
@@ -133,6 +148,10 @@ class VoyageSaveData {
     'activeBoonId': activeBoonId?.name,
     'activeQuirkId': activeQuirkId?.name,
     'phase': phase.name,
+    'calderaOutcome': calderaOutcome?.name,
+    'hasReadCalderaOutcome': hasReadCalderaOutcome,
+    'pendingHeirCandidates': pendingHeirCandidates
+        .map((heir) => heir.toJson()).toList(),
     'hasSalvagedCurrentWreck': hasSalvagedCurrentWreck,
     'currentShipwreckName': currentShipwreckName,
     'wreckSalvageReceipt': wreckSalvageReceipt,
@@ -165,6 +184,10 @@ class VoyageSaveData {
       activeBoonId: session.activeBoon?.id,
       activeQuirkId: session.activeQuirk?.id,
       phase: session.phase,
+      calderaOutcome: session.calderaOutcome,
+      hasReadCalderaOutcome: session.hasReadCalderaOutcome,
+      pendingHeirCandidates: List<HeirCandidate>.from(
+        session.pendingHeirCandidates),
       hasSalvagedCurrentWreck: session.hasSalvagedCurrentWreck,
       currentShipwreckName: session.currentShipwreckName,
       wreckSalvageReceipt: List<String>.from(session.wreckSalvageReceipt),
@@ -188,6 +211,9 @@ class VoyageSaveData {
   /// Restores session state from this saved voyage.
   void restoreToSession(GameSession session) {
     session.captainName = captainName;
+    session.calderaOutcome = calderaOutcome;
+    session.hasReadCalderaOutcome = hasReadCalderaOutcome;
+    session.pendingHeirCandidates = List<HeirCandidate>.from(pendingHeirCandidates);
     session.ship = ship;
     session.seaChart.timesCompleted = timesCompleted;
     session.seaChart.currentRow = currentRow;

@@ -42,16 +42,34 @@ class CalderaClimaxLoreEntry {
   const CalderaClimaxLoreEntry({
     required this.displayName,
     required this.promptTitle,
+    required this.consequence,
     required this.narrativeOutcome,
   });
 
   final String displayName;
   final String promptTitle;
+  final String consequence;
   final String narrativeOutcome;
 }
 
 class EldritchLore {
   const EldritchLore._();
+
+  static const calderaTitle = 'THE PRIMORDIAL CALDERA';
+  static const calderaIntroduction =
+      'The Ancient Leviathan sinks beneath the boiling waters. Beyond it, the '
+      'Abyssal Font still churns. With the Leviathan Core in your hands, the '
+      'fate of your bloodline rests on one final choice.';
+  static const claimLedgerCause =
+      'Claimed the Leviathan Core; the flagship returned alone';
+  static const claimSuccessionTitle = 'THE SHIP RETURNS ALONE';
+  static const claimSuccessionSubtitle =
+      'The captain claimed the Core. The Bloodbound Ship has returned for an heir, '
+      'with a whispering altar in the captain’s quarters.';
+  static const huntEndedTitle = 'THE HUNT IS ENDED';
+  static const huntEndedMessage =
+      'The sea is quiet. The Bloodbound Ship will not return, and your family '
+      'is free to remain upon the shore. The curse is broken.';
 
   // --- Caldera Climax Choices ---
 
@@ -59,27 +77,33 @@ class EldritchLore {
     CalderaClimaxChoice.shatterCore: CalderaClimaxLoreEntry(
       displayName: 'Shatter the Core',
       promptTitle: 'Use the Leviathan Core to destroy the Abyssal Font',
+      consequence:
+          'Destroy the Font and break the curse. Captain and flagship will be '
+          'lost, but the bloodline’s hunt will end.',
       narrativeOutcome:
           'With a steeled determination, you push forward and cast the Core into the incandescent rift. '
           'The primordial birthplace of leviathans shatters in a deafening detonation, the wailing of an '
           'ancient eldritch being resounding in your head before it abruptly ceases. '
-          'As your splintered ship careens its way into the depths, you feel the curse lifting from you, '
+          '\nAs your splintered ship plummets its way into the depths, you feel the curse lifting from you, '
           'the noise of the Sea-Madness finally gone from your mind. '
           'The ship will not return to port this time, but it gives you a sense of relief, '
-          'knowing your bloodline, and the Sea, will know peace at last.',
+          'knowing your bloodline, and the Sea, will know peace at last...',
     ),
     CalderaClimaxChoice.claimCore: CalderaClimaxLoreEntry(
       displayName: 'Claim the Core',
-      promptTitle: 'Bind the Leviathan Core into the flagship’s living keel',
+      promptTitle: 'Bind the Leviathan Core to the Bloodbound Ship',
+      consequence:
+          'Preserve the Font and bind its power to the ship. The flagship will '
+          'return for another heir, awakening the Covenant of the Deep.',
       narrativeOutcome:
           'The Sea-Madness whispers sweet promises in your mind you cannot ignore. '
           'You hoist the humming, glowing core over your head, before slamming it into the deck. '
           'It fuses to the splintered timbers with a horrible sound, but it integrates perfectly, '
           'the orb looking, strangely, like it was always meant to be there. '
-          'As you feel the thrum of dark power from the hull of the flagship, the voice in your head cackles with delight '
+          '\nAs you feel the thrum of dark power from the hull of the flagship, the voice in your head cackles with delight '
           'at what you’ve done, growing louder than ever before... '
           '\n\n'
-          'The Bloodbound Ship slowly drifts into port once more, the keel just as bare as every other time, '
+          'The Bloodbound Ship slowly drifts into port once more, the keel as bare as always, '
           'save for the orb-like altar fused into the wall of the captain’s quarters, humming invitingly...',
     ),
   };

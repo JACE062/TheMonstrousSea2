@@ -59,6 +59,8 @@ Reliability receipt: [Test-save isolation and battle-art recovery, 20 October 20
 
 Chronicle receipt: [Voyage history and scrolling, 20 October 2026](playtests/CHRONICLE_2026_10_20.md). This covers the lifecycle and scroll-position follow-ups within PT2-11; the larger command-station redesign remains open.
 
+Ending receipt: [Caldera prose and continuation, 21 October 2026](playtests/ENDINGS_2026_10_21.md), including canonical text, readable outcomes, retained acknowledgement/heir checkpoints and old-save defaults. Cinematic epilogues remain deferred.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

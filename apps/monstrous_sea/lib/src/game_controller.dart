@@ -126,6 +126,10 @@ class GameController extends ChangeNotifier {
         session.dispatch(const TakeHelm());
         if (autoSave) await persistState();
       }
+    } else if (loadedProfile.hasShatteredFont) {
+      // Older completed profiles have no ending checkpoint. Do not offer a
+      // nonfunctional Start button or silently begin another cursed voyage.
+      session.phase = SessionPhase.ended;
     }
     notifyListeners();
   }
@@ -135,8 +139,13 @@ class GameController extends ChangeNotifier {
     final profileSnapshot = ProfileData.fromJson(session.profile.toJson());
     final atHome = phase == SessionPhase.port ||
         (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.port);
-    final clearCheckpoint = phase == SessionPhase.death || phase == SessionPhase.ended || atHome;
-    final checkpointPhase = phase == SessionPhase.stronghold ||
+    final retainOutcome = session.calderaOutcome != null &&
+        (phase == SessionPhase.death || phase == SessionPhase.ended);
+    final clearCheckpoint = !retainOutcome &&
+        (phase == SessionPhase.death || phase == SessionPhase.ended || atHome);
+    final checkpointPhase = retainOutcome ||
+        phase == SessionPhase.expeditionVictory ||
+        phase == SessionPhase.stronghold ||
         (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.stronghold) ||
         phase == SessionPhase.shipwreck ||
         phase == SessionPhase.loot ||
