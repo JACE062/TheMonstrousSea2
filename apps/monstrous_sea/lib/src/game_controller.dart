@@ -9,6 +9,7 @@ class GameController extends ChangeNotifier {
     GameSession? session,
     StorageService? storage,
     this.autoSave = true,
+    this.retainPreparationCheckpoints = false,
   })  : session = session ?? GameSession(),
         storage = storage ?? StorageService(),
         narrationFormatter = const NarrationFormatter();
@@ -17,6 +18,9 @@ class GameController extends ChangeNotifier {
   final StorageService storage;
   final NarrationFormatter narrationFormatter;
   final bool autoSave;
+
+  /// Lineage slots can resume home preparation and the exact offered heirs.
+  final bool retainPreparationCheckpoints;
   Future<void> _pendingPersistence = Future.value();
 
   final List<CombatLogEntry> structuredCombatLog = <CombatLogEntry>[];
@@ -141,9 +145,11 @@ class GameController extends ChangeNotifier {
         (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.port);
     final retainOutcome = session.calderaOutcome != null &&
         (phase == SessionPhase.death || phase == SessionPhase.ended);
-    final clearCheckpoint = !retainOutcome &&
+    final retainPreparation = retainPreparationCheckpoints &&
+        session.ship != null && (atHome || phase == SessionPhase.death);
+    final clearCheckpoint = !retainOutcome && !retainPreparation &&
         (phase == SessionPhase.death || phase == SessionPhase.ended || atHome);
-    final checkpointPhase = retainOutcome ||
+    final checkpointPhase = retainOutcome || retainPreparation ||
         phase == SessionPhase.expeditionVictory ||
         phase == SessionPhase.stronghold ||
         (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.stronghold) ||

@@ -9,14 +9,17 @@ import 'package:path_provider/path_provider.dart';
 ///
 /// Implements dual-file anti-scumming architecture:
 /// - `player_profile.json`: Persistent profile (meta-inventory, lineage history, nemesis, town progress).
-/// - `voyage_save.json`: Encounter/ending checkpoint. Ordinary death and home
-///   preparation clear it; resolved Caldera prose and offered heirs can resume.
+/// - `voyage_save.json`: Safe-stop/ending checkpoint. Slotted controllers also
+///   retain home preparation and ordinary heir offers for menu continuation.
 class StorageService {
-  StorageService({Directory? baseDirectory, this.legacyDirectory})
-    : baseDirectory =
-          baseDirectory ??
-          (Zone.current[_isolatedDirectoryKey] as Directory?) ??
-          testDefaultDirectory;
+  StorageService({
+    Directory? baseDirectory,
+    this.legacyDirectory,
+    this.strictReads = false,
+  }) : baseDirectory =
+           baseDirectory ??
+           (Zone.current[_isolatedDirectoryKey] as Directory?) ??
+           testDefaultDirectory;
 
   /// Test-harness fallback across test-runner zones. Production leaves this
   /// null; fixtures still prefer explicit directories or disabled autosave.
@@ -34,6 +37,9 @@ class StorageService {
   /// Migration is disabled for an injected base unless a legacy source is given.
   final Directory? baseDirectory;
   final Directory? legacyDirectory;
+
+  /// Slotted saves must report corruption rather than silently become new games.
+  final bool strictReads;
   Future<Directory>? _directoryFuture;
 
   static const String profileFileName = 'player_profile.json';
@@ -72,6 +78,9 @@ class StorageService {
       rethrow;
     }
   }
+
+  /// Prepare the root and finish legacy import before a lineage catalog uses it.
+  Future<Directory> initializeDirectory() => _resolveDirectory();
 
   Future<Directory> _prepareDirectory() async {
     final directory = baseDirectory ?? await defaultSaveDirectory();
@@ -168,6 +177,7 @@ class StorageService {
       final json = jsonDecode(contents) as Map<String, dynamic>;
       return ProfileData.fromJson(json);
     } catch (_) {
+      if (strictReads) rethrow;
       return ProfileData();
     }
   }
@@ -192,6 +202,7 @@ class StorageService {
       final json = jsonDecode(contents) as Map<String, dynamic>;
       return VoyageSaveData.fromJson(json);
     } catch (_) {
+      if (strictReads) rethrow;
       return null;
     }
   }

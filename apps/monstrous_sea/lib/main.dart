@@ -10,6 +10,7 @@ import 'src/screens/captain_screen.dart';
 import 'src/screens/death_screen.dart';
 import 'src/screens/helm_screen.dart';
 import 'src/screens/intro_screen.dart';
+import 'src/screens/lineage_menu_screen.dart';
 import 'src/screens/loot_screen.dart';
 import 'src/screens/merchant_screen.dart';
 import 'src/screens/port_screen.dart';
@@ -22,6 +23,7 @@ import 'src/screens/shrine_screen.dart';
 import 'src/screens/smuggler_screen.dart';
 import 'src/screens/victory_screen.dart';
 import 'src/settings/game_settings.dart';
+import 'src/services/lineage_store.dart';
 import 'src/theme/ink_theme.dart';
 
 void main() {
@@ -30,9 +32,21 @@ void main() {
 }
 
 class MonstrousSeaApp extends StatelessWidget {
-  const MonstrousSeaApp({super.key, this.controller});
+  const MonstrousSeaApp({super.key, this.controller, this.lineageStore});
 
   final GameController? controller;
+  final LineageStore? lineageStore;
+
+  Widget _normalHome() => controller != null
+      ? GameOrchestratorView(controller: controller)
+      : LineageMenuScreen(
+          store: lineageStore,
+          gameBuilder: (controller, onReturnToMenu) => GameOrchestratorView(
+            controller: controller,
+            skipIntro: controller.profile.hasBegunFirstVoyage,
+            onReturnToMenu: onReturnToMenu,
+          ),
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +68,12 @@ class MonstrousSeaApp extends StatelessWidget {
           home: kDebugMode
               ? PlaytestHost(
                   gameBuilder: (testController) => GameOrchestratorView(
-                    controller: testController, skipIntro: true),
-                  child: GameOrchestratorView(controller: controller),
+                    controller: testController,
+                    skipIntro: true,
+                  ),
+                  child: _normalHome(),
                 )
-              : GameOrchestratorView(controller: controller),
+              : _normalHome(),
         );
       },
     );
@@ -70,6 +86,7 @@ class GameOrchestratorView extends StatefulWidget {
     this.controller,
     this.skipIntro = false,
     this.loadStorage,
+    this.onReturnToMenu,
   });
 
   final GameController? controller;
@@ -77,6 +94,7 @@ class GameOrchestratorView extends StatefulWidget {
 
   /// Injected controllers normally already contain test or live session state.
   final bool? loadStorage;
+  final VoidCallback? onReturnToMenu;
 
   @override
   State<GameOrchestratorView> createState() => _GameOrchestratorViewState();
@@ -199,15 +217,20 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
   Widget _resolveScreenForPhase() {
     if (_controller.session.calderaOutcome != null &&
         !_controller.session.hasReadCalderaOutcome &&
-        (_controller.phase == SessionPhase.death || _controller.phase == SessionPhase.ended)) {
+        (_controller.phase == SessionPhase.death ||
+            _controller.phase == SessionPhase.ended)) {
       return CalderaOutcomeScreen(
-        key: const ValueKey('caldera_outcome'), controller: _controller);
+        key: const ValueKey('caldera_outcome'),
+        controller: _controller,
+      );
     }
     if (_showingChartModal) {
       return SeaChartScreen(
         key: const ValueKey('sea_chart_modal'),
         seaChart: _controller.seaChart,
-        isInPort: _controller.phase == SessionPhase.port || _controller.phase == SessionPhase.stronghold,
+        isInPort:
+            _controller.phase == SessionPhase.port ||
+            _controller.phase == SessionPhase.stronghold,
         isCurrentDefeated: _controller.isCurrentEncounterDefeated,
         onClose: () => setState(() => _showingChartModal = false),
       );
@@ -308,7 +331,10 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
 
       case SessionPhase.ended:
         return HuntEndedScreen(
-          key: const ValueKey('ended_screen'), controller: _controller);
+          key: const ValueKey('ended_screen'),
+          controller: _controller,
+          onReturnToMenu: widget.onReturnToMenu,
+        );
     }
   }
 }

@@ -1,0 +1,497 @@
+import 'dart:ui' show AppExitResponse, AppExitType;
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:monstrous_core/monstrous_core.dart';
+
+import '../game_controller.dart';
+import '../services/lineage_store.dart';
+import '../theme/ink_theme.dart';
+import '../widgets/ink_button.dart';
+import '../widgets/parchment_card.dart';
+import '../widgets/parchment_scaffold.dart';
+import '../widgets/settings_dialog.dart';
+
+/// The title menu owns slot selection; gameplay still uses the same orchestrator.
+class LineageMenuScreen extends StatefulWidget {
+  const LineageMenuScreen({super.key, required this.gameBuilder, this.store});
+  final LineageStore? store;
+  final Widget Function(GameController, VoidCallback) gameBuilder;
+
+  @override
+  State<LineageMenuScreen> createState() => _LineageMenuScreenState();
+}
+
+class _LineageMenuScreenState extends State<LineageMenuScreen> {
+  late final LineageStore _store = widget.store ?? LineageStore();
+  List<LineageSummary> _summaries = [];
+  String? _selectedId;
+  String? _error;
+  bool _busy = true;
+  final _navigator = GlobalKey<NavigatorState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _reload();
+  }
+
+  Future<void> _reload() async {
+    try {
+      final catalog = await _store.load();
+      final summaries = await _store.summaries();
+      if (!mounted) return;
+      setState(() {
+        _summaries = summaries;
+        _selectedId = catalog.activeId;
+        _busy = false;
+        _error = null;
+      });
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _error = 'Your lineages could not be loaded. Your saves have not been replaced. Retry to load them again.';
+        });
+      }
+    }
+  }
+
+  Future<void> _open(String id) async {
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    GameController? controller;
+    try {
+      final storage = await _store.open(id);
+      controller = GameController(
+        storage: storage,
+        retainPreparationCheckpoints: true,
+      );
+      await controller.initializeStorage();
+      if (!mounted) return;
+      final label =
+          _summaries.where((s) => s.slot.id == id).firstOrNull?.slot.label ??
+          'Lineage';
+      final active = controller;
+      final route = MaterialPageRoute<void>(
+        builder: (_) => _LineageGame(
+          label: label,
+          controller: active,
+          gameBuilder: widget.gameBuilder,
+        ),
+      );
+      await _navigator.currentState!.push(route);
+      // The route's pop future resolves before its transition has unmounted.
+      await route.completed;
+      if (mounted) await _reload();
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _error = 'This lineage could not be opened. Your saved progress has not been replaced. Retry before continuing.';
+        });
+      }
+    } finally {
+      controller?.dispose();
+    }
+  }
+
+  Future<void> _newLineage() async {
+    final label = await showDialog<String>(
+      context: context,
+      builder: (_) => const _NewLineageDialog(),
+    );
+    if (label == null || !mounted) return;
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    try {
+      final slot = await _store.create(label);
+      await _reload();
+      if (mounted && _error == null) await _open(slot.id);
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _error = 'The new lineage could not be saved. Existing lineages have not been replaced. Retry to reload the list.';
+        });
+      }
+    }
+  }
+
+  Future<void> _exitGame() async {
+    if (_busy) return;
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    try {
+      final response = await ServicesBinding.instance.exitApplication(
+        AppExitType.required,
+      );
+      if (mounted && response != AppExitResponse.exit) {
+        setState(() => _error = 'The game could not close. Please try again.');
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() => _error = 'The game could not close. Please try again.');
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => NavigatorPopHandler<void>(
+    onPopWithResult: (_) => _navigator.currentState!.maybePop(),
+    child: Navigator(
+      key: _navigator,
+      onGenerateRoute: (_) => MaterialPageRoute<void>(builder: _buildMenu),
+    ),
+  );
+
+  Widget _buildMenu(BuildContext context) {
+    final selected = _summaries
+        .where((s) => s.slot.id == _selectedId)
+        .firstOrNull;
+    return ParchmentScaffold(
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 820),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'THE MONSTROUS SEA',
+                  style: InkTheme.titleLarge.copyWith(
+                    fontSize: MediaQuery.sizeOf(context).width < 480 ? 24 : 34,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  'A ship bound to return. A bloodline bound to the hunt.',
+                  style: InkTheme.subtitle,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 24),
+                if (_busy)
+                  const LinearProgressIndicator(
+                    semanticsLabel: 'Loading lineage',
+                  ),
+                if (_error != null) ...[
+                  Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      _error!,
+                      style: InkTheme.body.copyWith(
+                        color: InkTheme.crimsonAccent,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  InkButton(
+                    label: 'RETRY',
+                    onPressed: _busy
+                        ? null
+                        : () {
+                            setState(() {
+                              _busy = true;
+                              _error = null;
+                            });
+                            _reload();
+                          },
+                  ),
+                  const SizedBox(height: 16),
+                ],
+                InkButton(
+                  label: 'CONTINUE',
+                  subtitle: selected == null
+                      ? 'Select a lineage below'
+                      : selected.slot.label,
+                  isPrimary: true,
+                  onPressed:
+                      _busy ||
+                          _error != null ||
+                          selected == null ||
+                          !selected.readable
+                      ? null
+                      : () => _open(selected.slot.id),
+                ),
+                const SizedBox(height: 12),
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: [
+                    InkButton(
+                      label: 'NEW LINEAGE',
+                      onPressed: _busy || _error != null ? null : _newLineage,
+                    ),
+                    InkButton(
+                      label: 'SETTINGS',
+                      onPressed: _busy
+                          ? null
+                          : () => SettingsDialog.show(context),
+                    ),
+                    InkButton(
+                      label: 'EXIT GAME',
+                      onPressed: _busy ? null : _exitGame,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 28),
+                Text('YOUR LINEAGES', style: InkTheme.titleMedium),
+                const SizedBox(height: 8),
+                Text(
+                  'Each save has its own captains, discoveries and ending. New Lineage starts a separate hunt.',
+                  style: InkTheme.body,
+                ),
+                const SizedBox(height: 12),
+                if (!_busy && _error == null && _summaries.isEmpty)
+                  Text(
+                    'No lineages yet. Begin with New Lineage.',
+                    style: InkTheme.caption,
+                  ),
+                for (final summary in _summaries) ...[
+                  ParchmentCard(
+                    borderColor: summary.slot.id == _selectedId
+                        ? InkTheme.goldAccent
+                        : InkTheme.inkMuted,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(summary.slot.label, style: InkTheme.titleMedium),
+                        const SizedBox(height: 6),
+                        Text(summary.description, style: InkTheme.body),
+                        if (!summary.readable)
+                          TextButton(
+                            onPressed: _busy
+                                ? null
+                                : () {
+                                    setState(() {
+                                      _busy = true;
+                                      _error = null;
+                                    });
+                                    _reload();
+                                  },
+                            child: const Text('RETRY LOAD'),
+                          ),
+                        const SizedBox(height: 8),
+                        InkButton(
+                          key: ValueKey('select-${summary.slot.id}'),
+                          label: summary.slot.id == _selectedId
+                              ? 'SELECTED'
+                              : 'SELECT LINEAGE',
+                          semanticLabel: 'Select ${summary.slot.label}',
+                          onPressed:
+                              _busy || _error != null || !summary.readable
+                              ? null
+                              : () => setState(
+                                  () => _selectedId = summary.slot.id,
+                                ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Only leave a phase whose complete non-combat state can be restored.
+bool canReturnToLineageMenu(GameController controller) =>
+    !controller.isPlayingEvents &&
+    const {
+      SessionPhase.captainCreation,
+      SessionPhase.port,
+      SessionPhase.stronghold,
+      SessionPhase.helm,
+      SessionPhase.loot,
+      SessionPhase.shipwreck,
+      SessionPhase.merchant,
+      SessionPhase.expeditionVictory,
+      SessionPhase.death,
+      SessionPhase.ended,
+    }.contains(controller.phase);
+
+class _LineageGame extends StatefulWidget {
+  const _LineageGame({
+    required this.label,
+    required this.controller,
+    required this.gameBuilder,
+  });
+  final String label;
+  final GameController controller;
+  final Widget Function(GameController, VoidCallback) gameBuilder;
+
+  @override
+  State<_LineageGame> createState() => _LineageGameState();
+}
+
+class _LineageGameState extends State<_LineageGame> {
+  bool _returning = false;
+  String? _error;
+
+  Future<void> _returnToMenu() async {
+    if (_returning || !canReturnToLineageMenu(widget.controller)) return;
+    setState(() {
+      _returning = true;
+      _error = null;
+    });
+    try {
+      await widget.controller.persistState();
+      if (mounted) Navigator.of(context).pop();
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _returning = false;
+          _error = 'Could not save your progress. Please try returning to the menu again.';
+        });
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => PopScope(
+    canPop: false,
+    onPopInvokedWithResult: (didPop, _) {
+      if (!didPop) _returnToMenu();
+    },
+    child: Column(
+      children: [
+        Material(
+          color: InkTheme.parchmentSurface,
+          child: SafeArea(
+            bottom: false,
+            child: ListenableBuilder(
+              listenable: widget.controller,
+              builder: (context, _) {
+                final allowed = canReturnToLineageMenu(widget.controller);
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 4,
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              widget.label,
+                              style: InkTheme.caption,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Tooltip(
+                            message: allowed
+                                ? 'Save and return to your lineages'
+                                : 'Finish this encounter, then return from Set Course.',
+                            child: TextButton(
+                              onPressed: allowed && !_returning
+                                  ? _returnToMenu
+                                  : null,
+                              child: Text(
+                                _returning ? 'SAVING…' : 'TITLE MENU',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (_error != null)
+                        Text(
+                          _error!,
+                          style: InkTheme.body.copyWith(
+                            color: InkTheme.crimsonAccent,
+                          ),
+                        ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+        Expanded(
+          child: IgnorePointer(
+            ignoring: _returning,
+            child: widget.gameBuilder(widget.controller, _returnToMenu),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+class _NewLineageDialog extends StatefulWidget {
+  const _NewLineageDialog();
+  @override
+  State<_NewLineageDialog> createState() => _NewLineageDialogState();
+}
+
+class _NewLineageDialogState extends State<_NewLineageDialog> {
+  final _label = TextEditingController();
+  final _form = GlobalKey<FormState>();
+  @override
+  void dispose() {
+    _label.dispose();
+    super.dispose();
+  }
+
+  void _create() {
+    if (_form.currentState!.validate()) {
+      Navigator.of(context).pop(_label.text.trim());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => AlertDialog(
+    backgroundColor: InkTheme.parchmentSurface,
+    title: const Text('NEW LINEAGE'),
+    content: SingleChildScrollView(
+      child: Form(
+        key: _form,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'Name this save. This label is separate from your captain’s name and does not set a permanent family surname.',
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              key: const ValueKey('lineage-label'),
+              controller: _label,
+              autofocus: true,
+              maxLength: 60,
+              decoration: const InputDecoration(labelText: 'Save label'),
+              validator: (value) => value == null || value.trim().isEmpty
+                  ? 'Enter a label for this save.'
+                  : null,
+              onFieldSubmitted: (_) => _create(),
+            ),
+          ],
+        ),
+      ),
+    ),
+    actions: [
+      TextButton(
+        onPressed: () => Navigator.of(context).pop(),
+        child: const Text('CANCEL'),
+      ),
+      TextButton(onPressed: _create, child: const Text('CREATE LINEAGE')),
+    ],
+  );
+}

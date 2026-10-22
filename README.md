@@ -44,13 +44,15 @@ The local gameplay package is resolved through the app's dependency configuratio
 
 ## Your first voyage
 
-1. Name your captain. A fresh profile starts with the Standard flagship and enters its first battle directly.
+1. Choose **New Lineage** at the title menu and label the save, then name your captain. A fresh profile starts with the Standard flagship and enters its first battle directly.
 2. Read the monster's intent and threatened ranges before choosing your attack. Select a helm order to move with your next turn-ending action.
 3. Use your Broadside, Signature, and Utility as they become available. Consumables are single-use quick actions with a per-turn limit.
 4. After encounters, collect or leave supplies and choose your next heading. Seek shelter for repairs and voyage upgrades, and inspect your ship when planning a build.
 5. If the captain falls, choose an heir and prepare the next voyage at home. Permanent blueprint purchases use recovered materials; upgrades earned at sea belong to that voyage.
 
 Use Settings to adjust text size. Hover over battle controls and status labels for their current effects, restrictions, and tactical details.
+
+The title menu lets you select a lineage and **Continue**, start another with **New Lineage**, open **Settings**, or **Exit Game**. Each lineage keeps independent progress and its own ending. Save labels do not set captains' surnames. **Title Menu** saves and returns from supported stops; during combat or unfinished encounters, finish the encounter and return from Set Course. Completed hunts also offer **Return to Menu**.
 
 ## Playtest menu (debug builds)
 
@@ -74,7 +76,9 @@ On Windows, saves are stored in:
 %LOCALAPPDATA%\TheMonstrousSea2\Saves
 ```
 
-`player_profile.json` holds permanent progress. `voyage_save.json` holds the active voyage checkpoint. Autosaves occur at supported checkpoints between encounters; individual combat turns are not saved for mid-battle resume.
+`lineages.json` lists save labels and the last opened lineage. Each lineage's `player_profile.json` and `voyage_save.json` live in `lineages/<slot-id>/`. These hold permanent progress and the latest supported checkpoint, including home preparation, offered heirs and resolved endings. Individual combat turns are not saved for mid-battle resume.
+
+Your previous single save is imported once as **Original Lineage**, preserving the source files as backups. Legacy Documents saves still import through the existing migration first. Unreadable saves show an error rather than silently starting over. Use **New Lineage** to test a fresh start without deleting your existing progress.
 
 ## Build a Windows release
 

@@ -46,7 +46,9 @@ A substantial [core content and compatibility cleanup](BACKLOG.md#deferred-core-
 
 The revised Caldera endings are integrated into the runtime choice, narration and readable outcome screens. Ending acknowledgement and offered heirs persist across restart; cinematic epilogues and Ancestral Chronicles remain deferred under FUT-04. See [ending canon](LORE.md#the-caldera-and-ending-choices) for spoilers and [current behavior](CURRENT_GAME.md#meta-progression-heirs-and-endings) for the implementation.
 
-The debug [playtest menu](../README.md#playtest-menu-debug-builds) now launches configurable builds at region starts, Titans or the Caldera choice, with isolated unsaved sessions and repeatable seeds. This supports faster replay of the remaining backlog without changing real lineage progress.
+The debug [playtest menu](../README.md#playtest-menu-debug-builds) launches configurable builds at region starts, Titans or the Caldera choice, with isolated unsaved sessions and repeatable seeds. This supports faster replay of the remaining backlog without changing real lineage progress.
+
+The normal title menu now selects independent lineage saves, creates fresh hunts without deleting completed ones, and offers Settings/Exit. Supported stops and completed endings can save and return to it. Existing single saves migrate once as Original Lineage with source backups; see [FUT-06](BACKLOG.md#completed-hunts-lineage-saves-and-alternate-fates) for delivery and the still-deferred alternate-fate/Chronicles work.
 
 ## History and maintenance
 

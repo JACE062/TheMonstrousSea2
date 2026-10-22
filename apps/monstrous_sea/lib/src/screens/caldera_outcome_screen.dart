@@ -70,9 +70,15 @@ class CalderaOutcomeScreen extends StatelessWidget {
 
 /// A completed hunt has no Start control that can restart a finished session.
 class HuntEndedScreen extends StatefulWidget {
-  const HuntEndedScreen({super.key, required this.controller});
+  const HuntEndedScreen({
+    super.key,
+    required this.controller,
+    this.onReturnToMenu,
+  });
 
   final GameController controller;
+
+  final VoidCallback? onReturnToMenu;
 
   @override
   State<HuntEndedScreen> createState() => _HuntEndedScreenState();
@@ -132,6 +138,13 @@ class _HuntEndedScreenState extends State<HuntEndedScreen> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
+              if (widget.onReturnToMenu != null) ...[
+                InkButton(
+                  label: 'RETURN TO MENU',
+                  onPressed: _exiting ? null : widget.onReturnToMenu,
+                ),
+                const SizedBox(height: 12),
+              ],
               InkButton(
                 label: _exiting ? 'EXITING…' : 'EXIT GAME',
                 semanticLabel: 'Exit game',
