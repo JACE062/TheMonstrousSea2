@@ -13,6 +13,7 @@ import 'package:monstrous_sea/src/playtest/playtest_screen.dart';
 import 'package:monstrous_sea/src/screens/caldera_outcome_screen.dart';
 import 'package:monstrous_sea/src/screens/port_screen.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
+import 'package:monstrous_sea/src/widgets/parchment_scaffold.dart';
 
 const reviewFont = String.fromEnvironment('playtestFontPath');
 
@@ -85,7 +86,7 @@ void main() {
                       !identical(launches.last, controller)) {
                     launches.add(controller);
                   }
-                  return const Scaffold(
+                  return const ParchmentScaffold(
                     body: Center(child: Text('RUNNING SCENARIO')),
                   );
                 },
@@ -244,7 +245,7 @@ void main() {
             child: Builder(
               builder: (_) {
                 normalBuilds++;
-                return const Scaffold(body: Text('NORMAL GAME'));
+                return const ParchmentScaffold(body: Text('NORMAL GAME'));
               },
             ),
           ),

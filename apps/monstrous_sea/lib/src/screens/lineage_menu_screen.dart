@@ -369,69 +369,63 @@ class _LineageGameState extends State<_LineageGame> {
     onPopInvokedWithResult: (didPop, _) {
       if (!didPop) _returnToMenu();
     },
-    child: Column(
-      children: [
-        Material(
-          color: InkTheme.parchmentSurface,
-          child: SafeArea(
-            bottom: false,
-            child: ListenableBuilder(
-              listenable: widget.controller,
-              builder: (context, _) {
-                final allowed = canReturnToLineageMenu(widget.controller);
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 4,
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              widget.label,
-                              style: InkTheme.caption,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          Tooltip(
-                            message: allowed
-                                ? 'Save and return to your lineages'
-                                : 'Finish this encounter, then return from Set Course.',
-                            child: TextButton(
-                              onPressed: allowed && !_returning
-                                  ? _returnToMenu
-                                  : null,
-                              child: Text(
-                                _returning ? 'SAVING…' : 'TITLE MENU',
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      if (_error != null)
-                        Text(
-                          _error!,
-                          style: InkTheme.body.copyWith(
-                            color: InkTheme.crimsonAccent,
+    child: ParchmentHeaderScope(
+      header: Material(
+        color: InkTheme.parchmentSurface,
+        child: SafeArea(
+          bottom: false,
+          child: ListenableBuilder(
+            listenable: widget.controller,
+            builder: (context, _) {
+              final allowed = canReturnToLineageMenu(widget.controller);
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 4,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            widget.label,
+                            style: InkTheme.caption,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                    ],
-                  ),
-                );
-              },
-            ),
+                        Tooltip(
+                          message: allowed
+                              ? 'Save and return to your lineages'
+                              : 'Finish this encounter, then return from Set Course.',
+                          child: TextButton(
+                            onPressed: allowed && !_returning
+                                ? _returnToMenu
+                                : null,
+                            child: Text(_returning ? 'SAVING…' : 'TITLE MENU'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    if (_error != null)
+                      Text(
+                        _error!,
+                        style: InkTheme.body.copyWith(
+                          color: InkTheme.crimsonAccent,
+                        ),
+                      ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
-        Expanded(
-          child: IgnorePointer(
-            ignoring: _returning,
-            child: widget.gameBuilder(widget.controller, _returnToMenu),
-          ),
-        ),
-      ],
+      ),
+      child: IgnorePointer(
+        ignoring: _returning,
+        child: widget.gameBuilder(widget.controller, _returnToMenu),
+      ),
     ),
   );
 }

@@ -204,6 +204,8 @@ Use New Lineage for a fresh start without resetting an existing save. Destructiv
 
 The live Chronicle holds the current voyage's messages in session memory. Succession and fresh home departure clear older messages; ordinary encounters and strongholds retain the voyage history. Opening the Chronicle starts at the latest messages, and new entries follow the live end until the player scrolls back. **Latest Messages** resumes following; combat actions preserve deliberate history reading. Combat-log persistence and a historical archive are not implemented. The broader command-station layout remains pending in PT2-11.
 
+Page headers and fixed footers share the parchment cartouche with the page body, keeping lineage/debug controls and Embark inside its inset. Prologue text scrolls independently of its fixed footer.
+
 Use approved transparent nautical raster art for entities/items; structural linework may use SVG or CustomPainter. Ships/weapons face right and monsters left. Preserve approved silhouettes, connected anatomy/rigging, true alpha, sparse ink detail, and the existing asset bundle; archived art is not added to it. Base text scale is 115%; percentage accuracy and meaningful text labels replace colorful emoji. Missing imagery remains deferred work in [the backlog](BACKLOG.md#deferred-ui-art-and-icons). Battle illustration load/decode failures now use a labeled cartouche with an inline retry, leaving combat active; successful recovery restores the approved art without changing battle state. The original intermittent Standard-asset failure still needs player replay (PT2-25).
 
 ## Retired systems and compatibility boundaries

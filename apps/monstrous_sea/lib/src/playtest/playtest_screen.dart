@@ -192,43 +192,39 @@ class _PlaytestScreenState extends State<PlaytestScreen> {
     if (!kDebugMode) return const SizedBox.shrink();
     if (_active != null) {
       final config = _lastConfig!;
-      return Column(
-        children: [
-          Material(
-            color: InkTheme.parchmentSurface,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              child: Wrap(
-                spacing: 12,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  Text(
-                    'PLAYTEST • Seed ${config.seed} • Progress is not saved',
-                    style: InkTheme.caption,
-                  ),
-                  TextButton(
-                    onPressed: () => _launch(config),
-                    child: const Text('RELAUNCH'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      final previous = _active;
-                      setState(() => _active = null);
-                      _disposeAfterUnmount(previous);
-                    },
-                    child: const Text('CHANGE SCENARIO'),
-                  ),
-                ],
-              ),
+      return ParchmentHeaderScope(
+        header: Material(
+          color: InkTheme.parchmentSurface,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            child: Wrap(
+              spacing: 12,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                Text(
+                  'PLAYTEST • Seed ${config.seed} • Progress is not saved',
+                  style: InkTheme.caption,
+                ),
+                TextButton(
+                  onPressed: () => _launch(config),
+                  child: const Text('RELAUNCH'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    final previous = _active;
+                    setState(() => _active = null);
+                    _disposeAfterUnmount(previous);
+                  },
+                  child: const Text('CHANGE SCENARIO'),
+                ),
+              ],
             ),
           ),
-          Expanded(
-            child: KeyedSubtree(
-              key: ValueKey(_launchNumber),
-              child: widget.gameBuilder(_active!),
-            ),
-          ),
-        ],
+        ),
+        child: KeyedSubtree(
+          key: ValueKey(_launchNumber),
+          child: widget.gameBuilder(_active!),
+        ),
       );
     }
     return ParchmentScaffold(

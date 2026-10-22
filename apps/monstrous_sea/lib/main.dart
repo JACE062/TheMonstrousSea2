@@ -25,6 +25,7 @@ import 'src/screens/victory_screen.dart';
 import 'src/settings/game_settings.dart';
 import 'src/services/lineage_store.dart';
 import 'src/theme/ink_theme.dart';
+import 'src/widgets/parchment_scaffold.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -155,7 +156,7 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
   @override
   Widget build(BuildContext context) {
     if (_storageFailed) {
-      return Scaffold(
+      return ParchmentScaffold(
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -178,7 +179,7 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
       );
     }
     if (_loadingStorage) {
-      return const Scaffold(
+      return const ParchmentScaffold(
         body: Center(
           child: CircularProgressIndicator(
             semanticsLabel: 'Loading your bloodline and voyage',

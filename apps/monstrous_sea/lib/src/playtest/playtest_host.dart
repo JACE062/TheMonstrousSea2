@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
+import '../widgets/parchment_scaffold.dart';
 import 'playtest_screen.dart';
 
 /// Debug entry point that leaves the normal game's controller mounted intact.
@@ -58,24 +59,22 @@ class _PlaytestHostState extends State<PlaytestHost> {
       bindings: {const SingleActivator(LogicalKeyboardKey.f10): _openLab},
       child: Focus(
         autofocus: true,
-        child: Column(
-          children: [
-            Material(
-              color: InkTheme.parchmentSurface,
-              child: SizedBox(
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: _openLab,
-                  child: const Text('PLAYTEST MENU  •  F10'),
-                ),
+        child: ParchmentHeaderScope(
+          header: Material(
+            color: InkTheme.parchmentSurface,
+            child: SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: _openLab,
+                child: const Text('PLAYTEST MENU  •  F10'),
               ),
             ),
-            Expanded(
-              child: _showNormalGame
-                  ? widget.child
-                  : const Center(child: Text('Opening playtest menu…')),
-            ),
-          ],
+          ),
+          child: _showNormalGame
+              ? widget.child
+              : const ParchmentScaffold(
+                  body: Center(child: Text('Opening playtest menu…')),
+                ),
         ),
       ),
     );

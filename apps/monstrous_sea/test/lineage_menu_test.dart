@@ -17,6 +17,9 @@ import 'package:monstrous_sea/src/screens/port_screen.dart';
 import 'package:monstrous_sea/src/services/lineage_store.dart';
 import 'package:monstrous_sea/src/services/storage_service.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
+import 'package:monstrous_sea/src/widgets/parchment_scaffold.dart';
+import 'package:monstrous_sea/src/widgets/painters/cartouche_border_painter.dart';
+import 'package:monstrous_sea/src/settings/game_settings.dart';
 import 'package:monstrous_sea/src/widgets/ink_button.dart';
 import 'package:monstrous_sea/src/widgets/settings_dialog.dart';
 
@@ -159,6 +162,8 @@ void main() {
   setUpAll(() async {
     InkTheme.disableGoogleFonts = true;
     if (reviewFont.isNotEmpty) {
+      await (FontLoader('Roboto')
+        ..addFont(File(reviewFont).readAsBytes().then(ByteData.sublistView))).load();
       await (FontLoader(
             'LineageReview',
           )..addFont(File(reviewFont).readAsBytes().then(ByteData.sublistView)))
@@ -206,6 +211,82 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+
+  for (final size in [const Size(360, 900), const Size(1600, 1000)]) {
+    for (final scale in [1.15, 1.3]) {
+      testWidgets('prologue controls share its frame at $size / $scale', (
+        tester,
+      ) async {
+        tester.view.physicalSize = size;
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        final store = MemoryLineages();
+        final captureKey = GlobalKey();
+        await tester.pumpWidget(
+          RepaintBoundary(
+            key: captureKey,
+            child: MonstrousSeaApp(lineageStore: store),
+          ),
+        );
+        await tester.pumpAndSettle();
+        await newLineage(tester, 'Original Lineage');
+        // Override the real app's chosen scale while keeping its complete shell.
+        final introContext = tester.element(find.byType(IntroScreen));
+        // Set the supported scale through the application's settings model.
+        final settings = GameSettings.instance;
+        final previousScale = settings.fontScale;
+        settings.setFontScale(scale);
+        addTearDown(() => settings.setFontScale(previousScale));
+        await tester.pump(const Duration(seconds: 60));
+        await tester.pump(const Duration(milliseconds: 600));
+        expect(introContext.mounted, isTrue);
+        final border = find.byWidgetPredicate(
+          (widget) =>
+              widget is CustomPaint && widget.painter is CartoucheBorderPainter,
+        );
+        expect(border, findsOneWidget);
+        final interior = tester.getRect(border).deflate(12);
+        for (final text in [
+          'Original Lineage',
+          'TITLE MENU',
+          'PLAYTEST MENU  •  F10',
+          'EMBARK UPON THE HUNT',
+        ]) {
+          final control = tester.getRect(find.text(text));
+          expect(
+            interior.contains(control.topLeft),
+            isTrue,
+            reason: '$text above/outside frame',
+          );
+          expect(
+            interior.contains(control.bottomRight),
+            isTrue,
+            reason: '$text below/outside frame',
+          );
+        }
+        expect(tester.takeException(), isNull);
+        if (reviewFont.isNotEmpty && scale == 1.3) {
+          await tester.runAsync(() async {
+            final image = await tester
+                .renderObject<RenderRepaintBoundary>(find.byKey(captureKey))
+                .toImage();
+            try {
+              final bytes = await image.toByteData(
+                format: ui.ImageByteFormat.png,
+              );
+              await File('build/framed-intro-${size.width.toInt()}.png')
+                  .writeAsBytes(bytes!.buffer.asUint8List());
+            } finally {
+              image.dispose();
+            }
+          });
+        }
+        await click(tester, 'TITLE MENU');
+        await tester.pumpWidget(const SizedBox.shrink());
+      });
+    }
+  }
 
   testWidgets(
     'switching lineages saves home preparation and resumes the correct captain',
@@ -282,7 +363,7 @@ void main() {
             store: store,
             gameBuilder: (controller, _) {
               active = controller;
-              return Scaffold(
+              return ParchmentScaffold(
                 body: TextButton(
                   onPressed: () => bodyClicks++,
                   child: const Text('BODY ACTION'),

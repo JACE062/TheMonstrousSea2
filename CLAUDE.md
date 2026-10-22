@@ -53,6 +53,8 @@ SVG and `CustomPainter` remain appropriate for structural cartouches, compass ro
 
 Battle scenes load/decode illustration bytes before caching successful images; Flame 1.38.2's failed image futures can emit unhandled errors even when awaited in a catch. Failures must leave the scene/event queue usable with a labeled placeholder and retry, while approved art remains unchanged. Retry only failed assets and handle scene removal before asynchronous completion. Do not rebuild the shared Windows output while a player's game is running; widget/engine checks and font-loaded widget captures can verify recovery without replacing that executable/bundle.
 
+`ParchmentHeaderScope` composes host controls across nested navigators; each `ParchmentScaffold` places those headers, its body and its footer inside a single page frame. Hosts must not add external control rows around framed pages. Page fixtures should use the same scaffold to exercise this contract; battle retains its intentional frameless arena.
+
 Preserve readable controls and labels at 115% default text and the larger supported scales. A passing overflow check does not establish that intent, logs or damage effects are readable; review realistic desktop and compact layouts when UI changes.
 
 ## Tooling on Windows
