@@ -41,7 +41,8 @@ void main() {
       await mountBattle(tester, controller);
       expect(find.byKey(const ValueKey('emergency-pass')), findsOneWidget);
       expect(find.text('Blast Pack'), findsOneWidget);
-      expect(find.text('SINGLE USE · 0T QUICK ACTION'), findsOneWidget);
+      expect(find.text('5 Blast · 75% hit'), findsOneWidget);
+      expect(find.text('SINGLE USE · 0T QUICK ACTION'), findsNothing);
       expect(
         tester
             .widgetList<Text>(find.byType(Text))

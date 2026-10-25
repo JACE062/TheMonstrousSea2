@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/ink_theme.dart';
+import 'pause_menu.dart';
 import 'painters/cartouche_border_painter.dart';
 import 'painters/parchment_texture_painter.dart';
 
@@ -44,12 +45,14 @@ class ParchmentScaffold extends StatelessWidget {
     this.appBar,
     this.bottomNavigationBar,
     this.showBorder = true,
+    this.showPauseButton = true,
   });
 
   final Widget body;
   final PreferredSizeWidget? appBar;
   final Widget? bottomNavigationBar;
   final bool showBorder;
+  final bool showPauseButton;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +76,11 @@ class ParchmentScaffold extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ...ParchmentHeaderScope.headersOf(context),
+                  if (showPauseButton && PauseMenuScope.maybeOf(context) != null)
+                    const Align(
+                      alignment: Alignment.centerRight,
+                      child: PauseMenuButton(),
+                    ),
                   if (appBar != null)
                     SizedBox(
                       height: appBar!.preferredSize.height,

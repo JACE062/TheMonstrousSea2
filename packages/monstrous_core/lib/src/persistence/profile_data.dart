@@ -13,7 +13,7 @@ class ProfileData {
   ProfileData({
     MetaInventory? metaInventory,
     LineageTracker? lineageTracker,
-    this.activeNemesis,
+    NemesisRecord? activeNemesis,
     Set<String>? unlockedBlueprints,
     this.activeBlueprintId = 'standard',
     this.hasBegunFirstVoyage = false,
@@ -27,7 +27,10 @@ class ProfileData {
     this.hasExpandedAuxiliarySlot = false,
     Set<String>? unlockedEldritchRelics,
     Set<String>? activeEldritchRelics,
-  }) : metaInventory = metaInventory ?? MetaInventory(),
+  }) : _activeNemesis = activeNemesis?.species.isRegionTitan == false
+           ? activeNemesis
+           : null,
+       metaInventory = metaInventory ?? MetaInventory(),
        lineageTracker = lineageTracker ?? LineageTracker(),
        unlockedBlueprints =
            unlockedBlueprints ?? <String>{BlueprintId.standard.name},
@@ -121,7 +124,15 @@ class ProfileData {
 
   final MetaInventory metaInventory;
   final LineageTracker lineageTracker;
-  NemesisRecord? activeNemesis;
+  NemesisRecord? _activeNemesis;
+
+  /// Older saves can contain Titan records. Retain the death ledger, but never
+  /// revive those records as future encounters or Vendetta targets.
+  NemesisRecord? get activeNemesis => _activeNemesis;
+  set activeNemesis(NemesisRecord? value) {
+    _activeNemesis = value?.species.isRegionTitan == false ? value : null;
+  }
+
   final Set<String> unlockedBlueprints;
   String activeBlueprintId;
   bool hasBegunFirstVoyage;

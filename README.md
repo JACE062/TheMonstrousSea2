@@ -51,9 +51,9 @@ The local gameplay package is resolved through the app's dependency configuratio
 4. After encounters, collect or leave supplies and choose your next heading. Seek shelter for repairs and voyage upgrades, and inspect your ship when planning a build.
 5. If the captain falls, choose an heir and prepare the next voyage at home. Permanent blueprint purchases use recovered materials; upgrades earned at sea belong to that voyage.
 
-Use Settings to adjust text size. Hover over battle controls and status labels for their current effects, restrictions, and tactical details.
+Press **Esc** or select the pause icon to open **Resume**, **Settings**, and save/exit controls. Esc closes the current dialog first, then the pause menu. Settings adjusts text size. Hover over battle controls and status labels for their current effects, restrictions, and tactical details; the belt's question mark explains quick-item rules.
 
-The title menu lets you select a lineage and **Continue**, start another with **New Lineage**, open **Settings**, or **Exit Game**. Each lineage keeps independent progress and its own ending. Save labels do not set captains' surnames. **Title Menu** saves and returns from supported stops; during combat or unfinished encounters, finish the encounter and return from Set Course. Completed hunts also offer **Return to Menu**.
+The title menu lets you select a lineage and **Continue**, start another with **New Lineage**, open **Settings**, or **Exit Game**. Each lineage keeps independent progress and its own ending. Save labels do not set captains' surnames. The pause menu identifies the current lineage and offers **Save & Return to Title** and **Save & Exit Game** at supported stops. During combat or unfinished encounters, finish the encounter and continue to Set Course first. An action already underway finishes while Pause blocks new orders; opening it does not create a mid-battle save. Completed hunts also offer **Return to Menu**.
 
 ## Playtest menu (debug builds)
 

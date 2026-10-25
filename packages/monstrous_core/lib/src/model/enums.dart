@@ -317,6 +317,12 @@ enum MonsterSpecies {
   const MonsterSpecies(this.displayName);
   final String displayName;
 
+  /// Unique regional bosses are never eligible for the Nemesis system.
+  bool get isRegionTitan => switch (this) {
+    kraken || worldSerpent || ancientLeviathan => true,
+    _ => false,
+  };
+
   @override
   String toString() => displayName;
 }

@@ -1857,8 +1857,13 @@ class GameSession {
       causeOfDeath: currentMonster?.name ?? 'The Undying Sea',
     ));
 
-    // Empower Nemesis if slain by a monster
-    if (currentMonster != null) {
+    // Titans remain unique bosses, not the next captain's vengeance target.
+    // Clear a predecessor's older target too: this succession follows the
+    // current death and must not offer Vendetta for an unrelated earlier killer.
+    if (currentMonster?.species.isRegionTitan == true) {
+      profile.activeNemesis = null;
+    }
+    if (currentMonster != null && !currentMonster!.species.isRegionTitan) {
       final nemesis = NemesisRecord.createFromDefeat(
         killer: currentMonster!,
         captainName: captainName.isNotEmpty ? captainName : 'Unknown Captain',
@@ -2716,6 +2721,9 @@ class GameSession {
   }) {
     if (phase != SessionPhase.death || ship == null) {
       throw StateError('Cannot continue lineage outside of death phase');
+    }
+    if (quirk?.id == BloodlineTraitId.bloodOath && profile.activeNemesis == null) {
+      throw StateError('Blood Oath requires an eligible Nemesis');
     }
     final blueprintId = BlueprintId.fromShipClass(chosenClass);
     if (!profile.isBlueprintUnlocked(blueprintId)) {

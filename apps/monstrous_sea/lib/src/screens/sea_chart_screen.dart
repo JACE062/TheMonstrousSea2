@@ -4,7 +4,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_scaffold.dart';
-import '../widgets/settings_dialog.dart';
+import '../widgets/pause_menu.dart';
 import '../widgets/svg_asset_view.dart';
 import '../widgets/pilot_art.dart';
 
@@ -43,6 +43,7 @@ class SeaChartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ParchmentScaffold(
+      showPauseButton: false,
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 860),
@@ -56,14 +57,7 @@ class SeaChartScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.settings,
-                        color: InkTheme.inkPrimary,
-                      ),
-                      tooltip: 'Settings & Accessibility',
-                      onPressed: () => SettingsDialog.show(context),
-                    ),
+                    const PauseMenuButton(),
                     Expanded(
                       child: Column(
                         children: [

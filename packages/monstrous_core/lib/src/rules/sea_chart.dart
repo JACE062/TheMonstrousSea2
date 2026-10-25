@@ -292,6 +292,18 @@ class SeaChart {
           ),
         )
         .toList();
+    _discardTitanNemesisCourses();
+  }
+
+  /// Only invalid legacy offer sets need regeneration. Valid already-offered
+  /// courses and the completed voyage log remain exactly as saved.
+  void _discardTitanNemesisCourses() {
+    if (_currentCourseOptions.any(
+      (option) => option.isNemesis && option.monsterSpecies?.isRegionTitan == true,
+    )) {
+      currentIsNemesis = false;
+      clearPendingCourses();
+    }
   }
 
   List<CourseOption> _currentCourseOptions = <CourseOption>[];
@@ -606,6 +618,7 @@ class SeaChart {
     bool chokingFog = false,
     bool apexEmergence = false,
   ]) {
+    _discardTitanNemesisCourses();
     if (_currentCourseOptions.isEmpty) {
       _currentCourseOptions = generateCourseOptions(
         rng,
@@ -674,6 +687,7 @@ class SeaChart {
 
     final shouldSpawnNemesis =
         activeNemesis != null &&
+        !activeNemesis.species.isRegionTitan &&
         !hasEncounteredNemesisThisVoyage &&
         currentRegionIndex == activeNemesis.regionIndex &&
         targetLeg > midpointHavenLeg &&

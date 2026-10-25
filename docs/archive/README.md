@@ -67,6 +67,10 @@ Lineage-menu receipt: [Independent saves and title navigation, 21 October 2026](
 
 Alternate-fate/frame receipt: [Persistent alternate branch and composed page framing, 21 October 2026](playtests/ALTERNATE_FATE_FRAME_2026_10_21.md), including pre-choice snapshots, independent progression, retry safety and full-app prologue containment.
 
+Pause-menu receipt: [Esc, safe departures and playback continuity, 25 October 2026](playtests/PAUSE_2026_10_25.md), including modal/focus behavior, save and exit retries, queued writes, real battle playback and compact layouts.
+
+Nemesis eligibility receipt: [Titan exclusion and heir/save compatibility, 25 October 2026](playtests/TITAN_NEMESIS_2026_10_25.md), covering all three Titans, ordinary/Apex controls, Vendetta eligibility and legacy profile/heir/course restoration.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

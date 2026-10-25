@@ -10,7 +10,7 @@ import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/ocean_power_badges.dart';
 import '../widgets/parchment_scaffold.dart';
-import '../widgets/settings_dialog.dart';
+import '../widgets/pause_menu.dart';
 
 /// Battle-facing effect copy; shared by the compact buttons and their help.
 extension on ConsumableType {
@@ -234,6 +234,10 @@ class _BattleScreenState extends State<BattleScreen> {
         command is BraceForImpact;
     final isCombatAction = isTurnEndingAction || command is UseConsumableItem;
 
+    if (isCombatAction) {
+      widget.controller.setIsPlayingEvents(true);
+    }
+
     final events = <GameEvent>[];
 
     // If an advance or fall back order was selected, execute helm order before turn-ending actions
@@ -274,7 +278,7 @@ class _BattleScreenState extends State<BattleScreen> {
           _isActionLocked = false;
         });
         if (isCombatAction) {
-          widget.controller.notify();
+          widget.controller.setIsPlayingEvents(false);
         }
       }
     });
@@ -289,6 +293,7 @@ class _BattleScreenState extends State<BattleScreen> {
     final monster = widget.controller.currentMonster;
     if (ship == null || monster == null) {
       return const ParchmentScaffold(
+        showPauseButton: false,
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -319,6 +324,7 @@ class _BattleScreenState extends State<BattleScreen> {
 
     return ParchmentScaffold(
       showBorder: false,
+      showPauseButton: false,
       body: Stack(
         children: [
           // 1. Flame 2D Battle Arena
@@ -891,14 +897,7 @@ class _BattleScreenState extends State<BattleScreen> {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.settings,
-                              color: InkTheme.inkSecondary,
-                            ),
-                            tooltip: 'Settings & Accessibility',
-                            onPressed: () => SettingsDialog.show(context),
-                          ),
+                          const PauseMenuButton(),
                           IconButton(
                             icon: Icon(
                               _showLog ? Icons.menu_book : Icons.book,

@@ -2,7 +2,6 @@ import 'dart:ui' show AppExitResponse, AppExitType;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:monstrous_core/monstrous_core.dart';
 
 import '../game_controller.dart';
 import '../services/lineage_store.dart';
@@ -10,6 +9,7 @@ import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
+import '../widgets/pause_menu.dart';
 import '../widgets/settings_dialog.dart';
 
 /// The title menu owns slot selection; gameplay still uses the same orchestrator.
@@ -355,23 +355,11 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
   }
 }
 
-/// Only leave a phase whose complete non-combat state can be restored.
+/// Retained for callers that inspect the lineage departure policy.
 bool canReturnToLineageMenu(GameController controller) =>
-    !controller.isPlayingEvents &&
-    const {
-      SessionPhase.captainCreation,
-      SessionPhase.port,
-      SessionPhase.stronghold,
-      SessionPhase.helm,
-      SessionPhase.loot,
-      SessionPhase.shipwreck,
-      SessionPhase.merchant,
-      SessionPhase.expeditionVictory,
-      SessionPhase.death,
-      SessionPhase.ended,
-    }.contains(controller.phase);
+    canSaveAndLeave(controller);
 
-class _LineageGame extends StatefulWidget {
+class _LineageGame extends StatelessWidget {
   const _LineageGame({
     required this.label,
     required this.controller,
@@ -382,95 +370,14 @@ class _LineageGame extends StatefulWidget {
   final Widget Function(GameController, VoidCallback) gameBuilder;
 
   @override
-  State<_LineageGame> createState() => _LineageGameState();
-}
-
-class _LineageGameState extends State<_LineageGame> {
-  bool _returning = false;
-  String? _error;
-
-  Future<void> _returnToMenu() async {
-    if (_returning || !canReturnToLineageMenu(widget.controller)) return;
-    setState(() {
-      _returning = true;
-      _error = null;
-    });
-    try {
-      await widget.controller.persistState();
-      if (mounted) Navigator.of(context).pop();
-    } catch (_) {
-      if (mounted) {
-        setState(() {
-          _returning = false;
-          _error = 'Could not save your progress. Please try returning to the menu again.';
-        });
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) => PopScope(
-    canPop: false,
-    onPopInvokedWithResult: (didPop, _) {
-      if (!didPop) _returnToMenu();
-    },
-    child: ParchmentHeaderScope(
-      header: Material(
-        color: InkTheme.parchmentSurface,
-        child: SafeArea(
-          bottom: false,
-          child: ListenableBuilder(
-            listenable: widget.controller,
-            builder: (context, _) {
-              final allowed = canReturnToLineageMenu(widget.controller);
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            widget.label,
-                            style: InkTheme.caption,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        Tooltip(
-                          message: allowed
-                              ? 'Save and return to your lineages'
-                              : 'Finish this encounter, then return from Set Course.',
-                          child: InkButton(
-                            label: _returning ? 'SAVING…' : 'TITLE MENU',
-                            compact: true,
-                            onPressed: allowed && !_returning
-                                ? _returnToMenu
-                                : null,
-                          ),
-                        ),
-                      ],
-                    ),
-                    if (_error != null)
-                      Text(
-                        _error!,
-                        style: InkTheme.body.copyWith(
-                          color: InkTheme.crimsonAccent,
-                        ),
-                      ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ),
-      ),
-      child: IgnorePointer(
-        ignoring: _returning,
-        child: widget.gameBuilder(widget.controller, _returnToMenu),
+  Widget build(BuildContext context) => PauseMenuHost(
+    controller: controller,
+    label: label,
+    onReturnToTitle: () => Navigator.of(context).pop(),
+    child: Builder(
+      builder: (context) => gameBuilder(
+        controller,
+        PauseMenuScope.maybeOf(context)!.saveAndReturnToTitle,
       ),
     ),
   );

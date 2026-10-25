@@ -26,6 +26,7 @@ import 'src/settings/game_settings.dart';
 import 'src/services/lineage_store.dart';
 import 'src/theme/ink_theme.dart';
 import 'src/widgets/parchment_scaffold.dart';
+import 'src/widgets/pause_menu.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -155,6 +156,20 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
 
   @override
   Widget build(BuildContext context) {
+    final content = _buildGame(context);
+    if (_loadingStorage || _storageFailed ||
+        PauseMenuScope.maybeOf(context) != null) {
+      return content;
+    }
+    return PauseMenuHost(
+      controller: _controller,
+      label: _controller.autoSave ? 'Current lineage' : 'Playtest session',
+      onReturnToTitle: widget.onReturnToMenu,
+      child: content,
+    );
+  }
+
+  Widget _buildGame(BuildContext context) {
     if (_storageFailed) {
       return ParchmentScaffold(
         body: Center(
@@ -216,6 +231,15 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
   }
 
   Widget _resolveScreenForPhase() {
+    // Session outcomes precede their visual playback. Parent/menu/settings
+    // rebuilds must keep that battle mounted until its completion notification.
+    if (_controller.isPlayingEvents &&
+        _controller.ship != null && _controller.currentMonster != null) {
+      return BattleScreen(
+        key: ValueKey('battle_screen_${_controller.currentMonster!.id}'),
+        controller: _controller,
+      );
+    }
     if (_controller.session.calderaOutcome != null &&
         !_controller.session.hasReadCalderaOutcome &&
         (_controller.phase == SessionPhase.death ||

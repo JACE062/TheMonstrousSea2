@@ -29,6 +29,13 @@ class NemesisRecord {
     required int regionIndex,
     required GameRng rng,
   }) {
+    if (killer.species.isRegionTitan) {
+      throw ArgumentError.value(
+        killer.species,
+        'killer.species',
+        'Region Titans cannot become Nemeses',
+      );
+    }
     final moniker = _generateMoniker(killer.species, killer.name, captainName, rng);
     final level = killer.level;
     final bonusHp = (killer.maxHp * 0.30).round();
@@ -89,6 +96,9 @@ class NemesisRecord {
 
   /// Spawns an empowered, apex-afflicted [MonsterState] corresponding to this nemesis.
   MonsterState instantiateMonster(GameRng rng) {
+    if (species.isRegionTitan) {
+      throw StateError('Region Titans cannot spawn as Nemeses');
+    }
     final monster = createMonster(
       species,
       level: level,

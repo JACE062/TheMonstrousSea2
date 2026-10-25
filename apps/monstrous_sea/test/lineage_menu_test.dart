@@ -185,6 +185,13 @@ class MemoryLineages extends LineageStore {
 }
 
 Future<void> click(WidgetTester tester, String text) async {
+  if (text == 'TITLE MENU') {
+    if (find.text('PAUSED').evaluate().isEmpty) {
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pump(const Duration(milliseconds: 350));
+    }
+    text = 'SAVE & RETURN TO TITLE';
+  }
   final button = find.text(text);
   await tester.ensureVisible(button);
   await tester.tap(button);
@@ -335,12 +342,7 @@ void main() {
         );
         expect(border, findsOneWidget);
         final interior = tester.getRect(border).deflate(12);
-        for (final text in [
-          'Original Lineage',
-          'TITLE MENU',
-          'PLAYTEST MENU  •  F10',
-          'EMBARK UPON THE HUNT',
-        ]) {
+        for (final text in ['PLAYTEST MENU  •  F10', 'EMBARK UPON THE HUNT']) {
           final control = tester.getRect(find.text(text));
           expect(
             interior.contains(control.topLeft),
@@ -353,6 +355,13 @@ void main() {
             reason: '$text below/outside frame',
           );
         }
+        expect(find.text('Original Lineage'), findsNothing);
+        expect(find.text('TITLE MENU'), findsNothing);
+        final pause = tester.getRect(
+          find.byKey(const ValueKey('pause-menu-button')),
+        );
+        expect(interior.contains(pause.topLeft), isTrue);
+        expect(interior.contains(pause.bottomRight), isTrue);
         expect(tester.takeException(), isNull);
         if (reviewFont.isNotEmpty && scale == 1.3) {
           await tester.runAsync(() async {
@@ -472,9 +481,11 @@ void main() {
         active!.session.phase = phase;
         active!.notify();
         await tester.pumpAndSettle();
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pumpAndSettle();
         expect(
           tester
-              .widget<InkButton>(find.widgetWithText(InkButton, 'TITLE MENU'))
+              .widget<InkButton>(find.byKey(const ValueKey('pause-return')))
               .onPressed,
           isNull,
         );
@@ -482,6 +493,9 @@ void main() {
         await Navigator.of(context).maybePop();
         await tester.pumpAndSettle();
         expect(find.text('BODY ACTION'), findsOneWidget);
+        if (find.text('PAUSED').evaluate().isNotEmpty) {
+          await click(tester, 'RESUME');
+        }
       }
       active!.session.phase = SessionPhase.port;
       active!.notify();
@@ -495,7 +509,7 @@ void main() {
       expect(find.text('BODY ACTION'), findsOneWidget);
       save.failSave = false;
       save.saveGate = Completer<void>();
-      await tester.tap(find.text('TITLE MENU'));
+      await tester.tap(find.text('SAVE & RETURN TO TITLE'));
       await tester.pump();
       await tester.tap(find.text('BODY ACTION'), warnIfMissed: false);
       expect(bodyClicks, 0);

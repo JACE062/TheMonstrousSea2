@@ -212,10 +212,17 @@ List<HeirCandidate> generateHeirCandidates({
   int count = 3,
 }) {
   final candidateBoons = List<BloodlineTrait>.from(BloodlineTrait.allBoons)..shuffle();
-  final candidateQuirks = List<BloodlineTrait>.from(BloodlineTrait.allQuirks)..shuffle();
+  final hasNemesis = nemesisSpecies != null && !nemesisSpecies.isRegionTitan;
+  final candidateQuirks =
+      BloodlineTrait.allQuirks
+          .where(
+            (quirk) => hasNemesis || quirk.id != BloodlineTraitId.bloodOath,
+          )
+          .toList()
+        ..shuffle();
 
   // If there's an active nemesis, ensure Blood Oath is guaranteed among the presented candidate quirks
-  if (nemesisSpecies != null) {
+  if (hasNemesis) {
     candidateQuirks.remove(BloodlineTrait.bloodOath);
     final insertIdx = rng.nextInt(count);
     candidateQuirks.insert(insertIdx, BloodlineTrait.bloodOath);

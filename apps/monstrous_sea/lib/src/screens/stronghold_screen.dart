@@ -8,7 +8,7 @@ import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
-import '../widgets/settings_dialog.dart';
+import '../widgets/pause_menu.dart';
 import '../widgets/voyage_shipwright_view.dart';
 
 /// A mid-voyage berth. Permanent ancestral progression stays at the home port.
@@ -33,6 +33,7 @@ class StrongholdScreen extends StatelessWidget {
   Widget build(BuildContext context) => ListenableBuilder(
     listenable: controller,
     builder: (context, _) => ParchmentScaffold(
+      showPauseButton: false,
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 780),
@@ -41,13 +42,9 @@ class StrongholdScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.centerRight,
-                  child: IconButton(
-                    tooltip: 'Settings & Accessibility',
-                    onPressed: () => SettingsDialog.show(context),
-                    icon: const Icon(Icons.settings),
-                  ),
+                  child: PauseMenuButton(),
                 ),
                 Text(
                   controller.seaChart.currentPortName.toUpperCase(),

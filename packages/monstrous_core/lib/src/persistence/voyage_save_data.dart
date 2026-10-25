@@ -213,7 +213,9 @@ class VoyageSaveData {
     session.captainName = captainName;
     session.calderaOutcome = calderaOutcome;
     session.hasReadCalderaOutcome = hasReadCalderaOutcome;
-    session.pendingHeirCandidates = List<HeirCandidate>.from(pendingHeirCandidates);
+    session.pendingHeirCandidates = _restorableHeirs(
+      hasNemesis: session.profile.activeNemesis != null,
+    );
     session.ship = ship;
     session.seaChart.timesCompleted = timesCompleted;
     session.seaChart.currentRow = currentRow;
@@ -272,5 +274,51 @@ class VoyageSaveData {
           .where((q) => q.id == activeQuirkId)
           .firstOrNull;
     }
+    // A discarded legacy Titan offer must not leave a restored helm with no
+    // buttons. Generate only missing offers, after restoring all voyage context.
+    if (session.phase == SessionPhase.helm &&
+        session.seaChart.currentCourseOptions.isEmpty) {
+      session.seaChart.ensureCourseOptions(
+        session.rng,
+        session.profile.activeNemesis,
+        session.profile.isPactActive(CovenantPactId.chokingFog),
+        session.profile.isPactActive(CovenantPactId.apexEmergence),
+      );
+    }
+  }
+
+  /// Repair only pending offers that promise vengeance without a valid target.
+  /// Stable catalog order avoids rerolling heirs or consuming gameplay RNG.
+  List<HeirCandidate> _restorableHeirs({required bool hasNemesis}) {
+    if (hasNemesis) return List<HeirCandidate>.from(pendingHeirCandidates);
+    final used = pendingHeirCandidates
+        .where((heir) => heir.quirk.id != BloodlineTraitId.bloodOath)
+        .map((heir) => heir.quirk.id)
+        .toSet();
+    final restored = <HeirCandidate>[];
+    for (final heir in pendingHeirCandidates) {
+      if (heir.quirk.id != BloodlineTraitId.bloodOath) {
+        restored.add(heir);
+        continue;
+      }
+      final replacement =
+          BloodlineTrait.allQuirks
+              .where(
+                (quirk) =>
+                    quirk.id != BloodlineTraitId.bloodOath &&
+                    !used.contains(quirk.id),
+              )
+              .firstOrNull ??
+          BloodlineTrait.recklessHelmsman;
+      used.add(replacement.id);
+      restored.add(
+        HeirCandidate(
+          defaultName: heir.defaultName,
+          boon: heir.boon,
+          quirk: replacement,
+        ),
+      );
+    }
+    return restored;
   }
 }
