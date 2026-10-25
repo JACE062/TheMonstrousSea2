@@ -12,6 +12,37 @@ import '../widgets/ocean_power_badges.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/settings_dialog.dart';
 
+/// Battle-facing effect copy; shared by the compact buttons and their help.
+extension on ConsumableType {
+  ({String summary, String details}) get beltEffect => switch (this) {
+    ConsumableType.hullPatchKit => (
+      summary: 'Repair 30% hull',
+      details: 'Restore 30% of maximum hull, subject to healing restrictions.',
+    ),
+    ConsumableType.krakenInkBomb => (
+      summary: '+25% evasion',
+      details: 'Shroud the ship in smoke, granting +25% evasion.',
+    ),
+    ConsumableType.alchemicalPitch => (
+      summary: '+25% volley + Burn',
+      details: 'Boost the next volley damage by 25%; hits apply Burn.',
+    ),
+    ConsumableType.unstableTincture => (
+      summary: 'Random Burn, Poison or Stun',
+      details: 'Inflict a random Burn, Poison or Stun with no initial damage.',
+    ),
+    ConsumableType.blastPack => (
+      summary: '5 Blast · 75% hit',
+      details:
+          '75% hit chance for 5 base Blast damage; double damage to Carapace.',
+    ),
+    ConsumableType.chakram => (
+      summary: '5 Slicing · 75% hit',
+      details: '75% hit chance for 5 base Slicing damage.',
+    ),
+  };
+}
+
 /// Interactive naval combat screen displaying the Flame battle scene,
 /// ship and monster vitality gauges, weapon volley triggers, and combat chronicle.
 class BattleScreen extends StatefulWidget {
@@ -59,6 +90,83 @@ class _BattleScreenState extends State<BattleScreen> {
 
   void _onArtworkChanged() {
     if (mounted) setState(() {});
+  }
+
+  String? _beltRestriction(Consumable item, int used, int limit) {
+    if (item.isDepleted) return 'This item has already been spent.';
+    if (_isActionLocked) return 'Wait for the current action to finish.';
+    if (used >= limit) {
+      return 'Quick-item limit reached this round ($used/$limit used). '
+          'Use a hardpoint action to finish the round.';
+    }
+    return null;
+  }
+
+  void _showBeltHelp() {
+    showDialog<void>(
+      context: context,
+      builder: (context) => ListenableBuilder(
+        listenable: widget.controller,
+        builder: (context, _) {
+          final limit =
+              widget.controller.session.activeBoon?.id ==
+                  BloodlineTraitId.drillmaster
+              ? 2
+              : 1;
+          final used = widget.controller.session.quickConsumablesUsedThisTurn;
+          final items = widget.controller.ship!.cargo.whereType<Consumable>();
+          return AlertDialog(
+            backgroundColor: InkTheme.parchmentSurface,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+              side: const BorderSide(color: InkTheme.inkPrimary, width: 2),
+            ),
+            title: Text('TACTICAL BELT', style: InkTheme.titleMedium),
+            scrollable: true,
+            content: SizedBox(
+              width: 460,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Each item is single-use and does not end your turn '
+                    '(0 turn cost). You can still give a helm order and use a hardpoint.',
+                    style: InkTheme.body,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Use one quick item per round, or two with Drillmaster. '
+                    'A hardpoint action or Brace & Reload (when available) '
+                    'finishes the round and refreshes this limit.',
+                    style: InkTheme.body,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Used this round: $used/$limit',
+                    style: InkTheme.statLabel,
+                  ),
+                  for (final item in items) ...[
+                    const Divider(color: InkTheme.inkMuted),
+                    Text(item.name, style: InkTheme.titleMedium),
+                    Text(item.type.beltEffect.details, style: InkTheme.body),
+                    if (item.isDepleted)
+                      Text('Already spent.', style: InkTheme.caption),
+                  ],
+                ],
+              ),
+            ),
+            actions: [
+              InkButton(
+                label: 'CLOSE',
+                compact: true,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 
   Widget _artRecoveryNotice() => Column(
@@ -205,7 +313,6 @@ class _BattleScreenState extends State<BattleScreen> {
         ? 2
         : 1;
     final quickUsed = widget.controller.session.quickConsumablesUsedThisTurn;
-    final canUseQuickBelt = quickUsed < maxQuickBeltUses;
     // Quick items and helm orders cannot end the turn. Keep an emergency pass
     // only when every offensive and utility hardpoint is unavailable.
     final needsEmergencyPass = !canFireAnyWeapon && !ship.isUtilityReady;
@@ -215,7 +322,13 @@ class _BattleScreenState extends State<BattleScreen> {
       body: Stack(
         children: [
           // 1. Flame 2D Battle Arena
-          Positioned.fill(child: GameWidget(game: _battleGame)),
+          // The arena only renders events. Flame otherwise captures Tab before
+          // Flutter can move focus between the actual battle controls.
+          Positioned.fill(
+            child: ExcludeFocus(
+              child: GameWidget(game: _battleGame, autofocus: false),
+            ),
+          ),
 
           // 2. Top HUD: Combatant Vitality & Stats
           Positioned(
@@ -721,27 +834,47 @@ class _BattleScreenState extends State<BattleScreen> {
                               ),
 
                             // Tactical Belt Consumables (0T Quick Action)
+                            if (ship.cargo.whereType<Consumable>().isNotEmpty)
+                              IconButton(
+                                key: const ValueKey('belt-help'),
+                                icon: const Icon(
+                                  Icons.help_outline,
+                                  size: 20,
+                                  color: InkTheme.inkSecondary,
+                                ),
+                                tooltip: 'Belt help',
+                                visualDensity: VisualDensity.compact,
+                                constraints: const BoxConstraints(
+                                  minWidth: 36,
+                                  minHeight: 36,
+                                ),
+                                padding: const EdgeInsets.all(6),
+                                onPressed: _showBeltHelp,
+                              ),
                             for (var i = 0; i < ship.cargo.length; i++)
                               if (ship.cargo[i] is Consumable)
                                 Builder(
                                   builder: (context) {
                                     final cons = ship.cargo[i] as Consumable;
-                                    final canTrigger =
-                                        !_isActionLocked &&
-                                        canUseQuickBelt &&
-                                        !cons.isDepleted;
+                                    final effect = cons.type.beltEffect;
+                                    final restriction = _beltRestriction(
+                                      cons,
+                                      quickUsed,
+                                      maxQuickBeltUses,
+                                    );
+                                    final details = restriction == null
+                                        ? effect.details
+                                        : '${effect.details}\n$restriction';
                                     return Tooltip(
-                                      message: canUseQuickBelt
-                                          ? 'Single use. Quick Action (0T — does not end turn): Trigger ${cons.name}.'
-                                          : 'Quick-action belt limit reached this round ($quickUsed/$maxQuickBeltUses used).',
+                                      message: details,
                                       child: InkButton(
                                         label: cons.name,
-                                        subtitle:
-                                            'SINGLE USE · 0T QUICK ACTION',
-                                        semanticLabel: canUseQuickBelt
-                                            ? 'Quick Action: Use ${cons.name} once, 0 turn cost'
-                                            : 'Cannot use ${cons.name}, quick action belt already used this round',
-                                        onPressed: canTrigger
+                                        subtitle: effect.summary,
+                                        subtitleColor: InkTheme.inkSecondary,
+                                        compact: true,
+                                        semanticLabel: cons.name,
+                                        semanticHint: details,
+                                        onPressed: restriction == null
                                             ? () => _dispatchCombatAction(
                                                 UseConsumableItem(i),
                                               )
