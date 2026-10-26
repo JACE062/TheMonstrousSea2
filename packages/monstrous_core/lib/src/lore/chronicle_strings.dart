@@ -63,7 +63,7 @@ class ChronicleStrings {
       'Slicing blades sever $countSevered tentacles! ($remainingTentacles remaining).';
 
   static String inkCloudDeployed(String monsterName, int accuracyPenalty) =>
-      '$monsterName spewed a dense ink cloud! Shot accuracy reduced by $accuracyPenalty percentage points. Hit the monster repeatedly to disperse!';
+      '$monsterName spewed a dense ink cloud! Shot accuracy reduced by $accuracyPenalty%. Hit the monster repeatedly to disperse!';
 
   static String carapaceAbsorbed({
     required String monsterName,

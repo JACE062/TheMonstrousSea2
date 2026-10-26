@@ -230,9 +230,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              controller.isCurrentIslandHaven
-                                  ? 'Restores 30% Max Hull • Shore Duty Option'
-                                  : 'Restores 20% Max Hull • Shore Duty Option',
+                              'Restores ${controller.careenHealingHp} HP · Shore Duty Option',
                               style: InkTheme.statLabel.copyWith(
                                 color: InkTheme.inkPrimary,
                               ),
@@ -249,9 +247,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                                   : (ship != null &&
                                             ship.currentHp == ship.maxHp
                                         ? 'HULL FULL'
-                                        : (controller.isCurrentIslandHaven
-                                              ? 'CAREEN (+30%)'
-                                              : 'CAREEN (+20%)'))),
+                                        : 'CAREEN (+${controller.careenHealingHp} HP)')),
                         isPrimary: canCareen,
                         onPressed: canCareen
                             ? () => controller.dispatch(

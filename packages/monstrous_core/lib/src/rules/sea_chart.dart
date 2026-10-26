@@ -299,7 +299,8 @@ class SeaChart {
   /// courses and the completed voyage log remain exactly as saved.
   void _discardTitanNemesisCourses() {
     if (_currentCourseOptions.any(
-      (option) => option.isNemesis && option.monsterSpecies?.isRegionTitan == true,
+      (option) =>
+          option.isNemesis && option.monsterSpecies?.isRegionTitan == true,
     )) {
       currentIsNemesis = false;
       clearPendingCourses();
@@ -617,6 +618,7 @@ class SeaChart {
     NemesisRecord? activeNemesis,
     bool chokingFog = false,
     bool apexEmergence = false,
+    bool superstitious = false,
   ]) {
     _discardTitanNemesisCourses();
     if (_currentCourseOptions.isEmpty) {
@@ -625,9 +627,40 @@ class SeaChart {
         activeNemesis,
         chokingFog,
         apexEmergence,
+        superstitious,
       );
     }
     return currentCourseOptions;
+  }
+
+  /// Redraws ordinary offers while keeping any existing Nemesis heading exact.
+  void redrawOrdinaryCourses(
+    GameRng rng,
+    NemesisRecord? activeNemesis,
+    bool chokingFog,
+    bool apexEmergence, [
+    bool superstitious = false,
+  ]) {
+    if (_currentCourseOptions.length <= 1) {
+      throw StateError('Cannot redraw a convergent course');
+    }
+    final nemesis = _currentCourseOptions
+        .where((option) => option.isNemesis)
+        .firstOrNull;
+    final regenerated = generateCourseOptions(
+      rng,
+      nemesis == null ? activeNemesis : null,
+      chokingFog,
+      apexEmergence,
+      superstitious,
+    );
+    _currentCourseOptions = [
+      for (final option in regenerated)
+        if (nemesis != null && option.bearing == nemesis.bearing)
+          nemesis
+        else
+          option,
+    ];
   }
 
   /// Generates 3 navigational course options for the upcoming expedition leg.
@@ -636,6 +669,7 @@ class SeaChart {
     NemesisRecord? activeNemesis,
     bool chokingFog = false,
     bool apexEmergence = false,
+    bool superstitious = false,
   ]) {
     final effectiveRng =
         rng ?? SeededGameRng(42 + currentLeg * 19 + timesCompleted * 101);
@@ -726,7 +760,9 @@ class SeaChart {
         final isDepartingIsland =
             currentNodeType == EncounterNodeType.respiteIsland;
         final roll = effectiveRng.nextInt(100);
-        if (roll < 55) {
+        if (superstitious && roll < 3) {
+          type = EncounterNodeType.ancientShrine;
+        } else if (roll < 55) {
           type = EncounterNodeType.beastCombat;
         } else if (roll < 70) {
           type = EncounterNodeType.shipwreckSalvage;

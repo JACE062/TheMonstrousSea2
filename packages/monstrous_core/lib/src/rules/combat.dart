@@ -1,5 +1,6 @@
 import '../config/balance_config.dart';
 import '../model/attack_result.dart';
+import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
 import '../model/enums.dart';
 import '../model/item.dart';
@@ -141,6 +142,10 @@ int calculateHitChance(
   bool ignoreObscurity = false,
 }) {
   int chance = weapon.baseAccuracy + accuracyBonus;
+  if (attacker is ShipState &&
+      attacker.captainBoonId == BloodlineTraitId.preciseCommander) {
+    chance += 5;
+  }
   if (attacker is MonsterState) {
     chance -= attacker.tremorAccPenalty;
     if (attacker.isElectroJolted) chance -= 30;
@@ -410,6 +415,18 @@ int calculateHitChance(
     );
   }
 
+  if (defender is ShipState &&
+      defender.captainQuirkId == BloodlineTraitId.exactingShipwright) {
+    final remaining = (result.damage - result.nullifiedDamage).clamp(
+      0,
+      result.damage,
+    );
+    final reduction = remaining * 0.10 + defender.exactingReductionRemainder;
+    final wholeReduction = (reduction + 1e-9).floor();
+    defender.exactingReductionRemainder = reduction - wholeReduction;
+    result.nullifiedDamage += wholeReduction;
+  }
+
   if (result.nullifiedDamage > 0 && defender is ShipState) {
     events.add(
       DamageReduced(
@@ -599,6 +616,10 @@ List<GameEvent> executeShipWeaponVolley(
       }
       damage = amplifyMonsterDamage(blessingShip, combatant, damage);
     }
+    if (combatant is ShipState &&
+        combatant.captainBoonId == BloodlineTraitId.ironConstitution) {
+      damage = (damage * 0.5).round();
+    }
     combatant.applyDamage(damage);
     final isDead = !combatant.isAlive;
     if (magmaBurn) combatant.burnTurns--;
@@ -629,6 +650,10 @@ List<GameEvent> executeShipWeaponVolley(
 
   if (combatant.hasStatus(StatusEffect.poison)) {
     var damage = config.statusEffectTickDamageMultiplier * difficulty;
+    if (combatant is ShipState &&
+        combatant.captainBoonId == BloodlineTraitId.ironConstitution) {
+      damage = (damage * 0.5).round();
+    }
     if (combatant is MonsterState && blessingShip != null) {
       damage = amplifyMonsterDamage(blessingShip, combatant, damage);
     }

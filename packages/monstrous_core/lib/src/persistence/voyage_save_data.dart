@@ -30,6 +30,9 @@ class VoyageSaveData {
     this.onSaleMerchantIndex,
     this.gunneryAccuracyBoon = 0,
     this.runicGuidanceBoon = 0,
+    this.stormSeerRedrawRegion,
+    this.shrineOmenSeed = 0,
+    this.hasClaimedSmugglerGift = false,
     this.seaChartState,
     this.hasDefeatedCurrentEncounter = false,
     this.merchantReturnPhase,
@@ -103,6 +106,9 @@ class VoyageSaveData {
       onSaleMerchantIndex: json['onSaleMerchantIndex'] as int?,
       gunneryAccuracyBoon: json['gunneryAccuracyBoon'] as int? ?? 0,
       runicGuidanceBoon: json['runicGuidanceBoon'] as int? ?? 0,
+      stormSeerRedrawRegion: json['stormSeerRedrawRegion'] as int?,
+      shrineOmenSeed: json['shrineOmenSeed'] as int? ?? 0,
+      hasClaimedSmugglerGift: json['hasClaimedSmugglerGift'] as bool? ?? false,
       seaChartState: json['seaChartState'] as Map<String, dynamic>?,
       hasDefeatedCurrentEncounter:
           json['hasDefeatedCurrentEncounter'] as bool? ??
@@ -135,6 +141,9 @@ class VoyageSaveData {
   final int? onSaleMerchantIndex;
   final int gunneryAccuracyBoon;
   final int runicGuidanceBoon;
+  final int? stormSeerRedrawRegion;
+  final int shrineOmenSeed;
+  final bool hasClaimedSmugglerGift;
   final Map<String, dynamic>? seaChartState;
   final bool hasDefeatedCurrentEncounter;
 
@@ -165,6 +174,9 @@ class VoyageSaveData {
     'onSaleMerchantIndex': onSaleMerchantIndex,
     'gunneryAccuracyBoon': gunneryAccuracyBoon,
     'runicGuidanceBoon': runicGuidanceBoon,
+    'stormSeerRedrawRegion': stormSeerRedrawRegion,
+    'shrineOmenSeed': shrineOmenSeed,
+    'hasClaimedSmugglerGift': hasClaimedSmugglerGift,
     'seaChartState': seaChartState,
     'hasDefeatedCurrentEncounter': hasDefeatedCurrentEncounter,
   };
@@ -201,6 +213,9 @@ class VoyageSaveData {
       onSaleMerchantIndex: session.onSaleMerchantIndex,
       gunneryAccuracyBoon: session.gunneryAccuracyBoon,
       runicGuidanceBoon: session.runicGuidanceBoon,
+      stormSeerRedrawRegion: session.stormSeerRedrawRegion,
+      shrineOmenSeed: session.shrineOmenSeed,
+      hasClaimedSmugglerGift: session.hasClaimedSmugglerGift,
       seaChartState: session.seaChart.toJson(),
       hasDefeatedCurrentEncounter:
           session.hasDefeatedCurrentEncounter ||
@@ -216,6 +231,14 @@ class VoyageSaveData {
     session.pendingHeirCandidates = _restorableHeirs(
       hasNemesis: session.profile.activeNemesis != null,
     );
+    // Saved capacity already contains Quartermaster's voyage slot. Mark its
+    // provenance before captain synchronization so reload cannot add it again.
+    session.ship = null;
+    final restoredBoon = activeBoonId == null ? null : BloodlineTrait.fromId(activeBoonId!);
+    final restoredQuirk = activeQuirkId == null ? null : BloodlineTrait.fromId(activeQuirkId!);
+    session.activeBoon = restoredBoon?.isBoon == true ? restoredBoon : null;
+    session.activeQuirk = restoredQuirk?.isQuirk == true ? restoredQuirk : null;
+    ship.captainCargoBonusApplied = activeBoonId == BloodlineTraitId.quartermaster;
     session.ship = ship;
     session.seaChart.timesCompleted = timesCompleted;
     session.seaChart.currentRow = currentRow;
@@ -264,15 +287,12 @@ class VoyageSaveData {
     session.onSaleMerchantIndex = onSaleMerchantIndex;
     session.gunneryAccuracyBoon = gunneryAccuracyBoon;
     session.runicGuidanceBoon = runicGuidanceBoon;
-    if (activeBoonId != null) {
-      session.activeBoon = BloodlineTrait.allBoons
-          .where((b) => b.id == activeBoonId)
-          .firstOrNull;
-    }
-    if (activeQuirkId != null) {
-      session.activeQuirk = BloodlineTrait.allQuirks
-          .where((q) => q.id == activeQuirkId)
-          .firstOrNull;
+    session.stormSeerRedrawRegion = stormSeerRedrawRegion;
+    session.shrineOmenSeed = shrineOmenSeed;
+    session.hasClaimedSmugglerGift = hasClaimedSmugglerGift;
+    session.syncCaptainTraits();
+    if (session.phase == SessionPhase.shrine) {
+      session.restoreShrineManifestations();
     }
     // A discarded legacy Titan offer must not leave a restored helm with no
     // buttons. Generate only missing offers, after restoring all voyage context.
@@ -283,6 +303,7 @@ class VoyageSaveData {
         session.profile.activeNemesis,
         session.profile.isPactActive(CovenantPactId.chokingFog),
         session.profile.isPactActive(CovenantPactId.apexEmergence),
+        session.activeQuirk?.id == BloodlineTraitId.superstitious,
       );
     }
   }

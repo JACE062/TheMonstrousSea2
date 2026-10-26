@@ -12,6 +12,8 @@ class GreedyBot implements BotStrategy {
 
   @override
   Command decideNextAction(GameSession session) {
+    final captainAction = captainTraitAction(session);
+    if (captainAction != null) return captainAction;
     switch (session.phase) {
       case SessionPhase.captainCreation:
         if (session.captainName.isEmpty) {
@@ -29,9 +31,9 @@ class GreedyBot implements BotStrategy {
         }
         // Minimal repair only if critically damaged and can afford
         if (ship != null && ship.currentHp < (ship.maxHp * 0.5)) {
-          if (ship.gold >= calculateRepairCost(ship, 0.5)) {
+          if (ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
-          } else if (ship.gold >= calculateRepairCost(ship, 0.25)) {
+          } else if (ship.gold >= session.repairCostFor(0.25)) {
             return const RepairShip(0.25);
           }
         }

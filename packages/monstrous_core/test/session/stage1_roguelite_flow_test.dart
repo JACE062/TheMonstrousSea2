@@ -165,7 +165,7 @@ void main() {
       expect(session.isNemesisBattle, isFalse);
     });
 
-    test('Quirk: Reckless Helmsman disables Dead Ahead and grants evasion on Port/Starboard', () {
+    test('Quirk: Reckless Helmsman disables Dead Ahead and keeps passive evasion separate', () {
       final session = GameSession(rng: rng);
       session.dispatch(const NameCaptain('Captain Daredevil'));
       session.dispatch(const ChooseShip(ShipClass.standard, customName: 'Sea Hound'));
@@ -185,10 +185,11 @@ void main() {
         throwsStateError,
       );
 
-      // Steering Port or Starboard grants +10 evasion
+      // Passive captain evasion is separate from consumable/maneuver boosts.
       final initialEvasion = session.ship!.baseEvasion;
       session.dispatch(const SteerCourse(NavigationalBearing.larboardTack));
-      expect(session.ship!.currentEvasion, initialEvasion + 10);
+      expect(session.ship!.currentEvasion, initialEvasion);
+      expect(session.ship!.captainEvasionBonus, 10);
     });
 
     test('Quirk: Blood Oath compels wheel onto Nemesis bearing', () {
@@ -233,42 +234,46 @@ void main() {
       );
     });
 
-    test('Boon: Drillmaster allows consumable use without ending ship turn', () {
+    test('Boon: Drillmaster permits two quick items without advancing combat', () {
       final session = GameSession(rng: rng);
       session.dispatch(const NameCaptain('Drillmaster Jack'));
       session.dispatch(const ChooseShip(ShipClass.standard, customName: 'Sea Hound'));
       session.dispatch(const VentureOutToSea());
       session.activeBoon = BloodlineTrait.drillmaster;
 
-      // Add consumable to cargo
-      final consumable = generateConsumable(ConsumableType.blastPack, RarityLevel.common);
-      session.ship!.addCargo(consumable);
-      final index = session.ship!.cargo.indexOf(consumable);
-
+      for (var i = 0; i < 3; i++) {
+        session.ship!.addCargo(generateConsumable(ConsumableType.hullPatchKit, RarityLevel.common));
+      }
+      session.ship!.currentHp = 10;
       final monsterHpBefore = session.currentMonster!.currentHp;
       final shipHpBefore = session.ship!.currentHp;
 
-      session.dispatch(UseConsumableItem(index));
-
-      // Monster took damage from consumable
-      expect(session.currentMonster!.currentHp, lessThan(monsterHpBefore));
-      // Ship did not take damage because monster turn was skipped!
-      expect(session.ship!.currentHp, shipHpBefore);
-      // Turn round did not advance to monster turn
+      for (var i = 0; i < 2; i++) {
+        final index = session.ship!.cargo.indexWhere((item) => item is Consumable);
+        session.dispatch(UseConsumableItem(index));
+      }
+      expect(session.currentMonster!.currentHp, monsterHpBefore);
+      expect(session.ship!.currentHp, greaterThan(shipHpBefore));
+      expect(session.quickConsumablesUsedThisTurn, 2);
       expect(session.battleRound, 1);
+      expect(() => session.dispatch(const UseConsumableItem(0)), throwsStateError);
     });
 
-    test('Quirk: Superstitious refuses Abyssal Pact at shrine', () {
+    test('Quirk: Superstitious forbids one power and permits the other dedication', () {
       final session = GameSession(rng: rng);
       session.dispatch(const NameCaptain('Superstitious Mary'));
       session.dispatch(const ChooseShip(ShipClass.standard, customName: 'Sea Hound'));
       session.activeQuirk = BloodlineTrait.superstitious;
 
       session.phase = SessionPhase.shrine;
-      final events = session.dispatch(const CommuneWithShrine(ShrineChoice.abyssalPact));
-
-      expect(events.whereType<NarrationEvent>().first.message, contains('Superstitious captain recoils in dread'));
+      session.shrineManifestedPowers = [OceanPower.magmaVentLord, OceanPower.tempestSovereign];
+      final forbidden = session.forbiddenShrinePower!;
+      expect(() => session.dispatch(AcceptShrineBlessing(forbidden, HardpointType.broadside)), throwsStateError);
       expect(session.hasCommunedAtCurrentShrine, isFalse);
+      final allowed = session.shrineManifestedPowers.firstWhere((power) => power != forbidden);
+      session.dispatch(AcceptShrineBlessing(allowed, HardpointType.broadside));
+      expect(session.ship!.blessings[HardpointType.broadside]!.power, allowed);
+      expect(session.hasCommunedAtCurrentShrine, isTrue);
     });
 
     test('VoyageSaveData snapshots and restores GameSession completely', () {
@@ -278,13 +283,13 @@ void main() {
       session.dispatch(const ChooseShip(ShipClass.corvette, customName: 'Thunderer'));
       session.dispatch(const VentureOutToSea());
       session.activeBoon = BloodlineTrait.veteranCannoneer;
-      session.activeQuirk = BloodlineTrait.saltAddict;
+      session.activeQuirk = BloodlineTrait.exactingShipwright;
 
       final snapshot = VoyageSaveData.fromSession(session);
       expect(snapshot.captainName, 'Captain Ulysses');
       expect(snapshot.ship.shipClass, ShipClass.corvette);
       expect(snapshot.activeBoonId, BloodlineTraitId.veteranCannoneer);
-      expect(snapshot.activeQuirkId, BloodlineTraitId.saltAddict);
+      expect(snapshot.activeQuirkId, BloodlineTraitId.exactingShipwright);
 
       // Create fresh session and restore
       final restoredSession = GameSession(rng: SeededGameRng(999));
@@ -293,7 +298,7 @@ void main() {
       expect(restoredSession.captainName, 'Captain Ulysses');
       expect(restoredSession.ship!.shipClass, ShipClass.corvette);
       expect(restoredSession.activeBoon?.id, BloodlineTraitId.veteranCannoneer);
-      expect(restoredSession.activeQuirk?.id, BloodlineTraitId.saltAddict);
+      expect(restoredSession.activeQuirk?.id, BloodlineTraitId.exactingShipwright);
       expect(restoredSession.phase, session.phase);
     });
   });

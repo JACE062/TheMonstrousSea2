@@ -25,7 +25,7 @@ Command chooseShrineBlessing(
   powers.sort((a, b) => rank(a).compareTo(rank(b)));
   for (final power in powers) {
     for (final slot in preferredSlots) {
-      if (!canBlessHardpoint(ship, power, slot)) continue;
+      if (session.shrineBlessingRestriction(power, slot) != null) continue;
       final command = AcceptShrineBlessing(power, slot);
       (ship.blessings.containsKey(slot) ? upgrades : openSlots).add(command);
     }

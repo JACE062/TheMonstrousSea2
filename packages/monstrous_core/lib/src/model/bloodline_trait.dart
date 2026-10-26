@@ -23,6 +23,14 @@ enum BloodlineTraitId {
   superstitious,
   saltAddict,
   overzealousGunner,
+  // Additions retain existing enum indexes; the catalog defines their category.
+  preciseCommander,
+  skilledCarpenter,
+  quartermaster,
+  exactingShipwright,
+  daredevil,
+  impatient,
+  skirmisher,
 }
 
 /// Represents a distinct, qualitative human trait altering gameplay rules.
@@ -36,6 +44,7 @@ class BloodlineTrait {
   });
 
   factory BloodlineTrait.fromId(BloodlineTraitId id) {
+    if (id == BloodlineTraitId.saltAddict) return exactingShipwright;
     return allTraits.firstWhere(
       (t) => t.id == id,
       orElse: () => veteranCannoneer,
@@ -113,6 +122,32 @@ class BloodlineTrait {
     type: BloodlineTraitType.boon,
   );
 
+  static final preciseCommander = _catalogBoon(BloodlineTraitId.preciseCommander);
+  static final skilledCarpenter = _catalogBoon(BloodlineTraitId.skilledCarpenter);
+  static final quartermaster = _catalogBoon(BloodlineTraitId.quartermaster);
+
+  static BloodlineTrait _catalogBoon(BloodlineTraitId id) {
+    final lore = TraitLore.boons[id]!;
+    return BloodlineTrait(
+      id: id,
+      name: lore.name,
+      flavor: lore.flavor,
+      description: lore.description,
+      type: BloodlineTraitType.boon,
+    );
+  }
+
+  static BloodlineTrait _catalogQuirk(BloodlineTraitId id) {
+    final lore = TraitLore.quirks[id]!;
+    return BloodlineTrait(
+      id: id,
+      name: lore.name,
+      flavor: lore.flavor,
+      description: lore.description,
+      type: BloodlineTraitType.quirk,
+    );
+  }
+
   // --- Catalog of Curious Quirks ---
 
   static final BloodlineTrait bloodOath = BloodlineTrait(
@@ -139,13 +174,12 @@ class BloodlineTrait {
     type: BloodlineTraitType.quirk,
   );
 
-  static final BloodlineTrait saltAddict = BloodlineTrait(
-    id: BloodlineTraitId.saltAddict,
-    name: TraitLore.quirks[BloodlineTraitId.saltAddict]!.name,
-    flavor: TraitLore.quirks[BloodlineTraitId.saltAddict]!.flavor,
-    description: TraitLore.quirks[BloodlineTraitId.saltAddict]!.description,
-    type: BloodlineTraitType.quirk,
-  );
+  /// Compatibility name; old saved IDs adopt the replacement catalog effect.
+  static final BloodlineTrait saltAddict = exactingShipwright;
+  static final exactingShipwright = _catalogQuirk(BloodlineTraitId.exactingShipwright);
+  static final daredevil = _catalogQuirk(BloodlineTraitId.daredevil);
+  static final impatient = _catalogQuirk(BloodlineTraitId.impatient);
+  static final skirmisher = _catalogQuirk(BloodlineTraitId.skirmisher);
 
   static final BloodlineTrait overzealousGunner = BloodlineTrait(
     id: BloodlineTraitId.overzealousGunner,
@@ -161,14 +195,20 @@ class BloodlineTrait {
     ironConstitution,
     smugglersKin,
     drillmaster,
+    preciseCommander,
+    skilledCarpenter,
+    quartermaster,
   ];
 
   static final List<BloodlineTrait> allQuirks = [
     bloodOath,
     recklessHelmsman,
     superstitious,
-    saltAddict,
+    exactingShipwright,
     overzealousGunner,
+    daredevil,
+    impatient,
+    skirmisher,
   ];
 
   static final List<BloodlineTrait> allTraits = [
@@ -211,15 +251,25 @@ List<HeirCandidate> generateHeirCandidates({
   MonsterSpecies? nemesisSpecies,
   int count = 3,
 }) {
-  final candidateBoons = List<BloodlineTrait>.from(BloodlineTrait.allBoons)..shuffle();
+  final candidateBoons = List<BloodlineTrait>.from(BloodlineTrait.allBoons);
   final hasNemesis = nemesisSpecies != null && !nemesisSpecies.isRegionTitan;
   final candidateQuirks =
       BloodlineTrait.allQuirks
           .where(
             (quirk) => hasNemesis || quirk.id != BloodlineTraitId.bloodOath,
           )
-          .toList()
-        ..shuffle();
+          .toList();
+  // Keep offer selection reproducible with the same injected gameplay seed.
+  void shuffleTraits(List<BloodlineTrait> traits) {
+    for (var i = traits.length - 1; i > 0; i--) {
+      final j = rng.nextInt(i + 1);
+      final selected = traits[i];
+      traits[i] = traits[j];
+      traits[j] = selected;
+    }
+  }
+  shuffleTraits(candidateBoons);
+  shuffleTraits(candidateQuirks);
 
   // If there's an active nemesis, ensure Blood Oath is guaranteed among the presented candidate quirks
   if (hasNemesis) {
@@ -236,10 +286,20 @@ List<HeirCandidate> generateHeirCandidates({
       : 'Vane';
 
   final candidates = <HeirCandidate>[];
+  final usedNames = <String>{};
   for (var i = 0; i < count; i++) {
-    final firstName = firstNames[rng.nextInt(firstNames.length)];
-    final epithet = epithets[rng.nextInt(epithets.length)];
-    final defaultName = '$firstName $prevSurname $epithet';
+    final firstIndex = rng.nextInt(firstNames.length);
+    final epithetIndex = rng.nextInt(epithets.length);
+    var nameIndex = firstIndex * epithets.length + epithetIndex;
+    String nameAt(int index) => '${firstNames[index ~/ epithets.length]} $prevSurname ${epithets[index % epithets.length]}';
+    // Distinct card names keep selection unambiguous even when the random
+    // names collide. The bounded fallback uses no additional random draws.
+    for (var offset = 0; offset < firstNames.length * epithets.length; offset++) {
+      if (!usedNames.contains(nameAt(nameIndex))) break;
+      nameIndex = (nameIndex + 1) % (firstNames.length * epithets.length);
+    }
+    final defaultName = nameAt(nameIndex);
+    usedNames.add(defaultName);
     final boon = candidateBoons[i % candidateBoons.length];
     final quirk = candidateQuirks[i % candidateQuirks.length];
 

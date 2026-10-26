@@ -12,6 +12,8 @@ class CautiousBot implements BotStrategy {
 
   @override
   Command decideNextAction(GameSession session) {
+    final captainAction = captainTraitAction(session);
+    if (captainAction != null) return captainAction;
     switch (session.phase) {
       case SessionPhase.captainCreation:
         if (session.captainName.isEmpty) {
@@ -28,13 +30,13 @@ class CautiousBot implements BotStrategy {
           return const VisitMerchant();
         }
         if (ship != null && ship.currentHp < ship.maxHp) {
-          if (ship.gold >= calculateRepairCost(ship, 1.0)) {
+          if (ship.gold >= session.repairCostFor(1.0)) {
             return const RepairShip(1.0);
-          } else if (ship.gold >= calculateRepairCost(ship, 0.5)) {
+          } else if (ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
-          } else if (ship.gold >= calculateRepairCost(ship, 0.25)) {
+          } else if (ship.gold >= session.repairCostFor(0.25)) {
             return const RepairShip(0.25);
-          } else if (ship.gold >= calculateRepairCost(ship, 0.1)) {
+          } else if (ship.gold >= session.repairCostFor(0.1)) {
             return const RepairShip(0.1);
           }
         }
@@ -188,7 +190,7 @@ class CautiousBot implements BotStrategy {
 
       case SessionPhase.smuggler:
         final ship = session.ship;
-        if (ship != null && ship.currentHp < ship.maxHp * 0.75 && ship.gold >= 30) {
+        if (ship != null && ship.currentHp < ship.maxHp * 0.75 && ship.gold >= session.repairCostFor(0.25)) {
           return const RepairShip(0.25);
         }
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;

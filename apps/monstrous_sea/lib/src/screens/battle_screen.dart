@@ -149,7 +149,9 @@ class _BattleScreenState extends State<BattleScreen> {
                   for (final item in items) ...[
                     const Divider(color: InkTheme.inkMuted),
                     Text(item.name, style: InkTheme.titleMedium),
-                    Text(item.type.beltEffect.details, style: InkTheme.body),
+                    Text(item.type == ConsumableType.hullPatchKit
+                        ? 'Restore ${widget.controller.hullPatchHealingHp} hull HP.'
+                        : item.type.beltEffect.details, style: InkTheme.body),
                     if (item.isDepleted)
                       Text('Already spent.', style: InkTheme.caption),
                   ],
@@ -249,7 +251,8 @@ class _BattleScreenState extends State<BattleScreen> {
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
 
-    if (activeOrder != HelmOrder.holdLine && isTurnEndingAction) {
+    if (activeOrder != HelmOrder.holdLine && isTurnEndingAction &&
+        !widget.controller.isImpatientCombinationPending) {
       events.addAll(
         widget.controller.dispatch(
           IssueHelmOrder(activeOrder),
@@ -304,7 +307,8 @@ class _BattleScreenState extends State<BattleScreen> {
             currentRange.availableHelmOrders.contains(_selectedHelmOrder))
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
-    final previewRange = currentRange.rangeAfterHelmOrder(activeHelmOrder);
+    final enemyPreviewRange = currentRange.rangeAfterHelmOrder(activeHelmOrder);
+    final previewRange = widget.controller.usesLateHelm ? currentRange : enemyPreviewRange;
     final canFireAnyWeapon = ship.equippedWeaponTypes.any((type) {
       final ready = ship.equippedWeapons
           .where((w) => w.weaponType == type)
@@ -320,7 +324,9 @@ class _BattleScreenState extends State<BattleScreen> {
     final quickUsed = widget.controller.session.quickConsumablesUsedThisTurn;
     // Quick items and helm orders cannot end the turn. Keep an emergency pass
     // only when every offensive and utility hardpoint is unavailable.
-    final needsEmergencyPass = !canFireAnyWeapon && !ship.isUtilityReady;
+    final needsEmergencyPass = !widget.controller.isImpatientCombinationPending &&
+        (widget.controller.isImpatientRecovering || widget.controller.usesLateHelm ||
+        (!canFireAnyWeapon && !ship.isUtilityReady));
 
     return ParchmentScaffold(
       showBorder: false,
@@ -370,7 +376,7 @@ class _BattleScreenState extends State<BattleScreen> {
                         Text(
                           'Level ${ship.level} ${ship.shipClass.name.toUpperCase()}'
                           '${ship.currentDmgReduction > 0 ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
-                          '${ship.currentEvasion > 0 ? ' • Evade: ${ship.currentEvasion}%' : ''}'
+                          '${ship.currentEvasion + ship.captainEvasionBonus > 0 ? ' • Evade: ${ship.currentEvasion + ship.captainEvasionBonus}%' : ''}'
                           '${ship.isAnchoredThisTurn ? ' • Anchored' : ''}'
                           '${ship.gunneryDrillBuffActive ? ' • Drill Ready (+15% Accuracy/+20% Damage)' : ''}'
                           '${ship.pitchCoatingActive ? ' • Pitch Coated (+25% Fire/Burn)' : ''}',
@@ -449,14 +455,14 @@ class _BattleScreenState extends State<BattleScreen> {
                         ),
                         Tooltip(
                           message: monster.obscurityAccuracyPenalty > 0
-                              ? 'Obscurity lowers shot accuracy by ${monster.obscurityAccuracyPenalty} percentage points, separately from dodge. Successful hits have a 25% chance to disperse it; Spotter Flare clears it. There is no fixed turn duration.'
+                              ? 'Obscurity lowers shot accuracy by ${monster.obscurityAccuracyPenalty}%, separately from dodge. Successful hits have a 25% chance to disperse it; Spotter Flare clears it. There is no fixed turn duration.'
                               : '',
                           child: Text(
                             'Danger Level ${monster.level}'
                             '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
                             '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
                             '${monster.evasion > 0 ? ' • Dodge: ${monster.effectiveEvasion}%' : ''}'
-                            '${monster.obscurityAccuracyPenalty > 0 ? ' • Obscurity: -${monster.obscurityAccuracyPenalty}pp shot accuracy' : ''}'
+                            '${monster.obscurityAccuracyPenalty > 0 ? ' • Obscurity: -${monster.obscurityAccuracyPenalty}% shot accuracy' : ''}'
                             '${monster.isPinnedThisTurn ? ' • Pinned' : ''}'
                             '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'
                             '${ship.activeTetherTrapDistance != null ? ' • 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}' : ''}',
@@ -654,7 +660,7 @@ class _BattleScreenState extends State<BattleScreen> {
                   // Tactical Bearing & Bounded Helm Order Bar
                   _buildTacticalBearingBar(
                     currentRange,
-                    previewRange,
+                    enemyPreviewRange,
                     activeHelmOrder,
                     ship,
                     monster,
@@ -682,7 +688,8 @@ class _BattleScreenState extends State<BattleScreen> {
                           previewRange,
                         );
                         final canFire =
-                            isReady && isUsableAtRange && !_isActionLocked;
+                            isReady && isUsableAtRange && !_isActionLocked &&
+                            !widget.controller.isImpatientRecovering;
                         final badgeInfo = _getTacticalWeaponBadge(
                           type,
                           previewRange,
@@ -705,13 +712,14 @@ class _BattleScreenState extends State<BattleScreen> {
                           weaponsOfType.first,
                           monster,
                           accuracyBonus: widget.controller.gunneryAccuracyBoon +
+                              widget.controller.captainWeaponAccuracyModifier +
                               (ship.gunneryDrillBuffActive ? 15 : 0),
                           range: previewRange,
                           ignoreObscurity: ignoresObscurity,
                         );
                         final accuracyTip =
                             'Opening shot accuracy: $shotAccuracy% before ${monster.effectiveEvasion}% target dodge.'
-                            '${ignoresObscurity ? ' Ghostwake ignores obscurity.' : monster.obscurityAccuracyPenalty > 0 ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty} percentage points from accuracy.' : ''}';
+                            '${ignoresObscurity ? ' Ghostwake ignores obscurity.' : monster.obscurityAccuracyPenalty > 0 ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty}% from accuracy.' : ''}';
 
                         final labelText = weaponsOfType.length == 1
                             ? (isReady
@@ -731,7 +739,7 @@ class _BattleScreenState extends State<BattleScreen> {
                                 if (blessing != null)
                                   BlessingBadge(blessing: blessing),
                                 Tooltip(
-                                  message: '${badgeInfo?.tip ?? ''} $accuracyTip',
+                                  message: '${badgeInfo?.tip ?? ''} $accuracyTip\n${_responseForecast(activeHelmOrder, weaponType: type)}',
                                   child: InkButton(
                                     label: labelText,
                                     subtitle: isReady
@@ -772,7 +780,9 @@ class _BattleScreenState extends State<BattleScreen> {
                               final utilReady = ship.isUtilityReady;
                               final blessing =
                                   ship.blessings[HardpointType.utility];
-                              final canUseUtil = utilReady && !_isActionLocked;
+                              final canUseUtil = utilReady && !_isActionLocked &&
+                                  !widget.controller.isImpatientCombinationPending &&
+                                  !widget.controller.isImpatientRecovering;
                               final utilSubtitle = utilReady
                                   ? 'UTILITY ($utilMark • 2T CD)'
                                   : 'COOLDOWN (${ship.utilityCooldown}T)';
@@ -784,10 +794,7 @@ class _BattleScreenState extends State<BattleScreen> {
                                   if (blessing != null)
                                     BlessingBadge(blessing: blessing),
                                   Tooltip(
-                                    message: _utilityTooltip(
-                                      ship,
-                                      previewRange,
-                                    ),
+                                    message: '${_utilityTooltip(ship, previewRange)}\n${_responseForecast(activeHelmOrder, utility: true)}',
                                     child: InkButton(
                                       label: utilName,
                                       subtitle: utilSubtitle,
@@ -815,6 +822,27 @@ class _BattleScreenState extends State<BattleScreen> {
                   ),
                   const SizedBox(height: 6),
 
+                  if (widget.controller.canStartImpatientCombination)
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        key: const ValueKey('impatient-combination'),
+                        onPressed: _isActionLocked ? null : () => _dispatchCombatAction(
+                          const ExecuteShipSpecialAction(borrowNextAction: true),
+                        ),
+                        child: const Text('IMPATIENT · UTILITY + WEAPON'),
+                      ),
+                    ),
+                  if (widget.controller.isImpatientCombinationPending ||
+                      widget.controller.isImpatientRecovering)
+                    Text(
+                      widget.controller.isImpatientCombinationPending
+                          ? 'IMPATIENT · Fire one weapon next. Belt available; helm already committed.'
+                          : 'RECOVERY · Hardpoints unavailable. Maneuver, use belt, or Brace & Reload.',
+                      key: const ValueKey('impatient-status'),
+                      style: InkTheme.caption,
+                    ),
+
                   // Secondary Row: Tactical Consumable Belt (0T Quick Actions), Brace for Impact & Log Controls
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -831,7 +859,7 @@ class _BattleScreenState extends State<BattleScreen> {
                                 key: const ValueKey('emergency-pass'),
                                 label: 'BRACE & RELOAD',
                                 isPrimary: true,
-                                semanticLabel: 'No hardpoint actions available. Pass the turn and reload.',
+                                semanticLabel: 'Brace for 10% temporary evasion, finish the turn and reload.',
                                 onPressed: !_isActionLocked
                                     ? () => _dispatchCombatAction(
                                         const BraceForImpact(),
@@ -862,7 +890,10 @@ class _BattleScreenState extends State<BattleScreen> {
                                 Builder(
                                   builder: (context) {
                                     final cons = ship.cargo[i] as Consumable;
-                                    final effect = cons.type.beltEffect;
+                                    final effect = cons.type == ConsumableType.hullPatchKit
+                                        ? (summary: 'Repair ${widget.controller.hullPatchHealingHp} HP',
+                                           details: 'Restore ${widget.controller.hullPatchHealingHp} hull HP.')
+                                        : cons.type.beltEffect;
                                     final restriction = _beltRestriction(
                                       cons,
                                       quickUsed,
@@ -920,6 +951,28 @@ class _BattleScreenState extends State<BattleScreen> {
     );
   }
 
+  String _responseForecast(HelmOrder order, {ShipWeaponType? weaponType, bool utility = false}) {
+    final movesRange = weaponType == ShipWeaponType.prowRam ||
+        weaponType == ShipWeaponType.harpoonWinch ||
+        (utility && widget.controller.ship?.resolvedBlueprintId.utilityHardpoint == UtilityHardpointId.evasiveRigging);
+    if (!movesRange) return '';
+    final responseRange = widget.controller.previewResponseRange(
+      helmOrder: order, weaponType: weaponType, utility: utility,
+    );
+    final monster = widget.controller.currentMonster;
+    final outcome = monster?.currentIntent?.evaluatePreview(
+      currentRange: responseRange,
+      selectedHelmOrder: HelmOrder.holdLine,
+      isMonsterPinned: monster.isPinnedThisTurn,
+      tentacleCount: monster.numberOfTentacles,
+      damagePerTentacle: monster.usableWeapons
+          .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
+          .firstOrNull?.damage,
+    );
+    return 'After action: ${responseRange.displayName}'
+        '${outcome == null ? '' : ' · ${outcome.summaryBadge}'}';
+  }
+
   Widget _buildTacticalBearingBar(
     CombatRange currentRange,
     CombatRange previewRange,
@@ -928,6 +981,9 @@ class _BattleScreenState extends State<BattleScreen> {
     MonsterState monster,
   ) {
     final intent = monster.currentIntent;
+    final conditional = ship.equippedWeaponTypes.any((type) =>
+        type == ShipWeaponType.prowRam || type == ShipWeaponType.harpoonWinch) ||
+        ship.resolvedBlueprintId.utilityHardpoint == UtilityHardpointId.evasiveRigging;
     final previewOutcome = intent?.evaluatePreview(
       currentRange: currentRange,
       selectedHelmOrder: activeHelmOrder,
@@ -950,8 +1006,21 @@ class _BattleScreenState extends State<BattleScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          if (widget.controller.activeQuirk?.id == BloodlineTraitId.daredevil)
+            Text(
+              widget.controller.isDaredevilActive
+                  ? 'DAREDEVIL · +30% weapon damage · at/below 50% hull'
+                  : 'DAREDEVIL · Bonus activates at 50% hull or less',
+              key: const ValueKey('daredevil-status'), style: InkTheme.caption,
+            ),
+          if (widget.controller.usesLateHelm)
+            Text('SKIRMISHER · Act at ${currentRange.displayName}, then maneuver before the response.',
+                key: const ValueKey('late-helm-hint'), style: InkTheme.caption),
           if (intent != null && previewOutcome != null) ...[
-            _buildMonsterIntentReadout(intent, previewOutcome, monster),
+            if (conditional)
+              Text('Actions may change this helm forecast.',
+                  key: const ValueKey('conditional-range-forecast'), style: InkTheme.caption),
+            _buildMonsterIntentReadout(intent, previewOutcome, monster, conditional: conditional),
             const SizedBox(height: 3),
           ],
           LayoutBuilder(
@@ -1078,14 +1147,17 @@ class _BattleScreenState extends State<BattleScreen> {
   Widget _buildMonsterIntentReadout(
     MonsterIntent intent,
     IntentPreviewOutcome preview,
-    MonsterState monster,
-  ) {
-    final isSafe = preview.isSafe;
+    MonsterState monster, {
+    bool conditional = false,
+  }) {
+    final isSafe = preview.isSafe && !conditional;
     final isSevere =
         preview.status == IntentPreviewStatus.headOnCollisionDanger ||
         preview.status == IntentPreviewStatus.bossCatastropheImminent;
 
-    final outcomeColor = isSafe
+    final outcomeColor = conditional
+        ? InkTheme.inkMuted
+        : isSafe
         ? InkTheme.verdigrisGreen
         : isSevere
         ? InkTheme.crimsonAccent
@@ -1095,7 +1167,7 @@ class _BattleScreenState extends State<BattleScreen> {
       message: '${intent.description}\nCounterplay: ${intent.tacticalTip}',
       child: Semantics(
         label:
-            'Monster Intent: ${intent.name}. Threatens ${intent.threatenedRangesLabel}. ${preview.summaryBadge}',
+            'Monster Intent: ${intent.name}. Threatens ${intent.threatenedRangesLabel}. ${conditional ? 'Helm-only forecast: ' : ''}${preview.summaryBadge}',
         child: Wrap(
           alignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
@@ -1181,7 +1253,7 @@ class _BattleScreenState extends State<BattleScreen> {
                 border: Border.all(color: outcomeColor, width: 1.0),
               ),
               child: Text(
-                preview.summaryBadge,
+                '${conditional ? 'HELM ONLY · ' : ''}${preview.summaryBadge}',
                 style: InkTheme.caption.copyWith(
                   fontSize: 9.5,
                   fontWeight: FontWeight.bold,
@@ -1312,7 +1384,8 @@ class _BattleScreenState extends State<BattleScreen> {
         ? InkTheme.inkSecondary
         : InkTheme.inkFaint;
 
-    final canPress = isAvailable && !_isActionLocked;
+    final canPress = isAvailable && !_isActionLocked &&
+        !widget.controller.isImpatientCombinationPending;
 
     return Tooltip(
       message: tooltip,

@@ -153,8 +153,8 @@ void main() {
       await mountBattle(tester, controller);
 
       expect(_control(tester, patch.name).compact, isTrue);
-      expect(_control(tester, patch.name).subtitle, 'Repair 30% hull');
-      expect(_tooltip(tester, patch.name), contains('30% of maximum hull'));
+      expect(_control(tester, patch.name).subtitle, 'Repair ${controller.hullPatchHealingHp} HP');
+      expect(_tooltip(tester, patch.name), contains('Restore ${controller.hullPatchHealingHp} hull HP'));
       expect(_tooltip(tester, patch.name), isNot(contains('Single-use')));
       expect(_tooltip(tester, patch.name), isNot(contains('turn')));
       final help = tester.widget<IconButton>(find.byKey(_helpKey));

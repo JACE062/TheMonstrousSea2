@@ -65,7 +65,7 @@ void main() {
         accuracyPenalty: 25,
       );
       final text = const NarrationFormatter().format(event);
-      expect(text, contains('25 percentage points'));
+      expect(text, contains('25%'));
       expect(text, contains('disperse'));
       expect(text, isNot(contains('Spotter Flare')));
       expect(text, isNot(contains(' AC')));

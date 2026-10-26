@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 import '../game_controller.dart';
@@ -33,6 +32,19 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
   int _activeTab = 0; // 0: Contraband Wares, 1: Liquidate Cargo
   bool _showingArmory = false;
 
+  Widget _adaptiveDetails({required List<Widget> children}) => LayoutBuilder(
+    builder: (context, constraints) {
+      if (constraints.maxWidth >= 480) return Row(children: children);
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (final child in children)
+            if (child is Expanded) child.child else child,
+        ],
+      );
+    },
+  );
+
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
@@ -45,9 +57,8 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
             : "The Shadowed Ketch";
         final stock = controller.smugglerStock;
 
-        final missingHp = ship != null ? ship.maxHp - ship.currentHp : 0;
-        final repairHp = ship != null ? min((ship.maxHp * 0.25).round(), missingHp) : 0;
-        final repairCost = (repairHp * 1.5).ceil();
+        final repairHp = controller.repairHpFor(0.25);
+        final repairCost = controller.repairCostFor(0.25);
         final canAffordRepair = ship != null && repairHp > 0 && ship.gold >= repairCost;
 
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;
@@ -62,8 +73,9 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                 // Top Navigation Bar
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 8,
                   children: [
                     InkButton(
                       label: 'SEA CHART',
@@ -131,7 +143,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                 // Seasoned Oak Planks (Emergency Hull Repair)
                 ParchmentCard(
                   padding: const EdgeInsets.all(16),
-                  child: Row(
+                  child: _adaptiveDetails(
                     children: [
                       Expanded(
                         child: Column(
@@ -144,7 +156,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                             const SizedBox(height: 4),
                             Text(
                               repairHp > 0
-                                  ? 'Smugglers hammer seasoned oak and caulking over shot holes for ${repairCost}g (1.5x black market rate).'
+                                  ? 'Smugglers hammer seasoned oak and caulking over shot holes for ${repairCost}g at the current black market rate.'
                                   : 'Hull timbers are currently sound and seaworthy.',
                               style: InkTheme.caption.copyWith(fontSize: 12.5),
                             ),
@@ -169,7 +181,8 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                   children: [
                     Expanded(
                       child: InkButton(
-                        label: 'CONTRABAND WARES (${stock.length})',
+                        label: MediaQuery.sizeOf(context).width < 600
+                            ? 'WARES (${stock.length})' : 'CONTRABAND WARES (${stock.length})',
                         isPrimary: _activeTab == 0,
                         onPressed: () => setState(() => _activeTab = 0),
                       ),
@@ -177,7 +190,9 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                     const SizedBox(width: 8),
                     Expanded(
                       child: InkButton(
-                        label: 'SELL FROM BELT (${ship?.cargo.length ?? 0})',
+                        label: MediaQuery.sizeOf(context).width < 600
+                            ? 'SELL BELT (${ship?.cargo.length ?? 0})'
+                            : 'SELL FROM BELT (${ship?.cargo.length ?? 0})',
                         isPrimary: _activeTab == 1,
                         onPressed: () => setState(() => _activeTab = 1),
                       ),
@@ -186,6 +201,18 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                 ),
                 const SizedBox(height: 16),
 
+                if (controller.activeBoon?.id == BloodlineTraitId.smugglersKin)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Text(
+                      controller.hasClaimedSmugglerGift
+                          ? "SMUGGLER'S KIN · Gift claimed for this visit."
+                          : ship != null && ship.cargo.length >= ship.maxCargo
+                              ? "SMUGGLER'S KIN · Belt full. Free gift remains unclaimed."
+                              : "SMUGGLER'S KIN · Choose one free stock item this visit.",
+                      style: InkTheme.caption,
+                    ),
+                  ),
                 // Tab 0: Contraband Stock
                 if (_activeTab == 0) ...[
                   if (stock.isEmpty)
@@ -218,14 +245,14 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                                   children: [
                                     Row(
                                       children: [
-                                        Text(
+                                        Flexible(child: Text(
                                           item.name,
                                           style: InkTheme.statValue.copyWith(
                                             color: InkTheme.inkPrimary,
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
-                                        ),
+                                        )),
                                       ],
                                     ),
                                     const SizedBox(height: 4),
@@ -240,6 +267,21 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                                 ),
                               ),
                               const SizedBox(width: 12),
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                              if (controller.activeBoon?.id == BloodlineTraitId.smugglersKin &&
+                                  !controller.hasClaimedSmugglerGift) ...[
+                                InkButton(
+                                  key: ValueKey('smuggler-gift-$index'),
+                                  label: 'FREE GIFT',
+                                  semanticLabel: 'Claim ${item.name} as your free gift',
+                                  onPressed: controller.canClaimSmugglerGift
+                                      ? () => controller.dispatch(ClaimSmugglerGift(index))
+                                      : null,
+                                ),
+                                const SizedBox(height: 8),
+                              ],
                               InkButton(
                                 label: 'BUY (${item.value}g)',
                                 isPrimary: true,
@@ -247,6 +289,8 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                                 onPressed: canAfford
                                     ? () => controller.dispatch(BuyMerchantItem(index))
                                     : null,
+                              ),
+                                ],
                               ),
                             ],
                           ),
@@ -333,8 +377,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                 // Armory Toggle
                 ParchmentCard(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: _adaptiveDetails(
                     children: [
                       Expanded(
                         child: Column(
@@ -342,7 +385,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                           children: [
                             Text('ARMORY & MUNITIONS', style: InkTheme.statLabel),
                             Text(
-                              'Mount fresh black-market weapons and configure deck batteries.',
+                              'Inspect hardpoints, blessings, and tactical belt supplies.',
                               style: InkTheme.caption,
                             ),
                           ],
@@ -366,7 +409,8 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
 
                 // Departure Button
                 InkButton(
-                  label: 'DEPART SMUGGLER & CONTINUE EXPEDITION',
+                  label: MediaQuery.sizeOf(context).width < 600
+                      ? 'DEPART SMUGGLER' : 'DEPART SMUGGLER & CONTINUE EXPEDITION',
                   isPrimary: true,
                   semanticLabel: 'Depart the smuggler ketch and continue naval voyage',
                   onPressed: () => controller.dispatch(const DepartSmuggler()),

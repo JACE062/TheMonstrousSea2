@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import '../model/attack_result.dart';
+import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
@@ -74,6 +75,7 @@ class EvasionTrait extends CombatTrait {
   ) {
     if (defender is ShipState && result.didHit) {
       int effectiveEvasion = defender.currentEvasion;
+      effectiveEvasion += defender.captainEvasionBonus;
       if (defender.basaltBarrierHp > 0 && defender.basaltAegisTurns > 0) {
         effectiveEvasion += defender.blessings[HardpointType.utility]?.tier == 3
             ? 20
@@ -183,6 +185,7 @@ class CarapaceTrait extends CombatTrait {
     if (defender is MonsterState &&
         defender.carapacePlating > 0 &&
         result.didHit) {
+      final initialCarapace = defender.carapacePlating;
       final slot =
           (result.shipWeaponType?.isBlueprintIntrinsic == true ||
                   result.shipWeaponType == ShipWeaponType.cannon) &&
@@ -260,6 +263,20 @@ class CarapaceTrait extends CombatTrait {
         result.carapaceAbsorbed = absorbed;
         result.nullifiedDamage = absorbed;
         result.wasCarapaceShattered = defender.carapacePlating <= 0;
+      }
+      // The captain damages shell only: preserve the hit's original HP absorption.
+      final shellDamage = initialCarapace - defender.carapacePlating;
+      if (slot != null &&
+          attacker is ShipState &&
+          attacker.captainBoonId == BloodlineTraitId.veteranCannoneer &&
+          shellDamage > 0) {
+        final bonus = (shellDamage * 0.25).round().clamp(
+          0,
+          defender.carapacePlating,
+        );
+        defender.carapacePlating -= bonus;
+        result.carapaceDamaged = shellDamage + bonus;
+        result.wasCarapaceShattered = defender.carapacePlating == 0;
       }
     }
   }

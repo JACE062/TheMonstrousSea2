@@ -225,7 +225,7 @@ class ShipwreckScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'Restore up to 25% max hull (healing penalties apply) + 1–2 Sea Glass',
+                                'Restore ${controller.wreckTimbersHealingHp} hull HP + 1–2 Sea Glass',
                                 style: InkTheme.statLabel.copyWith(color: InkTheme.greenAccent),
                               ),
                             ],

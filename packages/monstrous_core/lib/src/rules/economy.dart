@@ -8,10 +8,7 @@ import '../rng/game_rng.dart';
 /// Generates 3-5 Tactical Belt [Consumable] items for the merchant's inventory.
 ///
 /// Consumable potency and price are fixed across all voyage difficulties.
-List<Item> generateMerchantStock(
-  int highestDifficultyReached,
-  GameRng rng,
-) {
+List<Item> generateMerchantStock(int highestDifficultyReached, GameRng rng) {
   final count = rng.nextIntRange(3, 5);
   final stock = <Item>[];
 
@@ -83,12 +80,8 @@ bool sellItem(ShipState ship, Item item) {
 /// Cost is 1g per 1 HP repaired. Repair amount is capped at missing HP.
 int calculateRepairCost(ShipState ship, double percentage) {
   if (percentage <= 0) return 0;
-  final missingHp = ship.maxHp - ship.currentHp;
-  if (missingHp <= 0) return 0;
-
-  final potentialRepair = (ship.maxHp * percentage).toInt();
-  final repairedHp = min(potentialRepair, missingHp);
-  return max(0, repairedHp);
+  final actual = ship.previewHealing((ship.maxHp * percentage));
+  return ship.nominalHealingFor(actual);
 }
 
 /// Repairs [percentage] of [ship]'s hull at port.

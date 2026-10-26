@@ -60,7 +60,8 @@ final class UseConsumableItem extends Command {
 
 /// Executes the ship's active class action (Fortify, Evasive Maneuvers).
 final class ExecuteShipSpecialAction extends Command {
-  const ExecuteShipSpecialAction();
+  const ExecuteShipSpecialAction({this.borrowNextAction = false});
+  final bool borrowNextAction;
 }
 
 /// Braces the crew behind the gunwales and passes the attack phase, allowing helm maneuvers to resolve and weapons to reload.
@@ -241,6 +242,11 @@ final class SteerCourse extends Command {
   final NavigationalBearing bearing;
 }
 
+/// Storm-Seer: redraw ordinary courses once per region without advancing a leg.
+final class RedrawStormSeerCourses extends Command {
+  const RedrawStormSeerCourses();
+}
+
 /// Takes the ship's helm to evaluate the lookout's observations and set course.
 final class TakeHelm extends Command {
   const TakeHelm();
@@ -291,4 +297,10 @@ final class UnlockEldritchRelic extends Command {
 final class UpgradeHarborMonument extends Command {
   const UpgradeHarborMonument(this.monumentId);
   final HarborMonumentId monumentId;
+}
+
+/// Claims one chosen free consumable from this encounter.
+final class ClaimSmugglerGift extends Command {
+  const ClaimSmugglerGift(this.stockIndex);
+  final int stockIndex;
 }

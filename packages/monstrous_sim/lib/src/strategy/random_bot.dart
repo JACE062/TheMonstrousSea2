@@ -13,6 +13,8 @@ class RandomBot implements BotStrategy {
 
   @override
   Command decideNextAction(GameSession session) {
+    final captainAction = captainTraitAction(session);
+    if (captainAction != null) return captainAction;
     switch (session.phase) {
       case SessionPhase.captainCreation:
         if (session.captainName.isEmpty) {
@@ -29,7 +31,7 @@ class RandomBot implements BotStrategy {
         final roll = rng.nextInt(3);
         final ship = session.ship;
         if (roll == 0 && ship != null && ship.currentHp < ship.maxHp) {
-          if (ship.gold >= calculateRepairCost(ship, 0.5)) {
+          if (ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
           }
         } else if (roll == 1) {

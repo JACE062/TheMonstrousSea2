@@ -466,17 +466,17 @@ void upgradeShipState(ShipState ship) {
     case ShipClass.standard:
       const hpGain = 50;
       ship.maxHp += hpGain;
-      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.heal(hpGain);
       ship.maxWeaponWeight = 7 * lvl;
     case ShipClass.freighter:
       const hpGain = 100;
       ship.maxHp += hpGain;
-      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.heal(hpGain);
       ship.maxWeaponWeight = 3 * lvl;
     case ShipClass.ironclad:
       const hpGain = 75;
       ship.maxHp += hpGain;
-      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.heal(hpGain);
       ship.maxWeaponWeight = 10 * lvl;
       ship.baseDmgReduction = 3 * lvl;
       ship.currentDmgReduction = ship.baseDmgReduction;
@@ -484,26 +484,26 @@ void upgradeShipState(ShipState ship) {
     case ShipClass.corvette:
       const hpGain = 40;
       ship.maxHp += hpGain;
-      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.heal(hpGain);
       ship.maxWeaponWeight = 5 * lvl;
       ship.baseEvasion = (5 + 5 * lvl).clamp(0, 50);
       ship.currentEvasion = ship.baseEvasion;
     case ShipClass.clipper:
       const hpGain = 40;
       ship.maxHp += hpGain;
-      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.heal(hpGain);
       ship.maxWeaponWeight = 6 * lvl;
       ship.baseEvasion = (ship.baseEvasion + 5).clamp(0, 50);
       ship.currentEvasion = ship.baseEvasion;
     case ShipClass.bombardier:
       const hpGain = 45;
       ship.maxHp += hpGain;
-      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.heal(hpGain);
       ship.maxWeaponWeight = 8 * lvl;
     case ShipClass.corsair:
       const hpGain = 45;
       ship.maxHp += hpGain;
-      ship.currentHp = (ship.currentHp + hpGain).clamp(0, ship.maxHp);
+      ship.heal(hpGain);
       ship.maxWeaponWeight = 7 * lvl;
       ship.baseEvasion = (ship.baseEvasion + 3).clamp(0, 50);
       ship.currentEvasion = ship.baseEvasion;

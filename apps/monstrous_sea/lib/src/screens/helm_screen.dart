@@ -32,6 +32,16 @@ class _HelmScreenState extends State<HelmScreen> {
   bool _departing = false;
   Widget? _lastHelmView;
 
+  void _redrawCourses() {
+    final controller = widget.controller;
+    if (_departing ||
+        controller.phase != SessionPhase.helm ||
+        !controller.canRedrawStormSeerCourses) {
+      return;
+    }
+    controller.dispatch(const RedrawStormSeerCourses());
+  }
+
   void _steer(NavigationalBearing bearing) {
     if (_departing || widget.controller.phase != SessionPhase.helm) return;
     setState(() => _departing = true);
@@ -216,6 +226,40 @@ class _HelmScreenState extends State<HelmScreen> {
                       ),
                       const SizedBox(height: 14),
                     ],
+                    if (controller.activeBoon?.id ==
+                        BloodlineTraitId.stormSeer) ...[
+                      ParchmentCard(
+                        padding: const EdgeInsets.all(12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text('STORM-SEER', style: InkTheme.statLabel),
+                            const SizedBox(height: 4),
+                            Text(
+                              'Read the winds once per region to redraw ordinary headings. Haven, Titan and Nemesis courses hold fast.',
+                              style: InkTheme.caption,
+                            ),
+                            const SizedBox(height: 8),
+                            InkButton(
+                              key: const ValueKey('storm-seer-redraw'),
+                              label: 'READ THE WINDS',
+                              compact: true,
+                              semanticHint:
+                                  controller.stormSeerRedrawRestriction,
+                              onPressed: controller.canRedrawStormSeerCourses
+                                  ? _redrawCourses
+                                  : null,
+                            ),
+                            if (controller.stormSeerRedrawRestriction
+                                case final restriction?) ...[
+                              const SizedBox(height: 6),
+                              Text(restriction, style: InkTheme.caption),
+                            ],
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                    ],
                     Text(
                       options.length == 1
                           ? 'LOOKOUT OBSERVATION • CONVERGENT APPROACH'
@@ -260,34 +304,49 @@ class _HelmScreenState extends State<HelmScreen> {
                         horizontal: 16,
                         vertical: 12,
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'HARDPOINT & BELT INSPECTION',
-                                  style: InkTheme.statLabel,
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          final compact = constraints.maxWidth < 500;
+                          final description = Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'HARDPOINT & BELT INSPECTION',
+                                style: InkTheme.statLabel,
+                              ),
+                              Text(
+                                'Inspect hardpoint marks, blessings, refits, and belt supplies.',
+                                style: InkTheme.caption,
+                              ),
+                            ],
+                          );
+                          return Flex(
+                            direction: compact
+                                ? Axis.vertical
+                                : Axis.horizontal,
+                            crossAxisAlignment: compact
+                                ? CrossAxisAlignment.stretch
+                                : CrossAxisAlignment.center,
+                            children: [
+                              if (compact)
+                                description
+                              else
+                                Expanded(child: description),
+                              SizedBox(
+                                width: compact ? 0 : 8,
+                                height: compact ? 8 : 0,
+                              ),
+                              InkButton(
+                                label: _showingArmory
+                                    ? 'CLOSE INSPECTION'
+                                    : 'INSPECT VESSEL',
+                                onPressed: () => setState(
+                                  () => _showingArmory = !_showingArmory,
                                 ),
-                                Text(
-                                  'Inspect hardpoint marks, blessings, refits, and belt supplies.',
-                                  style: InkTheme.caption,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          InkButton(
-                            label: _showingArmory
-                                ? 'CLOSE INSPECTION'
-                                : 'INSPECT VESSEL',
-                            onPressed: () => setState(
-                              () => _showingArmory = !_showingArmory,
-                            ),
-                          ),
-                        ],
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     ),
                     if (_showingArmory) ...[

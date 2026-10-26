@@ -22,12 +22,6 @@ class StrongholdScreen extends StatelessWidget {
   final GameController controller;
   final VoidCallback onOpenChart;
 
-  int _repairCost(ShipState ship) {
-    final base = calculateRepairCost(ship, 1.0);
-    return controller.profile.isPactActive(CovenantPactId.brittleOak)
-        ? (base * 1.30).ceil()
-        : base;
-  }
 
   @override
   Widget build(BuildContext context) => ListenableBuilder(
@@ -87,10 +81,10 @@ class StrongholdScreen extends StatelessWidget {
                             controller.dispatch(const VisitMerchant()),
                       ),
                       InkButton(
-                        label: 'REPAIR HULL · ${_repairCost(ship)}g',
+                        label: 'REPAIR +${controller.repairHpFor(1.0)} HP · ${controller.repairCostFor(1.0)}g',
                         onPressed:
                             ship.currentHp < ship.maxHp &&
-                                ship.gold >= _repairCost(ship)
+                                ship.gold >= controller.repairCostFor(1.0)
                             ? () => controller.dispatch(const RepairShip(1.0))
                             : null,
                       ),

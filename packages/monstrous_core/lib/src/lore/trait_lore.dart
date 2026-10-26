@@ -22,27 +22,42 @@ class TraitLore {
     BloodlineTraitId.veteranCannoneer: BloodlineTraitLoreEntry(
       name: 'Veteran Cannoneer',
       flavor: 'A seasoned eye for structural weak points and armor fissures.',
-      description: 'Blast and Piercing attacks ignore 20% of monster Carapace plating.',
+      description: 'Broadside and Signature hits deal +25% damage to Carapace, without a direct HP damage bonus.',
     ),
     BloodlineTraitId.stormSeer: BloodlineTraitLoreEntry(
       name: 'Storm-Seer',
       flavor: 'Reads whitecaps and pressure drops like lines in an open book.',
-      description: 'Navigating through high gales restores +10 ship HP instead of risking drift damage.',
+      description: 'Redraw ordinary headings once per region at Set Course. Haven, Titan, and Nemesis headings stay fixed.',
     ),
     BloodlineTraitId.ironConstitution: BloodlineTraitLoreEntry(
       name: 'Iron Constitution',
       flavor: 'A constitution weathered by bilge water and foul rations.',
-      description: 'Poison and Burn status effects have double the wear-off chance each turn (50% vs 25%).',
+      description: 'Burn and Poison deal 50% less damage to your ship. Their normal recovery chances remain.',
     ),
     BloodlineTraitId.smugglersKin: BloodlineTraitLoreEntry(
       name: "Smuggler's Kin",
       flavor: 'Raised among corsairs, cutthroats, and moonlight brokers.',
-      description: 'Smuggler Ketches offer 1 free contraband consumable, and prices are discounted by 25%.',
+      description: 'Choose one free consumable per smuggler encounter. Smuggler hull repairs cost 25% less.',
     ),
     BloodlineTraitId.drillmaster: BloodlineTraitLoreEntry(
       name: 'Drillmaster',
       flavor: 'Demands relentless powder drills and quarterdeck discipline.',
-      description: "Using a consumable item does not end the ship's combat turn.",
+      description: 'Use up to two single-use belt items per turn instead of one. Both are quick actions.',
+    ),
+    BloodlineTraitId.preciseCommander: BloodlineTraitLoreEntry(
+      name: 'Precise Commander',
+      flavor: 'Calls measured firing solutions through the smoke and spray.',
+      description: '+5% shot accuracy for Broadside and Signature attacks, within normal accuracy limits.',
+    ),
+    BloodlineTraitId.skilledCarpenter: BloodlineTraitLoreEntry(
+      name: 'Skilled Carpenter',
+      flavor: 'Knows where sound timber and a patient crew can save a vessel.',
+      description: 'All healing restores 20% more hull. Healing modifiers multiply together.',
+    ),
+    BloodlineTraitId.quartermaster: BloodlineTraitLoreEntry(
+      name: 'Quartermaster',
+      flavor: 'Keeps every crate lashed tight and every useful supply within reach.',
+      description: 'Gain one additional tactical belt slot for this voyage.',
     ),
   };
 
@@ -57,22 +72,38 @@ class TraitLore {
     BloodlineTraitId.recklessHelmsman: BloodlineTraitLoreEntry(
       name: 'Reckless Helmsman',
       flavor: 'Despises a calm, steady course; only lives in hard turns.',
-      description: '"Dead Ahead" heading is disabled at sea; steering Port or Starboard grants +10% evasion.',
+      description: '+10% evasion in every battle, including Titans. Refuses Dead Ahead when other headings exist.',
     ),
     BloodlineTraitId.superstitious: BloodlineTraitLoreEntry(
       name: 'Superstitious',
-      flavor: 'Refuses to tamper with blasphemous runes or dark sea gods.',
-      description: 'Refuses to enter Abyssal Pacts at Shrines; completely immune to Siren charms, confusion, and fear.',
+      flavor: 'Seeks the wardens wherever the omens lead, yet fears their warnings.',
+      description: 'Find Shrines more often, but an omen forbids one of two manifested powers. A sole eligible power stays available.',
     ),
-    BloodlineTraitId.saltAddict: BloodlineTraitLoreEntry(
-      name: 'Pernicious Salt-Addict',
-      flavor: 'Driven by the thrill of blood on brine, heedless of pain.',
-      description: 'Weapon damage dealt increased by +15%; all restorative healing and careening are 25% less effective.',
+    BloodlineTraitId.exactingShipwright: BloodlineTraitLoreEntry(
+      name: 'Exacting Shipwright',
+      flavor: 'Demands flawless joinery; even the smallest repair must meet exacting standards.',
+      description: 'Take 10% less damage from incoming attacks, but all healing restores 25% less hull, including repairs and triage.',
     ),
     BloodlineTraitId.overzealousGunner: BloodlineTraitLoreEntry(
       name: 'Overzealous Gunner',
-      flavor: 'Refuses to fire single shots; demands total devastating broadsides.',
-      description: 'Single-weapon firing is disabled; only full volleys can be fired (volleys deal +15% bonus damage).',
+      flavor:
+          'Demands more powder and faster fire, leaving little time to aim.',
+      description: 'Broadside and Signature attacks deal +20% weapon damage with -10% shot accuracy.',
+    ),
+    BloodlineTraitId.daredevil: BloodlineTraitLoreEntry(
+      name: 'Daredevil',
+      flavor: 'Commands the fiercest attacks when the hull is barely holding together.',
+      description: 'Broadside and Signature attacks deal +30% weapon damage while at or below 50% hull.',
+    ),
+    BloodlineTraitId.impatient: BloodlineTraitLoreEntry(
+      name: 'Impatient',
+      flavor: 'Demands action now, leaving the crew scrambling to recover.',
+      description: 'Push the crew to use Utility then one weapon action before the enemy responds. Next turn, hardpoints are unavailable; helm, belt and Brace remain usable.',
+    ),
+    BloodlineTraitId.skirmisher: BloodlineTraitLoreEntry(
+      name: 'Skirmisher',
+      flavor: 'Strikes from position, then slips away before the answering blow.',
+      description: 'Your helm maneuver always resolves after your main action, before the enemy responds. Brace to reposition without firing.',
     ),
   };
 

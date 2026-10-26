@@ -39,6 +39,18 @@ class ArmoryView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          if (controller.activeBoon != null || controller.activeQuirk != null) ...[
+            Text('CAPTAIN TRAITS', style: InkTheme.statLabel),
+            const SizedBox(height: 6),
+            for (final trait in [controller.activeBoon, controller.activeQuirk])
+              if (trait != null) ...[
+                Text(trait.name, style: InkTheme.statValue.copyWith(fontSize: 15)),
+                Text(trait.description, style: InkTheme.body.copyWith(fontSize: 14)),
+                const SizedBox(height: 8),
+              ],
+            const Divider(),
+            const SizedBox(height: 8),
+          ],
           Text(
             'HARDPOINTS & TACTICAL BELT',
             style: InkTheme.titleMedium.copyWith(fontSize: 22),

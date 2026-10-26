@@ -33,7 +33,7 @@ void main() {
         final controller = _controller(MonsterSpecies.kraken);
         await mountBattle(tester, controller, textScale: scale);
         expect(
-          find.textContaining('Obscurity: -25pp shot accuracy'),
+          find.textContaining('Obscurity: -25% shot accuracy'),
           findsOneWidget,
         );
         expect(find.textContaining('38 base Blast damage'), findsOneWidget);
@@ -66,7 +66,7 @@ void main() {
       MonsterIntentId.squidInkShroudRecoil,
     );
     await mountBattle(tester, controller);
-    expect(find.textContaining('Obscurity: -20pp'), findsOneWidget);
+    expect(find.textContaining('Obscurity: -20%'), findsOneWidget);
     controller.dispatch(const ExecuteShipSpecialAction());
     await tester.pump();
     expect(controller.currentMonster!.isObscured, isFalse);
@@ -95,7 +95,7 @@ void main() {
     final log = controller.combatLog.firstWhere(
       (entry) => entry.contains('dense ink cloud'),
     );
-    expect(log, contains('25 percentage points'));
+    expect(log, contains('25%'));
     expect(log, isNot(contains(' AC')));
     controller.dispose();
   });

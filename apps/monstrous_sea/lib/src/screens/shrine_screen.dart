@@ -34,7 +34,8 @@ class _ShrineScreenState extends State<ShrineScreen> {
       builder: (context, _) {
         final ship = controller.ship;
         final powers = controller.shrineManifestedPowers;
-        final selected = powers.contains(_selectedPower)
+        final selected = powers.contains(_selectedPower) &&
+                _selectedPower != controller.forbiddenShrinePower
             ? _selectedPower
             : null;
         return ParchmentScaffold(
@@ -225,6 +226,7 @@ class _ShrineScreenState extends State<ShrineScreen> {
   }
 
   Widget _powerCard(OceanPower power, bool selected) {
+    final forbidden = widget.controller.forbiddenShrinePower == power;
     return ParchmentCard(
       borderColor: selected ? InkTheme.goldAccent : InkTheme.inkMuted,
       child: Column(
@@ -235,15 +237,20 @@ class _ShrineScreenState extends State<ShrineScreen> {
           Text(power.domainLore, style: InkTheme.body),
           const SizedBox(height: 8),
           Text(power.synergySummary, style: InkTheme.caption),
+          if (forbidden) ...[
+            const SizedBox(height: 8),
+            Text('ILL OMEN - Superstition forbids this power.',
+                style: InkTheme.statLabel.copyWith(color: InkTheme.crimsonAccent)),
+          ],
           const SizedBox(height: 12),
           Semantics(
             selected: selected,
             child: InkButton(
               key: ValueKey('select-${power.name}'),
-              label: selected ? 'COMMUNING' : 'COMMUNE',
+              label: forbidden ? 'FORBIDDEN' : selected ? 'COMMUNING' : 'COMMUNE',
               semanticLabel: 'Commune with ${power.displayName}',
               isPrimary: selected,
-              onPressed: () => setState(() => _selectedPower = power),
+              onPressed: forbidden ? null : () => setState(() => _selectedPower = power),
             ),
           ),
         ],

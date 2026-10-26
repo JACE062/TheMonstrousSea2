@@ -12,6 +12,8 @@ class RecklessBot implements BotStrategy {
 
   @override
   Command decideNextAction(GameSession session) {
+    final captainAction = captainTraitAction(session);
+    if (captainAction != null) return captainAction;
     switch (session.phase) {
       case SessionPhase.captainCreation:
         if (session.captainName.isEmpty) {
@@ -24,9 +26,9 @@ class RecklessBot implements BotStrategy {
       case SessionPhase.stronghold:
         final ship = session.ship;
         if (ship != null && ship.currentHp < ship.maxHp) {
-          if (ship.gold >= calculateRepairCost(ship, 1.0)) {
+          if (ship.gold >= session.repairCostFor(1.0)) {
             return const RepairShip(1.0);
-          } else if (ship.gold >= calculateRepairCost(ship, 0.5)) {
+          } else if (ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
           }
         }

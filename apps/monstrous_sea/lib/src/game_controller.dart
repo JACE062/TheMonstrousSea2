@@ -68,9 +68,33 @@ class GameController extends ChangeNotifier {
   bool get hasSalvagedCurrentWreck => session.hasSalvagedCurrentWreck;
   bool get hasCommunedAtCurrentShrine => session.hasCommunedAtCurrentShrine;
   int get gunneryAccuracyBoon => session.gunneryAccuracyBoon;
+  int get captainWeaponAccuracyModifier => session.captainWeaponAccuracyModifier;
+  String? get stormSeerRedrawRestriction => session.stormSeerRedrawRestriction;
+  bool get canRedrawStormSeerCourses => session.canRedrawStormSeerCourses;
+  int? get stormSeerRedrawRegion => session.stormSeerRedrawRegion;
   bool get canEmergencyRepairAtSea => session.canEmergencyRepairAtSea;
   int get emergencyRepairCost => session.emergencyRepairCost;
   CombatRange get combatRange => session.combatRange;
+  bool get usesLateHelm => session.usesLateHelm;
+  bool get isDaredevilActive => session.isDaredevilActive;
+  CombatRange previewResponseRange({HelmOrder helmOrder = HelmOrder.holdLine,
+      ShipWeaponType? weaponType, bool utility = false}) =>
+      session.previewResponseRange(helmOrder: helmOrder, weaponType: weaponType, utility: utility);
+
+  bool get canStartImpatientCombination => session.canStartImpatientCombination;
+  bool get isImpatientCombinationPending => session.isImpatientCombinationPending;
+  bool get isImpatientRecovering => session.isImpatientRecovering;
+  bool get hasClaimedSmugglerGift => session.hasClaimedSmugglerGift;
+  bool get canClaimSmugglerGift => session.canClaimSmugglerGift;
+  OceanPower? get forbiddenShrinePower => session.forbiddenShrinePower;
+  String? shrineBlessingRestriction(OceanPower power, HardpointType slot) =>
+      session.shrineBlessingRestriction(power, slot);
+  int get careenHealingHp => session.careenHealingHp;
+  int get wreckTimbersHealingHp => session.wreckTimbersHealingHp;
+  int get hullPatchHealingHp => session.hullPatchHealingHp;
+  int repairHpFor(double percentage) => session.repairHpFor(percentage);
+  int repairCostFor(double percentage) => session.repairCostFor(percentage);
+
 
   /// Returns true if the encounter at the sea chart coordinate has been slain
   /// (e.g. during loot or rest area).

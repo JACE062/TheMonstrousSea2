@@ -1,3 +1,4 @@
+import 'bloodline_trait.dart';
 import 'enums.dart';
 import 'flagship_blueprint.dart';
 import 'item.dart';
@@ -121,6 +122,40 @@ class ShipState extends Combatant {
   int dmgReductionMod;
 
   int gold;
+
+  /// Derived from the session's active captain; not independent checkpoint data.
+  BloodlineTraitId? captainBoonId;
+  BloodlineTraitId? captainQuirkId;
+  bool captainCargoBonusApplied = false;
+
+  int get captainEvasionBonus =>
+      captainQuirkId == BloodlineTraitId.recklessHelmsman ? 10 : 0;
+
+  /// Fractional attack mitigation carried between hits, cleared after combat.
+  double exactingReductionRemainder = 0;
+
+  double get captainHealingMultiplier =>
+      (captainBoonId == BloodlineTraitId.skilledCarpenter ? 1.20 : 1.0) *
+      (captainQuirkId == BloodlineTraitId.exactingShipwright ? 0.75 : 1.0);
+
+  /// Applies all captain modifiers before rounding once and capping at missing hull.
+  int previewHealing(num nominal) =>
+      ((nominal < 0 ? 0 : nominal) * captainHealingMultiplier + 1e-9)
+          .round()
+          .clamp(0, maxHp - currentHp);
+
+  /// Smallest nominal repair amount that restores the requested missing hull.
+  int nominalHealingFor(int actual) => actual <= 0
+      ? 0
+      : ((actual.clamp(0, maxHp - currentHp) - 0.5) /
+                    captainHealingMultiplier -
+                1e-9)
+            .ceil();
+
+  @override
+  void heal(num amount) {
+    currentHp += previewHealing(amount);
+  }
 
   /// True if the ship's rudder/hull is grappled by a Squid/Kraken beak for the current turn,
   /// locking Helm Orders to [HelmOrder.holdLine].
@@ -287,6 +322,7 @@ class ShipState extends Combatant {
     basaltAegisTurns = 0;
     stormRiggingTurns = 0;
     boilingWakeTurns = 0;
+    exactingReductionRemainder = 0;
     resetWeaponCooldowns();
   }
 
