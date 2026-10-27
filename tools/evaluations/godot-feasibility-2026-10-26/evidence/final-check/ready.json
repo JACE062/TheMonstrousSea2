@@ -1,0 +1,20 @@
+{
+	"bearing": "Medium",
+	"damage_per_test": 13,
+	"display_driver": "Windows",
+	"godot": "4.7.2-stable (official)",
+	"health_bar": 100.0,
+	"health_label": "Hull: 100 / 100",
+	"hull": 100,
+	"monster_x": 735.0,
+	"moving": false,
+	"port": 61145,
+	"revision": "source revision 2",
+	"ship_x": 270.0,
+	"ship_y": 335.0,
+	"user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+	"viewport_size": [
+		1000.0,
+		620.0
+	]
+}

@@ -1,0 +1,250 @@
+{
+  "completed_utc": "2026-10-27T04:47:39.876441+00:00",
+  "duration_seconds": 2.047,
+  "run": "final-check",
+  "before": {
+    "bearing": "Medium",
+    "damage_per_test": 13,
+    "display_driver": "Windows",
+    "godot": "4.7.2-stable (official)",
+    "health_bar": 100.0,
+    "health_label": "Hull: 100 / 100",
+    "hull": 100,
+    "monster_x": 735.0,
+    "moving": false,
+    "revision": "source revision 2",
+    "ship_x": 270.0,
+    "ship_y": 335.0,
+    "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+    "viewport_size": [
+      1000.0,
+      620.0
+    ]
+  },
+  "after": {
+    "bearing": "Short",
+    "damage_per_test": 13,
+    "display_driver": "Windows",
+    "godot": "4.7.2-stable (official)",
+    "health_bar": 87.0,
+    "health_label": "Hull: 87 / 100",
+    "hull": 87,
+    "monster_x": 735.0,
+    "moving": false,
+    "revision": "source revision 2",
+    "ship_x": 420.0,
+    "ship_y": 335.0,
+    "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+    "viewport_size": [
+      1000.0,
+      620.0
+    ]
+  },
+  "movement_observations": [
+    {
+      "bearing": "Medium",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": true,
+      "revision": "source revision 2",
+      "ship_x": 270.210784912109,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Medium",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": true,
+      "revision": "source revision 2",
+      "ship_x": 274.62060546875,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Medium",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": true,
+      "revision": "source revision 2",
+      "ship_x": 293.738677978516,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Medium",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": true,
+      "revision": "source revision 2",
+      "ship_x": 323.761779785156,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Medium",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": true,
+      "revision": "source revision 2",
+      "ship_x": 374.270629882813,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Medium",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": true,
+      "revision": "source revision 2",
+      "ship_x": 402.105529785156,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Medium",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": true,
+      "revision": "source revision 2",
+      "ship_x": 417.852233886719,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Short",
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "monster_x": 735.0,
+      "moving": false,
+      "revision": "source revision 2",
+      "ship_x": 420.0,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "bearing": "Medium",
+      "capture_result": 0,
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 100.0,
+      "health_label": "Hull: 100 / 100",
+      "hull": 100,
+      "image_height": 620,
+      "image_path": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/evidence/final-check/before.png",
+      "image_width": 1000,
+      "monster_x": 735.0,
+      "moving": false,
+      "revision": "source revision 2",
+      "ship_x": 270.0,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    },
+    {
+      "bearing": "Short",
+      "capture_result": 0,
+      "damage_per_test": 13,
+      "display_driver": "Windows",
+      "godot": "4.7.2-stable (official)",
+      "health_bar": 87.0,
+      "health_label": "Hull: 87 / 100",
+      "hull": 87,
+      "image_height": 620,
+      "image_path": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/evidence/final-check/after.png",
+      "image_width": 1000,
+      "monster_x": 735.0,
+      "moving": false,
+      "revision": "source revision 2",
+      "ship_x": 420.0,
+      "ship_y": 335.0,
+      "user_data_dir": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/godot-feasibility-2026-10-26/profile/roaming/g",
+      "viewport_size": [
+        1000.0,
+        620.0
+      ]
+    }
+  ],
+  "process_exit_code": 0,
+  "stderr": "",
+  "preservation": {
+    "baseline_files_unchanged": 574
+  }
+}

@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://main.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ship_standard_map.png" id="2_ship"]
+[ext_resource type="Texture2D" path="res://assets/monster_serpent_map.png" id="3_monster"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_background"]
+bg_color = Color(0.70, 0.66, 0.57, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_hull"]
+bg_color = Color(0.72, 0.54, 0.05, 1)
+
+[node name="Feasibility" type="Node2D"]
+script = ExtResource("1_script")
+damage_per_test = 13
+revision = "source revision 2"
+
+[node name="Ship" type="Sprite2D" parent="."]
+position = Vector2(270, 335)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_ship")
+
+[node name="Monster" type="Sprite2D" parent="."]
+position = Vector2(735, 335)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("3_monster")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 30.0
+offset_top = 22.0
+offset_right = 970.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.12, 0.10, 0.07, 1)
+theme_override_font_sizes/font_size = 26
+text = "Godot feasibility fixture"
+
+[node name="Scope" type="Label" parent="UI"]
+offset_left = 30.0
+offset_top = 62.0
+offset_right = 970.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.28, 0.24, 0.18, 1)
+text = "Isolated source-built scene. Approved art. Synthetic health and movement only."
+
+[node name="HealthLabel" type="Label" parent="UI"]
+offset_left = 30.0
+offset_top = 105.0
+offset_right = 470.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0.12, 0.10, 0.07, 1)
+theme_override_font_sizes/font_size = 23
+text = "Hull: 100 / 100"
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+offset_left = 30.0
+offset_top = 145.0
+offset_right = 470.0
+offset_bottom = 165.0
+value = 100.0
+show_percentage = false
+theme_override_styles/background = SubResource("StyleBox_background")
+theme_override_styles/fill = SubResource("StyleBox_hull")
+
+[node name="BearingLabel" type="Label" parent="UI"]
+offset_left = 560.0
+offset_top = 105.0
+offset_right = 970.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0.12, 0.10, 0.07, 1)
+theme_override_font_sizes/font_size = 23
+text = "Bearing: Medium"
+
+[node name="Advance" type="Button" parent="UI"]
+offset_left = 30.0
+offset_top = 500.0
+offset_right = 240.0
+offset_bottom = 548.0
+theme_override_font_sizes/font_size = 20
+text = "Advance (test)"
+
+[node name="Damage" type="Button" parent="UI"]
+offset_left = 260.0
+offset_top = 500.0
+offset_right = 470.0
+offset_bottom = 548.0
+theme_override_font_sizes/font_size = 20
+text = "Hull impact (test)"
+
+[node name="Revision" type="Label" parent="UI"]
+offset_left = 30.0
+offset_top = 572.0
+offset_right = 970.0
+offset_bottom = 602.0
+theme_override_colors/font_color = Color(0.28, 0.24, 0.18, 1)
+text = "source revision 1"
+
+[connection signal="pressed" from="UI/Advance" to="." method="_advance"]
+[connection signal="pressed" from="UI/Damage" to="." method="_damage"]

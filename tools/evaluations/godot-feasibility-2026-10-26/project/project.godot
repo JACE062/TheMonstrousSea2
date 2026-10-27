@@ -1,0 +1,20 @@
+; Isolated feasibility fixture. No production rules or saves.
+config_version=5
+
+[application]
+config/name="Monstrous Sea Godot Feasibility"
+run/main_scene="res://main.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="g"
+
+[display]
+window/size/viewport_width=1000
+window/size/viewport_height=620
+window/size/window_width_override=1000
+window/size/window_height_override=620
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.94, 0.90, 0.81, 1)

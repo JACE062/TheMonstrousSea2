@@ -1,0 +1,2 @@
+# Evidence hashes and frozen source snapshots require byte-exact checkouts.
+* -text whitespace=cr-at-eol

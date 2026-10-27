@@ -1,0 +1,155 @@
+{
+  "target": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility",
+  "created_utc": "2026-10-27T04:42:58.7120730Z",
+  "entries": [
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\logs",
+      "created_utc": "2026-10-27T04:43:38.1755372Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\objectdb_snapshots",
+      "created_utc": "2026-10-27T04:43:01.6932678Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache",
+      "created_utc": "2026-10-27T04:43:38.8077366Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\logs\\godot.log",
+      "created_utc": "2026-10-27T04:43:38.1755372Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CanvasOcclusionShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.0778098Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CanvasSdfShaderGLES3",
+      "created_utc": "2026-10-27T04:43:38.8177366Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CanvasShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.0748100Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CopyShaderGLES3",
+      "created_utc": "2026-10-27T04:43:38.8297374Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CubemapFilterShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.0398112Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\FeedShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.0648105Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\GlowShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.0418103Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\ParticlesCopyShaderGLES3",
+      "created_utc": "2026-10-27T04:43:38.8277370Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\ParticlesShaderGLES3",
+      "created_utc": "2026-10-27T04:43:38.8247385Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\PostShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.0448095Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\SceneShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.0838168Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\SkeletonShaderGLES3",
+      "created_utc": "2026-10-27T04:43:38.8227375Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\SkyShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.6858996Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\TexBlitShaderGLES3",
+      "created_utc": "2026-10-27T04:43:39.6878994Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CanvasOcclusionShaderGLES3\\c46de8457cd0ec7ae72950dd2d6933712f9618834da41e928aa8b802b203fa84",
+      "created_utc": "2026-10-27T04:43:39.0798101Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CanvasSdfShaderGLES3\\79619f4e0ebcd7575f0bf88cd0af666c92a02390b58e10099513d57ecbbf7f6d",
+      "created_utc": "2026-10-27T04:43:38.8187366Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CanvasShaderGLES3\\8c03260ba4a7cee063e0c2cdb2669d3fb40c436fd105da5bd1bc8b349ddccde5",
+      "created_utc": "2026-10-27T04:43:39.0758097Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CanvasShaderGLES3\\8c03260ba4a7cee063e0c2cdb2669d3fb40c436fd105da5bd1bc8b349ddccde5\\6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "created_utc": "2026-10-27T04:43:40.0312743Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CopyShaderGLES3\\c260d92ec39380145617050cd0043f21d8c16653fdc63f89dbff82e8a3d0aa10",
+      "created_utc": "2026-10-27T04:43:38.8307364Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CopyShaderGLES3\\c260d92ec39380145617050cd0043f21d8c16653fdc63f89dbff82e8a3d0aa10\\6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "created_utc": "2026-10-27T04:43:39.0358100Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\CubemapFilterShaderGLES3\\891a6caed7bc39209c4da0ad61ecb3fe023a600c067b99a415f816635990facf",
+      "created_utc": "2026-10-27T04:43:39.0408101Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\FeedShaderGLES3\\093bdd4641634f3160f4a96bde5d439c73fd9bac33f397cb5546fa92b0d58ec7",
+      "created_utc": "2026-10-27T04:43:39.0658124Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\FeedShaderGLES3\\093bdd4641634f3160f4a96bde5d439c73fd9bac33f397cb5546fa92b0d58ec7\\6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "created_utc": "2026-10-27T04:43:39.0708102Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\GlowShaderGLES3\\1c818f7aeecaa115f1493c2ff39da66ef3afbcbe816f15567ff431302bfe1ba4",
+      "created_utc": "2026-10-27T04:43:39.0428096Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\ParticlesCopyShaderGLES3\\a7181168b03c9063418d968ff7cd5b9d4660ec8f411ac38c68ea2ed5cfeaabfc",
+      "created_utc": "2026-10-27T04:43:38.8287354Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\ParticlesShaderGLES3\\5841a980840a231148a31b92f13aa792a0808ae9cbfb35ee8560fc71dcaea8c7",
+      "created_utc": "2026-10-27T04:43:38.8257354Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\PostShaderGLES3\\7802966aa14ab827ba6a7736fe342627409b69adeae2afc71c226bb69d551e14",
+      "created_utc": "2026-10-27T04:43:39.0458095Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\PostShaderGLES3\\7802966aa14ab827ba6a7736fe342627409b69adeae2afc71c226bb69d551e14\\6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "created_utc": "2026-10-27T04:43:39.0628099Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\SceneShaderGLES3\\88d5094334602317c7e90ce0024a9b8f572db1490bcae00ab246ed4979403e6b",
+      "created_utc": "2026-10-27T04:43:39.0848168Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\SceneShaderGLES3\\88d5094334602317c7e90ce0024a9b8f572db1490bcae00ab246ed4979403e6b\\6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "created_utc": "2026-10-27T04:43:39.6829000Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\SkeletonShaderGLES3\\e0a188fea82944304c4e56cd6dba4300b1ec2bc4e27136ac6c12edd5977e3fc3",
+      "created_utc": "2026-10-27T04:43:38.8227375Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\SkyShaderGLES3\\256ea14b1e6b4162664a3a9441ed99a8cd5e6ec854652f2c3c86b9f765b06d03",
+      "created_utc": "2026-10-27T04:43:39.6868995Z"
+    },
+    {
+      "path": "C:\\Users\\jcarvajal\\AppData\\Roaming\\Godot\\app_userdata\\Monstrous Sea Godot Feasibility\\shader_cache\\TexBlitShaderGLES3\\9f09103890276d9d37cbec3e4affb044046875b9453ff9ac66733594a24ab5a7",
+      "created_utc": "2026-10-27T04:43:39.6888993Z"
+    }
+  ],
+  "reason": "Only the uniquely named cache created by the first evaluation launch; subsequent data is workspace-local"
+}
