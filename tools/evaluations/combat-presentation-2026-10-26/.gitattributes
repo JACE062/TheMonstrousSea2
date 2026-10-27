@@ -1,0 +1,5 @@
+# Preserve captured sources, including their original final blank lines.
+*.dart whitespace=cr-at-eol,-blank-at-eof
+*.cpp whitespace=cr-at-eol,-blank-at-eof
+# Diff context prefixes are part of the retained patch evidence.
+*.patch -whitespace

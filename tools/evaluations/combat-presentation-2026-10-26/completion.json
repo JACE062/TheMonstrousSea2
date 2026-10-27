@@ -1,0 +1,153 @@
+{
+  "status": "comparison evidence and preservation verified",
+  "started_utc": "2026-10-27T05:05:09Z",
+  "completed_utc": "2026-10-27T05:19:29.012149+00:00",
+  "elapsed_seconds": 860.0,
+  "deadline_utc": "2026-10-27T07:05:09Z",
+  "within_two_hours": true,
+  "pre_existing_files_unchanged": 635,
+  "files_added_outside_evaluation": [],
+  "both_engines_match_every_displayed_state": true,
+  "shared_assets_and_fixture_byte_identical": true,
+  "recordings_encoded_and_decoded": 4,
+  "total_displayed_frames_checked": 904,
+  "runs": [
+    {
+      "independent_audit_passed": true,
+      "engine": "flutter",
+      "run": "baseline",
+      "frames_checked": 301,
+      "unique_rendered_frames": 301,
+      "movement_samples": 20,
+      "fixture_events_verified": [
+        "barrier",
+        "burn",
+        "cannon",
+        "expire",
+        "hit1",
+        "hit2",
+        "hit3",
+        "hit4",
+        "move",
+        "tick"
+      ],
+      "speed": 1,
+      "barrier_hull_delay_ms": 0,
+      "last_logical_time_ms": 10000.000000000004,
+      "final_state": {
+        "ship_hp": 82,
+        "monster_hp": 42,
+        "barrier": 0,
+        "burn": false,
+        "bearing": "Short",
+        "ship_x": 420.0
+      },
+      "method": "Every displayed-state sample checked against parent-owned oracle and contiguous real PNGs; animation easing not fixed"
+    },
+    {
+      "independent_audit_passed": true,
+      "engine": "flutter",
+      "run": "revised-final",
+      "frames_checked": 151,
+      "unique_rendered_frames": 151,
+      "movement_samples": 9,
+      "fixture_events_verified": [
+        "barrier",
+        "burn",
+        "cannon",
+        "expire",
+        "hit1",
+        "hit2",
+        "hit3",
+        "hit4",
+        "move",
+        "tick"
+      ],
+      "speed": 2,
+      "barrier_hull_delay_ms": 240,
+      "last_logical_time_ms": 9999.999999999998,
+      "final_state": {
+        "ship_hp": 82,
+        "monster_hp": 42,
+        "barrier": 0,
+        "burn": false,
+        "bearing": "Short",
+        "ship_x": 420.0
+      },
+      "method": "Every displayed-state sample checked against parent-owned oracle and contiguous real PNGs; animation easing not fixed"
+    },
+    {
+      "independent_audit_passed": true,
+      "engine": "godot",
+      "run": "baseline",
+      "frames_checked": 301,
+      "unique_rendered_frames": 301,
+      "movement_samples": 19,
+      "fixture_events_verified": [
+        "barrier",
+        "burn",
+        "cannon",
+        "expire",
+        "hit1",
+        "hit2",
+        "hit3",
+        "hit4",
+        "move",
+        "tick"
+      ],
+      "speed": 1,
+      "barrier_hull_delay_ms": 0,
+      "last_logical_time_ms": 10000.0,
+      "final_state": {
+        "ship_hp": 82.0,
+        "monster_hp": 42.0,
+        "barrier": 0.0,
+        "burn": false,
+        "bearing": "Short",
+        "ship_x": 420.0
+      },
+      "method": "Every displayed-state sample checked against parent-owned oracle and contiguous real PNGs; animation easing not fixed"
+    },
+    {
+      "independent_audit_passed": true,
+      "engine": "godot",
+      "run": "revised",
+      "frames_checked": 151,
+      "unique_rendered_frames": 151,
+      "movement_samples": 9,
+      "fixture_events_verified": [
+        "barrier",
+        "burn",
+        "cannon",
+        "expire",
+        "hit1",
+        "hit1_hull",
+        "hit2",
+        "hit2_hull",
+        "hit3",
+        "hit4",
+        "move",
+        "tick"
+      ],
+      "speed": 2,
+      "barrier_hull_delay_ms": 240,
+      "last_logical_time_ms": 10000.0,
+      "final_state": {
+        "ship_hp": 82.0,
+        "monster_hp": 42.0,
+        "barrier": 0.0,
+        "burn": false,
+        "bearing": "Short",
+        "ship_x": 420.0
+      },
+      "method": "Every displayed-state sample checked against parent-owned oracle and contiguous real PNGs; animation easing not fixed"
+    }
+  ],
+  "scope_limits": [
+    "Synthetic event playback; no rules port",
+    "Fixed-size, fixed-step capture; no runtime FPS benchmark",
+    "No sound or native input test",
+    "No full OS filesystem trace",
+    "No engine migration or combat UI redesign"
+  ]
+}

@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.58 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+COMPARISON_CAPTURE_COMPLETE {"device":"NVIDIA GeForce RTX 4060 Laptop GPU","final":{"art_y":335.0,"barrier":0.0,"bearing":"Short","burn":false,"monster_hp":42.0,"monster_max_hp":60.0,"monster_x":735.0,"ship_hp":82.0,"ship_max_hp":100.0,"ship_x":420.0},"frames":301,"renderer":"gl_compatibility"}

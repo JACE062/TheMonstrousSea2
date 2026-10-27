@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-10-27T05:10:55.760330+00:00",
+  "completed_utc": "2026-10-27T05:11:13.701197+00:00",
+  "capture_wall_seconds": 17.937,
+  "exit_code": 0,
+  "run": "revised",
+  "command": [
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\godot-feasibility-2026-10-26\\runtime\\Godot_v4.7.2-stable_win64_console.exe",
+    "--path",
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\combat-presentation-2026-10-26\\godot",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--position",
+    "-10000,-10000",
+    "--",
+    "--output-dir=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/combat-presentation-2026-10-26/evidence/godot/revised"
+  ],
+  "native_window": true,
+  "headless": false,
+  "manual_editor_work": "None",
+  "production_saves_accessed": false
+}

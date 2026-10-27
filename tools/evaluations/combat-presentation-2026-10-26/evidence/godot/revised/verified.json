@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "png_frames": 151,
+  "viewport": [
+    1000,
+    620
+  ],
+  "all_displayed_hp_and_barrier_frames_checked": true,
+  "baseline_source_snapshot_unchanged": true,
+  "manual_editor_work": "None",
+  "build_stage": "None; Godot loads text source on launch",
+  "source_edit_started_utc": "2026-10-27T05:10:35Z",
+  "source_edit_finished_utc": "2026-10-27T05:10:54Z",
+  "source_edit_elapsed_seconds": 19,
+  "source_edit_timing_precision": "Whole-second tool clock samples; includes source read and patch, excludes documentation/validation",
+  "capture_wall_seconds": 17.937,
+  "capture_start_utc": "2026-10-27T05:10:55.760330Z",
+  "capture_end_utc": "2026-10-27T05:11:13.701197Z",
+  "first_attempt_succeeded": true,
+  "repair_attempts": 0,
+  "source_delta": "main.gd: speed2, 240ms pending hull queue, split blue immediate/red delayed cue, revised label/default path and trace metadata; capture.py default run revised. Delayed mixed-hit text uses a 30px second line to avoid overlapping absorption cue. No other geometry/art/fixture changes.",
+  "stderr_note": "Same certificate-store startup error as baseline, no network access used; capture exit0, no script/render errors.",
+  "trace_marker_note": "Original event markers plus hit1_hull/hit2_hull at first sampled frame >= their delayed HP application times."
+}

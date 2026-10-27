@@ -1,0 +1,114 @@
+--- baseline/main.gd
++++ revised/main.gd
+@@ -2,7 +2,8 @@
+ ## Synthetic presentation playback only. The fixture supplies every outcome.
+ ## Capture advances explicit logical time, never wall-clock animation delta.
+ 
+-const SPEED := 1.0
++const SPEED := 2.0
++const BARRIER_HULL_DELAY_MS := 240.0
+ const IMPACT_FEEDBACK_MS := 580.0
+ const INK := Color("211d18")
+ const GOLD := Color("b98b00")
+@@ -22,6 +23,7 @@
+ var trace_frames: Array[Dictionary] = []
+ var frame_markers: Array[String] = []
+ var all_markers: Array[String] = []
++var pending_hull: Array[Dictionary] = []
+ 
+ 
+ func _ready() -> void:
+@@ -32,7 +34,7 @@
+ 	font.data = FileAccess.get_file_as_bytes("res://../assets/font.ttf")
+ 	ship_texture = ImageTexture.create_from_image(Image.load_from_file("res://../assets/ship.png"))
+ 	monster_texture = ImageTexture.create_from_image(Image.load_from_file("res://../assets/monster.png"))
+-	output_dir = ProjectSettings.globalize_path("res://../evidence/godot/baseline")
++	output_dir = ProjectSettings.globalize_path("res://../evidence/godot/revised")
+ 	for argument in OS.get_cmdline_user_args():
+ 		if argument.begins_with("--output-dir="):
+ 			output_dir = argument.trim_prefix("--output-dir=")
+@@ -64,7 +66,8 @@
+ 		"rendering_device": RenderingServer.get_video_adapter_name(),
+ 		"fixture_sha256": FileAccess.get_sha256(fixture_path),
+ 		"speed": SPEED, "timing_parameter_ms": IMPACT_FEEDBACK_MS,
+-		"run": "baseline", "fps": fixture.fps, "viewport": fixture.viewport,
++		"barrier_hull_delay_ms": BARRIER_HULL_DELAY_MS,
++		"run": "revised", "fps": fixture.fps, "viewport": fixture.viewport,
+ 		"capture_hook": "Deterministic logical stepping and RenderingServer.frame_post_draw viewport PNG readback; normal Windows GPU renderer, no headless flag.",
+ 		"user_data_dir": OS.get_user_data_dir(), "observed_event_markers": all_markers,
+ 		"frames": trace_frames,
+@@ -93,13 +96,15 @@
+ 				_feedback(event, "ship", "Burn applied", ORANGE)
+ 			"ship_hit":
+ 				state.barrier = event.barrier_after
+-				state.ship_hp = event.ship_hp_after
+ 				var hit_text := "Hit %s: " % event.id.trim_prefix("hit")
+ 				if event.absorbed > 0:
+-					hit_text += "%d absorbed" % event.absorbed
+-				if event.hull_damage > 0:
+-					hit_text += (" / " if event.absorbed > 0 else "") + "-%d hull" % event.hull_damage
+-				_feedback(event, "ship", hit_text, BLUE if event.hull_damage == 0 else RED)
++					_feedback(event, "ship", hit_text + "%d absorbed" % event.absorbed, BLUE)
++					var delayed: Dictionary = event.duplicate(true)
++					delayed.at_ms = float(event.at_ms) + BARRIER_HULL_DELAY_MS
++					pending_hull.append(delayed)
++				else:
++					state.ship_hp = event.ship_hp_after
++					_feedback(event, "ship", hit_text + "-%d hull" % event.hull_damage, RED)
+ 			"status_tick":
+ 				state.ship_hp = event.ship_hp_after
+ 				_feedback(event, "ship", "Burn -%d" % event.damage, ORANGE)
+@@ -107,6 +112,13 @@
+ 				state.burn = false
+ 				_feedback(event, "ship", "Burn expired", ORANGE)
+ 		next_event += 1
++	while not pending_hull.is_empty() and float(pending_hull[0].at_ms) <= time_ms + 0.0001:
++		var delayed: Dictionary = pending_hull.pop_front()
++		state.ship_hp = delayed.ship_hp_after
++		frame_markers.append(delayed.id + "_hull")
++		all_markers.append(delayed.id + "_hull")
++		if delayed.hull_damage > 0:
++			_feedback(delayed, "ship", "Hit %s: -%d hull" % [delayed.id.trim_prefix("hit"), delayed.hull_damage], RED, 30.0)
+ 	var movement: Dictionary = fixture.events[0]
+ 	var progress := clampf((time_ms - float(movement.at_ms)) / float(movement.duration_ms), 0.0, 1.0)
+ 	state.ship_x = lerpf(float(movement.from_x), float(movement.to_x), progress)
+@@ -114,8 +126,8 @@
+ 		state.bearing = movement.bearing_after
+ 
+ 
+-func _feedback(event: Dictionary, target: String, label: String, color: Color) -> void:
+-	feedback.append({"event_id": event.id, "at_ms": event.at_ms, "target": target, "text": label, "color": color.to_html()})
++func _feedback(event: Dictionary, target: String, label: String, color: Color, line_offset := 0.0) -> void:
++	feedback.append({"event_id": event.id, "at_ms": event.at_ms, "target": target, "text": label, "color": color.to_html(), "line_offset": line_offset})
+ 
+ 
+ func _visible_feedback() -> Array[Dictionary]:
+@@ -139,7 +151,7 @@
+ func _draw() -> void:
+ 	if state.is_empty():
+ 		return
+-	_text(Vector2(30, 55), "Godot | Baseline", 32)
++	_text(Vector2(30, 55), "Godot | Revised", 32)
+ 	_text(Vector2(30, 128), "Ship hull: %d / %d" % [state.ship_hp, state.ship_max_hp])
+ 	_text(Vector2(560, 128), "Monster: %d / %d" % [state.monster_hp, state.monster_max_hp])
+ 	_bar(Vector2(30, 145), 440, state.ship_hp, state.ship_max_hp, GOLD)
+@@ -158,7 +170,7 @@
+ 	for entry in _visible_feedback():
+ 		var x := float(state.ship_x) - 145.0 if entry.target == "ship" else 650.0
+ 		var rise := (now_ms - float(entry.at_ms)) / IMPACT_FEEDBACK_MS * 12.0
+-		_text(Vector2(x, 265 - rise), entry.text, 24, Color(entry.color))
++		_text(Vector2(x, 265 + float(entry.line_offset) - rise), entry.text, 24, Color(entry.color))
+ 	_text(Vector2(30, 564), "%s | Speed %.1fx | %.2f s" % [fixture.id, SPEED, now_ms / 1000.0], 20)
+ 	_text(Vector2(30, 596), "Synthetic fixture / isolated playback / shared art and font", 18)
+ 
+--- baseline/capture.py
++++ revised/capture.py
+@@ -14,7 +14,7 @@
+ 
+ def main():
+     parser = argparse.ArgumentParser()
+-    parser.add_argument("--run", default="baseline")
++    parser.add_argument("--run", default="revised")
+     args = parser.parse_args()
+     output = SHARED / "evidence/godot" / args.run
+     output.mkdir(parents=True, exist_ok=True)

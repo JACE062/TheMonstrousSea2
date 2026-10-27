@@ -1,0 +1,37 @@
+{
+  "engine": "flutter",
+  "run": "revised-final",
+  "source_frames": 151,
+  "decoded_frames": 151,
+  "video_bytes": 238246,
+  "video_sha256": "e08a39be1834d9b400a34d20326859f6132a2fbdd12e3593bcb18f389b2e1839",
+  "fps": 30.0,
+  "size": [
+    1000,
+    620
+  ],
+  "duration_seconds": 5.03,
+  "encoder": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers",
+  "command": [
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\combat-presentation-2026-10-26\\runtime\\python\\imageio_ffmpeg\\binaries\\ffmpeg-win-x86_64-v7.1.exe",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-framerate",
+    "30",
+    "-i",
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\combat-presentation-2026-10-26\\evidence\\flutter\\revised-final\\frames\\frame_%04d.png",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "18",
+    "-preset",
+    "fast",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "+faststart",
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\combat-presentation-2026-10-26\\evidence\\flutter\\revised-final\\recording.mp4"
+  ]
+}

@@ -1,0 +1,15 @@
+diff --git a/C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/combat-presentation-2026-10-26/evidence/flutter/revised/source/main.dart b/C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/combat-presentation-2026-10-26/evidence/flutter/revised-final/source/main.dart
+index f8d4abf..1452b01 100644
+--- a/C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/combat-presentation-2026-10-26/evidence/flutter/revised/source/main.dart
++++ b/C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/combat-presentation-2026-10-26/evidence/flutter/revised-final/source/main.dart
+@@ -105,7 +105,9 @@ class CombatGame extends FlameGame {
+     while (pendingHull.isNotEmpty && (pendingHull.first['apply_at_ms'] as num) <= timeMs + 0.001) {
+       final e = pendingHull.removeAt(0);
+       shipHp = e['ship_hp_after'];
+-      showImpact('${(e['id'] as String).toUpperCase()}  -${e['hull_damage']} hull', false, red);
++      if ((e['hull_damage'] as num) > 0) {
++        showImpact('${(e['id'] as String).toUpperCase()}  -${e['hull_damage']} hull', false, red);
++      }
+       observed.add({'id': '${e['id']}_hull', 'observed_at_ms': timeMs, 'scheduled_at_ms': e['apply_at_ms']});
+     }
+     final movement = events.first as Map<String, dynamic>;

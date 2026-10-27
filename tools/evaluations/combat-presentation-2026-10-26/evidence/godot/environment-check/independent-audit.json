@@ -1,0 +1,34 @@
+{
+  "independent_audit_passed": true,
+  "engine": "godot",
+  "run": "environment-check",
+  "frames_checked": 151,
+  "unique_rendered_frames": 151,
+  "movement_samples": 9,
+  "fixture_events_verified": [
+    "barrier",
+    "burn",
+    "cannon",
+    "expire",
+    "hit1",
+    "hit1_hull",
+    "hit2",
+    "hit2_hull",
+    "hit3",
+    "hit4",
+    "move",
+    "tick"
+  ],
+  "speed": 2.0,
+  "barrier_hull_delay_ms": 240.0,
+  "last_logical_time_ms": 10000.0,
+  "final_state": {
+    "ship_hp": 82.0,
+    "monster_hp": 42.0,
+    "barrier": 0.0,
+    "burn": false,
+    "bearing": "Short",
+    "ship_x": 420.0
+  },
+  "method": "Every displayed-state sample checked against parent-owned oracle and contiguous real PNGs; animation easing not fixed"
+}

@@ -1,0 +1,12 @@
+# Flutter baseline receipt
+
+- Started 2026-10-27 ~05:07 UTC; baseline native capture completed ~05:13:20 UTC (about six minutes including setup).
+- Flutter 3.47.0, Dart 3.13.0, pinned Flame 1.38.2, Windows release build. Cached dependencies; no downloads or system installation. Standalone project, no production app imports or saves.
+- SDK commands: `flutter create --platforms=windows --project-name=combat_comparison --no-pub flutter`; `flutter pub get --offline`; `flutter analyze lib`; `flutter build windows --release --no-pub`.
+- Initial sandboxed Flutter version call stalled. A second sandboxed pub command was mistakenly launched from repository root and also stalled before output. Both owned execution sessions were explicitly interrupted via their returned handles (10371, 47162); exit1. Subsequent SDK operations used supported escalation. No other Flutter/game processes were terminated.
+- One actual code repair: local `loaded` Completer collided with inherited FlameGame `loaded` Future. Analyzer and first build reported it; renamed `artReady`. First failing build21.0s; successful build51.6s. Additional HUD trace fields took an incremental28.1s build and final confirmation23.8s build. Analyze lib passed after final source.
+- A shell interpolation typo in newly added trace label strings was noticed before final build/capture and corrected; displayed labels were unaffected. One source-freeze command used the wrong cwd; retried with absolute paths, removed only its verified empty nested directory.
+- Run: native Release/combat_comparison.exe `--out=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/tools/evaluations/combat-presentation-2026-10-26/evidence/flutter/baseline`. Native GUI process launched~05:12:51; completed~05:13:20, ~29s. Deterministic offline capture speed is not runtime performance evidence.
+- 301 real1000x620 PNGs,0..10000logicalms,30fps1x. Actual frame0 and144 inspected. Parent independently audited all301frames against oracle and encoded/decoded video.
+- Capture hook: paused actual FlameGame `stepEngine`, GameWidget Canvas effects/art, Flutter ValueListenableBuilder HUD, `endOfFrame` then RepaintBoundary.toImage. Trace flat state plus actual HUD-builder labels/bars; no web/widget-test fallback.
+- Baseline source main.dart SHA256 FFF332B5779A6BEBD88FA871663359A2B7DD14E9D3358409B33EBE8364C7924D. Fixture SHA256972A4D3467742EDAD2E609C11561F2763B2BC85883744F0CB3D55B4D42D66151. Snapshot under baseline/source.

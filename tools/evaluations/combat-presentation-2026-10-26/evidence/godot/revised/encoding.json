@@ -1,0 +1,37 @@
+{
+  "engine": "godot",
+  "run": "revised",
+  "source_frames": 151,
+  "decoded_frames": 151,
+  "video_bytes": 143238,
+  "video_sha256": "bcbe3db892576ff0e6ff5ca2448f71f0946718d808070782ed705c611a691a2f",
+  "fps": 30.0,
+  "size": [
+    1000,
+    620
+  ],
+  "duration_seconds": 5.03,
+  "encoder": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers",
+  "command": [
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\combat-presentation-2026-10-26\\runtime\\python\\imageio_ffmpeg\\binaries\\ffmpeg-win-x86_64-v7.1.exe",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-framerate",
+    "30",
+    "-i",
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\combat-presentation-2026-10-26\\evidence\\godot\\revised\\frames\\frame_%04d.png",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "18",
+    "-preset",
+    "fast",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "+faststart",
+    "C:\\Workspace\\PersonalProjects\\TheMonstrousSeaV2\\tools\\evaluations\\combat-presentation-2026-10-26\\evidence\\godot\\revised\\recording.mp4"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "png_frames": 301,
+  "viewport": [
+    1000,
+    620
+  ],
+  "events_observed": [
+    "move",
+    "cannon",
+    "barrier",
+    "burn",
+    "hit1",
+    "hit2",
+    "hit3",
+    "hit4",
+    "tick",
+    "expire"
+  ],
+  "final": {
+    "ship_hp": 82.0,
+    "monster_hp": 42.0,
+    "barrier": 0.0,
+    "burn": false,
+    "bearing": "Short",
+    "ship_x": 420.0
+  },
+  "renderer": "gl_compatibility",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "fixture_sha256": "972a4d3467742edad2e609c11561f2763b2bc85883744f0cb3d55b4d42d66151",
+  "manual_editor_work": "None",
+  "repair_attempts": 0,
+  "stderr_note": "Godot reports Failed to read the root certificate store on startup; no network API used; native render and capture completed normally. No script/render errors.",
+  "source_snapshot": "source/",
+  "capture_hook_disclosed": "Deterministic logical stepping and RenderingServer.frame_post_draw viewport PNG readback; normal Windows GPU renderer, no headless flag."
+}

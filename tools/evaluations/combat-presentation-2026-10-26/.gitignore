@@ -1,0 +1,11 @@
+runtime/
+profile/
+flutter/.dart_tool/
+flutter/.flutter-plugins*
+flutter/build/
+flutter/windows/flutter/ephemeral/
+godot/.godot/
+evidence/**/frames/
+__pycache__/
+assets/font.ttf
+flutter/assets/font.ttf
