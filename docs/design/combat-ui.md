@@ -8,6 +8,8 @@ This document captures the user's direction, candidate concepts and unresolved d
 
 Discuss the alternatives and agree on a scoped next step before producing further mockups or implementing it. The earlier Compact forecast / Threat panel mockups were not approved as the overall menu design; carousel selections were not design approval. The useful element retained from them is showing accuracy and damage percentages on actions.
 
+On 27 October 2026 the user approved a bounded first implementation: shared event-by-event displayed state and the outcome facts/minimum local feedback needed to explain it, within the current layout. That foundation is now implemented; [PT2-11](../BACKLOG.md#pt2-11--combat-ui-does-not-function-as-a-readable-command-station) owns its status and player replay. This does not approve the broader concepts below or establish a final feedback vocabulary. Flutter/Dart/Flame is retained after the bounded engine comparison; its fixtures remain experimental evidence.
+
 ## Problem and intended experience
 
 The player currently has to read the Chronicle before deciding what to do next because brief flashes and floating damage numbers do not explain a complete turn clearly enough. A turn can contain five or more movement, attack and effect events, but the embedded Chronicle shows only two or three entries while consuming roughly a quarter of the screen's height. The lower controls are consequently crowded: some are too shallow, while others stretch excessively across unused width.
@@ -41,6 +43,10 @@ Replacing the Chronicle with a last-turn text summary would reproduce much of th
 - Does the visible health/status state change at the corresponding impact rather than revealing the entire resolved turn before playback explains it?
 
 These are presentation questions about existing rules. Numeric feedback remains useful; the aim is to make numbers understandable through context, rather than replace them with text narration or make every event a large floating message.
+
+The 27 October status follow-up uses a padded horizontal wrapping row beneath health for existing text badges. The user wants status icons with small corner stack counts considered in a later pass; retain that direction without treating an icon inventory, artwork or exact icon treatment as implemented. Shell and flesh feedback currently retain separate numeric amounts, including the shell amount on a breaking hit.
+
+The user subsequently approved a bounded trial of up to three local feedback labels per combatant, with independent visibility lifetimes and shorter ordinary event beats. This addresses maneuver/charge sequences waiting for each label to disappear. Newest cues sit nearest the actor, with older cues above; compact space may reduce the visible count. This implementation is provisional for player pacing review and does not approve the broader command layout below.
 
 ### Candidate tools, not yet selected
 
@@ -89,7 +95,7 @@ Discuss a hierarchy that separates the intended action, threatened ranges and mo
 Forecasts must respect current mechanics:
 
 - The firing range, range when the monster attacks and final range after recoil can differ.
-- Ram, Harpoon and Evasive Rigging can change the outcome of a helm-only forecast.
+- Ram, Harpoon and Evasive Rigging can change the outcome of a helm-only forecast. Ram closes before impact while retaining its accepted Medium-launch charge bonus; Harpoon hits using its launch range before pulling.
 - Skirmisher resolves its committed helm after its main action and intrinsic movement.
 - Hit-dependent interruption or Pin must not be promised as certain before the attack resolves.
 - Impatient can act through Utility and a weapon before the response, then has a hardpoint-only recovery restriction; helm, belt and Brace remain legal.

@@ -1,0 +1,11 @@
+# Menu feedback — 27 October 2026
+
+The player authorized two small fixes: remove the empty “No primordial blessing” inspection line and resolve the victory-loot full-belt warning overflow. Inspection now reserves blessing text/spacing for actual dedications. The loot header uses a wrapping arrangement with horizontal/vertical spacing; no reward, capacity, stow, jettison or departure rules changed.
+
+The New Lineage modal’s mixed font mode, sparse beige menu backgrounds and awkward save-selection/New Lineage menu are deferred explicitly under [Backlog](../../BACKLOG.md). No modal/title-menu/background redesign, asset generation or save changes were started. All pre-existing working changes remain intact.
+
+Verification: app analysis and 12 targeted trade/inspection/onboarding/settings tests passed, including two added full-belt checks at 600 and 800 pixels with 130% text. The tests retain all carried/pending items, require the entire warning, verify it stays in bounds without overlapping capacity text, and check for layout exceptions. Installed Georgia was loaded for the capture run; these are isolated widget captures of the production screen, not native player playthroughs. All five trade/loot tests also passed in the final default-font run. Documentation and whitespace checks passed. Test sessions disable autosave; player saves and the shared Windows executable were untouched.
+
+Visually checked: [800-pixel warning](../../playtests/2026-10-27/loot-belt-full-fixed-800.png) and [600-pixel wrapped warning](../../playtests/2026-10-27/loot-belt-full-fixed-600.png). Original evidence: [empty blessing line](../../playtests/2026-10-27/inspection-empty-blessing-player.png), [warning overflow](../../playtests/2026-10-27/loot-belt-full-overflow-player.png), and [deferred New Lineage typography](../../playtests/2026-10-27/new-lineage-font-mismatch-player.png).
+
+A 360-pixel/130% initial screen check exposed additional existing overflow in pending/carried item action rows, outside the warning. That separate compact-loot issue is retained in the backlog. An early repeat also attempted Google Font downloads; disabling runtime fonts explicitly made the isolated fixtures hermetic. The passing warning checks and captures do not claim those separate compact rows are fixed.
