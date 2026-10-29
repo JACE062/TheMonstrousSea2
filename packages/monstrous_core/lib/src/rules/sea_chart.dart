@@ -278,7 +278,12 @@ class SeaChart {
               option['nodeType'] as String,
             ),
             difficultyLevel: option['difficultyLevel'] as int,
-            lookoutCall: option['lookoutCall'] as String,
+            // Correct old cached Titan aliases without rerolling the offer or
+            // rewriting ordinary/Nemesis identities or completed voyage logs.
+            lookoutCall: option['nodeType'] == EncounterNodeType.regionTitan.name &&
+                    option['isNemesis'] != true
+                ? _titanLookoutCall
+                : option['lookoutCall'] as String,
             seaConditions: option['seaConditions'] as String? ?? '',
             monsterSpecies: option['monsterSpecies'] == null
                 ? null
@@ -663,6 +668,12 @@ class SeaChart {
     ];
   }
 
+  String get _titanLookoutCall => switch (currentRegionIndex) {
+    0 => 'Great God above... The Kraken rises! Massive suckered arms shattering the churning foam dead ahead!',
+    1 => 'Twin yellow eyes piercing through the phosphor haze! The World Serpent rears its crested head dead ahead!',
+    _ => 'Boiling steam geysers erupting across the caldera! The Ancient Leviathan surfaces dead ahead, blocking all passage!',
+  };
+
   /// Generates 3 navigational course options for the upcoming expedition leg.
   List<CourseOption> generateCourseOptions([
     GameRng? rng,
@@ -691,19 +702,13 @@ class SeaChart {
     }
 
     if (targetLeg >= totalLegs) {
-      final titanCall = switch (currentRegionIndex) {
-        0 => 'Great God above... The Kraken rises! Massive suckered arms shattering the churning foam dead ahead!',
-        1 => 'Twin yellow eyes piercing through the phosphor haze! The Abyssal Wyrm rears its crested head dead ahead!',
-        _ => 'Boiling steam geysers erupting across the caldera! The Leviathan Prime surfaces dead ahead, blocking all passage!',
-      };
-
       final bossDiff = bossRow + 2 + timesCompleted * 4;
       return [
         CourseOption(
           bearing: NavigationalBearing.deadAhead,
           nodeType: EncounterNodeType.regionTitan,
           difficultyLevel: bossDiff,
-          lookoutCall: titanCall,
+          lookoutCall: _titanLookoutCall,
           isIdentified: true,
         ),
       ];

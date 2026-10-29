@@ -305,9 +305,10 @@ class ShipState extends Combatant {
 
   void sortCargo() => cargo.sort();
 
-  /// Resets temporary in-combat stat modifications (Fortify armor boost, Evasion boost, Grapple, Utility buffs/traps)
+  /// Clears combat statuses and temporary stat modifications (Fortify armor boost, Evasion boost, Grapple, Utility buffs/traps)
   /// back to base hull characteristics and refreshes all gun batteries after a battle concludes.
   void resetCombatBoosts() {
+    statusEffects.clear();
     currentDmgReduction = baseDmgReduction;
     currentEvasion = baseEvasion;
     isGrappled = false;

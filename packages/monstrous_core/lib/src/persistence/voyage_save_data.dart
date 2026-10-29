@@ -239,6 +239,10 @@ class VoyageSaveData {
     session.activeBoon = restoredBoon?.isBoon == true ? restoredBoon : null;
     session.activeQuirk = restoredQuirk?.isQuirk == true ? restoredQuirk : null;
     ship.captainCargoBonusApplied = activeBoonId == BloodlineTraitId.quartermaster;
+    // Supported checkpoints are between battles. Serialized ships omit combat
+    // statuses; also sanitize older in-memory snapshots without healing or
+    // changing the saved build.
+    if (phase != SessionPhase.battle) ship.statusEffects.clear();
     session.ship = ship;
     session.seaChart.timesCompleted = timesCompleted;
     session.seaChart.currentRow = currentRow;
