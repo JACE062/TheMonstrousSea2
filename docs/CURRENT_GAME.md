@@ -78,6 +78,8 @@ Long-range Naval Cannon shots also lose 15 percentage points of accuracy. Culver
 
 Source for cooldowns, scaling, and trap timing: [GameSession utility handler](../packages/monstrous_core/lib/src/session/game_session.dart). Utility activation can also trigger its dedicated Ocean Power blessing.
 
+**Known gap, reported 29 October 2026:** Evasive Rigging currently doubles base evasion at every Mk, and its fixed descriptions do not change after tempering. Its utility path does not apply the mark multiplier. Meaningful Mk II/III progression and matching previews/descriptions require an agreed fix under [PT2-30](BACKLOG.md#pt2-30--clipper-utility-tempering-has-no-visible-or-implemented-mk-progression); no new progression values are approved yet.
+
 ## Combat resolution and monster behavior
 
 Titan approach calls use The Kraken, The World Serpent and The Ancient Leviathan, matching their battle identities. Restored pending Titan offers receive the same correction; ordinary generated names, Nemesis identities and completed voyage history retain their own text.

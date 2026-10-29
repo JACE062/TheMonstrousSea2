@@ -86,6 +86,8 @@ The alternatives considered before selection were:
 
 The user selected the second arrangement. The implementation uses a static compass symbol and labeled helm choices, rather than generating a wheel asset. Both weapon cards remain side by side; utility sits below and the belt is pinned in the bottom footer. The command area scrolls when enlarged text or limited height cannot fit all controls. Review captures cover all five hulls, long names, partial blessings, cooldowns, an expanded belt and 115–130% text; they are implementation evidence, not final layout approval.
 
+Further player review on 29 October accepts the larger helm commands as an improvement but still finds their appearance drab. A ship's wheel/captain's helm motif is the next visual direction to explore. The functional buttons are committed as a checkpoint; their appearance remains provisional. Lookout and bottom consumables receive positive feedback. Recording this direction does not start art generation or a new layout implementation.
+
 Both should expose accuracy and damage effectiveness where meaningful. Clarify what the damage percentage measures, rather than imply that a range multiplier is final damage against the target. Accuracy and monster dodge are separate existing checks; labels must not present accuracy as the final chance to deal damage. Use `%`, not `pp`.
 
 A wheel may be decorative or organize farther/same/closer controls around its left/top/right positions. Keep clear labels and selection feedback; do not require dragging, spinning or interpreting wheel rotation. Evaluate whether placement communicates range rather than suggesting a separate directional steering system.
