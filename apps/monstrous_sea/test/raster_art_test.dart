@@ -324,8 +324,20 @@ void main() {
         await saveProof(proofPath.replaceFirst('.png', '-compact.png'));
       }
 
-      // The art must also fit after the chronicle changes the dock height.
+      // Opening and closing the modal must preserve the arena geometry.
+      final beforeModal = game.children
+          .whereType<PositionComponent>()
+          .where(
+            (component) =>
+                component.anchor == Anchor.center && component.width > 0,
+          )
+          .map(
+            (component) => (component.position.clone(), component.size.clone()),
+          )
+          .toList();
       await tester.tap(find.byTooltip('Chronicle Log'));
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.tap(find.byKey(const ValueKey('chronicle-close')));
       game.resumeEngine();
       await tester.pump(const Duration(milliseconds: 100));
       await tester.pump(const Duration(milliseconds: 100));
@@ -333,11 +345,23 @@ void main() {
       await tester.pump();
       expect(tester.takeException(), isNull);
       await expectVisibleArt();
+      final afterModal = game.children
+          .whereType<PositionComponent>()
+          .where(
+            (component) =>
+                component.anchor == Anchor.center && component.width > 0,
+          )
+          .map(
+            (component) => (component.position.clone(), component.size.clone()),
+          )
+          .toList();
+      expect(afterModal, beforeModal);
       if (proofPath.isNotEmpty) {
         await saveProof(proofPath.replaceFirst('.png', '-compact-art.png'));
       }
 
       if (encounter.shipClass == ShipClass.freighter) {
+        await tester.ensureVisible(find.textContaining('Chain-Shot Broadside'));
         await tester.tap(find.textContaining('Chain-Shot Broadside'));
         for (
           var frame = 0;

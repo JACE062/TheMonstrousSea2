@@ -101,6 +101,11 @@ class HardpointSlot {
   final HardpointType type;
   final bool isSignature;
 
+  /// Current player-facing label, without rewriting names stored in older saves.
+  String get displayName => id == 'utility_drill'
+      ? UtilityHardpointId.gunneryDrill.displayName
+      : name;
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,
@@ -194,7 +199,7 @@ class FlagshipBlueprint {
         ),
         HardpointSlot(
           id: 'utility_drill',
-          name: 'Gunnery Drill',
+          name: 'Gun-Deck Bracing',
           type: HardpointType.utility,
         ),
       ],

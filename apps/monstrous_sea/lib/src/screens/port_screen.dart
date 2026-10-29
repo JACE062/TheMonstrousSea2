@@ -62,7 +62,7 @@ class _PortScreenState extends State<PortScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      'Unlock ancestral blueprints with materials recovered at sea. These permanent refits are separate from the hardpoint marks earned during a voyage.',
+                      'Unlock ancestral blueprints with materials recovered at sea. These permanent refits are separate from the fitting marks earned during a voyage.',
                       style: InkTheme.body.copyWith(fontSize: 14),
                     ),
                     const SizedBox(height: 12),
@@ -162,7 +162,7 @@ class _PortScreenState extends State<PortScreen> {
                                   const SizedBox(height: 8),
                                   for (final slot in bp.hardpoints)
                                     Text(
-                                      '${slot.type.displayName}: ${slot.name}',
+                                      '${slot.type.displayName}: ${slot.displayName}',
                                       style: InkTheme.body.copyWith(
                                         fontSize: 13,
                                       ),
@@ -1128,7 +1128,7 @@ class _PortScreenState extends State<PortScreen> {
                               '${ship.cargo.length} / ${ship.maxCargo} Slots',
                             ),
                             _vesselStat(
-                              'HARDPOINTS',
+                              'SHIP FITTINGS',
                               '3 Mounts (${ship.markLabelForHardpoint(HardpointType.broadside)}/${ship.markLabelForHardpoint(HardpointType.signature)}/${ship.markLabelForHardpoint(HardpointType.utility)})',
                             ),
                             _vesselStat(
@@ -1143,7 +1143,7 @@ class _PortScreenState extends State<PortScreen> {
 
                 const SizedBox(height: 18),
 
-                // Inspect fixed hardpoints and manage the tactical belt
+                // Inspect fixed fittings and manage the tactical belt
                 ArmoryView(controller: controller),
 
                 const SizedBox(height: 18),

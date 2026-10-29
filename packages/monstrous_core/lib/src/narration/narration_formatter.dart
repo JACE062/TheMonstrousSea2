@@ -183,7 +183,7 @@ class NarrationFormatter {
       BlueprintArmamentUpgraded(:final blueprintId, :final newTier) =>
         'ARMAMENT UPGRADED: ${blueprintId.name.toUpperCase()} signature weapon upgraded to Tier $newTier!',
       AuxiliaryExpansionUnlocked() =>
-        'DRYDOCK EXPANSION: Unlocked Reserve Auxiliary Hardpoint!',
+        'DRYDOCK EXPANSION: Unlocked Reserve Auxiliary Fitting!',
       EldritchRelicUnlocked(:final relicName) =>
         'ELDRITCH RELIC FORGED: $relicName unlocked at the Covenant Altar!',
       HarborMonumentUpgraded(:final monumentId, :final newRank) =>
@@ -232,7 +232,7 @@ class NarrationFormatter {
           shipName: shipName,
         ),
       HardpointTempered(:final slot, :final newMark, :final goldCost) =>
-        'Tempered ${slot.displayName} hardpoint to Mk ${newMark == 2 ? 'II' : 'III'} for ${goldCost}g!',
+        'Tempered ${slot.displayName} fitting to Mk ${newMark == 2 ? 'II' : 'III'} for ${goldCost}g!',
     };
   }
 }

@@ -192,8 +192,8 @@ enum ShipWeaponType {
 /// Blueprint-specific Utility Hardpoint mechanisms (2-turn cooldown).
 enum UtilityHardpointId {
   gunneryDrill(
-    'Gunnery Drill',
-    'Brace for -20% incoming damage this round and grant +15% Accuracy & +20% Damage to your next volley.',
+    'Gun-Deck Bracing',
+    'Set the built-in hull and gun-deck braces for -20% incoming damage this round and a steadier next volley (+15% Accuracy & +20% Damage).',
     cooldownTurns: 2,
   ),
   fortifyPlates(
@@ -275,7 +275,7 @@ enum ConsumableType {
   ),
   alchemicalPitch(
     'Alchemical Pitch Flask',
-    'Coats the next hardpoint volley in volatile naptha (+25% Fire damage and inflicts Burn).',
+    'Coats the next weapon volley in volatile naptha (+25% Fire damage and inflicts Burn).',
     DamageType.fire,
   );
 

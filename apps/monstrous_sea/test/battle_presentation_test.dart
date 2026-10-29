@@ -1061,8 +1061,6 @@ void main() {
         );
         final key = GlobalKey();
         await _mount(tester, controller, game, scale: 1.3, captureKey: key);
-        await tester.tap(find.byTooltip('Chronicle Log'));
-        await tester.pump();
         controller.setIsPlayingEvents(true);
         controller.ship!
           ..currentHp = 96

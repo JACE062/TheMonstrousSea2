@@ -6,6 +6,8 @@ Status: consolidated story canon, including the author's clarification of hope, 
 
 The player inherits one ancestral flagship bound to a family line. Different blueprints reshape its naval role; they do not represent unrelated ships purchased and discarded between lives. Each voyage advances the family's understanding and legacy even when its captain dies.
 
+The blueprint's weapons and utility equipment are its **Ship Fittings**. Standard's **Gun-Deck Bracing** is built into the hull and gun deck; the crew sets the braces to endure an impact and steady the next volley. Its identity comes from the vessel's construction rather than a crew-only training technique.
+
 While the curse endures, the ship's return is guaranteed. Its captain and crew are not protected. No chosen captain has returned alive from their fateful voyage; when the vessel washes back into harbor empty, another heir receives the call to sea. The bloodline's obligation continues until the curse is broken; ordinary succession has no narrative “abandon the hunt” escape.
 
 ## The ancestor's bargain
@@ -63,7 +65,7 @@ Shrines offer four ancient ocean powers whose tactical identities should remain 
 | Brinemother | Caustic brine, rust, dissolved wrecks and shell-eating enzymes. | Carapace dissolution and global vulnerability. |
 | Earthshaker Titan | Sunken stone, seismic pressure, reefs and immense tidal impact. | Heavy impact, interrupted windups and protective basalt. |
 
-Blessings are dedications on the current voyage. A hardpoint cannot casually exchange its chosen warden after dedication. Numerical rules and tiers are owned by [the current blessing catalog](CURRENT_GAME.md#blessing-catalog).
+Blessings are dedications on the current voyage. A fitting cannot casually exchange its chosen warden after dedication. Numerical rules and tiers are owned by [the current blessing catalog](CURRENT_GAME.md#blessing-catalog).
 
 ## The Nemesis and ancestral memory
 

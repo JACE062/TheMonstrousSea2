@@ -25,7 +25,7 @@ abstract class CombatTrait {
       '';
 }
 
-/// Ironclad armor plating & Gunnery Drill brace: passive flat damage reduction, stackable fortify action, and 20% drill brace.
+/// Ironclad armor plating & Gun-Deck Bracing: passive flat damage reduction, stackable fortify action, and 20% bracing reduction.
 class FortifyTrait extends CombatTrait {
   const FortifyTrait();
 

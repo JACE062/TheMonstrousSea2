@@ -103,7 +103,7 @@ class StrongholdScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   ExpansionTile(
                     title: Text(
-                      'HARDPOINT & BELT INSPECTION',
+                      'SHIP FITTINGS & BELT INSPECTION',
                       style: InkTheme.statLabel,
                     ),
                     children: [ArmoryView(controller: controller)],

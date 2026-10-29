@@ -7,7 +7,7 @@ import 'ink_button.dart';
 import 'parchment_card.dart';
 import 'weapon_stats_view.dart';
 
-/// Inspection of the flagship's fixed hardpoints and single-use tactical belt.
+/// Inspection of the flagship's fixed fittings and single-use tactical belt.
 /// Voyage marks, primordial dedications and ancestral refits remain distinct.
 class ArmoryView extends StatelessWidget {
   const ArmoryView({super.key, required this.controller});
@@ -23,7 +23,7 @@ class ArmoryView extends StatelessWidget {
         '2-turn cooldown. Launches a drifting tether-trap one band ahead. It drifts closer each round, then detonates for ${((16 + 5 * (ship.level - 1)) * mult).round()} Slicing damage and pins the beast for one turn.',
       BlueprintId.bombardier => '2-turn cooldown. Illuminates the beast for two turns: clears obscurity, suppresses evasion, grants +15% accuracy and increases Blast damage taken by 25%.',
       BlueprintId.standard =>
-        '2-turn cooldown. Reduces incoming damage by ${(20 * mult).round()}% this round and grants the next volley +15% accuracy and +${(20 * mult).round()}% damage.',
+        '2-turn cooldown. Set the built-in hull and gun-deck braces to reduce incoming damage by ${(20 * mult).round()}% this round and steady the next volley for +15% accuracy and +${(20 * mult).round()}% damage.',
     };
   }
 
@@ -52,12 +52,12 @@ class ArmoryView extends StatelessWidget {
             const SizedBox(height: 8),
           ],
           Text(
-            'HARDPOINTS & TACTICAL BELT',
+            'SHIP FITTINGS & TACTICAL BELT',
             style: InkTheme.titleMedium.copyWith(fontSize: 22),
           ),
           const SizedBox(height: 6),
           Text(
-            'Three fixed hardpoints. Inspect their voyage marks, blessings and ancestral refits here.',
+            'Three fixed fittings. Inspect their voyage marks, blessings and ancestral refits here.',
             style: InkTheme.body.copyWith(fontSize: 14),
           ),
           const SizedBox(height: 14),
@@ -92,7 +92,7 @@ class ArmoryView extends StatelessWidget {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        weapon?.name ?? slot.name,
+                        weapon?.name ?? slot.displayName,
                         style: InkTheme.titleMedium.copyWith(
                           fontSize: 20,
                           color: InkTheme.inkPrimary,

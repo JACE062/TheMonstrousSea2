@@ -4,21 +4,34 @@ import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import 'ink_button.dart';
 
+/// Transient reading position retained by a Chronicle host between openings.
+class CombatLogScrollState {
+  double offset = 0;
+  bool followingLatest = true;
+}
+
 /// Scrollable maritime combat log drawer displaying the chronicle of battle
 /// with clear visual separation: ship actions on the left, beast actions on the right,
 /// and ambient events centered.
 class CombatLogView extends StatefulWidget {
-  const CombatLogView({super.key, required this.entries});
+  const CombatLogView({
+    super.key,
+    required this.entries,
+    this.scrollState,
+    this.showHeader = true,
+  });
 
   /// Accepts either [List<CombatLogEntry>] or [List<String>] for maximum versatility.
   final List<dynamic> entries;
+  final CombatLogScrollState? scrollState;
+  final bool showHeader;
 
   @override
   State<CombatLogView> createState() => _CombatLogViewState();
 }
 
 class _CombatLogViewState extends State<CombatLogView> {
-  final _scrollController = ScrollController();
+  late final ScrollController _scrollController;
   bool _followingLatest = true;
   bool _userScrolling = false;
   bool _scrollScheduled = false;
@@ -28,6 +41,11 @@ class _CombatLogViewState extends State<CombatLogView> {
   @override
   void initState() {
     super.initState();
+    _followingLatest = widget.scrollState?.followingLatest ?? true;
+    _scrollController = ScrollController(
+      initialScrollOffset: widget.scrollState?.offset ?? 0,
+      keepScrollOffset: widget.scrollState == null,
+    )..addListener(_rememberPosition);
     _entryCount = widget.entries.length;
     _scheduleLatest();
   }
@@ -45,8 +63,18 @@ class _CombatLogViewState extends State<CombatLogView> {
 
   @override
   void dispose() {
+    _rememberPosition();
     _scrollController.dispose();
     super.dispose();
+  }
+
+  void _rememberPosition() {
+    final state = widget.scrollState;
+    if (state == null) return;
+    state.followingLatest = _followingLatest;
+    if (_scrollController.hasClients) {
+      state.offset = _scrollController.offset;
+    }
   }
 
   void _scheduleLatest() {
@@ -92,6 +120,7 @@ class _CombatLogViewState extends State<CombatLogView> {
         _userScrolling = false;
         if (_followingLatest) _scheduleLatest();
       }
+      _rememberPosition();
     }
     return false;
   }
@@ -111,7 +140,7 @@ class _CombatLogViewState extends State<CombatLogView> {
           children: [
             // Header legend differentiating the sides
             // On short windows the latest entry needs the available reading room.
-            if (bounds.maxHeight >= 60) ...[
+            if (widget.showHeader && bounds.maxHeight >= 60) ...[
               Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: LayoutBuilder(
@@ -243,6 +272,7 @@ class _CombatLogViewState extends State<CombatLogView> {
                         compact: true,
                         onPressed: () {
                           setState(() => _followingLatest = true);
+                          _rememberPosition();
                           _scheduleLatest();
                         },
                       ),

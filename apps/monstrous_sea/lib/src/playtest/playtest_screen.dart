@@ -327,7 +327,7 @@ class _PlaytestScreenState extends State<PlaytestScreen> {
                   ]),
                   const SizedBox(height: 24),
                   Text(
-                    'Hardpoint tempers and blessings are independent. Ancestral signature strength '
+                    'Fitting tempers and blessings are independent. Ancestral signature strength '
                     'is separate from the voyage’s Mk and blessing tiers.',
                     style: InkTheme.body,
                   ),

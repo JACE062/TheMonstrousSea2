@@ -95,7 +95,7 @@ void main() {
         expect(find.textContaining('Equip deck weapons'), findsNothing);
         expect(find.textContaining('Temper ('), findsNothing);
         expect(
-          find.textContaining('HARDPOINTS & TACTICAL BELT'),
+          find.textContaining('SHIP FITTINGS & TACTICAL BELT'),
           findsOneWidget,
         );
       },

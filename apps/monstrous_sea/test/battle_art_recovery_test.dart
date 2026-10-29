@@ -55,10 +55,13 @@ GameController combat({
     rng: SeededGameRng(8),
   )..currentIntent = MonsterIntent.fromId(MonsterIntentId.sharkBreachingLunge);
   controller.clearLog();
-  controller.structuredCombatLog.add(CombatLogEntry(
-    message: 'Encountered ${controller.currentMonster!.name} at Medium range.',
-    actor: CombatLogActor.ambient,
-  ));
+  controller.structuredCombatLog.add(
+    CombatLogEntry(
+      message:
+          'Encountered ${controller.currentMonster!.name} at Medium range.',
+      actor: CombatLogActor.ambient,
+    ),
+  );
   return controller;
 }
 
@@ -127,7 +130,9 @@ void main() {
         );
       await loader.load();
       final labels = FontLoader('Arial')
-        ..addFont(File(_reviewFontPath).readAsBytes().then(ByteData.sublistView));
+        ..addFont(
+          File(_reviewFontPath).readAsBytes().then(ByteData.sublistView),
+        );
       await labels.load();
       final icons = FontLoader('MaterialIcons')
         ..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf'));
@@ -201,6 +206,7 @@ void main() {
           expect(find.text('RETRY ART'), findsOneWidget);
           expect(find.byType(ErrorWidget), findsNothing);
           final round = controller.session.battleRound;
+          await tester.ensureVisible(find.text('Naval Cannon Battery'));
           await tester.tap(find.text('Naval Cannon Battery'));
           for (var tick = 0; tick < 100 && controller.isPlayingEvents; tick++) {
             await tester.pump(const Duration(milliseconds: 200));
@@ -310,52 +316,110 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('battle entry, action playback and reopening respect the Chronicle', (tester) async {
-    tester.view.physicalSize = const Size(1280, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    final controller = combat();
-    addTearDown(controller.dispose);
-    controller.structuredCombatLog.insertAll(0, List.generate(120, (i) => CombatLogEntry(
-      message: 'Earlier encounter action $i', actor: CombatLogActor.ship,
-    )));
-    final game = MonstrousSeaBattleGame(ship: controller.ship!, monster: controller.currentMonster!);
-    final captureKey = GlobalKey();
-    await mountCold(tester, controller, game, scale: 1.3, captureKey: captureKey);
-    game.pauseEngine();
-    await tester.pumpAndSettle();
-    final scrollable = find.descendant(of: find.byType(CombatLogView), matching: find.byType(Scrollable));
-    var position = tester.state<ScrollableState>(scrollable).position;
-    expect(position.extentAfter, 0, reason: 'Entry should show the intent before any action');
-    await tester.drag(scrollable, const Offset(0, 100));
-    await tester.pumpAndSettle();
-    final readingOffset = position.pixels;
-    final count = controller.structuredCombatLog.length;
-    game.resumeEngine();
-    await tester.tap(find.text('Naval Cannon Battery'));
-    for (var i = 0; i < 30; i++) {
+  testWidgets(
+    'battle entry, action playback and reopening respect the Chronicle',
+    (tester) async {
+      tester.view.physicalSize = const Size(1280, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final controller = combat();
+      addTearDown(controller.dispose);
+      controller.structuredCombatLog.insertAll(
+        0,
+        List.generate(
+          120,
+          (i) => CombatLogEntry(
+            message: 'Earlier encounter action $i',
+            actor: CombatLogActor.ship,
+          ),
+        ),
+      );
+      final game = MonstrousSeaBattleGame(
+        ship: controller.ship!,
+        monster: controller.currentMonster!,
+      );
+      final captureKey = GlobalKey();
+      await mountCold(
+        tester,
+        controller,
+        game,
+        scale: 1.3,
+        captureKey: captureKey,
+      );
+      game.pauseEngine();
+      await tester.pumpAndSettle();
+      expect(find.byType(CombatLogView), findsNothing);
+      await tester.tap(find.byTooltip('Chronicle Log'));
+      await tester.pumpAndSettle();
+      final scrollable = find.descendant(
+        of: find.byType(CombatLogView),
+        matching: find.byType(Scrollable),
+      );
+      var position = tester.state<ScrollableState>(scrollable).position;
+      expect(
+        position.extentAfter,
+        0,
+        reason: 'Entry should show the intent before any action',
+      );
+      await tester.drag(scrollable, const Offset(0, 100));
+      await tester.pumpAndSettle();
+      final readingOffset = position.pixels;
+      final count = controller.structuredCombatLog.length;
+      await tester.tap(find.byKey(const ValueKey('chronicle-close')));
+      await tester.pumpAndSettle();
+      game.resumeEngine();
+      await tester.tap(find.text('Naval Cannon Battery'));
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(controller.isPlayingEvents, isTrue);
+      await tester.tap(find.byTooltip('Chronicle Log'));
       await tester.pump(const Duration(milliseconds: 200));
-    }
-    game.pauseEngine();
-    await tester.pumpAndSettle();
-    expect(controller.structuredCombatLog.length, greaterThan(count));
-    expect(position.pixels, closeTo(readingOffset, 0.01));
-    expect(find.text('LATEST MESSAGES'), findsOneWidget);
-    if (_reviewFontPath.isNotEmpty) {
-      await captureReview(tester, captureKey, 'chronicle-history');
-    }
-    await tester.tap(find.byTooltip('Chronicle Log'));
-    await tester.pump();
-    expect(find.byType(CombatLogView), findsNothing);
-    await tester.tap(find.byTooltip('Chronicle Log'));
-    await tester.pumpAndSettle();
-    position = tester.state<ScrollableState>(scrollable).position;
-    expect(position.extentAfter, 0);
-    if (_reviewFontPath.isNotEmpty) {
-      await captureReview(tester, captureKey, 'chronicle-latest');
-    }
-    expect(tester.takeException(), isNull);
-    await tester.pumpWidget(const SizedBox.shrink());
-  });
+      expect(find.byType(CombatLogView), findsOneWidget);
+      expect(
+        controller.isPlayingEvents,
+        isTrue,
+        reason: 'Opening the Chronicle must leave event playback running',
+      );
+      for (var i = 0; i < 30; i++) {
+        await tester.pump(const Duration(milliseconds: 200));
+      }
+      game.pauseEngine();
+      await tester.pumpAndSettle();
+      position = tester.state<ScrollableState>(scrollable).position;
+      expect(controller.isPlayingEvents, isFalse);
+      expect(controller.structuredCombatLog.length, greaterThan(count));
+      expect(position.pixels, closeTo(readingOffset, 0.01));
+      expect(find.text('LATEST MESSAGES'), findsOneWidget);
+      if (_reviewFontPath.isNotEmpty) {
+        await captureReview(tester, captureKey, 'chronicle-history');
+      }
+      final completedCount = controller.structuredCombatLog.length;
+      // A pointer over an underlying action belongs to the modal, even after
+      // playback unlocks the dock beneath it.
+      await tester.tapAt(tester.getCenter(find.text('Naval Cannon Battery')));
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(controller.isPlayingEvents, isFalse);
+      expect(controller.structuredCombatLog.length, completedCount);
+      await tester.tap(find.byKey(const ValueKey('chronicle-close')));
+      await tester.pumpAndSettle();
+      expect(find.byType(CombatLogView), findsNothing);
+      final priorFocus = FocusManager.instance.primaryFocus;
+      await tester.tap(find.byTooltip('Chronicle Log'));
+      await tester.pumpAndSettle();
+      position = tester.state<ScrollableState>(scrollable).position;
+      expect(position.pixels, closeTo(readingOffset, 0.01));
+      await tester.tap(find.text('LATEST MESSAGES'));
+      await tester.pumpAndSettle();
+      expect(position.extentAfter, 0);
+      if (_reviewFontPath.isNotEmpty) {
+        await captureReview(tester, captureKey, 'chronicle-latest');
+      }
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      expect(find.byType(CombatLogView), findsNothing);
+      expect(FocusManager.instance.primaryFocus, same(priorFocus));
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox.shrink());
+    },
+  );
 }

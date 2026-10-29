@@ -73,6 +73,7 @@ class MonstrousSeaBattleGame extends FlameGame {
   late _MonsterBattleComponent _monsterVisual;
   _InkCloudOverlayComponent? _inkOverlay;
   bool _combatantsReady = false;
+  double _arenaRightInset = 0;
   double _arenaTopInset = 140;
   double _arenaBottomInset = 160;
 
@@ -224,10 +225,11 @@ class MonstrousSeaBattleGame extends FlameGame {
     final centreY = _arenaTopInset + feedbackRoom + artHeight / 2;
 
     // Anchor combatants symmetrically around center with clamped spread
-    final centerX = size.x / 2;
+    final arenaWidth = max(160.0, size.x - _arenaRightInset);
+    final centerX = arenaWidth / 2;
     const maxHalfSpread = 320.0;
     final halfSpread = min(
-      size.x * 0.25,
+      arenaWidth * 0.25,
       maxHalfSpread,
     ).clamp(110.0, maxHalfSpread);
     _shipVisual.position = Vector2(centerX - halfSpread, centreY);
@@ -241,7 +243,7 @@ class MonstrousSeaBattleGame extends FlameGame {
         : 1.25;
     // Sensible ship sizing capped at 220px and arenaHeight to prevent vertical overflow
     final maxShipWidth = min(
-      size.x * 0.32,
+      arenaWidth * 0.32,
       min(220.0, artHeight * 0.85 * shipAspect),
     );
     final shipWidth = max(40.0, maxShipWidth);
@@ -256,7 +258,7 @@ class MonstrousSeaBattleGame extends FlameGame {
         : 1.0;
     // Sensible monster sizing capped at 200px (regular) / 280px (boss) and arenaHeight
     final maxMonsterWidth = min(
-      size.x * (isBoss ? 0.38 : 0.28),
+      arenaWidth * (isBoss ? 0.38 : 0.28),
       min(
         isBoss ? 280.0 : 200.0,
         artHeight * (isBoss ? 0.92 : 0.68) * monsterAspect,
@@ -280,7 +282,7 @@ class MonstrousSeaBattleGame extends FlameGame {
         label.measure(
           feedbackTextScale,
           feedbackFontFamily,
-          min(300, size.x * 0.43) - 14,
+          min(300, (size.x - _arenaRightInset) * 0.43) - 14,
         );
       }
       final top = _arenaTopInset + 4;
@@ -297,7 +299,10 @@ class MonstrousSeaBattleGame extends FlameGame {
         label.position.setValues(
           visual.position.x.clamp(
             label.width / 2 + 4,
-            max(label.width / 2 + 4, size.x - label.width / 2 - 4),
+            max(
+              label.width / 2 + 4,
+              size.x - _arenaRightInset - label.width / 2 - 4,
+            ),
           ),
           y,
         );
@@ -307,8 +312,17 @@ class MonstrousSeaBattleGame extends FlameGame {
   }
 
   /// Keep complete sprites inside the space left by the current HUD and dock.
-  void setArenaInsets({required double top, required double bottom}) {
-    if (top == _arenaTopInset && bottom == _arenaBottomInset) return;
+  void setArenaInsets({
+    required double top,
+    required double bottom,
+    double right = 0,
+  }) {
+    if (top == _arenaTopInset &&
+        bottom == _arenaBottomInset &&
+        right == _arenaRightInset) {
+      return;
+    }
+    _arenaRightInset = right;
     _arenaTopInset = top;
     _arenaBottomInset = bottom;
     if (_combatantsReady) _layoutCombatants();
@@ -755,7 +769,9 @@ class MonstrousSeaBattleGame extends FlameGame {
 
   /// Bounded local history lets new consequences arrive before older cues fade.
   void _showFeedback(_FeedbackComponent component) {
-    final side = component.position.x < size.x / 2
+    final side =
+        (component.position.x - _shipVisual.position.x).abs() <=
+            (component.position.x - _monsterVisual.position.x).abs()
         ? CombatSide.ship
         : CombatSide.monster;
     final labels = _feedback.putIfAbsent(side, () => []);

@@ -264,7 +264,7 @@ class GameSession {
       return 'Superstitious: an ill omen forbids this power.';
     }
     if (ship == null || !canBlessHardpoint(ship!, power, slot)) {
-      return 'This hardpoint is dedicated to another power or already sovereign.';
+      return 'This fitting is dedicated to another power or already sovereign.';
     }
     return null;
   }
@@ -684,7 +684,7 @@ class GameSession {
   List<GameEvent> _handleUnlockAuxiliaryExpansion() {
     _requireHomePort();
     if (!profile.canUnlockAuxiliaryExpansion()) {
-      throw StateError('Cannot unlock Reserve Auxiliary Hardpoint expansion');
+      throw StateError('Cannot unlock Reserve Auxiliary Fitting expansion');
     }
     profile.unlockAuxiliaryExpansion();
     if (ship != null) {
@@ -1291,7 +1291,7 @@ class GameSession {
       throw StateError('Cannot fire weapons outside of battle');
     }
     if (isImpatientRecovering) {
-      throw StateError('Impatient: hardpoints must recover this turn.');
+      throw StateError('Impatient: fittings must recover this turn.');
     }
     if (!ship!.equippedWeapons.any(
       (weapon) => weapon.isReady &&
@@ -1322,7 +1322,7 @@ class GameSession {
       damageMultiplier *= 1.20;
     }
 
-    // Consume Gunnery Drill utility buff (+15% Accuracy, +20% * markMult Damage)
+    // Consume Gun-Deck Bracing utility buff (+15% Accuracy, +20% * markMult Damage)
     if (ship!.gunneryDrillBuffActive) {
       ship!.gunneryDrillBuffActive = false;
       final utilMult = ship!.hardpointMarkMultiplier(HardpointType.utility);
@@ -1330,7 +1330,7 @@ class GameSession {
       accuracyBoon += 15;
       damageMultiplier *= (1.0 + 0.20 * utilMult);
       events.add(NarrationEvent(
-        'Gunnery Drill volley: +15% Accuracy and +$drillBonusPct% Damage!',
+        'Gun-Deck Bracing volley: +15% Accuracy and +$drillBonusPct% Damage!',
       ));
     }
 
@@ -1758,7 +1758,7 @@ class GameSession {
     }
     if (ship!.utilityCooldown > 0) {
       throw StateError(
-          'Utility hardpoint is on cooldown (${ship!.utilityCooldown}T remaining)');
+          'Utility fitting is on cooldown (${ship!.utilityCooldown}T remaining)');
     }
     final events = <GameEvent>[];
 
@@ -1776,7 +1776,7 @@ class GameSession {
         ship!.gunneryDrillBuffActive = true;
         final dmgBonusPct = (20 * markMult).round();
         events.add(NarrationEvent(
-          'Gunnery Drill: ${ship!.name}\'s crew braces behind the gunwales (-20% incoming damage this round) and sights guns (+15% Accuracy & +$dmgBonusPct% Damage on next volley)!',
+          'Gun-Deck Bracing: ${ship!.name}\'s crew sets the hull and gun-deck braces to take the impact (-20% incoming damage this round) and steady the guns (+15% Accuracy & +$dmgBonusPct% Damage on next volley)!',
         ));
       case UtilityHardpointId.fortifyPlates:
         final msg = const FortifyTrait().executeSpecialAction(
@@ -1863,7 +1863,7 @@ class GameSession {
       isImpatientCombinationPending = true;
       events.add(
         const NarrationEvent(
-          'Impatient: fire a ready weapon now; hardpoints recover next turn.',
+          'Impatient: fire a ready weapon now; fittings recover next turn.',
         ),
       );
     } else {
@@ -2378,7 +2378,7 @@ class GameSession {
       ];
     }
     return <GameEvent>[
-      NarrationEvent('Cannot equip ${item.name}: no open deck hardpoints available.'),
+      NarrationEvent('Cannot equip ${item.name}: no open deck fittings available.'),
     ];
   }
 
@@ -2545,25 +2545,25 @@ class GameSession {
   List<GameEvent> _handleTemperHardpoint(HardpointType slot) {
     if (ship == null) throw StateError('No ship available');
     if (phase != SessionPhase.respiteIsland && phase != SessionPhase.stronghold) {
-      throw StateError('Hardpoint tempering is only available at a voyage Haven or stronghold');
+      throw StateError('Fitting tempering is only available at a voyage Haven or stronghold');
     }
     if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
       return const <GameEvent>[
-        NarrationEvent('No master armourer dwells on this secluded atoll to temper your hardpoints.'),
+        NarrationEvent('No master armourer dwells on this secluded atoll to temper your fittings.'),
       ];
     }
     final canonical = slot.canonical;
     final currentMark = ship!.markForHardpoint(canonical);
     if (currentMark >= 3) {
       return <GameEvent>[
-        NarrationEvent('${canonical.displayName} hardpoint has already reached maximum temper (Mk III)!'),
+        NarrationEvent('${canonical.displayName} fitting has already reached maximum temper (Mk III)!'),
       ];
     }
     final cost = calculateHardpointTemperCost(currentMark);
     if (ship!.gold < cost) {
       return <GameEvent>[
         NarrationEvent(
-          'Insufficient gold to temper ${canonical.displayName} hardpoint (Requires ${cost}g, have ${ship!.gold}g).',
+          'Insufficient gold to temper ${canonical.displayName} fitting (Requires ${cost}g, have ${ship!.gold}g).',
         ),
       ];
     }
@@ -2904,7 +2904,7 @@ class GameSession {
     final blessing = previewShrineBlessing(ship!, power, slot);
     if (blessing == null) {
       throw StateError(
-          'This hardpoint is dedicated to another power or already sovereign');
+          'This fitting is dedicated to another power or already sovereign');
     }
     ship!.blessings[slot] = blessing;
     hasCommunedAtCurrentShrine = true;

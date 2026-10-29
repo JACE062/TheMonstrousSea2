@@ -233,7 +233,7 @@ void main() {
       find.byWidgetPredicate(
         (w) =>
             w is InkButton &&
-            (w.semanticLabel?.contains('utility hardpoint') ?? false) &&
+            (w.semanticLabel?.contains('utility fitting') ?? false) &&
             w.onPressed != null,
       ),
       findsNothing,
@@ -247,7 +247,7 @@ void main() {
     controller.ship!.isGrappled = true;
     controller.notify();
     await tester.pump();
-    expect(find.textContaining('Hardpoints unavailable.'), findsOneWidget);
+    expect(find.textContaining('Fittings unavailable.'), findsOneWidget);
     expect(
       tester
           .widget<InkButton>(find.byKey(const ValueKey('emergency-pass')))
@@ -297,7 +297,18 @@ void main() {
             selectedHelmOrder: HelmOrder.advance,
           );
       expect(responsePreview.playerPostHelmRange, CombatRange.medium);
+      expect(find.text('LOOKOUT'), findsOneWidget);
+      expect(find.text('Advance: Threatened at Medium Range'), findsOneWidget);
+      expect(find.text(responsePreview.summaryBadge), findsNothing);
+      final inspect = find.byTooltip('Inspect monster intent');
+      await tester.ensureVisible(inspect);
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.tap(inspect);
+      await tester.pump(const Duration(milliseconds: 300));
       expect(find.text(responsePreview.summaryBadge), findsOneWidget);
+      expect(find.textContaining('At strike: Medium Range'), findsOneWidget);
+      await tester.tap(find.text('Close'));
+      await tester.pump(const Duration(milliseconds: 300));
       expect(
         find.byWidgetPredicate(
           (w) =>
@@ -393,7 +404,7 @@ void main() {
         controller.ship!.isGrappled = true;
         controller.notify();
         await tester.pump(const Duration(milliseconds: 100));
-        expect(find.textContaining('Hardpoints unavailable.'), findsOneWidget);
+        expect(find.textContaining('Fittings unavailable.'), findsOneWidget);
         expect(find.byKey(const ValueKey('emergency-pass')), findsOneWidget);
         await capture(tester, 'battle-recovery-$width-$scale');
         expect(tester.takeException(), isNull);
@@ -470,9 +481,18 @@ void main() {
           findsOneWidget,
         );
         expect(
-          find.textContaining('HELM ONLY · EVADED BY MANEUVER'),
+          find.text('Fall Back only: Outside threat at Long Range'),
           findsOneWidget,
         );
+        final inspect = find.byTooltip('Inspect monster intent');
+        await tester.ensureVisible(inspect);
+        await tester.pump(const Duration(milliseconds: 300));
+        await tester.tap(inspect);
+        await tester.pump(const Duration(milliseconds: 300));
+        expect(find.textContaining('EVADED BY MANEUVER'), findsOneWidget);
+        expect(find.textContaining('At strike: Long Range'), findsOneWidget);
+        await tester.tap(find.text('Close'));
+        await tester.pump(const Duration(milliseconds: 300));
         if (reviewFont.isNotEmpty) {
           final tooltip = find.byWidgetPredicate((w) => identical(w, tip));
           tester.state<TooltipState>(tooltip).ensureTooltipVisible();

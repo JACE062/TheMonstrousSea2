@@ -11,8 +11,8 @@ A spiritual successor to the original Java console game, built with **Flutter**,
 ## What you can play
 
 - **Tactical sea battles:** Read the monster's next intent, choose a helm order, and use Short, Medium, and Long range to control the fight.
-- **Five flagship blueprints:** Start with Standard and unlock Ironclad, Clipper, Bombardier, and Corsair. Each has its own Broadside, Signature, and Utility hardpoints.
-- **Voyage builds:** Combine shrine blessings, gold-funded hull upgrades, hardpoint tempering, and single-use belt supplies.
+- **Five flagship blueprints:** Start with Standard and unlock Ironclad, Clipper, Bombardier, and Corsair. Each has its own Broadside, Signature, and Utility fittings.
+- **Voyage builds:** Combine shrine blessings, gold-funded hull upgrades, fitting tempering, and single-use belt supplies.
 - **Exploration:** Choose lookout headings across three regions, finding beasts, wrecks, shrines, traders, and places to repair.
 - **A continuing bloodline:** Choose an heir after defeat, invest recovered materials at home, and face the beast that took the previous captain as a Nemesis.
 - **Separate lineage saves:** Continue different hunts from the title menu. A completed hunt with a saved final-choice snapshot can explore one independent alternate fate while preserving its original ending.
@@ -57,7 +57,7 @@ The title menu lets you select a lineage and **Continue**, start another with **
 
 ## Playtest menu (debug builds)
 
-Click **Playtest Menu** at the top of the window, or press **F10**, to configure a fresh test session. Choose a blueprint, hull and ancestral signature tiers, each hardpoint's Mk and blessing dedication/tier, starting gold, and a repeatable random seed. Launch at a region's opening course choices, its Titan, or the **Caldera ending choice** to test both endings without combat.
+Click **Playtest Menu** at the top of the window, or press **F10**, to configure a fresh test session. Choose a blueprint, hull and ancestral signature tiers, each fitting's Mk and blessing dedication/tier, starting gold, and a repeatable random seed. Launch at a region's opening course choices, its Titan, or the **Caldera ending choice** to test both endings without combat.
 
 During a test, **Relaunch** resets the same scenario and seed; **Change Scenario** returns to the configuration. Close the menu to resume your normal game. Test sessions do not autosave or change your real profile.
 

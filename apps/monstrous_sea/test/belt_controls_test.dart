@@ -181,6 +181,7 @@ void main() {
         _tooltip(tester, patch.name),
       );
       expect(find.text('SINGLE USE · 0T QUICK ACTION'), findsNothing);
+      await tester.ensureVisible(_button(patch.name));
       await tester.tap(_button(patch.name));
       await _finishPlayback(tester);
 
@@ -202,6 +203,7 @@ void main() {
       );
       expect(_control(tester, pitch.name).semanticLabel, contains(pitch.name));
 
+      await tester.ensureVisible(find.byKey(_helpKey));
       await tester.tap(find.byKey(_helpKey));
       await tester.pump(const Duration(milliseconds: 300));
       expect(find.text('TACTICAL BELT'), findsOneWidget);
@@ -227,15 +229,18 @@ void main() {
       final ink = _item(ConsumableType.krakenInkBomb);
       controller.ship!.cargo.addAll([patch, pitch, ink]);
       await mountBattle(tester, controller);
+      await tester.ensureVisible(_button(patch.name));
       await tester.tap(_button(patch.name));
       await _finishPlayback(tester);
       expect(_control(tester, pitch.name).onPressed, isNotNull);
+      await tester.ensureVisible(_button(pitch.name));
       await tester.tap(_button(pitch.name));
       await _finishPlayback(tester);
       expect(controller.ship!.pitchCoatingActive, isTrue);
       expect(controller.session.quickConsumablesUsedThisTurn, 2);
       expect(controller.ship!.cargo, [ink]);
       expect(_control(tester, ink.name).onPressed, isNull);
+      await tester.ensureVisible(find.byKey(_helpKey));
       await tester.tap(find.byKey(_helpKey));
       await tester.pump(const Duration(milliseconds: 300));
       expect(find.textContaining('2/2'), findsWidgets);
@@ -302,6 +307,7 @@ void main() {
       final patch = _item(ConsumableType.hullPatchKit);
       controller.ship!.cargo.add(patch);
       await mountBattle(tester, controller);
+      await tester.ensureVisible(_button('Naval Cannon Battery'));
       await tester.tap(_button('Naval Cannon Battery'));
       await tester.pump();
       expect(_control(tester, patch.name).onPressed, isNull);
@@ -317,6 +323,7 @@ void main() {
         tester.widget<IconButton>(find.byKey(_helpKey)).onPressed,
         isNotNull,
       );
+      await tester.ensureVisible(find.byKey(_helpKey));
       await tester.tap(find.byKey(_helpKey));
       await tester.pump(const Duration(milliseconds: 200));
       expect(find.text('TACTICAL BELT'), findsOneWidget);
@@ -361,9 +368,11 @@ void main() {
           expect(_control(tester, item.name).compact, isTrue);
           expect(_control(tester, item.name).subtitle, isNotEmpty);
         }
+        await tester.ensureVisible(find.byKey(_helpKey));
         expect(find.byKey(_helpKey).hitTestable(), findsOneWidget);
         expect(tester.takeException(), isNull);
         await _capture(tester, key, '${width.toInt()}-$scale-actions');
+        await tester.ensureVisible(find.byKey(_helpKey));
         await tester.tap(find.byKey(_helpKey));
         await tester.pump(const Duration(milliseconds: 300));
         final dialog = find.byType(Dialog);
@@ -414,6 +423,7 @@ void main() {
       }
       expect(tester.takeException(), isNull);
       await _capture(tester, key, '${width.toInt()}-1.3-all-actions');
+      await tester.ensureVisible(find.byKey(_helpKey));
       await tester.tap(find.byKey(_helpKey));
       await tester.pump(const Duration(milliseconds: 300));
       final dialog = find.byType(Dialog);

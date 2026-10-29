@@ -104,7 +104,7 @@ class BattlePresentation extends ChangeNotifier {
       if (actor.isGrappled) 'Grappled': 'Grappled',
       if (actor.isAnchoredThisTurn) 'Anchored': 'Anchored',
       if (actor.isBracedByDrill) 'Braced': 'Braced',
-      if (actor.gunneryDrillBuffActive) 'Drill Ready': 'Drill Ready',
+      if (actor.gunneryDrillBuffActive) 'Braced Volley': 'Braced Volley',
       if (actor.pitchCoatingActive) 'Pitch': 'Pitch',
       if (actor.activeTetherTrapDistance != null)
         'Trap': 'Trap ${actor.activeTetherTrapDistance} bands',

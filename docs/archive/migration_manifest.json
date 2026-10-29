@@ -1435,7 +1435,7 @@
           "heading": "Phase 3A Specification: 3-Hardpoint Architecture, Utilities & Tactical Belt",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1446,7 +1446,7 @@
           "heading": "1. Core Architectural Shift: Intrinsic 3-Hardpoint Topology",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1457,7 +1457,7 @@
           "heading": "Retired Legacy Mechanics",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1468,7 +1468,7 @@
           "heading": "2. The 5 Flagship Blueprints: Hardpoint Matrix & Range Math",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1479,7 +1479,7 @@
           "heading": "Normalization Rule",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1490,7 +1490,7 @@
           "heading": "2.1 Broadside Hardpoints (`0T` Cooldown)",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1501,7 +1501,7 @@
           "heading": "2.2 Signature Hardpoints (`1T` Cooldown)",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1512,7 +1512,7 @@
           "heading": "2.3 Utility Hardpoints (`2T` Cooldown)",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1523,7 +1523,7 @@
           "heading": "3. Carapace Shield Interaction (Grounded in Existing Code)",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1534,7 +1534,7 @@
           "heading": "4. Tactical Consumable Belt (Replacing Cargo Tonnage)",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1545,7 +1545,7 @@
           "heading": "4.1 Slot-Based Belt & Free Quick-Actions",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1556,7 +1556,7 @@
           "heading": "4.2 Core Tactical Consumables",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."
@@ -1567,7 +1567,7 @@
           "heading": "5. Ports, Smugglers, and Progression Economy",
           "disposition": "consolidated-corrected",
           "targets": [
-            "docs/CURRENT_GAME.md#hardpoints",
+            "docs/CURRENT_GAME.md#ship-fittings",
             "docs/CURRENT_GAME.md#supplies-encounters-and-upgrades"
           ],
           "reason": "Topology/range/utility baseline retained; later Ram/Howitzer types, single-use items and Mk I departure rules supersede older prescriptions."

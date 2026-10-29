@@ -25,7 +25,7 @@ class BlueprintLore {
     description:
         'The plain, unadorned war-barque. Balanced and dependable, waiting to be shaped by the bloodline.',
     tacticalRole:
-        'Balanced baseline hull equipped with dual broadside batteries and a defensive/offensive utility buff.',
+        'Balanced baseline hull with cannon batteries and built-in hull and gun-deck braces, set by the crew to take impact and steady the next volley.',
   );
 
   static const ironclad = BlueprintLoreEntry(

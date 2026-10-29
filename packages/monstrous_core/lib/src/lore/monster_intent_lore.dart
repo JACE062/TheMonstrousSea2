@@ -190,7 +190,7 @@ abstract final class MonsterIntentLore {
     name: 'Maelstrom Crush (IMMINENT 2/2)',
     subtitle: 'UNAVOIDABLE • ALL RANGES THIS TURN!',
     description: 'Towering tentacles descend across the entire sea lane in an inescapable cataclysm of foam and timber.',
-    tacticalTip: 'UNAVOIDABLE RELEASE! Interrupt with Heavy Mortar, Harpoon Winch, Blast Pack, Stun or a windup-breaking blessing. Armor, Gunnery Drill, barriers and damage weakening still apply.',
+    tacticalTip: 'UNAVOIDABLE RELEASE! Interrupt with Heavy Mortar, Harpoon Winch, Blast Pack, Stun or a windup-breaking blessing. Armor, Gun-Deck Bracing, barriers and damage weakening still apply.',
     telegraphLog: 'roars from the abyss—Maelstrom Crush will strike ALL RANGES at the end of this turn!',
   );
 

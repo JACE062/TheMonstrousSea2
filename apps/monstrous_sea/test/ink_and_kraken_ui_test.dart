@@ -36,7 +36,16 @@ void main() {
           find.textContaining('Obscurity: -25% shot accuracy'),
           findsOneWidget,
         );
-        expect(find.textContaining('38 base Blast damage'), findsOneWidget);
+        expect(find.text('LOOKOUT'), findsOneWidget);
+        expect(
+          find.text(controller.currentMonster!.currentIntent!.name),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining('Release 2/2 · strikes this turn'),
+          findsOneWidget,
+        );
+        expect(find.textContaining('38 base Blast damage'), findsNothing);
         expect(
           find.byWidgetPredicate(
             (widget) =>
@@ -47,6 +56,18 @@ void main() {
           ),
           findsOneWidget,
         );
+
+        final inspect = find.byTooltip('Inspect monster intent');
+        await tester.ensureVisible(inspect);
+        await tester.pump(const Duration(milliseconds: 300));
+        await tester.tap(inspect);
+        await tester.pump(const Duration(milliseconds: 300));
+        expect(find.textContaining('38 base Blast damage'), findsOneWidget);
+        expect(find.textContaining('After response:'), findsOneWidget);
+        await tester.tap(find.text('Close'));
+        await tester.pump(const Duration(milliseconds: 300));
+        expect(find.byType(AlertDialog), findsNothing);
+        expect(tester.takeException(), isNull);
 
         await tester.pumpWidget(const SizedBox.shrink());
         controller.dispose();

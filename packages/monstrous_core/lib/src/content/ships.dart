@@ -222,7 +222,7 @@ ShipState createFlyingDutchman({
 /// - Base stats: HP, AC, Evasion, Tactical Belt slots (`maxCargo`), Damage Reduction.
 /// - Hardpoints: 3 intrinsic slots (`Broadside`, `Signature`, `Utility`).
 /// - Starting weapons: mounts the blueprint's hull-specific Broadside and Signature weapon:
-///   * Standard: Naval Cannon Battery + Twin Chaser Cannons (+ Gunnery Drill utility)
+///   * Standard: Naval Cannon Battery + Twin Chaser Cannons (+ Gun-Deck Bracing utility)
 ///   * Ironclad: Heavy Carronades + Reinforced Prow Ram (+ Fortify Iron Plates utility)
 ///   * Clipper: Long-Barrel Swivel Guns + Precision Culverin (+ Evasive Rigging utility)
 ///   * Bombardier: Shrapnel Howitzers + Heavy Siege Mortar (+ Phosphor Spotter Flare utility)

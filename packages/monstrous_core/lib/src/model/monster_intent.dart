@@ -224,14 +224,21 @@ class MonsterIntent {
 
   /// Evaluates the exact spatial outcome if the player issues [selectedHelmOrder]
   /// from [currentRange].
+  ///
+  /// When [helmAlreadyApplied] is true, [currentRange] already includes the
+  /// committed helm and any predictable action movement. The order still
+  /// identifies head-on collision risk, but is not applied a second time.
   IntentPreviewOutcome evaluatePreview({
     required CombatRange currentRange,
     required HelmOrder selectedHelmOrder,
+    bool helmAlreadyApplied = false,
     bool isMonsterPinned = false,
     int? tentacleCount,
     int? damagePerTentacle,
   }) {
-    final postHelmRange = currentRange.rangeAfterHelmOrder(selectedHelmOrder);
+    final postHelmRange = helmAlreadyApplied
+        ? currentRange
+        : currentRange.rangeAfterHelmOrder(selectedHelmOrder);
 
     if (isBossWindup) {
       return IntentPreviewOutcome(
@@ -262,7 +269,7 @@ class MonsterIntent {
       switch (moveDelta) {
         case IntentMoveDelta.closer1:
           if (selectedHelmOrder == HelmOrder.advance &&
-              postHelmRange == CombatRange.short) {
+              postHelmRange.closer == CombatRange.short) {
             willCollideHeadOn = true;
             rangeAtStrike = CombatRange.short;
           } else {

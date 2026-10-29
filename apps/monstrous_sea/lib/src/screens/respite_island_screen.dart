@@ -381,11 +381,11 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'HARDPOINT & BELT INSPECTION',
+                            'SHIP FITTINGS & BELT INSPECTION',
                             style: InkTheme.statLabel,
                           ),
                           Text(
-                            'Inspect hardpoint marks, blessings, refits, and belt supplies.',
+                            'Inspect fitting marks, blessings, refits, and belt supplies.',
                             style: InkTheme.caption,
                           ),
                         ],

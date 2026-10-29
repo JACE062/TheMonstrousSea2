@@ -115,7 +115,7 @@ class _CaptainScreenState extends State<CaptainScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Naval Cannon Battery · Broadside\nTwin Chaser Cannons · Signature\nGunnery Drill · Utility',
+                        'Naval Cannon Battery · Broadside\nTwin Chaser Cannons · Signature\nGun-Deck Bracing · Utility',
                         style: InkTheme.body.copyWith(
                           fontSize: 16,
                           height: 1.6,
@@ -123,7 +123,7 @@ class _CaptainScreenState extends State<CaptainScreen> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Three fixed hardpoints. Set your range, fire a volley, and survive the beast ahead. New blueprints await later generations at the home port.',
+                        'Three fixed fittings. Set your range, fire a volley, and survive the beast ahead. New blueprints await later generations at the home port.',
                         style: InkTheme.body.copyWith(fontSize: 15),
                       ),
                     ],

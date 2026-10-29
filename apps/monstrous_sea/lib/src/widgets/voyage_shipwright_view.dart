@@ -27,7 +27,7 @@ class VoyageShipwrightView extends StatelessWidget {
           children: [
             Text('VOYAGE SHIPWRIGHT', style: InkTheme.titleMedium),
             Text(
-              'Spend gold on hull refits and hardpoint tempering. These upgrades last for this voyage.',
+              'Spend gold on hull refits and fitting tempering. These upgrades last for this voyage.',
               style: InkTheme.body,
             ),
             const SizedBox(height: 16),
@@ -42,7 +42,7 @@ class VoyageShipwrightView extends StatelessWidget {
                   : null,
             ),
             const Divider(height: 28),
-            Text('HARDPOINT TEMPERING', style: InkTheme.statLabel),
+            Text('FITTING TEMPERING', style: InkTheme.statLabel),
             const SizedBox(height: 8),
             for (final slot in blessingHardpoints) ...[
               InkButton(

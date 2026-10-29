@@ -6,6 +6,8 @@ import '../battle/monstrous_sea_battle_game.dart';
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/combat_log_view.dart';
+import '../widgets/battle_chronicle_dialog.dart';
+import '../widgets/battle_lookout.dart';
 import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/ocean_power_badges.dart';
@@ -80,7 +82,24 @@ class _BattleScreenState extends State<BattleScreen> {
 
   late MonstrousSeaBattleGame _battleGame;
   bool _isActionLocked = false;
-  bool _showLog = true;
+  final _chronicleScroll = CombatLogScrollState();
+  final _commandScroll = ScrollController();
+  final _beltScroll = ScrollController();
+  double _hudBottom = 160;
+  double _dockHeight = 250;
+
+  bool get _sideLookout {
+    final viewport = MediaQuery.sizeOf(context);
+    return viewport.width >= 1100 && viewport.height >= 700;
+  }
+
+  double get _lookoutWidth =>
+      (MediaQuery.sizeOf(context).width * 0.22).clamp(240.0, 290.0);
+  double get _commandHeightBudget {
+    final height = MediaQuery.sizeOf(context).height;
+    return (height - _hudBottom - 200).clamp(240.0, height * 0.65);
+  }
+
   HelmOrder _selectedHelmOrder = HelmOrder.holdLine;
   final GlobalKey _statusKey = GlobalKey();
   final GlobalKey _dockKey = GlobalKey();
@@ -92,10 +111,19 @@ class _BattleScreenState extends State<BattleScreen> {
     if (status == null || dock == null || !status.hasSize || !dock.hasSize) {
       return;
     }
+    final top = 16 + status.size.height + 9;
     _battleGame.setArenaInsets(
-      top: 16 + status.size.height + 9,
+      top: top,
       bottom: 16 + dock.size.height + 9,
+      right: _sideLookout ? _lookoutWidth + 32 : 0,
     );
+    if ((top - _hudBottom).abs() > 0.5 ||
+        (dock.size.height - _dockHeight).abs() > 0.5) {
+      setState(() {
+        _hudBottom = top;
+        _dockHeight = dock.size.height;
+      });
+    }
   }
 
   @override
@@ -122,7 +150,7 @@ class _BattleScreenState extends State<BattleScreen> {
     if (_isActionLocked) return 'Wait for the current action to finish.';
     if (used >= limit) {
       return 'Quick-item limit reached this round ($used/$limit used). '
-          'Use a hardpoint action to finish the round.';
+          'Use a fitting action to finish the round.';
     }
     return null;
   }
@@ -156,13 +184,13 @@ class _BattleScreenState extends State<BattleScreen> {
                 children: [
                   Text(
                     'Each item is single-use and does not end your turn '
-                    '(0 turn cost). You can still give a helm order and use a hardpoint.',
+                    '(0 turn cost). You can still give a helm order and use a fitting.',
                     style: InkTheme.body,
                   ),
                   const SizedBox(height: 12),
                   Text(
                     'Use one quick item per round, or two with Drillmaster. '
-                    'A hardpoint action or Brace & Reload (when available) '
+                    'A fitting action or Brace & Reload (when available) '
                     'finishes the round and refreshes this limit.',
                     style: InkTheme.body,
                   ),
@@ -219,6 +247,8 @@ class _BattleScreenState extends State<BattleScreen> {
 
   @override
   void dispose() {
+    _commandScroll.dispose();
+    _beltScroll.dispose();
     _battleGame.artworkRevision.removeListener(_onArtworkChanged);
     _battleGame.presentation.removeListener(_onArtworkChanged);
     super.dispose();
@@ -228,13 +258,13 @@ class _BattleScreenState extends State<BattleScreen> {
     final slot = ship.hardpoints
         .where((h) => h.type.canonical == HardpointType.utility)
         .firstOrNull;
-    if (slot != null) return slot.name;
+    if (slot != null) return slot.displayName;
     return switch (ship.shipClass) {
       ShipClass.ironclad => 'Fortify Iron Plates',
       ShipClass.corvette || ShipClass.clipper => 'Evasive Rigging',
       ShipClass.corsair || ShipClass.freighter => 'Drifting Tether-Trap',
       ShipClass.bombardier => 'Phosphor Spotter Flare',
-      ShipClass.standard => 'Gunnery Drill',
+      ShipClass.standard => 'Gun-Deck Bracing',
     };
   }
 
@@ -255,7 +285,7 @@ class _BattleScreenState extends State<BattleScreen> {
             : 'Sets at distance 2'}). Detonates for ${(16 + 5 * (ship.level - 1) * mult).round()} Slicing damage and Pins the beast (1T).',
       BlueprintId.bombardier => 'Phosphor Spotter Flare (2T CD): Illuminates the monster for 2 turns — clears Obscured, suppresses monster Evasion to 0%, grants +15% Accuracy, and increases Blast damage taken by +25%.',
       _ =>
-        'Gunnery Drill (2T CD): Reduces incoming damage by ${(20 * mult).round()}% this round and empowers your next offensive volley with +15% Accuracy and +${(20 * mult).round()}% Damage.',
+        'Gun-Deck Bracing (2T CD): Set the hull and gun-deck braces to reduce incoming damage by ${(20 * mult).round()}% this round and steady your next offensive volley for +15% Accuracy and +${(20 * mult).round()}% Damage.',
     };
   }
 
@@ -394,7 +424,7 @@ class _BattleScreenState extends State<BattleScreen> {
         : 1;
     final quickUsed = _decisions.quickUsed;
     // Quick items and helm orders cannot end the turn. Keep an emergency pass
-    // only when every offensive and utility hardpoint is unavailable.
+    // only when every offensive and utility fitting is unavailable.
     final needsEmergencyPass =
         !_decisions.combinationPending &&
         (_decisions.recovering ||
@@ -456,7 +486,7 @@ class _BattleScreenState extends State<BattleScreen> {
                           '${ship.currentDmgReduction > 0 ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
                           '${ship.currentEvasion + ship.captainEvasionBonus > 0 ? ' • Evade: ${ship.currentEvasion + ship.captainEvasionBonus}%' : ''}'
                           '${ship.isAnchoredThisTurn ? ' • Anchored' : ''}'
-                          '${ship.gunneryDrillBuffActive ? ' • Drill Ready (+15% Accuracy/+20% Damage)' : ''}'
+                          '${ship.gunneryDrillBuffActive ? ' • Braced Volley (+15% Accuracy/+20% Damage)' : ''}'
                           '${ship.pitchCoatingActive ? ' • Pitch Coated (+25% Fire/Burn)' : ''}',
                           style: InkTheme.caption,
                         ),
@@ -694,361 +724,160 @@ class _BattleScreenState extends State<BattleScreen> {
             ),
           ),
 
-          // 3. Bottom Action Dock
+          if (_sideLookout)
+            Positioned(
+              key: const ValueKey('lookout-side'),
+              top: _hudBottom,
+              right: 16,
+              width: _lookoutWidth,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight:
+                      (MediaQuery.sizeOf(context).height -
+                              _hudBottom -
+                              _dockHeight -
+                              42)
+                          .clamp(80.0, 900.0),
+                ),
+                child: SingleChildScrollView(
+                  child: _lookout(currentRange, activeHelmOrder, ship, monster),
+                ),
+              ),
+            ),
+          // A bounded dock keeps compact windows usable through deliberate scroll.
           Positioned(
             bottom: 16,
             left: 16,
             right: 16,
             child: Container(
               key: _dockKey,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: InkTheme.parchmentSurface.withValues(alpha: 0.95),
+                color: InkTheme.parchmentSurface.withValues(alpha: 0.97),
                 border: Border.all(color: InkTheme.inkPrimary, width: 2),
                 borderRadius: BorderRadius.circular(4),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // Dedicated prominent Chronicle Log above weapon selection
-                  if (_showLog) ...[
-                    Builder(
-                      builder: (ctx) {
-                        final screenHeight = MediaQuery.of(ctx).size.height;
-                        final logHeight =
-                            (screenHeight * (screenHeight <= 650 ? 0.08 : 0.16))
-                                .clamp(48.0, 200.0);
-                        return Container(
-                          height: logHeight,
-                          margin: const EdgeInsets.only(bottom: 4),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 4,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: InkTheme.parchmentDark.withValues(
-                              alpha: 0.25,
-                            ),
-                            borderRadius: BorderRadius.circular(4),
-                            border: Border.all(
-                              color: InkTheme.inkMuted,
-                              width: 1,
-                            ),
-                          ),
-                          child: CombatLogView(
-                            entries: widget.controller.structuredCombatLog,
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                  // Tactical Bearing & Bounded Helm Order Bar
-                  _buildTacticalBearingBar(
-                    currentRange,
-                    enemyPreviewRange,
-                    activeHelmOrder,
-                    ship,
-                    monster,
-                  ),
-
-                  // Primary 3-Hardpoint Action Row (1. Broadside, 2. Signature, 3. Utility)
-                  Row(
-                    children: [
-                      ...ship.equippedWeaponTypes.map((type) {
-                        final weaponsOfType = ship.equippedWeapons
-                            .where((w) => w.weaponType == type)
-                            .toList();
-                        final readyCount = weaponsOfType
-                            .where((w) => w.isReady)
-                            .length;
-                        final isReady = readyCount > 0;
-                        final maxCd = weaponsOfType.fold<int>(
-                          0,
-                          (prev, w) => w.chargeCountdown > prev
-                              ? w.chargeCountdown
-                              : prev,
-                        );
-                        final isUsableAtRange = isWeaponTypeUsableAtRange(
-                          type,
-                          previewRange,
-                        );
-                        final canFire =
-                            isReady &&
-                            isUsableAtRange &&
-                            !_isActionLocked &&
-                            !_decisions.recovering;
-                        final badgeInfo = _getTacticalWeaponBadge(
-                          type,
-                          previewRange,
-                        );
-                        final slot =
-                            type == ship.resolvedBlueprintId.signatureWeaponType
-                            ? HardpointType.signature
-                            : type ==
-                                  ship.resolvedBlueprintId.broadsideWeaponType
-                            ? HardpointType.broadside
-                            : null;
-                        final blessing = ship.blessings[slot];
-                        final ignoresObscurity =
-                            type == ShipWeaponType.precisionCulverin &&
-                            widget.controller.profile.isEldritchRelicActive(
-                              EldritchRelicId.ghostwakeCulverin,
-                            );
-                        final shotAccuracy = calculateHitChance(
-                          ship,
-                          weaponsOfType.first,
-                          monster,
-                          accuracyBonus:
-                              _decisions.gunneryBoon +
-                              widget.controller.captainWeaponAccuracyModifier +
-                              (ship.gunneryDrillBuffActive ? 15 : 0),
-                          range: previewRange,
-                          ignoreObscurity: ignoresObscurity,
-                        );
-                        final accuracyTip =
-                            'Opening shot accuracy: $shotAccuracy% before ${monster.effectiveEvasion}% target dodge.'
-                            '${ignoresObscurity
-                                ? ' Ghostwake ignores obscurity.'
-                                : monster.obscurityAccuracyPenalty > 0
-                                ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty}% from accuracy.'
-                                : ''}';
-
-                        final labelText = weaponsOfType.length == 1
-                            ? (isReady
-                                  ? type.displayName
-                                  : '${type.displayName} (${maxCd}T CD)')
-                            : '${type.displayName} ($readyCount/${weaponsOfType.length})';
-
-                        return Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 3.0,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                if (blessing != null)
-                                  BlessingBadge(blessing: blessing),
-                                Tooltip(
-                                  message:
-                                      '${badgeInfo?.tip ?? ''} $accuracyTip\n${_responseForecast(activeHelmOrder, weaponType: type)}',
-                                  child: InkButton(
-                                    label: labelText,
-                                    subtitle: isReady
-                                        ? badgeInfo?.badge
-                                        : 'RELOADING (${maxCd}T)',
-                                    subtitleColor:
-                                        !isReady || badgeInfo?.isWarning == true
-                                        ? InkTheme.crimsonAccent
-                                        : InkTheme.goldAccent,
-                                    semanticLabel: !isUsableAtRange
-                                        ? '${type.displayName} volley out of range at ${previewRange.displayName}. Advance to strike!'
-                                        : isReady
-                                        ? 'Fire ${type.displayName} volley at ${previewRange.displayName}. $readyCount of ${weaponsOfType.length} ready.${badgeInfo != null ? ' ${badgeInfo.badge}.' : ''}'
-                                        : '${type.displayName} volley reloading ($maxCd turns remaining).',
-                                    isPrimary: canFire,
-                                    onPressed: canFire
-                                        ? () => _dispatchCombatAction(
-                                            FireWeaponVolley(type),
-                                          )
-                                        : null,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: _commandHeightBudget),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (!_sideLookout) ...[
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight:
+                              (_commandHeightBudget *
+                                      (MediaQuery.sizeOf(context).height < 700
+                                          ? 0.3
+                                          : 0.4))
+                                  .clamp(
+                                    60.0,
+                                    MediaQuery.sizeOf(context).height * 0.18,
                                   ),
-                                ),
-                              ],
-                            ),
+                        ),
+                        child: SingleChildScrollView(
+                          child: _lookout(
+                            currentRange,
+                            activeHelmOrder,
+                            ship,
+                            monster,
                           ),
-                        );
-                      }),
-                      // 3. Utility Hardpoint Button (2T Cooldown across all ships)
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                          child: Builder(
-                            builder: (context) {
-                              final utilName = _utilityLabel(ship);
-                              final utilMark = ship.markLabelForHardpoint(
-                                HardpointType.utility,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                    ],
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Scrollbar(
+                        controller: _commandScroll,
+                        thumbVisibility: true,
+                        child: SingleChildScrollView(
+                          controller: _commandScroll,
+                          key: const ValueKey('command-station-scroll'),
+                          child: LayoutBuilder(
+                            builder: (context, constraints) {
+                              final helm = _buildHelmPanel(
+                                currentRange,
+                                enemyPreviewRange,
+                                activeHelmOrder,
+                                ship,
+                                monster,
                               );
-                              final utilReady = ship.isUtilityReady;
-                              final blessing =
-                                  ship.blessings[HardpointType.utility];
-                              final canUseUtil =
-                                  utilReady &&
-                                  !_isActionLocked &&
-                                  !widget
-                                      .controller
-                                      .isImpatientCombinationPending &&
-                                  !_decisions.recovering;
-                              final utilSubtitle = utilReady
-                                  ? 'UTILITY ($utilMark • 2T CD)'
-                                  : 'COOLDOWN (${ship.utilityCooldown}T)';
-
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                              final actions = _buildHardpoints(
+                                ship,
+                                monster,
+                                previewRange,
+                                activeHelmOrder,
+                                needsEmergencyPass,
+                              );
+                              if (constraints.maxWidth < 640) {
+                                return Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    helm,
+                                    const SizedBox(height: 10),
+                                    actions,
+                                  ],
+                                );
+                              }
+                              return Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  if (blessing != null)
-                                    BlessingBadge(blessing: blessing),
-                                  Tooltip(
-                                    message:
-                                        '${_utilityTooltip(ship, previewRange)}\n${_responseForecast(activeHelmOrder, utility: true)}',
-                                    child: InkButton(
-                                      label: utilName,
-                                      subtitle: utilSubtitle,
-                                      subtitleColor: utilReady
-                                          ? InkTheme.goldAccent
-                                          : InkTheme.crimsonAccent,
-                                      semanticLabel: utilReady
-                                          ? 'Activate $utilName utility hardpoint ($utilMark)'
-                                          : '$utilName utility hardpoint cooling down (${ship.utilityCooldown} turns remaining)',
-                                      isPrimary: false,
-                                      onPressed: canUseUtil
-                                          ? () => _dispatchCombatAction(
-                                              const ExecuteShipSpecialAction(),
-                                            )
-                                          : null,
-                                    ),
-                                  ),
+                                  Expanded(flex: 4, child: helm),
+                                  const SizedBox(width: 16),
+                                  Expanded(flex: 6, child: actions),
                                 ],
                               );
                             },
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 6),
-
-                  if (_decisions.canStartCombination)
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        key: const ValueKey('impatient-combination'),
-                        onPressed: _isActionLocked
-                            ? null
-                            : () => _dispatchCombatAction(
-                                const ExecuteShipSpecialAction(
-                                  borrowNextAction: true,
-                                ),
-                              ),
-                        child: const Text('IMPATIENT · UTILITY + WEAPON'),
-                      ),
                     ),
-                  if (_decisions.combinationPending || _decisions.recovering)
-                    Text(
-                      _decisions.combinationPending
-                          ? 'IMPATIENT · Fire one weapon next. Belt available; helm already committed.'
-                          : 'RECOVERY · Hardpoints unavailable. Maneuver, use belt, or Brace & Reload.',
-                      key: const ValueKey('impatient-status'),
-                      style: InkTheme.caption,
-                    ),
-
-                  // Secondary Row: Tactical Consumable Belt (0T Quick Actions), Brace for Impact & Log Controls
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Wrap(
-                          spacing: 6,
-                          runSpacing: 4,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            // Emergency action for future cooldown/range constraints.
-                            if (needsEmergencyPass)
-                              InkButton(
-                                key: const ValueKey('emergency-pass'),
-                                label: 'BRACE & RELOAD',
-                                isPrimary: true,
-                                semanticLabel: 'Brace for 10% temporary evasion, finish the turn and reload.',
-                                onPressed: !_isActionLocked
-                                    ? () => _dispatchCombatAction(
-                                        const BraceForImpact(),
-                                      )
-                                    : null,
-                              ),
-
-                            // Tactical Belt Consumables (0T Quick Action)
-                            if (ship.cargo.whereType<Consumable>().isNotEmpty)
-                              IconButton(
-                                key: const ValueKey('belt-help'),
-                                icon: const Icon(
-                                  Icons.help_outline,
-                                  size: 20,
-                                  color: InkTheme.inkSecondary,
-                                ),
-                                tooltip: 'Belt help',
-                                visualDensity: VisualDensity.compact,
-                                constraints: const BoxConstraints(
-                                  minWidth: 36,
-                                  minHeight: 36,
-                                ),
-                                padding: const EdgeInsets.all(6),
-                                onPressed: _showBeltHelp,
-                              ),
-                            for (var i = 0; i < ship.cargo.length; i++)
-                              if (ship.cargo[i] is Consumable)
-                                Builder(
-                                  builder: (context) {
-                                    final cons = ship.cargo[i] as Consumable;
-                                    final effect =
-                                        cons.type == ConsumableType.hullPatchKit
-                                        ? (
-                                            summary:
-                                                'Repair ${_decisions.hullPatchHp} HP',
-                                            details:
-                                                'Restore ${_decisions.hullPatchHp} hull HP.',
-                                          )
-                                        : cons.type.beltEffect;
-                                    final restriction = _beltRestriction(
-                                      cons,
-                                      quickUsed,
-                                      maxQuickBeltUses,
-                                    );
-                                    final details = restriction == null
-                                        ? effect.details
-                                        : '${effect.details}\n$restriction';
-                                    return Tooltip(
-                                      message: details,
-                                      child: InkButton(
-                                        label: cons.name,
-                                        subtitle: effect.summary,
-                                        subtitleColor: InkTheme.inkSecondary,
-                                        compact: true,
-                                        semanticLabel: cons.name,
-                                        semanticHint: details,
-                                        onPressed: restriction == null
-                                            ? () => _dispatchCombatAction(
-                                                UseConsumableItem(i),
-                                              )
-                                            : null,
-                                      ),
-                                    );
-                                  },
-                                ),
-                          ],
-                        ),
-                      ),
-
-                      // Bottom-right Utility Controls: Settings & Chronicle Log
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
+                    const SizedBox(height: 8),
+                    FocusTraversalGroup(
+                      // The belt's LayoutBuilder builds after the icons.
+                      // Explicit order keeps keyboard traversal in visual order.
+                      policy: OrderedTraversalPolicy(),
+                      child: Row(
+                        key: const ValueKey('battle-dock-footer'),
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          const PauseMenuButton(),
-                          IconButton(
-                            icon: Icon(
-                              _showLog ? Icons.menu_book : Icons.book,
-                              color: InkTheme.inkPrimary,
+                          Expanded(
+                            child: FocusTraversalOrder(
+                              order: const NumericFocusOrder(1),
+                              child: _buildBelt(
+                                ship,
+                                quickUsed,
+                                maxQuickBeltUses,
+                              ),
                             ),
-                            tooltip: 'Chronicle Log',
-                            onPressed: () =>
-                                setState(() => _showLog = !_showLog),
+                          ),
+                          const SizedBox(width: 8),
+                          const FocusTraversalOrder(
+                            order: NumericFocusOrder(2),
+                            child: PauseMenuButton(),
+                          ),
+                          FocusTraversalOrder(
+                            order: const NumericFocusOrder(3),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.menu_book_outlined,
+                                color: InkTheme.inkPrimary,
+                              ),
+                              tooltip: 'Chronicle Log',
+                              onPressed: () => showBattleChronicle(
+                                context,
+                                widget.controller,
+                                scrollState: _chronicleScroll,
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -1078,7 +907,10 @@ class _BattleScreenState extends State<BattleScreen> {
     final monster = widget.controller.currentMonster;
     final outcome = monster?.currentIntent?.evaluatePreview(
       currentRange: responseRange,
-      selectedHelmOrder: HelmOrder.holdLine,
+      selectedHelmOrder: _decisions.combinationPending
+          ? widget.controller.session.lastHelmOrderThisTurn
+          : order,
+      helmAlreadyApplied: true,
       isMonsterPinned: monster.isPinnedThisTurn,
       tentacleCount: monster.numberOfTentacles,
       damagePerTentacle: monster.usableWeapons
@@ -1090,314 +922,434 @@ class _BattleScreenState extends State<BattleScreen> {
         '${outcome == null ? '' : ' · ${outcome.summaryBadge}'}';
   }
 
-  Widget _buildTacticalBearingBar(
-    CombatRange currentRange,
-    CombatRange previewRange,
-    HelmOrder activeHelmOrder,
+  Widget _lookout(
+    CombatRange range,
+    HelmOrder order,
     ShipState ship,
     MonsterState monster,
-  ) {
-    final intent = monster.currentIntent;
-    final conditional =
+  ) => BattleLookout(
+    monster: monster,
+    currentRange: range,
+    selectedHelmOrder: _decisions.combinationPending
+        ? widget.controller.session.lastHelmOrderThisTurn
+        : order,
+    helmAlreadyApplied: _decisions.combinationPending,
+    compact: !_sideLookout,
+    conditional:
         ship.equippedWeaponTypes.any(
           (type) =>
               type == ShipWeaponType.prowRam ||
               type == ShipWeaponType.harpoonWinch,
         ) ||
         ship.resolvedBlueprintId.utilityHardpoint ==
-            UtilityHardpointId.evasiveRigging;
-    final previewOutcome = intent?.evaluatePreview(
-      currentRange: currentRange,
-      selectedHelmOrder: activeHelmOrder,
-      isMonsterPinned: monster.isPinnedThisTurn,
-      tentacleCount: monster.numberOfTentacles,
-      damagePerTentacle: monster.usableWeapons
-          .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
-          .firstOrNull
-          ?.damage,
-    );
+            UtilityHardpointId.evasiveRigging,
+    actionNotes: [
+      if (ship.equippedWeaponTypes.contains(ShipWeaponType.prowRam)) 'Prow Ram closes to Short before impact. Charging from Medium retains its damage bonus.',
+      if (ship.equippedWeaponTypes.contains(ShipWeaponType.harpoonWinch)) 'Harpoon Winch attacks at its launch range, then pulls one band closer. Pin requires a hit.',
+      if (ship.resolvedBlueprintId.utilityHardpoint ==
+          UtilityHardpointId.evasiveRigging)
+        'Evasive Rigging opens range by up to one band unless grappled.',
+      if (widget.controller.usesLateHelm) 'Skirmisher applies your helm order after the main action and its movement.',
+    ],
+    isResolving: _isActionLocked,
+  );
 
-    return Container(
-      margin: const EdgeInsets.only(bottom: 4),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: InkTheme.parchmentDark.withValues(alpha: 0.35),
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: InkTheme.inkMuted, width: 1),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget _buildHelmPanel(
+    CombatRange currentRange,
+    CombatRange previewRange,
+    HelmOrder activeOrder,
+    ShipState ship,
+    MonsterState monster,
+  ) => Column(
+    key: const ValueKey('helm-panel'),
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Row(
         children: [
-          if (widget.controller.activeQuirk?.id == BloodlineTraitId.daredevil)
-            Text(
-              ship.currentHp * 2 <= ship.maxHp
-                  ? 'DAREDEVIL · +30% weapon damage · at/below 50% hull'
-                  : 'DAREDEVIL · Bonus activates at 50% hull or less',
-              key: const ValueKey('daredevil-status'),
-              style: InkTheme.caption,
-            ),
-          if (widget.controller.usesLateHelm)
-            Text(
-              'SKIRMISHER · Act at ${currentRange.displayName}, then maneuver before the response.',
-              key: const ValueKey('late-helm-hint'),
-              style: InkTheme.caption,
-            ),
-          if (intent != null && previewOutcome != null) ...[
-            if (conditional)
-              Text(
-                'Actions may change this helm forecast.',
-                key: const ValueKey('conditional-range-forecast'),
-                style: InkTheme.caption,
-              ),
-            _buildMonsterIntentReadout(
-              intent,
-              previewOutcome,
-              monster,
-              conditional: conditional,
-            ),
-            const SizedBox(height: 3),
-          ],
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final isNarrow = constraints.maxWidth < 460;
-
-              final bearingTrack = Wrap(
-                crossAxisAlignment: WrapCrossAlignment.center,
-                spacing: 4,
-                runSpacing: 4,
-                children: [
-                  Text(
-                    'BEARING:',
-                    style: InkTheme.statLabel.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 11,
-                      color: InkTheme.inkSecondary,
-                    ),
-                  ),
-                  const SizedBox(width: 4),
-                  for (final r in [
-                    CombatRange.long,
-                    CombatRange.medium,
-                    CombatRange.short,
-                  ]) ...[
-                    _buildRangeTrackChip(
-                      r,
-                      currentRange,
-                      previewRange,
-                      isThreatened:
-                          intent?.threatenedRanges.contains(r) ?? false,
-                    ),
-                    if (r != CombatRange.short)
-                      Text(
-                        '—',
-                        style: TextStyle(
-                          color: InkTheme.inkMuted,
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                  ],
-                ],
-              );
-
-              final helmOrders = Wrap(
-                crossAxisAlignment: WrapCrossAlignment.center,
-                spacing: 4,
-                runSpacing: 4,
-                children: [
-                  Text(
-                    'HELM:',
-                    style: InkTheme.statLabel.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 11,
-                      color: InkTheme.inkSecondary,
-                    ),
-                  ),
-                  if (ship.isGrappled)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 5,
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        color: InkTheme.crimsonAccent.withValues(alpha: 0.18),
-                        borderRadius: BorderRadius.circular(3),
-                        border: Border.all(
-                          color: InkTheme.crimsonAccent,
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Text(
-                        'GRAPPLED',
-                        style: InkTheme.caption.copyWith(
-                          fontSize: 9.5,
-                          fontWeight: FontWeight.bold,
-                          color: InkTheme.crimsonAccent,
-                        ),
-                      ),
-                    ),
-                  const SizedBox(width: 2),
-                  for (final order in [
-                    HelmOrder.fallBack,
-                    HelmOrder.holdLine,
-                    HelmOrder.advance,
-                  ]) ...[
-                    _buildHelmOrderPill(
-                      order,
-                      currentRange,
-                      activeHelmOrder,
-                      isGrappled: ship.isGrappled,
-                    ),
-                  ],
-                ],
-              );
-
-              if (isNarrow) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    bearingTrack,
-                    const SizedBox(height: 6),
-                    helmOrders,
-                  ],
-                );
-              }
-
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(child: bearingTrack),
-                  const SizedBox(width: 12),
-                  helmOrders,
-                ],
-              );
-            },
+          const Icon(
+            Icons.explore_outlined,
+            size: 22,
+            color: InkTheme.inkSecondary,
           ),
+          const SizedBox(width: 8),
+          Flexible(child: Text('HELM & BEARING', style: InkTheme.statLabel)),
         ],
       ),
+      const SizedBox(height: 8),
+      Row(
+        children: [
+          for (final band in [
+            CombatRange.long,
+            CombatRange.medium,
+            CombatRange.short,
+          ])
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 3),
+                child: _buildRangeTrackChip(
+                  band,
+                  currentRange,
+                  previewRange,
+                  isThreatened:
+                      monster.currentIntent?.threatenedRanges.contains(band) ??
+                      false,
+                ),
+              ),
+            ),
+        ],
+      ),
+      const SizedBox(height: 10),
+      IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final order in [
+              HelmOrder.fallBack,
+              HelmOrder.holdLine,
+              HelmOrder.advance,
+            ])
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 3),
+                  child: _buildHelmOrderPill(
+                    order,
+                    currentRange,
+                    activeOrder,
+                    isGrappled: ship.isGrappled,
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 10),
+      Text(
+        _decisions.combinationPending
+            ? 'Helm committed: ${widget.controller.session.lastHelmOrderThisTurn.displayName}'
+            : ship.isGrappled
+            ? 'GRAPPLED · Hold Line only this round'
+            : widget.controller.usesLateHelm
+            ? 'Order resolves after your main action.'
+            : 'Order resolves when you use a fitting.',
+        style: InkTheme.caption,
+      ),
+      if (widget.controller.usesLateHelm)
+        Text(
+          'SKIRMISHER · Act at ${currentRange.displayName}, then maneuver before the response.',
+          key: const ValueKey('late-helm-hint'),
+          style: InkTheme.caption,
+        ),
+      if (widget.controller.activeQuirk?.id == BloodlineTraitId.daredevil)
+        Text(
+          ship.currentHp * 2 <= ship.maxHp
+              ? 'DAREDEVIL · +30% weapon damage · at/below 50% hull'
+              : 'DAREDEVIL · Bonus activates at 50% hull or less',
+          key: const ValueKey('daredevil-status'),
+          style: InkTheme.caption,
+        ),
+    ],
+  );
+
+  Widget _buildHardpoints(
+    ShipState ship,
+    MonsterState monster,
+    CombatRange range,
+    HelmOrder order,
+    bool needsEmergencyPass,
+  ) => Column(
+    key: const ValueKey('hardpoint-panel'),
+    mainAxisSize: MainAxisSize.min,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Text('SHIP FITTINGS', style: InkTheme.statLabel),
+      const SizedBox(height: 6),
+      IntrinsicHeight(
+        child: Row(
+          key: const ValueKey('weapon-cards'),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final type in ship.equippedWeaponTypes)
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 3),
+                  child: _buildWeaponCard(type, ship, monster, range, order),
+                ),
+              ),
+          ],
+        ),
+      ),
+      if (ship.equippedWeaponTypes.any(
+        (type) => ship.blessings[_weaponSlot(ship, type)] != null,
+      ))
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (final type in ship.equippedWeaponTypes)
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 3),
+                  child: switch (ship.blessings[_weaponSlot(ship, type)]) {
+                    final blessing? => BlessingBadge(blessing: blessing),
+                    null => const SizedBox.shrink(),
+                  },
+                ),
+              ),
+          ],
+        ),
+      const SizedBox(height: 8),
+      _buildUtilityRow(ship, range, order),
+      if (_decisions.canStartCombination)
+        Align(
+          alignment: Alignment.centerRight,
+          child: TextButton(
+            key: const ValueKey('impatient-combination'),
+            onPressed: _isActionLocked
+                ? null
+                : () => _dispatchCombatAction(
+                    const ExecuteShipSpecialAction(borrowNextAction: true),
+                  ),
+            child: Text(
+              'IMPATIENT · UTILITY + WEAPON',
+              style: InkTheme.caption,
+            ),
+          ),
+        ),
+      if (_decisions.combinationPending || _decisions.recovering)
+        Text(
+          _decisions.combinationPending
+              ? 'IMPATIENT · Fire one weapon next. Belt available; helm already committed.'
+              : 'RECOVERY · Fittings unavailable. Maneuver, use belt, or Brace & Reload.',
+          key: const ValueKey('impatient-status'),
+          style: InkTheme.caption,
+        ),
+      if (needsEmergencyPass) ...[
+        const SizedBox(height: 6),
+        InkButton(
+          key: const ValueKey('emergency-pass'),
+          label: 'BRACE & RELOAD',
+          isPrimary: true,
+          semanticLabel:
+              'Brace for 10% temporary evasion, finish the turn and reload.',
+          onPressed: _isActionLocked
+              ? null
+              : () => _dispatchCombatAction(const BraceForImpact()),
+        ),
+      ],
+    ],
+  );
+
+  Widget _buildBelt(ShipState ship, int quickUsed, int maxQuickUses) {
+    if (ship.cargo.whereType<Consumable>().isEmpty) {
+      return const SizedBox.shrink();
+    }
+    final items = <Widget>[
+      IconButton(
+        key: const ValueKey('belt-help'),
+        icon: const Icon(
+          Icons.help_outline,
+          size: 20,
+          color: InkTheme.inkSecondary,
+        ),
+        tooltip: 'Belt help',
+        visualDensity: VisualDensity.compact,
+        constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+        padding: const EdgeInsets.all(6),
+        onPressed: _showBeltHelp,
+      ),
+      for (var index = 0; index < ship.cargo.length; index++)
+        if (ship.cargo[index] is Consumable)
+          _buildBeltItem(
+            ship.cargo[index] as Consumable,
+            index,
+            quickUsed,
+            maxQuickUses,
+          ),
+    ];
+    return LayoutBuilder(
+      builder: (context, constraints) =>
+          constraints.maxWidth < 640 || MediaQuery.sizeOf(context).height < 800
+          ? Scrollbar(
+              key: const ValueKey('tactical-belt'),
+              controller: _beltScroll,
+              thumbVisibility: true,
+              scrollbarOrientation: ScrollbarOrientation.bottom,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: SingleChildScrollView(
+                  controller: _beltScroll,
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (final item in items)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 6),
+                          child: item,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          : Wrap(
+              key: const ValueKey('tactical-belt'),
+              spacing: 6,
+              runSpacing: 4,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: items,
+            ),
     );
   }
 
-  Widget _buildMonsterIntentReadout(
-    MonsterIntent intent,
-    IntentPreviewOutcome preview,
-    MonsterState monster, {
-    bool conditional = false,
-  }) {
-    final isSafe = preview.isSafe && !conditional;
-    final isSevere =
-        preview.status == IntentPreviewStatus.headOnCollisionDanger ||
-        preview.status == IntentPreviewStatus.bossCatastropheImminent;
+  HardpointType _weaponSlot(ShipState ship, ShipWeaponType type) =>
+      type == ship.resolvedBlueprintId.signatureWeaponType
+      ? HardpointType.signature
+      : HardpointType.broadside;
 
-    final outcomeColor = conditional
-        ? InkTheme.inkMuted
-        : isSafe
-        ? InkTheme.verdigrisGreen
-        : isSevere
-        ? InkTheme.crimsonAccent
-        : const Color(0xFF9A6700);
-
-    return Tooltip(
-      message: '${intent.description}\nCounterplay: ${intent.tacticalTip}',
-      child: Semantics(
-        label:
-            'Monster Intent: ${intent.name}. Threatens ${intent.threatenedRangesLabel}. ${conditional ? 'Helm-only forecast: ' : ''}${preview.summaryBadge}',
-        child: Wrap(
-          alignment: WrapAlignment.spaceBetween,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 6,
-          runSpacing: 3,
-          children: [
-            Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 5,
-              runSpacing: 2,
-              children: [
-                Text(
-                  'INTENT: ${intent.name.toUpperCase()}',
-                  style: InkTheme.statLabel.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10.5,
-                    color:
-                        (intent.isBossWindup || intent.isBossCatastropheStrike)
-                        ? InkTheme.crimsonAccent
-                        : InkTheme.inkPrimary,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 4,
-                    vertical: 1,
-                  ),
-                  decoration: BoxDecoration(
-                    color: InkTheme.crimsonAccent.withValues(alpha: 0.12),
-                    borderRadius: BorderRadius.circular(2),
-                    border: Border.all(
-                      color: InkTheme.crimsonAccent.withValues(alpha: 0.6),
-                      width: 0.9,
-                    ),
-                  ),
-                  child: Text(
-                    'HITS: ${intent.threatenedRangesLabel}',
-                    style: InkTheme.caption.copyWith(
-                      fontSize: 9.0,
-                      fontWeight: FontWeight.bold,
-                      color: InkTheme.crimsonAccent,
-                    ),
-                  ),
-                ),
-                if (intent.moveDelta != IntentMoveDelta.stationary)
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 1.5,
-                    ),
-                    decoration: BoxDecoration(
-                      color: intent.moveTiming == IntentMoveTiming.beforeAttack
-                          ? InkTheme.goldAccent.withValues(alpha: 0.18)
-                          : InkTheme.parchmentSurface,
-                      borderRadius: BorderRadius.circular(2),
-                      border: Border.all(
-                        color:
-                            intent.moveTiming == IntentMoveTiming.beforeAttack
-                            ? InkTheme.goldAccent
-                            : InkTheme.inkMuted,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Text(
-                      intent.moveLabel,
-                      style: InkTheme.caption.copyWith(
-                        fontSize: 9.0,
-                        fontWeight: FontWeight.bold,
-                        color:
-                            intent.moveTiming == IntentMoveTiming.beforeAttack
-                            ? InkTheme.inkPrimary
-                            : InkTheme.inkSecondary,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
-              decoration: BoxDecoration(
-                color: outcomeColor.withValues(alpha: 0.14),
-                borderRadius: BorderRadius.circular(3),
-                border: Border.all(color: outcomeColor, width: 1.0),
-              ),
-              child: Text(
-                '${conditional ? 'HELM ONLY · ' : ''}${preview.summaryBadge}',
-                style: InkTheme.caption.copyWith(
-                  fontSize: 9.5,
-                  fontWeight: FontWeight.bold,
-                  color: outcomeColor,
-                ),
-              ),
-            ),
-          ],
+  Widget _buildWeaponCard(
+    ShipWeaponType type,
+    ShipState ship,
+    MonsterState monster,
+    CombatRange range,
+    HelmOrder order,
+  ) {
+    final weapons = ship.equippedWeapons
+        .where((weapon) => weapon.weaponType == type)
+        .toList();
+    final readyCount = weapons.where((weapon) => weapon.isReady).length;
+    final isReady = readyCount > 0;
+    final cooldown = weapons
+        .map((weapon) => weapon.chargeCountdown)
+        .fold<int>(0, (a, b) => a > b ? a : b);
+    final usable = isWeaponTypeUsableAtRange(type, range);
+    final canFire =
+        isReady && usable && !_isActionLocked && !_decisions.recovering;
+    final badge = _getTacticalWeaponBadge(type, range);
+    final slot = _weaponSlot(ship, type);
+    final ignoresObscurity =
+        type == ShipWeaponType.precisionCulverin &&
+        widget.controller.profile.isEldritchRelicActive(
+          EldritchRelicId.ghostwakeCulverin,
+        );
+    final accuracy = calculateHitChance(
+      ship,
+      weapons.first,
+      monster,
+      accuracyBonus:
+          _decisions.gunneryBoon +
+          widget.controller.captainWeaponAccuracyModifier +
+          (ship.gunneryDrillBuffActive ? 15 : 0),
+      range: range,
+      ignoreObscurity: ignoresObscurity,
+    );
+    final accuracyTip =
+        'Opening shot accuracy: $accuracy% before ${monster.effectiveEvasion}% target dodge.'
+        '${ignoresObscurity
+            ? ' Ghostwake ignores obscurity.'
+            : monster.obscurityAccuracyPenalty > 0
+            ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty}% from accuracy.'
+            : ''}';
+    final name = weapons.length == 1
+        ? (isReady ? type.displayName : '${type.displayName} (${cooldown}T CD)')
+        : '${type.displayName} ($readyCount/${weapons.length})';
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          slot == HardpointType.broadside ? 'BROADSIDE' : 'SIGNATURE',
+          style: InkTheme.caption,
         ),
+        Expanded(
+          child: Tooltip(
+            message:
+                '${badge?.tip ?? ''} $accuracyTip\n${_responseForecast(order, weaponType: type)}',
+            child: InkButton(
+              key: ValueKey('hardpoint-${slot.name}'),
+              label: name,
+              subtitle: !isReady
+                  ? 'RELOADING (${cooldown}T)'
+                  : !usable
+                  ? 'OUT OF RANGE'
+                  : '$accuracy% accuracy · ${(weaponRangeDamageMultiplier(type, range) * 100).round()}% range damage',
+              subtitleColor: !isReady || badge?.isWarning == true
+                  ? InkTheme.crimsonAccent
+                  : InkTheme.goldAccent,
+              semanticLabel: !usable
+                  ? '${type.displayName} volley out of range at ${range.displayName}. Advance to strike!'
+                  : isReady
+                  ? 'Fire ${type.displayName} volley at ${range.displayName}. $accuracyTip ${badge?.badge ?? ''}'
+                  : '${type.displayName} volley reloading ($cooldown turns remaining).',
+              isPrimary: canFire,
+              onPressed: canFire
+                  ? () => _dispatchCombatAction(FireWeaponVolley(type))
+                  : null,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildUtilityRow(ShipState ship, CombatRange range, HelmOrder order) {
+    final name = _utilityLabel(ship);
+    final mark = ship.markLabelForHardpoint(HardpointType.utility);
+    final ready = ship.isUtilityReady;
+    final blessing = ship.blessings[HardpointType.utility];
+    final canUse =
+        ready &&
+        !_isActionLocked &&
+        !_decisions.combinationPending &&
+        !_decisions.recovering;
+    return Column(
+      key: const ValueKey('utility-row'),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text('UTILITY', style: InkTheme.caption),
+        Tooltip(
+          message:
+              '${_utilityTooltip(ship, range)}\n${_responseForecast(order, utility: true)}',
+          child: InkButton(
+            key: const ValueKey('hardpoint-utility'),
+            label: name,
+            subtitle: ready
+                ? '$mark • 2T CD'
+                : 'COOLDOWN (${ship.utilityCooldown}T)',
+            subtitleColor: ready ? InkTheme.goldAccent : InkTheme.crimsonAccent,
+            semanticLabel: ready
+                ? 'Activate $name utility fitting ($mark)'
+                : '$name utility fitting cooling down (${ship.utilityCooldown} turns remaining)',
+            onPressed: canUse
+                ? () => _dispatchCombatAction(const ExecuteShipSpecialAction())
+                : null,
+          ),
+        ),
+        if (blessing != null) BlessingBadge(blessing: blessing),
+      ],
+    );
+  }
+
+  Widget _buildBeltItem(Consumable item, int index, int used, int limit) {
+    final effect = item.type == ConsumableType.hullPatchKit
+        ? (
+            summary: 'Repair ${_decisions.hullPatchHp} HP',
+            details: 'Restore ${_decisions.hullPatchHp} hull HP.',
+          )
+        : item.type.beltEffect;
+    final restriction = _beltRestriction(item, used, limit);
+    final details = restriction == null
+        ? effect.details
+        : '${effect.details}\n$restriction';
+    return Tooltip(
+      message: details,
+      child: InkButton(
+        label: item.name,
+        subtitle: effect.summary,
+        subtitleColor: InkTheme.inkSecondary,
+        compact: true,
+        semanticLabel: item.name,
+        semanticHint: details,
+        onPressed: restriction == null
+            ? () => _dispatchCombatAction(UseConsumableItem(index))
+            : null,
       ),
     );
   }
@@ -1448,10 +1400,11 @@ class _BattleScreenState extends State<BattleScreen> {
       label: isCurrentStation
           ? 'Current engagement distance: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ''}'
           : isTargetDestination
-          ? 'Pending tactical bearing: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ' (Safe blind spot)'}'
+          ? 'Pending tactical bearing: ${band.displayName}${isThreatened ? ' (Threatened by monster intent)' : ' (Outside listed threat bands)'}'
           : '${band.displayName}${isThreatened ? ' (Threatened)' : ''}',
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(3),
@@ -1460,7 +1413,7 @@ class _BattleScreenState extends State<BattleScreen> {
         child: Text(
           label,
           style: InkTheme.caption.copyWith(
-            fontSize: 9.5,
+            fontSize: 12,
             fontWeight: fontWeight,
             color: textColor,
           ),
@@ -1478,7 +1431,11 @@ class _BattleScreenState extends State<BattleScreen> {
     final isAvailable =
         (!isGrappled || order == HelmOrder.holdLine) &&
         currentRange.availableHelmOrders.contains(order);
-    final isSelected = activeHelmOrder == order;
+    final isSelected =
+        (_decisions.combinationPending
+            ? widget.controller.session.lastHelmOrderThisTurn
+            : activeHelmOrder) ==
+        order;
 
     final IconData icon = switch (order) {
       HelmOrder.fallBack => Icons.arrow_back,
@@ -1535,7 +1492,9 @@ class _BattleScreenState extends State<BattleScreen> {
               : null,
           borderRadius: BorderRadius.circular(3),
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+            key: ValueKey('helm-${order.name}'),
+            constraints: const BoxConstraints(minHeight: 88),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
             decoration: BoxDecoration(
               color: bgColor,
               borderRadius: BorderRadius.circular(3),
@@ -1544,15 +1503,17 @@ class _BattleScreenState extends State<BattleScreen> {
                 width: isSelected ? 1.5 : 1.0,
               ),
             ),
-            child: Row(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, size: 11, color: contentColor),
-                const SizedBox(width: 3),
+                Icon(icon, size: 24, color: contentColor),
+                const SizedBox(height: 6),
                 Text(
                   order.displayName,
-                  style: InkTheme.caption.copyWith(
-                    fontSize: 10,
+                  textAlign: TextAlign.center,
+                  style: InkTheme.body.copyWith(
+                    fontSize: 16,
                     fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
                     color: contentColor,
                   ),

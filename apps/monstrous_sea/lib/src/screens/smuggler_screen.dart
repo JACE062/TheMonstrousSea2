@@ -385,7 +385,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                           children: [
                             Text('ARMORY & MUNITIONS', style: InkTheme.statLabel),
                             Text(
-                              'Inspect hardpoints, blessings, and tactical belt supplies.',
+                              'Inspect ship fittings, blessings, and tactical belt supplies.',
                               style: InkTheme.caption,
                             ),
                           ],

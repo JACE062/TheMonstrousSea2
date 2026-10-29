@@ -13,7 +13,7 @@ import '../widgets/svg_asset_view.dart';
 import '../widgets/pilot_art.dart';
 
 /// Screen allowing captain to rest upon the open swell, inspect vessel,
-/// inspect fixed hardpoints and tactical belt supplies, and choose their next move.
+/// inspect fixed fittings and tactical belt supplies, and choose their next move.
 class RestScreen extends StatelessWidget {
   const RestScreen({
     super.key,

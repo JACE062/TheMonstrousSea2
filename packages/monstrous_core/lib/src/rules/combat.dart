@@ -129,7 +129,7 @@ double weaponRangeDamageMultiplier(ShipWeaponType type, CombatRange range) {
 ///
 /// Bounded between 25% and 95%:
 /// - Base accuracy from [weapon.baseAccuracy] (or [weapon.hitModifier]).
-/// - Optional [accuracyBonus] (e.g. from island gunnery drills or Standard Gunnery Drill).
+/// - Optional [accuracyBonus] (e.g. from island gunnery drills or Standard Gun-Deck Bracing).
 /// - Long Range penalty (-15% accuracy) for standard broadside naval cannons.
 /// - Obscurity modifier (Ink Cloud) reduces accuracy unless illuminated by a Spotter Flare.
 /// - Spotter Flare grants +15% accuracy against illuminated monsters.

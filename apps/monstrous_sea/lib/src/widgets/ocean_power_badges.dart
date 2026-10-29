@@ -64,7 +64,7 @@ class ShipPowerStatusBadges extends StatelessWidget {
         const _PowerBadge(
           label: 'Braced · −20% incoming',
           explanation:
-              'Gunnery Drill reduces incoming attack damage this round.',
+              'Gun-Deck Bracing reduces incoming attack damage this round.',
         ),
       if (ship.basaltBarrierHp > 0)
         _PowerBadge(

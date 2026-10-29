@@ -139,7 +139,7 @@ class _ShrineScreenState extends State<ShrineScreen> {
                       const SizedBox(height: 20),
                       if (selected != null && ship != null) ...[
                         Text(
-                          '2 · DEDICATE A HARDPOINT',
+                          '2 · DEDICATE A FITTING',
                           style: InkTheme.statValue,
                         ),
                         const SizedBox(height: 4),

@@ -115,6 +115,7 @@ void main() {
       expect(find.text('Naval Cannon Battery'), findsOneWidget);
 
       // Fire weapon volley
+      await tester.ensureVisible(find.text('Naval Cannon Battery'));
       await tester.tap(find.text('Naval Cannon Battery'));
       // Finish the full volley and enemy response before disposing the scene.
       for (var frame = 0; frame < 100 && controller.isPlayingEvents; frame++) {
@@ -148,6 +149,7 @@ void main() {
     await mountBattle(tester, controller);
 
     // Fire Cannon volley to finish monster
+    await tester.ensureVisible(find.text('Naval Cannon Battery'));
     await tester.tap(find.text('Naval Cannon Battery'));
     // Complete the fatal volley and the battle-ending presentation delay.
     for (var frame = 0; frame < 100 && controller.isPlayingEvents; frame++) {

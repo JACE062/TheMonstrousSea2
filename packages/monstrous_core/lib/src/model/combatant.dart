@@ -173,10 +173,10 @@ class ShipState extends Combatant {
   /// True if Ironclad's Fortify Iron Plates anchored the hull this round against monster push/pull.
   bool isAnchoredThisTurn;
 
-  /// True if Standard's Gunnery Drill braced the crew this round (-20% incoming damage).
+  /// True if Standard's Gun-Deck Bracing set the hull and gun-deck braces this round (-20% incoming damage).
   bool isBracedByDrill;
 
-  /// True if Standard's Gunnery Drill empowered the next offensive volley (+15% Accuracy, +20% Damage).
+  /// True if Standard's Gun-Deck Bracing empowered the next offensive volley (+15% Accuracy, +20% Damage).
   bool gunneryDrillBuffActive;
 
   /// True if an Alchemical Pitch Flask coated the next offensive volley (+25% Fire damage & Burn).
