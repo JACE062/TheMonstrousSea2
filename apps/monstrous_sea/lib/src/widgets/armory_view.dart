@@ -106,8 +106,8 @@ class ArmoryView extends StatelessWidget {
                           _utilityDescription(ship),
                           style: InkTheme.body.copyWith(fontSize: 14),
                         ),
-                      const SizedBox(height: 10),
                       if (blessing != null) ...[
+                        const SizedBox(height: 10),
                         Text(
                           '${blessing.title} · ${blessing.subtitle}',
                           style: InkTheme.statValue.copyWith(fontSize: 15),
@@ -121,11 +121,7 @@ class ArmoryView extends StatelessWidget {
                           blessing.description,
                           style: InkTheme.body.copyWith(fontSize: 14),
                         ),
-                      ] else
-                        Text(
-                          'No primordial blessing',
-                          style: InkTheme.caption.copyWith(fontSize: 13),
-                        ),
+                      ],
                       if (canonical == HardpointType.signature) ...[
                         const SizedBox(height: 8),
                         Text(

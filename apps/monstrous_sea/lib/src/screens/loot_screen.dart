@@ -91,8 +91,10 @@ class LootScreen extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    spacing: 12,
+                    runSpacing: 6,
                     children: [
                       Text(
                         'TACTICAL BELT: ${ship?.cargo.length ?? 0} / ${ship?.maxCargo ?? 0}',
