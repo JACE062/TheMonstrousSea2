@@ -9,6 +9,7 @@ export 'src/lore/lore.dart';
 export 'src/model/attack_result.dart';
 export 'src/model/bloodline_trait.dart';
 export 'src/model/combatant.dart';
+export 'src/model/combat_presentation.dart';
 export 'src/model/covenant_of_the_deep.dart';
 export 'src/model/enums.dart';
 export 'src/model/flagship_blueprint.dart';

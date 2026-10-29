@@ -3,6 +3,38 @@ import 'package:monstrous_core/monstrous_core.dart';
 
 import '../theme/ink_theme.dart';
 
+/// Ordinary effects share the same row as power effects, without duplicate Burn.
+List<Widget> _combatStatusBadges(Combatant combatant) => [
+  for (final effect in combatant.statusEffects)
+    if (!(effect == StatusEffect.burn &&
+        combatant is MonsterState &&
+        combatant.burnTurns > 0))
+      _PowerBadge(
+        label: effect.displayName,
+        explanation: switch (effect) {
+          StatusEffect.burn =>
+            'Fire damage when this combatant’s status effects resolve.',
+          StatusEffect.poison =>
+            'Poison damage when this combatant’s status effects resolve.',
+          StatusEffect.stun => 'Loses its next action, then clears.',
+        },
+      ),
+];
+
+/// Keep one wrapping row beneath health, with no empty gap when effects clear.
+class _StatusRow extends StatelessWidget {
+  const _StatusRow({required this.children});
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) => children.isEmpty
+      ? const SizedBox.shrink()
+      : Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Wrap(spacing: 4, runSpacing: 4, children: children),
+        );
+}
+
 /// Compact, wrapping readouts keep the underlying weapon and status legible.
 class BlessingBadge extends StatelessWidget {
   const BlessingBadge({super.key, required this.blessing});
@@ -21,10 +53,19 @@ class ShipPowerStatusBadges extends StatelessWidget {
   final ShipState ship;
 
   @override
-  Widget build(BuildContext context) => Wrap(
-    spacing: 4,
-    runSpacing: 4,
+  Widget build(BuildContext context) => _StatusRow(
     children: [
+      if (ship.tempAccuracyPenalty > 0)
+        _PowerBadge(
+          label: 'Accuracy −${ship.tempAccuracyPenalty}%',
+          explanation: 'Temporary shot accuracy penalty for this round.',
+        ),
+      if (ship.isBracedByDrill)
+        const _PowerBadge(
+          label: 'Braced · −20% incoming',
+          explanation:
+              'Gunnery Drill reduces incoming attack damage this round.',
+        ),
       if (ship.basaltBarrierHp > 0)
         _PowerBadge(
           label: 'Basalt Barrier: ${ship.basaltBarrierHp} HP',
@@ -41,6 +82,7 @@ class ShipPowerStatusBadges extends StatelessWidget {
           label: 'Boiling Wake (${ship.boilingWakeTurns}T)',
           explanation: 'Monster movement through the wake takes Fire damage.',
         ),
+      ..._combatStatusBadges(ship),
     ],
   );
 }
@@ -50,9 +92,7 @@ class MonsterPowerStatusBadges extends StatelessWidget {
   final MonsterState monster;
 
   @override
-  Widget build(BuildContext context) => Wrap(
-    spacing: 4,
-    runSpacing: 4,
+  Widget build(BuildContext context) => _StatusRow(
     children: [
       if (monster.staticStacks > 0)
         _PowerBadge(
@@ -82,6 +122,7 @@ class MonsterPowerStatusBadges extends StatelessWidget {
           label: 'Ignited (${monster.burnTurns}T)',
           explanation: 'Burning: takes Fire damage at the start of its turn. Enables Thermal Detonation.',
         ),
+      ..._combatStatusBadges(monster),
     ],
   );
 }

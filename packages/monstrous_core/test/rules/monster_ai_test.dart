@@ -106,7 +106,8 @@ void main() {
       // Should terminate immediately and not hang
       final events = takeMonsterTurn(shark, ship, rng);
 
-      expect(events.length, equals(1));
+      expect(events.length, equals(2));
+      expect(events.last, isA<CombatEffectsChanged>());
       expect(events.first, isA<MonsterHesitated>());
       final hesitated = events.first as MonsterHesitated;
       expect(hesitated.monsterName, equals(shark.name));
@@ -309,7 +310,8 @@ void main() {
 
       expect(squid.isObscured, isTrue);
       expect(squid.effectiveArmorClass, equals(15)); // 10 + 5
-      expect(events.length, equals(1));
+      expect(events.length, equals(2));
+      expect(events.whereType<CombatEffectsChanged>().single.state.isObscured, isTrue);
       expect(events.first, isA<InkCloudDeployed>());
       final inkEvent = events.first as InkCloudDeployed;
       expect(inkEvent.acBonus, equals(5));

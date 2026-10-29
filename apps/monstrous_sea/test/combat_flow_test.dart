@@ -117,9 +117,11 @@ void main() {
       // Fire weapon volley
       await tester.tap(find.text('Naval Cannon Battery'));
       // Finish the full volley and enemy response before disposing the scene.
-      for (var frame = 0; frame < 6; frame++) {
-        await tester.pump(const Duration(milliseconds: 500));
+      for (var frame = 0; frame < 100 && controller.isPlayingEvents; frame++) {
+        await tester.pump(const Duration(milliseconds: 200));
       }
+      await tester.pump();
+      expect(controller.isPlayingEvents, isFalse);
 
       // Verify combat log recorded actions
       expect(controller.combatLog.isNotEmpty, isTrue);
@@ -148,9 +150,11 @@ void main() {
     // Fire Cannon volley to finish monster
     await tester.tap(find.text('Naval Cannon Battery'));
     // Complete the fatal volley and the battle-ending presentation delay.
-    for (var frame = 0; frame < 6; frame++) {
-      await tester.pump(const Duration(milliseconds: 500));
+    for (var frame = 0; frame < 100 && controller.isPlayingEvents; frame++) {
+      await tester.pump(const Duration(milliseconds: 200));
     }
+    await tester.pump();
+    expect(controller.isPlayingEvents, isFalse);
 
     // Session transitions to loot
     expect(controller.phase, SessionPhase.loot);

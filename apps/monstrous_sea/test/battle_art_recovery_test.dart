@@ -202,9 +202,11 @@ void main() {
           expect(find.byType(ErrorWidget), findsNothing);
           final round = controller.session.battleRound;
           await tester.tap(find.text('Naval Cannon Battery'));
-          for (var tick = 0; tick < 30; tick++) {
+          for (var tick = 0; tick < 100 && controller.isPlayingEvents; tick++) {
             await tester.pump(const Duration(milliseconds: 200));
           }
+          await tester.pump();
+          expect(controller.isPlayingEvents, isFalse);
           expect(controller.session.battleRound, greaterThan(round));
           final cannon = tester.widget<InkButton>(
             find.ancestor(

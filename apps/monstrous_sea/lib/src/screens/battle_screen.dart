@@ -56,6 +56,28 @@ class BattleScreen extends StatefulWidget {
 }
 
 class _BattleScreenState extends State<BattleScreen> {
+  late ({
+    int quickUsed,
+    bool combinationPending,
+    bool recovering,
+    bool canStartCombination,
+    int hullPatchHp,
+    int gunneryBoon,
+  })
+  _decisions;
+
+  void _captureDecisions() {
+    final controller = widget.controller;
+    _decisions = (
+      quickUsed: controller.session.quickConsumablesUsedThisTurn,
+      combinationPending: controller.isImpatientCombinationPending,
+      recovering: controller.isImpatientRecovering,
+      canStartCombination: controller.canStartImpatientCombination,
+      hullPatchHp: controller.hullPatchHealingHp,
+      gunneryBoon: controller.gunneryAccuracyBoon,
+    );
+  }
+
   late MonstrousSeaBattleGame _battleGame;
   bool _isActionLocked = false;
   bool _showLog = true;
@@ -79,13 +101,16 @@ class _BattleScreenState extends State<BattleScreen> {
   @override
   void initState() {
     super.initState();
+    _captureDecisions();
     _battleGame =
         widget.game ??
         MonstrousSeaBattleGame(
           ship: widget.controller.ship!,
           monster: widget.controller.currentMonster!,
+          initialRange: widget.controller.combatRange,
         );
     _battleGame.artworkRevision.addListener(_onArtworkChanged);
+    _battleGame.presentation.addListener(_onArtworkChanged);
   }
 
   void _onArtworkChanged() {
@@ -113,8 +138,8 @@ class _BattleScreenState extends State<BattleScreen> {
                   BloodlineTraitId.drillmaster
               ? 2
               : 1;
-          final used = widget.controller.session.quickConsumablesUsedThisTurn;
-          final items = widget.controller.ship!.cargo.whereType<Consumable>();
+          final used = _decisions.quickUsed;
+          final items = _battleGame.ship.cargo.whereType<Consumable>();
           return AlertDialog(
             backgroundColor: InkTheme.parchmentSurface,
             shape: RoundedRectangleBorder(
@@ -149,9 +174,12 @@ class _BattleScreenState extends State<BattleScreen> {
                   for (final item in items) ...[
                     const Divider(color: InkTheme.inkMuted),
                     Text(item.name, style: InkTheme.titleMedium),
-                    Text(item.type == ConsumableType.hullPatchKit
-                        ? 'Restore ${widget.controller.hullPatchHealingHp} hull HP.'
-                        : item.type.beltEffect.details, style: InkTheme.body),
+                    Text(
+                      item.type == ConsumableType.hullPatchKit
+                          ? 'Restore ${_decisions.hullPatchHp} hull HP.'
+                          : item.type.beltEffect.details,
+                      style: InkTheme.body,
+                    ),
                     if (item.isDepleted)
                       Text('Already spent.', style: InkTheme.caption),
                   ],
@@ -174,10 +202,17 @@ class _BattleScreenState extends State<BattleScreen> {
   Widget _artRecoveryNotice() => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text('Illustration unavailable. Battle actions remain ready.', style: InkTheme.caption),
+      Text(
+        'Illustration unavailable. Battle actions remain ready.',
+        style: InkTheme.caption,
+      ),
       TextButton(
-        onPressed: _battleGame.isRetryingArtwork ? null : _battleGame.retryArtwork,
-        child: Text(_battleGame.isRetryingArtwork ? 'LOADING ART...' : 'RETRY ART'),
+        onPressed: _battleGame.isRetryingArtwork
+            ? null
+            : _battleGame.retryArtwork,
+        child: Text(
+          _battleGame.isRetryingArtwork ? 'LOADING ART...' : 'RETRY ART',
+        ),
       ),
     ],
   );
@@ -185,6 +220,7 @@ class _BattleScreenState extends State<BattleScreen> {
   @override
   void dispose() {
     _battleGame.artworkRevision.removeListener(_onArtworkChanged);
+    _battleGame.presentation.removeListener(_onArtworkChanged);
     super.dispose();
   }
 
@@ -223,8 +259,15 @@ class _BattleScreenState extends State<BattleScreen> {
     };
   }
 
-  void _dispatchCombatAction(Command command) {
+  Future<void> _dispatchCombatAction(Command command) async {
     if (_isActionLocked) return;
+    _captureDecisions();
+
+    _battleGame.presentation.synchronizeIdle(
+      widget.controller.ship!,
+      widget.controller.currentMonster!,
+      widget.controller.combatRange,
+    );
 
     setState(() {
       _isActionLocked = true;
@@ -240,43 +283,57 @@ class _BattleScreenState extends State<BattleScreen> {
       widget.controller.setIsPlayingEvents(true);
     }
 
-    final events = <GameEvent>[];
+    try {
+      final events = <GameEvent>[];
 
-    // If an advance or fall back order was selected, execute helm order before turn-ending actions
-    final currentRange = widget.controller.combatRange;
-    final isGrappled = widget.controller.ship?.isGrappled ?? false;
-    final activeOrder =
-        (!isGrappled &&
-            currentRange.availableHelmOrders.contains(_selectedHelmOrder))
-        ? _selectedHelmOrder
-        : HelmOrder.holdLine;
+      // If an advance or fall back order was selected, execute helm order before turn-ending actions
+      final currentRange = widget.controller.combatRange;
+      final isGrappled = widget.controller.ship?.isGrappled ?? false;
+      final activeOrder =
+          (!isGrappled &&
+              currentRange.availableHelmOrders.contains(_selectedHelmOrder))
+          ? _selectedHelmOrder
+          : HelmOrder.holdLine;
 
-    if (activeOrder != HelmOrder.holdLine && isTurnEndingAction &&
-        !widget.controller.isImpatientCombinationPending) {
+      if (activeOrder != HelmOrder.holdLine &&
+          isTurnEndingAction &&
+          !_decisions.combinationPending) {
+        events.addAll(
+          widget.controller.dispatch(
+            IssueHelmOrder(activeOrder),
+            deferNotification: true,
+          ),
+        );
+      }
+
       events.addAll(
-        widget.controller.dispatch(
-          IssueHelmOrder(activeOrder),
-          deferNotification: true,
-        ),
+        widget.controller.dispatch(command, deferNotification: isCombatAction),
       );
-    }
 
-    events.addAll(
-      widget.controller.dispatch(command, deferNotification: isCombatAction),
-    );
+      if (isTurnEndingAction) {
+        // Reset selected helm order to holdLine for subsequent round
+        _selectedHelmOrder = HelmOrder.holdLine;
+      }
 
-    if (isTurnEndingAction) {
-      // Reset selected helm order to holdLine for subsequent round
-      _selectedHelmOrder = HelmOrder.holdLine;
-    }
-
-    _battleGame.playEvents(events, () async {
+      await _battleGame.playEvents(events, () {});
+      assert(
+        _battleGame.ship.currentHp == widget.controller.ship!.currentHp &&
+            _battleGame.monster.currentHp ==
+                widget.controller.currentMonster!.currentHp &&
+            _battleGame.monster.carapacePlating ==
+                widget.controller.currentMonster!.carapacePlating &&
+            _battleGame.monster.numberOfTentacles ==
+                widget.controller.currentMonster!.numberOfTentacles,
+        'Combat playback is missing a resolved outcome',
+      );
       final isBattleEnding = widget.controller.phase != SessionPhase.battle;
       if (isBattleEnding) {
         // Allow damage numbers, animations, and fatal blow to settle before transitioning
         await Future.delayed(const Duration(milliseconds: 1400));
       }
+    } finally {
       if (mounted) {
+        _battleGame.presentation.finishControls(widget.controller.ship!);
         setState(() {
           _isActionLocked = false;
         });
@@ -284,7 +341,7 @@ class _BattleScreenState extends State<BattleScreen> {
           widget.controller.setIsPlayingEvents(false);
         }
       }
-    });
+    }
   }
 
   @override
@@ -292,23 +349,37 @@ class _BattleScreenState extends State<BattleScreen> {
     // Register dependency on MediaQuery so window resizing re-triggers build and insets sync
     final _ = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) => _syncArenaInsets());
-    final ship = widget.controller.ship;
-    final monster = widget.controller.currentMonster;
-    if (ship == null || monster == null) {
+    final liveShip = widget.controller.ship;
+    final liveMonster = widget.controller.currentMonster;
+    if (liveShip == null || liveMonster == null) {
       return const ParchmentScaffold(
         showPauseButton: false,
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
-    final currentRange = widget.controller.combatRange;
+    if (!_isActionLocked && !widget.controller.isPlayingEvents) {
+      _captureDecisions();
+      _battleGame.presentation.synchronizeIdle(
+        liveShip,
+        liveMonster,
+        widget.controller.combatRange,
+      );
+    }
+    _battleGame.reducedMotion = MediaQuery.disableAnimationsOf(context);
+    _battleGame.feedbackTextScale = MediaQuery.textScalerOf(context).scale(1);
+    final ship = _battleGame.presentation.ship;
+    final monster = _battleGame.presentation.monster;
+    final currentRange = _battleGame.presentation.range;
     final activeHelmOrder =
         (!ship.isGrappled &&
             currentRange.availableHelmOrders.contains(_selectedHelmOrder))
         ? _selectedHelmOrder
         : HelmOrder.holdLine;
     final enemyPreviewRange = currentRange.rangeAfterHelmOrder(activeHelmOrder);
-    final previewRange = widget.controller.usesLateHelm ? currentRange : enemyPreviewRange;
+    final previewRange = widget.controller.usesLateHelm
+        ? currentRange
+        : enemyPreviewRange;
     final canFireAnyWeapon = ship.equippedWeaponTypes.any((type) {
       final ready = ship.equippedWeapons
           .where((w) => w.weaponType == type)
@@ -321,18 +392,25 @@ class _BattleScreenState extends State<BattleScreen> {
         widget.controller.activeBoon?.id == BloodlineTraitId.drillmaster
         ? 2
         : 1;
-    final quickUsed = widget.controller.session.quickConsumablesUsedThisTurn;
+    final quickUsed = _decisions.quickUsed;
     // Quick items and helm orders cannot end the turn. Keep an emergency pass
     // only when every offensive and utility hardpoint is unavailable.
-    final needsEmergencyPass = !widget.controller.isImpatientCombinationPending &&
-        (widget.controller.isImpatientRecovering || widget.controller.usesLateHelm ||
-        (!canFireAnyWeapon && !ship.isUtilityReady));
+    final needsEmergencyPass =
+        !_decisions.combinationPending &&
+        (_decisions.recovering ||
+            widget.controller.usesLateHelm ||
+            (!canFireAnyWeapon && !ship.isUtilityReady));
 
     return ParchmentScaffold(
       showBorder: false,
       showPauseButton: false,
       body: Stack(
         children: [
+          Semantics(
+            liveRegion: true,
+            label: _battleGame.presentation.announcement,
+            child: const SizedBox.shrink(),
+          ),
           // 1. Flame 2D Battle Arena
           // The arena only renders events. Flame otherwise captures Tab before
           // Flutter can move focus between the actual battle controls.
@@ -383,9 +461,14 @@ class _BattleScreenState extends State<BattleScreen> {
                           style: InkTheme.caption,
                         ),
                         const SizedBox(height: 8),
-                        HullGauge(currentHp: ship.currentHp, maxHp: ship.maxHp),
+                        HullGauge(
+                          currentHp: ship.currentHp,
+                          maxHp: ship.maxHp,
+                          animationDuration: const Duration(milliseconds: 140),
+                        ),
                         ShipPowerStatusBadges(ship: ship),
-                        if (_battleGame.isShipArtUnavailable) _artRecoveryNotice(),
+                        if (_battleGame.isShipArtUnavailable)
+                          _artRecoveryNotice(),
                       ],
                     ),
                   ),
@@ -474,8 +557,10 @@ class _BattleScreenState extends State<BattleScreen> {
                           currentHp: monster.currentHp,
                           maxHp: monster.maxHp,
                           label: 'BEAST INTEGRITY',
+                          animationDuration: const Duration(milliseconds: 140),
                         ),
-                        if (_battleGame.isMonsterArtUnavailable) _artRecoveryNotice(),
+                        if (_battleGame.isMonsterArtUnavailable)
+                          _artRecoveryNotice(),
                         MonsterPowerStatusBadges(monster: monster),
                         if (monster.species == MonsterSpecies.crustacean ||
                             monster.maxCarapace > 0) ...[
@@ -688,8 +773,10 @@ class _BattleScreenState extends State<BattleScreen> {
                           previewRange,
                         );
                         final canFire =
-                            isReady && isUsableAtRange && !_isActionLocked &&
-                            !widget.controller.isImpatientRecovering;
+                            isReady &&
+                            isUsableAtRange &&
+                            !_isActionLocked &&
+                            !_decisions.recovering;
                         final badgeInfo = _getTacticalWeaponBadge(
                           type,
                           previewRange,
@@ -711,7 +798,8 @@ class _BattleScreenState extends State<BattleScreen> {
                           ship,
                           weaponsOfType.first,
                           monster,
-                          accuracyBonus: widget.controller.gunneryAccuracyBoon +
+                          accuracyBonus:
+                              _decisions.gunneryBoon +
                               widget.controller.captainWeaponAccuracyModifier +
                               (ship.gunneryDrillBuffActive ? 15 : 0),
                           range: previewRange,
@@ -719,7 +807,11 @@ class _BattleScreenState extends State<BattleScreen> {
                         );
                         final accuracyTip =
                             'Opening shot accuracy: $shotAccuracy% before ${monster.effectiveEvasion}% target dodge.'
-                            '${ignoresObscurity ? ' Ghostwake ignores obscurity.' : monster.obscurityAccuracyPenalty > 0 ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty}% from accuracy.' : ''}';
+                            '${ignoresObscurity
+                                ? ' Ghostwake ignores obscurity.'
+                                : monster.obscurityAccuracyPenalty > 0
+                                ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty}% from accuracy.'
+                                : ''}';
 
                         final labelText = weaponsOfType.length == 1
                             ? (isReady
@@ -739,7 +831,8 @@ class _BattleScreenState extends State<BattleScreen> {
                                 if (blessing != null)
                                   BlessingBadge(blessing: blessing),
                                 Tooltip(
-                                  message: '${badgeInfo?.tip ?? ''} $accuracyTip\n${_responseForecast(activeHelmOrder, weaponType: type)}',
+                                  message:
+                                      '${badgeInfo?.tip ?? ''} $accuracyTip\n${_responseForecast(activeHelmOrder, weaponType: type)}',
                                   child: InkButton(
                                     label: labelText,
                                     subtitle: isReady
@@ -780,9 +873,13 @@ class _BattleScreenState extends State<BattleScreen> {
                               final utilReady = ship.isUtilityReady;
                               final blessing =
                                   ship.blessings[HardpointType.utility];
-                              final canUseUtil = utilReady && !_isActionLocked &&
-                                  !widget.controller.isImpatientCombinationPending &&
-                                  !widget.controller.isImpatientRecovering;
+                              final canUseUtil =
+                                  utilReady &&
+                                  !_isActionLocked &&
+                                  !widget
+                                      .controller
+                                      .isImpatientCombinationPending &&
+                                  !_decisions.recovering;
                               final utilSubtitle = utilReady
                                   ? 'UTILITY ($utilMark • 2T CD)'
                                   : 'COOLDOWN (${ship.utilityCooldown}T)';
@@ -794,7 +891,8 @@ class _BattleScreenState extends State<BattleScreen> {
                                   if (blessing != null)
                                     BlessingBadge(blessing: blessing),
                                   Tooltip(
-                                    message: '${_utilityTooltip(ship, previewRange)}\n${_responseForecast(activeHelmOrder, utility: true)}',
+                                    message:
+                                        '${_utilityTooltip(ship, previewRange)}\n${_responseForecast(activeHelmOrder, utility: true)}',
                                     child: InkButton(
                                       label: utilName,
                                       subtitle: utilSubtitle,
@@ -822,21 +920,24 @@ class _BattleScreenState extends State<BattleScreen> {
                   ),
                   const SizedBox(height: 6),
 
-                  if (widget.controller.canStartImpatientCombination)
+                  if (_decisions.canStartCombination)
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         key: const ValueKey('impatient-combination'),
-                        onPressed: _isActionLocked ? null : () => _dispatchCombatAction(
-                          const ExecuteShipSpecialAction(borrowNextAction: true),
-                        ),
+                        onPressed: _isActionLocked
+                            ? null
+                            : () => _dispatchCombatAction(
+                                const ExecuteShipSpecialAction(
+                                  borrowNextAction: true,
+                                ),
+                              ),
                         child: const Text('IMPATIENT · UTILITY + WEAPON'),
                       ),
                     ),
-                  if (widget.controller.isImpatientCombinationPending ||
-                      widget.controller.isImpatientRecovering)
+                  if (_decisions.combinationPending || _decisions.recovering)
                     Text(
-                      widget.controller.isImpatientCombinationPending
+                      _decisions.combinationPending
                           ? 'IMPATIENT · Fire one weapon next. Belt available; helm already committed.'
                           : 'RECOVERY · Hardpoints unavailable. Maneuver, use belt, or Brace & Reload.',
                       key: const ValueKey('impatient-status'),
@@ -890,9 +991,14 @@ class _BattleScreenState extends State<BattleScreen> {
                                 Builder(
                                   builder: (context) {
                                     final cons = ship.cargo[i] as Consumable;
-                                    final effect = cons.type == ConsumableType.hullPatchKit
-                                        ? (summary: 'Repair ${widget.controller.hullPatchHealingHp} HP',
-                                           details: 'Restore ${widget.controller.hullPatchHealingHp} hull HP.')
+                                    final effect =
+                                        cons.type == ConsumableType.hullPatchKit
+                                        ? (
+                                            summary:
+                                                'Repair ${_decisions.hullPatchHp} HP',
+                                            details:
+                                                'Restore ${_decisions.hullPatchHp} hull HP.',
+                                          )
                                         : cons.type.beltEffect;
                                     final restriction = _beltRestriction(
                                       cons,
@@ -951,13 +1057,23 @@ class _BattleScreenState extends State<BattleScreen> {
     );
   }
 
-  String _responseForecast(HelmOrder order, {ShipWeaponType? weaponType, bool utility = false}) {
-    final movesRange = weaponType == ShipWeaponType.prowRam ||
+  String _responseForecast(
+    HelmOrder order, {
+    ShipWeaponType? weaponType,
+    bool utility = false,
+  }) {
+    if (_isActionLocked) return '';
+    final movesRange =
+        weaponType == ShipWeaponType.prowRam ||
         weaponType == ShipWeaponType.harpoonWinch ||
-        (utility && widget.controller.ship?.resolvedBlueprintId.utilityHardpoint == UtilityHardpointId.evasiveRigging);
+        (utility &&
+            widget.controller.ship?.resolvedBlueprintId.utilityHardpoint ==
+                UtilityHardpointId.evasiveRigging);
     if (!movesRange) return '';
     final responseRange = widget.controller.previewResponseRange(
-      helmOrder: order, weaponType: weaponType, utility: utility,
+      helmOrder: order,
+      weaponType: weaponType,
+      utility: utility,
     );
     final monster = widget.controller.currentMonster;
     final outcome = monster?.currentIntent?.evaluatePreview(
@@ -967,7 +1083,8 @@ class _BattleScreenState extends State<BattleScreen> {
       tentacleCount: monster.numberOfTentacles,
       damagePerTentacle: monster.usableWeapons
           .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
-          .firstOrNull?.damage,
+          .firstOrNull
+          ?.damage,
     );
     return 'After action: ${responseRange.displayName}'
         '${outcome == null ? '' : ' · ${outcome.summaryBadge}'}';
@@ -981,9 +1098,14 @@ class _BattleScreenState extends State<BattleScreen> {
     MonsterState monster,
   ) {
     final intent = monster.currentIntent;
-    final conditional = ship.equippedWeaponTypes.any((type) =>
-        type == ShipWeaponType.prowRam || type == ShipWeaponType.harpoonWinch) ||
-        ship.resolvedBlueprintId.utilityHardpoint == UtilityHardpointId.evasiveRigging;
+    final conditional =
+        ship.equippedWeaponTypes.any(
+          (type) =>
+              type == ShipWeaponType.prowRam ||
+              type == ShipWeaponType.harpoonWinch,
+        ) ||
+        ship.resolvedBlueprintId.utilityHardpoint ==
+            UtilityHardpointId.evasiveRigging;
     final previewOutcome = intent?.evaluatePreview(
       currentRange: currentRange,
       selectedHelmOrder: activeHelmOrder,
@@ -991,7 +1113,8 @@ class _BattleScreenState extends State<BattleScreen> {
       tentacleCount: monster.numberOfTentacles,
       damagePerTentacle: monster.usableWeapons
           .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
-          .firstOrNull?.damage,
+          .firstOrNull
+          ?.damage,
     );
 
     return Container(
@@ -1008,19 +1131,31 @@ class _BattleScreenState extends State<BattleScreen> {
         children: [
           if (widget.controller.activeQuirk?.id == BloodlineTraitId.daredevil)
             Text(
-              widget.controller.isDaredevilActive
+              ship.currentHp * 2 <= ship.maxHp
                   ? 'DAREDEVIL · +30% weapon damage · at/below 50% hull'
                   : 'DAREDEVIL · Bonus activates at 50% hull or less',
-              key: const ValueKey('daredevil-status'), style: InkTheme.caption,
+              key: const ValueKey('daredevil-status'),
+              style: InkTheme.caption,
             ),
           if (widget.controller.usesLateHelm)
-            Text('SKIRMISHER · Act at ${currentRange.displayName}, then maneuver before the response.',
-                key: const ValueKey('late-helm-hint'), style: InkTheme.caption),
+            Text(
+              'SKIRMISHER · Act at ${currentRange.displayName}, then maneuver before the response.',
+              key: const ValueKey('late-helm-hint'),
+              style: InkTheme.caption,
+            ),
           if (intent != null && previewOutcome != null) ...[
             if (conditional)
-              Text('Actions may change this helm forecast.',
-                  key: const ValueKey('conditional-range-forecast'), style: InkTheme.caption),
-            _buildMonsterIntentReadout(intent, previewOutcome, monster, conditional: conditional),
+              Text(
+                'Actions may change this helm forecast.',
+                key: const ValueKey('conditional-range-forecast'),
+                style: InkTheme.caption,
+              ),
+            _buildMonsterIntentReadout(
+              intent,
+              previewOutcome,
+              monster,
+              conditional: conditional,
+            ),
             const SizedBox(height: 3),
           ],
           LayoutBuilder(
@@ -1384,8 +1519,8 @@ class _BattleScreenState extends State<BattleScreen> {
         ? InkTheme.inkSecondary
         : InkTheme.inkFaint;
 
-    final canPress = isAvailable && !_isActionLocked &&
-        !widget.controller.isImpatientCombinationPending;
+    final canPress =
+        isAvailable && !_isActionLocked && !_decisions.combinationPending;
 
     return Tooltip(
       message: tooltip,

@@ -238,6 +238,7 @@ class GameController extends ChangeNotifier {
 
   CombatLogEntry? _formatEventForLog(GameEvent event) {
     return switch (event) {
+      CombatEffectsChanged() || CombatHealthChanged() || CarapaceRestored() => null,
       BattleStarted(:final monsterName, :final difficulty, :final isBoss) => CombatLogEntry(
           message: isBoss
               ? 'THE KRAKEN RISES FROM THE ABYSS! Prepare all guns!'

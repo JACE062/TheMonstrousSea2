@@ -95,9 +95,14 @@ String _tooltip(WidgetTester tester, String label) => tester
 
 Future<void> _finishPlayback(WidgetTester tester) async {
   // Flame's continuously animated sea prevents pumpAndSettle from settling.
-  for (var frame = 0; frame < 6; frame++) {
-    await tester.pump(const Duration(milliseconds: 500));
+  final controller = tester
+      .widget<BattleScreen>(find.byType(BattleScreen))
+      .controller;
+  for (var frame = 0; frame < 100 && controller.isPlayingEvents; frame++) {
+    await tester.pump(const Duration(milliseconds: 200));
   }
+  await tester.pump();
+  expect(controller.isPlayingEvents, isFalse);
 }
 
 Future<void> _dispose(WidgetTester tester, GameController controller) async {
@@ -153,8 +158,14 @@ void main() {
       await mountBattle(tester, controller);
 
       expect(_control(tester, patch.name).compact, isTrue);
-      expect(_control(tester, patch.name).subtitle, 'Repair ${controller.hullPatchHealingHp} HP');
-      expect(_tooltip(tester, patch.name), contains('Restore ${controller.hullPatchHealingHp} hull HP'));
+      expect(
+        _control(tester, patch.name).subtitle,
+        'Repair ${controller.hullPatchHealingHp} HP',
+      );
+      expect(
+        _tooltip(tester, patch.name),
+        contains('Restore ${controller.hullPatchHealingHp} hull HP'),
+      );
       expect(_tooltip(tester, patch.name), isNot(contains('Single-use')));
       expect(_tooltip(tester, patch.name), isNot(contains('turn')));
       final help = tester.widget<IconButton>(find.byKey(_helpKey));
@@ -396,7 +407,10 @@ void main() {
           _tooltip(tester, item.name),
         );
         expect(_tooltip(tester, item.name), isNot(contains('Single-use')));
-        expect(_tooltip(tester, item.name), isNot(contains('quick items used')));
+        expect(
+          _tooltip(tester, item.name),
+          isNot(contains('quick items used')),
+        );
       }
       expect(tester.takeException(), isNull);
       await _capture(tester, key, '${width.toInt()}-1.3-all-actions');

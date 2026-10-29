@@ -1,5 +1,6 @@
 import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
+import '../model/combat_presentation.dart';
 import '../model/covenant_of_the_deep.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
@@ -15,6 +16,34 @@ import '../rules/sea_chart.dart';
 /// without needing to inspect low-level game calculations.
 sealed class GameEvent {
   const GameEvent();
+}
+
+/// Effects at this causal point. HP, shell and limbs have their own outcomes;
+/// consumers must not reveal those values from this snapshot early.
+final class CombatEffectsChanged extends GameEvent {
+  const CombatEffectsChanged({required this.target, required this.state});
+  factory CombatEffectsChanged.capture(Combatant target) =>
+      CombatEffectsChanged(
+        target: target is ShipState ? CombatSide.ship : CombatSide.monster,
+        state: CombatantPresentation.capture(target),
+      );
+  final CombatSide target;
+  final CombatantPresentation state;
+}
+
+/// Actual health changes which are not ordinary attacks (e.g. capped healing).
+final class CombatHealthChanged extends GameEvent {
+  const CombatHealthChanged({
+    required this.target,
+    required this.remainingHp,
+    required this.amount,
+    required this.source,
+    required this.isHealing,
+  });
+  final CombatSide target;
+  final int remainingHp, amount;
+  final String source;
+  final bool isHealing;
 }
 
 /// The session transitioned to a new game phase.
@@ -65,12 +94,14 @@ final class AttackAttempted extends GameEvent {
     required this.weaponName,
     required this.roll,
     required this.targetAc,
+    this.attacker,
   });
 
   final String attackerName;
   final String weaponName;
   final int roll;
   final int targetAc;
+  final CombatSide? attacker;
 }
 
 /// An attack hit and dealt damage.
@@ -81,34 +112,55 @@ final class AttackHit extends GameEvent {
     required this.damageType,
     required this.remainingHp,
     this.isBlessingDamage = false,
+    this.target,
+    this.source,
   });
 
   final String targetName;
   final int damage;
   final String damageType;
   final int remainingHp;
+
   /// Elemental riders must not count as additional weapon hits for relic procs.
   final bool isBlessingDamage;
+  final CombatSide? target;
+
+  /// Named rider/consumable source; independent of narrative prose.
+  final String? source;
 }
 
 /// An attack missed.
 final class AttackMissed extends GameEvent {
-  const AttackMissed({required this.targetName});
+  const AttackMissed({required this.targetName, this.target});
   final String targetName;
+  final CombatSide? target;
 }
 
 /// An attack was evaded (Corvette trait).
 final class AttackEvaded extends GameEvent {
-  const AttackEvaded({required this.shipName, required this.wasManeuver});
+  const AttackEvaded({
+    required this.shipName,
+    required this.wasManeuver,
+    this.target,
+  });
   final String shipName;
   final bool wasManeuver;
+  final CombatSide? target;
 }
 
-/// Damage was reduced (Ironclad armor trait).
+/// Damage was reduced. Non-barrier mitigation includes armor, bracing and
+/// captain reductions; it is not necessarily armor alone.
 final class DamageReduced extends GameEvent {
-  const DamageReduced({required this.shipName, required this.nullifiedAmount});
+  const DamageReduced({
+    required this.shipName,
+    required this.nullifiedAmount,
+    this.defense = DefenseKind.mitigation,
+    this.remainingBarrierHp,
+  });
   final String shipName;
   final int nullifiedAmount;
+  final DefenseKind defense;
+  final int? remainingBarrierHp;
 }
 
 /// The tactical engagement distance between ship and beast shifted.
@@ -117,11 +169,16 @@ final class CombatRangeChanged extends GameEvent {
     required this.previousRange,
     required this.newRange,
     required this.reason,
+    this.mover,
+    this.instigator,
   });
 
   final CombatRange previousRange;
   final CombatRange newRange;
   final String reason;
+  /// Who physically moved; a pull can move someone other than its instigator.
+  final CombatSide? mover;
+  final CombatSide? instigator;
 }
 
 /// A siege mortar weapon suffered a point-blank backfire into the ship's own hull.
@@ -137,10 +194,12 @@ final class MortarBackfireOccurred extends GameEvent {
   final int remainingHp;
 }
 
-
 /// Tentacles were severed from a Squid.
 final class TentaclesSevered extends GameEvent {
-  const TentaclesSevered({required this.countSevered, required this.remainingTentacles});
+  const TentaclesSevered({
+    required this.countSevered,
+    required this.remainingTentacles,
+  });
   final int countSevered;
   final int remainingTentacles;
 }
@@ -164,11 +223,13 @@ final class CarapaceAbsorbed extends GameEvent {
     required this.monsterName,
     required this.absorbedAmount,
     required this.penetratingDamage,
+    this.remainingCarapace,
   });
 
   final String monsterName;
   final int absorbedAmount;
   final int penetratingDamage;
+  final int? remainingCarapace;
 }
 
 /// Crustacean carapace was damaged or shattered by blast attacks.
@@ -186,12 +247,19 @@ final class CarapaceDamaged extends GameEvent {
   final bool wasShattered;
 }
 
+final class CarapaceRestored extends GameEvent {
+  const CarapaceRestored({
+    required this.monsterName,
+    required this.restoredAmount,
+    required this.remainingCarapace,
+  });
+  final String monsterName;
+  final int restoredAmount, remainingCarapace;
+}
+
 /// Shark roared, ramping up frenzy attack bonus.
 final class SharkFrenzyRoared extends GameEvent {
-  const SharkFrenzyRoared({
-    required this.monsterName,
-    required this.stacks,
-  });
+  const SharkFrenzyRoared({required this.monsterName, required this.stacks});
 
   final String monsterName;
   final int stacks;
@@ -199,10 +267,7 @@ final class SharkFrenzyRoared extends GameEvent {
 
 /// Shark frenzy was disrupted by shock or stun.
 final class SharkFrenzyDisrupted extends GameEvent {
-  const SharkFrenzyDisrupted({
-    required this.monsterName,
-    required this.reason,
-  });
+  const SharkFrenzyDisrupted({required this.monsterName, required this.reason});
 
   final String monsterName;
   final String reason;
@@ -226,12 +291,16 @@ final class StatusEffectTicked extends GameEvent {
     required this.effectName,
     required this.damage,
     required this.woreOff,
+    this.target,
+    this.remainingHp,
   });
 
   final String targetName;
   final String effectName;
   final int damage;
   final bool woreOff;
+  final CombatSide? target;
+  final int? remainingHp;
 }
 
 /// A combatant was defeated.
@@ -276,7 +345,11 @@ final class AllTreasureSold extends GameEvent {
 
 /// Ship hull was repaired at port.
 final class ShipRepaired extends GameEvent {
-  const ShipRepaired({required this.repairedHp, required this.goldCost, required this.newHp});
+  const ShipRepaired({
+    required this.repairedHp,
+    required this.goldCost,
+    required this.newHp,
+  });
   final int repairedHp;
   final int goldCost;
   final int newHp;
@@ -366,10 +439,7 @@ final class ShipwreckDiscovered extends GameEvent {
 
 /// Shipwreck was salvaged.
 final class ShipwreckSalvaged extends GameEvent {
-  const ShipwreckSalvaged({
-    required this.flavorMessage,
-    required this.choice,
-  });
+  const ShipwreckSalvaged({required this.flavorMessage, required this.choice});
   final String flavorMessage;
   final ShipwreckChoice choice;
 }
@@ -584,10 +654,7 @@ final class AuxiliaryExpansionUnlocked extends GameEvent {
 
 /// A post-loop Eldritch Relic Weapon was unlocked at the Covenant Altar.
 final class EldritchRelicUnlocked extends GameEvent {
-  const EldritchRelicUnlocked({
-    required this.relicId,
-    required this.relicName,
-  });
+  const EldritchRelicUnlocked({required this.relicId, required this.relicName});
 
   final EldritchRelicId relicId;
   final String relicName;
@@ -660,10 +727,7 @@ final class MonsterIntentDisrupted extends GameEvent {
 
 /// The ship was grappled by a Squid/Kraken beak at Short Range, locking its Helm Order to Hold Line for 1 round.
 final class ShipGrappled extends GameEvent {
-  const ShipGrappled({
-    required this.monsterName,
-    required this.shipName,
-  });
+  const ShipGrappled({required this.monsterName, required this.shipName});
 
   final String monsterName;
   final String shipName;

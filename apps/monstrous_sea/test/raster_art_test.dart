@@ -144,7 +144,9 @@ void main() {
         autoSave: false,
       );
       controller.dispatch(const NameCaptain('Captain Ahab'));
-      controller.profile.unlockedBlueprints.add(encounter.shipClass.blueprintId.name);
+      controller.profile.unlockedBlueprints.add(
+        encounter.shipClass.blueprintId.name,
+      );
       controller.dispatch(ChooseShip(encounter.shipClass));
       if (encounter.dutchman) controller.session.ship = createFlyingDutchman();
       controller.session.currentMonster = createMonster(
@@ -337,10 +339,15 @@ void main() {
 
       if (encounter.shipClass == ShipClass.freighter) {
         await tester.tap(find.textContaining('Chain-Shot Broadside'));
-        final frameCount = isBoss ? 20 : 6;
-        for (var frame = 0; frame < frameCount; frame++) {
-          await tester.pump(const Duration(milliseconds: 500));
+        for (
+          var frame = 0;
+          frame < 100 && controller.isPlayingEvents;
+          frame++
+        ) {
+          await tester.pump(const Duration(milliseconds: 200));
         }
+        await tester.pump();
+        expect(controller.isPlayingEvents, isFalse);
         expect(controller.session.battleRound, 1);
         expect(controller.lastEvents.whereType<AttackAttempted>(), isNotEmpty);
       }

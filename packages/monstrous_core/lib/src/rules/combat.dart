@@ -2,6 +2,7 @@ import '../config/balance_config.dart';
 import '../model/attack_result.dart';
 import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
+import '../model/combat_presentation.dart';
 import '../model/enums.dart';
 import '../model/item.dart';
 import '../model/flagship_blueprint.dart';
@@ -219,6 +220,7 @@ int calculateHitChance(
   } else {
     events.add(
       AttackAttempted(
+        attacker: attacker is ShipState ? CombatSide.ship : CombatSide.monster,
         attackerName: attacker.name,
         weaponName: weapon.name,
         roll: roll,
@@ -333,7 +335,12 @@ int calculateHitChance(
           '${attacker.name} attacks with ${weapon.name}, but misses ${defender.name}.',
       combatRange: range,
     );
-    events.add(AttackMissed(targetName: defender.name));
+    events.add(
+      AttackMissed(
+        targetName: defender.name,
+        target: defender is ShipState ? CombatSide.ship : CombatSide.monster,
+      ),
+    );
     if (attacker is MonsterState && defender is ShipState) {
       events.addAll(_stormRetaliation(defender, attacker));
     }
@@ -356,6 +363,7 @@ int calculateHitChance(
 
   final activeTraits = traits.isNotEmpty ? traits : defaultCombatTraits;
   final wasObscured = defender is MonsterState && defender.isObscured;
+  final priorEvasion = defender is ShipState ? defender.currentEvasion : null;
   // Resolve avoidance before any hit rider mutates armor, ink, or tentacles.
   if (!unavoidable) {
     for (final trait in activeTraits.where(
@@ -377,8 +385,21 @@ int calculateHitChance(
     );
   }
 
+  if (wasObscured && !defender.isObscured) {
+    events.add(CombatEffectsChanged.capture(defender));
+  }
+
   if (result.wasEvaded) {
-    events.add(AttackEvaded(shipName: defender.name, wasManeuver: wasManeuver));
+    events.add(
+      AttackEvaded(
+        shipName: defender.name,
+        wasManeuver: wasManeuver,
+        target: defender is ShipState ? CombatSide.ship : CombatSide.monster,
+      ),
+    );
+    if (defender is ShipState && defender.currentEvasion != priorEvasion) {
+      events.add(CombatEffectsChanged.capture(defender));
+    }
     if (attacker is MonsterState && defender is ShipState) {
       events.addAll(_stormRetaliation(defender, attacker));
     }
@@ -401,6 +422,7 @@ int calculateHitChance(
       CarapaceAbsorbed(
         monsterName: defender.name,
         absorbedAmount: result.carapaceAbsorbed,
+        remainingCarapace: (defender as MonsterState).carapacePlating,
         penetratingDamage: result.damage - result.nullifiedDamage,
       ),
     );
@@ -413,6 +435,7 @@ int calculateHitChance(
         reason: 'Shock disrupted feeding frenzy',
       ),
     );
+    events.add(CombatEffectsChanged.capture(defender));
   }
 
   if (defender is ShipState &&
@@ -449,7 +472,15 @@ int calculateHitChance(
     );
     ship.basaltBarrierHp -= absorbed;
     result.nullifiedDamage += absorbed;
-    events.add(DamageReduced(shipName: ship.name, nullifiedAmount: absorbed));
+    events.add(
+      DamageReduced(
+        shipName: ship.name,
+        nullifiedAmount: absorbed,
+        defense: DefenseKind.barrier,
+        remainingBarrierHp: ship.basaltBarrierHp,
+      ),
+    );
+    events.add(CombatEffectsChanged.capture(ship));
   }
   final effectiveDamage = (result.damage - result.nullifiedDamage).clamp(
     0,
@@ -460,6 +491,7 @@ int calculateHitChance(
   events.add(
     AttackHit(
       targetName: defender.name,
+      target: defender is ShipState ? CombatSide.ship : CombatSide.monster,
       damage: effectiveDamage,
       damageType: result.damageType.displayName,
       remainingHp: defender.currentHp,
@@ -477,6 +509,7 @@ int calculateHitChance(
 
   if (result.statusEffect != null) {
     defender.addStatus(result.statusEffect!);
+    events.add(CombatEffectsChanged.capture(defender));
   }
 
   if (attacker is ShipState &&
@@ -632,11 +665,14 @@ List<GameEvent> executeShipWeaponVolley(
     events.add(
       StatusEffectTicked(
         targetName: combatant.name,
+        target: combatant is ShipState ? CombatSide.ship : CombatSide.monster,
+        remainingHp: combatant.currentHp,
         effectName: StatusEffect.burn.displayName,
         damage: damage,
         woreOff: woreOff,
       ),
     );
+    events.add(CombatEffectsChanged.capture(combatant));
     if (isDead) {
       events.add(
         CombatantDefeated(
@@ -667,11 +703,14 @@ List<GameEvent> executeShipWeaponVolley(
     events.add(
       StatusEffectTicked(
         targetName: combatant.name,
+        target: combatant is ShipState ? CombatSide.ship : CombatSide.monster,
+        remainingHp: combatant.currentHp,
         effectName: StatusEffect.poison.displayName,
         damage: damage,
         woreOff: woreOff,
       ),
     );
+    events.add(CombatEffectsChanged.capture(combatant));
     if (isDead) {
       events.add(
         CombatantDefeated(
@@ -691,6 +730,8 @@ List<GameEvent> executeShipWeaponVolley(
       events.add(
         StatusEffectTicked(
           targetName: combatant.name,
+          target: CombatSide.ship,
+          remainingHp: combatant.currentHp,
           effectName: StatusEffect.stun.displayName,
           damage: 0,
           woreOff: true,
@@ -703,6 +744,8 @@ List<GameEvent> executeShipWeaponVolley(
       events.add(
         StatusEffectTicked(
           targetName: combatant.name,
+          target: combatant is ShipState ? CombatSide.ship : CombatSide.monster,
+          remainingHp: combatant.currentHp,
           effectName: StatusEffect.stun.displayName,
           damage: 0,
           woreOff: true,
@@ -711,6 +754,7 @@ List<GameEvent> executeShipWeaponVolley(
     }
   }
 
+  if (!canAct) events.add(CombatEffectsChanged.capture(combatant));
   return (canAct, events);
 }
 
@@ -800,10 +844,12 @@ List<GameEvent> dealBlessingDamage(
   events.add(
     AttackHit(
       targetName: monster.name,
+      target: CombatSide.monster,
       damage: hpDamage,
       damageType: type.displayName,
       remainingHp: monster.currentHp,
       isBlessingDamage: true,
+      source: source,
     ),
   );
   if (!monster.isAlive) {
@@ -819,15 +865,19 @@ List<GameEvent> dealBlessingDamage(
 
 List<GameEvent> _addStatic(ShipState ship, MonsterState monster, int stacks) {
   monster.staticStacks += stacks;
-  if (monster.staticStacks < 3) return [];
+  final events = <GameEvent>[CombatEffectsChanged.capture(monster)];
+  if (monster.staticStacks < 3) return events;
   monster.staticStacks = 0;
+  events.add(CombatEffectsChanged.capture(monster));
   final tier = ship.highestBlessingTier(OceanPower.tempestSovereign);
-  final events = dealBlessingDamage(
-    ship,
-    monster,
-    [12, 20, 28][(tier - 1).clamp(0, 2)],
-    DamageType.shock,
-    source: 'Arc Discharge',
+  events.addAll(
+    dealBlessingDamage(
+      ship,
+      monster,
+      [12, 20, 28][(tier - 1).clamp(0, 2)],
+      DamageType.shock,
+      source: 'Arc Discharge',
+    ),
   );
   if (monster.frenzyStacks > 0) {
     monster.frenzyStacks = 0;
@@ -839,11 +889,20 @@ List<GameEvent> _addStatic(ShipState ship, MonsterState monster, int stacks) {
     );
   }
   if (_isWindingUp(monster)) {
+    final disruptedIntent = monster.currentIntent!;
     _breakWindup(monster);
     monster.addStatus(StatusEffect.stun);
+    events.add(
+      MonsterIntentDisrupted(
+        monsterName: monster.name,
+        intentName: disruptedIntent.name,
+        reason: 'Arc Discharge shattered the lethal windup!',
+      ),
+    );
   } else {
     monster.isElectroJolted = true;
   }
+  events.add(CombatEffectsChanged.capture(monster));
   return events;
 }
 
@@ -857,16 +916,24 @@ List<GameEvent> _applyWeaponBlessing(
   final signature = blessing.slot == HardpointType.signature;
   switch (blessing.power) {
     case OceanPower.magmaVentLord:
-      if (!signature || blessing.tier == 3) _ignite(monster);
-      if (signature && monster.hasStatus(StatusEffect.burn)) {
-        return dealBlessingDamage(
-          ship,
-          monster,
-          (damage * [0.25, 0.40, 0.60][blessing.tier - 1]).round(),
-          DamageType.blast,
-          source: 'Thermal Detonation',
-        );
+      final effects = <GameEvent>[];
+      if (!signature || blessing.tier == 3) {
+        _ignite(monster);
+        effects.add(CombatEffectsChanged.capture(monster));
       }
+      if (signature && monster.hasStatus(StatusEffect.burn)) {
+        return [
+          ...effects,
+          ...dealBlessingDamage(
+            ship,
+            monster,
+            (damage * [0.25, 0.40, 0.60][blessing.tier - 1]).round(),
+            DamageType.blast,
+            source: 'Thermal Detonation',
+          ),
+        ];
+      }
+      return effects;
     case OceanPower.tempestSovereign:
       final stacks = signature
           ? (blessing.tier == 3 ? 3 : 2)
@@ -887,12 +954,21 @@ List<GameEvent> _applyWeaponBlessing(
       if (!signature) {
         monster.tremorAccPenalty = [10, 15, 20][blessing.tier - 1];
       } else if (_isWindingUp(monster)) {
+        final disruptedIntent = monster.currentIntent!;
         _breakWindup(monster);
         if (blessing.tier == 3) monster.addStatus(StatusEffect.stun);
-        return [NarrationEvent('Fault-Line Shatter breaks the lethal windup!')];
+        return [
+          NarrationEvent('Fault-Line Shatter breaks the lethal windup!'),
+          MonsterIntentDisrupted(
+            monsterName: monster.name,
+            intentName: disruptedIntent.name,
+            reason: 'Fault-Line Shatter breaks the lethal windup!',
+          ),
+          CombatEffectsChanged.capture(monster),
+        ];
       }
   }
-  return [];
+  return [CombatEffectsChanged.capture(monster)];
 }
 
 /// Adds a rider to the ship's existing class-specific utility action.
@@ -906,7 +982,10 @@ List<GameEvent> activateUtilityBlessing(ShipState ship, MonsterState monster) {
       ship.boilingWakeTurns = tier == 3 ? 3 : 2;
     case OceanPower.tempestSovereign:
       ship.stormRiggingTurns = 2;
-      return _addStatic(ship, monster, tier == 3 ? 2 : 1);
+      return [
+        CombatEffectsChanged.capture(ship),
+        ..._addStatic(ship, monster, tier == 3 ? 2 : 1),
+      ];
     case OceanPower.brinemother:
       monster.isObscured = false;
       final melt = [8, 14, 22][tier - 1].clamp(0, monster.carapacePlating);
@@ -919,12 +998,17 @@ List<GameEvent> activateUtilityBlessing(ShipState ship, MonsterState monster) {
           remainingCarapace: monster.carapacePlating,
           wasShattered: melt > 0 && monster.carapacePlating == 0,
         ),
+        CombatEffectsChanged.capture(monster),
       ];
     case OceanPower.earthshakerTitan:
       ship.basaltBarrierHp = [15, 25, 35][tier - 1];
       ship.basaltAegisTurns = 2;
   }
-  return [NarrationEvent('${blessing.title} awakens!')];
+  return [
+    NarrationEvent('${blessing.title} awakens!'),
+    CombatEffectsChanged.capture(ship),
+    CombatEffectsChanged.capture(monster),
+  ];
 }
 
 List<GameEvent> _stormRetaliation(ShipState ship, MonsterState monster) {
@@ -956,7 +1040,7 @@ List<GameEvent> triggerBoilingWake(ShipState ship, MonsterState monster) {
 }
 
 /// Called after the monster's complete action, including a skipped stun turn.
-void finishOceanPowerTurn(
+List<GameEvent> finishOceanPowerTurn(
   ShipState ship,
   MonsterState monster, {
   bool electroJoltWasActiveAtStart = true,
@@ -971,4 +1055,8 @@ void finishOceanPowerTurn(
   if (monster.corrodedTurns > 0 && --monster.corrodedTurns == 0) {
     monster.corrodedStacks = 0;
   }
+  return [
+    CombatEffectsChanged.capture(ship),
+    CombatEffectsChanged.capture(monster),
+  ];
 }

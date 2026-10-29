@@ -10,6 +10,7 @@ class NarrationFormatter {
   /// Converts [event] into a readable log string.
   String format(GameEvent event) {
     return switch (event) {
+      CombatEffectsChanged() || CombatHealthChanged() || CarapaceRestored() => '',
       BattleStarted(:final monsterName, :final difficulty, :final isBoss, :final isApex) =>
         ChronicleStrings.battleStarted(
           monsterName: monsterName,

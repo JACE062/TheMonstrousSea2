@@ -6,6 +6,7 @@ import '../content/ships.dart';
 import '../lore/eldritch_lore.dart';
 import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
+import '../model/combat_presentation.dart';
 import '../model/covenant_of_the_deep.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
@@ -362,6 +363,18 @@ class GameSession {
 
   /// Dispatches [command] to update session state and returns resulting events.
   List<GameEvent> dispatch(Command command) {
+    final wasBattle = phase == SessionPhase.battle;
+    final events = <GameEvent>[..._dispatchCommand(command)];
+    if (wasBattle && phase == SessionPhase.battle) {
+      // Covers decision-boundary expiry/cleanup without revealing final health,
+      // shell or limb counts ahead of their individual outcome events.
+      events.add(CombatEffectsChanged.capture(ship!));
+      events.add(CombatEffectsChanged.capture(currentMonster!));
+    }
+    return events;
+  }
+
+  List<GameEvent> _dispatchCommand(Command command) {
     return switch (command) {
       AcknowledgeCalderaOutcome() => _handleAcknowledgeCalderaOutcome(),
       NameCaptain(:final name) => _handleNameCaptain(name),
@@ -1212,12 +1225,16 @@ class GameSession {
 
     final isPinningOrdnance = weaponType == ShipWeaponType.harpoonWinch ||
         weaponType == ShipWeaponType.heavyMortar ||
-        consumableType == ConsumableType.blastPack ||
+        consumableType == ConsumableType.blastPack;
+    // Stun denies the response itself, without Pin's separate evasion penalty.
+    // Both can still interrupt a titan's windup or imminent release.
+    final interruptsCatastrophe = isPinningOrdnance ||
         inflictedStatus == StatusEffect.stun ||
         currentMonster!.hasStatus(StatusEffect.stun);
 
     if (isPinningOrdnance) {
       currentMonster!.isPinnedThisTurn = true;
+      events.add(CombatEffectsChanged.capture(currentMonster!));
     }
 
     final intent = currentMonster!.currentIntent;
@@ -1225,7 +1242,7 @@ class GameSession {
         (intent.isBossWindup || intent.isBossCatastropheStrike)) {
       currentMonster!.windupDamageTaken += totalDamageDealt;
 
-      if (isPinningOrdnance) {
+      if (interruptsCatastrophe) {
         final reason = switch (weaponType) {
           ShipWeaponType.heavyMortar =>
             'Heavy Mortar concussive blast shattered the titan\'s stance!',
@@ -1262,6 +1279,7 @@ class GameSession {
         currentMonster!.windupDamageTaken = 0;
         currentMonster!.currentIntent = null;
         _disruptedBossCatastropheThisTurn = true;
+        events.add(CombatEffectsChanged.capture(currentMonster!));
       }
     }
 
@@ -1322,6 +1340,7 @@ class GameSession {
       ship!.pitchCoatingActive = false;
       damageMultiplier *= 1.25;
     }
+    events.add(CombatEffectsChanged.capture(ship!));
 
     // Ghostwake Rail-Culverin: ignores monster Obscurity
     final hasGhostwake =
@@ -1330,6 +1349,23 @@ class GameSession {
     final savedObscured = currentMonster!.isObscured;
     if (hasGhostwake) {
       currentMonster!.isObscured = false;
+    }
+
+    // Ram closes before its attack. Keep the launch range for damage/accuracy
+    // calculations: the approved Medium charge bonus is momentum, not the
+    // impact distance. Harpoon instead fires here and pulls after its attack.
+    final launchRange = combatRange;
+    if (weaponType == ShipWeaponType.prowRam && ship!.isAlive &&
+        combatRange != CombatRange.short) {
+      final previousRange = combatRange;
+      combatRange = CombatRange.short;
+      events.add(CombatRangeChanged(
+        mover: CombatSide.ship,
+        instigator: CombatSide.ship,
+        previousRange: previousRange,
+        newRange: combatRange,
+        reason: 'Prow Ram kinetic charge surged into point-blank range!',
+      ));
     }
 
     // Player volley
@@ -1341,12 +1377,20 @@ class GameSession {
       traits,
       accuracyBoon,
       damageMultiplier,
-      combatRange,
+      launchRange,
     );
     if (hasGhostwake) {
       currentMonster!.isObscured = savedObscured;
     }
-    events.addAll(volleyEvents);
+    // Ghostwake's temporary accuracy bypass is not an ink removal. Preserve
+    // each rider's causal state while masking that implementation detail.
+    events.addAll(volleyEvents.map((event) =>
+      hasGhostwake && event is CombatEffectsChanged &&
+          event.target == CombatSide.monster
+        ? CombatEffectsChanged(target: event.target,
+            state: event.state.withObscurity(savedObscured))
+        : event));
+    if (hasGhostwake) events.add(CombatEffectsChanged.capture(currentMonster!));
     _purgedFrenzyThisTurn =
         volleyEvents.whereType<SharkFrenzyDisrupted>().isNotEmpty;
 
@@ -1375,6 +1419,7 @@ class GameSession {
     if (resolvedHits.isNotEmpty || carapaceHits.isNotEmpty) {
       if (hadPitchCoating && currentMonster!.isAlive) {
         currentMonster!.addStatus(StatusEffect.burn);
+        events.add(CombatEffectsChanged.capture(currentMonster!));
         events.add(NarrationEvent(
           'Alchemical Pitch ignites ${currentMonster!.name} in inextinguishable flames (Burn)!',
         ));
@@ -1389,6 +1434,9 @@ class GameSession {
           final before = ship!.currentHp;
           ship!.heal(leechHeal);
           final restored = ship!.currentHp - before;
+          events.add(CombatHealthChanged(target: CombatSide.ship,
+            remainingHp: ship!.currentHp, amount: restored,
+            source: 'Siphon Ram', isHealing: true));
           events.add(
             NarrationEvent(
               'Abyssal Siphon Ram drinks the beast\'s lifeblood, restoring $restored hull HP!',
@@ -1400,7 +1448,12 @@ class GameSession {
       if (hasGhostwake && currentMonster!.isAlive) {
         final shockDmg = amplifyMonsterDamage(
           ship!, currentMonster!, resolvedHits.length * 8);
+        final before = currentMonster!.currentHp;
         currentMonster!.applyDamage(shockDmg);
+        events.add(CombatHealthChanged(target: CombatSide.monster,
+          remainingHp: currentMonster!.currentHp,
+          amount: before - currentMonster!.currentHp,
+          source: 'Ghostwake', isHealing: false));
         totalDamageDealt += shockDmg;
         events.add(NarrationEvent(
           'Ghostwake Rail-Culverin arcs abyssal lightning for +$shockDmg Shock damage!',
@@ -1411,6 +1464,7 @@ class GameSession {
           profile.isEldritchRelicActive(EldritchRelicId.brimstoneMortar) &&
           currentMonster!.isAlive) {
         currentMonster!.addStatus(StatusEffect.burn);
+        events.add(CombatEffectsChanged.capture(currentMonster!));
         events.add(const NarrationEvent(
           'Caldera Brimstone Mortar coats the beast in searing hydrothermal sulfur (Burn)!',
         ));
@@ -1420,6 +1474,7 @@ class GameSession {
           profile.isEldritchRelicActive(EldritchRelicId.sinewWinch) &&
           currentMonster!.isAlive) {
         currentMonster!.addStatus(StatusEffect.poison);
+        events.add(CombatEffectsChanged.capture(currentMonster!));
         events.add(const NarrationEvent(
           'Kraken-Sinew Drag Winch constricts the quarry with venomous abyssal barbs (Poison)!',
         ));
@@ -1431,22 +1486,13 @@ class GameSession {
       ));
     }
 
-    // Action-driven momentum range shifts:
-    // Prow Ram surges into Short Range
-    if (weaponType == ShipWeaponType.prowRam && combatRange != CombatRange.short) {
-      final prev = combatRange;
-      combatRange = CombatRange.short;
-      events.add(CombatRangeChanged(
-        previousRange: prev,
-        newRange: combatRange,
-        reason: 'Prow Ram kinetic charge surged into point-blank range!',
-      ));
-    }
     // Harpoon Winch reels 1 band closer (and pulls monster into Drifting Tether-Trap if active!)
     if (weaponType == ShipWeaponType.harpoonWinch && combatRange != CombatRange.short) {
       final prev = combatRange;
       combatRange = combatRange.closer;
       events.add(CombatRangeChanged(
+        mover: CombatSide.monster,
+        instigator: CombatSide.ship,
         previousRange: prev,
         newRange: combatRange,
         reason: 'Harpoon Winch tightened cables, reeling the quarry closer!',
@@ -1515,6 +1561,8 @@ class GameSession {
     combatRange = targetRange;
     return <GameEvent>[
       CombatRangeChanged(
+        mover: CombatSide.ship,
+        instigator: CombatSide.ship,
         previousRange: prev,
         newRange: combatRange,
         reason:
@@ -1580,6 +1628,9 @@ class GameSession {
         final before = ship!.currentHp;
         ship!.heal(healAmt);
         final restored = ship!.currentHp - before;
+        events.add(CombatHealthChanged(target: CombatSide.ship,
+          remainingHp: ship!.currentHp, amount: restored,
+          source: 'Hull Patch', isHealing: true));
         events.add(
           NarrationEvent(
             'Quick Action (0T): ${item.name} braced hull breaches, restoring $restored HP (${ship!.currentHp}/${ship!.maxHp})!',
@@ -1587,11 +1638,13 @@ class GameSession {
         );
       case ConsumableType.krakenInkBomb:
         ship!.currentEvasion = min(95, ship!.currentEvasion + 25);
+        events.add(CombatEffectsChanged.capture(ship!));
         events.add(NarrationEvent(
           'Quick Action (0T): ${item.name} billows an abyssal smoke screen (+25% Evasion)!',
         ));
       case ConsumableType.alchemicalPitch:
         ship!.pitchCoatingActive = true;
+        events.add(CombatEffectsChanged.capture(ship!));
         events.add(NarrationEvent(
           'Quick Action (0T): ${item.name} coats the deck guns in incendiary pitch (+25% Fire damage & Burn on next volley)!',
         ));
@@ -1628,6 +1681,8 @@ class GameSession {
                 if (overflow > 0) {
                   currentMonster!.applyDamage(overflow);
                   events.add(AttackHit(
+                    target: CombatSide.monster,
+                    source: item.name,
                     targetName: currentMonster!.name,
                     damage: overflow,
                     damageType: result.damageType.displayName,
@@ -1638,6 +1693,8 @@ class GameSession {
             } else {
               currentMonster!.applyDamage(damage);
               events.add(AttackHit(
+                target: CombatSide.monster,
+                source: item.name,
                 targetName: currentMonster!.name,
                 damage: damage,
                 damageType: result.damageType.displayName,
@@ -1647,6 +1704,7 @@ class GameSession {
           }
           if (result.statusEffect != null) {
             currentMonster!.addStatus(result.statusEffect!);
+            events.add(CombatEffectsChanged.capture(currentMonster!));
             events.add(NarrationEvent(
               result.description.isNotEmpty
                   ? result.description
@@ -1659,7 +1717,7 @@ class GameSession {
             inflictedStatus: result.statusEffect,
           ));
         } else {
-          events.add(AttackMissed(targetName: currentMonster!.name));
+          events.add(AttackMissed(targetName: currentMonster!.name, target: CombatSide.monster));
         }
     }
 
@@ -1742,6 +1800,8 @@ class GameSession {
           final prev = combatRange;
           combatRange = combatRange.farther;
           events.add(CombatRangeChanged(
+            mover: CombatSide.ship,
+            instigator: CombatSide.ship,
             previousRange: prev,
             newRange: combatRange,
             reason:
@@ -1788,6 +1848,8 @@ class GameSession {
         ));
     }
 
+    events.add(CombatEffectsChanged.capture(ship!));
+    events.add(CombatEffectsChanged.capture(currentMonster!));
     final blessingEvents = activateUtilityBlessing(ship!, currentMonster!);
     events.addAll(blessingEvents);
     _purgedFrenzyThisTurn =
@@ -1821,6 +1883,7 @@ class GameSession {
 
     // Defensive bracing: +10% evasion for the incoming monster turn
     ship!.currentEvasion = min(90, ship!.currentEvasion + 10);
+    events.add(CombatEffectsChanged.capture(ship!));
     events.add(NarrationEvent(
       '${ship!.name}\'s crew braces behind the gunwales (+10% Evasion) while ordnance reloads!',
     ));
@@ -1841,6 +1904,8 @@ class GameSession {
       if (combatRange != previous) {
         events.add(
           CombatRangeChanged(
+            mover: CombatSide.ship,
+            instigator: CombatSide.ship,
             previousRange: previous,
             newRange: combatRange,
             reason: 'Skirmisher: ${order.displayName} after the main action.',
@@ -1873,6 +1938,7 @@ class GameSession {
     ship!.tempAccuracyPenalty = 0;
     usedQuickConsumableThisTurn = false;
     quickConsumablesUsedThisTurn = 0;
+    events.add(CombatEffectsChanged.capture(ship!));
 
     // Status effect tick on monster
     final monsterStatus = updateStatusEffects(
@@ -1936,14 +2002,16 @@ class GameSession {
       currentMonster!.currentIntent = null;
     }
 
-    finishOceanPowerTurn(ship!, currentMonster!,
-        electroJoltWasActiveAtStart: electroJoltWasActiveAtStart);
+    events.addAll(finishOceanPowerTurn(ship!, currentMonster!,
+        electroJoltWasActiveAtStart: electroJoltWasActiveAtStart));
     _purgedFrenzyThisTurn = false;
     _disruptedBossCatastropheThisTurn = false;
     lastHelmOrderThisTurn = HelmOrder.holdLine;
     _hasIssuedHelmThisTurn = false;
     ship!.isAnchoredThisTurn = false;
     ship!.isBracedByDrill = false;
+    events.add(CombatEffectsChanged.capture(ship!));
+    events.add(CombatEffectsChanged.capture(currentMonster!));
 
     // A fatal strike remains fatal even when reactive powers also kill its source.
     if (!ship!.isAlive) {
@@ -1967,6 +2035,7 @@ class GameSession {
       ship!.utilityCooldown--;
     }
     currentMonster!.tickSpotterFlare();
+    events.add(CombatEffectsChanged.capture(currentMonster!));
 
     // Region 3 Hazard: Thermal Caldera Scald every 3 combat rounds (or every 2 rounds for 15 dmg under Volatile Environs)
     final volatileActive =

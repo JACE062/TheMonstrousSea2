@@ -10,12 +10,14 @@ class HullGauge extends StatelessWidget {
     required this.maxHp,
     this.label = 'HULL INTEGRITY',
     this.height = 18,
+    this.animationDuration = const Duration(milliseconds: 450),
   });
 
   final int currentHp;
   final int maxHp;
   final String label;
   final double height;
+  final Duration animationDuration;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,8 @@ class HullGauge extends StatelessWidget {
         children: [
           LayoutBuilder(
             builder: (context, constraints) {
-              if (constraints.maxWidth < 240) {
+              if (constraints.maxWidth <
+                  240 * MediaQuery.textScalerOf(context).scale(1)) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -93,7 +96,9 @@ class HullGauge extends StatelessWidget {
             clipBehavior: Clip.antiAlias,
             child: TweenAnimationBuilder<double>(
               tween: Tween<double>(end: targetPct),
-              duration: const Duration(milliseconds: 450),
+              duration: MediaQuery.disableAnimationsOf(context)
+                  ? Duration.zero
+                  : animationDuration,
               curve: Curves.easeOutCubic,
               builder: (context, animatedPct, child) {
                 final isAnimatedCrit = animatedPct < 0.25;

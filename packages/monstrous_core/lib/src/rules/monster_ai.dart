@@ -3,6 +3,7 @@ import 'dart:math';
 import '../config/balance_config.dart';
 import '../model/attack_result.dart';
 import '../model/combatant.dart';
+import '../model/combat_presentation.dart';
 import '../model/enums.dart';
 import '../model/item.dart';
 import '../model/monster_intent.dart';
@@ -63,6 +64,7 @@ List<GameEvent> detonateTetherTrap(
       CarapaceAbsorbed(
         monsterName: monster.name,
         absorbedAmount: result.carapaceAbsorbed,
+        remainingCarapace: monster.carapacePlating,
         penetratingDamage: result.damage - result.nullifiedDamage,
       ),
     );
@@ -78,6 +80,7 @@ List<GameEvent> detonateTetherTrap(
   events.add(
     AttackHit(
       targetName: monster.name,
+      target: CombatSide.monster,
       damage: effectiveDamage,
       damageType: DamageType.slicing.displayName,
       remainingHp: monster.currentHp,
@@ -99,6 +102,8 @@ List<GameEvent> detonateTetherTrap(
     ),
   );
 
+  events.add(CombatEffectsChanged.capture(ship));
+  events.add(CombatEffectsChanged.capture(monster));
   if (!monster.isAlive) {
     events.add(
       CombatantDefeated(
@@ -340,15 +345,24 @@ MonsterIntent selectNextMonsterIntent(
     } else {
       monster.currentIntent = null;
     }
+    events.add(CombatEffectsChanged.capture(monster));
     return (range, events);
   }
 
   // 2. Self-buff / Carapace regeneration intent (Crustacean Calcify Carapace)
   if (intent.id == MonsterIntentId.crustaceanCalcifyCarapace) {
+    final beforeCarapace = monster.carapacePlating;
     final restored = max(1, (monster.maxCarapace * 0.35).round());
     monster.carapacePlating = min(
       monster.maxCarapace,
       monster.carapacePlating + restored,
+    );
+    events.add(
+      CarapaceRestored(
+        monsterName: monster.name,
+        restoredAmount: monster.carapacePlating - beforeCarapace,
+        remainingCarapace: monster.carapacePlating,
+      ),
     );
     monster.removeStatus(StatusEffect.burn);
     monster.burnTurns = 0;
@@ -358,6 +372,7 @@ MonsterIntent selectNextMonsterIntent(
         '${monster.name} calcifies its shell plates, restoring $restored Carapace (${monster.carapacePlating}/${monster.maxCarapace}) and purging corrosive statuses!',
       ),
     );
+    events.add(CombatEffectsChanged.capture(monster));
     monster.tickIntentCooldowns();
     if (intent.cooldownTurns > 0) {
       monster.setIntentCooldown(intent.id, intent.cooldownTurns);
@@ -365,6 +380,7 @@ MonsterIntent selectNextMonsterIntent(
     monster.lastExecutedIntentId = intent.id;
     monster.isPinnedThisTurn = false;
     monster.currentIntent = null;
+    events.add(CombatEffectsChanged.capture(monster));
     return (range, events);
   }
 
@@ -378,6 +394,10 @@ MonsterIntent selectNextMonsterIntent(
         stacks: monster.frenzyStacks,
       ),
     );
+  }
+
+  if (intent.id == MonsterIntentId.sharkFrenziedJaws) {
+    events.add(CombatEffectsChanged.capture(monster));
   }
 
   // 4. Pre-Attack Movement (Charges & Ambushes)
@@ -402,6 +422,8 @@ MonsterIntent selectNextMonsterIntent(
           range = targetRange;
           events.add(
             CombatRangeChanged(
+              mover: CombatSide.monster,
+              instigator: CombatSide.monster,
               previousRange: prev,
               newRange: range,
               reason:
@@ -412,6 +434,7 @@ MonsterIntent selectNextMonsterIntent(
         }
         if (ship.activeTetherTrapDistance != null) {
           ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
+          events.add(CombatEffectsChanged.capture(ship));
           if (ship.activeTetherTrapDistance! <= 0) {
             events.addAll(
               detonateTetherTrap(
@@ -442,6 +465,8 @@ MonsterIntent selectNextMonsterIntent(
           range = range.closer;
           events.add(
             CombatRangeChanged(
+              mover: CombatSide.monster,
+              instigator: CombatSide.monster,
               previousRange: prev,
               newRange: range,
               reason: range == CombatRange.short
@@ -452,6 +477,7 @@ MonsterIntent selectNextMonsterIntent(
           events.addAll(triggerBoilingWake(ship, monster));
           if (ship.activeTetherTrapDistance != null) {
             ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
+            events.add(CombatEffectsChanged.capture(ship));
             if (ship.activeTetherTrapDistance! <= 0) {
               events.addAll(
                 detonateTetherTrap(
@@ -472,6 +498,7 @@ MonsterIntent selectNextMonsterIntent(
 
   if (!monster.isAlive) {
     monster.currentIntent = null;
+    events.add(CombatEffectsChanged.capture(monster));
     return (range, events);
   }
 
@@ -491,8 +518,10 @@ MonsterIntent selectNextMonsterIntent(
       final readyWeapons = monster.usableWeapons
           .where((w) => w.chargeCountdown == 0)
           .toList();
-      final isTentacleSweep = intent.id == MonsterIntentId.squidSweepingTentacles;
-      final tentacleWeapon = readyWeapons
+      final isTentacleSweep =
+          intent.id == MonsterIntentId.squidSweepingTentacles;
+      final tentacleWeapon =
+          readyWeapons
               .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
               .firstOrNull ??
           monster.usableWeapons
@@ -557,9 +586,11 @@ MonsterIntent selectNextMonsterIntent(
               }
             }
           } else {
-            events.add(NarrationEvent(
-              '${monster.name} has no intact tentacles left to sweep!',
-            ));
+            events.add(
+              NarrationEvent(
+                '${monster.name} has no intact tentacles left to sweep!',
+              ),
+            );
           }
         } else {
           final (res, attackEvents) = calculateAttack(
@@ -648,6 +679,10 @@ MonsterIntent selectNextMonsterIntent(
     }
   }
 
+  if (didHitShip && ship.isAlive) {
+    events.add(CombatEffectsChanged.capture(ship));
+  }
+
   // 7. Post-Attack Buffs & Movement (Recoils & Tentacle Snares)
   if (ship.isAlive && monster.isAlive) {
     // Serpent recoil changes range only; innate dodge never accumulates.
@@ -669,6 +704,10 @@ MonsterIntent selectNextMonsterIntent(
       }
     }
 
+    if (intent.id == MonsterIntentId.squidInkShroudRecoil) {
+      events.add(CombatEffectsChanged.capture(monster));
+    }
+
     if (intent.moveTiming == IntentMoveTiming.afterAttack &&
         intent.moveDelta != IntentMoveDelta.stationary) {
       if (monster.isPinnedThisTurn) {
@@ -681,9 +720,12 @@ MonsterIntent selectNextMonsterIntent(
         range = range.farther;
         if (ship.activeTetherTrapDistance != null) {
           ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! + 1;
+          events.add(CombatEffectsChanged.capture(ship));
         }
         events.add(
           CombatRangeChanged(
+            mover: CombatSide.monster,
+            instigator: CombatSide.monster,
             previousRange: prev,
             newRange: range,
             reason:
@@ -705,6 +747,8 @@ MonsterIntent selectNextMonsterIntent(
           range = range.closer;
           events.add(
             CombatRangeChanged(
+              mover: CombatSide.ship,
+              instigator: CombatSide.monster,
               previousRange: prev,
               newRange: range,
               reason:
@@ -713,6 +757,7 @@ MonsterIntent selectNextMonsterIntent(
           );
           if (ship.activeTetherTrapDistance != null) {
             ship.activeTetherTrapDistance = ship.activeTetherTrapDistance! - 1;
+            events.add(CombatEffectsChanged.capture(ship));
             if (ship.activeTetherTrapDistance! <= 0) {
               events.addAll(
                 detonateTetherTrap(
@@ -754,6 +799,7 @@ MonsterIntent selectNextMonsterIntent(
   monster.isPinnedThisTurn = false;
   monster.currentIntent = null;
 
+  events.add(CombatEffectsChanged.capture(monster));
   return (range, events);
 }
 
@@ -819,7 +865,17 @@ List<GameEvent> takeMonsterTurn(
   }
 
   void executeSpecial(CombatTrait specialTrait) {
+    final beforeCarapace = monster.carapacePlating;
     final msg = specialTrait.executeSpecialAction(monster, ship, rng);
+    if (monster.carapacePlating > beforeCarapace) {
+      events.add(
+        CarapaceRestored(
+          monsterName: monster.name,
+          restoredAmount: monster.carapacePlating - beforeCarapace,
+          remainingCarapace: monster.carapacePlating,
+        ),
+      );
+    }
     if (specialTrait is InkCloudTrait) {
       events.add(
         InkCloudDeployed(
@@ -837,6 +893,7 @@ List<GameEvent> takeMonsterTurn(
     } else if (msg.isNotEmpty) {
       events.add(NarrationEvent(msg));
     }
+    events.add(CombatEffectsChanged.capture(monster));
     monster.decrementChargeTimeOnWeapons();
   }
 
@@ -872,6 +929,7 @@ List<GameEvent> takeMonsterTurn(
     }
 
     events.add(MonsterHesitated(monster.name));
+    events.add(CombatEffectsChanged.capture(monster));
     monster.decrementChargeTimeOnWeapons();
     return events;
   }
@@ -907,9 +965,11 @@ List<GameEvent> takeMonsterTurn(
           events.addAll(attackEvents);
         }
       } else {
-        events.add(NarrationEvent(
-          '${monster.name} has no intact tentacles left to strike!',
-        ));
+        events.add(
+          NarrationEvent(
+            '${monster.name} has no intact tentacles left to strike!',
+          ),
+        );
       }
     } else {
       final (_, attackEvents) = calculateAttack(
