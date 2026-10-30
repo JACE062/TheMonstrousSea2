@@ -1168,10 +1168,12 @@ class GameSession {
       final kelpPenalty =
           profile.isPactActive(CovenantPactId.volatileEnvirons) ? 20 : 10;
       ship!.currentEvasion = max(0, ship!.currentEvasion - kelpPenalty);
-      // Phosphor Haze cloaks the beast in obscurity
+      // Haze supplies a minimum penalty without stacking onto stronger ink.
       currentMonster!.isObscured = true;
+      currentMonster!.obscuredAcMod = max(currentMonster!.obscuredAcMod, 10);
+      final hazePenalty = currentMonster!.obscurityAccuracyPenalty;
       events.add(NarrationEvent(
-        'Sargasso Hazard: Tangled Kelp fouls your ship\'s rudder (-$kelpPenalty% ship evasion). Phosphor Haze cloaks the beast in Obscurity, a shot-accuracy modifier separate from monster dodge.',
+        'Sargasso Hazard: Tangled Kelp fouls your ship\'s rudder (-$kelpPenalty% ship evasion). Phosphor Haze cloaks the beast in Obscurity (-$hazePenalty% shot accuracy, separate from monster dodge).',
       ));
     }
 

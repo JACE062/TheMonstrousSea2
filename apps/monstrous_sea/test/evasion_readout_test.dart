@@ -19,6 +19,7 @@ GameController _battle({
   bool region2 = true,
   bool volatile = false,
   bool reckless = false,
+  bool apexShark = false,
 }) {
   final session = GameSession(
     rng: SeededGameRng(42),
@@ -32,6 +33,29 @@ GameController _battle({
   session.activeQuirk = reckless ? BloodlineTrait.recklessHelmsman : null;
   controller.dispatch(const ChooseShip(ShipClass.clipper));
   if (region2) session.seaChart.advanceRegion(session.rng);
+  if (apexShark) {
+    final chart = session.seaChart.toJson()
+      ..['currentRow'] = 0
+      ..['currentCol'] = 0
+      ..['currentLeg'] = 0
+      ..['courseOptions'] = [
+        {
+          'bearing': NavigationalBearing.deadAhead.name,
+          'nodeType': EncounterNodeType.beastCombat.name,
+          'difficultyLevel': 5,
+          'lookoutCall': 'A beast ahead.',
+          'monsterSpecies': MonsterSpecies.shark.name,
+          'isIdentified': true,
+          'isApex': true,
+          'isNemesis': false,
+        },
+      ];
+    session.seaChart.restoreFromJson(chart);
+    session.phase = SessionPhase.helm;
+    controller.dispatch(const SteerCourse(NavigationalBearing.deadAhead));
+    expect(controller.phase, SessionPhase.battle);
+    return controller;
+  }
   session.seaChart
     ..currentLeg = session.seaChart.totalLegs - 1
     ..currentRow = SeaChart.bossRow
@@ -152,39 +176,62 @@ void main() {
     }
   }
 
-  testWidgets('Obscured Apex shark keeps dodge separate from shot accuracy', (
-    tester,
-  ) async {
-    final controller = _battle();
-    addTearDown(controller.dispose);
-    controller.session.currentMonster = createMonster(
-      MonsterSpecies.shark,
-      level: 6,
-      rng: SeededGameRng(42),
-      isApex: true,
-    )..isObscured = true;
-    final monster = controller.currentMonster!;
-    await _mount(tester, controller);
-    expect(_stats(tester, 'ship'), contains('Evade: 15%'));
-    expect(_stats(tester, 'monster'), contains('Dodge: 0%'));
-    expect(monster.obscurityAccuracyPenalty, 0);
-    expect(
-      controller.combatLog.join(),
-      contains('-10% ship evasion'),
-    );
-
-    // A nonzero Obscurity modifier still changes accuracy, not the dodge roll.
-    monster.obscuredAcMod = 10;
-    controller.notify();
-    await tester.pump();
-    expect(_stats(tester, 'monster'), contains('Dodge: 0%'));
-    expect(
-      _stats(tester, 'monster'),
-      contains('Obscurity: -10% shot accuracy'),
-    );
-    expect(tester.takeException(), isNull);
-    await tester.pumpWidget(const SizedBox.shrink());
-  });
+  for (final width in [360.0, 1280.0]) {
+    testWidgets('actual Sargasso Apex shark accuracy and dodge at $width', (
+      tester,
+    ) async {
+      tester.view.physicalSize = Size(width, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final controller = _battle(apexShark: true);
+      addTearDown(controller.dispose);
+      final monster = controller.currentMonster!;
+      expect(monster.isApex, isTrue);
+      expect(monster.species, MonsterSpecies.shark);
+      expect(monster.obscurityAccuracyPenalty, 10);
+      final key = GlobalKey();
+      await _mount(tester, controller, captureKey: key);
+      expect(_stats(tester, 'ship'), contains('Evade: 15%'));
+      expect(_stats(tester, 'monster'), contains('Dodge: 0%'));
+      expect(
+        _stats(tester, 'monster'),
+        contains('Obscurity: -10% shot accuracy'),
+      );
+      expect(controller.combatLog.join(), contains('-10% ship evasion'));
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is Tooltip &&
+              (w.message?.contains(
+                    'Opening shot accuracy: 85% before 0% target dodge.',
+                  ) ??
+                  false),
+        ),
+        findsOneWidget,
+      );
+      if (_font.isNotEmpty) {
+        await tester.runAsync(() async {
+          final boundary = tester.renderObject<RenderRepaintBoundary>(
+            find.byKey(key),
+          );
+          final image = await boundary.toImage();
+          final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+          await File('.dart_tool/sargasso-hud-${width.toInt()}.png')
+              .writeAsBytes(bytes!.buffer.asUint8List());
+          image.dispose();
+        });
+      }
+      // Clearing removes the accuracy penalty without adding dodge.
+      monster.isObscured = false;
+      controller.notify();
+      await tester.pump();
+      expect(_stats(tester, 'monster'), contains('Dodge: 0%'));
+      expect(_stats(tester, 'monster'), isNot(contains('Obscurity:')));
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+  }
 
   testWidgets(
     'HUD applies cap, Pin and real Flare zero rather than hiding it',

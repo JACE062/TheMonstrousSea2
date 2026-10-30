@@ -609,29 +609,50 @@ class _BattleScreenState extends State<BattleScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Flexible(
-                                        child: Text(
-                                          'CARAPACE ARMOR',
-                                          style: InkTheme.statLabel.copyWith(
-                                            color: const Color(0xFF6B4226),
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
+                                  LayoutBuilder(
+                                    builder: (context, constraints) {
+                                      final label = Text(
+                                        'CARAPACE ARMOR',
+                                        style: InkTheme.statLabel.copyWith(
+                                          color: const Color(0xFF6B4226),
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                      ),
-                                      const SizedBox(width: 8),
-                                      Text(
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      );
+                                      final value = Text(
                                         '${monster.carapacePlating}/${monster.maxCarapace} PLATES',
                                         style: InkTheme.statValue.copyWith(
                                           color: const Color(0xFF6B4226),
                                           fontWeight: FontWeight.bold,
                                         ),
-                                      ),
-                                    ],
+                                      );
+                                      if (constraints.maxWidth <
+                                          240 *
+                                              MediaQuery.textScalerOf(context)
+                                                  .scale(1)) {
+                                        return Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            label,
+                                            FittedBox(
+                                              fit: BoxFit.scaleDown,
+                                              child: value,
+                                            ),
+                                          ],
+                                        );
+                                      }
+                                      return Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Flexible(child: label),
+                                          const SizedBox(width: 8),
+                                          value,
+                                        ],
+                                      );
+                                    },
                                   ),
                                   const SizedBox(height: 3),
                                   Stack(

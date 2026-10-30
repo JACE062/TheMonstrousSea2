@@ -1,0 +1,427 @@
+{
+  "aggregate": {
+    "before": {
+      "starts": 500,
+      "clear": 146,
+      "death": 354,
+      "cap": 0,
+      "monsters": 1493,
+      "battles": 1847,
+      "hazeVerified": 1847,
+      "shipAttacks": 10871,
+      "shipMisses": 1992,
+      "errors": 0,
+      "firstPenalties": {
+        "0": 410,
+        "20": 80,
+        "25": 10
+      }
+    },
+    "after": {
+      "starts": 500,
+      "clear": 126,
+      "death": 374,
+      "cap": 0,
+      "monsters": 1403,
+      "battles": 1777,
+      "hazeVerified": 1777,
+      "shipAttacks": 10991,
+      "shipMisses": 2460,
+      "errors": 0,
+      "firstPenalties": {
+        "10": 410,
+        "20": 80,
+        "25": 10
+      }
+    }
+  },
+  "groups": [
+    {
+      "build": "hull2-mk1",
+      "hull": "standard",
+      "before": {
+        "starts": 50,
+        "clear": 0,
+        "death": 50,
+        "cap": 0,
+        "monsters": 50,
+        "battles": 100,
+        "hazeVerified": 100,
+        "shipAttacks": 784,
+        "shipMisses": 163,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 0,
+        "death": 50,
+        "cap": 0,
+        "monsters": 53,
+        "battles": 103,
+        "hazeVerified": 103,
+        "shipAttacks": 836,
+        "shipMisses": 187,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull2-mk1",
+      "hull": "ironclad",
+      "before": {
+        "starts": 50,
+        "clear": 0,
+        "death": 50,
+        "cap": 0,
+        "monsters": 59,
+        "battles": 109,
+        "hazeVerified": 109,
+        "shipAttacks": 1028,
+        "shipMisses": 218,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 1,
+        "death": 49,
+        "cap": 0,
+        "monsters": 60,
+        "battles": 109,
+        "hazeVerified": 109,
+        "shipAttacks": 1056,
+        "shipMisses": 247,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull2-mk1",
+      "hull": "clipper",
+      "before": {
+        "starts": 50,
+        "clear": 1,
+        "death": 49,
+        "cap": 0,
+        "monsters": 43,
+        "battles": 92,
+        "hazeVerified": 92,
+        "shipAttacks": 736,
+        "shipMisses": 72,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 1,
+        "death": 49,
+        "cap": 0,
+        "monsters": 44,
+        "battles": 93,
+        "hazeVerified": 93,
+        "shipAttacks": 753,
+        "shipMisses": 100,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull2-mk1",
+      "hull": "bombardier",
+      "before": {
+        "starts": 50,
+        "clear": 0,
+        "death": 50,
+        "cap": 0,
+        "monsters": 51,
+        "battles": 101,
+        "hazeVerified": 101,
+        "shipAttacks": 683,
+        "shipMisses": 137,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 0,
+        "death": 50,
+        "cap": 0,
+        "monsters": 43,
+        "battles": 93,
+        "hazeVerified": 93,
+        "shipAttacks": 659,
+        "shipMisses": 169,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull2-mk1",
+      "hull": "corsair",
+      "before": {
+        "starts": 50,
+        "clear": 0,
+        "death": 50,
+        "cap": 0,
+        "monsters": 27,
+        "battles": 77,
+        "hazeVerified": 77,
+        "shipAttacks": 669,
+        "shipMisses": 136,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 0,
+        "death": 50,
+        "cap": 0,
+        "monsters": 25,
+        "battles": 75,
+        "hazeVerified": 75,
+        "shipAttacks": 670,
+        "shipMisses": 156,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "hull": "standard",
+      "before": {
+        "starts": 50,
+        "clear": 28,
+        "death": 22,
+        "cap": 0,
+        "monsters": 249,
+        "battles": 271,
+        "hazeVerified": 271,
+        "shipAttacks": 1380,
+        "shipMisses": 262,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 24,
+        "death": 26,
+        "cap": 0,
+        "monsters": 223,
+        "battles": 249,
+        "hazeVerified": 249,
+        "shipAttacks": 1308,
+        "shipMisses": 299,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "hull": "ironclad",
+      "before": {
+        "starts": 50,
+        "clear": 21,
+        "death": 29,
+        "cap": 0,
+        "monsters": 188,
+        "battles": 217,
+        "hazeVerified": 217,
+        "shipAttacks": 1214,
+        "shipMisses": 256,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 16,
+        "death": 34,
+        "cap": 0,
+        "monsters": 170,
+        "battles": 204,
+        "hazeVerified": 204,
+        "shipAttacks": 1191,
+        "shipMisses": 292,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "hull": "clipper",
+      "before": {
+        "starts": 50,
+        "clear": 31,
+        "death": 19,
+        "cap": 0,
+        "monsters": 274,
+        "battles": 293,
+        "hazeVerified": 293,
+        "shipAttacks": 1501,
+        "shipMisses": 161,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 28,
+        "death": 22,
+        "cap": 0,
+        "monsters": 270,
+        "battles": 292,
+        "hazeVerified": 292,
+        "shipAttacks": 1612,
+        "shipMisses": 255,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "hull": "bombardier",
+      "before": {
+        "starts": 50,
+        "clear": 31,
+        "death": 19,
+        "cap": 0,
+        "monsters": 276,
+        "battles": 295,
+        "hazeVerified": 295,
+        "shipAttacks": 1246,
+        "shipMisses": 273,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 26,
+        "death": 24,
+        "cap": 0,
+        "monsters": 250,
+        "battles": 274,
+        "hazeVerified": 274,
+        "shipAttacks": 1234,
+        "shipMisses": 338,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "hull": "corsair",
+      "before": {
+        "starts": 50,
+        "clear": 34,
+        "death": 16,
+        "cap": 0,
+        "monsters": 276,
+        "battles": 292,
+        "hazeVerified": 292,
+        "shipAttacks": 1630,
+        "shipMisses": 314,
+        "errors": 0,
+        "firstPenalties": {
+          "0": 41,
+          "20": 8,
+          "25": 1
+        }
+      },
+      "after": {
+        "starts": 50,
+        "clear": 30,
+        "death": 20,
+        "cap": 0,
+        "monsters": 265,
+        "battles": 285,
+        "hazeVerified": 285,
+        "shipAttacks": 1672,
+        "shipMisses": 417,
+        "errors": 0,
+        "firstPenalties": {
+          "10": 41,
+          "20": 8,
+          "25": 1
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "50 matched seeds per hull/build; one CautiousBot policy, descriptive evidence rather than player-balance prediction.",
+    "Synthetic Region2 arrival skips Region1 history/rewards. All hulls are factory-built with ancestral I, gold25, no starting traits/blessings/relics/pacts, and no free cargo. Only chosen blueprint plus always-owned Standard is unlocked.",
+    "Normal course selection, shrine rewards, combat, recovery and upgrades continue after setup. Haze checks validate obscurity at battle entry, before later flare/ink changes.",
+    "Stop at timesCompleted>=2 confirms World Serpent cleared; Kraken was skipped and is not scored.",
+    "Ship attack/miss counts use structured event side fields; misses are accuracy misses, distinct from monster dodges."
+  ]
+}

@@ -1,0 +1,4 @@
+--- after
++++ before
+@@ -1173 +1172,0 @@
+-      currentMonster!.obscuredAcMod = max(currentMonster!.obscuredAcMod, 10);
