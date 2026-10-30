@@ -128,8 +128,12 @@ class ChronicleStrings {
     required String monsterName,
     required String intentName,
     required String telegraphLog,
-  }) =>
-      'BEAST INTENT [$intentName]: The $monsterName $telegraphLog';
+  }) {
+    final subject = monsterName.startsWith('The ')
+        ? monsterName
+        : 'The $monsterName';
+    return 'BEAST INTENT [$intentName]: $subject $telegraphLog';
+  }
 
   static String monsterAttackOutOfRange({
     required String monsterName,

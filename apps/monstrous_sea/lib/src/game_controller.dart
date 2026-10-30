@@ -241,7 +241,7 @@ class GameController extends ChangeNotifier {
       CombatEffectsChanged() || CombatHealthChanged() || CarapaceRestored() => null,
       BattleStarted(:final monsterName, :final difficulty, :final isBoss) => CombatLogEntry(
           message: isBoss
-              ? 'THE KRAKEN RISES FROM THE ABYSS! Prepare all guns!'
+              ? '${monsterName.toUpperCase()} RISES FROM THE ABYSS! Prepare all guns!'
               : 'Encountered $monsterName (Danger Level $difficulty)!',
           actor: CombatLogActor.ambient,
           isCritical: isBoss,

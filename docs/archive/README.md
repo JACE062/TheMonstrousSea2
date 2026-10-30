@@ -97,6 +97,8 @@ Utility/UI receipt: [Clipper Mk progression, numeric descriptions, upgrade purse
 
 Regional-combat receipt: [Sargasso haze's approved 10% accuracy floor, 30 October 2026](playtests/SARGASSO_HAZE_2026_10_30.md), preserving stronger ink and separate dodge, with real encounter/lifecycle checks and paired Region 2 observations.
 
+Chronicle receipt: [Actual Titan names at encounter opening, 30 October 2026](playtests/BOSS_CHRONICLE_2026_10_30.md), correcting the separate hardcoded Kraken line and duplicated intent article.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

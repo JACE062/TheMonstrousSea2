@@ -4,6 +4,16 @@ import 'package:monstrous_core/monstrous_core.dart';
 import 'package:test/test.dart';
 
 void main() {
+  test('ordinary monster intent keeps its leading article', () {
+    final line = const NarrationFormatter().format(
+      MonsterIntentTelegraphed(
+        monsterName: 'Crimson Shark',
+        intent: MonsterIntent.fromId(MonsterIntentId.sharkFrenziedJaws),
+      ),
+    );
+    expect(line, contains(': The Crimson Shark '));
+  });
+
   for (final (region, name) in [
     (0, 'The Kraken'),
     (1, 'The World Serpent'),
@@ -34,6 +44,11 @@ void main() {
       );
       expect(events.whereType<BattleStarted>().single.monsterName, name);
       expect(session.currentMonster!.name, name);
+      final intentLine = const NarrationFormatter().format(
+        events.whereType<MonsterIntentTelegraphed>().single,
+      );
+      expect(intentLine, contains(': $name '));
+      expect(intentLine, isNot(contains('The The ')));
     });
 
     test('$name repairs only old cached Titan approach copy', () {

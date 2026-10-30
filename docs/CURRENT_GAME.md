@@ -82,7 +82,7 @@ Source for cooldowns, scaling, and trap timing: [GameSession utility handler](..
 
 ## Combat resolution and monster behavior
 
-Titan approach calls use The Kraken, The World Serpent and The Ancient Leviathan, matching their battle identities. Restored pending Titan offers receive the same correction; ordinary generated names, Nemesis identities and completed voyage history retain their own text.
+Titan approach calls and Chronicle encounter openings use The Kraken, The World Serpent and The Ancient Leviathan, matching their battle identities. The Chronicle's boss opening derives its name from the actual battle event; intent narration avoids repeating an existing leading “The.” Restored pending Titan offers receive the approach correction; ordinary generated names, Nemesis identities and completed voyage history retain their own text.
 
 - Helm orders and intrinsic mobility act within the three Short/Medium/Long bands. Monster intent previews describe threatened ranges, movement timing, and windups. Out-of-range attacks and intentional interruption are important counterplay.
 - Hit chance is a bounded d100 percentage, currently clamped to 25–95 after applicable accuracy modifiers. AC and d20 hit bonuses are retired. Dodge is resolved separately after a successful hit roll; UI explanations of “accuracy” must not conflate the two probabilities.

@@ -188,6 +188,7 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 - **Acceptance:** All Apex species, combat logs, lookout calls, narrow HUDs, and Nemesis variants remain readable without losing useful species information.
 
 - **Titan approach identity follow-up, 28 October 2026 — implemented:** The player saw “Abyssal Wyrm” while approaching the World Serpent. Hardcoded approach copy now uses The World Serpent and The Ancient Leviathan, matching their battle identities; The Kraken remains unchanged. Pending cached Titan offers are corrected on restoration, without rerolling courses or rewriting ordinary generated/Nemesis names and completed history. The broader Apex-name cleanup above remains open.
+- **Chronicle boss identity follow-up, 30 October 2026 — implemented; player replay pending:** After confirming the Sargasso changes work, the player reported that the World Serpent's encounter opening still announced the Kraken. The app controller had a separate hardcoded boss line beyond the corrected approach path. The opening now uses the `BattleStarted` event's monster name for all three Titans, preserving ordinary encounter copy and the critical ambient presentation. The doubled “The The” visible in the same screenshot is also corrected in intent narration. See the [verification receipt](archive/README.md#later-verification-receipts). The broader Apex naming work remains open.
 
 ### PT2-17 — Ink still claims “+25 AC”; avoidance needs a visible HUD explanation
 
