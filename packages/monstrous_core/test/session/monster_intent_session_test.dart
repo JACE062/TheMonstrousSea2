@@ -282,7 +282,7 @@ void main() {
       );
     });
 
-    test('BraceForImpact allows captain to pass turn defensively when all weapons are on cooldown without soft-lock', () {
+    test('Wait and reload passes the turn when weapons are cooling down without soft-lock', () {
       final shark = createMonster(MonsterSpecies.shark, level: 2, rng: _AlwaysHitRng());
       session.currentMonster = shark;
       session.combatRange = CombatRange.medium;
@@ -303,8 +303,10 @@ void main() {
       // Round 2: With weapon on cooldown and no other weapons ready, dispatch BraceForImpact
       final braceEvents = session.dispatch(const BraceForImpact());
 
-      // Ship braced behind gunwales (+10% evasion) and monster turn resolved cleanly
-      expect(braceEvents.whereType<NarrationEvent>().any((e) => e.message.contains('braces behind the gunwales')), isTrue);
+      // The pass advances cooldowns and the monster turn without a dodge bonus.
+      expect(braceEvents.whereType<NarrationEvent>().any((e) => e.message.contains('fittings recover')), isTrue);
+      expect(session.ship!.currentEvasion, 0);
+      expect(torpedo.chargeCountdown, torpedo.chargeTime - 1);
       expect(session.battleRound, 3);
     });
   });

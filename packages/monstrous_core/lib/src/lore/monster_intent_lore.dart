@@ -24,7 +24,7 @@ abstract final class MonsterIntentLore {
     subtitle: 'Windup Broken • Normal Attack',
     description: 'Its catastrophic windup broken, the beast lashes out with an ordinary strike.',
     tacticalTip:
-        'The lethal windup has been canceled. Brace against a normal attack.',
+        'The lethal windup has been canceled. Prepare for a normal attack.',
     telegraphLog:
         'reels from the broken windup and prepares an ordinary strike!',
   );
@@ -206,7 +206,7 @@ abstract final class MonsterIntentLore {
     name: 'Tidal Coil Maelstrom (IMMINENT 2/2)',
     subtitle: 'STRIKES ALL RANGES THIS TURN!',
     description: 'The constricting whirlpool collapses inward, crushing everything on the surface in venomous brine.',
-    tacticalTip: 'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or brace for impact!',
+    tacticalTip: 'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch or Black-Powder Charge, or use a defensive Utility or belt item!',
     telegraphLog: 'tightens its horizon-spanning coils—Tidal Coil Maelstrom strikes ALL RANGES this turn!',
   );
 

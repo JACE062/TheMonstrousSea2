@@ -20,6 +20,7 @@ import 'package:monstrous_sea/src/widgets/armory_view.dart';
 import 'combat_flow_test.dart' show mountBattle;
 
 const reviewFont = String.fromEnvironment('reviewFontPath');
+const reviewIconFont = String.fromEnvironment('reviewIconFontPath');
 final captureKey = GlobalKey();
 
 Future<void> capture(WidgetTester tester, String name) async {
@@ -69,6 +70,12 @@ void main() {
     if (reviewFont.isNotEmpty) {
       final loader = FontLoader('RosterReview')
         ..addFont(File(reviewFont).readAsBytes().then(ByteData.sublistView));
+      await loader.load();
+    }
+    if (reviewIconFont.isNotEmpty) {
+      final loader = FontLoader(
+        'MaterialIcons',
+      )..addFont(File(reviewIconFont).readAsBytes().then(ByteData.sublistView));
       await loader.load();
     }
   });
@@ -214,7 +221,7 @@ void main() {
       );
     }
   }
-  testWidgets('Impatient explains pending and offers grappled recovery Brace', (
+  testWidgets('Impatient explains pending and offers grappled Wait & Reload', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(1280, 1000);
@@ -263,13 +270,29 @@ void main() {
       ),
       findsNothing,
     );
-    controller.dispatch(const BraceForImpact());
+    final recoveryRound = controller.session.battleRound;
+    final wait = find.byKey(const ValueKey('emergency-pass'));
+    expect(find.text('WAIT & RELOAD'), findsOneWidget);
+    expect(
+      find.byTooltip(
+        'Finish the turn and advance fitting cooldowns. No evasion bonus.',
+      ),
+      findsOneWidget,
+    );
+    await tester.ensureVisible(wait);
+    await tester.tap(wait);
+    await tester.pump();
     expect(controller.isImpatientRecovering, isFalse);
+    expect(controller.session.battleRound, recoveryRound + 1);
+    for (var frame = 0; frame < 100 && controller.isPlayingEvents; frame++) {
+      await tester.pump(const Duration(milliseconds: 200));
+    }
+    expect(controller.isPlayingEvents, isFalse);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
   });
   testWidgets(
-    'Skirmisher previews a shot before helm movement and exposes Brace',
+    'Skirmisher previews a shot before helm movement without a free pass',
     (tester) async {
       tester.view.physicalSize = const Size(1280, 1000);
       tester.view.devicePixelRatio = 1;
@@ -322,6 +345,18 @@ void main() {
         findsOneWidget,
       );
       expect(find.byKey(const ValueKey('late-helm-hint')), findsOneWidget);
+      expect(find.byKey(const ValueKey('emergency-pass')), findsNothing);
+      for (final weapon in controller.ship!.equippedWeapons) {
+        weapon.chargeCountdown = 2;
+      }
+      controller.ship!.utilityCooldown = 0;
+      controller.notify();
+      await tester.pump();
+      // A ready Utility can still finish the turn without a pass.
+      expect(find.byKey(const ValueKey('emergency-pass')), findsNothing);
+      controller.ship!.utilityCooldown = 2;
+      controller.notify();
+      await tester.pump();
       expect(find.byKey(const ValueKey('emergency-pass')), findsOneWidget);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox.shrink());
@@ -407,6 +442,13 @@ void main() {
         expect(find.textContaining('Fittings unavailable.'), findsOneWidget);
         expect(find.byKey(const ValueKey('emergency-pass')), findsOneWidget);
         await capture(tester, 'battle-recovery-$width-$scale');
+        if (reviewFont.isNotEmpty) {
+          await tester.ensureVisible(
+            find.byKey(const ValueKey('emergency-pass')),
+          );
+          await tester.pump(const Duration(milliseconds: 300));
+          await capture(tester, 'battle-recovery-pass-$width-$scale');
+        }
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox.shrink());
       });

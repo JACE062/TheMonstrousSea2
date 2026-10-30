@@ -64,7 +64,8 @@ final class ExecuteShipSpecialAction extends Command {
   final bool borrowNextAction;
 }
 
-/// Braces the crew behind the gunwales and passes the attack phase, allowing helm maneuvers to resolve and weapons to reload.
+/// Waits through the attack phase so helm maneuvers resolve and cooldowns advance.
+/// Retains the original command name for callers; grants no evasion bonus.
 final class BraceForImpact extends Command {
   const BraceForImpact();
 }

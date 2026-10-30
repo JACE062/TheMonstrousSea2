@@ -1874,18 +1874,16 @@ class GameSession {
 
   List<GameEvent> _handleBraceForImpact() {
     if (phase != SessionPhase.battle || ship == null) {
-      throw StateError('Cannot brace for impact outside of battle');
+      throw StateError('Cannot wait and reload outside of battle');
     }
     if (isImpatientCombinationPending) {
       throw StateError('Impatient: finish the combination with a weapon.');
     }
     final events = <GameEvent>[];
 
-    // Defensive bracing: +10% evasion for the incoming monster turn
-    ship!.currentEvasion = min(90, ship!.currentEvasion + 10);
-    events.add(CombatEffectsChanged.capture(ship!));
+    // Emergency/recovery pass only; waiting grants no defensive boost.
     events.add(NarrationEvent(
-      '${ship!.name}\'s crew braces behind the gunwales (+10% Evasion) while ordnance reloads!',
+      '${ship!.name}\'s crew waits while the fittings recover and ordnance reloads.',
     ));
 
     // Monster response turn

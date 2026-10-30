@@ -190,7 +190,7 @@ class _BattleScreenState extends State<BattleScreen> {
                   const SizedBox(height: 12),
                   Text(
                     'Use one quick item per round, or two with Drillmaster. '
-                    'A fitting action or Brace & Reload (when available) '
+                    'A fitting action or Wait & Reload (when available) '
                     'finishes the round and refreshes this limit.',
                     style: InkTheme.body,
                   ),
@@ -423,13 +423,11 @@ class _BattleScreenState extends State<BattleScreen> {
         ? 2
         : 1;
     final quickUsed = _decisions.quickUsed;
-    // Quick items and helm orders cannot end the turn. Keep an emergency pass
-    // only when every offensive and utility fitting is unavailable.
+    // Recovery blocks all fittings. Otherwise, offer a pass only when no
+    // offensive or utility fitting can end the turn; helm/belt cannot do so.
     final needsEmergencyPass =
         !_decisions.combinationPending &&
-        (_decisions.recovering ||
-            widget.controller.usesLateHelm ||
-            (!canFireAnyWeapon && !ship.isUtilityReady));
+        (_decisions.recovering || (!canFireAnyWeapon && !ship.isUtilityReady));
 
     return ParchmentScaffold(
       showBorder: false,
@@ -1123,21 +1121,23 @@ class _BattleScreenState extends State<BattleScreen> {
         Text(
           _decisions.combinationPending
               ? 'IMPATIENT · Fire one weapon next. Belt available; helm already committed.'
-              : 'RECOVERY · Fittings unavailable. Maneuver, use belt, or Brace & Reload.',
+              : 'RECOVERY · Fittings unavailable. Maneuver, use belt, then Wait & Reload.',
           key: const ValueKey('impatient-status'),
           style: InkTheme.caption,
         ),
       if (needsEmergencyPass) ...[
         const SizedBox(height: 6),
-        InkButton(
-          key: const ValueKey('emergency-pass'),
-          label: 'BRACE & RELOAD',
-          isPrimary: true,
-          semanticLabel:
-              'Brace for 10% temporary evasion, finish the turn and reload.',
-          onPressed: _isActionLocked
-              ? null
-              : () => _dispatchCombatAction(const BraceForImpact()),
+        Tooltip(
+          message: 'Finish the turn and advance fitting cooldowns. No evasion bonus.',
+          child: InkButton(
+            key: const ValueKey('emergency-pass'),
+            label: 'WAIT & RELOAD',
+            isPrimary: true,
+            semanticLabel: 'Wait and reload. Finish the turn and advance fitting cooldowns.',
+            onPressed: _isActionLocked
+                ? null
+                : () => _dispatchCombatAction(const BraceForImpact()),
+          ),
         ),
       ],
     ],

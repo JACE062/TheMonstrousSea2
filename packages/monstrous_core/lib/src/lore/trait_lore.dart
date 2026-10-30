@@ -97,12 +97,12 @@ class TraitLore {
     BloodlineTraitId.impatient: BloodlineTraitLoreEntry(
       name: 'Impatient',
       flavor: 'Demands action now, leaving the crew scrambling to recover.',
-      description: 'Push the crew to use Utility then one weapon action before the enemy responds. On the next turn, only helm, belt and Brace remain usable.',
+      description: 'Push the crew to use Utility then one weapon action before the enemy responds. On the next turn, only helm, belt and Wait & Reload remain usable.',
     ),
     BloodlineTraitId.skirmisher: BloodlineTraitLoreEntry(
       name: 'Skirmisher',
       flavor: 'Strikes from position, then slips away before the answering blow.',
-      description: 'Your helm maneuver always resolves after your main action, before the enemy responds. Brace to reposition without firing.',
+      description: 'Your helm maneuver always resolves after your main action, before the enemy responds.',
     ),
   };
 
