@@ -30,7 +30,13 @@ class VoyageShipwrightView extends StatelessWidget {
               'Spend gold on hull refits and fitting tempering. These upgrades last for this voyage.',
               style: InkTheme.body,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
+            Text(
+              'PURSE: ${ship.gold}g',
+              key: const ValueKey('voyage-shipwright-purse'),
+              style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
+            ),
+            const SizedBox(height: 12),
             Text('HULL TIER ${ship.level} / 4', style: InkTheme.statLabel),
             const SizedBox(height: 8),
             InkButton(
