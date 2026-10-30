@@ -93,7 +93,7 @@ class EvasionTrait extends CombatTrait {
         (actor.shipClass == ShipClass.corvette ||
             actor.shipClass == ShipClass.clipper ||
             actor.baseEvasion > 0)) {
-      actor.currentEvasion = (actor.baseEvasion * 2).clamp(0, 100);
+      actor.currentEvasion = actor.evasiveRiggingEvasion;
       return '${actor.name} swiftly shifts course, slipping into an evasive pattern!';
     }
     return '';

@@ -13,6 +13,7 @@ import '../widgets/ink_button.dart';
 import '../widgets/ocean_power_badges.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pause_menu.dart';
+import '../widgets/utility_description.dart';
 
 /// Battle-facing effect copy; shared by the compact buttons and their help.
 extension on ConsumableType {
@@ -276,7 +277,8 @@ class _BattleScreenState extends State<BattleScreen> {
     return switch (bpId) {
       BlueprintId.ironclad =>
         'Fortify Iron Plates (2T CD): Permanently adds +${(ship.dmgReductionMod * mult).round()} Damage Reduction for this battle and anchors your hull against forced push/pull this round.',
-      BlueprintId.clipper => 'Evasive Rigging (2T CD): Doubles current Evasion until next dodge and shifts 1 range band away from the monster.',
+      BlueprintId.clipper =>
+        'Evasive Rigging: ${evasiveRiggingDescription(ship)}',
       BlueprintId.corsair =>
         'Drifting Tether-Trap (2T CD): Launches a floating tether-mine 1 band ahead (${previewRange == CombatRange.short
             ? 'Instant detonation at Short!'

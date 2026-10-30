@@ -323,7 +323,7 @@ void main() {
       expect(evadedEvent.wasManeuver, isFalse);
     });
 
-    test('evasive maneuvers doubles evasion and resets after dodge', () {
+    test('evasive rigging adds the Mk I bonus and resets after dodge', () {
       final corvette = createTestShip(
         shipClass: ShipClass.corvette,
         baseEvasion: 20,
@@ -332,13 +332,13 @@ void main() {
       final rng = QueueGameRng();
 
       trait.executeSpecialAction(corvette, createTestMonster(), rng);
-      expect(corvette.currentEvasion, equals(40));
+      expect(corvette.currentEvasion, equals(45));
 
       final monster = createTestMonster();
       final monsterWeapon = createTestMonsterWeapon(damage: 30, hitModifier: 80);
 
-      // 1st d100 = 50 (hit), 2nd d100 = 35 (<= 40, dodged thanks to maneuver!)
-      final attackRng = QueueGameRng(d100Rolls: [50, 35]);
+      // 1st d100 = 50 (hit), 2nd d100 = 45 (base 20 + Mk I bonus 25).
+      final attackRng = QueueGameRng(d100Rolls: [50, 45]);
       final (result, events) =
           calculateAttack(monster, monsterWeapon, corvette, attackRng, [trait]);
 

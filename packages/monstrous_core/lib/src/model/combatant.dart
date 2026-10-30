@@ -231,6 +231,14 @@ class ShipState extends Combatant {
   int markForHardpoint(HardpointType slot) =>
       (hardpointMarks[slot.canonical] ?? 1).clamp(1, 3);
 
+  /// Additive dodge bonus supplied by the utility's current Tempering Mark.
+  int get evasiveRiggingBonus =>
+      25 + 15 * (markForHardpoint(HardpointType.utility) - 1);
+
+  /// Raw Evasive Rigging boost; captain/Basalt bonuses and the dodge cap apply later.
+  int get evasiveRiggingEvasion =>
+      (baseEvasion + evasiveRiggingBonus).clamp(0, 100);
+
   /// Returns the Roman numeral label (`Mk I`, `Mk II`, `Mk III`) for [slot]'s Tempering Mark.
   String markLabelForHardpoint(HardpointType slot) =>
       switch (markForHardpoint(slot)) {

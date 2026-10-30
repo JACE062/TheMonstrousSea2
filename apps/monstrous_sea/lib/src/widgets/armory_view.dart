@@ -6,6 +6,7 @@ import '../theme/ink_theme.dart';
 import 'ink_button.dart';
 import 'parchment_card.dart';
 import 'weapon_stats_view.dart';
+import 'utility_description.dart';
 
 /// Inspection of the flagship's fixed fittings and single-use tactical belt.
 /// Voyage marks, primordial dedications and ancestral refits remain distinct.
@@ -18,7 +19,7 @@ class ArmoryView extends StatelessWidget {
     return switch (ship.resolvedBlueprintId) {
       BlueprintId.ironclad =>
         '2-turn cooldown. Adds +${(ship.dmgReductionMod * mult).round()} damage reduction for this battle and anchors the hull against forced movement this round.',
-      BlueprintId.clipper => '2-turn cooldown. Doubles evasion until the next dodge and moves one range band away from the monster.',
+      BlueprintId.clipper => evasiveRiggingDescription(ship),
       BlueprintId.corsair =>
         '2-turn cooldown. Launches a drifting tether-trap one band ahead. It drifts closer each round, then detonates for ${((16 + 5 * (ship.level - 1)) * mult).round()} Slicing damage and pins the beast for one turn.',
       BlueprintId.bombardier => '2-turn cooldown. Illuminates the beast for two turns: clears obscurity, suppresses evasion, grants +15% accuracy and increases Blast damage taken by 25%.',
