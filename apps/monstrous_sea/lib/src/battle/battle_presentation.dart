@@ -39,8 +39,6 @@ class BattlePresentation extends ChangeNotifier {
             .toList(),
       ),
       range = initialRange {
-    ship.captainBoonId = sourceShip.captainBoonId;
-    ship.captainQuirkId = sourceShip.captainQuirkId;
     _effects(ship, CombatantPresentation.capture(sourceShip));
     _effects(monster, CombatantPresentation.capture(sourceMonster));
     monster.carapacePlating = sourceMonster.carapacePlating;
@@ -92,7 +90,7 @@ class BattlePresentation extends ChangeNotifier {
     for (final status in actor.statusEffects)
       status.displayName: status.displayName,
     if (actor is ShipState) ...{
-      'Evasion': 'Evasion ${actor.currentEvasion + actor.captainEvasionBonus}%',
+      'Evasion': 'Evasion ${actor.effectiveEvasion}%',
       if (actor.currentDmgReduction > 0)
         'Armor': 'Armor ${actor.currentDmgReduction}',
       if (actor.tempAccuracyPenalty > 0)
@@ -230,6 +228,8 @@ class BattlePresentation extends ChangeNotifier {
       ..clear()
       ..addAll(facts.statusEffects);
     if (actor is ShipState) {
+      actor.captainBoonId = facts.captainBoonId;
+      actor.captainQuirkId = facts.captainQuirkId;
       actor.currentEvasion = facts.currentEvasion;
       actor.currentDmgReduction = facts.currentDmgReduction;
       actor.isGrappled = facts.isGrappled;

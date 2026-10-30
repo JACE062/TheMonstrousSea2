@@ -1171,7 +1171,7 @@ class GameSession {
       // Phosphor Haze cloaks the beast in obscurity
       currentMonster!.isObscured = true;
       events.add(NarrationEvent(
-        'Sargasso Hazard: Tangled Kelp fouls the rudder (-$kelpPenalty% evasion) and Phosphor Haze cloaks the beast in obscurity!',
+        'Sargasso Hazard: Tangled Kelp fouls your ship\'s rudder (-$kelpPenalty% ship evasion). Phosphor Haze cloaks the beast in Obscurity, a shot-accuracy modifier separate from monster dodge.',
       ));
     }
 

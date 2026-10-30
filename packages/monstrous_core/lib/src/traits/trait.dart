@@ -62,7 +62,7 @@ class FortifyTrait extends CombatTrait {
   }
 }
 
-/// Corvette speed: dodge chance, evasive maneuvers action doubling dodge.
+/// Ship dodge and the blueprint's Evasive Rigging utility.
 class EvasionTrait extends CombatTrait {
   const EvasionTrait();
 
@@ -74,19 +74,7 @@ class EvasionTrait extends CombatTrait {
     GameRng rng,
   ) {
     if (defender is ShipState && result.didHit) {
-      int effectiveEvasion = defender.currentEvasion;
-      effectiveEvasion += defender.captainEvasionBonus;
-      if (defender.basaltBarrierHp > 0 && defender.basaltAegisTurns > 0) {
-        effectiveEvasion += defender.blessings[HardpointType.utility]?.tier == 3
-            ? 20
-            : 15;
-      }
-      if (result.combatRange == CombatRange.long) {
-        effectiveEvasion += 15;
-      } else if (result.combatRange == CombatRange.short) {
-        effectiveEvasion -= 15;
-      }
-      effectiveEvasion = effectiveEvasion.clamp(0, 95);
+      final effectiveEvasion = defender.effectiveEvasion;
 
       final roll = rng.d100();
       if (roll <= effectiveEvasion) {

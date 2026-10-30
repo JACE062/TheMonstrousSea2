@@ -481,14 +481,18 @@ class _BattleScreenState extends State<BattleScreen> {
                           ship.name,
                           style: InkTheme.titleMedium.copyWith(fontSize: 20),
                         ),
-                        Text(
-                          'Level ${ship.level} ${ship.shipClass.name.toUpperCase()}'
-                          '${ship.currentDmgReduction > 0 ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
-                          '${ship.currentEvasion + ship.captainEvasionBonus > 0 ? ' • Evade: ${ship.currentEvasion + ship.captainEvasionBonus}%' : ''}'
-                          '${ship.isAnchoredThisTurn ? ' • Anchored' : ''}'
-                          '${ship.gunneryDrillBuffActive ? ' • Braced Volley (+15% Accuracy/+20% Damage)' : ''}'
-                          '${ship.pitchCoatingActive ? ' • Pitch Coated (+25% Fire/Burn)' : ''}',
-                          style: InkTheme.caption,
+                        Tooltip(
+                          message: 'Current dodge chance after captain, regional and active-effect modifiers, capped at 95%. Unavoidable attacks bypass dodge.',
+                          child: Text(
+                            key: const ValueKey('ship-combat-stats'),
+                            'Level ${ship.level} ${ship.shipClass.name.toUpperCase()}'
+                            '${ship.currentDmgReduction > 0 ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
+                            ' • Evade: ${ship.effectiveEvasion}%'
+                            '${ship.isAnchoredThisTurn ? ' • Anchored' : ''}'
+                            '${ship.gunneryDrillBuffActive ? ' • Braced Volley (+15% Accuracy/+20% Damage)' : ''}'
+                            '${ship.pitchCoatingActive ? ' • Pitch Coated (+25% Fire/Burn)' : ''}',
+                            style: InkTheme.caption,
+                          ),
                         ),
                         const SizedBox(height: 8),
                         HullGauge(
@@ -567,14 +571,15 @@ class _BattleScreenState extends State<BattleScreen> {
                           ],
                         ),
                         Tooltip(
-                          message: monster.obscurityAccuracyPenalty > 0
-                              ? 'Obscurity lowers shot accuracy by ${monster.obscurityAccuracyPenalty}%, separately from dodge. Successful hits have a 25% chance to disperse it; Spotter Flare clears it. There is no fixed turn duration.'
-                              : '',
+                          message:
+                              'Current dodge chance after Pin and Spotter Flare. Attack accuracy is a separate roll.'
+                              '${monster.obscurityAccuracyPenalty > 0 ? ' Obscurity lowers shot accuracy by ${monster.obscurityAccuracyPenalty}%, separately from dodge. Successful hits have a 25% chance to disperse it; Spotter Flare clears it. There is no fixed turn duration.' : ''}',
                           child: Text(
+                            key: const ValueKey('monster-combat-stats'),
                             'Danger Level ${monster.level}'
                             '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
                             '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
-                            '${monster.evasion > 0 ? ' • Dodge: ${monster.effectiveEvasion}%' : ''}'
+                            ' • Dodge: ${monster.effectiveEvasion}%'
                             '${monster.obscurityAccuracyPenalty > 0 ? ' • Obscurity: -${monster.obscurityAccuracyPenalty}% shot accuracy' : ''}'
                             '${monster.isPinnedThisTurn ? ' • Pinned' : ''}'
                             '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'

@@ -131,6 +131,15 @@ class ShipState extends Combatant {
   int get captainEvasionBonus =>
       captainQuirkId == BloodlineTraitId.recklessHelmsman ? 10 : 0;
 
+  /// Dodge threshold shared by combat rolls and displayed ship state.
+  int get effectiveEvasion {
+    var evasion = currentEvasion + captainEvasionBonus;
+    if (basaltBarrierHp > 0 && basaltAegisTurns > 0) {
+      evasion += blessings[HardpointType.utility]?.tier == 3 ? 20 : 15;
+    }
+    return evasion.clamp(0, 95);
+  }
+
   /// Fractional attack mitigation carried between hits, cleared after combat.
   double exactingReductionRemainder = 0;
 
@@ -543,7 +552,7 @@ class MonsterState extends Combatant {
   /// Dodge chance after Pin and Spotter Flare, shared by combat and the HUD.
   int get effectiveEvasion => isIlluminatedByFlare
       ? 0
-      : (isPinnedThisTurn ? evasion ~/ 2 : evasion);
+      : (isPinnedThisTurn ? evasion ~/ 2 : evasion).clamp(0, 100);
 
   int get effectiveArmorClass => (isObscured && !isIlluminatedByFlare)
       ? armorClass + obscuredAcMod

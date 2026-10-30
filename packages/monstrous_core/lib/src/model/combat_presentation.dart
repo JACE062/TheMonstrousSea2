@@ -1,3 +1,4 @@
+import 'bloodline_trait.dart';
 import 'combatant.dart';
 import 'enums.dart';
 import 'monster_intent.dart';
@@ -15,6 +16,8 @@ final class CombatantPresentation {
       maxHp = combatant.maxHp,
       statusEffects = List.unmodifiable(combatant.statusEffects),
       currentEvasion = combatant is ShipState ? combatant.currentEvasion : 0,
+      captainBoonId = combatant is ShipState ? combatant.captainBoonId : null,
+      captainQuirkId = combatant is ShipState ? combatant.captainQuirkId : null,
       currentDmgReduction = combatant is ShipState
           ? combatant.currentDmgReduction
           : 0,
@@ -87,6 +90,8 @@ final class CombatantPresentation {
       maxHp = source.maxHp,
       statusEffects = source.statusEffects,
       currentEvasion = source.currentEvasion,
+      captainBoonId = source.captainBoonId,
+      captainQuirkId = source.captainQuirkId,
       currentDmgReduction = source.currentDmgReduction,
       isGrappled = source.isGrappled,
       tempAccuracyPenalty = source.tempAccuracyPenalty,
@@ -119,6 +124,7 @@ final class CombatantPresentation {
   final int currentHp, maxHp;
   final List<StatusEffect> statusEffects;
   final int currentEvasion, currentDmgReduction, tempAccuracyPenalty;
+  final BloodlineTraitId? captainBoonId, captainQuirkId;
   final bool isGrappled, isAnchoredThisTurn, isBracedByDrill;
   final bool gunneryDrillBuffActive, pitchCoatingActive;
   final int? activeTetherTrapDistance;

@@ -880,13 +880,13 @@ void main() {
       expect(backfireEvent.damage, 7);
     });
 
-    test('EvasionTrait receives +15% at Long Range and -15% at Short Range', () {
+    test('EvasionTrait uses ship evasion without range modifiers', () {
       final ship = createTestShip(shipClass: ShipClass.corvette, baseEvasion: 30);
       final monster = createTestMonster();
       final monsterAttack = createTestMonsterWeapon(damage: 20, hitModifier: 95);
       const trait = EvasionTrait();
 
-      // Long range: effective evasion is 30 + 15 = 45%. A roll of 40 evades!
+      // Long range does not raise 30% evasion: a roll of 40 fails to evade.
       final rngLong = QueueGameRng(d100Rolls: [10, 40]); // hit roll 10, dodge roll 40
       final (resultLong, eventsLong) = calculateAttack(
         monster,
@@ -898,10 +898,10 @@ void main() {
         1.0,
         CombatRange.long,
       );
-      expect(resultLong.wasEvaded, isTrue);
-      expect(eventsLong.any((e) => e is AttackEvaded), isTrue);
+      expect(resultLong.wasEvaded, isFalse);
+      expect(eventsLong.any((e) => e is AttackEvaded), isFalse);
 
-      // Short range: effective evasion is 30 - 15 = 15%. A roll of 20 fails to evade!
+      // Short range does not lower 30% evasion: a roll of 20 evades.
       final rngShort = QueueGameRng(d100Rolls: [10, 20]); // hit roll 10, dodge roll 20
       final (resultShort, eventsShort) = calculateAttack(
         monster,
@@ -913,8 +913,8 @@ void main() {
         1.0,
         CombatRange.short,
       );
-      expect(resultShort.wasEvaded, isFalse);
-      expect(eventsShort.any((e) => e is AttackEvaded), isFalse);
+      expect(resultShort.wasEvaded, isTrue);
+      expect(eventsShort.any((e) => e is AttackEvaded), isTrue);
     });
 
     test('Ship canEquipWeapon checks hardpoint slots rather than weapon weight', () {
