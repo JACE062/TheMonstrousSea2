@@ -1,0 +1,129 @@
+[
+  {
+    "version": "after",
+    "build": "hull1-mk1",
+    "quirk": "impatient",
+    "utilityTrace": [
+      {
+        "step": 0,
+        "level": 1,
+        "baseEvasion": 25,
+        "utilityMark": 1,
+        "newEvasion": 50,
+        "oldEvasion": 50
+      },
+      {
+        "step": 4,
+        "level": 1,
+        "baseEvasion": 25,
+        "utilityMark": 1,
+        "newEvasion": 50,
+        "oldEvasion": 50
+      },
+      {
+        "step": 17,
+        "level": 1,
+        "baseEvasion": 25,
+        "utilityMark": 1,
+        "newEvasion": 50,
+        "oldEvasion": 50
+      },
+      {
+        "step": 40,
+        "level": 1,
+        "baseEvasion": 25,
+        "utilityMark": 1,
+        "newEvasion": 50,
+        "oldEvasion": 50
+      },
+      {
+        "step": 44,
+        "level": 1,
+        "baseEvasion": 25,
+        "utilityMark": 1,
+        "newEvasion": 50,
+        "oldEvasion": 50
+      },
+      {
+        "step": 50,
+        "level": 1,
+        "baseEvasion": 25,
+        "utilityMark": 1,
+        "newEvasion": 50,
+        "oldEvasion": 50
+      },
+      {
+        "step": 55,
+        "level": 1,
+        "baseEvasion": 25,
+        "utilityMark": 1,
+        "newEvasion": 50,
+        "oldEvasion": 50
+      },
+      {
+        "step": 64,
+        "level": 3,
+        "baseEvasion": 35,
+        "utilityMark": 1,
+        "newEvasion": 60,
+        "oldEvasion": 70
+      },
+      {
+        "step": 68,
+        "level": 3,
+        "baseEvasion": 35,
+        "utilityMark": 1,
+        "newEvasion": 60,
+        "oldEvasion": 70
+      },
+      {
+        "step": 73,
+        "level": 3,
+        "baseEvasion": 35,
+        "utilityMark": 1,
+        "newEvasion": 60,
+        "oldEvasion": 70
+      },
+      {
+        "step": 77,
+        "level": 3,
+        "baseEvasion": 35,
+        "utilityMark": 1,
+        "newEvasion": 60,
+        "oldEvasion": 70
+      },
+      {
+        "step": 82,
+        "level": 3,
+        "baseEvasion": 35,
+        "utilityMark": 1,
+        "newEvasion": 60,
+        "oldEvasion": 70
+      }
+    ],
+    "utilityUses": 12,
+    "passCommands": 10,
+    "hull": "clipper",
+    "seed": 507,
+    "kraken": true,
+    "worldSerpent": false,
+    "expedition": false,
+    "death": true,
+    "cap": false,
+    "error": null,
+    "steps": 84,
+    "phase": "death",
+    "region": 2,
+    "monsters": 3,
+    "hp": 0,
+    "maxHp": 155,
+    "gold": 295,
+    "attacks": 44,
+    "battleCommandRanges": {
+      "medium": 11,
+      "long": 32,
+      "short": 8
+    },
+    "cause": "Darting Death"
+  }
+]

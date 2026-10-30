@@ -1,0 +1,301 @@
+{
+  "aggregate": {
+    "before": {
+      "starts": 450,
+      "kraken": 303,
+      "worldSerpent": 186,
+      "expedition": 32,
+      "death": 418,
+      "cap": 0,
+      "errors": 0,
+      "utilityUses": 2897,
+      "passCommands": 2125
+    },
+    "after": {
+      "starts": 450,
+      "kraken": 303,
+      "worldSerpent": 187,
+      "expedition": 34,
+      "death": 416,
+      "cap": 0,
+      "errors": 0,
+      "utilityUses": 2927,
+      "passCommands": 2157
+    }
+  },
+  "groups": [
+    {
+      "build": "hull1-mk1",
+      "quirk": "none",
+      "before": {
+        "starts": 50,
+        "kraken": 1,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 50,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 1,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 50,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "hull1-mk1",
+      "quirk": "recklessHelmsman",
+      "before": {
+        "starts": 50,
+        "kraken": 1,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 50,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 1,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 50,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "hull1-mk1",
+      "quirk": "impatient",
+      "before": {
+        "starts": 50,
+        "kraken": 1,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 50,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 437,
+        "passCommands": 361
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 1,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 50,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 437,
+        "passCommands": 360
+      }
+    },
+    {
+      "build": "hull4-mk2",
+      "quirk": "none",
+      "before": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 26,
+        "expedition": 6,
+        "death": 44,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 26,
+        "expedition": 6,
+        "death": 44,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "hull4-mk2",
+      "quirk": "recklessHelmsman",
+      "before": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 30,
+        "expedition": 5,
+        "death": 45,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 30,
+        "expedition": 5,
+        "death": 45,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "hull4-mk2",
+      "quirk": "impatient",
+      "before": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 22,
+        "expedition": 2,
+        "death": 48,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 1192,
+        "passCommands": 866
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 22,
+        "expedition": 2,
+        "death": 48,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 1192,
+        "passCommands": 866
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "quirk": "none",
+      "before": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 38,
+        "expedition": 8,
+        "death": 42,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 38,
+        "expedition": 8,
+        "death": 42,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "quirk": "recklessHelmsman",
+      "before": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 41,
+        "expedition": 7,
+        "death": 43,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 41,
+        "expedition": 7,
+        "death": 43,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "hull4-mk3",
+      "quirk": "impatient",
+      "before": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 29,
+        "expedition": 4,
+        "death": 46,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 1268,
+        "passCommands": 898
+      },
+      "after": {
+        "starts": 50,
+        "kraken": 50,
+        "worldSerpent": 30,
+        "expedition": 6,
+        "death": 44,
+        "cap": 0,
+        "errors": 0,
+        "utilityUses": 1298,
+        "passCommands": 931
+      }
+    }
+  ],
+  "paired": {
+    "hull1-mk1": {
+      "beforeOnlyFinalClear": 0,
+      "afterOnlyFinalClear": 0,
+      "sameFinalOutcome": 150
+    },
+    "hull4-mk2": {
+      "beforeOnlyFinalClear": 0,
+      "afterOnlyFinalClear": 0,
+      "sameFinalOutcome": 150
+    },
+    "hull4-mk3": {
+      "beforeOnlyFinalClear": 1,
+      "afterOnlyFinalClear": 3,
+      "sameFinalOutcome": 146
+    }
+  },
+  "freshParity": {
+    "identicalRows": 149,
+    "rows": 150,
+    "exception": {
+      "seed": 507,
+      "quirk": "impatient",
+      "reason": "Normal stronghold hull upgrades reach hull III/base35 with Mk I utility; old doubling is70, approved additive rule is60. Initial hull I/base25 activations both50.",
+      "trace": "trace-before.json / trace-after.json"
+    }
+  },
+  "progressedInputs": {
+    "hullIVBaseEvasion": 40,
+    "oldAllMarks": 80,
+    "newMkII": 80,
+    "newMkIII": 95
+  },
+  "limitations": [
+    "50 matched seeds per build/trait; one CautiousBot policy, descriptive evidence rather than player-balance prediction.",
+    "No Boon; fixed none/Reckless Helmsman/Impatient; Clipper ownership only (core also always owns Standard), gold25 and ancestral I. Synthetic hull IV/Mk II or III assigned after departure to avoid home refit reset; subsequent rewards/upgrades normal.",
+    "Before retains new getters but activation restores old doubling. Current range modifier removal and Wait & Reload no-evasion behavior remain in both.",
+    "Final clear requires expeditionVictory; Kraken/World Serpent crossings use chart timesCompleted >=1/>=2."
+  ]
+}

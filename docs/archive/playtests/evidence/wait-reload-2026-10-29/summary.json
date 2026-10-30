@@ -1,0 +1,189 @@
+{
+  "aggregate": {
+    "before": {
+      "starts": 900,
+      "kraken": 506,
+      "worldSerpent": 285,
+      "expedition": 61,
+      "death": 839,
+      "cap": 0,
+      "errors": 0,
+      "passCommands": 3538
+    },
+    "after": {
+      "starts": 900,
+      "kraken": 508,
+      "worldSerpent": 279,
+      "expedition": 57,
+      "death": 843,
+      "cap": 0,
+      "errors": 0,
+      "passCommands": 3297
+    }
+  },
+  "groups": [
+    {
+      "build": "fresh",
+      "quirk": "none",
+      "before": {
+        "starts": 150,
+        "kraken": 12,
+        "worldSerpent": 1,
+        "expedition": 0,
+        "death": 150,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 150,
+        "kraken": 12,
+        "worldSerpent": 1,
+        "expedition": 0,
+        "death": 150,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "fresh",
+      "quirk": "skirmisher",
+      "before": {
+        "starts": 150,
+        "kraken": 16,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 150,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 150,
+        "kraken": 16,
+        "worldSerpent": 0,
+        "expedition": 0,
+        "death": 150,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "fresh",
+      "quirk": "impatient",
+      "before": {
+        "starts": 150,
+        "kraken": 28,
+        "worldSerpent": 3,
+        "expedition": 1,
+        "death": 149,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 1369
+      },
+      "after": {
+        "starts": 150,
+        "kraken": 30,
+        "worldSerpent": 1,
+        "expedition": 0,
+        "death": 150,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 1253
+      }
+    },
+    {
+      "build": "progressed",
+      "quirk": "none",
+      "before": {
+        "starts": 150,
+        "kraken": 150,
+        "worldSerpent": 92,
+        "expedition": 21,
+        "death": 129,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 150,
+        "kraken": 150,
+        "worldSerpent": 92,
+        "expedition": 21,
+        "death": 129,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "progressed",
+      "quirk": "skirmisher",
+      "before": {
+        "starts": 150,
+        "kraken": 150,
+        "worldSerpent": 105,
+        "expedition": 26,
+        "death": 124,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      },
+      "after": {
+        "starts": 150,
+        "kraken": 150,
+        "worldSerpent": 105,
+        "expedition": 26,
+        "death": 124,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 0
+      }
+    },
+    {
+      "build": "progressed",
+      "quirk": "impatient",
+      "before": {
+        "starts": 150,
+        "kraken": 150,
+        "worldSerpent": 84,
+        "expedition": 13,
+        "death": 137,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 2169
+      },
+      "after": {
+        "starts": 150,
+        "kraken": 150,
+        "worldSerpent": 80,
+        "expedition": 10,
+        "death": 140,
+        "cap": 0,
+        "errors": 0,
+        "passCommands": 2044
+      }
+    }
+  ],
+  "paired": {
+    "fresh": {
+      "beforeOnlyFinalClear": 1,
+      "afterOnlyFinalClear": 0,
+      "sameFinalOutcome": 449
+    },
+    "progressed": {
+      "beforeOnlyFinalClear": 8,
+      "afterOnlyFinalClear": 5,
+      "sameFinalOutcome": 437
+    }
+  },
+  "limitations": [
+    "30 matched seeds per hull/quirk/build, one CautiousBot policy; descriptive sample, not a player-balance prediction.",
+    "Only the +10 Brace evasion and its effect event differ; the former Skirmisher UI exception is not simulated.",
+    "No-Boon, fixed none/Skirmisher/Impatient; default profile except all hull ownership. Ancestral I. Synthetic progressed hull IV/Mk III is assigned after departure to avoid normal home refit reset. Normal rewards and upgrades then continue.",
+    "Bot chooses no passes for none or Skirmisher in this sample; only Impatient exercises the changed bonus. CautiousBot still contains a stale low-health range comment referencing evasion; its actual decisions are identical in both snapshots.",
+    "Final clear means actual expeditionVictory phase, not SimulationRunner.won or only crossing Kraken; Kraken/WorldSerpent crossings use chart timesCompleted >=1/>=2."
+  ]
+}

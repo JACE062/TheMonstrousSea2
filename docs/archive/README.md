@@ -87,6 +87,14 @@ Command-station refinement receipt: [Larger helm, aligned blessing attachments, 
 
 Terminology receipt: [Ship Fittings and Standard's Gun-Deck Bracing, 29 October 2026](playtests/FITTING_NAMES_2026_10_29.md), including runtime copy and preserved older save labels/identifiers.
 
+Combat-rule receipt: [Global ship range-evasion removal, 29 October 2026](playtests/RANGE_EVASION_2026_10_29.md), preserving other dodge modifiers, with all-blueprint boundary checks and paired full-campaign observations. Clipper Mk progression and economy tuning remain open.
+
+HUD receipt: [Effective evasion with regional, captain and defense context, 29 October 2026](playtests/EVASION_HUD_2026_10_29.md), sharing combat thresholds and preserving event-by-event display updates.
+
+Combat-rule receipt: [Emergency/recovery Wait & Reload, 29 October 2026](playtests/WAIT_RELOAD_2026_10_29.md), removing Skirmisher's standing pass and the pass's accumulating evasion bonus, with recovery checks and a paired seeded comparison.
+
+Utility/UI receipt: [Clipper Mk progression, numeric descriptions, upgrade purse and Sargasso clarification, 29 October 2026](playtests/RIGGING_PURSE_2026_10_29.md), with deterministic checks, layout captures and a bounded paired comparison.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.

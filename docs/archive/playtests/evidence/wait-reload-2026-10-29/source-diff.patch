@@ -1,0 +1,5 @@
+--- after
++++ before
+@@ -1884,0 +1885,2 @@
++    ship!.currentEvasion = min(90, ship!.currentEvasion + 10);
++    events.add(CombatEffectsChanged.capture(ship!));

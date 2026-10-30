@@ -108,7 +108,7 @@ Forecasts must respect current mechanics:
 - Ram, Harpoon and Evasive Rigging can change the outcome of a helm-only forecast. Ram closes before impact while retaining its accepted Medium-launch charge bonus; Harpoon hits using its launch range before pulling.
 - Skirmisher resolves its committed helm after its main action and intrinsic movement.
 - Hit-dependent interruption or Pin must not be promised as certain before the attack resolves.
-- Impatient can act through Utility and a weapon before the response, then has a fitting-only recovery restriction; helm, belt and Brace remain legal.
+- Impatient can act through Utility and a weapon before the response, then has a fitting-only recovery restriction; helm, belt and Wait & Reload remain legal. The pass grants no evasion and appears only for recovery or when no fitting action is usable; Skirmisher alone does not expose it.
 
 These are design constraints, not approval to alter the turn sequence or add an action-confirmation step.
 
