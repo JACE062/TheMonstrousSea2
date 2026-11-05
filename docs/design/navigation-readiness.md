@@ -45,6 +45,8 @@ The first independent prerequisite was the approved fixed hull-refit correction:
 
 ### Navigation presentation
 
+**5 November playtest amendment:** The user replaced the lane/recentering geometry below with cumulative bearings on a growing pannable/zoomable map. Repeated port choices continue diagonally; ahead keeps the current lateral offset. Water marks, a compass rose and nautical markers are implemented. The desktop/compact arrangement remains. The original WP0 paragraph below records the earlier choice, now superseded only in route geometry/camera. See [the accepted amendment](navigation.md#post-implementation-chart-revision--5-november-2026).
+
 Use one framed helm view: regional title/progress and existing pause control above an integrated history chart and the current heading choices. At desktop width, chart left and three vertically stacked course cards right; below 900 logical pixels, chart above independently scrollable cards. On short windows, chart contracts before controls scroll. Retain readable 115% and larger supported text, keyboard traversal and visible restrictions.
 
 The chart lays completed slots along a forward vertical axis. Each bearing adds a short signed horizontal detour to its visited marker and returns toward the central prevailing course before the next forward step. Coordinates are stable functions of recorded slot/bearing, not gameplay RNG; never wrap the old grid or draw a future branch. Show the known next headings beside the current ship only. Animate the ship once along a newly committed history segment; restore/rebuild shows the committed endpoint. Reduced-motion settings use the endpoint immediately.

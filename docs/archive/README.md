@@ -108,3 +108,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Navigation refactor verification 2026-11-05
 
 [The implementation and economy receipt](playtests/NAVIGATION_REFACTOR_2026_11_05.md) retains WP0–WP6 correctness/visual checks, initial/revised seeded comparisons, explicitly separated live combat and assumed attrition replays, and matched hunt/wreck receipts. Tuning remains provisional; player replay is outstanding. The [source/data manifest](playtests/evidence/navigation-refactor-2026-11-05/manifest.json) indexes new evidence without replacing the October audit.
+
+## Navigation playtest fixes 2026-11-05
+
+[The follow-up receipt](playtests/NAVIGATION_PLAYTEST_FIXES_2026_11_05.md) records shared supply UI, home trade removal, verified legacy-temp import, the explicitly approved one-field ownership repair, concise service presentation, Jellyfish positioning and the cumulative pannable/zoomable chart. New screenshots/checks and code commit IDs are indexed in the [follow-up manifest](playtests/evidence/navigation-playtest-fixes-2026-11-05/manifest.json). The initial navigation/economy audit above remains unchanged; the home material broker is future proposal FUT-08.

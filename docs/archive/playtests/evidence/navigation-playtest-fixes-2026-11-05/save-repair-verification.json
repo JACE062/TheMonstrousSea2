@@ -1,0 +1,13 @@
+{
+  "userExplicitlyApproved": true,
+  "backupFilename": "player_profile.before-unpaid-ironclad-fix-20261105T152110Z.json",
+  "beforeSha256": "41860275d0520b74d5f3e3ebf878af35d6850be89933fd943416ba72af2281e6",
+  "afterSha256": "31f42be3f95bf151f30f63e649ad92f8c3b0fbf71de38b2a8ff0331ee97d8c9e",
+  "onlyChangedField": "unlockedBlueprints",
+  "removedOnly": "ironclad",
+  "allOtherJsonFieldsUnchanged": true,
+  "activeProfileStillMatchesApprovedRepair": true,
+  "rootLegacyProfileEqualsOldSharedTempSha256": "69552e8586573324f100f09e37f6de5f05556b0221e7da5b8e02bd930710a49d",
+  "legacyRootAndSharedTempPreserved": true,
+  "playerSaveContentsIncluded": false
+}

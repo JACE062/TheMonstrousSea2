@@ -1,0 +1,75 @@
+00:00 +0: loading test\balance_audit_test.dart
+00:00 +0: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+
+===============================================================
+  RUNNING BALANCE AUDIT SIMULATION (1,000 RUNS)
+===============================================================
+00:00 +1: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +2: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +3: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +4: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +5: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +6: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +7: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +8: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +9: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +10: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +11: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +12: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +13: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +14: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +15: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +16: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +17: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +18: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +19: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +20: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +21: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +22: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +23: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +24: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +25: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +26: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +27: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +28: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +29: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +30: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +31: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +32: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +33: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +34: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +35: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +36: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +37: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +38: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +39: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +40: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +41: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+00:00 +42: test\balance_audit_test.dart: Balance Audit Simulation: 1000 runs across all strategies
+
+-----------------------------------------------------------------------------------------
+Strategy   | Runs | Win % | Avg Monsters | Avg Max Diff | Avg Rounds/Fight | Avg Gold
+-----------------------------------------------------------------------------------------
+Reckless   | 250  | 0.0%   | 2.1          | 1.3          | 8.5              | 122g
+Cautious   | 250  | 0.0%   | 3.5          | 2.7          | 8.6              | 182g
+Greedy     | 250  | 0.0%   | 2.0          | 1.5          | 9.0              | 124g
+Random     | 250  | 0.0%   | 1.5          | 1.1          | 9.6              | 96g
+-----------------------------------------------------------------------------------------
+
+--- TOP CAUSES OF DEATH ---
+  • The Kraken: 53 deaths (5.3%)
+  • Terror of the Tides: 32 deaths (3.2%)
+  • Darting Death: 30 deaths (3.0%)
+  • Abyssal Constrictor: 29 deaths (2.9%)
+  • Thrashing Great White: 28 deaths (2.8%)
+  • Slithery Devil: 26 deaths (2.6%)
+  • Bloodthirsty Bull Shark: 26 deaths (2.6%)
+  • Bloodrage Shark: 26 deaths (2.6%)
+
+--- SHIP CLASS PERFORMANCE ---
+  • standard: 1000 runs, 0 wins (0.0% win rate)
+  • ironclad: 0 runs, 0 wins (N/A% win rate)
+  • clipper: 0 runs, 0 wins (N/A% win rate)
+  • bombardier: 0 runs, 0 wins (N/A% win rate)
+  • corsair: 0 runs, 0 wins (N/A% win rate)
+00:00 +43: All tests passed!

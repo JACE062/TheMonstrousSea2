@@ -82,6 +82,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-08 — Sea chart needs a clearer player purpose
 
+- **New visual direction, selected/implemented 5 November 2026:** [The player’s lane/bounce screenshot](playtests/2026-11-05/05-chart-lanes.png) supersedes the earlier recentring layout. Bearings now accumulate from the current ship position, with an uninterrupted diagonal for repeated port choices and a straight eastward segment for ahead. A growing draggable/zoomable map, fit/locate, keyboard controls, water marks, compass rose and nautical markers replace the three lanes. Encounter count/difficulty/rewards and hidden future plans remain unchanged. [Accepted amendment](design/navigation.md#post-implementation-chart-revision--5-november-2026).
+
 - **Implementation progress, 4 November 2026:** WP0 decisions are resolved: actual encounters adopt offered progression; the sole playtester will delete old saves, so no new migration engine. WP1 now stages/persists the hidden regional plan, optional side-heading midpoint, separate final specialists/Titan, shrine-floor correction, captain restrictions/redraw and committed difficulty. Core full-region/reload coverage is added. Provisional offer weights remain tuning; the integrated chart, wreck lifecycle, service caps and material stock remain subsequent packages. See [current navigation](CURRENT_GAME.md#navigation-and-regions) and [execution checklist](design/navigation-implementation.md#verification-and-completion-record).
 
 - **Evidence:** [Screenshot 3](playtests/2026-10-20/03-sea-chart.png). The chart mainly shows fog, defeated encounters, guaranteed Haven/Titan positions, and a Voyage Log whose decision value is unclear. Repeated “Soundings I / Inshore Waters” and “Soundings II / Abyssal Passage” headings feel wrong across different regions.
@@ -141,6 +143,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 - **Acceptance:** Show the restriction before clicking. Preserve the existing single-heading Haven/Titan convergence exception so this quirk cannot strand the voyage; also respect Blood Oath restrictions.
 
 ### PT2-16 — Shipwreck salvage promises retired loot and hides the result
+
+- **Supply UI follow-up, 5 November 2026 — implemented:** [The mismatched wreck menu](playtests/2026-11-05/01-wreck-supply-menu.png) is replaced by the same `LootSuppliesView` as normal battle spoils: art, descriptions, stats, stow/jettison, pending/carried kits and full-belt management. Source-specific receipts/settlement stay separate and exactly once.
 
 - **Current status, 4 November 2026:** Condition-dependent mixed cargo and one-threat wreck flow are implemented. Approach ambushes remain normal-only; voluntary richer recovery can be Apex, with a consistent warning/decline option. Whole creature rewards and one cargo receipt are separately owned, with death/overflow/reload/stale-command coverage and an actual battle-playback-to-cargo widget regression. Initial risk/cargo values are provisional; the earlier positive player replay applies to the old receipt fix, not this refactor. [Current wreck behavior](CURRENT_GAME.md#supplies-encounters-and-upgrades) owns runtime facts; [WP2 checks](design/navigation-readiness.md#execution-status) record verification.
 
@@ -265,6 +269,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 
 ### PT2-27 — Ironclad appears unlocked without an intentional purchase
+
+- **Follow-up, 5 November 2026 — import cause verified and fixed:** The latest [Commission screenshot](playtests/2026-11-05/02-unpaid-ironclad.png) reproduces the state. Read-only inspection found no Documents profile and an October 20 shared-temp profile already owning Ironclad, with no voyage history/materials. The newly imported root profile matched it byte-for-byte; Original Lineage inherited the grant before the first voyage. Death/succession did not buy it. Automatic discovery now checks Documents only and never scans shared system temp. Explicit restoration and legitimate saved ownership remain intact. With explicit user approval, a byte-preserved backup was made and only the active profile’s unpaid Ironclad ownership flag removed; all other JSON fields were verified unchanged. See [the receipt](archive/README.md#navigation-playtest-fixes-2026-11-05).
 
 - **Reported:** On first opening Blueprints after death/succession, Ironclad already offered **Commission** despite the player never intentionally purchasing it. The player explicitly confirmed it already showed Commission on that first visit. [Screenshot](playtests/2026-10-20/09-unexpected-ironclad-unlock.png). The suspected cause was an affordability check granting ownership without spending materials.
 - **Status: verified unsafe test-write path fixed; original historical write not captured.** The earlier production purchase checks were correct, but the subsequent audit found older UI/art fixtures creating `GameController` with default autosave and no isolated storage. Those fixtures manually grant Ironclad/other blueprints and dispatch commands, allowing fixture profiles to overwrite real Windows saves. A disposable-directory reproduction confirms this writes unpaid Ironclad ownership. This is a concrete mechanism consistent with the report, though it cannot prove the exact earlier write. Production purchasing was not changed, and the player's current profile was not repaired or relocked.
@@ -592,6 +598,17 @@ See the [verification receipt](archive/README.md#later-verification-receipts) fo
 - **Implemented interaction policy:** Esc opens/closes Pause; nested settings/help dialogs consume Esc first. Resume restores prior focus when the control still exists. Pointer/keyboard gameplay input is blocked while the menu is open. An action already underway finishes, including its battle-ending presentation delay, and decorative animations continue; Resume never dispatches or replays an action. Departure remains disabled until playback finishes. Saving blocks dismissal and all controls until completion; save/native-exit errors stay retryable. Unsaved debug scenarios identify themselves and do not write progress on exit.
 - **Layout boundary:** The PT2-11 command-station trial keeps the Chronicle directly accessible beside Pause as a gameplay aid. Lineage/save management remains inside Pause. The debug playtest launcher remains development-only and must not become a normal player progression option.
 - **Acceptance:** Settings and save management are reachable consistently without cluttering the ship/monster header; Esc never accidentally leaves a lineage, executes a battle action or bypasses a dialog. Disabled departures, save failures and supported menu/exit flows retain their current safeguards. Review compact/desktop layouts at 115–130% text.
+
+### Home-port material broker
+
+**FUT-08 — Proposed by the user, 5 November 2026; deferred, not implemented.** A Hades-inspired broker could offer limited exchanges between existing permanent meta-materials to help finish a nearly affordable blueprint or permanent upgrade. The home supply merchant is removed now; this proposal does not restore belt-item shopping, sale/resale profit or transient-gold banking before a voyage. Catalogue, rates, stock/refresh rules, UI and exact exchange limits remain undecided. Record the idea without adding trades or unlock grants.
+
+## Navigation refactor playtest follow-up — 5 November 2026
+
+- [Merchant layout report](playtests/2026-11-05/03-merchant-layout.png): larger leading art and responsive cards are implemented; duplicated Single Use/value text is removed. No home supply shop remains; FUT-08 is separate future work.
+- [Repair copy report](playtests/2026-11-05/04-paid-repair-copy.png): percentage plus actual HP/gold quotes replace normal-work numbers and explanatory paragraphs. Work accounting/traits/caps do not change.
+- Jellyfish feedback is implemented with the user-selected Short lunge plus a stationary Medium/Long attack to threaten retreating ships. Collision outcome feedback requires a connecting strike. Damage/status values stay unchanged; replay should assess the new positioning pattern.
+- [Verification and source receipts](archive/README.md#navigation-playtest-fixes-2026-11-05) distinguish these follow-ups from the initial provisional balance audit. Prior evidence is retained.
 
 ## Maintenance rules
 

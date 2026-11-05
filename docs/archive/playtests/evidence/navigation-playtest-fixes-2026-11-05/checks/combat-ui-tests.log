@@ -1,0 +1,34 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:01 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: health statuses share a padded wrapping row at 1280.0
+00:01 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/wreck_battle_flow_test.dart: wreck victory completes playback, creature loot, then cargo recovery
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/wreck_battle_flow_test.dart: wreck victory completes playback, creature loot, then cargo recovery
+00:01 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/wreck_battle_flow_test.dart: wreck victory completes playback, creature loot, then cargo recovery
+00:01 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/wreck_battle_flow_test.dart: wreck victory completes playback, creature loot, then cargo recovery
+00:01 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/wreck_battle_flow_test.dart: wreck victory completes playback, creature loot, then cargo recovery
+00:01 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Defeating monster transitions to LootScreen
+00:02 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: shell damage stays numeric with 100 starting plates
+00:02 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: (tearDownAll)
+00:02 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Long helm then Ram impacts in 900 ms with overlapping movement labels
+00:02 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=false)
+00:02 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=true)
+00:03 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: quick actions retain labels and same-frame overflow never resurrects evicted cues
+00:03 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: weapon impact follows its name within 100 ms while the name remains visible
+00:03 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Stun tincture displays Stun without Pinned or a dodge reduction
+00:03 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: range feedback distinguishes movers from pull instigators
+00:03 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Prow Ram displays movement and impact in causal order
+00:03 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Harpoon Winch displays movement and impact in causal order
+00:04 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Kraken retreat is attributed to the beast at Medium range
+00:04 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: effect snapshots cannot advance HP, shell or limbs; identity is explicit
+00:04 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: HUD stays at each impact through rebuilds (reduced=false)
+00:04 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: HUD stays at each impact through rebuilds (reduced=true)
+00:04 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: twelve-hit sweep preserves each impact with bounded playback
+00:05 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: ordinary labels remain readable while playback completes before their fade
+00:05 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: barrier then hull then status has readable state at 1280.0 / 130%
+00:05 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: barrier then hull then status has readable state at 600.0 / 130%
+00:05 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: removing a scene cancels remaining impacts and completion
+00:06 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: (tearDownAll)
+00:06 +29: All tests passed!

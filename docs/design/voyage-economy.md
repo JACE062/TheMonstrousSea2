@@ -47,6 +47,8 @@ Buying all five reliable specialist/stronghold shipments (three chosen specialis
 
 LIVE bots completed no three-region voyage, limiting survival/balance conclusions. Explicit mild/harsh attrition replays evaluate spending/access only and count otherwise fatal shortfalls; their completion is never a real win. Both initial/revised inputs, raw ledgers, source hashes and screenshots are retained. Current tuning remains provisional; player replay must assess clarity, attrition, route dominance and late-build pacing. Core-owned affordable partial repair purchases were added during final review without changing capacity, price or simulation policy. Earlier dated decision sections retain their original planning context; Current game owns runtime behavior.
 
+**5 November playtest follow-up:** The home supply merchant is removed, including direct buy/sell command access from home. Existing voyage merchant access/finite allocations remain. Paid repair menus now show a concise remaining percentage and actual HP/gold quotes; the normal-work ledger, modifiers, latching and partial-purchase rules are unchanged. A limited home meta-material broker is retained only as a [future proposal](../BACKLOG.md#home-port-material-broker), without selected rates, stock or refresh rules.
+
 ## What the October audit established
 
 - The whole voyage upgrade path costs **1,390g**: hull I→IV costs 850; three Mk I→III fittings cost 540. A difficulty-8 ordinary victory averages **1,127.5g**. The final Titan averages **4,970.5g** without monuments, explaining the player's 4,989g receipt directly.

@@ -1,0 +1,5 @@
+# Preserve captured bytes and make manifest hashes portable across checkouts.
+*.log binary
+*.png binary
+*.json text eol=lf
+.gitattributes text eol=lf
