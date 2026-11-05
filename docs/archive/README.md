@@ -116,3 +116,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Chart focus verification 2026-11-05
 
 [The map-focus receipt](playtests/CHART_FOCUS_2026_11_05.md) records the unified helm/chart, crimson Nemesis identity, wheel ownership/height bounds, aged-paper presentation, reused harbor/cargo art and shared parchment tooltips. The [manifest](playtests/evidence/chart-focus-2026-11-05/manifest.json) retains player inputs, final captures, source commits and isolated Windows verification. Earlier navigation/economy evidence and player saves are unchanged.
+
+## Chart refinement verification 2026-11-05
+
+[The readability/control receipt](playtests/CHART_REFINEMENT_2026_11_05.md) records minimum icon scale, continuous world-space markings, prompt tooltip timing, on-map tools, colored header/actions and wider non-scrolling lookout cards. The [manifest](playtests/evidence/chart-refinement-2026-11-05/manifest.json) retains the input screenshot, final visual/interaction checks, source commits and a new isolated Windows build. Previous evidence and both the normal/running preview bundles are preserved.
