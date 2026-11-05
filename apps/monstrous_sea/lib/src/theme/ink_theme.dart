@@ -187,7 +187,7 @@ class InkTheme {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         margin: const EdgeInsets.all(12),
         constraints: const BoxConstraints(maxWidth: 360),
-        waitDuration: const Duration(milliseconds: 450),
+        waitDuration: Duration.zero,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
