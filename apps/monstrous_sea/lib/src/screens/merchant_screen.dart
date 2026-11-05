@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
@@ -8,311 +9,247 @@ import '../widgets/material_trade_view.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/svg_asset_view.dart';
-import '../widgets/pilot_art.dart';
 import '../widgets/weapon_stats_view.dart';
 
-/// Screen for trading with the Harpoon & Helm Merchant at Hunter's Respite.
 class MerchantScreen extends StatelessWidget {
   const MerchantScreen({super.key, required this.controller});
-
   final GameController controller;
+  void _leave() {
+    if (controller.phase == SessionPhase.merchant &&
+        !controller.isPlayingEvents) {
+      controller.dispatch(const LeaveMerchant());
+    }
+  }
 
   @override
-  Widget build(BuildContext context) {
-    final ship = controller.ship;
-    final stock = controller.merchantStock;
-    final cargo = ship?.cargo ?? const <Item>[];
-    final hasTreasures = cargo.any((item) => item is Treasure);
-
-    return ParchmentScaffold(
-      body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 900),
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Header
-                _MerchantRow(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('HARPOON & HELM CHANDLERY', style: InkTheme.titleLarge.copyWith(fontSize: 28)),
-                          Text('Purveyor of Fine Naval Arms & Tactical Supplies', style: InkTheme.subtitle),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: InkTheme.parchmentHighlight,
-                        border: Border.all(color: InkTheme.goldAccent, width: 2),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: _MerchantRow(
-                        children: [
-                          SvgAssetView(assetPath: PilotArt.treasure, width: 22, height: 22),
-                          const SizedBox(width: 8),
-                          Text('${ship?.gold ?? 0}g', style: InkTheme.statValue.copyWith(color: InkTheme.goldAccent)),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    InkButton(
-                      label: 'LEAVE CHANDLERY',
-                      semanticLabel: controller.session.merchantReturnPhase == SessionPhase.stronghold
-                          ? 'Leave Chandlery and return to stronghold' : controller.session.merchantReturnPhase == SessionPhase.helm ? 'Leave Chandlery and set course for the Titan' : 'Leave Chandlery and return to port',
-                      onPressed: () => controller.dispatch(const LeaveMerchant()),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-
-                CarriedPatchKits(controller: controller),
-                MaterialTradeView(controller: controller),
-                // Quick Sell All Treasure Bar
-                if (hasTreasures)
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: InkTheme.parchmentHighlight,
-                      border: Border.all(color: InkTheme.goldAccent, width: 1.5),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: _MerchantRow(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'You are carrying salvaged treasures suitable for exchange!',
-                          style: InkTheme.bodyBold,
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: controller,
+    builder: (context, _) {
+      final session = controller.session;
+      final ship = controller.ship;
+      final stock = session.merchantStock;
+      final cargo = ship?.cargo ?? <Item>[];
+      final canTrade =
+          session.canTradeAtCurrentMerchant && !controller.isPlayingEvents;
+      final returnLabel = switch (session.merchantReturnPhase) {
+        SessionPhase.stronghold => 'RETURN TO STRONGHOLD',
+        SessionPhase.helm => 'TAKE THE HELM',
+        _ => 'RETURN TO PORT',
+      };
+      final wares = Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text('MERCHANT WARES FOR SALE', style: InkTheme.statLabel),
+          const SizedBox(height: 10),
+          if (stock.isEmpty)
+            ParchmentCard(
+              child: Text(
+                'The merchant has no supplies remaining.',
+                style: InkTheme.body,
+              ),
+            ),
+          for (var i = 0; i < stock.length; i++)
+            _TradeItemCard(
+              item: stock[i],
+              price: session.getMerchantAskingPrice(i),
+              isSale: session.onSaleMerchantIndex == i,
+              buying: true,
+              buttonLabel: (ship?.gold ?? 0) < session.getMerchantAskingPrice(i)
+                  ? 'LACKS GOLD'
+                  : cargo.length >= (ship?.maxCargo ?? 0)
+                  ? 'BELT FULL'
+                  : 'BUY',
+              onTrade:
+                  canTrade &&
+                      (ship?.gold ?? 0) >= session.getMerchantAskingPrice(i) &&
+                      cargo.length < (ship?.maxCargo ?? 0)
+                  ? () => controller.dispatch(BuyMerchantItem(i))
+                  : null,
+            ),
+        ],
+      );
+      final belt = Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            'TACTICAL BELT (${cargo.length}/${ship?.maxCargo ?? 0})',
+            style: InkTheme.statLabel,
+          ),
+          const SizedBox(height: 10),
+          if (cargo.isEmpty)
+            ParchmentCard(
+              child: Text('Your Tactical Belt is empty.', style: InkTheme.body),
+            ),
+          for (var i = 0; i < cargo.length; i++)
+            _TradeItemCard(
+              item: cargo[i],
+              price: cargo[i].value,
+              buying: false,
+              buttonLabel: 'SELL',
+              onTrade: canTrade
+                  ? () => controller.dispatch(SellCargoItem(i))
+                  : null,
+            ),
+        ],
+      );
+      return ParchmentScaffold(
+        body: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1120),
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text('HARPOON & HELM CHANDLERY', style: InkTheme.titleLarge),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 20,
+                    runSpacing: 10,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      Text(
+                        'PURSE: ${ship?.gold ?? 0}g',
+                        style: InkTheme.statValue.copyWith(
+                          color: InkTheme.goldAccent,
                         ),
-                        InkButton(
-                          label: 'SELL ALL TREASURE',
-                          isPrimary: true,
-                          onPressed: () => controller.dispatch(const SellAllTreasure()),
-                        ),
-                      ],
-                    ),
+                      ),
+                      InkButton(
+                        label: 'LEAVE CHANDLERY',
+                        semanticLabel: returnLabel,
+                        onPressed: _leave,
+                      ),
+                    ],
                   ),
-
-                // Wares & Cargo in two columns
-                _MerchantRow(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Merchant Wares
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text('MERCHANT WARES FOR SALE', style: InkTheme.statLabel),
-                          const SizedBox(height: 8),
-                          if (stock.isEmpty)
-                            ParchmentCard(
-                              child: Text('The merchant has been cleaned out of stock!', style: InkTheme.caption),
-                            )
-                          else
-                            ...List.generate(stock.length, (index) {
-                              final item = stock[index];
-                              final askingPrice = controller.session.getMerchantAskingPrice(index);
-                              final isOnSale = controller.session.onSaleMerchantIndex == index;
-                              final canAfford = (ship?.gold ?? 0) >= askingPrice;
-                              final hasRoom = (ship?.cargo.length ?? 0) < (ship?.maxCargo ?? 0);
-
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
-                                child: ParchmentCard(
-                                  padding: const EdgeInsets.all(10),
-                                  child: _MerchantRow(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SvgAssetView(
-                                        assetPath: SvgAssetView.pathForItem(item),
-                                        width: 36,
-                                        height: 36,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            _MerchantRow(
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    item.name,
-                                                    style: InkTheme.statValue.copyWith(
-                                                      color: InkTheme.inkPrimary,
-                                                      fontSize: 16,
-                                                    ),
-                                                  ),
-                                                ),
-                                                if (isOnSale)
-                                                  Container(
-                                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                                                    decoration: BoxDecoration(
-                                                      color: InkTheme.goldAccent,
-                                                      borderRadius: BorderRadius.circular(3),
-                                                    ),
-                                                    child: Text(
-                                                      'SALE (-25%)',
-                                                      style: InkTheme.caption.copyWith(
-                                                        fontSize: 11,
-                                                        fontWeight: FontWeight.bold,
-                                                        color: InkTheme.inkPrimary,
-                                                      ),
-                                                    ),
-                                                  ),
-                                              ],
-                                            ),
-                                            Text(item.description, style: InkTheme.caption.copyWith(fontSize: 13.5)),
-                                            const SizedBox(height: 3),
-                                            WeaponStatsView(item: item, compact: true),
-                                            const SizedBox(height: 3),
-                                            Text(
-                                              '${item is Consumable ? 'Single use · Value: ${item.value}g\n' : ''}Cost: ${askingPrice}g'
-                                              '${isOnSale ? ' (was ${(item.value * 1.35).round()}g)' : ''}',
-                                              style: InkTheme.statLabel.copyWith(
-                                                color: canAfford ? InkTheme.goldAccent : InkTheme.crimsonAccent,
-                                                fontSize: 13.5,
-                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      const SizedBox(width: 8),
-                                      InkButton(
-                                        label: !canAfford
-                                            ? 'Lacks Gold'
-                                            : !hasRoom
-                                                ? 'Belt Full'
-                                                : 'Buy',
-                                        semanticLabel: !canAfford
-                                            ? 'Cannot purchase ${item.name}, lacks gold (costs ${askingPrice}g, have ${ship?.gold ?? 0}g)'
-                                            : !hasRoom
-                                                ? 'Cannot purchase ${item.name}, Tactical Belt is full'
-                                                : 'Buy ${item.name} for $askingPrice gold',
-                                        isPrimary: canAfford && hasRoom,
-                                        onPressed: canAfford && hasRoom
-                                            ? () => controller.dispatch(BuyMerchantItem(index))
-                                            : null,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }),
-                        ],
-                      ),
+                  const SizedBox(height: 20),
+                  MaterialTradeView(controller: controller),
+                  CarriedPatchKits(controller: controller),
+                  if (cargo.any((item) => item is Treasure)) ...[
+                    InkButton(
+                      label: 'SELL ALL TREASURE',
+                      onPressed: canTrade
+                          ? () => controller.dispatch(const SellAllTreasure())
+                          : null,
                     ),
-                    const SizedBox(width: 16),
-
-                    // Player Cargo Hold
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text('TACTICAL BELT (${cargo.length}/${ship?.maxCargo ?? 0})', style: InkTheme.statLabel),
-                          const SizedBox(height: 8),
-                          if (cargo.isEmpty)
-                            ParchmentCard(
-                              child: Text('Your Tactical Belt is empty.', style: InkTheme.caption),
-                            )
-                          else
-                            ...List.generate(cargo.length, (index) {
-                              final item = cargo[index];
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
-                                child: ParchmentCard(
-                                  padding: const EdgeInsets.all(10),
-                                  child: _MerchantRow(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SvgAssetView(
-                                        assetPath: SvgAssetView.pathForItem(item),
-                                        width: 36,
-                                        height: 36,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              item.name,
-                                              style: InkTheme.statValue.copyWith(
-                                                color: InkTheme.inkPrimary,
-                                                fontSize: 16,
-                                              ),
-                                            ),
-                                            Text(item.description, style: InkTheme.caption.copyWith(fontSize: 13.5)),
-                                            const SizedBox(height: 3),
-                                            WeaponStatsView(item: item, compact: true),
-                                            const SizedBox(height: 3),
-                                            Text(
-                                              item is Consumable
-                                                  ? 'Single use · Value: ${item.value}g'
-                                                  : 'Sell: ${item.value}g',
-                                              style: InkTheme.statLabel.copyWith(
-                                                color: InkTheme.goldAccent,
-                                                fontSize: 13.5,
-                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      const SizedBox(width: 8),
-                                      InkButton(
-                                        label: 'Sell',
-                                        semanticLabel: 'Sell ${item.name} for ${item.value} gold',
-                                        onPressed: () => controller.dispatch(SellCargoItem(index)),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }),
-                        ],
-                      ),
-                    ),
+                    const SizedBox(height: 16),
                   ],
-                ),
-                const SizedBox(height: 24),
-
-                // Return Button
-                InkButton(
-                  label: controller.session.merchantReturnPhase == SessionPhase.stronghold
-                      ? 'LEAVE CHANDLERY & RETURN TO STRONGHOLD'
-                      : 'LEAVE CHANDLERY & RETURN TO PORT',
-                  onPressed: () => controller.dispatch(const LeaveMerchant()),
-                ),
-              ],
+                  LayoutBuilder(
+                    builder: (context, constraints) =>
+                        constraints.maxWidth >= 960
+                        ? Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(child: wares),
+                              const SizedBox(width: 24),
+                              Expanded(child: belt),
+                            ],
+                          )
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [wares, const SizedBox(height: 20), belt],
+                          ),
+                  ),
+                  const SizedBox(height: 20),
+                  InkButton(
+                    label: 'LEAVE CHANDLERY & $returnLabel',
+                    onPressed: _leave,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
-  }
+      );
+    },
+  );
 }
 
-
-
-/// Stacks trade sections and their controls before narrow columns compress text.
-class _MerchantRow extends StatelessWidget {
-  const _MerchantRow({required this.children, this.mainAxisAlignment = MainAxisAlignment.start, this.crossAxisAlignment = CrossAxisAlignment.center});
-  final List<Widget> children;
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
-  @override
-  Widget build(BuildContext context) => LayoutBuilder(builder: (context, constraints) {
-    if (constraints.maxWidth < 700) {
-      return Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: children.map((child) => child is Expanded ? child.child : child is SizedBox && child.width != null ? const SizedBox(height: 10) : child).toList());
-    }
-    return Row(mainAxisAlignment: mainAxisAlignment, crossAxisAlignment: crossAxisAlignment, children: children);
+/// Item art stays beside its details at every width; the action wraps below.
+class _TradeItemCard extends StatelessWidget {
+  const _TradeItemCard({
+    required this.item,
+    required this.price,
+    required this.buying,
+    required this.buttonLabel,
+    required this.onTrade,
+    this.isSale = false,
   });
+  final Item item;
+  final int price;
+  final bool buying, isSale;
+  final String buttonLabel;
+  final VoidCallback? onTrade;
+  Widget _details() => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(item.description, style: InkTheme.caption),
+      const SizedBox(height: 8),
+      WeaponStatsView(item: item, compact: true),
+      const SizedBox(height: 6),
+      Text(
+        buying
+            ? 'Price: ${price}g · Sell value: ${item.value}g'
+            : 'Sell value: ${price}g',
+        style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
+      ),
+    ],
+  );
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 12),
+    child: ParchmentCard(
+      padding: const EdgeInsets.all(14),
+      child: LayoutBuilder(
+        builder: (context, bounds) {
+          final compact = bounds.maxWidth < 420;
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SvgAssetView(
+                    assetPath: SvgAssetView.pathForItem(item),
+                    width: 72,
+                    height: 72,
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(item.name, style: InkTheme.statValue),
+                        if (isSale)
+                          Text(
+                            'SALE −25%',
+                            style: InkTheme.statLabel.copyWith(
+                              color: InkTheme.goldAccent,
+                            ),
+                          ),
+                        if (!compact) ...[
+                          const SizedBox(height: 4),
+                          _details(),
+                        ],
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              if (compact) ...[const SizedBox(height: 10), _details()],
+              const SizedBox(height: 12),
+              Align(
+                alignment: Alignment.centerRight,
+                child: InkButton(
+                  label: buttonLabel,
+                  semanticLabel:
+                      '${buying ? 'Buy' : 'Sell'} ${item.name} for $price gold',
+                  onPressed: onTrade,
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    ),
+  );
 }

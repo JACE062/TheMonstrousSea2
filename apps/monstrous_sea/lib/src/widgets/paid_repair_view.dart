@@ -27,7 +27,9 @@ class PaidRepairView extends StatelessWidget {
         key: ValueKey('paid-repair-$percentage'),
         label: quote.restoredHp > 0
             ? 'REPAIR +${quote.restoredHp} HP · ${quote.goldCost}g'
-            : 'NO HULL WORK AVAILABLE',
+            : ship.currentHp >= ship.maxHp
+            ? 'HULL FULL'
+            : 'NO REPAIRS REMAINING',
         onPressed:
             quote.restoredHp > 0 &&
                 ship.gold >= quote.goldCost &&
@@ -41,41 +43,19 @@ class PaidRepairView extends StatelessWidget {
           children: [
             Text('PAID HULL REPAIRS', style: InkTheme.titleMedium),
             const SizedBox(height: 6),
-            Text(
-              pool.totalWork == null
-                  ? 'Stronghold repair work is uncapped; pay for the restoration you need.'
-                  : 'REPAIR WORK: ${pool.remainingWork} / ${pool.totalWork} normal HP remaining',
-              key: const ValueKey('paid-repair-remaining'),
-              style: InkTheme.statLabel,
-            ),
-            if (pool.totalWork != null) ...[
-              const SizedBox(height: 6),
+            if (pool.totalWork != null)
               Text(
-                session.paidRepairWork.isLatched
-                    ? 'Allowance fixed from ${pool.maximumHullBasis} maximum hull. Refits do not add or replenish paid work.'
-                    : '${(session.paidRepairAllowanceFraction! * 100).round()}% of maximum hull when you first buy repairs. Refitting before that purchase increases the allowance.',
-                style: InkTheme.body,
+                'REPAIRS REMAINING: ${((pool.remainingWork ?? 0) * 100 / ship.maxHp).toStringAsFixed(1).replaceFirst(RegExp(r'\.0$'), '')}% HULL',
+                key: const ValueKey('paid-repair-remaining'),
+                style: InkTheme.statLabel,
               ),
-            ],
-            const SizedBox(height: 6),
-            Text(
-              'Captain healing: ${(ship.captainHealingMultiplier * 100).round()}% of normal work. Buttons show actual hull restoration and total cost.',
-              style: InkTheme.caption,
-            ),
-            if (remaining.restoredHp == 0) ...[
-              const SizedBox(height: 6),
-              Text(
-                ship.currentHp >= ship.maxHp ? 'Hull already full.' : 'No effective restoration remains from this visit’s work.',
-                style: InkTheme.body,
-              ),
-            ],
             const SizedBox(height: 10),
             if (affordable.restoredHp > 0 &&
                 affordable.normalWork < remaining.normalWork) ...[
               InkButton(
                 key: const ValueKey('paid-repair-affordable'),
                 label:
-                    'BUY WITHIN PURSE: +${affordable.restoredHp} HP · ${affordable.goldCost}g',
+                    'REPAIR +${affordable.restoredHp} HP · ${affordable.goldCost}g',
                 onPressed: !controller.isPlayingEvents
                     ? () =>
                           controller.dispatch(const BuyAffordablePaidRepairs())

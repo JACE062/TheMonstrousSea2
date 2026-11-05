@@ -131,7 +131,7 @@ void main() {
     expect(c.ship!.gold, 0);
     expect(c.session.paidRepairWork.spentWork, 7);
     expect(c.session.paidRepairWork.totalWork, 50);
-    expect(find.textContaining('43 / 50'), findsOneWidget);
+    expect(find.textContaining('21.5% HULL'), findsOneWidget);
     expect(find.byKey(const ValueKey('paid-repair-affordable')), findsNothing);
     expect(tester.takeException(), isNull);
   });
@@ -283,13 +283,13 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(controller.session.paidRepairWork.isLatched, isFalse);
-      expect(find.textContaining('50 / 50'), findsOneWidget);
+      expect(find.textContaining('25% HULL'), findsOneWidget);
       await _proof(tester, boundary, 'repair-before-purchase');
       await tester.ensureVisible(find.text('UPGRADE TIER · 100g'));
       await tester.tap(find.text('UPGRADE TIER · 100g'));
       await tester.pumpAndSettle();
       expect(controller.session.paidRepairWork.isLatched, isFalse);
-      expect(find.textContaining('62 / 62'), findsOneWidget);
+      expect(find.textContaining('24.8% HULL'), findsOneWidget);
       final buy = find.byKey(const ValueKey('paid-repair-1.0'));
       await tester.ensureVisible(buy);
       await tester.tap(buy);
@@ -300,7 +300,7 @@ void main() {
       await tester.tap(find.text('UPGRADE TIER · 250g'));
       await tester.pumpAndSettle();
       expect(controller.session.paidRepairWork.totalWork, 62);
-      expect(find.textContaining('0 / 62'), findsOneWidget);
+      expect(find.textContaining('0% HULL'), findsOneWidget);
       expect(tester.widget<InkButton>(buy).onPressed, isNull);
       expect(controller.ship!.currentHp, 163);
       expect(tester.takeException(), isNull);

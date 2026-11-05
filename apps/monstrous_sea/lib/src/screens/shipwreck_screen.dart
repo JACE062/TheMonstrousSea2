@@ -87,7 +87,9 @@ class ShipwreckScreen extends StatelessWidget {
                   maxHp: ship.maxHp,
                   label: 'VESSEL HULL VITALITY',
                 ),
-                CarriedPatchKits(controller: controller),
+                if (wreck.stage != WreckStage.receipt ||
+                    controller.pendingLoot.isEmpty)
+                  CarriedPatchKits(controller: controller),
                 const SizedBox(height: 20),
                 if (wreck.stage == WreckStage.assessment) ...[
                   ParchmentCard(child: Text(assessment, style: InkTheme.body)),
@@ -158,13 +160,14 @@ class ShipwreckScreen extends StatelessWidget {
                     WreckSuppliesView(controller: controller),
                     const SizedBox(height: 16),
                   ],
-                  InkButton(
-                    label: 'LEAVE WRECK & TAKE THE HELM',
-                    isPrimary: true,
-                    onPressed: controller.pendingLoot.isNotEmpty
-                        ? null
-                        : () => choose(WreckRecoveryChoice.depart),
-                  ),
+                  if (controller.pendingLoot.isEmpty)
+                    InkButton(
+                      label: 'LEAVE WRECK & TAKE THE HELM',
+                      isPrimary: true,
+                      onPressed: controller.pendingLoot.isNotEmpty
+                          ? null
+                          : () => choose(WreckRecoveryChoice.depart),
+                    ),
                 ],
               ],
             ),

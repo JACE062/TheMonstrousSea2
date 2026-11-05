@@ -114,13 +114,13 @@ void main() {
           find.textContaining('3 Sea Glass\n1 Depth-Wrought Iron'),
           findsOneWidget,
         );
-        expect(find.textContaining('Belt full.'), findsOneWidget);
-        final jettison = find.textContaining('JETTISON ');
+        expect(find.textContaining('BELT FULL'), findsOneWidget);
+        final jettison = find.text('Jettison');
         await tester.ensureVisible(jettison.first);
         await tester.tap(jettison.first);
         await tester.pumpAndSettle();
-        await tester.ensureVisible(find.text('STOW SUPPLY'));
-        await tester.tap(find.text('STOW SUPPLY'));
+        await tester.ensureVisible(find.text('Stow'));
+        await tester.tap(find.text('Stow'));
         await tester.pumpAndSettle();
         expect(controller.pendingLoot, isEmpty);
         expect(controller.phase, SessionPhase.shipwreck);
