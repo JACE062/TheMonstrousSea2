@@ -1,0 +1,3694 @@
+{
+  "baseline": [
+    {
+      "hull": "bombardier",
+      "profile": "progressed",
+      "priority": "fitting-first",
+      "seed": 476,
+      "start": {
+        "region": 1,
+        "leg": 0,
+        "difficulty": 1,
+        "gold": 25,
+        "hp": 95,
+        "maxHp": 95,
+        "hull": 1,
+        "marks": [
+          1,
+          1,
+          1
+        ]
+      },
+      "startingSignatureDamage": 35,
+      "startingAncestralTier": 2,
+      "startingIdolMultiplier": 1.1,
+      "terminal": "expeditionVictory",
+      "capped": false,
+      "error": null,
+      "steps": 251,
+      "gross": {
+        "victory": 21027,
+        "wreck": 477
+      },
+      "spend": {
+        "fitting": 540,
+        "repair": 363,
+        "hull": 850
+      },
+      "final": {
+        "region": 3,
+        "leg": 14,
+        "difficulty": 13,
+        "gold": 19776,
+        "hp": 142,
+        "maxHp": 230,
+        "hull": 4,
+        "marks": [
+          3,
+          3,
+          3
+        ]
+      },
+      "firstMax": {
+        "shop": "2:haven",
+        "region": 2,
+        "leg": 6,
+        "difficulty": 6,
+        "gold": 146,
+        "hp": 230,
+        "maxHp": 230,
+        "hull": 4,
+        "marks": [
+          3,
+          3,
+          3
+        ],
+        "step": 119
+      },
+      "shops": [
+        {
+          "key": "1:haven",
+          "arrival": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 110,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "incomingOfferedDifficulty": 1,
+          "repairs": 0,
+          "hullSpend": 0,
+          "fittingSpend": 60,
+          "departure": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 50,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "beforePurchases": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 110,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "key": "2:stronghold",
+          "arrival": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 812,
+            "hp": 3,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "incomingOfferedDifficulty": 5,
+          "repairs": 92,
+          "hullSpend": 100,
+          "fittingSpend": 480,
+          "departure": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 140,
+            "hp": 140,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "beforePurchases": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 720,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "key": "2:haven",
+          "arrival": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 896,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "incomingOfferedDifficulty": 6,
+          "repairs": 0,
+          "hullSpend": 750,
+          "fittingSpend": 0,
+          "departure": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 146,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "beforePurchases": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 896,
+            "hp": 140,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "key": "3:stronghold",
+          "arrival": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 2493,
+            "hp": 133,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "incomingOfferedDifficulty": 9,
+          "repairs": 97,
+          "hullSpend": 0,
+          "fittingSpend": 0,
+          "departure": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 2396,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "beforePurchases": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 2396,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "key": "3:haven",
+          "arrival": {
+            "region": 3,
+            "leg": 7,
+            "difficulty": 10,
+            "gold": 5705,
+            "hp": 206,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "incomingOfferedDifficulty": 10,
+          "repairs": 0,
+          "hullSpend": 0,
+          "fittingSpend": 0,
+          "departure": {
+            "region": 3,
+            "leg": 7,
+            "difficulty": 10,
+            "gold": 5705,
+            "hp": 206,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "beforePurchases": {
+            "region": 3,
+            "leg": 7,
+            "difficulty": 10,
+            "gold": 5705,
+            "hp": 206,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "step": 3,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 19,
+          "before": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 25,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 44,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 10,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 26,
+          "before": {
+            "region": 1,
+            "leg": 2,
+            "difficulty": 1,
+            "gold": 44,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 2,
+            "difficulty": 1,
+            "gold": 70,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 16,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 21,
+          "before": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 70,
+            "hp": 85,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 91,
+            "hp": 85,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 24,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 19,
+          "before": {
+            "region": 1,
+            "leg": 4,
+            "difficulty": 1,
+            "gold": 91,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 4,
+            "difficulty": 1,
+            "gold": 110,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 29,
+          "command": "TemperHardpoint",
+          "phase": "respiteIsland",
+          "category": "fitting",
+          "delta": -60,
+          "before": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 110,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 50,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 32,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 93,
+          "before": {
+            "region": 1,
+            "leg": 6,
+            "difficulty": 2,
+            "gold": 50,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 6,
+            "difficulty": 2,
+            "gold": 143,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 41,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 47,
+          "before": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 143,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 190,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 51,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 57,
+          "before": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 190,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 247,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 65,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 45,
+          "before": {
+            "region": 1,
+            "leg": 9,
+            "difficulty": 2,
+            "gold": 247,
+            "hp": 55,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 9,
+            "difficulty": 2,
+            "gold": 292,
+            "hp": 55,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 82,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 520,
+          "before": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 292,
+            "hp": 3,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 812,
+            "hp": 3,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 85,
+          "command": "RepairShip",
+          "phase": "stronghold",
+          "category": "repair",
+          "delta": -92,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 812,
+            "hp": 3,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 720,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 86,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -60,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 720,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 660,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "step": 87,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -60,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 660,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 600,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "step": 88,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -120,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 600,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 480,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "step": 89,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -120,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 480,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 360,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              3,
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "step": 90,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -120,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 360,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              3,
+              3,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 240,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 91,
+          "command": "UpgradeShip",
+          "phase": "stronghold",
+          "category": "hull",
+          "delta": -100,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 240,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 140,
+            "hp": 140,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 100,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 540,
+          "before": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 140,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 680,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 108,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 103,
+          "before": {
+            "region": 2,
+            "leg": 3,
+            "difficulty": 5,
+            "gold": 680,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 3,
+            "difficulty": 5,
+            "gold": 783,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 114,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 113,
+          "before": {
+            "region": 2,
+            "leg": 5,
+            "difficulty": 6,
+            "gold": 783,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 5,
+            "difficulty": 6,
+            "gold": 896,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 118,
+          "command": "UpgradeShip",
+          "phase": "respiteIsland",
+          "category": "hull",
+          "delta": -250,
+          "before": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 896,
+            "hp": 140,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 646,
+            "hp": 185,
+            "maxHp": 185,
+            "hull": 3,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 119,
+          "command": "UpgradeShip",
+          "phase": "respiteIsland",
+          "category": "hull",
+          "delta": -500,
+          "before": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 646,
+            "hp": 185,
+            "maxHp": 185,
+            "hull": 3,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 146,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 136,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 667,
+          "before": {
+            "region": 2,
+            "leg": 10,
+            "difficulty": 6,
+            "gold": 146,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 10,
+            "difficulty": 6,
+            "gold": 813,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 153,
+          "command": "UseConsumableItem",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 1680,
+          "before": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 813,
+            "hp": 133,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 2493,
+            "hp": 133,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 156,
+          "command": "RepairShip",
+          "phase": "stronghold",
+          "category": "repair",
+          "delta": -97,
+          "before": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 2493,
+            "hp": 133,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 2396,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 168,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 1662,
+          "before": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 2396,
+            "hp": 79,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 4058,
+            "hp": 79,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 180,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 1649,
+          "before": {
+            "region": 3,
+            "leg": 3,
+            "difficulty": 9,
+            "gold": 4058,
+            "hp": 148,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 3,
+            "difficulty": 9,
+            "gold": 5707,
+            "hp": 148,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 187,
+          "command": "RepairShip",
+          "phase": "smuggler",
+          "category": "repair",
+          "delta": -87,
+          "before": {
+            "region": 3,
+            "leg": 5,
+            "difficulty": 10,
+            "gold": 5707,
+            "hp": 148,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 5,
+            "difficulty": 10,
+            "gold": 5620,
+            "hp": 206,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 190,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 85,
+          "before": {
+            "region": 3,
+            "leg": 6,
+            "difficulty": 10,
+            "gold": 5620,
+            "hp": 206,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 6,
+            "difficulty": 10,
+            "gold": 5705,
+            "hp": 206,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 211,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 4554,
+          "before": {
+            "region": 3,
+            "leg": 9,
+            "difficulty": 11,
+            "gold": 5705,
+            "hp": 144,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 9,
+            "difficulty": 11,
+            "gold": 10259,
+            "hp": 144,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 215,
+          "command": "RepairShip",
+          "phase": "smuggler",
+          "category": "repair",
+          "delta": -87,
+          "before": {
+            "region": 3,
+            "leg": 10,
+            "difficulty": 12,
+            "gold": 10259,
+            "hp": 144,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 10,
+            "difficulty": 12,
+            "gold": 10172,
+            "hp": 202,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 218,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 83,
+          "before": {
+            "region": 3,
+            "leg": 11,
+            "difficulty": 12,
+            "gold": 10172,
+            "hp": 202,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 11,
+            "difficulty": 12,
+            "gold": 10255,
+            "hp": 202,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 233,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 4065,
+          "before": {
+            "region": 3,
+            "leg": 12,
+            "difficulty": 12,
+            "gold": 10255,
+            "hp": 37,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 12,
+            "difficulty": 12,
+            "gold": 14320,
+            "hp": 37,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 249,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 5456,
+          "before": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 14320,
+            "hp": 142,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 19776,
+            "hp": 142,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        }
+      ],
+      "battles": [
+        {
+          "before": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 25,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 44,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 19,
+          "offeredDifficulty": null
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 2,
+            "difficulty": 1,
+            "gold": 44,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 2,
+            "difficulty": 1,
+            "gold": 70,
+            "hp": 95,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 26,
+          "offeredDifficulty": 1
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 70,
+            "hp": 85,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 91,
+            "hp": 85,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "shark",
+          "gold": 21,
+          "offeredDifficulty": 2
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 4,
+            "difficulty": 1,
+            "gold": 91,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 4,
+            "difficulty": 1,
+            "gold": 110,
+            "hp": 82,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 19,
+          "offeredDifficulty": 2
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 143,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 190,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "shark",
+          "gold": 47,
+          "offeredDifficulty": 4
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 190,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 247,
+            "hp": 67,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 57,
+          "offeredDifficulty": 4
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 9,
+            "difficulty": 2,
+            "gold": 247,
+            "hp": 55,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 9,
+            "difficulty": 2,
+            "gold": 292,
+            "hp": 55,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "serpent",
+          "gold": 45,
+          "offeredDifficulty": 4
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 292,
+            "hp": 3,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 812,
+            "hp": 3,
+            "maxHp": 95,
+            "hull": 1,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "kraken",
+          "gold": 520,
+          "offeredDifficulty": 5
+        },
+        {
+          "before": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 140,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 680,
+            "hp": 114,
+            "maxHp": 140,
+            "hull": 2,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 540,
+          "offeredDifficulty": 5
+        },
+        {
+          "before": {
+            "region": 2,
+            "leg": 10,
+            "difficulty": 6,
+            "gold": 146,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 10,
+            "difficulty": 6,
+            "gold": 813,
+            "hp": 230,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "jellyfish",
+          "gold": 667,
+          "offeredDifficulty": 8
+        },
+        {
+          "before": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 813,
+            "hp": 133,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 2493,
+            "hp": 133,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "worldSerpent",
+          "gold": 1680,
+          "offeredDifficulty": 9
+        },
+        {
+          "before": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 2396,
+            "hp": 79,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 4058,
+            "hp": 79,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "shark",
+          "gold": 1662,
+          "offeredDifficulty": 9
+        },
+        {
+          "before": {
+            "region": 3,
+            "leg": 3,
+            "difficulty": 9,
+            "gold": 4058,
+            "hp": 148,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 3,
+            "difficulty": 9,
+            "gold": 5707,
+            "hp": 148,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 1649,
+          "offeredDifficulty": 10
+        },
+        {
+          "before": {
+            "region": 3,
+            "leg": 9,
+            "difficulty": 11,
+            "gold": 5705,
+            "hp": 144,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 9,
+            "difficulty": 11,
+            "gold": 10259,
+            "hp": 144,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": true,
+          "species": "squid",
+          "gold": 4554,
+          "offeredDifficulty": 12
+        },
+        {
+          "before": {
+            "region": 3,
+            "leg": 12,
+            "difficulty": 12,
+            "gold": 10255,
+            "hp": 37,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 12,
+            "difficulty": 12,
+            "gold": 14320,
+            "hp": 37,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "serpent",
+          "gold": 4065,
+          "offeredDifficulty": 12
+        },
+        {
+          "before": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 14320,
+            "hp": 142,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 19776,
+            "hp": 142,
+            "maxHp": 230,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "ancientLeviathan",
+          "gold": 5456,
+          "offeredDifficulty": 13
+        }
+      ]
+    }
+  ],
+  "candidate1": [
+    {
+      "hull": "clipper",
+      "profile": "progressed",
+      "priority": "hull-first",
+      "seed": 445,
+      "start": {
+        "region": 1,
+        "leg": 0,
+        "difficulty": 1,
+        "gold": 25,
+        "hp": 75,
+        "maxHp": 75,
+        "hull": 1,
+        "marks": [
+          1,
+          1,
+          1
+        ]
+      },
+      "startingSignatureDamage": 25,
+      "startingAncestralTier": 2,
+      "startingIdolMultiplier": 1.1,
+      "terminal": "expeditionVictory",
+      "capped": false,
+      "error": null,
+      "steps": 230,
+      "gross": {
+        "victory": 2483,
+        "wreck": 578
+      },
+      "spend": {
+        "hull": 850,
+        "repair": 72,
+        "fitting": 540
+      },
+      "final": {
+        "region": 3,
+        "leg": 14,
+        "difficulty": 13,
+        "gold": 1624,
+        "hp": 175,
+        "maxHp": 195,
+        "hull": 4,
+        "marks": [
+          3,
+          3,
+          3
+        ]
+      },
+      "firstMax": {
+        "shop": "3:stronghold",
+        "region": 3,
+        "leg": 0,
+        "difficulty": 9,
+        "gold": 574,
+        "hp": 195,
+        "maxHp": 195,
+        "hull": 4,
+        "marks": [
+          3,
+          3,
+          3
+        ],
+        "step": 175
+      },
+      "shops": [
+        {
+          "key": "1:haven",
+          "arrival": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 156,
+            "hp": 64,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "incomingOfferedDifficulty": 1,
+          "repairs": 0,
+          "hullSpend": 100,
+          "fittingSpend": 0,
+          "departure": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 56,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "beforePurchases": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 156,
+            "hp": 64,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "key": "2:stronghold",
+          "arrival": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 492,
+            "hp": 43,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "incomingOfferedDifficulty": 5,
+          "repairs": 72,
+          "hullSpend": 250,
+          "fittingSpend": 120,
+          "departure": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 50,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "beforePurchases": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 420,
+            "hp": 115,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "key": "2:haven",
+          "arrival": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 765,
+            "hp": 117,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "incomingOfferedDifficulty": 6,
+          "repairs": 0,
+          "hullSpend": 500,
+          "fittingSpend": 180,
+          "departure": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 85,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "beforePurchases": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 765,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "key": "3:stronghold",
+          "arrival": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 814,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "incomingOfferedDifficulty": 9,
+          "repairs": 0,
+          "hullSpend": 0,
+          "fittingSpend": 240,
+          "beforePurchases": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 814,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "departure": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 574,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "key": "3:haven",
+          "arrival": {
+            "region": 3,
+            "leg": 7,
+            "difficulty": 11,
+            "gold": 1043,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "incomingOfferedDifficulty": 11,
+          "repairs": 0,
+          "hullSpend": 0,
+          "fittingSpend": 0,
+          "departure": {
+            "region": 3,
+            "leg": 7,
+            "difficulty": 11,
+            "gold": 1043,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "beforePurchases": {
+            "region": 3,
+            "leg": 7,
+            "difficulty": 11,
+            "gold": 1043,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "step": 4,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 22,
+          "before": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 25,
+            "hp": 75,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 47,
+            "hp": 75,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 8,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 92,
+          "before": {
+            "region": 1,
+            "leg": 2,
+            "difficulty": 1,
+            "gold": 47,
+            "hp": 75,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 2,
+            "difficulty": 1,
+            "gold": 139,
+            "hp": 75,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 15,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 17,
+          "before": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 139,
+            "hp": 64,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 156,
+            "hp": 64,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 23,
+          "command": "UpgradeShip",
+          "phase": "respiteIsland",
+          "category": "hull",
+          "delta": -100,
+          "before": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 156,
+            "hp": 64,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 5,
+            "difficulty": 1,
+            "gold": 56,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 26,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 88,
+          "before": {
+            "region": 1,
+            "leg": 6,
+            "difficulty": 2,
+            "gold": 56,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 6,
+            "difficulty": 2,
+            "gold": 144,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 34,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 48,
+          "before": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 144,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 192,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 51,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 46,
+          "before": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 192,
+            "hp": 97,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 238,
+            "hp": 97,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 75,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 254,
+          "before": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 238,
+            "hp": 43,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 492,
+            "hp": 43,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 78,
+          "command": "RepairShip",
+          "phase": "stronghold",
+          "category": "repair",
+          "delta": -72,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 492,
+            "hp": 43,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 420,
+            "hp": 115,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 79,
+          "command": "UpgradeShip",
+          "phase": "stronghold",
+          "category": "hull",
+          "delta": -250,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 420,
+            "hp": 115,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 170,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 80,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -60,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 170,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 110,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "step": 81,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -60,
+          "before": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 110,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 0,
+            "difficulty": 5,
+            "gold": 50,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "step": 95,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 268,
+          "before": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 50,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 318,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "step": 110,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 263,
+          "before": {
+            "region": 2,
+            "leg": 2,
+            "difficulty": 5,
+            "gold": 318,
+            "hp": 86,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 2,
+            "difficulty": 5,
+            "gold": 581,
+            "hp": 86,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "step": 117,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 87,
+          "before": {
+            "region": 2,
+            "leg": 4,
+            "difficulty": 5,
+            "gold": 581,
+            "hp": 117,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 4,
+            "difficulty": 5,
+            "gold": 668,
+            "hp": 117,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "step": 120,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 97,
+          "before": {
+            "region": 2,
+            "leg": 5,
+            "difficulty": 6,
+            "gold": 668,
+            "hp": 117,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 5,
+            "difficulty": 6,
+            "gold": 765,
+            "hp": 117,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "step": 124,
+          "command": "UpgradeShip",
+          "phase": "respiteIsland",
+          "category": "hull",
+          "delta": -500,
+          "before": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 765,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 265,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "step": 125,
+          "command": "TemperHardpoint",
+          "phase": "respiteIsland",
+          "category": "fitting",
+          "delta": -60,
+          "before": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 265,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 205,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              2,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "step": 126,
+          "command": "TemperHardpoint",
+          "phase": "respiteIsland",
+          "category": "fitting",
+          "delta": -120,
+          "before": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 205,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              2,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 6,
+            "difficulty": 6,
+            "gold": 85,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "step": 148,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 322,
+          "before": {
+            "region": 2,
+            "leg": 8,
+            "difficulty": 6,
+            "gold": 85,
+            "hp": 159,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 8,
+            "difficulty": 6,
+            "gold": 407,
+            "hp": 159,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "step": 171,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 407,
+          "before": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 407,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 814,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "step": 174,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -120,
+          "before": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 814,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 694,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "step": 175,
+          "command": "TemperHardpoint",
+          "phase": "stronghold",
+          "category": "fitting",
+          "delta": -120,
+          "before": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 694,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              2
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 0,
+            "difficulty": 9,
+            "gold": 574,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 182,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 364,
+          "before": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 574,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 938,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 192,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 105,
+          "before": {
+            "region": 3,
+            "leg": 4,
+            "difficulty": 10,
+            "gold": 938,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 4,
+            "difficulty": 10,
+            "gold": 1043,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 212,
+          "command": "SalvageShipwreck",
+          "phase": "shipwreck",
+          "category": "wreck",
+          "delta": 109,
+          "before": {
+            "region": 3,
+            "leg": 11,
+            "difficulty": 12,
+            "gold": 1043,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 11,
+            "difficulty": 12,
+            "gold": 1152,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        {
+          "step": 228,
+          "command": "FireWeaponVolley",
+          "phase": "battle",
+          "category": "victory",
+          "delta": 472,
+          "before": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 1152,
+            "hp": 175,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 1624,
+            "hp": 175,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          }
+        }
+      ],
+      "battles": [
+        {
+          "before": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 25,
+            "hp": 75,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 1,
+            "difficulty": 1,
+            "gold": 47,
+            "hp": 75,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "shark",
+          "gold": 22,
+          "offeredDifficulty": null
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 139,
+            "hp": 64,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 3,
+            "difficulty": 1,
+            "gold": 156,
+            "hp": 64,
+            "maxHp": 75,
+            "hull": 1,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 17,
+          "offeredDifficulty": 2
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 144,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 7,
+            "difficulty": 2,
+            "gold": 192,
+            "hp": 104,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "jellyfish",
+          "gold": 48,
+          "offeredDifficulty": 4
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 192,
+            "hp": 97,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 8,
+            "difficulty": 2,
+            "gold": 238,
+            "hp": 97,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "serpent",
+          "gold": 46,
+          "offeredDifficulty": 4
+        },
+        {
+          "before": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 238,
+            "hp": 43,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "after": {
+            "region": 1,
+            "leg": 10,
+            "difficulty": 5,
+            "gold": 492,
+            "hp": 43,
+            "maxHp": 115,
+            "hull": 2,
+            "marks": [
+              1,
+              1,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "kraken",
+          "gold": 254,
+          "offeredDifficulty": 5
+        },
+        {
+          "before": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 50,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 1,
+            "difficulty": 5,
+            "gold": 318,
+            "hp": 155,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "jellyfish",
+          "gold": 268,
+          "offeredDifficulty": 5
+        },
+        {
+          "before": {
+            "region": 2,
+            "leg": 2,
+            "difficulty": 5,
+            "gold": 318,
+            "hp": 86,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 2,
+            "difficulty": 5,
+            "gold": 581,
+            "hp": 86,
+            "maxHp": 155,
+            "hull": 3,
+            "marks": [
+              2,
+              2,
+              1
+            ]
+          },
+          "apex": false,
+          "species": "shark",
+          "gold": 263,
+          "offeredDifficulty": 5
+        },
+        {
+          "before": {
+            "region": 2,
+            "leg": 8,
+            "difficulty": 6,
+            "gold": 85,
+            "hp": 159,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 8,
+            "difficulty": 6,
+            "gold": 407,
+            "hp": 159,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "apex": false,
+          "species": "serpent",
+          "gold": 322,
+          "offeredDifficulty": 8
+        },
+        {
+          "before": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 407,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "after": {
+            "region": 2,
+            "leg": 12,
+            "difficulty": 9,
+            "gold": 814,
+            "hp": 195,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              2,
+              2
+            ]
+          },
+          "apex": false,
+          "species": "worldSerpent",
+          "gold": 407,
+          "offeredDifficulty": 9
+        },
+        {
+          "before": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 574,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 1,
+            "difficulty": 9,
+            "gold": 938,
+            "hp": 185,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "squid",
+          "gold": 364,
+          "offeredDifficulty": 9
+        },
+        {
+          "before": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 1152,
+            "hp": 175,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "after": {
+            "region": 3,
+            "leg": 14,
+            "difficulty": 13,
+            "gold": 1624,
+            "hp": 175,
+            "maxHp": 195,
+            "hull": 4,
+            "marks": [
+              3,
+              3,
+              3
+            ]
+          },
+          "apex": false,
+          "species": "ancientLeviathan",
+          "gold": 472,
+          "offeredDifficulty": 13
+        }
+      ],
+      "repairShortfalls": []
+    }
+  ]
+}

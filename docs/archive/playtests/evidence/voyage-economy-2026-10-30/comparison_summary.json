@@ -1,0 +1,456 @@
+{
+  "baseline": {
+    "all": {
+      "n": 600,
+      "wins": 1,
+      "deaths": 599,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 567,
+        "2:haven": 33
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 582,
+          "max": 0,
+          "anyPurchase": 514,
+          "medianBeforePurchaseGold": 102.0
+        },
+        "2:stronghold": {
+          "visits": 108,
+          "max": 0,
+          "anyPurchase": 108,
+          "medianBeforePurchaseGold": 608.0
+        },
+        "2:haven": {
+          "visits": 36,
+          "max": 33,
+          "anyPurchase": 36,
+          "medianBeforePurchaseGold": 1212.0
+        },
+        "3:stronghold": {
+          "visits": 10,
+          "max": 10,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 3215.5
+        },
+        "3:haven": {
+          "visits": 4,
+          "max": 4,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 6799.0
+        }
+      },
+      "meanRepair": 28.85333333333333,
+      "meanFinalGold": 392.91833333333335,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 14
+      },
+      "runsWithShortfall": 14
+    },
+    "fresh": {
+      "n": 300,
+      "wins": 0,
+      "deaths": 300,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 293,
+        "2:haven": 7
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 286,
+          "max": 0,
+          "anyPurchase": 242,
+          "medianBeforePurchaseGold": 99.0
+        },
+        "2:stronghold": {
+          "visits": 32,
+          "max": 0,
+          "anyPurchase": 32,
+          "medianBeforePurchaseGold": 545.0
+        },
+        "2:haven": {
+          "visits": 8,
+          "max": 7,
+          "anyPurchase": 8,
+          "medianBeforePurchaseGold": 1065.5
+        },
+        "3:stronghold": {
+          "visits": 1,
+          "max": 1,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 2458
+        },
+        "3:haven": {
+          "visits": 1,
+          "max": 1,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 7264
+        }
+      },
+      "meanRepair": 20.493333333333332,
+      "meanFinalGold": 220.51,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 7
+      },
+      "runsWithShortfall": 7
+    },
+    "progressed": {
+      "n": 300,
+      "wins": 1,
+      "deaths": 299,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 274,
+        "2:haven": 26
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 296,
+          "max": 0,
+          "anyPurchase": 272,
+          "medianBeforePurchaseGold": 104.0
+        },
+        "2:stronghold": {
+          "visits": 76,
+          "max": 0,
+          "anyPurchase": 76,
+          "medianBeforePurchaseGold": 614.5
+        },
+        "2:haven": {
+          "visits": 28,
+          "max": 26,
+          "anyPurchase": 28,
+          "medianBeforePurchaseGold": 1259.0
+        },
+        "3:stronghold": {
+          "visits": 9,
+          "max": 9,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 3269
+        },
+        "3:haven": {
+          "visits": 3,
+          "max": 3,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 6762
+        }
+      },
+      "meanRepair": 37.21333333333333,
+      "meanFinalGold": 565.3266666666667,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 7
+      },
+      "runsWithShortfall": 7
+    }
+  },
+  "candidate1": {
+    "all": {
+      "n": 600,
+      "wins": 1,
+      "deaths": 599,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 594,
+        "2:haven": 1,
+        "3:stronghold": 5
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 582,
+          "max": 0,
+          "anyPurchase": 514,
+          "medianBeforePurchaseGold": 102.0
+        },
+        "2:stronghold": {
+          "visits": 108,
+          "max": 0,
+          "anyPurchase": 108,
+          "medianBeforePurchaseGold": 363.0
+        },
+        "2:haven": {
+          "visits": 28,
+          "max": 1,
+          "anyPurchase": 28,
+          "medianBeforePurchaseGold": 574.5
+        },
+        "3:stronghold": {
+          "visits": 8,
+          "max": 6,
+          "anyPurchase": 7,
+          "medianBeforePurchaseGold": 804.5
+        },
+        "3:haven": {
+          "visits": 1,
+          "max": 1,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 1043
+        }
+      },
+      "meanRepair": 24.185,
+      "meanFinalGold": 175.67,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 15
+      },
+      "runsWithShortfall": 15
+    },
+    "fresh": {
+      "n": 300,
+      "wins": 0,
+      "deaths": 300,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 300
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 286,
+          "max": 0,
+          "anyPurchase": 242,
+          "medianBeforePurchaseGold": 99.0
+        },
+        "2:stronghold": {
+          "visits": 32,
+          "max": 0,
+          "anyPurchase": 32,
+          "medianBeforePurchaseGold": 322.0
+        },
+        "2:haven": {
+          "visits": 6,
+          "max": 0,
+          "anyPurchase": 6,
+          "medianBeforePurchaseGold": 527.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "max": 0,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": null
+        },
+        "3:haven": {
+          "visits": 0,
+          "max": 0,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": null
+        }
+      },
+      "meanRepair": 17.393333333333334,
+      "meanFinalGold": 141.8,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 7
+      },
+      "runsWithShortfall": 7
+    },
+    "progressed": {
+      "n": 300,
+      "wins": 1,
+      "deaths": 299,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 294,
+        "2:haven": 1,
+        "3:stronghold": 5
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 296,
+          "max": 0,
+          "anyPurchase": 272,
+          "medianBeforePurchaseGold": 104.0
+        },
+        "2:stronghold": {
+          "visits": 76,
+          "max": 0,
+          "anyPurchase": 76,
+          "medianBeforePurchaseGold": 369.0
+        },
+        "2:haven": {
+          "visits": 22,
+          "max": 1,
+          "anyPurchase": 22,
+          "medianBeforePurchaseGold": 589.5
+        },
+        "3:stronghold": {
+          "visits": 8,
+          "max": 6,
+          "anyPurchase": 7,
+          "medianBeforePurchaseGold": 804.5
+        },
+        "3:haven": {
+          "visits": 1,
+          "max": 1,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": 1043
+        }
+      },
+      "meanRepair": 30.976666666666667,
+      "meanFinalGold": 209.54,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 8
+      },
+      "runsWithShortfall": 8
+    }
+  },
+  "candidate2": {
+    "all": {
+      "n": 600,
+      "wins": 0,
+      "deaths": 600,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 600
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 582,
+          "max": 0,
+          "anyPurchase": 514,
+          "medianBeforePurchaseGold": 102.0
+        },
+        "2:stronghold": {
+          "visits": 108,
+          "max": 0,
+          "anyPurchase": 108,
+          "medianBeforePurchaseGold": 363.0
+        },
+        "2:haven": {
+          "visits": 30,
+          "max": 0,
+          "anyPurchase": 30,
+          "medianBeforePurchaseGold": 574.5
+        },
+        "3:stronghold": {
+          "visits": 4,
+          "max": 0,
+          "anyPurchase": 3,
+          "medianBeforePurchaseGold": 747.5
+        },
+        "3:haven": {
+          "visits": 0,
+          "max": 0,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": null
+        }
+      },
+      "meanRepair": 23.915,
+      "meanFinalGold": 180.78333333333333,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 15
+      },
+      "runsWithShortfall": 15
+    },
+    "fresh": {
+      "n": 300,
+      "wins": 0,
+      "deaths": 300,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 300
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 286,
+          "max": 0,
+          "anyPurchase": 242,
+          "medianBeforePurchaseGold": 99.0
+        },
+        "2:stronghold": {
+          "visits": 32,
+          "max": 0,
+          "anyPurchase": 32,
+          "medianBeforePurchaseGold": 322.0
+        },
+        "2:haven": {
+          "visits": 6,
+          "max": 0,
+          "anyPurchase": 6,
+          "medianBeforePurchaseGold": 527.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "max": 0,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": null
+        },
+        "3:haven": {
+          "visits": 0,
+          "max": 0,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": null
+        }
+      },
+      "meanRepair": 17.393333333333334,
+      "meanFinalGold": 143.7,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 8
+      },
+      "runsWithShortfall": 8
+    },
+    "progressed": {
+      "n": 300,
+      "wins": 0,
+      "deaths": 300,
+      "caps": 0,
+      "errors": 0,
+      "firstMax": {
+        "never": 300
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 296,
+          "max": 0,
+          "anyPurchase": 272,
+          "medianBeforePurchaseGold": 104.0
+        },
+        "2:stronghold": {
+          "visits": 76,
+          "max": 0,
+          "anyPurchase": 76,
+          "medianBeforePurchaseGold": 373.0
+        },
+        "2:haven": {
+          "visits": 24,
+          "max": 0,
+          "anyPurchase": 24,
+          "medianBeforePurchaseGold": 589.5
+        },
+        "3:stronghold": {
+          "visits": 4,
+          "max": 0,
+          "anyPurchase": 3,
+          "medianBeforePurchaseGold": 747.5
+        },
+        "3:haven": {
+          "visits": 0,
+          "max": 0,
+          "anyPurchase": 0,
+          "medianBeforePurchaseGold": null
+        }
+      },
+      "meanRepair": 30.436666666666667,
+      "meanFinalGold": 217.86666666666667,
+      "repairShortfalls": {
+        "smuggler-quarter-unaffordable": 7
+      },
+      "runsWithShortfall": 7
+    }
+  },
+  "verification": {
+    "same600StartingStates": true,
+    "allFirstHavenArrivalsIdenticalToBaseline": true,
+    "candidate1FirstHavenPurchasesIdentical": true,
+    "candidate2FirstHavenPurchasesMayDifferForFinalMarks": true,
+    "allSourceDiffsRestricted": true,
+    "productionUntouched": true,
+    "unapproved": true
+  }
+}

@@ -1,0 +1,1103 @@
+{
+  "runs": 600,
+  "wins": 1,
+  "deaths": 599,
+  "caps": 0,
+  "errors": 0,
+  "groups": [
+    {
+      "profile": "fresh",
+      "hull": "standard",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 294.2,
+      "meanRepairSpend": 24.1,
+      "meanUpgradeSpend": 145.33333333333334,
+      "meanFinalGold": 149.76666666666668,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 29,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 115.62068965517241,
+          "meanBeforePurchaseGold": 115.62068965517241
+        },
+        "2:stronghold": {
+          "visits": 2,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 555.0,
+          "meanBeforePurchaseGold": 431.0
+        },
+        "2:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1254.0,
+          "meanBeforePurchaseGold": 1254.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "standard",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 193.06666666666666,
+      "meanRepairSpend": 9.333333333333334,
+      "meanUpgradeSpend": 84.0,
+      "meanFinalGold": 124.73333333333333,
+      "firstMax": {
+        "never": 30
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 29,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 115.62068965517241,
+          "meanBeforePurchaseGold": 115.62068965517241
+        },
+        "2:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "2:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "ironclad",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 385.53333333333336,
+      "meanRepairSpend": 18.466666666666665,
+      "meanUpgradeSpend": 153.33333333333334,
+      "meanFinalGold": 238.73333333333332,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 118.83333333333333,
+          "meanBeforePurchaseGold": 118.83333333333333
+        },
+        "2:stronghold": {
+          "visits": 2,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 671.5,
+          "meanBeforePurchaseGold": 520.5
+        },
+        "2:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 2090.0,
+          "meanBeforePurchaseGold": 2090.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "ironclad",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 229.56666666666666,
+      "meanRepairSpend": 12.6,
+      "meanUpgradeSpend": 88.0,
+      "meanFinalGold": 153.96666666666667,
+      "firstMax": {
+        "never": 30
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 118.83333333333333,
+          "meanBeforePurchaseGold": 118.83333333333333
+        },
+        "2:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "2:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "clipper",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 349.96666666666664,
+      "meanRepairSpend": 21.0,
+      "meanUpgradeSpend": 144.0,
+      "meanFinalGold": 209.96666666666667,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 111.3,
+          "meanBeforePurchaseGold": 111.3
+        },
+        "2:stronghold": {
+          "visits": 2,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 642.5,
+          "meanBeforePurchaseGold": 547.5
+        },
+        "2:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1060.0,
+          "meanBeforePurchaseGold": 1060.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "clipper",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 224.83333333333334,
+      "meanRepairSpend": 5.8,
+      "meanUpgradeSpend": 82.0,
+      "meanFinalGold": 162.03333333333333,
+      "firstMax": {
+        "never": 30
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 111.3,
+          "meanBeforePurchaseGold": 111.3
+        },
+        "2:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "2:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "bombardier",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 726.1333333333333,
+      "meanRepairSpend": 38.5,
+      "meanUpgradeSpend": 337.0,
+      "meanFinalGold": 375.6333333333333,
+      "firstMax": {
+        "never": 28,
+        "2:haven": 2
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 28,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 85.39285714285714,
+          "meanBeforePurchaseGold": 85.39285714285714
+        },
+        "2:stronghold": {
+          "visits": 13,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 626.5384615384615,
+          "meanBeforePurchaseGold": 568.7692307692307
+        },
+        "2:haven": {
+          "visits": 3,
+          "maxAtDeparture": 2,
+          "conditionalMaxRate": 0.6666666666666666,
+          "meanArrivalGold": 1027.0,
+          "meanBeforePurchaseGold": 1027.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "bombardier",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 374.53333333333336,
+      "meanRepairSpend": 25.533333333333335,
+      "meanUpgradeSpend": 179.0,
+      "meanFinalGold": 195.0,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 28,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 85.39285714285714,
+          "meanBeforePurchaseGold": 85.39285714285714
+        },
+        "2:stronghold": {
+          "visits": 6,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 620.0,
+          "meanBeforePurchaseGold": 576.3333333333334
+        },
+        "2:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1071.0,
+          "meanBeforePurchaseGold": 1071.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "corsair",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 694.4333333333333,
+      "meanRepairSpend": 38.7,
+      "meanUpgradeSpend": 185.66666666666666,
+      "meanFinalGold": 495.06666666666666,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 26,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 113.53846153846153,
+          "meanBeforePurchaseGold": 113.53846153846153
+        },
+        "2:stronghold": {
+          "visits": 5,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 583.2,
+          "meanBeforePurchaseGold": 547.6
+        },
+        "2:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1057.0,
+          "meanBeforePurchaseGold": 1057.0
+        },
+        "3:stronghold": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 2537.0,
+          "meanBeforePurchaseGold": 2458.0
+        },
+        "3:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 7264.0,
+          "meanBeforePurchaseGold": 7264.0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "hull": "corsair",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 195.43333333333334,
+      "meanRepairSpend": 10.9,
+      "meanUpgradeSpend": 109.33333333333333,
+      "meanFinalGold": 100.2,
+      "firstMax": {
+        "never": 30
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 26,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 113.53846153846153,
+          "meanBeforePurchaseGold": 113.53846153846153
+        },
+        "2:stronghold": {
+          "visits": 2,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 625.0,
+          "meanBeforePurchaseGold": 589.5
+        },
+        "2:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "standard",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 724.5333333333333,
+      "meanRepairSpend": 28.666666666666668,
+      "meanUpgradeSpend": 160.66666666666666,
+      "meanFinalGold": 560.2,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 118.7,
+          "meanBeforePurchaseGold": 118.7
+        },
+        "2:stronghold": {
+          "visits": 2,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 728.0,
+          "meanBeforePurchaseGold": 620.5
+        },
+        "2:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1887.0,
+          "meanBeforePurchaseGold": 1887.0
+        },
+        "3:stronghold": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 3379.0,
+          "meanBeforePurchaseGold": 3162.0
+        },
+        "3:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 6836.0,
+          "meanBeforePurchaseGold": 6836.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "standard",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 231.66666666666666,
+      "meanRepairSpend": 7.0,
+      "meanUpgradeSpend": 88.0,
+      "meanFinalGold": 161.66666666666666,
+      "firstMax": {
+        "never": 30
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 118.7,
+          "meanBeforePurchaseGold": 118.7
+        },
+        "2:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "2:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "ironclad",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 1139.0,
+      "meanRepairSpend": 52.53333333333333,
+      "meanUpgradeSpend": 302.0,
+      "meanFinalGold": 809.4666666666667,
+      "firstMax": {
+        "never": 26,
+        "2:haven": 4
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 122.3,
+          "meanBeforePurchaseGold": 122.3
+        },
+        "2:stronghold": {
+          "visits": 6,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 710.1666666666666,
+          "meanBeforePurchaseGold": 585.6666666666666
+        },
+        "2:haven": {
+          "visits": 4,
+          "maxAtDeparture": 4,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1927.0,
+          "meanBeforePurchaseGold": 1927.0
+        },
+        "3:stronghold": {
+          "visits": 2,
+          "maxAtDeparture": 2,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 4428.0,
+          "meanBeforePurchaseGold": 4216.0
+        },
+        "3:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 6762.0,
+          "meanBeforePurchaseGold": 6762.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "ironclad",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 249.66666666666666,
+      "meanRepairSpend": 4.2,
+      "meanUpgradeSpend": 90.0,
+      "meanFinalGold": 180.46666666666667,
+      "firstMax": {
+        "never": 30
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 122.3,
+          "meanBeforePurchaseGold": 122.3
+        },
+        "2:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "2:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "clipper",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 1072.5,
+      "meanRepairSpend": 46.9,
+      "meanUpgradeSpend": 348.0,
+      "meanFinalGold": 702.6,
+      "firstMax": {
+        "never": 26,
+        "2:haven": 4
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 121.13333333333334,
+          "meanBeforePurchaseGold": 121.13333333333334
+        },
+        "2:stronghold": {
+          "visits": 8,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 645.875,
+          "meanBeforePurchaseGold": 564.0
+        },
+        "2:haven": {
+          "visits": 5,
+          "maxAtDeparture": 4,
+          "conditionalMaxRate": 0.8,
+          "meanArrivalGold": 1288.8,
+          "meanBeforePurchaseGold": 1288.8
+        },
+        "3:stronghold": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 4256.0,
+          "meanBeforePurchaseGold": 4093.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "clipper",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 361.1333333333333,
+      "meanRepairSpend": 13.3,
+      "meanUpgradeSpend": 147.66666666666666,
+      "meanFinalGold": 225.16666666666666,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 30,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 121.13333333333334,
+          "meanBeforePurchaseGold": 121.13333333333334
+        },
+        "2:stronghold": {
+          "visits": 2,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 716.0,
+          "meanBeforePurchaseGold": 647.0
+        },
+        "2:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1614.0,
+          "meanBeforePurchaseGold": 1614.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "bombardier",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 1470.4666666666667,
+      "meanRepairSpend": 64.56666666666666,
+      "meanUpgradeSpend": 582.0,
+      "meanFinalGold": 848.9,
+      "firstMax": {
+        "never": 23,
+        "2:haven": 7
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 29,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 100.65517241379311,
+          "meanBeforePurchaseGold": 100.65517241379311
+        },
+        "2:stronghold": {
+          "visits": 18,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 688.5555555555555,
+          "meanBeforePurchaseGold": 626.9444444444445
+        },
+        "2:haven": {
+          "visits": 7,
+          "maxAtDeparture": 7,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1172.4285714285713,
+          "meanBeforePurchaseGold": 1172.4285714285713
+        },
+        "3:stronghold": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 2992.0,
+          "meanBeforePurchaseGold": 2796.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "bombardier",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 1,
+      "deaths": 29,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 2031.6333333333334,
+      "meanRepairSpend": 80.16666666666667,
+      "meanUpgradeSpend": 526.0,
+      "meanFinalGold": 1450.4666666666667,
+      "firstMax": {
+        "never": 24,
+        "2:haven": 6
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 29,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 100.65517241379311,
+          "meanBeforePurchaseGold": 100.65517241379311
+        },
+        "2:stronghold": {
+          "visits": 17,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 698.2941176470588,
+          "meanBeforePurchaseGold": 641.5882352941177
+        },
+        "2:haven": {
+          "visits": 6,
+          "maxAtDeparture": 6,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1042.0,
+          "meanBeforePurchaseGold": 1042.0
+        },
+        "3:stronghold": {
+          "visits": 3,
+          "maxAtDeparture": 3,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 2948.3333333333335,
+          "meanBeforePurchaseGold": 2786.0
+        },
+        "3:haven": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 5705.0,
+          "meanBeforePurchaseGold": 5705.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "corsair",
+      "priority": "hull-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 830.4666666666667,
+      "meanRepairSpend": 44.56666666666667,
+      "meanUpgradeSpend": 428.3333333333333,
+      "meanFinalGold": 382.56666666666666,
+      "firstMax": {
+        "2:haven": 2,
+        "never": 28
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 29,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 115.75862068965517,
+          "meanBeforePurchaseGold": 115.75862068965517
+        },
+        "2:stronghold": {
+          "visits": 15,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 707.2,
+          "meanBeforePurchaseGold": 653.9333333333333
+        },
+        "2:haven": {
+          "visits": 2,
+          "maxAtDeparture": 2,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 1187.0,
+          "meanBeforePurchaseGold": 1187.0
+        },
+        "3:stronghold": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    },
+    {
+      "profile": "progressed",
+      "hull": "corsair",
+      "priority": "fitting-first",
+      "runs": 30,
+      "wins": 0,
+      "deaths": 30,
+      "caps": 0,
+      "errors": 0,
+      "meanGross": 589.6666666666666,
+      "meanRepairSpend": 30.233333333333334,
+      "meanUpgradeSpend": 252.66666666666666,
+      "meanFinalGold": 331.76666666666665,
+      "firstMax": {
+        "never": 29,
+        "2:haven": 1
+      },
+      "coverage": {
+        "1:haven": {
+          "visits": 29,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 115.75862068965517,
+          "meanBeforePurchaseGold": 115.75862068965517
+        },
+        "2:stronghold": {
+          "visits": 8,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": 0.0,
+          "meanArrivalGold": 708.625,
+          "meanBeforePurchaseGold": 673.375
+        },
+        "2:haven": {
+          "visits": 2,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 0.5,
+          "meanArrivalGold": 979.5,
+          "meanBeforePurchaseGold": 979.5
+        },
+        "3:stronghold": {
+          "visits": 1,
+          "maxAtDeparture": 1,
+          "conditionalMaxRate": 1.0,
+          "meanArrivalGold": 3688.0,
+          "meanBeforePurchaseGold": 3598.0
+        },
+        "3:haven": {
+          "visits": 0,
+          "maxAtDeparture": 0,
+          "conditionalMaxRate": null,
+          "meanArrivalGold": 0.0,
+          "meanBeforePurchaseGold": 0.0
+        }
+      }
+    }
+  ]
+}

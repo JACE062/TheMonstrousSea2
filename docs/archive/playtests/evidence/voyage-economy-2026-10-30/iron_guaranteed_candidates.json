@@ -1,0 +1,250 @@
+{
+  "assumptions": "Unapproved sensitivity only: guaranteed one iron per Search Hold.\n\nCost remains eight iron. Starting inventory zero; no spending; no traits,\nNemesis or pacts. Survival assumed through each stated endpoint. Uniform\nheading choices or wreck-first choices; all visited wrecks use Search Hold.\nBarnacles are not modeled, so iron affordability is not blueprint access.\nThree Kraken voyages are independent, all start in region one, and the\nprofile retains iron between them. Titan rewards are added only after kills.\n",
+  "candidates": {
+    "A": "Guaranteed 1/Search Hold; zero/Titan",
+    "B": "Guaranteed 1/Search Hold plus 1/Titan",
+    "C": "Guaranteed 1/Search Hold plus 2/Titan"
+  },
+  "rows": [
+    {
+      "endpoint": "R1_leg4",
+      "policy": "uniform",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 0.44999999999999996,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "R1_leg4",
+      "policy": "uniform",
+      "candidate": "B",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 0.44999999999999996,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "R1_leg4",
+      "policy": "uniform",
+      "candidate": "C",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 0.44999999999999996,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "R1_leg4",
+      "policy": "wreck_first",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 1.1576250000000003,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "R1_leg4",
+      "policy": "wreck_first",
+      "candidate": "B",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 1.1576250000000003,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "R1_leg4",
+      "policy": "wreck_first",
+      "candidate": "C",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 1.1576250000000003,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "Kraken",
+      "policy": "uniform",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 1.05,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "Kraken",
+      "policy": "uniform",
+      "candidate": "B",
+      "guaranteed_titan_iron": 1,
+      "mean_iron": 2.05,
+      "probability_at_least_8": 1.7085937499999998e-06
+    },
+    {
+      "endpoint": "Kraken",
+      "policy": "uniform",
+      "candidate": "C",
+      "guaranteed_titan_iron": 2,
+      "mean_iron": 3.05,
+      "probability_at_least_8": 6.948281249999999e-05
+    },
+    {
+      "endpoint": "Kraken",
+      "policy": "wreck_first",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 2.7011250000000007,
+      "probability_at_least_8": 0
+    },
+    {
+      "endpoint": "Kraken",
+      "policy": "wreck_first",
+      "candidate": "B",
+      "guaranteed_titan_iron": 1,
+      "mean_iron": 3.7011250000000007,
+      "probability_at_least_8": 0.0012738740696852514
+    },
+    {
+      "endpoint": "Kraken",
+      "policy": "wreck_first",
+      "candidate": "C",
+      "guaranteed_titan_iron": 2,
+      "mean_iron": 4.701125000000001,
+      "probability_at_least_8": 0.015465582242845433
+    },
+    {
+      "endpoint": "World_Serpent",
+      "policy": "uniform",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 2.5,
+      "probability_at_least_8": 0.0015117293845601253
+    },
+    {
+      "endpoint": "World_Serpent",
+      "policy": "uniform",
+      "candidate": "B",
+      "guaranteed_titan_iron": 2,
+      "mean_iron": 4.5,
+      "probability_at_least_8": 0.029095072872879154
+    },
+    {
+      "endpoint": "World_Serpent",
+      "policy": "uniform",
+      "candidate": "C",
+      "guaranteed_titan_iron": 4,
+      "mean_iron": 6.5,
+      "probability_at_least_8": 0.23296043563220967
+    },
+    {
+      "endpoint": "World_Serpent",
+      "policy": "wreck_first",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 6.451500000000001,
+      "probability_at_least_8": 0.29540408066989415
+    },
+    {
+      "endpoint": "World_Serpent",
+      "policy": "wreck_first",
+      "candidate": "B",
+      "guaranteed_titan_iron": 2,
+      "mean_iron": 8.451500000000001,
+      "probability_at_least_8": 0.6765591590141475
+    },
+    {
+      "endpoint": "World_Serpent",
+      "policy": "wreck_first",
+      "candidate": "C",
+      "guaranteed_titan_iron": 4,
+      "mean_iron": 10.451500000000001,
+      "probability_at_least_8": 0.9349941374288063
+    },
+    {
+      "endpoint": "full_campaign",
+      "policy": "uniform",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 4.25,
+      "probability_at_least_8": 0.052048828573120154
+    },
+    {
+      "endpoint": "full_campaign",
+      "policy": "uniform",
+      "candidate": "B",
+      "guaranteed_titan_iron": 3,
+      "mean_iron": 7.25,
+      "probability_at_least_8": 0.42351189608867845
+    },
+    {
+      "endpoint": "full_campaign",
+      "policy": "uniform",
+      "candidate": "C",
+      "guaranteed_titan_iron": 6,
+      "mean_iron": 10.25,
+      "probability_at_least_8": 0.9397440336208185
+    },
+    {
+      "endpoint": "full_campaign",
+      "policy": "wreck_first",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 10.973625000000002,
+      "probability_at_least_8": 0.9112541646832718
+    },
+    {
+      "endpoint": "full_campaign",
+      "policy": "wreck_first",
+      "candidate": "B",
+      "guaranteed_titan_iron": 3,
+      "mean_iron": 13.973625000000002,
+      "probability_at_least_8": 0.9956755855995992
+    },
+    {
+      "endpoint": "full_campaign",
+      "policy": "wreck_first",
+      "candidate": "C",
+      "guaranteed_titan_iron": 6,
+      "mean_iron": 16.973625000000002,
+      "probability_at_least_8": 0.9999812405691934
+    },
+    {
+      "endpoint": "three_independent_Kraken_voyages",
+      "policy": "uniform",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 3.15,
+      "probability_at_least_8": 0.008323238858166462
+    },
+    {
+      "endpoint": "three_independent_Kraken_voyages",
+      "policy": "uniform",
+      "candidate": "B",
+      "guaranteed_titan_iron": 3,
+      "mean_iron": 6.15,
+      "probability_at_least_8": 0.19747140454813872
+    },
+    {
+      "endpoint": "three_independent_Kraken_voyages",
+      "policy": "uniform",
+      "candidate": "C",
+      "guaranteed_titan_iron": 6,
+      "mean_iron": 9.15,
+      "probability_at_least_8": 0.844961875661942
+    },
+    {
+      "endpoint": "three_independent_Kraken_voyages",
+      "policy": "wreck_first",
+      "candidate": "A",
+      "guaranteed_titan_iron": 0,
+      "mean_iron": 8.103375000000002,
+      "probability_at_least_8": 0.5999152357919313
+    },
+    {
+      "endpoint": "three_independent_Kraken_voyages",
+      "policy": "wreck_first",
+      "candidate": "B",
+      "guaranteed_titan_iron": 3,
+      "mean_iron": 11.103375000000002,
+      "probability_at_least_8": 0.9513702567591605
+    },
+    {
+      "endpoint": "three_independent_Kraken_voyages",
+      "policy": "wreck_first",
+      "candidate": "C",
+      "guaranteed_titan_iron": 6,
+      "mean_iron": 14.103375000000002,
+      "probability_at_least_8": 0.9994923931210469
+    }
+  ]
+}

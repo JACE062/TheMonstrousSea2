@@ -1,0 +1,182 @@
+{
+  "assumptions": "Exact source-derived iron opportunity model; no combat/saves/core mutations.\n\nAssumes survival through each endpoint; starting iron 0; no spending, Nemesis,\npacts or captain traits; always Search Hold. Uniform means choose headings\nwithout reference to type; wreck-first takes any available wreck. These are\nopportunity models, not human/bot outcome estimates. R1 leg1 forced combat;\nR2/R3 leg1 deadAhead forced combat while the two side offers are random.\n",
+  "baseline": {
+    "R1_leg4_or_midpoint": [
+      {
+        "policy": "uniform",
+        "procedural_slots": 3,
+        "expected_wrecks": 0.44999999999999996,
+        "expected_iron": 0.11249999999999999,
+        "probability_zero": 0.8916660156250001,
+        "probability_afford_iron": 0
+      },
+      {
+        "policy": "wreck_first",
+        "procedural_slots": 3,
+        "expected_wrecks": 1.1576250000000003,
+        "expected_iron": 0.2894062500000001,
+        "probability_zero": 0.7376146497954408,
+        "probability_afford_iron": 0
+      }
+    ],
+    "Kraken": [
+      {
+        "policy": "uniform",
+        "procedural_slots": 7,
+        "expected_wrecks": 1.05,
+        "expected_iron": 0.2625,
+        "probability_zero": 0.7652532227922919,
+        "probability_afford_iron": 0
+      },
+      {
+        "policy": "wreck_first",
+        "procedural_slots": 7,
+        "expected_wrecks": 2.7011250000000007,
+        "expected_iron": 0.6752812500000002,
+        "probability_zero": 0.4915891005895029,
+        "probability_afford_iron": 0
+      }
+    ],
+    "World_Serpent": [
+      {
+        "policy": "uniform",
+        "procedural_slots": 17,
+        "expected_wrecks": 2.5,
+        "expected_iron": 0.625,
+        "probability_zero": 0.5289521985545121,
+        "probability_afford_iron": 5.953485454535219e-08
+      },
+      {
+        "policy": "wreck_first",
+        "procedural_slots": 17,
+        "expected_wrecks": 6.451500000000001,
+        "expected_iron": 1.6128750000000003,
+        "probability_zero": 0.18359699190664816,
+        "probability_afford_iron": 7.203232151246778e-05
+      }
+    ],
+    "full_campaign": [
+      {
+        "policy": "uniform",
+        "procedural_slots": 29,
+        "expected_wrecks": 4.25,
+        "expected_iron": 1.0625,
+        "probability_zero": 0.33871089176609215,
+        "probability_afford_iron": 6.93056261817681e-06
+      },
+      {
+        "policy": "wreck_first",
+        "procedural_slots": 29,
+        "expected_wrecks": 10.973625000000002,
+        "expected_iron": 2.7434062500000005,
+        "probability_zero": 0.055977723580468645,
+        "probability_afford_iron": 0.004446737272541364
+      }
+    ]
+  },
+  "unapproved_candidate_sensitivity": {
+    "chance50": {
+      "R1_leg4_or_midpoint": {
+        "policy": "wreck_first",
+        "procedural_slots": 3,
+        "expected_wrecks": 1.1576250000000003,
+        "expected_iron": 0.5788125000000002,
+        "probability_zero": 0.5256800616447754,
+        "probability_afford_iron": 0
+      },
+      "Kraken": {
+        "policy": "wreck_first",
+        "procedural_slots": 7,
+        "expected_wrecks": 2.7011250000000007,
+        "expected_iron": 1.3505625000000003,
+        "probability_zero": 0.22302326967961056,
+        "probability_afford_iron": 0
+      },
+      "World_Serpent": {
+        "policy": "wreck_first",
+        "procedural_slots": 17,
+        "expected_wrecks": 6.451500000000001,
+        "expected_iron": 3.2257500000000006,
+        "probability_zero": 0.027902552171469946,
+        "probability_afford_iron": 0.007869036080447343
+      },
+      "full_campaign": {
+        "policy": "wreck_first",
+        "procedural_slots": 29,
+        "expected_wrecks": 10.973625000000002,
+        "expected_iron": 5.486812500000001,
+        "probability_zero": 0.0022737987103658777,
+        "probability_afford_iron": 0.1679856710185015
+      }
+    },
+    "quantity2": {
+      "R1_leg4_or_midpoint": {
+        "policy": "wreck_first",
+        "procedural_slots": 3,
+        "expected_wrecks": 1.1576250000000003,
+        "expected_iron": 0.5788125000000002,
+        "probability_zero": 0.7376146497954408,
+        "probability_afford_iron": 0
+      },
+      "Kraken": {
+        "policy": "wreck_first",
+        "procedural_slots": 7,
+        "expected_wrecks": 2.7011250000000007,
+        "expected_iron": 1.3505625000000003,
+        "probability_zero": 0.4915891005895029,
+        "probability_afford_iron": 0.0023842647360733517
+      },
+      "World_Serpent": {
+        "policy": "wreck_first",
+        "procedural_slots": 17,
+        "expected_wrecks": 6.451500000000001,
+        "expected_iron": 3.2257500000000006,
+        "probability_zero": 0.18359699190664816,
+        "probability_afford_iron": 0.07068827352035316
+      },
+      "full_campaign": {
+        "policy": "wreck_first",
+        "procedural_slots": 29,
+        "expected_wrecks": 10.973625000000002,
+        "expected_iron": 5.486812500000001,
+        "probability_zero": 0.055977723580468645,
+        "probability_afford_iron": 0.2923819253306433
+      }
+    },
+    "cost4": {
+      "R1_leg4_or_midpoint": {
+        "policy": "wreck_first",
+        "procedural_slots": 3,
+        "expected_wrecks": 1.1576250000000003,
+        "expected_iron": 0.2894062500000001,
+        "probability_zero": 0.7376146497954408,
+        "probability_afford_iron": 0
+      },
+      "Kraken": {
+        "policy": "wreck_first",
+        "procedural_slots": 7,
+        "expected_wrecks": 2.7011250000000007,
+        "expected_iron": 0.6752812500000002,
+        "probability_zero": 0.4915891005895029,
+        "probability_afford_iron": 0.0023842647360733517
+      },
+      "World_Serpent": {
+        "policy": "wreck_first",
+        "procedural_slots": 17,
+        "expected_wrecks": 6.451500000000001,
+        "expected_iron": 1.6128750000000003,
+        "probability_zero": 0.18359699190664816,
+        "probability_afford_iron": 0.07068827352035316
+      },
+      "full_campaign": {
+        "policy": "wreck_first",
+        "procedural_slots": 29,
+        "expected_wrecks": 10.973625000000002,
+        "expected_iron": 2.7434062500000005,
+        "probability_zero": 0.055977723580468645,
+        "probability_afford_iron": 0.2923819253306433
+      }
+    }
+  },
+  "expected_searched_wrecks_for_8_at_baseline": 32
+}
