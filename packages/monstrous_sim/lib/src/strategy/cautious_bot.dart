@@ -26,7 +26,7 @@ class CautiousBot implements BotStrategy {
       case SessionPhase.stronghold:
         final ship = session.ship;
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;
-        if (hasTreasure) {
+        if (hasTreasure && session.phase == SessionPhase.stronghold) {
           return const VisitMerchant();
         }
         if (ship != null && ship.currentHp < ship.maxHp) {

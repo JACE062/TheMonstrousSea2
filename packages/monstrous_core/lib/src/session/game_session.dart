@@ -161,8 +161,11 @@ class GameSession {
   List<Item> merchantStock = <Item>[];
   MaterialShipment? merchantMaterials;
   MaterialShipment? smugglerMaterials;
-  MaterialShipment? get currentMaterialShipment => phase == SessionPhase.smuggler
-      ? smugglerMaterials : phase == SessionPhase.merchant ? merchantMaterials : null;
+  bool get canTradeAtCurrentMerchant => phase == SessionPhase.smuggler ||
+      (phase == SessionPhase.merchant &&
+          (merchantReturnPhase == SessionPhase.stronghold || merchantReturnPhase == SessionPhase.helm));
+  MaterialShipment? get currentMaterialShipment => !canTradeAtCurrentMerchant ? null
+      : phase == SessionPhase.smuggler ? smugglerMaterials : merchantMaterials;
   int materialUnitPrice(TradeMaterial material) => material == TradeMaterial.seaGlass
       ? seaChart.tuning.economy.glassPrice : seaChart.tuning.economy.ironPrice;
   int? onSaleMerchantIndex;
@@ -2535,8 +2538,8 @@ class GameSession {
   }
 
   List<GameEvent> _handleVisitMerchant() {
-    if (phase != SessionPhase.port && phase != SessionPhase.stronghold) {
-      throw StateError('Cannot visit merchant from $phase');
+    if (phase != SessionPhase.stronghold) {
+      throw StateError('Merchants are only available during the voyage.');
     }
     final prevPhase = phase.displayName;
     merchantReturnPhase = phase;
@@ -2565,7 +2568,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleBuyMerchantItem(int stockIndex) {
-    if ((phase != SessionPhase.merchant && phase != SessionPhase.smuggler) || ship == null) {
+    if (!canTradeAtCurrentMerchant || ship == null) {
       throw StateError('Cannot buy items outside of merchant shop or smuggler ketch');
     }
     final stock = phase == SessionPhase.smuggler ? smugglerStock : merchantStock;
@@ -2610,7 +2613,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleSellCargoItem(int cargoIndex) {
-    if ((phase != SessionPhase.merchant && phase != SessionPhase.smuggler) || ship == null) {
+    if (!canTradeAtCurrentMerchant || ship == null) {
       throw StateError('Cannot sell items outside of merchant shop or smuggler ketch');
     }
     if (cargoIndex < 0 || cargoIndex >= ship!.cargo.length) {
@@ -2625,7 +2628,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleSellAllTreasure() {
-    if (ship == null) throw StateError('No ship available');
+    if (!canTradeAtCurrentMerchant || ship == null) throw StateError('No merchant is available here.');
     final (totalGold, itemsSold) = sellAllTreasure(ship!);
     return <GameEvent>[
       AllTreasureSold(totalGold: totalGold, itemsSold: itemsSold),

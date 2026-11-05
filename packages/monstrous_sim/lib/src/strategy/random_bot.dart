@@ -34,7 +34,7 @@ class RandomBot implements BotStrategy {
           if (session.repairHpFor(0.5) > 0 && ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
           }
-        } else if (roll == 1) {
+        } else if (roll == 1 && session.phase == SessionPhase.stronghold) {
           return const VisitMerchant();
         }
         return session.phase == SessionPhase.stronghold

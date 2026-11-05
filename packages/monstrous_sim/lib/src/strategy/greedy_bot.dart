@@ -26,7 +26,7 @@ class GreedyBot implements BotStrategy {
       case SessionPhase.stronghold:
         final ship = session.ship;
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;
-        if (hasTreasure) {
+        if (hasTreasure && session.phase == SessionPhase.stronghold) {
           return const VisitMerchant();
         }
         // Minimal repair only if critically damaged and can afford

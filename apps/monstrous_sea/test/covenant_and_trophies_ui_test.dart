@@ -283,7 +283,8 @@ void main() {
         findsOneWidget,
       );
       expect(find.textContaining('hums in the keel'), findsNothing);
-      for (final action in ['MERCHANT', 'BLUEPRINTS', 'SEA CHART']) {
+      expect(find.text('MERCHANT'), findsNothing);
+      for (final action in ['BLUEPRINTS', 'SEA CHART']) {
         expect(find.text(action), findsOneWidget);
       }
 

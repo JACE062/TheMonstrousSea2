@@ -132,7 +132,7 @@ final class VentureOutToSea extends Command {
   final int startingRow;
 }
 
-/// Enters the merchant shop in port.
+/// Enters the merchant shop at a mid-voyage stronghold.
 final class VisitMerchant extends Command {
   const VisitMerchant();
 }

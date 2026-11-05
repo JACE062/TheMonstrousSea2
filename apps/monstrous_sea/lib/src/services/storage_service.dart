@@ -97,19 +97,22 @@ class StorageService {
     final injected = legacyDirectory;
     if (injected != null) return injected;
 
-    // The previous implementation used Documents, falling back to system temp
-    // when the platform lookup failed. Import a single source, never mix them.
-    final candidates = <Directory>[];
+    return findLegacyDocumentsDirectory();
+  }
+
+  /// Automatic discovery must never resurrect arbitrary files from shared temp.
+  /// An explicitly supplied legacyDirectory still permits a deliberate import.
+  static Future<Directory?> findLegacyDocumentsDirectory({
+    Future<Directory> Function()? documentsDirectory,
+  }) async {
     try {
-      candidates.add(await getApplicationDocumentsDirectory());
-    } catch (_) {
-      /* A legacy temp save may still exist. */
-    }
-    candidates.add(Directory.systemTemp);
-    for (final candidate in candidates) {
+      final candidate =
+          await (documentsDirectory ?? getApplicationDocumentsDirectory)();
       for (final name in _saveFileNames) {
         if (await _fileIn(candidate, name).exists()) return candidate;
       }
+    } catch (_) {
+      // Missing Documents is a fresh installation, not a search of test residue.
     }
     return null;
   }

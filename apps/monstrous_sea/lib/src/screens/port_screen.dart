@@ -1242,12 +1242,6 @@ class _PortScreenState extends State<PortScreen> {
                       children: [
                         InkButton(
                           width: width,
-                          label: 'MERCHANT',
-                          onPressed: () =>
-                              controller.dispatch(const VisitMerchant()),
-                        ),
-                        InkButton(
-                          width: width,
                           label: 'BLUEPRINTS',
                           onPressed: () => _showBlueprintsDialog(context),
                         ),

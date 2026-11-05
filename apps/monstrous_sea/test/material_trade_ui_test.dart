@@ -24,6 +24,7 @@ void main() {
       addTearDown(controller.dispose);
       controller.session
         ..phase = SessionPhase.merchant
+        ..merchantReturnPhase = SessionPhase.stronghold
         ..merchantMaterials = MaterialShipment(
           id: 'shop',
           seaGlass: 1,
