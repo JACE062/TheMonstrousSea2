@@ -1,0 +1,65 @@
+{
+  "baseSeed": 20261105,
+  "stride": 31,
+  "seedsPerCell": 200,
+  "initialNormalGold": [
+    [
+      40,
+      50
+    ],
+    [
+      70,
+      90
+    ],
+    [
+      100,
+      130
+    ]
+  ],
+  "revisedNormalGold": [
+    [
+      40,
+      50
+    ],
+    [
+      55,
+      70
+    ],
+    [
+      70,
+      90
+    ]
+  ],
+  "apexMultiplier": 1.5,
+  "titanMultiplier": 2,
+  "fullUpgradeCost": 1390,
+  "unchangedParameterAuthority": "docs/design/voyage-economy.md#provisional-implementation-parameters",
+  "baselineReproduction": "dart run bin/navigation_audit.dart NEW_OUTPUT_DIRECTORY 200 initial-income",
+  "revisedReproduction": "dart run bin/navigation_audit.dart NEW_OUTPUT_DIRECTORY 200",
+  "realCombat": "live mode only; none completed three regions",
+  "attritionReplay": {
+    "ordinaryHullLoss": [
+      15,
+      22,
+      30
+    ],
+    "titanHullLoss": [
+      35,
+      50,
+      70
+    ]
+  },
+  "harshReplay": {
+    "ordinaryHullLoss": [
+      30,
+      40,
+      50
+    ],
+    "titanHullLoss": [
+      35,
+      50,
+      70
+    ]
+  },
+  "replayWarning": "Forced creature settlement and hull clamp at one; completion is assumed route access, not a survival result."
+}

@@ -99,6 +99,12 @@ Regional-combat receipt: [Sargasso haze's approved 10% accuracy floor, 30 Octobe
 
 Chronicle receipt: [Actual Titan names at encounter opening, 30 October 2026](playtests/BOSS_CHRONICLE_2026_10_30.md), correcting the separate hardcoded Kraken line and duplicated intent article.
 
+Economy investigation: [Voyage gold, iron and service access, 30 October 2026](playtests/VOYAGE_ECONOMY_2026_10_30.md), including real purchase-policy baselines, isolated unapproved reward/price comparisons, iron opportunity models and a separate navigation-difficulty discrepancy. No production tuning or route changes were made; decisions remain in the current discussion and PT2-28/29.
+
 ## Explicit historical access
 
 Default ripgrep searches exclude this directory and the separate historical art archive. Use `rg --no-ignore <pattern> docs/archive` only when history is needed; cite the source revision and compare it with the current rules before applying any idea. Reintroducing a retired mechanic requires an explicit new design decision, not discovery of an old approved-looking paragraph.
+
+## Navigation refactor verification 2026-11-05
+
+[The implementation and economy receipt](playtests/NAVIGATION_REFACTOR_2026_11_05.md) retains WP0–WP6 correctness/visual checks, initial/revised seeded comparisons, explicitly separated live combat and assumed attrition replays, and matched hunt/wreck receipts. Tuning remains provisional; player replay is outstanding. The [source/data manifest](playtests/evidence/navigation-refactor-2026-11-05/manifest.json) indexes new evidence without replacing the October audit.

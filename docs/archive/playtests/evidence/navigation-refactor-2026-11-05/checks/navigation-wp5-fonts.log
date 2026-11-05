@@ -1,0 +1,12 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/integrated_chart_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: bearings have distinct stable geometry and route resumes forward
+00:00 +1: integrated chart region 0 at 360.0, scaled and reduced motion
+00:01 +2: integrated chart region 1 at 360.0, scaled and reduced motion
+00:01 +3: integrated chart region 2 at 360.0, scaled and reduced motion
+00:01 +4: integrated chart region 0 at 1280.0, scaled and reduced motion
+00:01 +5: integrated chart region 1 at 1280.0, scaled and reduced motion
+00:01 +6: integrated chart region 2 at 1280.0, scaled and reduced motion
+00:01 +7: history labels never infer settlement from arrival
+00:01 +8: (tearDownAll)
+00:02 +8: All tests passed!

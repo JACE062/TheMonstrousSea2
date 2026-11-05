@@ -1,0 +1,7 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/material_trade_ui_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: finite material trade works with a full belt at 360.0
+00:00 +1: finite material trade works with a full belt at 1280.0
+00:00 +2: empty shipment remains visible and no shop stock appears before arrival
+00:00 +3: (tearDownAll)
+00:00 +3: All tests passed!
