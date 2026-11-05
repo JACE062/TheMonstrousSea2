@@ -100,6 +100,8 @@ class NarrationFormatter {
         'Stowed ${item.name} (${item.value}g) into the cargo hold.',
       ItemSold(:final item, :final goldEarned) =>
         'Sold ${item.name} to the merchant for ${goldEarned}g.',
+      MaterialPurchased(:final material, :final quantity, :final goldCost) =>
+        'Bought $quantity ${material.displayName} for ${goldCost}g. Stored with permanent materials.',
       AllTreasureSold(:final totalGold, :final itemsSold) =>
         'Sold $itemsSold treasures at port for a total of ${totalGold}g.',
       ShipRepaired(:final repairedHp, :final goldCost, :final newHp) =>
@@ -231,6 +233,8 @@ class NarrationFormatter {
           monsterName: monsterName,
           shipName: shipName,
         ),
+      HullPatchApplied(:final restoredHp, :final newHp) =>
+        'Hull Patch Kit used: restored $restoredHp HP (hull $newHp).',
       HardpointTempered(:final slot, :final newMark, :final goldCost) =>
         'Tempered ${slot.displayName} fitting to Mk ${newMark == 2 ? 'II' : 'III'} for ${goldCost}g!',
     };

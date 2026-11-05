@@ -390,6 +390,7 @@ void main() {
       // Temper Broadside to Mk II (60g, 1.20x)
       session.phase = SessionPhase.respiteIsland;
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
       final temper1 = session.dispatch(const TemperHardpoint(HardpointType.broadside));
       expect(temper1.whereType<HardpointTempered>().single.newMark, equals(2));
       expect(ship.gold, equals(240));

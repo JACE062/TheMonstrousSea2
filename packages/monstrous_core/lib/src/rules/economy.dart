@@ -4,6 +4,36 @@ import '../content/consumables.dart';
 import '../model/combatant.dart';
 import '../model/item.dart';
 import '../rng/game_rng.dart';
+import '../config/voyage_economy_tuning.dart';
+import '../model/material_shipment.dart';
+
+MaterialShipment generateMaterialShipment(String id, GameRng rng, {
+  required bool ketch,
+  VoyageEconomyTuning tuning = VoyageEconomyTuning.provisional,
+}) => MaterialShipment(
+  id: id,
+  seaGlass: ketch
+      ? (rng.d100() <= tuning.ketchGlassChance ? rng.nextIntRange(tuning.ketchGlassMin, tuning.ketchGlassMax) : 0)
+      : rng.nextIntRange(tuning.reliableGlassMin, tuning.reliableGlassMax),
+  depthWroughtIron: ketch ? (rng.d100() <= tuning.ketchIronChance ? 1 : 0)
+      : rng.nextIntRange(tuning.reliableIronMin, tuning.reliableIronMax),
+);
+
+/// Bounty authority for the new flow. Geometry does not affect income.
+/// Titan levels overlap the next region's opening levels: map them explicitly.
+int calculateVoyageVictoryGold(int encounterLevel, GameRng rng, {
+  bool isApex = false, bool isTitan = false,
+  VoyageEconomyTuning tuning = VoyageEconomyTuning.provisional,
+}) {
+  final region = ((encounterLevel - (isTitan ? 2 : 1)) ~/ 4).clamp(0, 2);
+  final (low, high) = switch (region) {
+    0 => (tuning.shoalsGoldMin, tuning.shoalsGoldMax),
+    1 => (tuning.driftGoldMin, tuning.driftGoldMax),
+    _ => (tuning.reachGoldMin, tuning.reachGoldMax),
+  };
+  final multiplier = isTitan ? tuning.titanMultiplier : isApex ? tuning.apexMultiplier : 1.0;
+  return (rng.nextIntRange(low, high) * multiplier).round();
+}
 
 /// Generates 3-5 Tactical Belt [Consumable] items for the merchant's inventory.
 ///

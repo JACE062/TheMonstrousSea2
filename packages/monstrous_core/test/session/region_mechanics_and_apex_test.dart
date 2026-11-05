@@ -3,32 +3,32 @@ import 'package:test/test.dart';
 
 void main() {
   group('Escalating Region Lengths & Waypoint Formulas', () {
-    test('Region 1 (The Siren Shoals) is 10 legs with Haven @ 5 and Kraken @ 10', () {
+    test('Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11', () {
       final chart = SeaChart();
       expect(chart.currentRegionIndex, 0);
       expect(chart.totalLegs, 10);
       expect(chart.midpointHavenLeg, 5);
-      expect(chart.regionTitanLeg, 10);
+      expect(chart.regionTitanLeg, 11);
       expect(SeaChart.totalLegsForRegion(0), 10);
       expect(SeaChart.midpointHavenLegForRegion(0), 5);
     });
 
-    test('Region 2 (The Sargasso Drift) is 12 legs with Haven @ 6 and Serpent @ 12', () {
+    test('Region 2 has 12 numbered slots, Haven @ 6 and Serpent @ 13', () {
       final chart = SeaChart(timesCompleted: 1);
       expect(chart.currentRegionIndex, 1);
       expect(chart.totalLegs, 12);
       expect(chart.midpointHavenLeg, 6);
-      expect(chart.regionTitanLeg, 12);
+      expect(chart.regionTitanLeg, 13);
       expect(SeaChart.totalLegsForRegion(1), 12);
       expect(SeaChart.midpointHavenLegForRegion(1), 6);
     });
 
-    test('Region 3 (The Boiling Reach) is 14 legs with Haven @ 7 and Leviathan @ 14', () {
+    test('Region 3 has 14 numbered slots, Haven @ 7 and Leviathan @ 15', () {
       final chart = SeaChart(timesCompleted: 2);
       expect(chart.currentRegionIndex, 2);
       expect(chart.totalLegs, 14);
       expect(chart.midpointHavenLeg, 7);
-      expect(chart.regionTitanLeg, 14);
+      expect(chart.regionTitanLeg, 15);
       expect(SeaChart.totalLegsForRegion(2), 14);
       expect(SeaChart.midpointHavenLegForRegion(2), 7);
     });
@@ -38,7 +38,8 @@ void main() {
     test('Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit', () {
       final session = GameSession(rng: SeededGameRng(123));
       session.dispatch(const ChooseShip(ShipClass.standard));
-      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg; // Leg 5 in R1
+      session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven; // Leg 5 in R1
       session.seaChart.setNodeTypeAt(
         session.seaChart.currentRow,
         session.seaChart.currentCol,
@@ -94,7 +95,7 @@ void main() {
       );
     });
 
-    test('Haven forage awards 40-60 gold while Cove forage awards 25-35 gold', () {
+    test('provisional Haven forage awards 8-14 gold, Cove forage 5-10 gold', () {
       final session = GameSession(rng: SeededGameRng(789));
       session.dispatch(const ChooseShip(ShipClass.standard));
 
@@ -106,16 +107,17 @@ void main() {
 
       final coveEvents = session.dispatch(const ForageShoalsAtIsland());
       final coveForaged = coveEvents.whereType<IslandForaged>().first;
-      expect(coveForaged.goldFound, inInclusiveRange(25, 35));
+      expect(coveForaged.goldFound, inInclusiveRange(5, 10));
 
       // Reset shore duty & test Haven on Leg 5
       session.seaChart.currentLeg = 5;
+      session.seaChart.currentDestination = CourseDestination.midpointHaven;
       session.hasForagedAtCurrentIsland = false;
       session.ship!.gold = 0;
 
       final havenEvents = session.dispatch(const ForageShoalsAtIsland());
       final havenForaged = havenEvents.whereType<IslandForaged>().first;
-      expect(havenForaged.goldFound, inInclusiveRange(40, 60));
+      expect(havenForaged.goldFound, inInclusiveRange(8, 14));
     });
   });
 

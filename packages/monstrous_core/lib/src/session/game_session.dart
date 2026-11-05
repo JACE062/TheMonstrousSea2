@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import '../config/balance_config.dart';
+import '../config/navigation_tuning.dart';
 import '../content/consumables.dart';
 import '../content/ships.dart';
 import '../lore/eldritch_lore.dart';
@@ -11,18 +12,22 @@ import '../model/covenant_of_the_deep.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
 import '../model/item.dart';
+import '../model/material_shipment.dart';
 import '../model/monster_intent.dart';
 import '../model/nemesis.dart';
 import '../model/ocean_power.dart';
+import '../model/wreck_encounter.dart';
 import '../persistence/profile_data.dart';
 import '../rng/game_rng.dart';
 import '../rules/combat.dart';
 import '../rules/economy.dart';
 import '../rules/lineage.dart';
 import '../rules/loot.dart';
+import '../rules/paid_repairs.dart';
 import '../rules/monster_ai.dart';
 import '../rules/sea_chart.dart';
 import '../rules/shrine.dart';
+import '../rules/wrecks.dart';
 import '../traits/trait.dart';
 import 'commands.dart';
 import 'events.dart';
@@ -36,9 +41,10 @@ class GameSession {
   GameSession({
     GameRng? rng,
     this.config = BalanceConfig.standard,
+    NavigationTuning navigationTuning = NavigationTuning.provisional,
     ProfileData? profile,
   })  : rng = rng ?? SeededGameRng(),
-        seaChart = SeaChart(rng: rng ?? SeededGameRng()),
+        seaChart = SeaChart(rng: rng ?? SeededGameRng(), tuning: navigationTuning),
         profile = profile ?? ProfileData();
 
   final GameRng rng;
@@ -144,6 +150,7 @@ class GameSession {
 
   /// Persists a completed encounter without retaining a live combat object.
   bool hasDefeatedCurrentEncounter = false;
+  WreckEncounter? currentWreck;
   CombatRange combatRange = CombatRange.medium;
   HelmOrder lastHelmOrderThisTurn = HelmOrder.holdLine;
   bool _disruptedBossCatastropheThisTurn = false;
@@ -152,6 +159,12 @@ class GameSession {
   int quickConsumablesUsedThisTurn = 0;
   List<Item> pendingLoot = <Item>[];
   List<Item> merchantStock = <Item>[];
+  MaterialShipment? merchantMaterials;
+  MaterialShipment? smugglerMaterials;
+  MaterialShipment? get currentMaterialShipment => phase == SessionPhase.smuggler
+      ? smugglerMaterials : phase == SessionPhase.merchant ? merchantMaterials : null;
+  int materialUnitPrice(TradeMaterial material) => material == TradeMaterial.seaGlass
+      ? seaChart.tuning.economy.glassPrice : seaChart.tuning.economy.ironPrice;
   int? onSaleMerchantIndex;
   int lastGoldSalvaged = 0;
 
@@ -167,10 +180,13 @@ class GameSession {
   /// (as opposed to a procedural emergency secluded cove).
   bool get isCurrentIslandHaven =>
       phase == SessionPhase.respiteIsland &&
-      seaChart.currentLeg == seaChart.midpointHavenLeg;
+      seaChart.currentDestination == CourseDestination.midpointHaven;
+
+  bool get isRepairRefitStop => phase == SessionPhase.respiteIsland &&
+      seaChart.currentDestination == CourseDestination.repairRefit;
 
   bool get canUseVoyageShipwright =>
-      phase == SessionPhase.stronghold || isCurrentIslandHaven;
+      phase == SessionPhase.stronghold || isCurrentIslandHaven || isRepairRefitStop;
 
   void _requireHomePort() {
     if (phase != SessionPhase.port) {
@@ -185,6 +201,38 @@ class GameSession {
       hasForagedAtCurrentIsland;
 
   int gunneryAccuracyBoon = 0;
+  int shoreDrillBoon = 0;
+  PaidRepairWork paidRepairWork = PaidRepairWork();
+
+  double? get paidRepairAllowanceFraction => phase == SessionPhase.smuggler
+      ? seaChart.tuning.services.ketchPaidFraction
+      : isCurrentIslandHaven ? seaChart.tuning.services.havenPaidFraction
+      : isRepairRefitStop ? seaChart.tuning.services.refitPaidFraction : null;
+
+  bool get hasPaidRepairService => phase == SessionPhase.stronghold ||
+      phase == SessionPhase.smuggler || isCurrentIslandHaven || isRepairRefitStop;
+
+  PaidRepairQuote? paidRepairQuote(double percentage, {int? normalWork}) {
+    if (ship == null || !ship!.isAlive || !hasPaidRepairService) return null;
+    final services = seaChart.tuning.services;
+    final price = phase == SessionPhase.smuggler
+        ? services.ketchGoldPerWork * (activeBoon?.id == BloodlineTraitId.smugglersKin ? 0.75 : 1)
+        : services.goldPerWork * (profile.isPactActive(CovenantPactId.brittleOak) ? 1.30 : 1);
+    return quotePaidRepair(ship!, paidRepairWork, percentage: percentage,
+        allowanceFraction: paidRepairAllowanceFraction, goldPerWork: price, requestedWork: normalWork);
+  }
+
+  PaidRepairQuote? get affordablePaidRepairQuote {
+    final full = paidRepairQuote(1);
+    if (full == null || full.goldCost <= ship!.gold) return full;
+    var low = 0, high = full.normalWork;
+    while (low < high) {
+      final middle = (low + high + 1) ~/ 2;
+      final quote = paidRepairQuote(1, normalWork: middle)!;
+      if (quote.goldCost <= ship!.gold) { low = middle; } else { high = middle - 1; }
+    }
+    return paidRepairQuote(1, normalWork: low);
+  }
 
   /// Included in both actual shot rolls and the app's opening-shot preview.
   int get captainWeaponAccuracyModifier =>
@@ -196,8 +244,12 @@ class GameSession {
       return 'Only a Storm-Seer can redraw headings.';
     }
     final options = seaChart.currentCourseOptions;
+    if (options.any((o) => o.destination == CourseDestination.repairRefit ||
+        o.destination == CourseDestination.specialistMerchant)) {
+      return 'Final preparation destinations cannot be redrawn.';
+    }
     if (options.length <= 1) {
-      return 'Havens and Region Titans have a fixed course.';
+      return 'This encounter has a fixed course.';
     }
     if (activeQuirk?.id == BloodlineTraitId.bloodOath &&
         options.any((option) => option.isNemesis)) {
@@ -286,8 +338,13 @@ class GameSession {
 
   int get hullPatchHealingHp =>
       ship?.previewHealing(max(1, (ship!.maxHp * 0.30))) ?? 0;
+  bool get canUseHullPatchOutsideBattle => ship?.isAlive == true && const {
+    SessionPhase.port, SessionPhase.stronghold, SessionPhase.merchant,
+    SessionPhase.helm, SessionPhase.loot, SessionPhase.respiteIsland,
+    SessionPhase.shipwreck, SessionPhase.smuggler,
+  }.contains(phase);
   int get careenHealingHp =>
-      _shoreHealingHp(isCurrentIslandHaven ? 0.30 : 0.20);
+      _shoreHealingHp(isCurrentIslandHaven ? seaChart.tuning.services.havenCareenFraction : seaChart.tuning.services.coveCareenFraction);
   int get wreckTimbersHealingHp => _shoreHealingHp(0.25);
   int _shoreHealingHp(double fraction) {
     if (ship == null) return 0;
@@ -307,22 +364,13 @@ class GameSession {
     return ship!.nominalHealingFor(desired);
   }
 
-  int repairHpFor(double percentage) =>
-      ship == null ? 0 : ship!.previewHealing(_repairNominal(percentage));
+  int repairHpFor(double percentage) => (phase == SessionPhase.restArea || phase == SessionPhase.helm)
+      ? ship == null ? 0 : ship!.previewHealing(_repairNominal(percentage))
+      : paidRepairQuote(percentage)?.restoredHp ?? 0;
   int repairCostFor(double percentage) {
-    final nominal = _repairNominal(percentage);
-    if (phase == SessionPhase.restArea || phase == SessionPhase.helm) {
-      return nominal * 2;
-    }
-    if (phase == SessionPhase.smuggler) {
-      return (nominal *
-              1.5 *
-              (activeBoon?.id == BloodlineTraitId.smugglersKin ? 0.75 : 1))
-          .ceil();
-    }
-    return (nominal *
-            (profile.isPactActive(CovenantPactId.brittleOak) ? 1.30 : 1))
-        .ceil();
+    if (hasPaidRepairService) return paidRepairQuote(percentage)?.goldCost ?? 0;
+    if (phase == SessionPhase.restArea || phase == SessionPhase.helm) return _repairNominal(percentage) * 2;
+    return 0;
   }
 
   bool get isRegionBossEncounter =>
@@ -344,9 +392,12 @@ class GameSession {
   }
 
   /// Refreshes the merchant's wares and randomly designates one item as on-sale.
-  void refreshMerchantStock([int? difficulty]) {
+  void refreshMerchantStock([int? difficulty, bool voyageMaterials = false]) {
     final diff = difficulty ?? highestDifficultyThisLife;
     merchantStock = generateMerchantStock(max(1, diff), rng);
+    merchantMaterials = voyageMaterials ? generateMaterialShipment(
+      '$shrineOmenSeed:${seaChart.timesCompleted}:${seaChart.currentLeg}:merchant', rng,
+      ketch: false, tuning: seaChart.tuning.economy) : null;
     onSaleMerchantIndex =
         merchantStock.isNotEmpty ? rng.nextInt(merchantStock.length) : null;
   }
@@ -393,6 +444,7 @@ class GameSession {
         targetRange,
       ),
       UseConsumableItem(:final cargoIndex) => _handleUseConsumable(cargoIndex),
+      UseHullPatchKit(:final itemId, :final fromPendingLoot) => _handleUseHullPatchKit(itemId, fromPendingLoot: fromPendingLoot),
       ExecuteShipSpecialAction(:final borrowNextAction) =>
         _handleShipSpecialAction(borrowNextAction: borrowNextAction),
       ClaimSmugglerGift(:final stockIndex) => _handleClaimSmugglerGift(
@@ -411,9 +463,12 @@ class GameSession {
       VisitMerchant() => _handleVisitMerchant(),
       LeaveMerchant() => _handleLeaveMerchant(),
       BuyMerchantItem(:final stockIndex) => _handleBuyMerchantItem(stockIndex),
+      BuyMerchantMaterial(:final shipmentId, :final material, :final quantity) =>
+        _handleBuyMerchantMaterial(shipmentId, material, quantity),
       SellCargoItem(:final cargoIndex) => _handleSellCargoItem(cargoIndex),
       SellAllTreasure() => _handleSellAllTreasure(),
       RepairShip(:final percentage) => _handleRepairShip(percentage),
+      BuyAffordablePaidRepairs() => _handleAffordablePaidRepairs(),
       UpgradeShip() => _handleUpgradeShip(),
       TemperHardpoint(:final slot) => _handleTemperHardpoint(slot),
       ContinueLineage(
@@ -429,6 +484,7 @@ class GameSession {
       ForageShoalsAtIsland() => _handleForageShoalsAtIsland(),
       DepartIsland() => _handleDepartIsland(),
       SalvageShipwreck(:final choice) => _handleSalvageShipwreck(choice),
+      ChooseWreckRecovery(:final wreckId, :final choice) => _handleChooseWreckRecovery(wreckId, choice),
       ClaimExpeditionVictory() => _handleClaimExpeditionVictory(),
       ResolveCalderaClimax(:final choice) => _handleResolveCalderaClimax(choice),
       ToggleCovenantPact(:final pactId) => _handleToggleCovenantPact(pactId),
@@ -745,6 +801,7 @@ class GameSession {
     // A departure from port begins a fresh voyage; blessings are run-scoped.
     ship?.blessings.clear();
     gunneryAccuracyBoon = 0;
+    shoreDrillBoon = 0;
     runicGuidanceBoon = 0;
     shrineManifestedPowers = const [];
     stormSeerRedrawRegion = null;
@@ -786,7 +843,15 @@ class GameSession {
   List<GameEvent> _handleAdvanceToNextBattle() {
     if (phase == SessionPhase.stronghold) return _handleTakeHelm();
     if (phase == SessionPhase.helm) {
-      return _handleSteerCourse(NavigationalBearing.deadAhead);
+      final offered = seaChart.ensureCourseOptions(rng, profile.activeNemesis,
+          profile.isPactActive(CovenantPactId.chokingFog),
+          profile.isPactActive(CovenantPactId.apexEmergence),
+          activeQuirk?.id == BloodlineTraitId.superstitious,
+          activeQuirk?.id == BloodlineTraitId.bloodOath);
+      final available = offered.where((o) => courseRestriction(o.bearing) == null);
+      final chosen = available.where((o) => o.bearing == NavigationalBearing.deadAhead).firstOrNull
+          ?? available.first;
+      return _handleSteerCourse(chosen.bearing);
     }
     if (phase == SessionPhase.smuggler) {
       return _handleDepartSmuggler();
@@ -800,9 +865,10 @@ class GameSession {
     if (phase == SessionPhase.shipwreck && pendingLoot.isNotEmpty) {
       throw StateError('Stow or leave the remaining wreck supplies before departing');
     }
-    if (phase == SessionPhase.shipwreck && !hasSalvagedCurrentWreck) {
+    if (phase == SessionPhase.shipwreck &&
+        (currentWreck != null ? !currentWreck!.isSettled : !hasSalvagedCurrentWreck)) {
       throw StateError(
-          'Must choose a salvage action before departing the shipwreck derelict');
+          'Resolve the current wreck or choose an empty pass-by before departing');
     }
 
     // Check if we just defeated the Region Boss at [3][4] or leg totalLegs
@@ -829,9 +895,10 @@ class GameSession {
         // Transition to next region via after-region stronghold!
         final prevRegion = seaChart.currentRegionName;
         seaChart.advanceRegion(rng);
+        paidRepairWork = PaidRepairWork();
         final nextRegion = seaChart.currentRegionName;
         final stronghold = seaChart.currentPortName;
-        refreshMerchantStock(seaChart.currentDifficulty);
+        refreshMerchantStock(seaChart.currentDifficulty, true);
 
         final prevPhase = phase.displayName;
         phase = SessionPhase.stronghold;
@@ -865,7 +932,8 @@ class GameSession {
                       (o) => o.bearing != NavigationalBearing.deadAhead,
                     )
                     .bearing
-              : NavigationalBearing.deadAhead);
+              : options.any((o) => o.bearing == NavigationalBearing.deadAhead)
+                  ? NavigationalBearing.deadAhead : options.first.bearing);
       events.addAll(_handleSteerCourse(bearing));
     }
     return events;
@@ -878,13 +946,15 @@ class GameSession {
         phase != SessionPhase.smuggler &&
         phase != SessionPhase.shrine &&
         phase != SessionPhase.port &&
-        phase != SessionPhase.stronghold) {
+        phase != SessionPhase.stronghold &&
+        !(phase == SessionPhase.merchant && merchantReturnPhase == SessionPhase.helm)) {
       throw StateError('Cannot take helm from phase $phase');
     }
     if (phase == SessionPhase.port) {
       _resetVoyageRefits();
       ship?.blessings.clear();
       gunneryAccuracyBoon = 0;
+      shoreDrillBoon = 0;
       runicGuidanceBoon = 0;
       shrineManifestedPowers = const [];
       stormSeerRedrawRegion = null;
@@ -895,9 +965,10 @@ class GameSession {
     if (phase == SessionPhase.shipwreck && pendingLoot.isNotEmpty) {
       throw StateError('Stow or leave the remaining wreck supplies before departing');
     }
-    if (phase == SessionPhase.shipwreck && !hasSalvagedCurrentWreck) {
+    if (phase == SessionPhase.shipwreck &&
+        (currentWreck != null ? !currentWreck!.isSettled : !hasSalvagedCurrentWreck)) {
       throw StateError(
-          'Must choose a salvage action before departing the shipwreck derelict');
+          'Resolve the current wreck or choose an empty pass-by before departing');
     }
 
     // Check if we just defeated the Region Boss at [3][4] or leg totalLegs
@@ -922,9 +993,10 @@ class GameSession {
       } else {
         final prevRegion = seaChart.currentRegionName;
         seaChart.advanceRegion(rng);
+        paidRepairWork = PaidRepairWork();
         final nextRegion = seaChart.currentRegionName;
         final stronghold = seaChart.currentPortName;
-        refreshMerchantStock(seaChart.currentDifficulty);
+        refreshMerchantStock(seaChart.currentDifficulty, true);
 
         final prevPhase = phase.displayName;
         phase = SessionPhase.stronghold;
@@ -951,6 +1023,7 @@ class GameSession {
       profile.isPactActive(CovenantPactId.chokingFog),
       profile.isPactActive(CovenantPactId.apexEmergence),
       activeQuirk?.id == BloodlineTraitId.superstitious,
+      activeQuirk?.id == BloodlineTraitId.bloodOath,
     );
     return <GameEvent>[
       PhaseChanged(
@@ -979,6 +1052,7 @@ class GameSession {
       profile.isPactActive(CovenantPactId.chokingFog),
       profile.isPactActive(CovenantPactId.apexEmergence),
       activeQuirk?.id == BloodlineTraitId.superstitious,
+      activeQuirk?.id == BloodlineTraitId.bloodOath,
     );
 
     final restriction = courseRestriction(bearing);
@@ -1043,6 +1117,9 @@ class GameSession {
 
   List<GameEvent> _startEncounter() {
     hasDefeatedCurrentEncounter = false;
+    currentMonster = null;
+    currentWreck = null;
+    paidRepairWork = PaidRepairWork();
     _resetCombatActionStages();
     if (ship == null || !ship!.isAlive) {
       return _resolvePlayerDeath();
@@ -1054,12 +1131,20 @@ class GameSession {
     final events = <GameEvent>[];
 
     final nodeType = seaChart.currentNodeType;
+    if (seaChart.currentDestination == CourseDestination.specialistMerchant) {
+      refreshMerchantStock(seaChart.currentDifficulty, true);
+      merchantReturnPhase = SessionPhase.helm;
+      final previous = phase.displayName;
+      phase = SessionPhase.merchant;
+      return [PhaseChanged(previousPhase: previous, newPhase: phase.displayName)];
+    }
     if (nodeType == EncounterNodeType.respiteIsland) {
       hasCareenedAtCurrentIsland = false;
       hasDrilledAtCurrentIsland = false;
       hasForagedAtCurrentIsland = false;
-      final isHaven = seaChart.currentLeg == seaChart.midpointHavenLeg;
-      currentIslandName = isHaven
+      final isHaven = seaChart.currentDestination == CourseDestination.midpointHaven;
+      final isRefit = seaChart.currentDestination == CourseDestination.repairRefit;
+      currentIslandName = isRefit ? 'Final Preparation Shipwright' : isHaven
           ? switch (seaChart.currentRegionIndex) {
               0 => "The Siren's Rest Haven",
               1 => "Sargasso Sanctuary Key",
@@ -1074,7 +1159,7 @@ class GameSession {
       ));
       events.add(RespiteIslandReached(
         islandName: currentIslandName,
-        description: isHaven
+        description: isRefit ? 'Paid repairs and voyage refits before the Titan. No free shore activity.' : isHaven
             ? 'A grand fortified haven with calm deep-water berths, freshwater springs, and traveling shipwrights.'
             : 'A secluded sandy atoll with calm surf, where seabirds wheel overhead offering emergency respite.',
       ));
@@ -1086,6 +1171,10 @@ class GameSession {
       wreckSalvageReceipt = <String>[];
       pendingLoot.clear();
       currentShipwreckName = _generateShipwreckName();
+      currentWreck = WreckEncounter(
+        id: '$shrineOmenSeed:${seaChart.timesCompleted}:${seaChart.currentLeg}',
+        sighting: seaChart.currentWreckSighting ?? generateWreckSighting(rng, seaChart.tuning.wrecks),
+      );
       final prevPhase = phase.displayName;
       phase = SessionPhase.shipwreck;
       events.add(PhaseChanged(
@@ -1095,8 +1184,11 @@ class GameSession {
       events.add(ShipwreckDiscovered(
         shipwreckName: currentShipwreckName,
         description:
-            'A battered merchant galleon drifting in the morning mist, hull breached and flotsam trailing behind.',
+            currentWreck!.sighting.clue,
       ));
+      if (wreckApproachAmbush(currentWreck!, seaChart.tuning.wrecks)) {
+        events.addAll(_startWreckBattle(approach: true));
+      }
       return events;
     }
 
@@ -1104,6 +1196,9 @@ class GameSession {
       hasClaimedSmugglerGift = false;
       currentSmugglerName = _generateSmugglerName();
       smugglerStock = generateMerchantStock(max(1, seaChart.currentDifficulty + 1), rng);
+      smugglerMaterials = generateMaterialShipment(
+        '$shrineOmenSeed:${seaChart.timesCompleted}:${seaChart.currentLeg}:ketch', rng,
+        ketch: true, tuning: seaChart.tuning.economy);
       final prevPhase = phase.displayName;
       phase = SessionPhase.smuggler;
       events.add(PhaseChanged(
@@ -1137,12 +1232,20 @@ class GameSession {
     }
 
     if (seaChart.currentIsNemesis && profile.activeNemesis != null) {
-      currentMonster = profile.activeNemesis!.instantiateMonster(rng);
-      isNemesisBattle = true;
-    } else {
-      currentMonster = seaChart.currentMonster(rng);
-      isNemesisBattle = false;
+      return _startBattle(profile.activeNemesis!.instantiateMonster(rng), nemesisBattle: true);
     }
+    return _startBattle(seaChart.currentMonster(rng));
+  }
+
+  List<GameEvent> _startBattle(MonsterState monster, {bool nemesisBattle = false}) {
+    hasDefeatedCurrentEncounter = false;
+    _resetCombatActionStages();
+    ship!.resetCombatBoosts();
+    ship!.resetWeaponCooldowns();
+    _purgedFrenzyThisTurn = false;
+    currentMonster = monster;
+    isNemesisBattle = nemesisBattle;
+    final events = <GameEvent>[];
     battleRound = 1;
     combatRange = CombatRange.medium;
 
@@ -1309,7 +1412,7 @@ class GameSession {
     final events = <GameEvent>[];
 
     var accuracyBoon = gunneryAccuracyBoon + captainWeaponAccuracyModifier;
-    gunneryAccuracyBoon = runicGuidanceBoon;
+    gunneryAccuracyBoon = runicGuidanceBoon + shoreDrillBoon;
 
     double damageMultiplier = profile.monumentWeaponDamageMultiplier;
     if (isDaredevilActive) {
@@ -1594,6 +1697,33 @@ class GameSession {
           ? HelmOrder.advance
           : HelmOrder.fallBack,
     );
+  }
+
+  List<GameEvent> _handleUseHullPatchKit(String itemId, {required bool fromPendingLoot}) {
+    if (!canUseHullPatchOutsideBattle || (fromPendingLoot &&
+        phase != SessionPhase.loot && phase != SessionPhase.shipwreck)) {
+      throw StateError('Hull Patch Kits cannot be used from this source here.');
+    }
+    final inventory = fromPendingLoot ? pendingLoot : ship!.cargo;
+    final index = inventory.indexWhere((item) => item.id == itemId);
+    if (index < 0) throw StateError('This kit is no longer available.');
+    final item = inventory[index];
+    if (item is! Consumable || item.type != ConsumableType.hullPatchKit || item.isDepleted) {
+      throw StateError('Only a usable Hull Patch Kit has this outside-battle role.');
+    }
+    if (hullPatchHealingHp <= 0) {
+      return const [NarrationEvent('Hull already full; the kit remains unspent.')];
+    }
+    final before = ship!.currentHp;
+    ship!.heal(max(1, ship!.maxHp * 0.30));
+    item.usesLeft = 0;
+    inventory.removeAt(index);
+    final events = <GameEvent>[HullPatchApplied(itemId: item.id,
+      fromPendingLoot: fromPendingLoot, restoredHp: ship!.currentHp - before, newHp: ship!.currentHp)];
+    if (fromPendingLoot && pendingLoot.isEmpty && phase == SessionPhase.loot) {
+      events.addAll(_finishLoot());
+    }
+    return events;
   }
 
   List<GameEvent> _handleUseConsumable(int cargoIndex) {
@@ -2118,18 +2248,25 @@ class GameSession {
     final events = <GameEvent>[];
     runicGuidanceBoon = 0;
     gunneryAccuracyBoon = 0;
+    shoreDrillBoon = 0;
     monstersDefeatedThisLife++;
     hasDefeatedCurrentEncounter = true;
+    if (currentWreck?.stage == WreckStage.fighting) {
+      currentWreck!..threatCleared = true..stage = WreckStage.recovery;
+    }
     highestDifficultyThisLife = max(
       highestDifficultyThisLife,
       seaChart.currentDifficulty,
     );
 
     final isApex = currentMonster?.isApex ?? false;
-    final rawGold = calculateVictoryGold(
+    seaChart.recordCurrentOutcome(combatWon: true, species: currentMonster?.species, apex: isApex);
+    final rawGold = calculateVoyageVictoryGold(
       seaChart.currentDifficulty,
       rng,
       isApex: isApex,
+      isTitan: !isNemesisBattle && seaChart.isRegionTitan,
+      tuning: seaChart.tuning.economy,
     );
     final goldSalvaged =
         (rawGold * profile.monumentBountyGoldMultiplier).round();
@@ -2229,11 +2366,13 @@ class GameSession {
   }
 
   List<GameEvent> _resolvePlayerDeath() {
+    if (currentWreck?.stage == WreckStage.fighting) currentWreck!.stage = WreckStage.lost;
     _resetCombatActionStages();
     final events = <GameEvent>[];
     ship?.resetCombatBoosts();
     runicGuidanceBoon = 0;
     gunneryAccuracyBoon = 0;
+    shoreDrillBoon = 0;
     lineage.recordDeath(CaptainRecord(
       captainName: captainName,
       shipName: ship!.name,
@@ -2295,12 +2434,7 @@ class GameSession {
       pendingLoot.removeAt(lootIndex);
       final events = <GameEvent>[ItemAcquired(item: item)];
       if (pendingLoot.isEmpty && phase == SessionPhase.loot) {
-        final prevPhase = phase.displayName;
-        phase = SessionPhase.restArea;
-        events.add(PhaseChanged(
-          previousPhase: prevPhase,
-          newPhase: phase.displayName,
-        ));
+        events.addAll(_finishLoot());
       }
       return events;
     }
@@ -2325,12 +2459,7 @@ class GameSession {
     }
     pendingLoot = itemsToKeep;
     if (pendingLoot.isEmpty && phase == SessionPhase.loot) {
-      final prevPhase = phase.displayName;
-      phase = SessionPhase.restArea;
-      events.add(PhaseChanged(
-        previousPhase: prevPhase,
-        newPhase: phase.displayName,
-      ));
+      events.addAll(_finishLoot());
     }
     return events;
   }
@@ -2339,19 +2468,21 @@ class GameSession {
     if (phase != SessionPhase.loot && phase != SessionPhase.shipwreck) {
       throw StateError('Cannot leave loot outside of a reward encounter');
     }
-    pendingLoot.clear();
     if (phase == SessionPhase.shipwreck) {
+      if (pendingLoot.isEmpty) return const [NarrationEvent('No unclaimed wreck supplies remain.')];
+      pendingLoot.clear();
       wreckSalvageReceipt.add('Unclaimed supplies left aboard the wreck.');
       return const <GameEvent>[NarrationEvent('Unclaimed wreck supplies left behind.')];
     }
-    final prevPhase = phase.displayName;
-    phase = SessionPhase.restArea;
-    return <GameEvent>[
-      PhaseChanged(
-        previousPhase: prevPhase,
-        newPhase: phase.displayName,
-      ),
-    ];
+    pendingLoot.clear();
+    return _finishLoot();
+  }
+
+  List<GameEvent> _finishLoot() {
+    final previous = phase.displayName;
+    phase = currentWreck?.stage == WreckStage.recovery
+        ? SessionPhase.shipwreck : SessionPhase.restArea;
+    return [PhaseChanged(previousPhase: previous, newPhase: phase.displayName)];
   }
 
   List<GameEvent> _handleDropCargo(int cargoIndex) {
@@ -2422,6 +2553,7 @@ class GameSession {
     if (phase != SessionPhase.merchant) {
       throw StateError('Cannot leave merchant from $phase');
     }
+    if (merchantReturnPhase == SessionPhase.helm) return _handleTakeHelm();
     final prevPhase = phase.displayName;
     phase = merchantReturnPhase;
     return <GameEvent>[
@@ -2458,6 +2590,25 @@ class GameSession {
     ];
   }
 
+  List<GameEvent> _handleBuyMerchantMaterial(String shipmentId, TradeMaterial material, int quantity) {
+    final stock = currentMaterialShipment;
+    if (ship == null || !ship!.isAlive || stock == null || stock.id != shipmentId) {
+      throw StateError('This material shipment is no longer available.');
+    }
+    if (quantity <= 0) throw ArgumentError.value(quantity, 'quantity');
+    final cost = quantity * materialUnitPrice(material);
+    if (stock.quantity(material) < quantity || ship!.gold < cost) {
+      return [const NarrationEvent('Cannot purchase: insufficient stock or gold.')];
+    }
+    ship!.gold -= cost;
+    stock.remove(material, quantity);
+    profile.metaInventory.add(
+      seaGlass: material == TradeMaterial.seaGlass ? quantity : 0,
+      depthWroughtIron: material == TradeMaterial.depthWroughtIron ? quantity : 0,
+    );
+    return [MaterialPurchased(material: material, quantity: quantity, goldCost: cost)];
+  }
+
   List<GameEvent> _handleSellCargoItem(int cargoIndex) {
     if ((phase != SessionPhase.merchant && phase != SessionPhase.smuggler) || ship == null) {
       throw StateError('Cannot sell items outside of merchant shop or smuggler ketch');
@@ -2492,6 +2643,9 @@ class GameSession {
           'The open sea is too turbulent for routine repairs. Seek a Respite Island or voyage stronghold.',
         )];
       }
+      if (hasPaidRepairService && ship!.currentHp < ship!.maxHp) {
+        return const [NarrationEvent('No effective paid repair work remains for this purchase.')];
+      }
       return const [NarrationEvent('Hull needs no repairs here.')];
     }
     if (ship!.gold < cost) {
@@ -2499,12 +2653,30 @@ class GameSession {
         NarrationEvent('Insufficient gold for repairs ($cost gold needed).'),
       ];
     }
+    if (hasPaidRepairService) {
+      final quote = paidRepairQuote(percentage)!;
+      return _purchasePaidRepair(quote);
+    }
     final nominal = _repairNominal(percentage);
     ship!.gold -= cost;
     ship!.heal(nominal);
     return [
-      ShipRepaired(repairedHp: hp, goldCost: cost, newHp: ship!.currentHp),
+      ShipRepaired(repairedHp: hp, goldCost: cost, newHp: ship!.currentHp, normalWorkUsed: nominal),
     ];
+  }
+
+  List<GameEvent> _handleAffordablePaidRepairs() {
+    final quote = affordablePaidRepairQuote;
+    if (quote == null) throw StateError('No paid repair service is available here.');
+    return _purchasePaidRepair(quote);
+  }
+
+  List<GameEvent> _purchasePaidRepair(PaidRepairQuote quote) {
+    if (!applyPaidRepair(ship!, paidRepairWork, quote)) {
+      return const [NarrationEvent('No affordable paid repair work could be completed.')];
+    }
+    return [ShipRepaired(repairedHp: quote.restoredHp, goldCost: quote.goldCost,
+      newHp: ship!.currentHp, normalWorkUsed: quote.normalWork)];
   }
 
   List<GameEvent> _handleUpgradeShip() {
@@ -2512,7 +2684,7 @@ class GameSession {
     if (phase != SessionPhase.respiteIsland && phase != SessionPhase.stronghold) {
       throw StateError('Ship refits are only available at a voyage Haven or stronghold');
     }
-    if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
+    if (phase == SessionPhase.respiteIsland && !canUseVoyageShipwright) {
       return const <GameEvent>[
         NarrationEvent('No traveling shipwright dwells on this secluded atoll to refit your vessel.'),
       ];
@@ -2547,7 +2719,7 @@ class GameSession {
     if (phase != SessionPhase.respiteIsland && phase != SessionPhase.stronghold) {
       throw StateError('Fitting tempering is only available at a voyage Haven or stronghold');
     }
-    if (phase == SessionPhase.respiteIsland && !isCurrentIslandHaven) {
+    if (phase == SessionPhase.respiteIsland && !canUseVoyageShipwright) {
       return const <GameEvent>[
         NarrationEvent('No master armourer dwells on this secluded atoll to temper your fittings.'),
       ];
@@ -2585,7 +2757,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleCareenHullAtIsland() {
-    if (phase != SessionPhase.respiteIsland || ship == null) {
+    if (phase != SessionPhase.respiteIsland || ship == null || isRepairRefitStop) {
       throw StateError('Cannot careen hull outside of respite island');
     }
     if (hasChosenIslandDuty) {
@@ -2593,7 +2765,7 @@ class GameSession {
         NarrationEvent("The crew's shore duty is already spent on this island haven; tides compel the ship to depart."),
       ];
     }
-    final careenPct = isCurrentIslandHaven ? 0.30 : 0.20;
+    final careenPct = isCurrentIslandHaven ? seaChart.tuning.services.havenCareenFraction : seaChart.tuning.services.coveCareenFraction;
     var nominal = (ship!.maxHp * careenPct);
     if (profile.isPactActive(CovenantPactId.brittleOak)) {
       nominal *= 0.75;
@@ -2617,7 +2789,7 @@ class GameSession {
   }
 
   List<GameEvent> _handleDrillGunnersAtIsland() {
-    if (phase != SessionPhase.respiteIsland || ship == null) {
+    if (phase != SessionPhase.respiteIsland || ship == null || isRepairRefitStop) {
       throw StateError('Cannot drill gunners outside of respite island');
     }
     if (hasChosenIslandDuty) {
@@ -2625,18 +2797,20 @@ class GameSession {
         NarrationEvent("The crew's shore duty is already spent on this island haven; tides compel the ship to depart."),
       ];
     }
-    gunneryAccuracyBoon = 15 + runicGuidanceBoon;
+    final bonus = seaChart.tuning.services.drillAccuracy;
+    gunneryAccuracyBoon = gunneryAccuracyBoon - shoreDrillBoon + bonus;
+    shoreDrillBoon = bonus;
     hasDrilledAtCurrentIsland = true;
-    return const <GameEvent>[
-      GunnersDrilled(bonusHitChance: 15),
+    return <GameEvent>[
+      GunnersDrilled(bonusHitChance: bonus),
       NarrationEvent(
-        'Gunners sighted their cannons and practiced volleys (+15% accuracy boon on next engagement).',
+        'Gunners sighted their cannons and practiced volleys (+$bonus% accuracy throughout the next battle).',
       ),
     ];
   }
 
   List<GameEvent> _handleForageShoalsAtIsland() {
-    if (phase != SessionPhase.respiteIsland || ship == null) {
+    if (phase != SessionPhase.respiteIsland || ship == null || isRepairRefitStop) {
       throw StateError('Cannot forage shoals outside of respite island');
     }
     if (hasChosenIslandDuty) {
@@ -2645,8 +2819,8 @@ class GameSession {
       ];
     }
     final bounty = isCurrentIslandHaven
-        ? rng.nextIntRange(40, 60)
-        : rng.nextIntRange(25, 35);
+        ? rng.nextIntRange(seaChart.tuning.services.havenForageMin, seaChart.tuning.services.havenForageMax)
+        : rng.nextIntRange(seaChart.tuning.services.coveForageMin, seaChart.tuning.services.coveForageMax);
     ship!.gold += bounty;
     hasForagedAtCurrentIsland = true;
     return <GameEvent>[
@@ -2667,83 +2841,94 @@ class GameSession {
   }
 
   List<GameEvent> _handleSalvageShipwreck(ShipwreckChoice choice) {
-    if (phase != SessionPhase.shipwreck || ship == null) {
-      throw StateError('Cannot salvage shipwreck outside of shipwreck encounter');
+    throw StateError('Selectable hold/strongbox/timbers rewards are retired. Choose the current wreck recovery action.');
+  }
+
+  List<GameEvent> _startWreckBattle({required bool approach}) {
+    final wreck = currentWreck!;
+    wreck.approachAmbush = approach;
+    wreck.cargo ??= generateWreckCargo(wreck, seaChart.tuning.wrecks, quick: false);
+    wreck.threat ??= generateWreckThreat(wreck, seaChart.currentRegionIndex,
+        seaChart.currentDifficulty, approach: approach,
+        apexEmergence: profile.isPactActive(CovenantPactId.apexEmergence), tuning: seaChart.tuning.wrecks);
+    wreck.stage = WreckStage.fighting;
+    return [NarrationEvent(approach
+        ? 'A lurking creature bursts from the wreck before the crew can assess the holds!'
+        : 'A creature closes on the crew during the committed recovery!'),
+      ..._startBattle(instantiateWreckThreat(wreck.threat!))];
+  }
+
+  List<GameEvent> _handleChooseWreckRecovery(String wreckId, WreckRecoveryChoice choice) {
+    final wreck = currentWreck;
+    if (phase != SessionPhase.shipwreck || ship == null || !ship!.isAlive ||
+        wreck == null || wreck.id != wreckId) {
+      throw StateError('This wreck recovery request is no longer current.');
     }
-    if (hasSalvagedCurrentWreck) {
-      return const <GameEvent>[
-        NarrationEvent('The derelict hull has already been picked clean.'),
-      ];
+    if (wreck.isSettled) {
+      if (choice == WreckRecoveryChoice.depart) return _handleTakeHelm();
+      return const [NarrationEvent('This wreck has already been resolved.')];
     }
+    if (choice == WreckRecoveryChoice.depart) {
+      throw StateError('Resolve the current wreck before departing.');
+    }
+    if (choice == WreckRecoveryChoice.recoverClearedCargo) {
+      if (wreck.stage != WreckStage.recovery || !wreck.threatCleared) {
+        throw StateError('No cleared wreck cargo awaits recovery.');
+      }
+      return _claimWreckCargo();
+    }
+    if (wreck.stage != WreckStage.assessment) {
+      throw StateError('The wreck threat must be resolved before recovering cargo.');
+    }
+    if (choice == WreckRecoveryChoice.passBy) {
+      wreck.stage = WreckStage.passed;
+      seaChart.recordCurrentOutcome(wreckPassed: true);
+      hasSalvagedCurrentWreck = true;
+      wreckSalvageReceipt = ['Sailed past the wreck empty.'];
+      return [const NarrationEvent('The crew leaves the wreck and its cargo behind.'), ..._handleTakeHelm()];
+    }
+    if (choice == WreckRecoveryChoice.quickSalvage) {
+      if (wreck.condition == WreckCondition.fresh) {
+        throw StateError('Fresh wrecks require committed recovery or empty departure.');
+      }
+      wreck.cargo = generateWreckCargo(wreck, seaChart.tuning.wrecks, quick: true);
+      wreck.stage = WreckStage.recovery;
+      return _claimWreckCargo();
+    }
+    if (wreck.condition == WreckCondition.pickedClean) {
+      throw StateError('Only small quick salvage remains at this picked-clean wreck.');
+    }
+    wreck.committed = true;
+    wreck.cargo = generateWreckCargo(wreck, seaChart.tuning.wrecks, quick: false);
+    if (wreckCommittedFight(wreck, seaChart.tuning.wrecks)) {
+      return _startWreckBattle(approach: false);
+    }
+    wreck.stage = WreckStage.recovery;
+    return _claimWreckCargo();
+  }
+
+  List<GameEvent> _claimWreckCargo() {
+    final wreck = currentWreck!;
+    if (wreck.stage != WreckStage.recovery || wreck.cargo == null) {
+      throw StateError('No cargo is available to claim.');
+    }
+    final cargo = wreck.cargo!;
+    wreck.stage = WreckStage.receipt; // Spend ownership before applying rewards.
+    seaChart.recordCurrentOutcome(wreckRecovered: true);
     hasSalvagedCurrentWreck = true;
-    final events = <GameEvent>[];
-
-    switch (choice) {
-      case ShipwreckChoice.munitions:
-        final seaGlass = rng.nextIntRange(2, 4);
-        final iron = rng.nextInt(100) < 25 ? 1 : 0;
-        profile.metaInventory.add(seaGlass: seaGlass, depthWroughtIron: iron);
-        wreckSalvageReceipt.add('$seaGlass Sea Glass');
-        if (iron > 0) wreckSalvageReceipt.add('$iron Depth-Wrought Iron');
-        events.add(MetaCurrenciesAwarded(
-          seaGlass: seaGlass,
-          depthWroughtIron: iron,
-          reason: 'Recovered exploration materials from the wreck',
-        ));
-        if (rng.nextInt(100) < 50) {
-          final item = randomConsumable(max(1, seaChart.currentDifficulty), rng);
-          wreckSalvageReceipt.add('Recovered ${item.name}.');
-          if (ship!.addCargo(item)) {
-            events.add(ItemAcquired(item: item));
-          } else {
-            pendingLoot.add(item);
-          }
-        } else {
-          wreckSalvageReceipt.add('No usable consumable found.');
-        }
-        events.add(ShipwreckSalvaged(
-          flavorMessage: wreckSalvageReceipt.join(' • '),
-          choice: choice,
-        ));
-
-      case ShipwreckChoice.strongbox:
-        final bounty = rng.nextIntRange(60, 120);
-        ship!.gold += bounty;
-        wreckSalvageReceipt.add('$bounty gold doubloons');
-        final seaGlass = rng.nextIntRange(2, 4);
-        profile.metaInventory.add(seaGlass: seaGlass);
-        wreckSalvageReceipt.add('$seaGlass Sea Glass');
-        events.add(ShipwreckSalvaged(
-          flavorMessage: "Cracked the captain's iron lockbox and salvaged $bounty gold doubloons!",
-          choice: choice,
-        ));
-        events.add(MetaCurrenciesAwarded(
-          seaGlass: seaGlass,
-          reason: 'Salvaged sea glass from strongbox',
-        ));
-
-      case ShipwreckChoice.timbers:
-        var nominal = (ship!.maxHp * 0.25);
-        if (profile.isPactActive(CovenantPactId.brittleOak)) {
-          nominal *= 0.75;
-        }
-        final heal = ship!.previewHealing(nominal);
-        ship!.heal(nominal);
-        wreckSalvageReceipt.add('Restored $heal hull HP.');
-        final seaGlass = rng.nextIntRange(1, 2);
-        profile.metaInventory.add(seaGlass: seaGlass);
-        wreckSalvageReceipt.add('$seaGlass Sea Glass');
-        events.add(ShipwreckSalvaged(
-          flavorMessage: 'Stripped stout oak and copper plating from the wreck, restoring $heal HP to hull!',
-          choice: choice,
-        ));
-        events.add(MetaCurrenciesAwarded(
-          seaGlass: seaGlass,
-          reason: 'Recovered sea glass lodged in timbers',
-        ));
-    }
-
-    return events;
+    profile.metaInventory.add(seaGlass: cargo.seaGlass, depthWroughtIron: cargo.iron);
+    ship!.gold += cargo.gold;
+    pendingLoot.addAll(cargo.supplies);
+    wreckSalvageReceipt = [
+      '${cargo.seaGlass} Sea Glass',
+      if (cargo.iron > 0) '${cargo.iron} Depth-Wrought Iron',
+      if (cargo.gold > 0) '${cargo.gold} gold doubloons',
+      for (final item in cargo.supplies) 'Recovered ${item.name}.',
+      if (cargo.supplies.isEmpty) 'No usable consumable found.',
+    ];
+    return [MetaCurrenciesAwarded(seaGlass: cargo.seaGlass, depthWroughtIron: cargo.iron,
+        reason: 'Recovered mixed wreck cargo'),
+      NarrationEvent('Wreck cargo recovered: ${wreckSalvageReceipt.join(' • ')}')];
   }
 
   List<GameEvent> _handleClaimExpeditionVictory() {
@@ -2961,7 +3146,7 @@ class GameSession {
         ));
       case ShrineChoice.ancientRunes:
         hasCommunedAtCurrentShrine = true;
-        final nextRow = seaChart.currentRow + 1;
+        final nextRow = seaChart.currentLeg + 1;
         seaChart.revealRow(nextRow);
         gunneryAccuracyBoon = gunneryAccuracyBoon - runicGuidanceBoon + 10;
         runicGuidanceBoon = 10;
@@ -3071,6 +3256,11 @@ class GameSession {
     activeBoon = boon;
     activeQuirk = quirk;
     stormSeerRedrawRegion = null;
+    gunneryAccuracyBoon = 0;
+    runicGuidanceBoon = 0;
+    shoreDrillBoon = 0;
+    paidRepairWork = PaidRepairWork();
+    currentWreck = null;
     shrineOmenSeed = rng.nextInt(1 << 30);
     _resetCombatActionStages();
     pendingHeirCandidates = <HeirCandidate>[];

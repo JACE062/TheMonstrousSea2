@@ -102,7 +102,7 @@ void main() {
     var session = _battle();
     session.seaChart
       ..timesCompleted = 1
-      ..currentLeg = session.seaChart.totalLegs;
+      ..currentLeg = session.seaChart.regionTitanLeg;
     session.currentMonster = createWorldSerpent(rng: _RollRng(50))
       ..currentHp = 1
       ..evasion = 0;

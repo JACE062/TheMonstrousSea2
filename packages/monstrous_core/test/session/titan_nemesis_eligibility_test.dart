@@ -71,7 +71,7 @@ void main() {
         // Enter the actual regional Titan through its convergent heading.
         session.phase = SessionPhase.restArea;
         session.seaChart.timesCompleted = _titans.indexOf(titan);
-        session.seaChart.currentLeg = session.seaChart.totalLegs - 1;
+        session.seaChart.currentLeg = session.seaChart.regionTitanLeg - 1;
         session.dispatch(const TakeHelm());
         session.dispatch(const SteerCourse(NavigationalBearing.deadAhead));
         expect(session.currentMonster!.species, titan);
@@ -290,6 +290,7 @@ void main() {
         );
         source.phase = SessionPhase.restArea;
         source.seaChart.currentLeg = source.seaChart.midpointHavenLeg;
+    source.seaChart.currentDestination = CourseDestination.midpointHaven;
         source.dispatch(const TakeHelm());
         final chartJson = source.seaChart.toJson();
         final options = chartJson['courseOptions'] as List;

@@ -214,7 +214,7 @@ void main() {
       session.dispatch(const CommuneWithShrine(ShrineChoice.ancientRunes));
       expect(session.gunneryAccuracyBoon, 10);
       expect(session.runicGuidanceBoon, 10);
-      expect(session.seaChart.isRevealed(1, 0), isTrue);
+      expect(session.seaChart.toJson()['revealedRows'], contains(session.seaChart.currentLeg + 1));
     },
   );
 

@@ -200,6 +200,7 @@ void main() {
       ..gold = 10000;
     s.phase = SessionPhase.respiteIsland;
     s.seaChart.currentLeg = s.seaChart.midpointHavenLeg;
+    s.seaChart.currentDestination = CourseDestination.midpointHaven;
     final healed = s
         .dispatch(const CareenHullAtIsland())
         .whereType<HullCareened>()
@@ -209,7 +210,7 @@ void main() {
     s.phase = SessionPhase.smuggler;
     final quoteHp = s.repairHpFor(0.30);
     final quoteGold = s.repairCostFor(0.30);
-    expect(quoteHp, 54);
+    expect(quoteHp, 36); // Ketch: 40 normal work, then the combined .9 modifier.
     final paid = s
         .dispatch(const RepairShip(0.30))
         .whereType<ShipRepaired>()
@@ -294,6 +295,7 @@ void main() {
       ..currentHp = 1;
     s.phase = SessionPhase.respiteIsland;
     s.seaChart.currentLeg = s.seaChart.midpointHavenLeg;
+    s.seaChart.currentDestination = CourseDestination.midpointHaven;
     expect(s.careenHealingHp, 25);
     expect(
       s
@@ -397,8 +399,8 @@ void main() {
       ..maxHp = 200
       ..currentHp = 1
       ..gold = 1000;
-    expect(s.repairHpFor(0.30), 60);
-    expect(s.repairCostFor(0.30), (60 * 1.5 * 0.75).ceil());
+    expect(s.repairHpFor(0.30), 40); // 20% normal work per ketch visit.
+    expect(s.repairCostFor(0.30), (40 * 1.5 * 0.75).ceil());
     s.smugglerStock = [
       generateConsumable(ConsumableType.hullPatchKit, RarityLevel.common),
     ];

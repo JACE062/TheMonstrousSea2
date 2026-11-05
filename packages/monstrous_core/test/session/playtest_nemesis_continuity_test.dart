@@ -18,7 +18,17 @@ void approachHelm(GameSession session) {
     session.dispatch(const LeaveRemainingLoot());
   }
   if (session.phase == SessionPhase.shipwreck) {
-    session.dispatch(const SalvageShipwreck(ShipwreckChoice.timbers));
+    final wreck = session.currentWreck!;
+    if (wreck.stage == WreckStage.assessment) {
+      session.dispatch(ChooseWreckRecovery(wreck.id, WreckRecoveryChoice.passBy));
+      return;
+    }
+    if (wreck.stage == WreckStage.recovery) {
+      session.dispatch(ChooseWreckRecovery(wreck.id, WreckRecoveryChoice.recoverClearedCargo));
+    }
+    if (session.pendingLoot.isNotEmpty) session.dispatch(const LeaveRemainingLoot());
+    session.dispatch(ChooseWreckRecovery(wreck.id, WreckRecoveryChoice.depart));
+    return;
   }
   session.dispatch(const TakeHelm());
 }
@@ -55,14 +65,13 @@ void main() {
           } else {
             expect(nemeses, isEmpty, reason: 'upcoming leg $targetLeg');
           }
-          if (targetLeg == chart.midpointHavenLeg ||
-              targetLeg == chart.totalLegs) {
-            expect(options, hasLength(1));
-          }
+          if (targetLeg == chart.midpointHavenLeg) expect(options, hasLength(3));
+          if (targetLeg == chart.totalLegs) expect(options, hasLength(2));
 
           // Avoiding vengeance is valid without Blood Oath, including every
           // second-half offer. Follow the real session flow, not a leg jump.
-          session.dispatch(const SteerCourse(NavigationalBearing.deadAhead));
+          session.dispatch(SteerCourse(options.firstWhere((o) => !o.isNemesis &&
+              (targetLeg == chart.totalLegs || o.bearing == NavigationalBearing.deadAhead)).bearing));
           expect(chart.currentIsNemesis, isFalse);
           expect(chart.currentCourseOptions, isEmpty);
         }
@@ -114,6 +123,7 @@ void main() {
       session.activeQuirk = BloodlineTrait.bloodOath;
       session.phase = SessionPhase.restArea;
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
       session.dispatch(const AdvanceToNextBattle());
       expect(session.phase, SessionPhase.battle);
       expect(session.isNemesisBattle, isTrue);
@@ -144,17 +154,18 @@ void main() {
     expect(combatOffers, greaterThan(0));
   });
 
-  test('legacy unseen cached offers are regenerated with restored Nemesis context', () {
+  test('hidden plan and offered Nemesis survive checkpoint restoration', () {
     final rng = SeededGameRng(12);
     final profile = ProfileData(activeNemesis: nemesisFor(0, rng));
     final session = GameSession(rng: rng, profile: profile)
       ..dispatch(const BeginFirstVoyage('Navigator'));
     session.phase = SessionPhase.restArea;
     session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
-    // Simulate an old checkpoint: offers were cached without profile context.
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
+    // Stage with the full voyage context before taking a checkpoint.
     expect(
-      session.seaChart.ensureCourseOptions(rng).where((o) => o.isNemesis),
-      isEmpty,
+      session.seaChart.ensureCourseOptions(rng, profile.activeNemesis).where((o) => o.isNemesis),
+      hasLength(1),
     );
     final saved = VoyageSaveData.fromJson(
       VoyageSaveData.fromSession(session).toJson(),

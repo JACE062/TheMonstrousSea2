@@ -6,9 +6,17 @@ import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
 import '../model/item.dart';
 import '../model/meta_inventory.dart';
+import '../model/material_shipment.dart';
+
 import '../model/monster_intent.dart';
 import '../model/nemesis.dart';
 import '../rules/sea_chart.dart';
+
+final class MaterialPurchased extends GameEvent {
+  const MaterialPurchased({required this.material, required this.quantity, required this.goldCost});
+  final TradeMaterial material;
+  final int quantity, goldCost;
+}
 
 /// Base sealed class for all events emitted by the game engine.
 ///
@@ -349,10 +357,21 @@ final class ShipRepaired extends GameEvent {
     required this.repairedHp,
     required this.goldCost,
     required this.newHp,
+    this.normalWorkUsed = 0,
   });
   final int repairedHp;
   final int goldCost;
   final int newHp;
+  final int normalWorkUsed;
+}
+
+/// A deliberately consumed single-use kit outside battle, including overflow.
+final class HullPatchApplied extends GameEvent {
+  const HullPatchApplied({required this.itemId, required this.fromPendingLoot,
+    required this.restoredHp, required this.newHp});
+  final String itemId;
+  final bool fromPendingLoot;
+  final int restoredHp, newHp;
 }
 
 /// Ship vessel refitted and upgraded to the next tier at port drydock.

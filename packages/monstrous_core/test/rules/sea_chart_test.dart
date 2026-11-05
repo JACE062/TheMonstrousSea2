@@ -56,7 +56,7 @@ void main() {
       expect(monster.numberOfTentacles, 12);
     });
 
-    test('non-boss cells on loop 0 spawn random monsters matching row difficulty', () {
+    test('ordinary encounter difficulty follows the leg independently of grid row', () {
       final chart = SeaChart();
       final rng = SeededGameRng(101);
 
@@ -64,12 +64,12 @@ void main() {
       final mRow0 = chart.currentMonster(rng);
       expect(mRow0.level, 1);
 
-      // Row 2 cells have difficulty 3
+      // Moving a chart coordinate does not advance encounter difficulty.
       chart.currentRow = 2;
       chart.currentCol = 2;
-      expect(chart.currentDifficulty, 3);
+      expect(chart.currentDifficulty, 1);
       final mRow2 = chart.currentMonster(rng);
-      expect(mRow2.level, 3);
+      expect(mRow2.level, 1);
     });
   });
 

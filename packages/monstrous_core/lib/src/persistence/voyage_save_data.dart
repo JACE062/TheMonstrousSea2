@@ -2,8 +2,11 @@ import '../model/bloodline_trait.dart';
 import '../model/combatant.dart';
 import '../model/covenant_of_the_deep.dart';
 import '../model/item.dart';
+import '../model/material_shipment.dart';
+import '../model/wreck_encounter.dart';
 import '../session/game_session.dart';
 import '../session/session_phase.dart';
+import '../rules/paid_repairs.dart';
 
 /// Captures transient mid-voyage session state so that players can pause
 /// and resume a run across application launches.
@@ -42,8 +45,18 @@ class VoyageSaveData {
     this.calderaOutcome,
     this.hasReadCalderaOutcome = false,
     this.pendingHeirCandidates = const [],
+    this.currentIslandName = '',
+    this.hasCareenedAtCurrentIsland = false,
+    this.hasDrilledAtCurrentIsland = false,
+    this.hasForagedAtCurrentIsland = false,
+    this.currentWreck,
+    this.merchantMaterials,
+    this.smugglerMaterials,
+    this.shoreDrillBoon = 0,
+    PaidRepairWork? paidRepairWork,
   }) : pendingLoot = pendingLoot ?? <Item>[],
-       merchantStock = merchantStock ?? <Item>[];
+       merchantStock = merchantStock ?? <Item>[],
+       paidRepairWork = paidRepairWork ?? PaidRepairWork();
 
   factory VoyageSaveData.fromJson(Map<String, dynamic> json) {
     final shipJson = json['ship'] as Map<String, dynamic>;
@@ -72,6 +85,15 @@ class VoyageSaveData {
         .toList();
 
     return VoyageSaveData(
+      shoreDrillBoon: json['shoreDrillBoon'] as int? ?? 0,
+      paidRepairWork: json['paidRepairWork'] == null ? null : PaidRepairWork.fromJson(Map<String, dynamic>.from(json['paidRepairWork'] as Map)),
+      merchantMaterials: json['merchantMaterials'] == null ? null : MaterialShipment.fromJson(Map<String, dynamic>.from(json['merchantMaterials'] as Map)),
+      smugglerMaterials: json['smugglerMaterials'] == null ? null : MaterialShipment.fromJson(Map<String, dynamic>.from(json['smugglerMaterials'] as Map)),
+      currentWreck: json['currentWreck'] == null ? null : WreckEncounter.fromJson(Map<String, dynamic>.from(json['currentWreck'] as Map)),
+      currentIslandName: json['currentIslandName'] as String? ?? '',
+      hasCareenedAtCurrentIsland: json['hasCareenedAtCurrentIsland'] as bool? ?? false,
+      hasDrilledAtCurrentIsland: json['hasDrilledAtCurrentIsland'] as bool? ?? false,
+      hasForagedAtCurrentIsland: json['hasForagedAtCurrentIsland'] as bool? ?? false,
       captainName: json['captainName'] as String? ?? 'Captain',
       ship: ShipState.fromJson(shipJson),
       regionIndex: json['regionIndex'] as int? ?? 0,
@@ -94,6 +116,8 @@ class VoyageSaveData {
       wreckSalvageReceipt: (json['wreckSalvageReceipt'] as List?)?.cast<String>() ?? const [],
       merchantReturnPhase: json['merchantReturnPhase'] == 'stronghold'
           ? SessionPhase.stronghold
+          : json['merchantReturnPhase'] == 'helm'
+          ? SessionPhase.helm
           : json['merchantReturnPhase'] == 'port'
           ? SessionPhase.port
           : null,
@@ -146,8 +170,25 @@ class VoyageSaveData {
   final bool hasClaimedSmugglerGift;
   final Map<String, dynamic>? seaChartState;
   final bool hasDefeatedCurrentEncounter;
+  final String currentIslandName;
+  final bool hasCareenedAtCurrentIsland;
+  final bool hasDrilledAtCurrentIsland;
+  final bool hasForagedAtCurrentIsland;
+  final WreckEncounter? currentWreck;
+  final MaterialShipment? merchantMaterials, smugglerMaterials;
+  final int shoreDrillBoon;
+  final PaidRepairWork paidRepairWork;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
+    'shoreDrillBoon': shoreDrillBoon,
+    'paidRepairWork': paidRepairWork.toJson(),
+    'merchantMaterials': merchantMaterials?.toJson(),
+    'smugglerMaterials': smugglerMaterials?.toJson(),
+    'currentWreck': currentWreck?.toJson(),
+    'currentIslandName': currentIslandName,
+    'hasCareenedAtCurrentIsland': hasCareenedAtCurrentIsland,
+    'hasDrilledAtCurrentIsland': hasDrilledAtCurrentIsland,
+    'hasForagedAtCurrentIsland': hasForagedAtCurrentIsland,
     'captainName': captainName,
     'ship': ship.toJson(),
     'regionIndex': regionIndex,
@@ -187,6 +228,15 @@ class VoyageSaveData {
       throw StateError('Cannot create voyage save without an active ship');
     }
     return VoyageSaveData(
+      shoreDrillBoon: session.shoreDrillBoon,
+      paidRepairWork: PaidRepairWork.fromJson(session.paidRepairWork.toJson()),
+      merchantMaterials: session.merchantMaterials == null ? null : MaterialShipment.fromJson(session.merchantMaterials!.toJson()),
+      smugglerMaterials: session.smugglerMaterials == null ? null : MaterialShipment.fromJson(session.smugglerMaterials!.toJson()),
+      currentWreck: session.currentWreck == null ? null : WreckEncounter.fromJson(session.currentWreck!.toJson()),
+      currentIslandName: session.currentIslandName,
+      hasCareenedAtCurrentIsland: session.hasCareenedAtCurrentIsland,
+      hasDrilledAtCurrentIsland: session.hasDrilledAtCurrentIsland,
+      hasForagedAtCurrentIsland: session.hasForagedAtCurrentIsland,
       captainName: session.captainName,
       ship: session.ship!,
       regionIndex: session.seaChart.currentRegionIndex,
@@ -294,6 +344,15 @@ class VoyageSaveData {
     session.stormSeerRedrawRegion = stormSeerRedrawRegion;
     session.shrineOmenSeed = shrineOmenSeed;
     session.hasClaimedSmugglerGift = hasClaimedSmugglerGift;
+    session.currentIslandName = currentIslandName;
+    session.shoreDrillBoon = shoreDrillBoon;
+    session.paidRepairWork = PaidRepairWork.fromJson(paidRepairWork.toJson());
+    session.merchantMaterials = merchantMaterials == null ? null : MaterialShipment.fromJson(merchantMaterials!.toJson());
+    session.smugglerMaterials = smugglerMaterials == null ? null : MaterialShipment.fromJson(smugglerMaterials!.toJson());
+    session.currentWreck = currentWreck == null ? null : WreckEncounter.fromJson(currentWreck!.toJson());
+    session.hasCareenedAtCurrentIsland = hasCareenedAtCurrentIsland;
+    session.hasDrilledAtCurrentIsland = hasDrilledAtCurrentIsland;
+    session.hasForagedAtCurrentIsland = hasForagedAtCurrentIsland;
     session.syncCaptainTraits();
     if (session.phase == SessionPhase.shrine) {
       session.restoreShrineManifestations();
@@ -308,6 +367,7 @@ class VoyageSaveData {
         session.profile.isPactActive(CovenantPactId.chokingFog),
         session.profile.isPactActive(CovenantPactId.apexEmergence),
         session.activeQuirk?.id == BloodlineTraitId.superstitious,
+        session.activeQuirk?.id == BloodlineTraitId.bloodOath,
       );
     }
   }

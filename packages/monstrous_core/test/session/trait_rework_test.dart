@@ -161,17 +161,17 @@ void main() {
       expect(session.canRedrawStormSeerCourses, isTrue);
     });
 
-    for (final convergence in ['Haven', 'Titan']) {
+    for (final convergence in ['Preparation', 'Titan']) {
       test('$convergence convergence cannot be redrawn or consume the use', () {
         final session = _voyage()..activeBoon = BloodlineTrait.stormSeer;
         _helm(
           session,
-          leg: convergence == 'Haven'
-              ? session.seaChart.midpointHavenLeg - 1
-              : session.seaChart.totalLegs - 1,
+          leg: convergence == 'Preparation'
+              ? session.seaChart.totalLegs - 1
+              : session.seaChart.regionTitanLeg - 1,
         );
         final original = _offers(session);
-        expect(session.seaChart.currentCourseOptions, hasLength(1));
+        expect(session.seaChart.currentCourseOptions, hasLength(convergence == 'Preparation' ? 2 : 1));
         expect(session.canRedrawStormSeerCourses, isFalse);
         expect(
           () => session.dispatch(const RedrawStormSeerCourses()),

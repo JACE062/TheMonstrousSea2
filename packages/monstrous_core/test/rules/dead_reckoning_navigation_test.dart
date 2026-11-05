@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('Dead-Reckoning Navigation & Helm Courses', () {
     test('SeaChart generates 3 distinct course options with bearings', () {
-      final chart = SeaChart(rng: SeededGameRng(1234));
+      final chart = SeaChart(currentLeg: 1, rng: SeededGameRng(1234));
       final options = chart.ensureCourseOptions(SeededGameRng(1234));
 
       expect(options.length, equals(3));
@@ -24,7 +24,7 @@ void main() {
     });
 
     test('Steering along headings logs voyage legs into voyageLog', () {
-      final chart = SeaChart(rng: SeededGameRng(42));
+      final chart = SeaChart(timesCompleted: 1, rng: SeededGameRng(42));
       expect(chart.currentLeg, equals(0));
       expect(chart.voyageLog, isEmpty);
 
@@ -43,22 +43,22 @@ void main() {
       expect(chart.voyageLog[1].nodeType, equals(opt2.nodeType));
     });
 
-    test('Leg 5 guarantees convergence on Respite Island Haven as single direct landfall heading', () {
+    test('Leg 5 offers a side-heading Haven and two ordinary alternatives', () {
       final chart = SeaChart(rng: SeededGameRng(99));
       chart.currentLeg = 4; // Preparing for leg 5
 
       final options = chart.generateCourseOptions(SeededGameRng(99));
-      expect(options.length, equals(1));
-      final opt = options.first;
-      expect(opt.bearing, equals(NavigationalBearing.deadAhead));
+      expect(options.length, equals(3));
+      final opt = options.singleWhere((o) => o.destination == CourseDestination.midpointHaven);
+      expect(opt.bearing, isNot(NavigationalBearing.deadAhead));
       expect(opt.nodeType, equals(EncounterNodeType.respiteIsland));
       expect(opt.isIdentified, isTrue);
-      expect(opt.lookoutCall, contains('Landfall dead ahead'));
+      expect(opt.lookoutCall, contains('Midpoint Haven'));
     });
 
-    test('Leg 10 guarantees convergence on Regional Titan as single direct heading', () {
+    test('Leg 11 converges on the Titan after numbered preparation', () {
       final chart = SeaChart(rng: SeededGameRng(101));
-      chart.currentLeg = 9; // Preparing for leg 10
+      chart.currentLeg = 10; // Preparation finished; the Titan follows.
 
       final options = chart.generateCourseOptions(SeededGameRng(101));
       expect(options.length, equals(1));
@@ -80,11 +80,11 @@ void main() {
       final helmEvents = session.dispatch(const TakeHelm());
       expect(session.phase, equals(SessionPhase.helm));
       expect(helmEvents.whereType<HelmApproached>(), isNotEmpty);
-      expect(session.seaChart.currentCourseOptions.length, equals(3));
+      expect(session.seaChart.currentCourseOptions.length, equals(1));
 
-      // Steer Larboard Tack into Leg 1
+      // The opening fight occupies the first numbered slot.
       final steerEvents = session.dispatch(
-        const SteerCourse(NavigationalBearing.larboardTack),
+        const SteerCourse(NavigationalBearing.deadAhead),
       );
       expect(session.seaChart.currentLeg, equals(1));
       expect(steerEvents.whereType<CourseSteered>(), isNotEmpty);

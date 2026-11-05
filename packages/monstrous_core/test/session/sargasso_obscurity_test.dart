@@ -99,7 +99,7 @@ void main() {
     session.phase = SessionPhase.restArea;
     session.seaChart
       ..timesCompleted = 1
-      ..currentLeg = 11
+      ..currentLeg = 12
       ..clearPendingCourses();
     session.dispatch(const TakeHelm());
     session.dispatch(const SteerCourse(NavigationalBearing.deadAhead));

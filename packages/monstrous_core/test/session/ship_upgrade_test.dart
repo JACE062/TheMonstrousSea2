@@ -17,6 +17,7 @@ void main() {
       session.dispatch(const ChooseShip(ShipClass.ironclad));
       session.phase = SessionPhase.respiteIsland;
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
 
       final ship = session.ship!;
       expect(ship.level, equals(1));
@@ -48,6 +49,7 @@ void main() {
       session.dispatch(const ChooseShip(ShipClass.corvette));
       session.phase = SessionPhase.respiteIsland;
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
 
       final ship = session.ship!;
       expect(ship.level, equals(1));
@@ -69,6 +71,7 @@ void main() {
       session.dispatch(const ChooseShip(ShipClass.standard));
       session.phase = SessionPhase.respiteIsland;
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
 
       session.ship!.gold = 25; // Needs 100
       final events = session.dispatch(const UpgradeShip());
@@ -85,6 +88,7 @@ void main() {
       session.dispatch(const ChooseShip(ShipClass.freighter));
       session.phase = SessionPhase.respiteIsland;
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
 
       final ship = session.ship!;
       ship.gold = 5000;

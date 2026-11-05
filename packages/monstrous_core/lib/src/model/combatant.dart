@@ -147,11 +147,14 @@ class ShipState extends Combatant {
       (captainBoonId == BloodlineTraitId.skilledCarpenter ? 1.20 : 1.0) *
       (captainQuirkId == BloodlineTraitId.exactingShipwright ? 0.75 : 1.0);
 
-  /// Applies all captain modifiers before rounding once and capping at missing hull.
-  int previewHealing(num nominal) =>
+  /// Uncapped modifier-adjusted restoration, rounded once. Paid repair ledgers
+  /// use cumulative endpoints to prevent split-purchase rounding gains.
+  int modifiedHealing(num nominal) =>
       ((nominal < 0 ? 0 : nominal) * captainHealingMultiplier + 1e-9)
-          .round()
-          .clamp(0, maxHp - currentHp);
+          .round();
+
+  /// Applies modifiers once, rounds once, then caps at missing hull.
+  int previewHealing(num nominal) => modifiedHealing(nominal).clamp(0, maxHp - currentHp);
 
   /// Smallest nominal repair amount that restores the requested missing hull.
   int nominalHealingFor(int actual) => actual <= 0

@@ -457,6 +457,8 @@ int calculateShipUpgradeCost(int currentLevel) {
 /// Refits [ship] to its next level tier, expanding max HP, class defense traits
 /// (Damage Reduction on Ironclad, Evasion on Corvette/Clipper), and scaling the
 /// base damage of all intrinsic hardpoints by +25%.
+/// Capacity growth adds equal fixed maximum/current HP, preserving existing
+/// damage independently of captain healing modifiers and repair allowances.
 void upgradeShipState(ShipState ship) {
   if (ship.level >= 4) return;
   ship.level++;
@@ -466,17 +468,17 @@ void upgradeShipState(ShipState ship) {
     case ShipClass.standard:
       const hpGain = 50;
       ship.maxHp += hpGain;
-      ship.heal(hpGain);
+      ship.currentHp += hpGain;
       ship.maxWeaponWeight = 7 * lvl;
     case ShipClass.freighter:
       const hpGain = 100;
       ship.maxHp += hpGain;
-      ship.heal(hpGain);
+      ship.currentHp += hpGain;
       ship.maxWeaponWeight = 3 * lvl;
     case ShipClass.ironclad:
       const hpGain = 75;
       ship.maxHp += hpGain;
-      ship.heal(hpGain);
+      ship.currentHp += hpGain;
       ship.maxWeaponWeight = 10 * lvl;
       ship.baseDmgReduction = 3 * lvl;
       ship.currentDmgReduction = ship.baseDmgReduction;
@@ -484,26 +486,26 @@ void upgradeShipState(ShipState ship) {
     case ShipClass.corvette:
       const hpGain = 40;
       ship.maxHp += hpGain;
-      ship.heal(hpGain);
+      ship.currentHp += hpGain;
       ship.maxWeaponWeight = 5 * lvl;
       ship.baseEvasion = (5 + 5 * lvl).clamp(0, 50);
       ship.currentEvasion = ship.baseEvasion;
     case ShipClass.clipper:
       const hpGain = 40;
       ship.maxHp += hpGain;
-      ship.heal(hpGain);
+      ship.currentHp += hpGain;
       ship.maxWeaponWeight = 6 * lvl;
       ship.baseEvasion = (ship.baseEvasion + 5).clamp(0, 50);
       ship.currentEvasion = ship.baseEvasion;
     case ShipClass.bombardier:
       const hpGain = 45;
       ship.maxHp += hpGain;
-      ship.heal(hpGain);
+      ship.currentHp += hpGain;
       ship.maxWeaponWeight = 8 * lvl;
     case ShipClass.corsair:
       const hpGain = 45;
       ship.maxHp += hpGain;
-      ship.heal(hpGain);
+      ship.currentHp += hpGain;
       ship.maxWeaponWeight = 7 * lvl;
       ship.baseEvasion = (ship.baseEvasion + 3).clamp(0, 50);
       ship.currentEvasion = ship.baseEvasion;

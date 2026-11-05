@@ -215,7 +215,7 @@ class WeaponLore {
     ConsumableType.hullPatchKit: ConsumableLoreEntry(
       name: 'Hull Patch Kit',
       description:
-          'Pre-fitted oak shoring timbers and pitch ready for emergency combat patching.',
+          'Pre-fitted oak shoring timbers and pitch restore 30% of maximum hull. Use between battles or as a combat Quick Action.',
       flavorUse:
           'Quick Action (0T): Braces breached planking mid-battle, immediately restoring 30% of Max Hull HP.',
     ),

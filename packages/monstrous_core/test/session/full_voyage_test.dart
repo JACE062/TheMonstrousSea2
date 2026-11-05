@@ -177,71 +177,27 @@ void main() {
       expect(steerEvents.whereType<CourseSteered>(), isNotEmpty);
     });
 
-    test('Shipwreck Derelict Encounter: discover and salvage strongbox', () {
-      final session = GameSession(rng: SeededGameRng(444));
+    test('Shipwreck Derelict Encounter: one mixed haul and explicit continuation', () {
+      final session = GameSession(rng: SeededGameRng(444),
+        navigationTuning: const NavigationTuning(wrecks: WreckTuning(
+          approachAmbushChance: 0, uncertainFightChance: 0, freshFightChance: 0)));
       session.dispatch(const NameCaptain('Blackbeard'));
-      session.profile.unlockedBlueprints.add(BlueprintId.fromShipClass(ShipClass.freighter).name);
-      session.dispatch(const ChooseShip(ShipClass.freighter));
-
-      final startGold = session.ship!.gold;
-
-      // Locate or establish a Shipwreck on the chart
-      int wreckRow = -1;
-      int wreckCol = -1;
-      for (var r = 0; r < SeaChart.totalRows; r++) {
-        for (var c = 0; c < SeaChart.totalCols; c++) {
-          if (session.seaChart.nodeTypeAt(r, c) == EncounterNodeType.shipwreckSalvage) {
-            wreckRow = r;
-            wreckCol = c;
-            break;
-          }
-        }
-        if (wreckRow != -1) break;
-      }
-      if (wreckRow == -1) {
-        wreckRow = 2;
-        wreckCol = 1;
-        session.seaChart.setNodeTypeAt(wreckRow, wreckCol, EncounterNodeType.shipwreckSalvage);
-      }
-
-      // Position ship right before Shipwreck
-      if (wreckCol > 0) {
-        session.seaChart.currentRow = wreckRow;
-        session.seaChart.currentCol = wreckCol - 1;
-      } else {
-        session.seaChart.currentRow = wreckRow - 1;
-        session.seaChart.currentCol = SeaChart.totalCols - 1;
-      }
+      session.dispatch(const ChooseShip(ShipClass.standard));
+      session.seaChart.setNodeTypeAt(0, 1, EncounterNodeType.shipwreckSalvage);
       session.phase = SessionPhase.restArea;
-
-      // Advance to the shipwreck
-      session.seaChart.setNodeTypeAt(wreckRow, wreckCol, EncounterNodeType.shipwreckSalvage);
-      final advanceEvents = session.dispatch(const AdvanceToNextBattle());
-
-      expect(session.phase, equals(SessionPhase.shipwreck));
-      expect(session.seaChart.isShipwreck, isTrue);
-      expect(advanceEvents.whereType<ShipwreckDiscovered>(), isNotEmpty);
-
-      // Cannot depart without salvaging
-      expect(
-        () => session.dispatch(const AdvanceToNextBattle()),
-        throwsStateError,
-      );
-
-      // Salvage strongbox
-      final salvageEvents = session.dispatch(
-        const SalvageShipwreck(ShipwreckChoice.strongbox),
-      );
-      expect(salvageEvents.whereType<ShipwreckSalvaged>(), isNotEmpty);
-      expect(session.ship!.gold, greaterThan(startGold));
-
-      // Now can depart to next node
-      final departEvents = session.dispatch(const AdvanceToNextBattle());
-      final expectedNextRow = wreckCol < SeaChart.bossCol ? wreckRow : wreckRow + 1;
-      final expectedNextCol = wreckCol < SeaChart.bossCol ? wreckCol + 1 : 0;
-      expect(session.seaChart.currentRow, equals(expectedNextRow));
-      expect(session.seaChart.currentCol, equals(expectedNextCol));
-      expect(departEvents, isNotEmpty);
+      final arrival = session.dispatch(const AdvanceToNextBattle());
+      expect(session.phase, SessionPhase.shipwreck);
+      expect(arrival.whereType<ShipwreckDiscovered>(), hasLength(1));
+      expect(() => session.dispatch(const AdvanceToNextBattle()), throwsStateError);
+      final wreck = session.currentWreck!;
+      session.dispatch(ChooseWreckRecovery(wreck.id, wreck.condition == WreckCondition.fresh
+          ? WreckRecoveryChoice.deeperRecovery : WreckRecoveryChoice.quickSalvage));
+      expect(session.profile.metaInventory.seaGlass, greaterThan(0));
+      expect(session.wreckSalvageReceipt, isNotEmpty);
+      if (session.pendingLoot.isNotEmpty) session.dispatch(const LeaveRemainingLoot());
+      session.dispatch(ChooseWreckRecovery(wreck.id, WreckRecoveryChoice.depart));
+      expect(session.phase, SessionPhase.helm);
+      expect(session.seaChart.currentLeg, 1);
     });
 
     test("Carpenter Emergency Triage in Rest Area strictly enforces <25% HP floor", () {

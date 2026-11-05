@@ -1,10 +1,22 @@
 import 'dart:math';
 
+import '../config/navigation_tuning.dart';
 import '../content/monsters.dart';
 import '../model/combatant.dart';
 import '../model/enums.dart';
 import '../model/nemesis.dart';
+import '../model/wreck_encounter.dart';
 import '../rng/game_rng.dart';
+import 'wrecks.dart';
+
+/// Service identity is independent of the illustration/node category.
+enum CourseDestination {
+  ordinary,
+  midpointHaven,
+  repairRefit,
+  specialistMerchant,
+  titan,
+}
 
 /// Represents a prospective navigational course option offered to the captain at the helm.
 class CourseOption {
@@ -19,6 +31,9 @@ class CourseOption {
     this.isApex = false,
     this.apexTitle,
     this.isNemesis = false,
+    this.destination = CourseDestination.ordinary,
+    this.clearLookoutCall,
+    this.wreckSighting,
   });
 
   final NavigationalBearing bearing;
@@ -31,27 +46,76 @@ class CourseOption {
   final bool isApex;
   final String? apexTitle;
   final bool isNemesis;
+  final CourseDestination destination;
+  final String? clearLookoutCall;
+  final WreckSighting? wreckSighting;
 
   CourseOption copyWith({
     bool? isIdentified,
     bool? isApex,
     String? apexTitle,
     bool? isNemesis,
+    NavigationalBearing? bearing,
+    int? difficultyLevel,
+    String? lookoutCall,
   }) => CourseOption(
-    bearing: bearing,
+    bearing: bearing ?? this.bearing,
     nodeType: nodeType,
-    difficultyLevel: difficultyLevel,
-    lookoutCall: lookoutCall,
+    difficultyLevel: difficultyLevel ?? this.difficultyLevel,
+    lookoutCall: lookoutCall ?? this.lookoutCall,
     seaConditions: seaConditions,
     monsterSpecies: monsterSpecies,
     isIdentified: isIdentified ?? this.isIdentified,
     isApex: isApex ?? this.isApex,
     apexTitle: apexTitle ?? this.apexTitle,
     isNemesis: isNemesis ?? this.isNemesis,
+    destination: destination,
+    clearLookoutCall: clearLookoutCall,
+    wreckSighting: wreckSighting,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'bearing': bearing.name,
+    'nodeType': nodeType.name,
+    'difficultyLevel': difficultyLevel,
+    'lookoutCall': lookoutCall,
+    'seaConditions': seaConditions,
+    'monsterSpecies': monsterSpecies?.name,
+    'isIdentified': isIdentified,
+    'isApex': isApex,
+    'apexTitle': apexTitle,
+    'isNemesis': isNemesis,
+    'destination': destination.name,
+    'clearLookoutCall': clearLookoutCall,
+    'wreckSighting': wreckSighting?.toJson(),
+  };
+
+  factory CourseOption.fromJson(Map<String, dynamic> json) => CourseOption(
+    bearing: NavigationalBearing.values.byName(json['bearing'] as String),
+    nodeType: EncounterNodeType.values.byName(json['nodeType'] as String),
+    difficultyLevel: json['difficultyLevel'] as int,
+    lookoutCall: json['lookoutCall'] as String,
+    seaConditions: json['seaConditions'] as String? ?? '',
+    monsterSpecies: json['monsterSpecies'] == null
+        ? null
+        : MonsterSpecies.values.byName(json['monsterSpecies'] as String),
+    isIdentified: json['isIdentified'] as bool? ?? false,
+    isApex: json['isApex'] as bool? ?? false,
+    apexTitle: json['apexTitle'] as String?,
+    isNemesis: json['isNemesis'] as bool? ?? false,
+    destination: CourseDestination.values.byName(
+      json['destination'] as String? ?? 'ordinary',
+    ),
+    clearLookoutCall: json['clearLookoutCall'] as String?,
+    wreckSighting: json['wreckSighting'] == null
+        ? null
+        : WreckSighting.fromJson(
+            Map<String, dynamic>.from(json['wreckSighting'] as Map),
+          ),
   );
 }
 
-/// A permanent dead-reckoning record of an expedition leg completed during the voyage.
+/// A committed journey leg with explicit recorded outcomes; arrival is not victory.
 class VoyageLegRecord {
   const VoyageLegRecord({
     required this.leg,
@@ -63,6 +127,12 @@ class VoyageLegRecord {
     this.monsterSpecies,
     this.isApex = false,
     this.isNemesis = false,
+    this.difficultyLevel = 1,
+    this.destination = CourseDestination.ordinary,
+    this.regionIndex = 0,
+    this.combatWon = false,
+    this.wreckPassed = false,
+    this.wreckRecovered = false,
   });
 
   final int leg;
@@ -74,13 +144,27 @@ class VoyageLegRecord {
   final MonsterSpecies? monsterSpecies;
   final bool isApex;
   final bool isNemesis;
+  final int difficultyLevel;
+  final CourseDestination destination;
+  final int regionIndex;
+  final bool combatWon, wreckPassed, wreckRecovered;
+
+  VoyageLegRecord withOutcome({bool? combatWon, bool? wreckPassed, bool? wreckRecovered,
+    MonsterSpecies? species, bool? apex}) => VoyageLegRecord(
+    leg: leg, bearing: bearing, nodeType: nodeType, lookoutCall: lookoutCall,
+    chartRow: chartRow, chartCol: chartCol, monsterSpecies: species ?? monsterSpecies,
+    isApex: apex ?? isApex, isNemesis: isNemesis, difficultyLevel: difficultyLevel,
+    destination: destination, regionIndex: regionIndex,
+    combatWon: combatWon ?? this.combatWon, wreckPassed: wreckPassed ?? this.wreckPassed,
+    wreckRecovered: wreckRecovered ?? this.wreckRecovered,
+  );
 }
 
 /// Manages the dead-reckoning sea chart, expedition legs, and course options.
 ///
-/// Encapsulates encounter progression across the naval soundings,
-/// with procedural course generation at the helm, a guaranteed midpoint
-/// Respite Island Haven, and the climactic Regional Titan at cell [3][4].
+/// Stages hidden regional offers, an optional midpoint Haven and final
+/// preparation followed by a separate Titan. Committed offers own encounter
+/// difficulty; retained grid coordinates only support chart/fixture helpers.
 class SeaChart {
   SeaChart({
     this.currentRow = 0,
@@ -90,6 +174,7 @@ class SeaChart {
     int? maxRowReached,
     List<List<MonsterSpecies>>? gridSpecies,
     GameRng? rng,
+    this.tuning = NavigationTuning.provisional,
   }) : maxRowReached = max(maxRowReached ?? 0, currentRow) {
     if (gridSpecies != null) {
       _gridSpecies = gridSpecies;
@@ -104,6 +189,7 @@ class SeaChart {
   static const int bossRow = 3;
   static const int bossCol = 4;
   static const int totalRegions = 3;
+  final NavigationTuning tuning;
 
   /// Returns the total expedition legs for region [regionIndex] (10 in R1, 12 in R2, 14 in R3).
   static int totalLegsForRegion(int regionIndex) => switch (regionIndex) {
@@ -122,14 +208,14 @@ class SeaChart {
         _ => 7,
       };
 
-  /// Total expedition legs in current region.
+  /// Numbered slots through final preparation; the Titan follows separately.
   int get totalLegs => totalLegsForRegion(currentRegionIndex);
 
-  /// Guaranteed midpoint haven leg in current region.
+  /// Slot offering the optional midpoint Haven alongside two ordinary headings.
   int get midpointHavenLeg => midpointHavenLegForRegion(currentRegionIndex);
 
   /// Climax titan encounter leg in current region.
-  int get regionTitanLeg => totalLegs;
+  int get regionTitanLeg => totalLegs + 1;
 
   int currentRow;
   int currentCol;
@@ -139,15 +225,30 @@ class SeaChart {
   bool currentIsApex = false;
   bool currentIsNemesis = false;
   bool hasEncounteredNemesisThisVoyage = false;
+  int? _committedDifficulty;
+  CourseDestination currentDestination = CourseDestination.ordinary;
+  WreckSighting? currentWreckSighting;
+  final Map<int, List<CourseOption>> _regionalPlan = {};
+  final Map<String, CourseOption> _conditionalCourses = {};
 
   final List<VoyageLegRecord> _voyageLog = <VoyageLegRecord>[];
   List<VoyageLegRecord> get voyageLog => List.unmodifiable(_voyageLog);
+
+  /// Presentation facts only. Arrival never implies victory or reward ownership.
+  void recordCurrentOutcome({bool? combatWon, bool? wreckPassed, bool? wreckRecovered,
+    MonsterSpecies? species, bool? apex}) {
+    final index = _voyageLog.lastIndexWhere((entry) => entry.regionIndex == currentRegionIndex && entry.leg == currentLeg);
+    if (index < 0) return;
+    _voyageLog[index] = _voyageLog[index].withOutcome(combatWon: combatWon,
+      wreckPassed: wreckPassed, wreckRecovered: wreckRecovered, species: species, apex: apex);
+  }
 
   /// Begins a fresh voyage at its first actual encounter, recording Leg 1.
   void beginVoyage({int startingRow = 0}) {
     resetCoordinates();
     currentRow = startingRow.clamp(0, totalRows - 1);
     currentLeg = 1;
+    _committedDifficulty = 1 + timesCompleted * 4;
     _gridNodeTypes[currentRow][currentCol] = EncounterNodeType.beastCombat;
     _voyageLog.add(
       VoyageLegRecord(
@@ -160,6 +261,8 @@ class SeaChart {
         monsterSpecies: currentNodeType == EncounterNodeType.beastCombat
             ? speciesAt(currentRow, currentCol)
             : null,
+        difficultyLevel: currentDifficulty,
+        regionIndex: currentRegionIndex,
       ),
     );
   }
@@ -170,6 +273,16 @@ class SeaChart {
     'currentRow': currentRow,
     'currentCol': currentCol,
     'currentLeg': currentLeg,
+    'committedDifficulty': _committedDifficulty,
+    'currentDestination': currentDestination.name,
+    'currentWreckSighting': currentWreckSighting?.toJson(),
+    'regionalPlan': _regionalPlan.map(
+      (leg, options) =>
+          MapEntry('$leg', options.map((o) => o.toJson()).toList()),
+    ),
+    'conditionalCourses': _conditionalCourses.map(
+      (key, option) => MapEntry(key, option.toJson()),
+    ),
     'timesCompleted': timesCompleted,
     'maxRowReached': maxRowReached,
     'currentIsApex': currentIsApex,
@@ -194,6 +307,12 @@ class SeaChart {
             'monsterSpecies': entry.monsterSpecies?.name,
             'isApex': entry.isApex,
             'isNemesis': entry.isNemesis,
+            'difficultyLevel': entry.difficultyLevel,
+            'destination': entry.destination.name,
+            'regionIndex': entry.regionIndex,
+            'combatWon': entry.combatWon,
+            'wreckPassed': entry.wreckPassed,
+            'wreckRecovered': entry.wreckRecovered,
           },
         )
         .toList(),
@@ -210,6 +329,9 @@ class SeaChart {
             'isApex': option.isApex,
             'apexTitle': option.apexTitle,
             'isNemesis': option.isNemesis,
+            'destination': option.destination.name,
+            'clearLookoutCall': option.clearLookoutCall,
+            'wreckSighting': option.wreckSighting?.toJson(),
           },
         )
         .toList(),
@@ -219,6 +341,32 @@ class SeaChart {
     currentRow = json['currentRow'] as int;
     currentCol = json['currentCol'] as int;
     currentLeg = json['currentLeg'] as int;
+    currentWreckSighting = json['currentWreckSighting'] == null
+        ? null
+        : WreckSighting.fromJson(
+            Map<String, dynamic>.from(json['currentWreckSighting'] as Map),
+          );
+    _committedDifficulty = json['committedDifficulty'] as int?;
+    currentDestination = CourseDestination.values.byName(
+      json['currentDestination'] as String? ?? 'ordinary',
+    );
+    _regionalPlan.clear();
+    _conditionalCourses.clear();
+    for (final entry
+        in (json['conditionalCourses'] as Map<String, dynamic>? ?? {})
+            .entries) {
+      _conditionalCourses[entry.key] = CourseOption.fromJson(
+        Map<String, dynamic>.from(entry.value as Map),
+      );
+    }
+    for (final entry
+        in (json['regionalPlan'] as Map<String, dynamic>? ?? {}).entries) {
+      _regionalPlan[int.parse(entry.key)] = (entry.value as List)
+          .map(
+            (o) => CourseOption.fromJson(Map<String, dynamic>.from(o as Map)),
+          )
+          .toList();
+    }
     timesCompleted = json['timesCompleted'] as int;
     maxRowReached = json['maxRowReached'] as int? ?? currentRow;
     currentIsApex = json['currentIsApex'] as bool? ?? false;
@@ -265,6 +413,14 @@ class SeaChart {
                   ),
             isApex: entry['isApex'] as bool? ?? false,
             isNemesis: entry['isNemesis'] as bool? ?? false,
+            difficultyLevel: entry['difficultyLevel'] as int? ?? 1,
+            regionIndex: entry['regionIndex'] as int? ?? 0,
+            combatWon: entry['combatWon'] as bool? ?? false,
+            wreckPassed: entry['wreckPassed'] as bool? ?? false,
+            wreckRecovered: entry['wreckRecovered'] as bool? ?? false,
+            destination: CourseDestination.values.byName(
+              entry['destination'] as String? ?? 'ordinary',
+            ),
           ),
         ),
       );
@@ -280,7 +436,8 @@ class SeaChart {
             difficultyLevel: option['difficultyLevel'] as int,
             // Correct old cached Titan aliases without rerolling the offer or
             // rewriting ordinary/Nemesis identities or completed voyage logs.
-            lookoutCall: option['nodeType'] == EncounterNodeType.regionTitan.name &&
+            lookoutCall:
+                option['nodeType'] == EncounterNodeType.regionTitan.name &&
                     option['isNemesis'] != true
                 ? _titanLookoutCall
                 : option['lookoutCall'] as String,
@@ -294,6 +451,15 @@ class SeaChart {
             isApex: option['isApex'] as bool? ?? false,
             apexTitle: option['apexTitle'] as String?,
             isNemesis: option['isNemesis'] as bool? ?? false,
+            destination: CourseDestination.values.byName(
+              option['destination'] as String? ?? 'ordinary',
+            ),
+            clearLookoutCall: option['clearLookoutCall'] as String?,
+            wreckSighting: option['wreckSighting'] == null
+                ? null
+                : WreckSighting.fromJson(
+                    Map<String, dynamic>.from(option['wreckSighting'] as Map),
+                  ),
           ),
         )
         .toList();
@@ -468,8 +634,10 @@ class SeaChart {
 
   /// Returns true if current cell is a Region Titan encounter.
   bool get isRegionTitan =>
-      currentNodeType == EncounterNodeType.regionTitan ||
-      (currentLeg >= totalLegs && currentLeg > 0) ||
+      currentDestination == CourseDestination.titan ||
+      (currentLeg >= regionTitanLeg && currentLeg > 0) ||
+      _overriddenNodeTypes[(currentRow, currentCol)] ==
+          EncounterNodeType.regionTitan ||
       (currentLeg == 0 && currentRow == bossRow && currentCol == bossCol);
 
   /// Returns true if facing the final titan of the entire 3-region campaign.
@@ -523,11 +691,16 @@ class SeaChart {
 
   /// Explicitly reveals all nodes in [row] (e.g. via ancient rune divination).
   void revealRow(int row) {
-    if (row >= 0 && row < totalRows) {
+    if (row >= 0 && row <= regionTitanLeg) {
       _revealedRows.add(row);
     }
     _currentCourseOptions = _currentCourseOptions
-        .map((opt) => opt.copyWith(isIdentified: true))
+        .map(
+          (opt) => opt.copyWith(
+            isIdentified: true,
+            lookoutCall: opt.clearLookoutCall,
+          ),
+        )
         .toList();
   }
 
@@ -586,7 +759,7 @@ class SeaChart {
   /// Returns true if currently facing The Kraken on loop 0.
   bool get isKrakenBoss => isRegionTitan && currentRegionIndex == 0;
 
-  /// Calculates the encounter difficulty level for cell [row], [col].
+  /// Legacy grid helper. Runtime encounters use [currentDifficulty] instead.
   int difficultyAt(int row, int col) {
     if (isRegionTitan || (row == bossRow && col == bossCol)) {
       return bossRow + 2 + timesCompleted * 4;
@@ -595,13 +768,17 @@ class SeaChart {
   }
 
   /// The difficulty level of the current chart coordinate.
-  int get currentDifficulty => difficultyAt(currentRow, currentCol);
+  int get currentDifficulty =>
+      _committedDifficulty ??
+      (isRegionTitan
+          ? 5 + timesCompleted * 4
+          : difficultyForLeg(max(1, currentLeg)));
 
   /// Generates the monster encounter for the current coordinate.
   MonsterState currentMonster(GameRng rng) {
     if (isRegionTitan) {
       if (currentRegionIndex == 0) {
-        return createKraken(rng: rng);
+        return createKraken(level: currentDifficulty, rng: rng);
       } else if (currentRegionIndex == 1) {
         return createWorldSerpent(level: currentDifficulty, rng: rng);
       } else {
@@ -617,13 +794,15 @@ class SeaChart {
     );
   }
 
-  /// Ensures course options exist for the next leg, generating them if empty.
+  /// Ensures only the current group is exposed; the persisted regional plan
+  /// remains private and is never regenerated by redraw or presentation.
   List<CourseOption> ensureCourseOptions([
     GameRng? rng,
     NemesisRecord? activeNemesis,
     bool chokingFog = false,
     bool apexEmergence = false,
     bool superstitious = false,
+    bool vendetta = false,
   ]) {
     _discardTitanNemesisCourses();
     if (_currentCourseOptions.isEmpty) {
@@ -633,12 +812,12 @@ class SeaChart {
         chokingFog,
         apexEmergence,
         superstitious,
+        vendetta,
       );
     }
     return currentCourseOptions;
   }
 
-  /// Redraws ordinary offers while keeping any existing Nemesis heading exact.
   void redrawOrdinaryCourses(
     GameRng rng,
     NemesisRecord? activeNemesis,
@@ -646,25 +825,30 @@ class SeaChart {
     bool apexEmergence, [
     bool superstitious = false,
   ]) {
-    if (_currentCourseOptions.length <= 1) {
-      throw StateError('Cannot redraw a convergent course');
+    if (_currentCourseOptions.length <= 1 ||
+        _currentCourseOptions.any(
+          (o) =>
+              o.destination == CourseDestination.repairRefit ||
+              o.destination == CourseDestination.specialistMerchant,
+        )) {
+      throw StateError('Cannot redraw a fixed course');
     }
-    final nemesis = _currentCourseOptions
-        .where((option) => option.isNemesis)
-        .firstOrNull;
-    final regenerated = generateCourseOptions(
-      rng,
-      nemesis == null ? activeNemesis : null,
-      chokingFog,
-      apexEmergence,
-      superstitious,
-    );
+    final leg = currentLeg + 1;
     _currentCourseOptions = [
-      for (final option in regenerated)
-        if (nemesis != null && option.bearing == nemesis.bearing)
-          nemesis
+      for (final option in _currentCourseOptions)
+        if (option.isNemesis ||
+            option.destination == CourseDestination.midpointHaven)
+          option
         else
-          option,
+          _ordinaryOption(
+            leg,
+            option.bearing,
+            rng,
+            chokingFog,
+            apexEmergence,
+            superstitious,
+            departingIsland: isRespiteIsland,
+          ),
     ];
   }
 
@@ -674,196 +858,380 @@ class SeaChart {
     _ => 'Boiling steam geysers erupting across the caldera! The Ancient Leviathan surfaces dead ahead, blocking all passage!',
   };
 
-  /// Generates 3 navigational course options for the upcoming expedition leg.
+  int difficultyForLeg(int leg) => leg >= regionTitanLeg
+      ? 5 + timesCompleted * 4
+      : ((leg + 1) ~/ 2).clamp(1, 4) + timesCompleted * 4;
+
   List<CourseOption> generateCourseOptions([
     GameRng? rng,
     NemesisRecord? activeNemesis,
     bool chokingFog = false,
     bool apexEmergence = false,
     bool superstitious = false,
+    bool vendetta = false,
   ]) {
     final effectiveRng =
         rng ?? SeededGameRng(42 + currentLeg * 19 + timesCompleted * 101);
-    final targetLeg = currentLeg + 1;
-    final isDivined =
-        _revealedRows.contains(targetLeg) ||
-        _revealedRows.contains(currentRow + 1);
-
-    if (targetLeg == midpointHavenLeg) {
-      return [
-        CourseOption(
-          bearing: NavigationalBearing.deadAhead,
-          nodeType: EncounterNodeType.respiteIsland,
-          difficultyLevel: currentDifficulty,
-          lookoutCall: 'Landfall dead ahead! High verdant cliffs and a sheltered lagoon of the Midpoint Haven sighted through the ocean haze! Cormorants circling the haven canopy, Captain!',
-          isIdentified: true,
-        ),
-      ];
-    }
-
-    if (targetLeg >= totalLegs) {
-      final bossDiff = bossRow + 2 + timesCompleted * 4;
-      return [
-        CourseOption(
-          bearing: NavigationalBearing.deadAhead,
-          nodeType: EncounterNodeType.regionTitan,
-          difficultyLevel: bossDiff,
-          lookoutCall: _titanLookoutCall,
-          isIdentified: true,
-        ),
-      ];
-    }
-
-    // Standard procedural legs
-    final targetDifficulty =
-        ((targetLeg + 1) ~/ 2).clamp(1, 4) + timesCompleted * 4;
-    final options = <CourseOption>[];
-    final bearings = [
-      NavigationalBearing.larboardTack,
-      NavigationalBearing.deadAhead,
-      NavigationalBearing.starboardTack,
-    ];
-
-    final shouldSpawnNemesis =
-        activeNemesis != null &&
-        !activeNemesis.species.isRegionTitan &&
-        !hasEncounteredNemesisThisVoyage &&
-        currentRegionIndex == activeNemesis.regionIndex &&
-        targetLeg > midpointHavenLeg &&
-        targetLeg < totalLegs;
-    // A side heading stays reachable even for a Reckless Helmsman. The other
-    // two headings remain alternatives unless Blood Oath compels engagement.
-    final nemesisBearingIndex = shouldSpawnNemesis
-        ? (effectiveRng.nextInt(2) == 0 ? 0 : 2)
-        : -1;
-
-    for (var i = 0; i < bearings.length; i++) {
-      final bearing = bearings[i];
-      final targetRow = switch (bearing) {
-        NavigationalBearing.larboardTack => max(0, currentRow - 1),
-        NavigationalBearing.deadAhead =>
-          currentCol == totalCols - 1
-              ? min(totalRows - 1, currentRow + 1)
-              : currentRow,
-        NavigationalBearing.starboardTack => min(totalRows - 1, currentRow + 1),
-      };
-      final targetCol = (currentCol + 1) % totalCols;
-
-      EncounterNodeType type;
-      MonsterSpecies? species;
-      bool isNemesis = false;
-
-      if (shouldSpawnNemesis && i == nemesisBearingIndex) {
-        type = EncounterNodeType.beastCombat;
-        species = activeNemesis.species;
-        isNemesis = true;
-      } else if (_overriddenNodeTypes.containsKey((targetRow, targetCol))) {
-        type = _overriddenNodeTypes[(targetRow, targetCol)]!;
-      } else if (targetLeg == 1 && i == 1) {
-        type = EncounterNodeType.beastCombat;
-      } else {
-        final isDepartingIsland =
-            currentNodeType == EncounterNodeType.respiteIsland;
-        final roll = effectiveRng.nextInt(100);
-        if (superstitious && roll < 3) {
-          type = EncounterNodeType.ancientShrine;
-        } else if (roll < 55) {
-          type = EncounterNodeType.beastCombat;
-        } else if (roll < 70) {
-          type = EncounterNodeType.shipwreckSalvage;
-        } else if (roll < 85) {
-          // 15% chance of procedural secluded cove; strictly 0% if currently departing an island
-          type = isDepartingIsland
-              ? EncounterNodeType.beastCombat
-              : EncounterNodeType.respiteIsland;
-        } else if (roll < 93) {
-          type = EncounterNodeType.smugglerTrader;
-        } else {
-          type = EncounterNodeType.ancientShrine;
-        }
-      }
-
-      bool isApex = isNemesis;
-      String? apexTitle = isNemesis ? activeNemesis!.moniker : null;
-
-      if (type == EncounterNodeType.beastCombat && !isNemesis) {
-        final speciesList = currentRegionIndex == 0
-            ? const [
-                MonsterSpecies.shark,
-                MonsterSpecies.serpent,
-                MonsterSpecies.jellyfish,
-                MonsterSpecies.squid,
-              ]
-            : MonsterSpecies.values
-                  .where(
-                    (s) =>
-                        s != MonsterSpecies.kraken &&
-                        s != MonsterSpecies.worldSerpent &&
-                        s != MonsterSpecies.ancientLeviathan,
-                  )
-                  .toList();
-        species = speciesList[effectiveRng.nextInt(speciesList.length)];
-
-        // Apex predator chance scales by region: 20% in R1, 35% in R2, 50% in R3
-        // Doubled when Apex Emergence pact is active.
-        final apexRoll = effectiveRng.nextInt(100);
-        final baseApexThreshold = switch (currentRegionIndex) {
-          0 => 20,
-          1 => 35,
-          _ => 50,
-        };
-        final apexThreshold = apexEmergence
-            ? (baseApexThreshold * 2).clamp(0, 100)
-            : baseApexThreshold;
-        if (targetLeg > 1 && apexRoll < apexThreshold) {
-          isApex = true;
-          apexTitle = switch (species) {
-            MonsterSpecies.shark => 'Apex Megalodon',
-            MonsterSpecies.serpent => 'Apex Sea Wyrm',
-            MonsterSpecies.jellyfish => 'Apex Shock-Bell',
-            MonsterSpecies.squid => 'Apex Abyssal Squid',
-            MonsterSpecies.crustacean => 'Apex Obsidian Drake',
-            _ => 'Apex Predator',
-          };
-        }
-      }
-
-      final direction = switch (bearing) {
-        NavigationalBearing.larboardTack => 'off the larboard bow',
-        NavigationalBearing.deadAhead => 'dead ahead',
-        NavigationalBearing.starboardTack => 'off the starboard quarter',
-      };
-
-      final baseLookout = isNemesis
-          ? 'Dark dread chills the salt air... The lookout spots ${activeNemesis!.moniker} $direction!'
-          : _generateLookoutCall(
-              type,
-              species,
-              bearing,
-              effectiveRng,
-              isApex: isApex,
-            );
-
-      final lookout = (chokingFog && !isDivined && !isNemesis)
-          ? 'Dense phosphor fog muffles the lookout; waters $direction are completely obscured!'
-          : baseLookout;
-
-      options.add(
-        CourseOption(
-          bearing: bearing,
-          nodeType: type,
-          monsterSpecies: species,
-          difficultyLevel: targetDifficulty,
-          lookoutCall: lookout,
-          isIdentified: isDivined,
-          isApex: isApex,
-          apexTitle: apexTitle,
-          isNemesis: isNemesis,
-        ),
+    if (_regionalPlan.isEmpty) {
+      _stageRegion(
+        effectiveRng,
+        activeNemesis,
+        chokingFog,
+        apexEmergence,
+        superstitious,
+        vendetta,
       );
     }
+    final leg = currentLeg + 1;
+    if (leg > regionTitanLeg) {
+      throw StateError('Regional Titan must be resolved before continuing');
+    }
+    return [
+      for (final option in _regionalPlan[leg]!)
+        if (_overrideForBearing(option.bearing) case final type?)
+          _fixtureOption(
+            leg,
+            option.bearing,
+            type,
+            effectiveRng,
+            chokingFog,
+            apexEmergence,
+            superstitious,
+          )
+        else
+          _courseForContext(option, leg, activeNemesis),
+    ];
+  }
 
-    return options;
+  CourseOption _courseForContext(
+    CourseOption original,
+    int leg,
+    NemesisRecord? nemesis,
+  ) {
+    var option = original;
+    final key = '$leg:${original.bearing.name}';
+    if (original.isNemesis &&
+        (hasEncounteredNemesisThisVoyage || nemesis == null)) {
+      option = _conditionalCourses['nemesis:$key']!;
+    }
+    if (isRespiteIsland &&
+        option.destination == CourseDestination.ordinary &&
+        option.nodeType == EncounterNodeType.respiteIsland) {
+      option = _conditionalCourses['island:$key']!;
+    }
+    return _revealedRows.contains(leg)
+        ? option.copyWith(
+            isIdentified: true,
+            lookoutCall: option.clearLookoutCall,
+          )
+        : option;
+  }
+
+  // Explicit scenario/test overrides remain a fixture API. Ordinary runtime
+  // generation never treats drawn/grid coordinates as encounter authority.
+  EncounterNodeType? _overrideForBearing(NavigationalBearing bearing) {
+    final row = switch (bearing) {
+      NavigationalBearing.larboardTack => max(0, currentRow - 1),
+      NavigationalBearing.deadAhead =>
+        currentCol == totalCols - 1
+            ? min(totalRows - 1, currentRow + 1)
+            : currentRow,
+      NavigationalBearing.starboardTack => min(totalRows - 1, currentRow + 1),
+    };
+    return _overriddenNodeTypes[(row, (currentCol + 1) % totalCols)];
+  }
+
+  CourseOption _fixtureOption(
+    int leg,
+    NavigationalBearing bearing,
+    EncounterNodeType type,
+    GameRng rng,
+    bool fog,
+    bool apex,
+    bool superstitious,
+  ) {
+    final ordinary = _ordinaryOption(
+      leg,
+      bearing,
+      rng,
+      fog,
+      apex,
+      superstitious,
+      forcedType: type,
+    );
+    return CourseOption(
+      bearing: bearing,
+      nodeType: type,
+      difficultyLevel: type == EncounterNodeType.regionTitan
+          ? 5 + timesCompleted * 4
+          : ordinary.difficultyLevel,
+      lookoutCall: ordinary.lookoutCall,
+      monsterSpecies: type == EncounterNodeType.beastCombat
+          ? speciesAt(switch (bearing) {
+              NavigationalBearing.larboardTack => max(0, currentRow - 1),
+              NavigationalBearing.deadAhead =>
+                currentCol == totalCols - 1
+                    ? min(totalRows - 1, currentRow + 1)
+                    : currentRow,
+              NavigationalBearing.starboardTack => min(
+                totalRows - 1,
+                currentRow + 1,
+              ),
+            }, (currentCol + 1) % totalCols)
+          : ordinary.monsterSpecies,
+      isApex: ordinary.isApex,
+      isIdentified: ordinary.isIdentified,
+      wreckSighting: ordinary.wreckSighting,
+      destination: type == EncounterNodeType.regionTitan
+          ? CourseDestination.titan
+          : type == EncounterNodeType.respiteIsland && leg == midpointHavenLeg
+          ? CourseDestination.midpointHaven
+          : CourseDestination.ordinary,
+    );
+  }
+
+  void _stageRegion(
+    GameRng rng,
+    NemesisRecord? nemesis,
+    bool fog,
+    bool apex,
+    bool superstitious,
+    bool vendetta,
+  ) {
+    final eligibleNemesis =
+        nemesis != null &&
+        !nemesis.species.isRegionTitan &&
+        !hasEncounteredNemesisThisVoyage &&
+        currentRegionIndex == nemesis.regionIndex;
+    const bearings = NavigationalBearing.values;
+    for (var leg = 1; leg <= regionTitanLeg; leg++) {
+      if (leg == regionTitanLeg) {
+        _regionalPlan[leg] = [
+          CourseOption(
+            bearing: NavigationalBearing.deadAhead,
+            nodeType: EncounterNodeType.regionTitan,
+            difficultyLevel: difficultyForLeg(leg),
+            lookoutCall: _titanLookoutCall,
+            isIdentified: true,
+            destination: CourseDestination.titan,
+          ),
+        ];
+        continue;
+      }
+      if (leg == totalLegs) {
+        _regionalPlan[leg] = [
+          CourseOption(
+            bearing: NavigationalBearing.larboardTack,
+            nodeType: EncounterNodeType.respiteIsland,
+            difficultyLevel: difficultyForLeg(leg),
+            lookoutCall: 'Shipwright station to port. Paid hull repairs and voyage refits; no free shore duty.',
+            isIdentified: true,
+            destination: CourseDestination.repairRefit,
+          ),
+          CourseOption(
+            bearing: NavigationalBearing.starboardTack,
+            nodeType: EncounterNodeType.smugglerTrader,
+            difficultyLevel: difficultyForLeg(leg),
+            lookoutCall: 'Specialist merchant to starboard. Limited glass, iron and supplies; exact wares on arrival.',
+            isIdentified: true,
+            destination: CourseDestination.specialistMerchant,
+          ),
+        ];
+        continue;
+      }
+      if (currentRegionIndex == 0 && leg == 1) {
+        _regionalPlan[leg] = [
+          _ordinaryOption(
+            leg,
+            NavigationalBearing.deadAhead,
+            rng,
+            fog,
+            apex,
+            superstitious,
+            forcedType: EncounterNodeType.beastCombat,
+          ),
+        ];
+        continue;
+      }
+      if (eligibleNemesis && vendetta && leg == midpointHavenLeg + 1) {
+        _regionalPlan[leg] = [
+          _nemesisOption(nemesis, NavigationalBearing.deadAhead),
+        ];
+        continue;
+      }
+      final havenBearing = leg == midpointHavenLeg
+          ? (rng.nextInt(2) == 0
+                ? NavigationalBearing.larboardTack
+                : NavigationalBearing.starboardTack)
+          : null;
+      final nemesisBearing =
+          eligibleNemesis && !vendetta && leg > midpointHavenLeg
+          ? (rng.nextInt(2) == 0
+                ? NavigationalBearing.larboardTack
+                : NavigationalBearing.starboardTack)
+          : null;
+      _regionalPlan[leg] = [
+        for (final bearing in bearings)
+          if (bearing == havenBearing)
+            CourseOption(
+              bearing: bearing,
+              nodeType: EncounterNodeType.respiteIsland,
+              difficultyLevel: difficultyForLeg(leg),
+              isIdentified: true,
+              destination: CourseDestination.midpointHaven,
+              lookoutCall:
+                  'Midpoint Haven ${bearing == NavigationalBearing.larboardTack ? "to port" : "to starboard"}! Sheltered berths, one free shore duty, paid repairs and voyage refits.',
+            )
+          else if (bearing == nemesisBearing)
+            _nemesisOption(nemesis!, bearing)
+          else
+            _ordinaryOption(leg, bearing, rng, fog, apex, superstitious),
+      ];
+    }
+    // Structural reservations precede the floor. Keep valid natural plans and
+    // extras; correct only a missing eligible shrine, without rerolling a plan.
+    final eligible = <(int, int)>[];
+    var hasShrine = false;
+    for (final entry in _regionalPlan.entries) {
+      for (var i = 0; i < entry.value.length; i++) {
+        final option = entry.value[i];
+        if (option.destination != CourseDestination.ordinary ||
+            option.isNemesis ||
+            (currentRegionIndex == 0 && entry.key == 1)) {
+          continue;
+        }
+        eligible.add((entry.key, i));
+        hasShrine |= option.nodeType == EncounterNodeType.ancientShrine;
+      }
+    }
+    if (!hasShrine && eligible.isNotEmpty) {
+      final (leg, index) = eligible[rng.nextInt(eligible.length)];
+      final bearing = _regionalPlan[leg]![index].bearing;
+      _regionalPlan[leg]![index] = _ordinaryOption(
+        leg,
+        bearing,
+        rng,
+        fog,
+        apex,
+        superstitious,
+        forcedType: EncounterNodeType.ancientShrine,
+      );
+    }
+    // Freeze conditional replacements too. A checkpoint before the next helm
+    // must not change a hunt's species/tier when a cove is ineligible or a
+    // Nemesis has already been encountered. These never count toward the floor.
+    for (final entry in _regionalPlan.entries) {
+      for (final original in entry.value) {
+        final key = '${entry.key}:${original.bearing.name}';
+        var ordinary = original;
+        if (original.isNemesis) {
+          ordinary = _ordinaryOption(
+            entry.key,
+            original.bearing,
+            rng,
+            fog,
+            apex,
+            superstitious,
+          );
+          _conditionalCourses['nemesis:$key'] = ordinary;
+        }
+        if (ordinary.destination == CourseDestination.ordinary &&
+            ordinary.nodeType == EncounterNodeType.respiteIsland) {
+          _conditionalCourses['island:$key'] = _ordinaryOption(
+            entry.key,
+            original.bearing,
+            rng,
+            fog,
+            apex,
+            superstitious,
+            forcedType: EncounterNodeType.beastCombat,
+          );
+        }
+      }
+    }
+  }
+
+  CourseOption _nemesisOption(
+    NemesisRecord nemesis,
+    NavigationalBearing bearing,
+  ) => CourseOption(
+    bearing: bearing,
+    nodeType: EncounterNodeType.beastCombat,
+    monsterSpecies: nemesis.species,
+    difficultyLevel: nemesis.level,
+    lookoutCall:
+        'Dark dread chills the salt air... ${nemesis.moniker} ${bearing.displayName}!',
+    isIdentified: true,
+    isApex: true,
+    apexTitle: nemesis.moniker,
+    isNemesis: true,
+  );
+
+  CourseOption _ordinaryOption(
+    int leg,
+    NavigationalBearing bearing,
+    GameRng rng,
+    bool fog,
+    bool apexEmergence,
+    bool superstitious, {
+    EncounterNodeType? forcedType,
+    bool departingIsland = false,
+  }) {
+    final roll = forcedType == null ? rng.nextInt(100) : 0;
+    var type =
+        forcedType ??
+        (superstitious && roll < tuning.superstitiousExtraShrineWeight
+            ? EncounterNodeType.ancientShrine
+            : roll < tuning.huntWeight
+            ? EncounterNodeType.beastCombat
+            : roll < tuning.huntWeight + tuning.wreckWeight
+            ? EncounterNodeType.shipwreckSalvage
+            : roll < tuning.huntWeight + tuning.wreckWeight + tuning.coveWeight
+            ? EncounterNodeType.respiteIsland
+            : roll < 100 - tuning.shrineWeight
+            ? EncounterNodeType.smugglerTrader
+            : EncounterNodeType.ancientShrine);
+    if (departingIsland && type == EncounterNodeType.respiteIsland) {
+      type = EncounterNodeType.beastCombat;
+    }
+    MonsterSpecies? species;
+    var isApex = false;
+    if (type == EncounterNodeType.beastCombat) {
+      final pool = MonsterSpecies.values
+          .where(
+            (s) =>
+                !s.isRegionTitan &&
+                (currentRegionIndex > 0 || s != MonsterSpecies.crustacean),
+          )
+          .toList();
+      species = pool[rng.nextInt(pool.length)];
+      final threshold =
+          [20, 35, 50][currentRegionIndex] * (apexEmergence ? 2 : 1);
+      isApex =
+          !(currentRegionIndex == 0 && leg == 1) &&
+          rng.nextInt(100) < threshold;
+    }
+    final revealed = _revealedRows.contains(leg);
+    final sighting = type == EncounterNodeType.shipwreckSalvage
+        ? generateWreckSighting(rng, tuning.wrecks)
+        : null;
+    final clearCall = sighting == null
+        ? _generateLookoutCall(type, species, bearing, rng, isApex: isApex)
+        : '${sighting.clue} ${bearing.displayName}. Approach may conceal a lurking creature.';
+    return CourseOption(
+      bearing: bearing,
+      nodeType: type,
+      monsterSpecies: species,
+      difficultyLevel: difficultyForLeg(leg),
+      isIdentified: revealed,
+      isApex: isApex,
+      apexTitle: isApex ? 'Apex ${species!.displayName}' : null,
+      clearLookoutCall: clearCall,
+      wreckSighting: sighting,
+      lookoutCall: fog && !revealed
+          ? 'Dense phosphor fog muffles the lookout; waters ${bearing.displayName} are completely obscured!'
+          : clearCall,
+    );
   }
 
   String _generateLookoutCall(
@@ -958,10 +1326,13 @@ class SeaChart {
 
     final chosen = _currentCourseOptions.firstWhere(
       (opt) => opt.bearing == bearing,
-      orElse: () => _currentCourseOptions.first,
+      orElse: () => throw StateError('Bearing is not offered'),
     );
 
     currentLeg++;
+    _committedDifficulty = chosen.difficultyLevel;
+    currentDestination = chosen.destination;
+    currentWreckSighting = chosen.wreckSighting;
     currentIsApex = chosen.isApex;
     currentIsNemesis = chosen.isNemesis;
     if (chosen.isNemesis) {
@@ -1011,6 +1382,9 @@ class SeaChart {
         monsterSpecies: chosen.monsterSpecies,
         isApex: chosen.isApex,
         isNemesis: chosen.isNemesis,
+        difficultyLevel: chosen.difficultyLevel,
+        destination: chosen.destination,
+        regionIndex: currentRegionIndex,
       ),
     );
 
@@ -1031,6 +1405,9 @@ class SeaChart {
     }
 
     currentLeg++;
+    _committedDifficulty = null;
+    currentDestination = CourseDestination.ordinary;
+    currentWreckSighting = null;
     currentIsApex = false;
     currentIsNemesis = false;
 
@@ -1049,6 +1426,8 @@ class SeaChart {
       _revealedRows.clear();
       _voyageLog.clear();
       _currentCourseOptions.clear();
+      _regionalPlan.clear();
+      _conditionalCourses.clear();
       generateGrid(rng ?? SeededGameRng(42 + timesCompleted));
       return;
     }
@@ -1067,8 +1446,12 @@ class SeaChart {
     currentIsNemesis = false;
     hasEncounteredNemesisThisVoyage = false;
     _revealedRows.clear();
-    _voyageLog.clear();
     _currentCourseOptions.clear();
+    _regionalPlan.clear();
+    _conditionalCourses.clear();
+    _committedDifficulty = null;
+    currentDestination = CourseDestination.ordinary;
+    currentWreckSighting = null;
     generateGrid(rng ?? SeededGameRng(42 + timesCompleted));
   }
 
@@ -1082,6 +1465,11 @@ class SeaChart {
     hasEncounteredNemesisThisVoyage = false;
     _voyageLog.clear();
     _currentCourseOptions.clear();
+    _regionalPlan.clear();
+    _conditionalCourses.clear();
+    _committedDifficulty = null;
+    currentDestination = CourseDestination.ordinary;
+    currentWreckSighting = null;
   }
 
   /// Resets position and completion count back to the initial harbor.
@@ -1096,6 +1484,11 @@ class SeaChart {
     _revealedRows.clear();
     _voyageLog.clear();
     _currentCourseOptions.clear();
+    _regionalPlan.clear();
+    _conditionalCourses.clear();
+    _committedDifficulty = null;
+    currentDestination = CourseDestination.ordinary;
+    currentWreckSighting = null;
     if (resetMaxRow) {
       maxRowReached = 0;
     }

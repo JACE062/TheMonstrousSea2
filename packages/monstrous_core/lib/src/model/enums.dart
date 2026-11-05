@@ -265,7 +265,7 @@ enum ConsumableType {
   ),
   hullPatchKit(
     'Hull Patch Kit',
-    'Seasoned oak planks and hot pitch that restore 30% of max hull HP as a Quick Action.',
+    'Seasoned oak planks and hot pitch that restore 30% of max hull HP. Use between battles or as a combat Quick Action.',
     DamageType.piercing,
   ),
   krakenInkBomb(

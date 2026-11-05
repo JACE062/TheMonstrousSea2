@@ -23,7 +23,7 @@ void main() {
       final session = GameSession(rng: SeededGameRng(42))
         ..dispatch(const BeginFirstVoyage('Test'));
       session.seaChart.timesCompleted = region;
-      session.seaChart.currentLeg = session.seaChart.totalLegs - 1;
+      session.seaChart.currentLeg = session.seaChart.regionTitanLeg - 1;
       session.phase = SessionPhase.restArea;
       final helm = session.dispatch(const TakeHelm());
       expect(
@@ -53,7 +53,7 @@ void main() {
 
     test('$name repairs only old cached Titan approach copy', () {
       final chart = SeaChart(rng: SeededGameRng(42))..timesCompleted = region;
-      chart.currentLeg = chart.totalLegs - 1;
+      chart.currentLeg = chart.regionTitanLeg - 1;
       chart.ensureCourseOptions();
       final saved =
           jsonDecode(jsonEncode(chart.toJson())) as Map<String, dynamic>;

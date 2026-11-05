@@ -158,10 +158,8 @@ void main() {
       session.dispatch(const AdvanceToNextBattle());
       expect(session.phase, equals(SessionPhase.shrine));
 
-      // Row 1 is currently obscured in fog
-      expect(session.seaChart.isRevealed(1, 0), isFalse);
-      expect(session.seaChart.isRevealed(1, 1), isFalse);
-      expect(session.seaChart.isRevealed(1, 2), isFalse);
+      final nextLeg = session.seaChart.currentLeg + 1;
+      expect(session.seaChart.toJson()['revealedRows'], isNot(contains(nextLeg)));
 
       // Consult ancient runes
       final runeEvents = session.dispatch(
@@ -170,15 +168,9 @@ void main() {
       expect(runeEvents.whereType<ShrineCommuned>(), isNotEmpty);
       expect(session.gunneryAccuracyBoon, equals(10));
 
-      // Fog is lifted across all columns of Row 1!
-      expect(session.seaChart.isRevealed(1, 0), isTrue);
-      expect(session.seaChart.isRevealed(1, 1), isTrue);
-      expect(session.seaChart.isRevealed(1, 2), isTrue);
-      expect(session.seaChart.isRevealed(1, 3), isTrue);
-      expect(session.seaChart.isRevealed(1, 4), isTrue);
-
-      // But Row 2 remains obscured in fog
-      expect(session.seaChart.isRevealed(2, 0), isFalse);
+      // Runes reveal the next offered leg without exposing a future branch.
+      expect(session.seaChart.toJson()['revealedRows'], contains(nextLeg));
+      expect(session.seaChart.toJson()['revealedRows'], isNot(contains(nextLeg + 1)));
     });
   });
 }

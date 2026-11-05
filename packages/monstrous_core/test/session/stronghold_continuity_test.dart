@@ -8,6 +8,7 @@ GameSession preparedTitan(int region) {
     ..dispatch(const BeginFirstVoyage('Reed', customShipName: 'Resolute'));
   session.seaChart.timesCompleted = region;
   session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
   session.phase = SessionPhase.respiteIsland;
   session.ship!.gold = 4000;
   session.dispatch(const UpgradeShip());
@@ -25,7 +26,7 @@ GameSession preparedTitan(int region) {
   session.ship!.applyDamage(20);
   session.monstersDefeatedThisLife = 8;
   session.highestDifficultyThisLife = 5;
-  session.seaChart.currentLeg = session.seaChart.totalLegs;
+  session.seaChart.currentLeg = session.seaChart.regionTitanLeg;
   session.hasDefeatedCurrentEncounter = true;
   session.currentMonster = null;
   session.phase = SessionPhase.restArea;
@@ -90,6 +91,7 @@ void main() {
     () {
       final haven = preparedTitan(0)..phase = SessionPhase.respiteIsland;
       haven.seaChart.currentLeg = haven.seaChart.midpointHavenLeg;
+    haven.seaChart.currentDestination = CourseDestination.midpointHaven;
       final stronghold = reload(haven)..phase = SessionPhase.stronghold;
       for (final command in [
         const UpgradeShip(),

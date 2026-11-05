@@ -78,7 +78,7 @@ void main() {
     expect(restored.lineage.history, isEmpty);
   });
 
-  test('hull refit restoration uses healing modifiers while retaining full new capacity', () {
+  test('hull refit preserves missing HP independently of healing modifiers', () {
     final session = GameSession(rng: SeededGameRng(4))
       ..dispatch(const BeginFirstVoyage('Captain Reed'));
     session.activeBoon = BloodlineTrait.skilledCarpenter;
@@ -87,7 +87,7 @@ void main() {
     session.ship!.currentHp = 10;
     upgradeShipState(session.ship!);
     expect(session.ship!.maxHp, oldMax + 50);
-    expect(session.ship!.currentHp, 55); // 10 + round(50 * 1.2 * .75)
+    expect(session.ship!.currentHp, 60); // Fixed capacity growth: 10 + 50.
   });
 
   test('Quartermaster commission allocates the extra slot before transferring supplies', () {

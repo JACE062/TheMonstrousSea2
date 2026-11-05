@@ -3,6 +3,15 @@ import '../model/covenant_of_the_deep.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
 import '../model/ocean_power.dart';
+import '../model/wreck_encounter.dart';
+import '../model/material_shipment.dart';
+
+final class BuyMerchantMaterial extends Command {
+  const BuyMerchantMaterial(this.shipmentId, this.material, {this.quantity = 1});
+  final String shipmentId;
+  final TradeMaterial material;
+  final int quantity;
+}
 
 /// Base sealed class for all user or bot intents sent into the game engine.
 sealed class Command {
@@ -56,6 +65,14 @@ final class ChangeCombatRange extends Command {
 final class UseConsumableItem extends Command {
   const UseConsumableItem(this.cargoIndex);
   final int cargoIndex;
+}
+
+/// Uses an exact carried or pending Hull Patch Kit outside combat. Shop stock
+/// is never pending loot; this command cannot buy or consume merchant wares.
+final class UseHullPatchKit extends Command {
+  const UseHullPatchKit(this.itemId, {this.fromPendingLoot = false});
+  final String itemId;
+  final bool fromPendingLoot;
 }
 
 /// Executes the ship's active class action (Fortify, Evasive Maneuvers).
@@ -148,6 +165,11 @@ final class RepairShip extends Command {
   final double percentage;
 }
 
+/// Buys the greatest effective paid work affordable now, within this visit.
+final class BuyAffordablePaidRepairs extends Command {
+  const BuyAffordablePaidRepairs();
+}
+
 /// Refits the player's vessel level at a voyage's midpoint Haven shipwright.
 final class UpgradeShip extends Command {
   const UpgradeShip();
@@ -203,10 +225,18 @@ final class DepartIsland extends Command {
   const DepartIsland();
 }
 
-/// Salvages resources from a floating Shipwreck derelict.
+/// Retained compatibility identifier; selectable wreck operations are retired
+/// and dispatch rejects this command. Use [ChooseWreckRecovery].
 final class SalvageShipwreck extends Command {
   const SalvageShipwreck(this.choice);
   final ShipwreckChoice choice;
+}
+
+/// Resolves only the named current wreck; stale callbacks cannot claim another.
+final class ChooseWreckRecovery extends Command {
+  const ChooseWreckRecovery(this.wreckId, this.choice);
+  final String wreckId;
+  final WreckRecoveryChoice choice;
 }
 
 /// Claims victory following the defeat of the final titan.

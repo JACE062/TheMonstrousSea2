@@ -135,6 +135,7 @@ void main() {
 
       // The first eligible Nemesis course follows the midpoint Haven.
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
       session.dispatch(const TakeHelm());
 
       expect(session.phase, SessionPhase.helm);
@@ -215,6 +216,7 @@ void main() {
       session.dispatch(const TakeAllLoot());
 
       session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
       session.dispatch(const TakeHelm());
       expect(session.phase, SessionPhase.helm);
 

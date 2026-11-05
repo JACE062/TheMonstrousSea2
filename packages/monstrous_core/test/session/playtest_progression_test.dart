@@ -41,6 +41,7 @@ void main() {
     session.ship!.addCargo(beltItem);
     session.phase = SessionPhase.respiteIsland;
     session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
     session.dispatch(const UpgradeShip());
     session.dispatch(const TemperHardpoint(HardpointType.broadside));
     session.dispatch(const TemperHardpoint(HardpointType.signature));
@@ -158,6 +159,7 @@ void main() {
       isEmpty,
     );
     session.seaChart.currentLeg = session.seaChart.midpointHavenLeg;
+    session.seaChart.currentDestination = CourseDestination.midpointHaven;
     expect(
       session.dispatch(const UpgradeShip()).whereType<ShipUpgraded>(),
       hasLength(1),
@@ -235,7 +237,7 @@ void main() {
       expect(chart.currentLeg, 4);
       expect(chart.isRegionTitan, isFalse);
       expect(
-        chart.ensureCourseOptions().single.nodeType,
+        chart.ensureCourseOptions().singleWhere((o) => o.destination == CourseDestination.midpointHaven).nodeType,
         EncounterNodeType.respiteIsland,
       );
     },
