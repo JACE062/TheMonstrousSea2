@@ -1,0 +1,460 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:01 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:02 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:02 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:02 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:02 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:02 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:02 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:02 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:02 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.15
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:02 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:02 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:02 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:02 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:02 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:03 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:03 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_snapshot_test.dart: snapshot failure prevents publishing ending; retry retains exact pre-choice state
+GameController persistence error: FileSystemException: Fixture snapshot failure, path = ''
+00:03 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:03 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:03 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:03 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.3
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:03 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/belt_controls_test.dart: quick belt use targets its cargo index and keeps the round open
+00:03 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:03 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:03 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:03 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:03 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:03 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:04 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:04 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:04 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 1280.0 / 1.15
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:04 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:04 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:04 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_purchase_test.dart: first port menu keeps affordable Ironclad locked until a paid click
+00:04 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_purchase_test.dart: first port menu keeps affordable Ironclad locked until a paid click
+00:04 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_purchase_test.dart: first port menu keeps affordable Ironclad locked until a paid click
+00:04 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_purchase_test.dart: first port menu keeps affordable Ironclad locked until a paid click
+00:04 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_purchase_test.dart: first port menu keeps affordable Ironclad locked until a paid click
+00:04 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_purchase_test.dart: first port menu keeps affordable Ironclad locked until a paid click
+00:04 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:04 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:04 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 1280.0 / 1.3
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:04 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:04 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:04 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: an undecodable PNG does not poison the image cache
+Battle illustration unavailable (assets/art/ship_standard_map.png): Exception: Invalid image data
+00:05 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_art_test.dart: Sea Chart shows artwork and vessel location in port
+00:05 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Long helm then Ram impacts in 900 ms with overlapping movement labels
+00:05 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:05 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:05 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:05 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: both missing illustrations remain recoverable after a failed retry
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+Battle illustration unavailable (assets/art/monster_shark_map.png): Unable to load asset: "assets/art/monster_shark_map.png"
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+Battle illustration unavailable (assets/art/monster_shark_map.png): Unable to load asset: "assets/art/monster_shark_map.png"
+00:06 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: a pending retry can finish after the scene is removed
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:06 +67: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +71: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:06 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:07 +73: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:07 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_chronicle_test.dart: Chronicle opens latest and respects history at 360.0 / 1.15
+00:07 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_chronicle_test.dart: Chronicle opens latest and respects history at 360.0 / 1.15
+00:07 +76: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:07 +77: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:07 +78: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:07 +79: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:07 +80: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:07 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=true)
+00:07 +82: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +83: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +84: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +86: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +87: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +88: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +90: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:07 +91: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +92: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +93: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +94: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +95: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +96: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +97: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +98: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +99: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +100: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +101: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:08 +102: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:09 +103: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:09 +104: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:09 +105: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +106: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +107: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +108: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +109: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +110: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +111: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +112: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +113: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:09 +114: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:09 +115: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:09 +116: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:09 +117: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:09 +118: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +119: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +120: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +121: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +122: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +123: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +124: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +125: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasive_rigging_ui_test.dart: Mk 1 inspection and battle show +25% / 50%
+00:10 +126: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/expanded_roster_ui_test.dart: smuggler gift and healing quote at 360.0 / 1.15
+00:10 +127: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:10 +128: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:10 +129: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +130: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +131: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +132: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +133: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +134: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +135: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +136: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +137: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +138: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +139: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +140: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +141: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:11 +142: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:12 +143: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:12 +144: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:12 +145: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:12 +146: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/helm_screen_test.dart: HelmScreen Widget Tests combines map, logbook, prevailing wind and three course options
+00:12 +147: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ink_and_kraken_ui_test.dart: Kraken ink and release at 360.0px, scale 1.15
+00:12 +148: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ink_and_kraken_ui_test.dart: Kraken ink and release at 360.0px, scale 1.15
+00:12 +149: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ink_and_kraken_ui_test.dart: Kraken ink and release at 360.0px, scale 1.15
+00:12 +150: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ink_and_kraken_ui_test.dart: Kraken ink and release at 360.0px, scale 1.15
+00:12 +151: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +152: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +153: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +154: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +155: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +156: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +157: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +158: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +159: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +160: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +161: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +162: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +163: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +164: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +165: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +166: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +167: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +168: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +169: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +170: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +171: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +172: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +173: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +174: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +175: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +176: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +177: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +178: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +179: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +180: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +181: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +182: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +183: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +184: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +185: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +186: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +187: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +188: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/material_trade_ui_test.dart: finite material trade works with a full belt at 360.0
+00:13 +189: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/material_trade_ui_test.dart: finite material trade works with a full belt at 360.0
+00:13 +190: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/material_trade_ui_test.dart: finite material trade works with a full belt at 360.0
+00:13 +191: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/expanded_roster_ui_test.dart: Impatient explains pending and offers grappled Wait & Reload
+00:14 +192: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/expanded_roster_ui_test.dart: Impatient explains pending and offers grappled Wait & Reload
+00:14 +193: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +194: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +195: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +196: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +197: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +198: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +199: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +200: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +201: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_flow_test.dart: ordinary rewards show course controls without rest at 1.15
+00:14 +202: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/new_encounters_test.dart: New Encounter UI Screens SmugglerScreen renders contraband wares, handles repair, and departs
+00:14 +203: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/new_encounters_test.dart: New Encounter UI Screens SmugglerScreen renders contraband wares, handles repair, and departs
+00:14 +204: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/new_encounters_test.dart: New Encounter UI Screens SmugglerScreen renders contraband wares, handles repair, and departs
+00:15 +205: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:15 +206: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:15 +207: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:15 +208: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/integrated_chart_test.dart: integrated chart region 2 at 1280.0, scaled and reduced motion
+00:15 +209: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/integrated_chart_test.dart: integrated chart region 2 at 1280.0, scaled and reduced motion
+00:15 +210: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +211: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +212: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +213: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +214: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +215: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +216: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +217: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +218: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +219: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +220: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +221: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +222: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +223: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +224: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +225: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +226: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +227: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +228: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +229: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +230: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +231: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +232: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +233: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +234: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +235: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +236: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +237: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +238: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +239: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +240: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +241: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:15 +242: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +243: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +244: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +245: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +246: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +247: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +248: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +249: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +250: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +251: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +252: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +253: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +254: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +255: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:16 +256: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:16 +257: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:16 +258: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:16 +259: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:17 +260: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:17 +261: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:17 +262: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:17 +263: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:17 +264: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:17 +265: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +266: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +267: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +268: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +269: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +270: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +271: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +272: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +273: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +274: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +275: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +276: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +277: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +278: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +279: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +280: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +281: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +282: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +283: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +284: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +285: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:17 +286: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:18 +287: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_combat_and_island_test.dart: Emergency pass appears only when all turn-ending hardpoints are unavailable
+00:18 +288: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +289: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +290: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +291: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +292: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +293: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +294: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +295: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +296: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +297: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +298: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +299: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +300: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +301: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +302: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +303: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +304: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +305: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:18 +306: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +307: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +308: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +309: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +310: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +311: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +312: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +313: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +314: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +315: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +316: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +317: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +318: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +319: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +320: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:19 +321: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +322: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +323: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +324: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +325: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +326: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +327: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +328: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +329: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +330: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +331: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +332: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +333: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +334: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +335: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +336: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +337: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +338: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +339: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +340: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +341: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +342: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +343: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +344: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +345: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +346: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +347: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +348: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +349: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +350: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:20 +351: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +351: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/startup_restore_test.dart: failed save initialization offers retry without starting a fresh voyage
+Unable to initialize saved progress: FileSystemException: Import interrupted, path = ''
+00:21 +352: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +353: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +354: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +355: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +356: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +357: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +358: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +359: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +360: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +361: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +362: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +363: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +364: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +365: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +366: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +367: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +368: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +369: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +370: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +371: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +372: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +373: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +374: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +375: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +376: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +377: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +378: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +379: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.15
+00:21 +380: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +381: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +382: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +383: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +384: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +385: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +386: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +387: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +388: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:22 +389: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:23 +390: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:23 +391: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:23 +392: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:23 +393: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/stronghold_flow_test.dart: stronghold offers voyage upgrades and returns from merchant without home actions
+00:23 +394: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 360.0, scale 1.15
+00:23 +395: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 360.0, scale 1.15
+00:23 +396: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 360.0, scale 1.15
+00:23 +397: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 360.0, scale 1.15
+00:23 +398: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 360.0, scale 1.15
+00:23 +399: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 360.0, scale 1.15
+00:23 +400: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 360.0, scale 1.15
+00:23 +401: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:23 +402: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:23 +403: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +404: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +405: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +406: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +407: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +408: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +409: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +410: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +411: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +412: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +413: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +414: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +415: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 360.0 / 1.3
+00:24 +416: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 1280.0 / 1.15
+00:24 +417: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 1280.0, scale 1.3
+00:24 +418: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 1280.0, scale 1.3
+00:25 +419: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 1280.0, scale 1.3
+00:25 +420: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 1280.0, scale 1.3
+00:25 +421: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 1280.0, scale 1.3
+00:25 +422: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tentacle_ui_test.dart: late-region sweep preview updates after severing at 1280.0, scale 1.3
+00:25 +423: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:25 +424: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:25 +425: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:25 +426: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:25 +427: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:25 +428: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:26 +429: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:26 +430: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.15
+00:26 +431: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: configure, launch, relaunch and edit at 1280.0 / 1.3
+00:27 +432: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: invalid numeric input stays in the menu with a useful error
+00:28 +433: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: F10 reaches both ending outcomes without changing the suspended normal game
+00:28 +434: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: direct playtest startup defers mounting the normal game until return
+00:29 +435: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_menu_test.dart: (tearDownAll)
+00:29 +435: All tests passed!

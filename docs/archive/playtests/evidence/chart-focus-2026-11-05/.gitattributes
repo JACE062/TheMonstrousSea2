@@ -1,0 +1,5 @@
+# Preserve captured bytes and portable manifest hashes.
+*.log binary
+*.png binary
+*.json text eol=lf
+.gitattributes text eol=lf
