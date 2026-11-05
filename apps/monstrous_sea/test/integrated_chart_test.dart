@@ -177,7 +177,6 @@ void main() {
           addTearDown(c.dispose);
           final before = c.seaChart.toJson();
           final boundary = GlobalKey();
-          var opened = false;
           await tester.pumpWidget(
             MaterialApp(
               theme: InkTheme.themeData,
@@ -190,10 +189,7 @@ void main() {
               ),
               home: RepaintBoundary(
                 key: boundary,
-                child: HelmScreen(
-                  controller: c,
-                  onOpenChart: () => opened = true,
-                ),
+                child: HelmScreen(controller: c),
               ),
             ),
           );
@@ -226,7 +222,9 @@ void main() {
           await tester.sendKeyEvent(LogicalKeyboardKey.tab);
           await tester.sendKeyEvent(LogicalKeyboardKey.enter);
           await tester.pumpAndSettle();
-          expect(opened, isTrue);
+          expect(find.text('DEAD-RECKONING VOYAGE LOG'), findsOneWidget);
+          await tester.tap(find.text('CLOSE LOGBOOK'));
+          await tester.pumpAndSettle();
           expect(c.seaChart.toJson(), before);
           const prefix = String.fromEnvironment('navigationProofPath');
           if (prefix.isNotEmpty) {

@@ -198,7 +198,12 @@ void main() {
         expect(find.byType(HelmScreen), findsOneWidget);
         expect(find.byType(RestScreen), findsNothing);
         expect(find.byType(ArmoryView), findsNothing);
-        expect(find.text('CONSULT SEA CHART').hitTestable(), findsOneWidget);
+        expect(find.text('CONSULT SEA CHART'), findsNothing);
+        expect(
+          find.byKey(const ValueKey('helm-voyage-log')).hitTestable(),
+          findsOneWidget,
+        );
+        await tester.ensureVisible(find.text('STEER THIS HEADING').first);
         expect(find.text('STEER THIS HEADING').hitTestable(), findsWidgets);
         expect(tester.takeException(), isNull);
       },
@@ -290,9 +295,15 @@ void main() {
       addTearDown(controller.dispose);
       controller.session.phase = SessionPhase.shipwreck;
       controller.session.currentShipwreckName = 'Saved Wreck';
-      controller.session.currentWreck = WreckEncounter(id: 'saved-wreck',
-        sighting: const WreckSighting(seed: 81, condition: WreckCondition.uncertain, clearClue: true),
-        stage: WreckStage.receipt);
+      controller.session.currentWreck = WreckEncounter(
+        id: 'saved-wreck',
+        sighting: const WreckSighting(
+          seed: 81,
+          condition: WreckCondition.uncertain,
+          clearClue: true,
+        ),
+        stage: WreckStage.receipt,
+      );
       controller.session.hasSalvagedCurrentWreck = true;
       controller.session.wreckSalvageReceipt = [
         '3 Sea Glass',
@@ -313,7 +324,12 @@ void main() {
         restored.pendingLoot.single.name,
         controller.pendingLoot.single.name,
       );
-      restored.dispatch(const ChooseWreckRecovery('saved-wreck', WreckRecoveryChoice.recoverClearedCargo));
+      restored.dispatch(
+        const ChooseWreckRecovery(
+          'saved-wreck',
+          WreckRecoveryChoice.recoverClearedCargo,
+        ),
+      );
       expect(restored.profile.metaInventory.seaGlass, 3);
     },
   );

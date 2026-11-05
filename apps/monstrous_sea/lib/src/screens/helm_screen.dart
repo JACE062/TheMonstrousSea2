@@ -4,34 +4,30 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/armory_view.dart';
-import '../widgets/hull_gauge.dart';
 import '../widgets/nautical_chart.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
-import '../widgets/pilot_art.dart';
-import '../widgets/svg_asset_view.dart';
+import '../widgets/voyage_log_view.dart';
 
-/// The quarterdeck helm navigation screen where the captain evaluates
-/// the lookout's observations from the crow's nest and steers the ship's heading.
+/// The chart and current lookout reports form one navigation surface.
 class HelmScreen extends StatefulWidget {
-  const HelmScreen({
-    super.key,
-    required this.controller,
-    required this.onOpenChart,
-  });
-
+  const HelmScreen({super.key, required this.controller});
   final GameController controller;
-  final VoidCallback onOpenChart;
-
   @override
   State<HelmScreen> createState() => _HelmScreenState();
 }
 
 class _HelmScreenState extends State<HelmScreen> {
-  bool _showingArmory = false;
   bool _departing = false;
   Widget? _lastHelmView;
+  final _reportsScroll = ScrollController();
+
+  @override
+  void dispose() {
+    _reportsScroll.dispose();
+    super.dispose();
+  }
 
   void _redrawCourses() {
     final controller = widget.controller;
@@ -54,355 +50,279 @@ class _HelmScreenState extends State<HelmScreen> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: widget.controller,
-      builder: (context, _) {
-        final controller = widget.controller;
-        // AnimatedSwitcher keeps the outgoing screen alive during its fade.
-        // Preserve that rendered view instead of reading the next encounter's
-        // mutable chart state, and prevent a second click during departure.
-        if (_departing || controller.phase != SessionPhase.helm) {
-          return IgnorePointer(
-            child: ExcludeFocus(
-              child: _lastHelmView ?? const SizedBox.shrink(),
+  Widget _reports() {
+    final controller = widget.controller;
+    final options = controller.currentCourseOptions;
+    final ship = controller.ship;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          options.length == 1
+              ? 'LOOKOUT OBSERVATION • CONVERGENT APPROACH'
+              : 'LOOKOUT OBSERVATIONS & COURSES',
+          style: InkTheme.statLabel.copyWith(
+            color: InkTheme.inkSecondary,
+            fontSize: 12,
+          ),
+        ),
+        const SizedBox(height: 10),
+        if (controller.canEmergencyRepairAtSea) ...[
+          ParchmentCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('EMERGENCY HULL TRIAGE', style: InkTheme.statValue),
+                Text(
+                  'Patch the hull to 25% integrity before choosing a heading.',
+                  style: InkTheme.body,
+                ),
+                InkButton(
+                  label: 'PATCH TO 25% · ${controller.emergencyRepairCost}g',
+                  onPressed:
+                      ship != null &&
+                          ship.gold >= controller.emergencyRepairCost
+                      ? () => controller.dispatch(const RepairShip(0.25))
+                      : null,
+                ),
+              ],
             ),
+          ),
+          const SizedBox(height: 10),
+        ],
+        if (controller.activeBoon?.id == BloodlineTraitId.stormSeer) ...[
+          ParchmentCard(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('STORM-SEER', style: InkTheme.statLabel),
+                const SizedBox(height: 4),
+                Text(
+                  'Read the winds once per region to redraw ordinary headings. Haven, Titan and Nemesis courses hold fast.',
+                  style: InkTheme.caption,
+                ),
+                const SizedBox(height: 8),
+                InkButton(
+                  key: const ValueKey('storm-seer-redraw'),
+                  label: 'READ THE WINDS',
+                  compact: true,
+                  semanticHint: controller.stormSeerRedrawRestriction,
+                  onPressed: controller.canRedrawStormSeerCourses
+                      ? _redrawCourses
+                      : null,
+                ),
+                if (controller.stormSeerRedrawRestriction
+                    case final restriction?) ...[
+                  const SizedBox(height: 6),
+                  Text(restriction, style: InkTheme.caption),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+        ],
+        if (options.isEmpty)
+          ParchmentCard(
+            child: Text(
+              'Awaiting the navigator to verify current soundings...',
+              style: InkTheme.body,
+            ),
+          ),
+        for (final option in options)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: _CourseOptionCard(
+              option: option,
+              restriction: controller.session.courseRestriction(option.bearing),
+              onSteer: () => _steer(option.bearing),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _header(BuildContext context, bool compact) {
+    final controller = widget.controller;
+    final ship = controller.ship;
+    final title = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'NAUTICAL SEA CHART',
+          style: InkTheme.titleLarge.copyWith(fontSize: compact ? 26 : 32),
+        ),
+        Text(
+          '${controller.seaChart.currentRegionName} · Region ${controller.seaChart.currentRegionIndex + 1} of 3 · ${controller.currentLeg >= controller.totalLegs ? 'Titan approach' : 'Leg ${controller.currentLeg + 1} of ${controller.totalLegs}'}',
+          style: InkTheme.subtitle.copyWith(fontSize: 15),
+        ),
+        const SizedBox(height: 3),
+        Text(
+          compact
+              ? 'FRESH WESTERLIES · ONWARD'
+              : 'FRESH WESTERLIES · EVERY HEADING PRESSES ONWARD',
+          style: InkTheme.caption.copyWith(fontSize: 11),
+        ),
+      ],
+    );
+    final status = ship == null
+        ? const SizedBox.shrink()
+        : Text(
+            'HULL ${ship.currentHp}/${ship.maxHp} · PURSE ${ship.gold}g',
+            style: InkTheme.statLabel.copyWith(fontSize: 12),
           );
-        }
-        final onOpenChart = widget.onOpenChart;
-        final ship = controller.ship;
-        final options = controller.currentCourseOptions;
-        final currentLeg = controller.currentLeg;
-        final totalLegs = controller.totalLegs;
-        final compact = MediaQuery.sizeOf(context).width < 600;
-        final regionTitle = controller.seaChart.currentRegionName;
-
-        final courseCards = Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              options.length == 1
-                  ? 'LOOKOUT OBSERVATION • CONVERGENT APPROACH'
-                  : 'LOOKOUT OBSERVATIONS & COURSES',
-              style: InkTheme.statValue.copyWith(
-                color: InkTheme.goldAccent,
-                letterSpacing: 1.2,
-                fontSize: 14,
-              ),
+    void openLog() => showVoyagePanel(
+      context,
+      closeLabel: 'CLOSE LOGBOOK',
+      child: VoyageLogView(chart: controller.seaChart),
+    );
+    void inspect() => showVoyagePanel(
+      context,
+      closeLabel: 'CLOSE INSPECTION',
+      child: ArmoryView(controller: controller),
+    );
+    final log = compact
+        ? IconButton(
+            key: const ValueKey('helm-voyage-log'),
+            tooltip: 'Voyage log',
+            icon: const Icon(Icons.menu_book),
+            onPressed: openLog,
+          )
+        : TextButton.icon(
+            key: const ValueKey('helm-voyage-log'),
+            icon: const Icon(Icons.menu_book, size: 20),
+            label: Text(
+              'VOYAGE LOG',
+              style: InkTheme.statLabel.copyWith(fontSize: 12),
             ),
-            const SizedBox(height: 10),
+            onPressed: openLog,
+          );
+    final inspection = compact
+        ? IconButton(
+            key: const ValueKey('helm-inspect-vessel'),
+            tooltip: 'Inspect vessel',
+            icon: const Icon(Icons.sailing),
+            onPressed: inspect,
+          )
+        : TextButton.icon(
+            key: const ValueKey('helm-inspect-vessel'),
+            icon: const Icon(Icons.sailing, size: 20),
+            label: Text(
+              'INSPECT VESSEL',
+              style: InkTheme.statLabel.copyWith(fontSize: 12),
+            ),
+            onPressed: inspect,
+          );
+    final tools = compact
+        ? Row(
+            children: [
+              Expanded(child: status),
+              log,
+              inspection,
+            ],
+          )
+        : Wrap(
+            spacing: 14,
+            runSpacing: 4,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [status, log, inspection],
+          );
+    return compact
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [title, const SizedBox(height: 8), tools],
+          )
+        : Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(child: title),
+              const SizedBox(width: 16),
+              Flexible(
+                child: Align(alignment: Alignment.centerRight, child: tools),
+              ),
+            ],
+          );
+  }
 
-            // Course Option Cards
-            if (options.isEmpty)
-              ParchmentCard(
-                padding: const EdgeInsets.all(24),
-                child: Center(
-                  child: Text(
-                    'Awaiting the navigator to verify current soundings...',
-                    style: InkTheme.body,
-                  ),
-                ),
-              )
-            else
-              ...options.map((option) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: _CourseOptionCard(
-                    option: option,
-                    restriction: controller.session.courseRestriction(
-                      option.bearing,
-                    ),
-                    onSteer: _departing ? null : () => _steer(option.bearing),
-                  ),
-                );
-              }),
-          ],
+  @override
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: widget.controller,
+    builder: (context, _) {
+      final controller = widget.controller;
+      // Preserve the outgoing offers during the orchestrator's fade.
+      if (_departing || controller.phase != SessionPhase.helm) {
+        return IgnorePointer(
+          child: ExcludeFocus(child: _lastHelmView ?? const SizedBox.shrink()),
         );
-        return _lastHelmView = ParchmentScaffold(
-          body: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1280),
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 24,
-                ),
+      }
+      // Capture these widgets while still at the helm. LayoutBuilder can run
+      // again after departure, when the session already owns the next encounter.
+      final header = _header(context, MediaQuery.sizeOf(context).width < 752);
+      final reports = _reports();
+      return _lastHelmView = ParchmentScaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final overlay =
+                  constraints.maxWidth >= 1000 && constraints.maxHeight >= 500;
+              if (overlay) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    header,
+                    const SizedBox(height: 8),
+                    Expanded(
+                      child: NauticalChart(
+                        chart: controller.seaChart,
+                        ship: controller.ship,
+                        takeMotion: controller.takeNavigationMotion,
+                        expandViewport: true,
+                        coursePanel: RawScrollbar(
+                          controller: _reportsScroll,
+                          thumbVisibility: true,
+                          thumbColor: InkTheme.inkMuted.withValues(alpha: .55),
+                          thickness: 4,
+                          radius: const Radius.circular(2),
+                          child: SingleChildScrollView(
+                            key: const ValueKey('helm-courses-scroll'),
+                            controller: _reportsScroll,
+                            padding: const EdgeInsets.only(right: 10),
+                            child: reports,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }
+              return SingleChildScrollView(
+                key: const ValueKey('helm-page-scroll'),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Top Bar
-                    Wrap(
-                      spacing: 16,
-                      runSpacing: 8,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        InkButton(
-                          label: 'CONSULT SEA CHART',
-                          semanticLabel: 'Open dead-reckoning sea chart',
-                          onPressed: onOpenChart,
-                        ),
-                        if (ship != null)
-                          Text(
-                            'PURSE: ${ship.gold}g',
-                            style: InkTheme.statValue.copyWith(
-                              color: InkTheme.goldAccent,
-                              fontSize: 15,
-                            ),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Header Banner
-                    ParchmentCard(
-                      padding: const EdgeInsets.all(18),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgAssetView(
-                                assetPath: PilotArt.helm,
-                                width: 28,
-                                height: 28,
-                              ),
-                              const SizedBox(width: 10),
-                              Flexible(
-                                child: Text(
-                                  "THE QUARTERDECK • SETTING COURSE",
-                                  style: InkTheme.titleLarge.copyWith(
-                                    fontSize: compact ? 18 : 22,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                            '${ship?.name ?? 'Vessel'} • $regionTitle (${currentLeg >= totalLegs ? 'Titan approach' : 'Leg ${currentLeg + 1} of $totalLegs'})',
-                            style: InkTheme.subtitle.copyWith(
-                              color: InkTheme.inkMuted,
-                              fontSize: 14,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 14),
-
-                    // Prevailing Gale Notice
-                    ParchmentCard(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.air, color: InkTheme.inkMuted, size: 24),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'PREVAILING OFFSHORE GALE: FRESH WESTERLIES',
-                                  style: InkTheme.statValue.copyWith(
-                                    fontSize: compact ? 11 : 13,
-                                    letterSpacing: 1.0,
-                                  ),
-                                ),
-                                const SizedBox(height: 2),
-                                Text(
-                                  compact ? 'Every heading presses onward.' : 'The wind drives your square riggers relentlessly seaward. A lee shore forbids retreat; survival lies in pressing outward.',
-                                  style: InkTheme.caption.copyWith(
-                                    fontSize: 11.5,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                    header,
+                    const SizedBox(height: 12),
+                    NauticalChart(
+                      chart: controller.seaChart,
+                      ship: controller.ship,
+                      takeMotion: controller.takeNavigationMotion,
+                      viewportHeight: (constraints.maxHeight * .5).clamp(
+                        260,
+                        440,
                       ),
                     ),
                     const SizedBox(height: 16),
-
-                    // Hull status
-                    if (ship != null) ...[
-                      HullGauge(
-                        currentHp: ship.currentHp,
-                        maxHp: ship.maxHp,
-                        label: 'VESSEL HULL VITALITY',
-                      ),
-                      const SizedBox(height: 16),
-                    ],
-
-                    if (controller.canEmergencyRepairAtSea) ...[
-                      ParchmentCard(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text(
-                              'EMERGENCY HULL TRIAGE',
-                              style: InkTheme.statValue,
-                            ),
-                            Text(
-                              'Patch the hull to 25% integrity before choosing a heading.',
-                              style: InkTheme.body,
-                            ),
-                            InkButton(
-                              label:
-                                  'PATCH TO 25% · ${controller.emergencyRepairCost}g',
-                              onPressed:
-                                  ship != null &&
-                                      ship.gold >=
-                                          controller.emergencyRepairCost
-                                  ? () => controller.dispatch(
-                                      const RepairShip(0.25),
-                                    )
-                                  : null,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 14),
-                    ],
-                    if (controller.activeBoon?.id ==
-                        BloodlineTraitId.stormSeer) ...[
-                      ParchmentCard(
-                        padding: const EdgeInsets.all(12),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text('STORM-SEER', style: InkTheme.statLabel),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Read the winds once per region to redraw ordinary headings. Haven, Titan and Nemesis courses hold fast.',
-                              style: InkTheme.caption,
-                            ),
-                            const SizedBox(height: 8),
-                            InkButton(
-                              key: const ValueKey('storm-seer-redraw'),
-                              label: 'READ THE WINDS',
-                              compact: true,
-                              semanticHint:
-                                  controller.stormSeerRedrawRestriction,
-                              onPressed: controller.canRedrawStormSeerCourses
-                                  ? _redrawCourses
-                                  : null,
-                            ),
-                            if (controller.stormSeerRedrawRestriction
-                                case final restriction?) ...[
-                              const SizedBox(height: 6),
-                              Text(restriction, style: InkTheme.caption),
-                            ],
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 14),
-                    ],
-                    LayoutBuilder(
-                      builder: (context, constraints) {
-                        final scrollingCourses = ConstrainedBox(
-                          constraints: BoxConstraints(
-                            maxHeight: MediaQuery.sizeOf(context).height * .75,
-                          ),
-                          child: SingleChildScrollView(child: courseCards),
-                        );
-                        final chart = ParchmentCard(
-                          child: NauticalChart(
-                            chart: controller.seaChart,
-                            ship: ship,
-                            takeMotion: controller.takeNavigationMotion,
-                          ),
-                        );
-                        if (constraints.maxWidth < 900) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              chart,
-                              const SizedBox(height: 16),
-                              scrollingCourses,
-                            ],
-                          );
-                        }
-                        return Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(flex: 4, child: chart),
-                            const SizedBox(width: 20),
-                            Expanded(flex: 6, child: scrollingCourses),
-                          ],
-                        );
-                      },
-                    ),
-                    // Armory Toggle
-                    ParchmentCard(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          final compact = constraints.maxWidth < 500;
-                          final description = Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'SHIP FITTINGS & BELT INSPECTION',
-                                style: InkTheme.statLabel,
-                              ),
-                              Text(
-                                'Inspect fitting marks, blessings, refits, and belt supplies.',
-                                style: InkTheme.caption,
-                              ),
-                            ],
-                          );
-                          return Flex(
-                            direction: compact
-                                ? Axis.vertical
-                                : Axis.horizontal,
-                            crossAxisAlignment: compact
-                                ? CrossAxisAlignment.stretch
-                                : CrossAxisAlignment.center,
-                            children: [
-                              if (compact)
-                                description
-                              else
-                                Expanded(child: description),
-                              SizedBox(
-                                width: compact ? 0 : 8,
-                                height: compact ? 8 : 0,
-                              ),
-                              InkButton(
-                                label: _showingArmory
-                                    ? 'CLOSE INSPECTION'
-                                    : 'INSPECT VESSEL',
-                                onPressed: () => setState(
-                                  () => _showingArmory = !_showingArmory,
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
-                    if (_showingArmory) ...[
-                      const SizedBox(height: 14),
-                      ArmoryView(controller: controller),
-                    ],
-                    const SizedBox(height: 20),
+                    reports,
                   ],
                 ),
-              ),
-            ),
+              );
+            },
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
+    },
+  );
 }
 
 class _CourseOptionCard extends StatelessWidget {
@@ -432,15 +352,18 @@ class _CourseOptionCard extends StatelessWidget {
       NavigationalBearing.starboardTack => Icons.south_east,
     };
 
+    final accent = option.isNemesis
+        ? InkTheme.crimsonAccent
+        : InkTheme.goldAccent;
     return ParchmentCard(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Header row with bearing and tag
           Row(
             children: [
-              Icon(directionIcon, color: InkTheme.goldAccent, size: 20),
+              Icon(directionIcon, color: accent, size: 20),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
@@ -454,28 +377,30 @@ class _CourseOptionCard extends StatelessWidget {
               ),
             ],
           ),
-          if (option.isIdentified)
+          if (option.isIdentified || option.isNemesis)
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
-                  color: InkTheme.goldAccent.withAlpha(40),
-                  border: Border.all(color: InkTheme.goldAccent),
+                  color: accent.withAlpha(40),
+                  border: Border.all(color: accent),
                   borderRadius: BorderRadius.circular(3),
                 ),
                 child: Text(
-                  switch (option.destination) {
-                    CourseDestination.midpointHaven => 'MIDPOINT HAVEN',
-                    CourseDestination.repairRefit => 'REPAIR / REFIT',
-                    CourseDestination.specialistMerchant =>
-                      'SPECIALIST MERCHANT',
-                    CourseDestination.titan => 'REGIONAL TITAN',
-                    CourseDestination.ordinary =>
-                      option.nodeType.displayName.toUpperCase(),
-                  },
+                  option.isNemesis
+                      ? 'NEMESIS'
+                      : switch (option.destination) {
+                          CourseDestination.midpointHaven => 'MIDPOINT HAVEN',
+                          CourseDestination.repairRefit => 'REPAIR / REFIT',
+                          CourseDestination.specialistMerchant =>
+                            'SPECIALIST MERCHANT',
+                          CourseDestination.titan => 'REGIONAL TITAN',
+                          CourseDestination.ordinary =>
+                            option.nodeType.displayName.toUpperCase(),
+                        },
                   style: InkTheme.caption.copyWith(
-                    color: InkTheme.goldAccent,
+                    color: accent,
                     fontWeight: FontWeight.bold,
                     fontSize: 10,
                   ),
@@ -499,7 +424,7 @@ class _CourseOptionCard extends StatelessWidget {
                   '“ ',
                   style: InkTheme.body.copyWith(
                     fontSize: 22,
-                    color: InkTheme.goldAccent,
+                    color: accent,
                     height: 0.8,
                   ),
                 ),
@@ -529,6 +454,7 @@ class _CourseOptionCard extends StatelessWidget {
           Tooltip(
             message: restriction ?? 'Steer ${option.bearing.displayName}',
             child: InkButton(
+              compact: true,
               label: restriction != null
                   ? 'HEADING UNAVAILABLE'
                   : 'STEER THIS HEADING',

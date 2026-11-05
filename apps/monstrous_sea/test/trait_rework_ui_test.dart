@@ -39,7 +39,7 @@ Widget helm(GameController controller, {double scale = 1.15}) => MaterialApp(
     data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(scale)),
     child: child!,
   ),
-  home: HelmScreen(controller: controller, onOpenChart: () {}),
+  home: HelmScreen(controller: controller),
 );
 
 InkButton redrawButton(WidgetTester tester) =>
@@ -209,7 +209,10 @@ void main() {
         final controller = stormNavigator();
         addTearDown(controller.dispose);
         controller.seaChart.currentLeg =
-            (titan ? controller.seaChart.regionTitanLeg : controller.totalLegs) - 1;
+            (titan
+                ? controller.seaChart.regionTitanLeg
+                : controller.totalLegs) -
+            1;
         controller.seaChart.clearPendingCourses();
         controller.seaChart.ensureCourseOptions(controller.session.rng);
         expect(controller.currentCourseOptions, hasLength(titan ? 1 : 2));

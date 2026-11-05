@@ -292,7 +292,6 @@ class _GameOrchestratorViewState extends State<GameOrchestratorView> {
         return HelmScreen(
           key: const ValueKey('helm_screen'),
           controller: _controller,
-          onOpenChart: () => setState(() => _showingChartModal = true),
         );
 
       case SessionPhase.battle:

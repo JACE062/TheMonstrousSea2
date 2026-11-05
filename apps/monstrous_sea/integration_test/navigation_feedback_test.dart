@@ -48,7 +48,7 @@ void main() {
                   .copyWith(textScaler: TextScaler.linear(scale)),
               child: child!,
             ),
-            home: HelmScreen(controller: controller, onOpenChart: () {}),
+            home: HelmScreen(controller: controller),
           ),
         ),
       );

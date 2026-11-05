@@ -1,11 +1,13 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 
 import '../theme/ink_theme.dart';
 import 'pilot_art.dart';
+import 'painters/sea_chart_paper_painter.dart';
 import 'svg_asset_view.dart';
 
 String voyageOutcomeLabel(VoyageLegRecord entry) => [
@@ -16,14 +18,15 @@ String voyageOutcomeLabel(VoyageLegRecord entry) => [
     'ARRIVED',
 ].join(' · ');
 
-String voyageDestinationLabel(VoyageLegRecord entry) =>
-    switch (entry.destination) {
-      CourseDestination.midpointHaven => 'Midpoint Haven',
-      CourseDestination.repairRefit => 'Repair / refit',
-      CourseDestination.specialistMerchant => 'Specialist merchant',
-      CourseDestination.titan => 'Regional Titan',
-      CourseDestination.ordinary => entry.nodeType.displayName,
-    };
+String voyageDestinationLabel(VoyageLegRecord entry) => entry.isNemesis
+    ? 'Nemesis'
+    : switch (entry.destination) {
+        CourseDestination.midpointHaven => 'Midpoint Haven',
+        CourseDestination.repairRefit => 'Repair / refit',
+        CourseDestination.specialistMerchant => 'Specialist merchant',
+        CourseDestination.titan => 'Regional Titan',
+        CourseDestination.ordinary => entry.nodeType.displayName,
+      };
 
 /// World positions accumulate from the previous ship position. East is forward,
 /// port is north, and starboard south, matching the existing lookout bearings.
@@ -55,6 +58,17 @@ class NauticalRouteGeometry {
   late final Rect bounds;
 }
 
+/// At most twice the route's padded vertical span can be visible. Flat wakes
+/// retain a legible minimum paper height; their horizontal extent needs panning.
+double chartMinimumScale(NauticalRouteGeometry route, double viewportHeight) =>
+    (viewportHeight /
+            (2 *
+                math.max(
+                  viewportHeight,
+                  math.max(320, route.bounds.height + 200),
+                )))
+        .clamp(.06, 1.0);
+
 Path routeSegment(Offset from, Offset to) => Path()
   ..moveTo(from.dx, from.dy)
   ..lineTo(to.dx, to.dy);
@@ -67,12 +81,16 @@ class NauticalChart extends StatefulWidget {
     this.isInPort = false,
     this.takeMotion,
     this.viewportHeight,
+    this.expandViewport = false,
+    this.coursePanel,
   });
   final SeaChart chart;
   final ShipState? ship;
   final bool isInPort;
   final bool Function()? takeMotion;
   final double? viewportHeight;
+  final bool expandViewport;
+  final Widget? coursePanel;
   @override
   State<NauticalChart> createState() => _NauticalChartState();
 }
@@ -116,16 +134,14 @@ class _NauticalChartState extends State<NauticalChart>
   void _fit(_ChartScene scene) {
     final bounds = scene.route.bounds.inflate(100);
     final scale = math
-        .min(
-          scene.viewport.width / bounds.width,
-          scene.viewport.height / bounds.height,
-        )
-        .clamp(.06, 1.0);
-    final center = scene.at(bounds.center);
-    _camera.value = _view(
-      scale,
-      scene.viewport.center(Offset.zero) - center * scale,
-    );
+        .min(1.0, scene.viewport.height / bounds.height)
+        .clamp(chartMinimumScale(scene.route, scene.viewport.height), 1.0);
+    final wide = bounds.width * scale > scene.viewport.width;
+    final center = scene.at(wide ? scene.route.points.last : bounds.center);
+    final target = wide
+        ? Offset(scene.viewport.width * .68, scene.viewport.height / 2)
+        : scene.viewport.center(Offset.zero);
+    _camera.value = _view(scale, target - center * scale);
     _userMoved = false;
   }
 
@@ -134,7 +150,8 @@ class _NauticalChartState extends State<NauticalChart>
     if (scene == null) return;
     _camera.value = _view(
       1,
-      scene.viewport.center(Offset.zero) - scene.at(scene.route.points.last),
+      Offset(scene.viewport.width * .68, scene.viewport.height / 2) -
+          scene.at(scene.route.points.last),
     );
     _userMoved = true;
   }
@@ -169,6 +186,7 @@ class _NauticalChartState extends State<NauticalChart>
       matrix.storage[12] += delta.dx;
       matrix.storage[13] += delta.dy;
       _camera.value = matrix;
+      _zoomTo(_camera.value.getMaxScaleOnAxis());
     });
   }
 
@@ -208,230 +226,315 @@ class _NauticalChartState extends State<NauticalChart>
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final route = NauticalRouteGeometry(widget.chart.voyageLog);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+  void _zoomTo(double scale) {
+    final scene = _scene;
+    if (scene == null) return;
+    final focal = scene.viewport.center(Offset.zero);
+    final world = _camera.toScene(focal);
+    final bounded = scale.clamp(
+      chartMinimumScale(scene.route, scene.viewport.height),
+      3.0,
+    );
+    _camera.value = _view(bounded, focal - world * bounded);
+  }
+
+  Widget _sceneContents(_ChartScene scene) {
+    final route = scene.route;
+    final points = route.points.map(scene.at).toList();
+    var vessel = points.last;
+    if (points.length > 1 && _motion.value < 1) {
+      vessel = Offset.lerp(
+        points[points.length - 2],
+        points.last,
+        Curves.easeInOut.transform(_motion.value),
+      )!;
+    }
+    final heading = points.length < 2
+        ? 0.0
+        : (points.last - points[points.length - 2]).direction;
+    return Stack(
+      clipBehavior: Clip.none,
       children: [
-        Row(
-          children: [
-            Expanded(
-              child: Text(
-                'TRAVELLED WATERS',
-                style: InkTheme.titleMedium.copyWith(fontSize: 23),
+        Positioned.fill(
+          child: CustomPaint(painter: _SeaPaperPainter(scene.offset)),
+        ),
+        Positioned.fill(child: CustomPaint(painter: _WakePainter(points))),
+        Positioned(
+          left: points.first.dx - 23,
+          top: points.first.dy - 23,
+          child: const SvgAssetView(
+            assetPath: PilotArt.portHaven,
+            width: 46,
+            height: 46,
+          ),
+        ),
+        Positioned(
+          left: points.first.dx - 36,
+          top: points.first.dy + 28,
+          child: Text(
+            'DEPARTURE',
+            style: InkTheme.statLabel.copyWith(fontSize: 10),
+          ),
+        ),
+        for (var i = 0; i < route.history.length; i++)
+          Positioned(
+            left: points[i + 1].dx - 23,
+            top: points[i + 1].dy - 23,
+            child: Tooltip(
+              key: ValueKey('voyage-marker-$i'),
+              message:
+                  'Region ${route.history[i].regionIndex + 1} · Leg ${route.history[i].leg}: ${voyageDestinationLabel(route.history[i])} · ${voyageOutcomeLabel(route.history[i])}',
+              child: Semantics(
+                label:
+                    'Leg ${route.history[i].leg}, ${voyageOutcomeLabel(route.history[i])}',
+                child: _WaypointArt(entry: route.history[i]),
               ),
             ),
-            IconButton(
-              key: const ValueKey('fit-nautical-route'),
-              tooltip: 'Fit travelled route (Home)',
-              onPressed: () {
-                if (_scene != null) _fit(_scene!);
-              },
-              icon: const Icon(Icons.fit_screen),
+          ),
+        Positioned(
+          left: vessel.dx - 26,
+          top: vessel.dy - 43,
+          child: Semantics(
+            label: 'Current vessel',
+            child: Transform.rotate(
+              angle: heading,
+              child: SvgAssetView(
+                assetPath: widget.ship == null
+                    ? PilotArt.standard
+                    : PilotArt.forShip(widget.ship!),
+                width: 52,
+                height: 40,
+              ),
             ),
-            IconButton(
-              key: const ValueKey('locate-chart-vessel'),
-              tooltip: 'Locate vessel (End)',
-              onPressed: _locate,
-              icon: const Icon(Icons.my_location),
+          ),
+        ),
+        Positioned(
+          left: vessel.dx + 19,
+          top: vessel.dy + 15,
+          child: Text(
+            'VESSEL',
+            style: InkTheme.statLabel.copyWith(fontSize: 11),
+          ),
+        ),
+        if (widget.isInPort && route.history.isNotEmpty)
+          Positioned(
+            left: points.last.dx + 35,
+            top: points.last.dy + 30,
+            child: Tooltip(
+              message: widget.chart.currentPortName,
+              child: const SvgAssetView(
+                assetPath: PilotArt.portHaven,
+                width: 40,
+                height: 40,
+              ),
             ),
-          ],
-        ),
-        Text(
-          'Drag to explore · Scroll or pinch to zoom',
-          style: InkTheme.caption,
-        ),
-        const SizedBox(height: 8),
-        SizedBox(
-          height:
-              widget.viewportHeight ??
-              (MediaQuery.sizeOf(context).width < 600 ? 270 : 350),
-          child: LayoutBuilder(
-            builder: (context, bounds) {
-              final scene = _ChartScene(
-                route,
-                Size(bounds.maxWidth, bounds.maxHeight),
-              );
-              _configure(scene);
-              return DecoratedBox(
-                decoration: BoxDecoration(
-                  color: InkTheme.parchmentHighlight,
-                  border: Border.all(color: InkTheme.inkMuted),
-                ),
-                child: Stack(
-                  children: [
-                    Focus(
+          ),
+      ],
+    );
+  }
+
+  Widget _viewport(NauticalRouteGeometry route) => LayoutBuilder(
+    builder: (context, bounds) {
+      final panelWidth = widget.coursePanel == null
+          ? 0.0
+          : math.min(380.0, bounds.maxWidth * .35);
+      return CustomPaint(
+        painter: const SeaChartPaperPainter(),
+        child: ClipPath(
+          clipper: const SeaChartPaperClipper(),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: LayoutBuilder(
+                  builder: (context, inner) {
+                    final scene = _ChartScene(
+                      route,
+                      Size(
+                        math.max(
+                          140,
+                          inner.maxWidth -
+                              (panelWidth > 0 ? panelWidth + 24 : 0),
+                        ),
+                        inner.maxHeight,
+                      ),
+                    );
+                    _configure(scene);
+                    return Focus(
                       focusNode: _mapFocus,
                       onKeyEvent: _key,
                       child: Semantics(
-                        label: 'Travelled sea chart. Drag to pan, scroll to zoom. Arrow keys pan; Home fits the route; End locates the vessel.',
-                        child: InteractiveViewer(
-                          key: const ValueKey('nautical-map-viewport'),
-                          transformationController: _camera,
-                          constrained: false,
-                          minScale: .06,
-                          maxScale: 3,
-                          boundaryMargin: const EdgeInsets.all(double.infinity),
-                          onInteractionStart: (_) {
-                            _userMoved = true;
-                            _mapFocus.requestFocus();
+                        label: 'Travelled sea chart. Drag to pan, scroll to zoom. Arrow keys pan; Home frames the route; End locates the vessel.',
+                        // InteractiveViewer handles wheel scaling eagerly. Claim the
+                        // signal before a parent Scrollable can also scroll the page.
+                        child: Listener(
+                          onPointerSignal: (event) {
+                            if (event is PointerScrollEvent) {
+                              GestureBinding.instance.pointerSignalResolver
+                                  .register(event, (_) {});
+                            }
                           },
-                          child: SizedBox(
-                            width: scene.size.width,
-                            height: scene.size.height,
-                            child: AnimatedBuilder(
-                              animation: _motion,
-                              builder: (context, _) {
-                                final points = route.points
-                                    .map(scene.at)
-                                    .toList();
-                                var vessel = points.last;
-                                if (points.length > 1 && _motion.value < 1) {
-                                  vessel = Offset.lerp(
-                                    points[points.length - 2],
-                                    points.last,
-                                    Curves.easeInOut.transform(_motion.value),
-                                  )!;
-                                }
-                                final heading = points.length < 2
-                                    ? 0.0
-                                    : (points.last - points[points.length - 2])
-                                          .direction;
-                                return Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Positioned.fill(
-                                      child: CustomPaint(
-                                        painter: _SeaPaperPainter(scene.offset),
-                                      ),
-                                    ),
-                                    Positioned.fill(
-                                      child: CustomPaint(
-                                        painter: _WakePainter(points),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: points.first.dx - 23,
-                                      top: points.first.dy - 23,
-                                      child: const SvgAssetView(
-                                        assetPath: PilotArt.portHaven,
-                                        width: 46,
-                                        height: 46,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: points.first.dx - 36,
-                                      top: points.first.dy + 28,
-                                      child: Text(
-                                        'DEPARTURE',
-                                        style: InkTheme.statLabel.copyWith(
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                    ),
-                                    for (
-                                      var i = 0;
-                                      i < route.history.length;
-                                      i++
-                                    )
-                                      Positioned(
-                                        left: points[i + 1].dx - 18,
-                                        top: points[i + 1].dy - 18,
-                                        child: Tooltip(
-                                          message:
-                                              'Region ${route.history[i].regionIndex + 1} · Leg ${route.history[i].leg}: ${voyageDestinationLabel(route.history[i])} · ${voyageOutcomeLabel(route.history[i])}',
-                                          child: Semantics(
-                                            label:
-                                                'Leg ${route.history[i].leg}, ${voyageOutcomeLabel(route.history[i])}',
-                                            child: _WaypointArt(
-                                              entry: route.history[i],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    Positioned(
-                                      left: vessel.dx - 26,
-                                      top: vessel.dy - 43,
-                                      child: Semantics(
-                                        label: 'Current vessel',
-                                        child: Transform.rotate(
-                                          angle: heading,
-                                          child: SvgAssetView(
-                                            assetPath: widget.ship == null
-                                                ? PilotArt.standard
-                                                : PilotArt.forShip(
-                                                    widget.ship!,
-                                                  ),
-                                            width: 52,
-                                            height: 40,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: vessel.dx + 19,
-                                      top: vessel.dy + 15,
-                                      child: Text(
-                                        'VESSEL',
-                                        style: InkTheme.statLabel.copyWith(
-                                          fontSize: 11,
-                                        ),
-                                      ),
-                                    ),
-                                    if (widget.isInPort &&
-                                        route.history.isNotEmpty)
-                                      Positioned(
-                                        left: points.last.dx + 35,
-                                        top: points.last.dy + 30,
-                                        child: Tooltip(
-                                          message: widget.chart.currentPortName,
-                                          child: const SvgAssetView(
-                                            assetPath: PilotArt.portHaven,
-                                            width: 40,
-                                            height: 40,
-                                          ),
-                                        ),
-                                      ),
-                                  ],
-                                );
-                              },
+                          child: InteractiveViewer(
+                            key: const ValueKey('nautical-map-viewport'),
+                            transformationController: _camera,
+                            constrained: false,
+                            minScale: chartMinimumScale(
+                              route,
+                              scene.viewport.height,
+                            ),
+                            maxScale: 3,
+                            boundaryMargin: const EdgeInsets.all(
+                              double.infinity,
+                            ),
+                            onInteractionStart: (_) {
+                              _userMoved = true;
+                              _mapFocus.requestFocus();
+                            },
+                            child: SizedBox(
+                              width: scene.size.width,
+                              height: scene.size.height,
+                              child: AnimatedBuilder(
+                                animation: _motion,
+                                builder: (context, _) => _sceneContents(scene),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Positioned(
-                      right: 10,
-                      bottom: 10,
-                      child: IgnorePointer(
-                        child: SizedBox(
-                          width: 76,
-                          height: 76,
-                          child: CustomPaint(
-                            painter: _CompassRosePainter(InkTheme.statLabel),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
-              );
-            },
+              ),
+              Positioned(
+                left: 32,
+                bottom: 32,
+                child: IgnorePointer(
+                  child: SizedBox(
+                    width: 90,
+                    height: 90,
+                    child: CustomPaint(
+                      painter: _CompassRosePainter(InkTheme.statLabel),
+                    ),
+                  ),
+                ),
+              ),
+              if (widget.coursePanel != null)
+                Positioned(
+                  top: 32,
+                  bottom: 32,
+                  right: 32,
+                  width: panelWidth,
+                  child: widget.coursePanel!,
+                ),
+            ],
           ),
         ),
-        const SizedBox(height: 8),
-        Wrap(
-          spacing: 12,
-          runSpacing: 4,
+      );
+    },
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    final route = NauticalRouteGeometry(widget.chart.voyageLog);
+    return LayoutBuilder(
+      builder: (context, bounds) {
+        final expands =
+            widget.expandViewport ||
+            (widget.viewportHeight == null && bounds.hasBoundedHeight);
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Arrival', style: InkTheme.caption),
-            Text('Passed wreck', style: InkTheme.caption),
-            Text('Cargo recovered', style: InkTheme.caption),
-            Text('Skull: victory', style: InkTheme.caption),
+            LayoutBuilder(
+              builder: (context, bounds) {
+                final title = Text(
+                  'TRAVELLED WATERS',
+                  style: InkTheme.titleMedium.copyWith(fontSize: 23),
+                );
+                final controls = Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      key: const ValueKey('zoom-out-chart'),
+                      tooltip: 'Zoom out',
+                      onPressed: () {
+                        _zoomTo(_camera.value.getMaxScaleOnAxis() / 1.25);
+                        _userMoved = true;
+                      },
+                      icon: const Icon(Icons.remove),
+                    ),
+                    IconButton(
+                      key: const ValueKey('zoom-in-chart'),
+                      tooltip: 'Zoom in',
+                      onPressed: () {
+                        _zoomTo(_camera.value.getMaxScaleOnAxis() * 1.25);
+                        _userMoved = true;
+                      },
+                      icon: const Icon(Icons.add),
+                    ),
+                    IconButton(
+                      key: const ValueKey('fit-nautical-route'),
+                      tooltip: 'Frame route height (Home)',
+                      onPressed: () {
+                        if (_scene != null) _fit(_scene!);
+                      },
+                      icon: const Icon(Icons.fit_screen),
+                    ),
+                    IconButton(
+                      key: const ValueKey('locate-chart-vessel'),
+                      tooltip: 'Locate vessel (End)',
+                      onPressed: _locate,
+                      icon: const Icon(Icons.my_location),
+                    ),
+                  ],
+                );
+                return bounds.maxWidth < 560
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          title,
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: controls,
+                          ),
+                        ],
+                      )
+                    : Row(
+                        children: [
+                          Expanded(child: title),
+                          controls,
+                        ],
+                      );
+              },
+            ),
+            Text(
+              'Drag to explore · Scroll or pinch to zoom',
+              style: InkTheme.caption,
+            ),
+            const SizedBox(height: 8),
+            if (expands)
+              Expanded(child: _viewport(route))
+            else
+              SizedBox(
+                height:
+                    widget.viewportHeight ??
+                    (MediaQuery.sizeOf(context).width < 600 ? 300 : 420),
+                child: _viewport(route),
+              ),
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 12,
+              runSpacing: 4,
+              children: [
+                Text('Arrival', style: InkTheme.caption),
+                Text('Passed wreck', style: InkTheme.caption),
+                Text('Cargo recovered', style: InkTheme.caption),
+                Text('Skull: victory', style: InkTheme.caption),
+              ],
+            ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 }
@@ -439,141 +542,115 @@ class _NauticalChartState extends State<NauticalChart>
 class _WaypointArt extends StatelessWidget {
   const _WaypointArt({required this.entry});
   final VoyageLegRecord entry;
+
+  String? get _asset {
+    if (entry.combatWon) return PilotArt.defeatedMonster;
+    if (entry.wreckRecovered) return PilotArt.treasure;
+    return switch (entry.destination) {
+      CourseDestination.midpointHaven => PilotArt.portHaven,
+      CourseDestination.repairRefit => PilotArt.anchor,
+      CourseDestination.specialistMerchant => PilotArt.freighter,
+      _ => switch (entry.nodeType) {
+        EncounterNodeType.respiteIsland => PilotArt.portHaven,
+        EncounterNodeType.shipwreckSalvage => PilotArt.treasure,
+        EncounterNodeType.smugglerTrader => PilotArt.freighter,
+        EncounterNodeType.ancientShrine => null,
+        _ =>
+          entry.monsterSpecies == null
+              ? PilotArt.cannons
+              : PilotArt.forSpecies(entry.monsterSpecies!),
+      },
+    };
+  }
+
   @override
   Widget build(BuildContext context) => SizedBox(
-    width: 36,
-    height: 36,
+    width: 46,
+    height: 46,
     child: Stack(
       clipBehavior: Clip.none,
       children: [
-        Positioned.fill(child: CustomPaint(painter: _WaypointPainter(entry))),
-        if (entry.combatWon)
-          const Center(
-            child: SvgAssetView(
-              assetPath: PilotArt.defeatedMonster,
-              width: 28,
-              height: 28,
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: InkTheme.chartPaperLight.withValues(alpha: .8),
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: entry.isNemesis
+                  ? InkTheme.crimsonAccent
+                  : InkTheme.inkMuted.withValues(alpha: .65),
             ),
           ),
+          child: Opacity(
+            opacity: entry.wreckPassed ? .45 : 1,
+            child: _asset != null
+                ? SvgAssetView(assetPath: _asset!, width: 46, height: 46)
+                : const SizedBox(
+                    width: 46,
+                    height: 46,
+                    child: CustomPaint(painter: _ShrineMarkPainter()),
+                  ),
+          ),
+        ),
         if (entry.combatWon && entry.wreckRecovered)
-          Positioned(
-            right: -7,
+          const Positioned(
+            right: -8,
             bottom: -5,
-            child: SizedBox(
-              width: 18,
-              height: 18,
-              child: CustomPaint(
-                painter: _WaypointPainter(entry, cargoOnly: true),
-              ),
+            child: SvgAssetView(
+              assetPath: PilotArt.treasure,
+              width: 23,
+              height: 23,
             ),
+          ),
+        if (entry.wreckPassed)
+          const Positioned.fill(
+            child: CustomPaint(painter: _PassedMarkPainter()),
           ),
       ],
     ),
   );
 }
 
-class _WaypointPainter extends CustomPainter {
-  _WaypointPainter(this.entry, {this.cargoOnly = false});
-  final VoyageLegRecord entry;
-  final bool cargoOnly;
+class _PassedMarkPainter extends CustomPainter {
+  const _PassedMarkPainter();
+  @override
+  void paint(Canvas canvas, Size size) => canvas.drawLine(
+    Offset(4, size.height - 4),
+    Offset(size.width - 4, 4),
+    Paint()
+      ..color = InkTheme.inkMuted
+      ..strokeWidth = 1.5,
+  );
+  @override
+  bool shouldRepaint(_PassedMarkPainter oldDelegate) => false;
+}
+
+/// Structural shrine engraving, pending the separate curated entity-art pass.
+class _ShrineMarkPainter extends CustomPainter {
+  const _ShrineMarkPainter();
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.save();
-    canvas.scale(size.width / 36, size.height / 36);
     final ink = Paint()
-      ..color = entry.wreckPassed ? InkTheme.inkMuted : InkTheme.inkPrimary
+      ..color = InkTheme.inkPrimary
       ..strokeWidth = 1.5
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round;
-    canvas.drawCircle(
-      const Offset(18, 18),
-      17,
-      Paint()..color = InkTheme.parchmentSurface,
+      ..style = PaintingStyle.stroke;
+    canvas.drawPath(
+      Path()
+        ..moveTo(9, 18)
+        ..lineTo(23, 8)
+        ..lineTo(37, 18)
+        ..close(),
+      ink,
     );
-    canvas.drawCircle(const Offset(18, 18), 17, ink);
-    void line(double x, double y, double x2, double y2) =>
-        canvas.drawLine(Offset(x, y), Offset(x2, y2), ink);
-    if (cargoOnly || entry.wreckRecovered && !entry.combatWon) {
-      canvas.drawRect(const Rect.fromLTWH(9, 10, 18, 17), ink);
-      line(9, 10, 27, 27);
-      line(9, 27, 27, 10);
-      line(9, 15, 27, 15);
-    } else if (!entry.combatWon) {
-      switch (entry.nodeType) {
-        case EncounterNodeType.respiteIsland:
-          canvas.drawArc(
-            const Rect.fromLTWH(5, 23, 26, 12),
-            math.pi,
-            math.pi,
-            false,
-            ink,
-          );
-          line(18, 25, 20, 9);
-          line(20, 9, 10, 13);
-          line(20, 9, 29, 14);
-          line(20, 9, 13, 7);
-          line(20, 9, 26, 6);
-        case EncounterNodeType.smugglerTrader:
-          canvas.drawPath(
-            Path()
-              ..moveTo(6, 23)
-              ..lineTo(12, 29)
-              ..lineTo(25, 29)
-              ..lineTo(30, 23)
-              ..close(),
-            ink,
-          );
-          line(18, 23, 18, 7);
-          canvas.drawPath(
-            Path()
-              ..moveTo(19, 8)
-              ..lineTo(28, 20)
-              ..lineTo(19, 20)
-              ..close(),
-            ink,
-          );
-        case EncounterNodeType.ancientShrine:
-          canvas.drawPath(
-            Path()
-              ..moveTo(6, 14)
-              ..lineTo(18, 6)
-              ..lineTo(30, 14)
-              ..close(),
-            ink,
-          );
-          for (final x in [11.0, 18.0, 25.0]) {
-            line(x, 16, x, 27);
-          }
-          line(7, 29, 29, 29);
-        case EncounterNodeType.shipwreckSalvage:
-          canvas.drawPath(
-            Path()
-              ..moveTo(5, 22)
-              ..lineTo(11, 29)
-              ..lineTo(25, 29)
-              ..lineTo(31, 22),
-            ink,
-          );
-          line(18, 22, 15, 15);
-          line(15, 15, 20, 12);
-          line(20, 12, 17, 6);
-          line(8, 22, 13, 20);
-          line(23, 20, 28, 22);
-        default:
-          line(10, 28, 26, 8);
-          line(10, 8, 26, 28);
-          line(21, 8, 26, 8);
-          line(26, 8, 27, 13);
-      }
-      if (entry.wreckPassed) line(5, 31, 31, 5);
+    canvas.drawRect(const Rect.fromLTWH(12, 20, 22, 15), ink);
+    for (final x in [16.0, 23.0, 30.0]) {
+      canvas.drawLine(Offset(x, 21), Offset(x, 34), ink);
     }
-    canvas.restore();
+    canvas.drawLine(const Offset(9, 38), const Offset(37, 38), ink);
+    canvas.drawCircle(const Offset(23, 14), 2, ink);
   }
 
   @override
-  bool shouldRepaint(_WaypointPainter old) =>
-      old.entry != entry || old.cargoOnly != cargoOnly;
+  bool shouldRepaint(_ShrineMarkPainter oldDelegate) => false;
 }
 
 class _WakePainter extends CustomPainter {
@@ -657,7 +734,9 @@ class _CompassRosePainter extends CustomPainter {
   final TextStyle style;
   @override
   void paint(Canvas canvas, Size size) {
-    final center = size.center(Offset.zero);
+    canvas.save();
+    canvas.scale(size.width / 76, size.height / 76);
+    const center = Offset(38, 38);
     final ink = Paint()
       ..color = InkTheme.inkPrimary
       ..strokeWidth = 1
@@ -693,6 +772,7 @@ class _CompassRosePainter extends CustomPainter {
       text.paint(canvas, position - Offset(text.width / 2, text.height / 2));
       text.dispose();
     }
+    canvas.restore();
   }
 
   @override

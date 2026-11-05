@@ -5,7 +5,7 @@ import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/nautical_chart.dart';
 import '../widgets/parchment_scaffold.dart';
-import '../widgets/parchment_card.dart';
+import '../widgets/voyage_log_view.dart';
 
 /// Read-only travelled history. Hidden plans and unchosen branches stay hidden.
 class SeaChartScreen extends StatelessWidget {
@@ -52,46 +52,16 @@ class SeaChartScreen extends StatelessWidget {
                 style: InkTheme.caption,
               ),
               const SizedBox(height: 14),
-              ParchmentCard(
-                child: NauticalChart(
-                  chart: seaChart,
-                  isInPort: isInPort,
-                  viewportHeight: (MediaQuery.sizeOf(context).height * .55)
-                      .clamp(300, 560),
+              NauticalChart(
+                chart: seaChart,
+                isInPort: isInPort,
+                viewportHeight: (MediaQuery.sizeOf(context).height * .55).clamp(
+                  300,
+                  560,
                 ),
               ),
               const SizedBox(height: 16),
-              Text('DEAD-RECKONING VOYAGE LOG', style: InkTheme.titleMedium),
-              if (seaChart.voyageLog.isEmpty)
-                Text('No travelled soundings recorded.', style: InkTheme.body),
-              for (final entry in seaChart.voyageLog.reversed)
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: ParchmentCard(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Region ${entry.regionIndex + 1} · Leg ${entry.leg} · ${entry.bearing.displayName}',
-                          style: InkTheme.statLabel,
-                        ),
-                        Text(
-                          voyageOutcomeLabel(entry),
-                          style: InkTheme.bodyBold,
-                        ),
-                        Text(
-                          voyageDestinationLabel(entry),
-                          style: InkTheme.body,
-                        ),
-                        if (entry.combatWon && entry.monsterSpecies != null)
-                          Text(
-                            '${entry.isApex ? 'Apex ' : ''}${entry.monsterSpecies!.displayName}',
-                            style: InkTheme.caption,
-                          ),
-                      ],
-                    ),
-                  ),
-                ),
+              VoyageLogView(chart: seaChart),
               const SizedBox(height: 20),
               InkButton(label: 'CLOSE SEA CHART', onPressed: onClose),
             ],

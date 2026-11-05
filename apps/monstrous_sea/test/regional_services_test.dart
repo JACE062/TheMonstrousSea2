@@ -80,9 +80,7 @@ void main() {
             child: RepaintBoundary(key: boundary, child: screen),
           ),
         );
-        await tester.pumpWidget(
-          app(HelmScreen(controller: controller, onOpenChart: () {})),
-        );
+        await tester.pumpWidget(app(HelmScreen(controller: controller)));
         await tester.pumpAndSettle();
         expect(find.text('STEER THIS HEADING'), findsNWidgets(2));
         expect(
