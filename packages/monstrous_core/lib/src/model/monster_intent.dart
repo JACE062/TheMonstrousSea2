@@ -515,7 +515,7 @@ class MonsterIntent {
     // Jellyfish
     MonsterIntentId.jellyfishArcPulse: MonsterIntent(
       id: MonsterIntentId.jellyfishArcPulse,
-      threatenedRanges: {CombatRange.medium, CombatRange.long},
+      threatenedRanges: {CombatRange.short},
       moveDelta: IntentMoveDelta.closer1,
       moveTiming: IntentMoveTiming.beforeAttack,
       damageMultiplier: 1.0,
@@ -523,7 +523,7 @@ class MonsterIntent {
     ),
     MonsterIntentId.jellyfishNematocystCurtain: MonsterIntent(
       id: MonsterIntentId.jellyfishNematocystCurtain,
-      threatenedRanges: {CombatRange.short, CombatRange.medium},
+      threatenedRanges: {CombatRange.medium, CombatRange.long},
       moveDelta: IntentMoveDelta.stationary,
       moveTiming: IntentMoveTiming.none,
       damageMultiplier: 1.0,

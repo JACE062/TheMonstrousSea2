@@ -125,8 +125,8 @@ List<GameEvent> detonateTetherTrap(
 /// - Crustaceans restore 35% of `maxCarapace` when plating drops below 50%, fire
 ///   Brine Jets at Medium/Long, crush Short range with Hydraulic Guillotine, and
 ///   break `Short <-> Medium` dodge loops with Tremor Slam.
-/// - Jellyfish alternate between Arc Pulse (closing into Medium/Long) and
-///   Nematocyst Curtain (Short/Medium), punishing extended point-blank stays
+/// - Jellyfish pair Nematocyst Lunge (closing into Short) with
+///   Nematocyst Curtain (Medium/Long), punishing extended point-blank stays
 ///   with Neurotoxin Embrace.
 /// - Serpents punish Long range with unavoidable Abyssal Under-Strike ambushes
 ///   and use hit-and-run recoil strikes at Medium and Short range.
@@ -216,7 +216,7 @@ MonsterIntent selectNextMonsterIntent(
     case MonsterSpecies.jellyfish:
       return switch (currentRange) {
         CombatRange.long => MonsterIntent.fromId(
-          MonsterIntentId.jellyfishArcPulse,
+          MonsterIntentId.jellyfishNematocystCurtain,
         ),
         CombatRange.medium =>
           (monster.lastExecutedIntentId == MonsterIntentId.jellyfishArcPulse)
@@ -234,9 +234,7 @@ MonsterIntent selectNextMonsterIntent(
                 MonsterIntentId.jellyfishNeurotoxinEmbrace,
               )
               ? MonsterIntent.fromId(MonsterIntentId.jellyfishNeurotoxinEmbrace)
-              : MonsterIntent.fromId(
-                  MonsterIntentId.jellyfishNematocystCurtain,
-                ),
+              : MonsterIntent.fromId(MonsterIntentId.jellyfishArcPulse),
       };
 
     case MonsterSpecies.serpent:
@@ -447,16 +445,6 @@ MonsterIntent selectNextMonsterIntent(
             );
           }
         }
-        if (hadHeadOnCollision && monster.isAlive) {
-          events.add(
-            HeadOnCollisionOccurred(
-              monsterName: monster.name,
-              shipName: ship.name,
-              intentName: intent.name,
-              bonusDamagePercent: 30,
-            ),
-          );
-        }
       } else if (intent.moveDelta == IntentMoveDelta.ambushToShort) {
         while (range != CombatRange.short &&
             !monster.isPinnedThisTurn &&
@@ -500,6 +488,22 @@ MonsterIntent selectNextMonsterIntent(
     monster.currentIntent = null;
     events.add(CombatEffectsChanged.capture(monster));
     return (range, events);
+  }
+
+  var collisionReported = false;
+  void addAttackEvents(bool connected, List<GameEvent> attackEvents) {
+    if (hadHeadOnCollision && connected && !collisionReported) {
+      events.add(
+        HeadOnCollisionOccurred(
+          monsterName: monster.name,
+          shipName: ship.name,
+          intentName: intent.name,
+          bonusDamagePercent: 30,
+        ),
+      );
+      collisionReported = true;
+    }
+    events.addAll(attackEvents);
   }
 
   // 5. Attack Resolution & Positional Evasion Check
@@ -580,7 +584,7 @@ MonsterIntent selectNextMonsterIntent(
                 effectiveMultiplier,
                 range,
               );
-              events.addAll(attackEvents);
+              addAttackEvents(res.didHit && !res.wasEvaded, attackEvents);
               if (res.didHit && !res.wasEvaded) {
                 didHitShip = true;
               }
@@ -604,7 +608,7 @@ MonsterIntent selectNextMonsterIntent(
             range,
             intent.isUnavoidable,
           );
-          events.addAll(attackEvents);
+          addAttackEvents(res.didHit && !res.wasEvaded, attackEvents);
           if (res.didHit && !res.wasEvaded) {
             didHitShip = true;
           }

@@ -91,20 +91,21 @@ abstract final class MonsterIntentLore {
 
   // ── JELLYFISH INTENTS ──────────────────────────────────────────────────────
 
+  // Stable intent IDs retain compatibility; the lunge now strikes at contact.
   static const jellyfishArcPulse = MonsterIntentLoreEntry(
-    name: 'Arc-Discharge Pulse',
-    subtitle: 'Advances 1 Band • Hits Med & Long (Safe at Short)',
-    description: 'Pulses forward while discharging an expanding ring of bio-electric voltage across outer waters.',
-    tacticalTip: 'Moves 1 band closer and shocks Medium & Long Range. Advance into Short Range to duck inside the outer electric ring!',
-    telegraphLog: 'crackles with blinding violet luminescence, charging an outer Arc-Discharge Pulse!',
+    name: 'Nematocyst Lunge',
+    subtitle: 'Advances 1 Band • Hits Short',
+    description: 'Pulses forward and drives its stinging crown into vessels within reach.',
+    tacticalTip: 'Moves 1 band closer, then strikes Short Range. From Medium, fall back to Long to stay beyond its reach.',
+    telegraphLog: 'draws its stinging crown back, preparing a Nematocyst Lunge!',
   );
 
   static const jellyfishNematocystCurtain = MonsterIntentLoreEntry(
     name: 'Nematocyst Curtain',
-    subtitle: 'Stationary • Hits Short & Med',
-    description: 'Fans out a forty-foot web of venomous stinging filaments across close and broadside waters.',
-    tacticalTip: 'Hits Short and Medium Range (inflicts Poison). Fall back to Long Range to clear the stinging net!',
-    telegraphLog: 'unfurls a wide, drifting lattice of glowing tendrils for a Nematocyst Curtain!',
+    subtitle: 'Stationary • Hits Med & Long',
+    description: 'Discharges a broad net of venomous filaments across the outer waters.',
+    tacticalTip: 'Hits Medium and Long Range and inflicts Poison. Close to Short to get inside the drifting net.',
+    telegraphLog: 'unfurls a drifting lattice of glowing tendrils for a Nematocyst Curtain!',
   );
 
   static const jellyfishNeurotoxinEmbrace = MonsterIntentLoreEntry(
