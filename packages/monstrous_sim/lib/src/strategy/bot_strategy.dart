@@ -9,6 +9,28 @@ abstract class BotStrategy {
   Command decideNextAction(GameSession session);
 }
 
+/// Wreck policy chooses among legal core actions; it never rolls rewards/threats.
+Command wreckRecoveryAction(GameSession session, {required bool seekDanger}) {
+  final wreck = session.currentWreck;
+  if (wreck == null) throw StateError('Wreck phase has no encounter state');
+  if (wreck.stage == WreckStage.assessment) {
+    final choice = wreck.condition == WreckCondition.pickedClean
+        ? WreckRecoveryChoice.quickSalvage
+        : seekDanger ? WreckRecoveryChoice.deeperRecovery
+        : wreck.condition == WreckCondition.fresh ? WreckRecoveryChoice.passBy
+        : WreckRecoveryChoice.quickSalvage;
+    return ChooseWreckRecovery(wreck.id, choice);
+  }
+  if (wreck.stage == WreckStage.recovery) {
+    return ChooseWreckRecovery(wreck.id, WreckRecoveryChoice.recoverClearedCargo);
+  }
+  if (session.pendingLoot.isNotEmpty) {
+    return session.ship!.cargo.length < session.ship!.maxCargo
+        ? const TakeAllLoot() : const LeaveRemainingLoot();
+  }
+  return ChooseWreckRecovery(wreck.id, WreckRecoveryChoice.depart);
+}
+
 /// Shared legal decisions for captain-specific turn stages and forced courses.
 /// Ordinary strategy decisions remain unchanged when these rules do not apply.
 Command? captainTraitAction(GameSession session) {

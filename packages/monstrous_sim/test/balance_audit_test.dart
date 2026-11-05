@@ -88,8 +88,15 @@ void main() {
       totalRuns: aggregateMetrics.results.length,
       seed: baseSeed,
     );
-    reporter.saveToFile(markdown, 'reports/report.md');
-    stdout.writeln('\nSaved full report to reports/report.md');
+    // Regression checks must not replace the retained balance report/evidence.
+    final reportDirectory = Directory('.dart_tool').createTempSync('balance-report-');
+    final reportFile = File('${reportDirectory.path}/report.md');
+    addTearDown(() {
+      if (reportFile.existsSync()) reportFile.deleteSync();
+      reportDirectory.deleteSync();
+    });
+    reporter.saveToFile(markdown, reportFile.path);
+    expect(reportFile.readAsStringSync(), markdown);
 
     expect(aggregateMetrics.results.length, equals(1000));
   });

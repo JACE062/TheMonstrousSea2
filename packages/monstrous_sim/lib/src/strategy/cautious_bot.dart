@@ -30,13 +30,13 @@ class CautiousBot implements BotStrategy {
           return const VisitMerchant();
         }
         if (ship != null && ship.currentHp < ship.maxHp) {
-          if (ship.gold >= session.repairCostFor(1.0)) {
+          if (session.repairHpFor(1.0) > 0 && ship.gold >= session.repairCostFor(1.0)) {
             return const RepairShip(1.0);
-          } else if (ship.gold >= session.repairCostFor(0.5)) {
+          } else if (session.repairHpFor(0.5) > 0 && ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
-          } else if (ship.gold >= session.repairCostFor(0.25)) {
+          } else if (session.repairHpFor(0.25) > 0 && ship.gold >= session.repairCostFor(0.25)) {
             return const RepairShip(0.25);
-          } else if (ship.gold >= session.repairCostFor(0.1)) {
+          } else if (session.repairHpFor(0.1) > 0 && ship.gold >= session.repairCostFor(0.1)) {
             return const RepairShip(0.1);
           }
         }
@@ -146,11 +146,8 @@ class CautiousBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
-        final isBossDefeated = ((session.seaChart.currentRow == SeaChart.bossRow &&
-                    session.seaChart.currentCol == SeaChart.bossCol) ||
-                session.seaChart.currentLeg >= session.seaChart.totalLegs) &&
-            session.currentMonster != null &&
-            !session.currentMonster!.isAlive;
+        final isBossDefeated = session.seaChart.isRegionTitan &&
+            session.hasDefeatedCurrentEncounter;
         if (isBossDefeated) {
           return const AdvanceToNextBattle();
         }
@@ -167,6 +164,7 @@ class CautiousBot implements BotStrategy {
         return const TakeHelm();
 
       case SessionPhase.respiteIsland:
+        if (session.isRepairRefitStop) return const DepartIsland();
         final ship = session.ship;
         if (!session.hasChosenIslandDuty) {
           if (ship != null && ship.currentHp < ship.maxHp * 0.85) {
@@ -177,20 +175,11 @@ class CautiousBot implements BotStrategy {
         return const DepartIsland();
 
       case SessionPhase.shipwreck:
-        if (!session.hasSalvagedCurrentWreck) {
-          final ship = session.ship;
-          final hpRatio = ship != null ? ship.currentHp / ship.maxHp : 1.0;
-          if (hpRatio < 0.6) {
-            return const SalvageShipwreck(ShipwreckChoice.timbers);
-          }
-          return const SalvageShipwreck(ShipwreckChoice.strongbox);
-        }
-        if (session.pendingLoot.isNotEmpty) return const LeaveRemainingLoot();
-        return const TakeHelm();
+        return wreckRecoveryAction(session, seekDanger: false);
 
       case SessionPhase.smuggler:
         final ship = session.ship;
-        if (ship != null && ship.currentHp < ship.maxHp * 0.75 && ship.gold >= session.repairCostFor(0.25)) {
+        if (ship != null && ship.currentHp < ship.maxHp * 0.75 && session.repairHpFor(0.25) > 0 && ship.gold >= session.repairCostFor(0.25)) {
           return const RepairShip(0.25);
         }
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;

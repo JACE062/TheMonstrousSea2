@@ -26,9 +26,9 @@ class RecklessBot implements BotStrategy {
       case SessionPhase.stronghold:
         final ship = session.ship;
         if (ship != null && ship.currentHp < ship.maxHp) {
-          if (ship.gold >= session.repairCostFor(1.0)) {
+          if (session.repairHpFor(1.0) > 0 && ship.gold >= session.repairCostFor(1.0)) {
             return const RepairShip(1.0);
-          } else if (ship.gold >= session.repairCostFor(0.5)) {
+          } else if (session.repairHpFor(0.5) > 0 && ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
           }
         }
@@ -90,11 +90,8 @@ class RecklessBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
-        final isBossDefeated = ((session.seaChart.currentRow == SeaChart.bossRow &&
-                    session.seaChart.currentCol == SeaChart.bossCol) ||
-                session.seaChart.currentLeg >= session.seaChart.totalLegs) &&
-            session.currentMonster != null &&
-            !session.currentMonster!.isAlive;
+        final isBossDefeated = session.seaChart.isRegionTitan &&
+            session.hasDefeatedCurrentEncounter;
         if (isBossDefeated) {
           return const AdvanceToNextBattle();
         }
@@ -111,17 +108,14 @@ class RecklessBot implements BotStrategy {
         return const TakeHelm();
 
       case SessionPhase.respiteIsland:
+        if (session.isRepairRefitStop) return const DepartIsland();
         if (!session.hasChosenIslandDuty) {
           return const DrillGunnersAtIsland();
         }
         return const DepartIsland();
 
       case SessionPhase.shipwreck:
-        if (!session.hasSalvagedCurrentWreck) {
-          return const SalvageShipwreck(ShipwreckChoice.munitions);
-        }
-        if (session.pendingLoot.isNotEmpty) return const LeaveRemainingLoot();
-        return const TakeHelm();
+        return wreckRecoveryAction(session, seekDanger: true);
 
       case SessionPhase.smuggler:
         return const DepartSmuggler();

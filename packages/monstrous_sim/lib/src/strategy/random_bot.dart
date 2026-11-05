@@ -31,7 +31,7 @@ class RandomBot implements BotStrategy {
         final roll = rng.nextInt(3);
         final ship = session.ship;
         if (roll == 0 && ship != null && ship.currentHp < ship.maxHp) {
-          if (ship.gold >= session.repairCostFor(0.5)) {
+          if (session.repairHpFor(0.5) > 0 && ship.gold >= session.repairCostFor(0.5)) {
             return const RepairShip(0.5);
           }
         } else if (roll == 1) {
@@ -88,17 +88,15 @@ class RandomBot implements BotStrategy {
         return const LeaveRemainingLoot();
 
       case SessionPhase.restArea:
-        final isBossDefeated = ((session.seaChart.currentRow == SeaChart.bossRow &&
-                    session.seaChart.currentCol == SeaChart.bossCol) ||
-                session.seaChart.currentLeg >= session.seaChart.totalLegs) &&
-            session.currentMonster != null &&
-            !session.currentMonster!.isAlive;
+        final isBossDefeated = session.seaChart.isRegionTitan &&
+            session.hasDefeatedCurrentEncounter;
         if (isBossDefeated) {
           return const AdvanceToNextBattle();
         }
         return const TakeHelm();
 
       case SessionPhase.respiteIsland:
+        if (session.isRepairRefitStop) return const DepartIsland();
         if (!session.hasChosenIslandDuty) {
           final choice = rng.nextInt(3);
           if (choice == 0) return const CareenHullAtIsland();
@@ -108,12 +106,7 @@ class RandomBot implements BotStrategy {
         return const DepartIsland();
 
       case SessionPhase.shipwreck:
-        if (!session.hasSalvagedCurrentWreck) {
-          final choices = ShipwreckChoice.values;
-          return SalvageShipwreck(choices[rng.nextInt(choices.length)]);
-        }
-        if (session.pendingLoot.isNotEmpty) return const LeaveRemainingLoot();
-        return const TakeHelm();
+        return wreckRecoveryAction(session, seekDanger: true);
 
       case SessionPhase.smuggler:
         return const DepartSmuggler();
