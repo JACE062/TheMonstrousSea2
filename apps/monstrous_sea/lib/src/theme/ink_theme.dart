@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../settings/game_settings.dart';
 
 /// Design tokens and typography defining the 18th-century nautical cartography aesthetic.
@@ -13,6 +14,9 @@ class InkTheme {
   static const Color parchmentDark = Color(0xFFD5C4A1);
   static const Color parchmentHighlight = Color(0xFFFAF6EE);
   static const Color parchmentBorder = Color(0xFFBCAAA4);
+  static const Color chartPaper = Color(0xFFE5CC98);
+  static const Color chartPaperLight = Color(0xFFF0DBAA);
+  static const Color chartEdge = Color(0xFF89653D);
 
   // Iron-Gall & Sepia Ink Tones
   static const Color inkPrimary = Color(0xFF1B1612);
@@ -21,19 +25,23 @@ class InkTheme {
   static const Color inkFaint = Color(0xFFA89984);
 
   // Maritime Accents
-  static const Color crimsonAccent = Color(0xFF8B1E1E); // Danger, Blood, Vitality loss
-  static const Color goldAccent = Color(0xFFB58900);    // Doubloons, Relics, Victory
-  static const Color abyssNavy = Color(0xFF1A2F3B);     // Deep Trench, Night Sea
-  static const Color verdigrisGreen = Color(0xFF2A5A48);// Venom, Ghostly sails
-  static const Color greenAccent = verdigrisGreen;      // Healing, Boons, Timbers
+  static const Color crimsonAccent = Color(
+    0xFF8B1E1E,
+  ); // Danger, Blood, Vitality loss
+  static const Color goldAccent = Color(
+    0xFFB58900,
+  ); // Doubloons, Relics, Victory
+  static const Color abyssNavy = Color(0xFF1A2F3B); // Deep Trench, Night Sea
+  static const Color verdigrisGreen = Color(0xFF2A5A48); // Venom, Ghostly sails
+  static const Color greenAccent = verdigrisGreen; // Healing, Boons, Timbers
 
   // Rarity Colors
   static Color rarityColor(RarityLevel rarity) => switch (rarity) {
-        RarityLevel.common => inkSecondary,
-        RarityLevel.rare => const Color(0xFF1C4E80),
-        RarityLevel.epic => const Color(0xFF6C3483),
-        RarityLevel.legendary => goldAccent,
-      };
+    RarityLevel.common => inkSecondary,
+    RarityLevel.rare => const Color(0xFF1C4E80),
+    RarityLevel.epic => const Color(0xFF6C3483),
+    RarityLevel.legendary => goldAccent,
+  };
 
   /// When true, system fallback fonts are used instead of downloading Google Fonts via HTTP.
   /// Useful for hermetic widget testing environments without network access.
@@ -84,16 +92,8 @@ class InkTheme {
         );
 
   static TextStyle get body => _useCleanFont
-      ? const TextStyle(
-          fontSize: 17,
-          color: inkPrimary,
-          height: 1.4,
-        )
-      : GoogleFonts.imFellEnglish(
-          fontSize: 17,
-          color: inkPrimary,
-          height: 1.4,
-        );
+      ? const TextStyle(fontSize: 17, color: inkPrimary, height: 1.4)
+      : GoogleFonts.imFellEnglish(fontSize: 17, color: inkPrimary, height: 1.4);
 
   static TextStyle get bodyBold => _useCleanFont
       ? const TextStyle(
@@ -169,6 +169,25 @@ class InkTheme {
         bodyLarge: body,
         bodyMedium: body,
         bodySmall: caption,
+      ),
+      tooltipTheme: TooltipThemeData(
+        decoration: BoxDecoration(
+          color: parchmentSurface,
+          border: Border.all(color: inkMuted, width: 1.2),
+          borderRadius: BorderRadius.circular(3),
+          boxShadow: [
+            BoxShadow(
+              color: inkPrimary.withValues(alpha: .18),
+              offset: const Offset(1, 2),
+              blurRadius: 3,
+            ),
+          ],
+        ),
+        textStyle: body.copyWith(fontSize: 14.5, height: 1.3),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        margin: const EdgeInsets.all(12),
+        constraints: const BoxConstraints(maxWidth: 360),
+        waitDuration: const Duration(milliseconds: 450),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
