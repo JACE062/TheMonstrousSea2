@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -73,35 +74,94 @@ void main() {
       'artFontCache',
     ).isEmpty,
   );
-  test('bearings have distinct stable geometry and route resumes forward', () {
-    final points = <Offset>[];
-    for (final bearing in NavigationalBearing.values) {
-      final entry = VoyageLegRecord(
-        leg: 3,
-        bearing: bearing,
-        nodeType: EncounterNodeType.shipwreckSalvage,
-        lookoutCall: 'Wreck',
-        chartRow: 0,
-        chartCol: 0,
-      );
-      points.add(routePoint(entry, const Size(300, 330), 11));
-    }
-    expect(points.map((p) => p.dx).toSet(), hasLength(3));
-    expect(points.map((p) => p.dy).toSet(), hasLength(1));
-    final segment = routeSegment(
-      const Offset(240, 280),
-      const Offset(60, 200),
-      150,
+  test('cumulative tacks and straight-ahead preserve the ship offset without lanes', () {
+    VoyageLegRecord entry(NavigationalBearing bearing, int leg) =>
+        VoyageLegRecord(
+          leg: leg,
+          bearing: bearing,
+          nodeType: EncounterNodeType.beastCombat,
+          lookoutCall: 'Travelled',
+          chartRow: 0,
+          chartCol: 0,
+        );
+    final history = [
+      entry(NavigationalBearing.larboardTack, 1),
+      entry(NavigationalBearing.larboardTack, 2),
+      entry(NavigationalBearing.deadAhead, 3),
+      entry(NavigationalBearing.starboardTack, 4),
+      entry(NavigationalBearing.deadAhead, 5),
+    ];
+    final route = NauticalRouteGeometry(history);
+    expect(route.points, [
+      Offset.zero,
+      const Offset(92, -64),
+      const Offset(184, -128),
+      const Offset(276, -128),
+      const Offset(368, -64),
+      const Offset(460, -64),
+    ]);
+    expect(
+      NauticalRouteGeometry(history.take(3)).points,
+      route.points.take(4).toList(),
+    );
+    final diagonal = NauticalRouteGeometry([
+      for (var i = 0; i < 40; i++)
+        entry(NavigationalBearing.larboardTack, i + 1),
+    ]);
+    expect(diagonal.points.last, const Offset(3680, -2560));
+    final metric = routeSegment(
+      route.points[1],
+      route.points[2],
     ).computeMetrics().single;
-    var previousY = 280.0;
-    for (var t = 0; t <= 10; t++) {
-      final y = segment
-          .getTangentForOffset(segment.length * t / 10)!
-          .position
-          .dy;
-      expect(y, lessThanOrEqualTo(previousY + .001));
-      previousY = y;
+    for (var step = 0; step <= 10; step++) {
+      final p = metric.getTangentForOffset(metric.length * step / 10)!.position;
+      expect(p.dx, closeTo(92 + 92 * step / 10, .01));
+      expect(p.dy, closeTo(-64 - 64 * step / 10, .01));
     }
+  });
+  testWidgets('map pan, zoom, locate and fit preserve the committed route', (
+    tester,
+  ) async {
+    await _loadFonts(tester);
+    final c = _helm(0);
+    addTearDown(c.dispose);
+    final before = c.seaChart.toJson();
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: SizedBox(width: 500, child: NauticalChart(chart: c.seaChart)),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final map = find.byKey(const ValueKey('nautical-map-viewport'));
+    final camera = tester
+        .widget<InteractiveViewer>(map)
+        .transformationController!;
+    final fit = List<double>.from(camera.value.storage);
+    await tester.drag(map, const Offset(-100, 30));
+    await tester.pumpAndSettle();
+    expect(camera.value.storage[12], isNot(closeTo(fit[12], .01)));
+    final scaleBeforeScroll = camera.value.getMaxScaleOnAxis();
+    await tester.sendEventToBinding(
+      PointerScrollEvent(
+        position: tester.getCenter(map),
+        scrollDelta: const Offset(0, -80),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(camera.value.getMaxScaleOnAxis(), greaterThan(scaleBeforeScroll));
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
+    await tester.pump();
+    expect(c.seaChart.toJson(), before);
+    await tester.tap(find.byKey(const ValueKey('locate-chart-vessel')));
+    await tester.pumpAndSettle();
+    expect(camera.value.getMaxScaleOnAxis(), 1);
+    await tester.tap(find.byKey(const ValueKey('fit-nautical-route')));
+    await tester.pumpAndSettle();
+    expect(camera.value.storage, orderedEquals(fit));
+    expect(c.seaChart.toJson(), before);
+    expect(tester.takeException(), isNull);
   });
   for (final width in [360.0, 1280.0]) {
     for (var region = 0; region < 3; region++) {

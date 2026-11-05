@@ -53,7 +53,12 @@ class SeaChartScreen extends StatelessWidget {
               ),
               const SizedBox(height: 14),
               ParchmentCard(
-                child: NauticalChart(chart: seaChart, isInPort: isInPort),
+                child: NauticalChart(
+                  chart: seaChart,
+                  isInPort: isInPort,
+                  viewportHeight: (MediaQuery.sizeOf(context).height * .55)
+                      .clamp(300, 560),
+                ),
               ),
               const SizedBox(height: 16),
               Text('DEAD-RECKONING VOYAGE LOG', style: InkTheme.titleMedium),
