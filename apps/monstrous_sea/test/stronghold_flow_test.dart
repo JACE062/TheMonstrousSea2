@@ -18,7 +18,7 @@ GameController atStronghold({int region = 0, StorageService? storage}) {
   );
   controller.dispatch(const BeginFirstVoyage('Reed'));
   controller.seaChart.timesCompleted = region;
-  controller.seaChart.currentLeg = controller.seaChart.totalLegs;
+  controller.seaChart.currentLeg = controller.seaChart.regionTitanLeg;
   controller.session.currentMonster = null;
   controller.session.hasDefeatedCurrentEncounter = true;
   controller.session.phase = SessionPhase.restArea;

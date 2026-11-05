@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
+
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/hull_gauge.dart';
+import '../widgets/hull_patch_kit_button.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
@@ -10,27 +12,39 @@ import '../widgets/pilot_art.dart';
 import '../widgets/svg_asset_view.dart';
 import '../widgets/wreck_supplies_view.dart';
 
-/// Screen rendered upon discovering a floating shipwreck derelict,
-/// offering tactical choices between salvaging munitions, cracking the gold
-/// strongbox, or stripping copper and timbers to reinforce hull vitality.
+/// Presents the core's condition, recovery commitment and one cargo receipt.
 class ShipwreckScreen extends StatelessWidget {
   const ShipwreckScreen({
     super.key,
     required this.controller,
     required this.onOpenChart,
   });
-
   final GameController controller;
   final VoidCallback onOpenChart;
 
   @override
   Widget build(BuildContext context) {
+    final wreck = controller.session.currentWreck;
     final ship = controller.ship;
-    final wreckName = controller.currentShipwreckName.isNotEmpty
-        ? controller.currentShipwreckName
-        : 'The Shattered Caravel';
-    final hasSalvaged = controller.hasSalvagedCurrentWreck;
-
+    if (wreck == null || ship == null) {
+      return const ParchmentScaffold(
+        body: Center(child: Text('Wreck state unavailable.')),
+      );
+    }
+    final id = wreck.id;
+    void choose(WreckRecoveryChoice choice) =>
+        controller.dispatch(ChooseWreckRecovery(id, choice));
+    final condition = switch (wreck.condition) {
+      WreckCondition.pickedClean => 'PICKED-CLEAN WRECK',
+      WreckCondition.uncertain => 'UNCERTAIN WRECK',
+      WreckCondition.fresh => 'FRESH WRECK',
+    };
+    final assessment = switch (wreck.condition) {
+      WreckCondition.pickedClean =>
+        'The open holds have been stripped. Only a small, quick haul remains.',
+      WreckCondition.uncertain => 'Take the modest accessible salvage and leave, or forego it and linger for the deeper cargo.',
+      WreckCondition.fresh => 'The fresh cargo lies below. Recovering it takes a deliberate commitment; you can still sail past empty.',
+    };
     return ParchmentScaffold(
       body: Center(
         child: ConstrainedBox(
@@ -40,227 +54,97 @@ class ShipwreckScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Top Navigation Bar
                 Wrap(
                   spacing: 16,
                   runSpacing: 8,
-                  crossAxisAlignment: WrapCrossAlignment.center,
+                  alignment: WrapAlignment.spaceBetween,
                   children: [
-                    InkButton(
-                      label: 'SEA CHART',
-                      semanticLabel: 'Open navigation sea chart',
-                      onPressed: onOpenChart,
-                    ),
-                    if (ship != null)
-                      Text(
-                        'PURSE: ${ship.gold}g',
-                        style: InkTheme.statLabel.copyWith(
-                          color: InkTheme.goldAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
+                    InkButton(label: 'SEA CHART', onPressed: onOpenChart),
+                    Text('PURSE: ${ship.gold}g', style: InkTheme.statLabel),
                   ],
                 ),
                 const SizedBox(height: 16),
-
-                // Header
-                Center(
+                const Center(
                   child: SvgAssetView(
-                    assetPath: PilotArt.defeatedMonster,
+                    assetPath: PilotArt.treasure,
                     width: 56,
                     height: 56,
                   ),
                 ),
-                const SizedBox(height: 8),
                 Text(
-                  wreckName.toUpperCase(),
-                  style: InkTheme.titleLarge.copyWith(fontSize: 28),
+                  controller.currentShipwreckName.toUpperCase(),
+                  style: InkTheme.titleLarge,
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'A waterlogged derelict floats in the morning mist, rigging trailing in the brine. Hull groans against the swell.',
-                  style: InkTheme.subtitle,
+                  condition,
+                  style: InkTheme.statValue,
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 16),
+                HullGauge(
+                  currentHp: ship.currentHp,
+                  maxHp: ship.maxHp,
+                  label: 'VESSEL HULL VITALITY',
+                ),
+                CarriedPatchKits(controller: controller),
                 const SizedBox(height: 20),
-
-                // Vessel Vitality
-                if (ship != null) ...[
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          '${ship.name} (Tier ${ship.level} ${ship.shipClass.displayName})',
-                          style: InkTheme.statValue.copyWith(fontSize: 16),
-                        ),
-                        const SizedBox(height: 10),
-                        HullGauge(
-                          currentHp: ship.currentHp,
-                          maxHp: ship.maxHp,
-                          label: 'VESSEL HULL VITALITY',
-                        ),
-                      ],
+                if (wreck.stage == WreckStage.assessment) ...[
+                  ParchmentCard(child: Text(assessment, style: InkTheme.body)),
+                  const SizedBox(height: 12),
+                  if (wreck.condition != WreckCondition.fresh) ...[
+                    InkButton(
+                      label: 'QUICK SALVAGE & LEAVE',
+                      isPrimary: true,
+                      onPressed: () => choose(WreckRecoveryChoice.quickSalvage),
                     ),
+                    const SizedBox(height: 12),
+                  ],
+                  if (wreck.condition != WreckCondition.pickedClean) ...[
+                    ParchmentCard(
+                      child: Text(
+                        'COMMITTED RECOVERY: High chance of a creature fight. An Apex predator may appear. Species and tier remain unknown until it appears.${wreck.condition == WreckCondition.uncertain ? ' You cannot take the quick haul as well.' : ''}',
+                        style: InkTheme.body.copyWith(
+                          color: InkTheme.crimsonAccent,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    InkButton(
+                      label: wreck.condition == WreckCondition.fresh
+                          ? 'COMMIT TO RECOVERY'
+                          : 'LINGER FOR DEEPER CARGO',
+                      onPressed: () =>
+                          choose(WreckRecoveryChoice.deeperRecovery),
+                    ),
+                    const SizedBox(height: 12),
+                  ],
+                  InkButton(
+                    label: 'SAIL PAST EMPTY',
+                    onPressed: () => choose(WreckRecoveryChoice.passBy),
                   ),
-                  const SizedBox(height: 24),
-                ],
-
-                if (!hasSalvaged) ...[
-                  Text('CHOOSE SALVAGE OPERATION', style: InkTheme.statLabel),
-                  const SizedBox(height: 10),
-
-                  // Choice 1: Munitions
+                ] else if (wreck.stage == WreckStage.recovery) ...[
                   ParchmentCard(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        const SvgAssetView(
-                          assetPath: PilotArt.cannons,
-                          width: 44,
-                          height: 44,
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Search Hold for Materials & Supplies',
-                                style: InkTheme.statValue.copyWith(fontSize: 16),
-                              ),
-                              Text(
-                                'Search sealed lockers for salvage materials and usable tactical supplies.',
-                                style: InkTheme.caption,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                '2–4 Sea Glass • 25% chance: 1 Depth-Wrought Iron • 50% chance: 1 consumable',
-                                style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        InkButton(
-                          label: 'SEARCH HOLD',
-                          isPrimary: true,
-                          onPressed: () => controller.dispatch(
-                            const SalvageShipwreck(ShipwreckChoice.munitions),
-                          ),
-                        ),
-                      ],
+                    child: Text(
+                      wreck.condition == WreckCondition.pickedClean
+                          ? 'THREAT CLEARED. The remaining small haul is ready to recover. There is no further fight here.'
+                          : 'THREAT CLEARED. The full wreck cargo is ready to recover. No further risk choice or fight remains.',
+                      style: InkTheme.body,
                     ),
                   ),
                   const SizedBox(height: 12),
-
-                  // Choice 2: Strongbox
-                  ParchmentCard(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        const SvgAssetView(
-                          assetPath: PilotArt.treasure,
-                          width: 44,
-                          height: 44,
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Crack the Captain's Strongbox",
-                                style: InkTheme.statValue.copyWith(fontSize: 16),
-                              ),
-                              Text(
-                                'Search the waterlogged captain\'s cabin and pick the lock on the reinforced iron chest.',
-                                style: InkTheme.caption,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                '60–120 gold doubloons + 2–4 Sea Glass',
-                                style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        InkButton(
-                          label: 'CRACK CHEST',
-                          isPrimary: true,
-                          onPressed: () => controller.dispatch(
-                            const SalvageShipwreck(ShipwreckChoice.strongbox),
-                          ),
-                        ),
-                      ],
-                    ),
+                  InkButton(
+                    label: 'RECOVER CARGO',
+                    isPrimary: true,
+                    onPressed: () =>
+                        choose(WreckRecoveryChoice.recoverClearedCargo),
                   ),
-                  const SizedBox(height: 12),
-
-                  // Choice 3: Timbers
+                ] else if (wreck.stage == WreckStage.receipt) ...[
                   ParchmentCard(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        const SvgAssetView(
-                          assetPath: PilotArt.anchor,
-                          width: 44,
-                          height: 44,
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Strip Copper & Stout Oak Timbers',
-                                style: InkTheme.statValue.copyWith(fontSize: 16),
-                              ),
-                              Text(
-                                'Pry intact hull planks, iron brackets, and copper sheathing to patch your own battle scars.',
-                                style: InkTheme.caption,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Restore ${controller.wreckTimbersHealingHp} hull HP + 1–2 Sea Glass',
-                                style: InkTheme.statLabel.copyWith(color: InkTheme.greenAccent),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        InkButton(
-                          label: 'STRIP TIMBERS',
-                          isPrimary: true,
-                          onPressed: () => controller.dispatch(
-                            const SalvageShipwreck(ShipwreckChoice.timbers),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ] else ...[
-                  // Salvaged Banner
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: InkTheme.goldAccent.withValues(alpha: 0.12),
-                      border: Border.all(color: InkTheme.goldAccent, width: 1.5),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
                     child: Column(
                       children: [
-                        Text(
-                          'SALVAGE COMPLETE',
-                          style: InkTheme.titleLarge.copyWith(
-                            color: InkTheme.goldAccent,
-                            fontSize: 20,
-                          ),
-                        ),
-                        const SizedBox(height: 6),
+                        Text('SALVAGE COMPLETE', style: InkTheme.titleMedium),
+                        const SizedBox(height: 8),
                         Text(
                           controller.session.wreckSalvageReceipt.join('\n'),
                           style: InkTheme.body,
@@ -269,20 +153,17 @@ class ShipwreckScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 24),
-
+                  const SizedBox(height: 16),
                   if (controller.pendingLoot.isNotEmpty) ...[
                     WreckSuppliesView(controller: controller),
                     const SizedBox(height: 16),
                   ],
-                  // Depart only after explicitly resolving any overflow.
                   InkButton(
                     label: 'LEAVE WRECK & TAKE THE HELM',
-                    semanticLabel: 'Leave the salvaged derelict and take the helm to set course',
                     isPrimary: true,
                     onPressed: controller.pendingLoot.isNotEmpty
                         ? null
-                        : () => controller.dispatch(const TakeHelm()),
+                        : () => choose(WreckRecoveryChoice.depart),
                   ),
                 ],
               ],

@@ -70,7 +70,7 @@ void main() {
     expect(controller.combatLog, contains('Earlier encounter'));
 
     // Arrive at an actual completed Titan checkpoint, then use normal routing.
-    controller.seaChart.currentLeg = controller.seaChart.totalLegs;
+    controller.seaChart.currentLeg = controller.seaChart.regionTitanLeg;
     controller.session.phase = SessionPhase.restArea;
     controller.session.hasDefeatedCurrentEncounter = true;
     controller.dispatch(const TakeHelm());

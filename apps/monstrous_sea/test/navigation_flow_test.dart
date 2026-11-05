@@ -152,7 +152,7 @@ void main() {
         addTearDown(controller.dispose);
         ordinaryLoot(controller);
         controller.seaChart.timesCompleted = region;
-        controller.seaChart.currentLeg = controller.seaChart.totalLegs;
+        controller.seaChart.currentLeg = controller.seaChart.regionTitanLeg;
         controller.ship!.blessings[HardpointType.signature] =
             const HardpointBlessing(
               power: OceanPower.brinemother,
@@ -290,6 +290,9 @@ void main() {
       addTearDown(controller.dispose);
       controller.session.phase = SessionPhase.shipwreck;
       controller.session.currentShipwreckName = 'Saved Wreck';
+      controller.session.currentWreck = WreckEncounter(id: 'saved-wreck',
+        sighting: const WreckSighting(seed: 81, condition: WreckCondition.uncertain, clearClue: true),
+        stage: WreckStage.receipt);
       controller.session.hasSalvagedCurrentWreck = true;
       controller.session.wreckSalvageReceipt = [
         '3 Sea Glass',
@@ -310,7 +313,7 @@ void main() {
         restored.pendingLoot.single.name,
         controller.pendingLoot.single.name,
       );
-      restored.dispatch(const SalvageShipwreck(ShipwreckChoice.munitions));
+      restored.dispatch(const ChooseWreckRecovery('saved-wreck', WreckRecoveryChoice.recoverClearedCargo));
       expect(restored.profile.metaInventory.seaGlass, 3);
     },
   );

@@ -4,6 +4,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import 'ink_button.dart';
+import 'hull_patch_kit_button.dart';
 import 'parchment_card.dart';
 import 'weapon_stats_view.dart';
 import 'utility_description.dart';
@@ -155,7 +156,7 @@ class ArmoryView extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Text(
-            'Single-use provisions. Trigger one as a quick action in battle, or jettison it to free a slot.',
+            'Single-use provisions. Hull Patch Kits can also patch hull between battles. Other supplies are combat quick actions.',
             style: InkTheme.body.copyWith(fontSize: 14),
           ),
           const SizedBox(height: 10),
@@ -187,6 +188,10 @@ class ArmoryView extends StatelessWidget {
                     const SizedBox(height: 8),
                     WeaponStatsView(item: item, compact: true),
                     const SizedBox(height: 10),
+                    if (item is Consumable && item.type == ConsumableType.hullPatchKit) ...[
+                      HullPatchKitButton(controller: controller, itemId: item.id),
+                      const SizedBox(height: 8),
+                    ],
                     Align(
                       alignment: Alignment.centerLeft,
                       child: InkButton(

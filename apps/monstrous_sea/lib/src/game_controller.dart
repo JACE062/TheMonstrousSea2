@@ -30,6 +30,13 @@ class GameController extends ChangeNotifier {
       structuredCombatLog.map((e) => e.message).toList();
   List<GameEvent> lastEvents = <GameEvent>[];
   bool isPlayingEvents = false;
+  bool _navigationMotionPending = false;
+  /// Transient presentation state: restored checkpoints start at their endpoint.
+  bool takeNavigationMotion() {
+    final pending = _navigationMotionPending;
+    _navigationMotionPending = false;
+    return pending;
+  }
 
   SessionPhase get phase => session.phase;
   ShipState? get ship => session.ship;
@@ -114,9 +121,12 @@ class GameController extends ChangeNotifier {
       _pendingCalderaSnapshot = CalderaSnapshot.fromSession(session);
     }
     final events = session.dispatch(command);
+    if (command is SteerCourse && session.phase != previousPhase) {
+      _navigationMotionPending = true;
+    }
     // Resolve the core's compatibility rest checkpoint without displaying an
     // extra inspection stop. TakeHelm owns Titan/stronghold/ending routing.
-    if ((command is TakeLootItem || command is TakeAllLoot || command is LeaveRemainingLoot) &&
+    if ((command is TakeLootItem || command is TakeAllLoot || command is LeaveRemainingLoot || command is UseHullPatchKit) &&
         session.phase == SessionPhase.restArea) {
       events.addAll(session.dispatch(const TakeHelm()));
     }
@@ -188,6 +198,7 @@ class GameController extends ChangeNotifier {
         phase == SessionPhase.expeditionVictory ||
         phase == SessionPhase.stronghold ||
         (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.stronghold) ||
+        (phase == SessionPhase.merchant && session.merchantReturnPhase == SessionPhase.helm) ||
         phase == SessionPhase.shipwreck ||
         phase == SessionPhase.loot ||
         phase == SessionPhase.helm ||
@@ -363,6 +374,10 @@ class GameController extends ChangeNotifier {
           message: 'Repaired $repairedHp hull points for ${goldCost}g.',
           actor: CombatLogActor.ambient,
         ),
+      HullPatchApplied() => CombatLogEntry(
+          message: narrationFormatter.format(event), actor: CombatLogActor.ship),
+      MaterialPurchased() => CombatLogEntry(
+          message: narrationFormatter.format(event), actor: CombatLogActor.ambient),
       ShipUpgraded(:final ship, :final newLevel, :final goldCost) => CombatLogEntry(
           message: 'Refitted ${ship.name} to Tier $newLevel for ${goldCost}g.',
           actor: CombatLogActor.ambient,

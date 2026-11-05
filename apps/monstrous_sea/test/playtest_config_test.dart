@@ -43,7 +43,7 @@ void main() {
           expect(controller.autoSave, isFalse);
           expect(controller.phase, SessionPhase.battle);
           expect(controller.seaChart.currentRegionIndex, region);
-          expect(controller.seaChart.currentLeg, controller.seaChart.totalLegs);
+          expect(controller.seaChart.currentLeg, controller.seaChart.regionTitanLeg);
           expect(controller.seaChart.isRegionTitan, isTrue);
           expect(
             controller.currentMonster!.species,
@@ -115,7 +115,7 @@ void main() {
       expect(controller.phase, SessionPhase.helm);
       expect(controller.seaChart.currentRegionIndex, region);
       expect(controller.seaChart.currentLeg, 0);
-      expect(controller.currentCourseOptions, hasLength(3));
+      expect(controller.currentCourseOptions, hasLength(region == 0 ? 1 : 3));
       expect(controller.ship!.level, 4);
       expect(controller.ship!.markForHardpoint(HardpointType.utility), 2);
       final course = controller.currentCourseOptions.first;

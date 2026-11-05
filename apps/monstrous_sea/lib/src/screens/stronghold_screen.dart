@@ -6,6 +6,7 @@ import '../theme/ink_theme.dart';
 import '../widgets/armory_view.dart';
 import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
+import '../widgets/paid_repair_view.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pause_menu.dart';
@@ -80,17 +81,11 @@ class StrongholdScreen extends StatelessWidget {
                         onPressed: () =>
                             controller.dispatch(const VisitMerchant()),
                       ),
-                      InkButton(
-                        label: 'REPAIR +${controller.repairHpFor(1.0)} HP · ${controller.repairCostFor(1.0)}g',
-                        onPressed:
-                            ship.currentHp < ship.maxHp &&
-                                ship.gold >= controller.repairCostFor(1.0)
-                            ? () => controller.dispatch(const RepairShip(1.0))
-                            : null,
-                      ),
                       InkButton(label: 'SEA CHART', onPressed: onOpenChart),
                     ],
                   ),
+                  const SizedBox(height: 16),
+                  PaidRepairView(controller: controller),
                   const SizedBox(height: 16),
                   InkButton(
                     label:

@@ -5,6 +5,9 @@ import '../theme/ink_theme.dart';
 import '../widgets/armory_view.dart';
 import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
+import '../widgets/paid_repair_view.dart';
+import '../widgets/hull_patch_kit_button.dart';
+import '../widgets/material_trade_view.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pilot_art.dart';
@@ -56,10 +59,6 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
             ? controller.currentSmugglerName
             : "The Shadowed Ketch";
         final stock = controller.smugglerStock;
-
-        final repairHp = controller.repairHpFor(0.25);
-        final repairCost = controller.repairCostFor(0.25);
-        final canAffordRepair = ship != null && repairHp > 0 && ship.gold >= repairCost;
 
         final hasTreasure = ship?.cargo.any((item) => item is Treasure) ?? false;
 
@@ -140,40 +139,9 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                   const SizedBox(height: 16),
                 ],
 
-                // Seasoned Oak Planks (Emergency Hull Repair)
-                ParchmentCard(
-                  padding: const EdgeInsets.all(16),
-                  child: _adaptiveDetails(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'SEASONED OAK PLANKS (+$repairHp HP)',
-                              style: InkTheme.statValue.copyWith(fontSize: 15),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              repairHp > 0
-                                  ? 'Smugglers hammer seasoned oak and caulking over shot holes for ${repairCost}g at the current black market rate.'
-                                  : 'Hull timbers are currently sound and seaworthy.',
-                              style: InkTheme.caption.copyWith(fontSize: 12.5),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      InkButton(
-                        label: 'REPAIR (${repairCost}g)',
-                        semanticLabel: 'Repair hull with oak planks for $repairCost gold',
-                        onPressed: canAffordRepair
-                            ? () => controller.dispatch(const RepairShip(0.25))
-                            : null,
-                      ),
-                    ],
-                  ),
-                ),
+                PaidRepairView(controller: controller),
+                CarriedPatchKits(controller: controller),
+                MaterialTradeView(controller: controller),
                 const SizedBox(height: 18),
 
                 // Mode Tabs

@@ -93,6 +93,7 @@ void main() {
           currentRow: isInPort ? 0 : 1,
           currentCol: isInPort ? 0 : 2,
         );
+        if (!isInPort) chart.beginVoyage();
         final boundaryKey = GlobalKey();
         var closed = false;
         await tester.pumpWidget(
@@ -122,14 +123,15 @@ void main() {
           (widget) => widget is SvgAssetView && widget.assetPath == asset,
         );
         expect(art(PilotArt.portHaven), findsOneWidget);
-        expect(art(PilotArt.defeatedMonster), findsNWidgets(isInPort ? 0 : 7));
-        expect(art(PilotArt.fog), findsNWidgets(isInPort ? 8 : 1));
+        expect(art(PilotArt.defeatedMonster), findsNothing);
+        expect(art(PilotArt.fog), findsNothing);
         expect(find.text('VESSEL'), findsOneWidget);
         expect(
           find.text('ANCHORED IN PORT'),
           isInPort ? findsOneWidget : findsNothing,
         );
-        expect(find.text('DEFEATED'), findsNWidgets(isInPort ? 0 : 7));
+        expect(find.text('VICTORY'), findsNothing);
+        expect(find.text('ARRIVED'), isInPort ? findsNothing : findsOneWidget);
         expect(find.byIcon(Icons.anchor), findsNothing);
         expect(find.byIcon(Icons.cloud_queue), findsNothing);
         expect(find.text('☠'), findsNothing);

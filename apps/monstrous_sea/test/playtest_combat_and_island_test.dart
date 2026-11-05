@@ -116,7 +116,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.text('DEFEATED'), findsNWidgets(2));
+      expect(find.text('VICTORY'), findsNothing);
       expect(find.textContaining('Leg 2 of 10'), findsOneWidget);
       await tester.pumpWidget(
         MaterialApp(

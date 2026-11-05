@@ -16,7 +16,7 @@ void main() {
       addTearDown(controller.dispose);
       controller.seaChart
         ..timesCompleted = region
-        ..currentLeg = controller.seaChart.totalLegs - 1;
+        ..currentLeg = controller.seaChart.regionTitanLeg - 1;
       controller.session.phase = SessionPhase.restArea;
       controller.dispatch(const TakeHelm());
       final previousEntries = controller.structuredCombatLog.length;

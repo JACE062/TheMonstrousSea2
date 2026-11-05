@@ -94,8 +94,7 @@ void main() {
           );
           controller.dispatch(SteerCourse(course.bearing));
         } else if (controller.phase == SessionPhase.shipwreck) {
-          controller.dispatch(const SalvageShipwreck(ShipwreckChoice.timbers));
-          controller.dispatch(const AdvanceToNextBattle());
+          controller.dispatch(ChooseWreckRecovery(controller.session.currentWreck!.id, WreckRecoveryChoice.passBy));
         } else if (controller.phase == SessionPhase.respiteIsland) {
           controller.dispatch(const DepartIsland());
         } else if (controller.phase == SessionPhase.smuggler) {

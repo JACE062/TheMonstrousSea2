@@ -10,6 +10,7 @@ import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pilot_art.dart';
 import '../widgets/voyage_shipwright_view.dart';
+import '../widgets/paid_repair_view.dart';
 import '../widgets/svg_asset_view.dart';
 
 /// Screen rendered when anchoring at a calm Respite Island haven,
@@ -70,6 +71,8 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
     final islandName = controller.currentIslandName.isNotEmpty
         ? controller.currentIslandName
         : 'Cormorant Key';
+    final isRefit = controller.session.isRepairRefitStop;
+    final services = controller.session.seaChart.tuning.services;
     final hasChosenDuty = controller.session.hasChosenIslandDuty;
     final hasCareened = controller.hasCareenedAtCurrentIsland;
     final hasDrilled = controller.hasDrilledAtCurrentIsland;
@@ -123,14 +126,18 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  controller.isCurrentIslandHaven
+                  isRefit
+                      ? 'FINAL PREPARATION SHIPWRIGHT'
+                      : controller.isCurrentIslandHaven
                       ? 'GRAND HAVEN: ${islandName.toUpperCase()}'
                       : 'SECLUDED COVE: ${islandName.toUpperCase()}',
                   style: InkTheme.titleLarge.copyWith(fontSize: 28),
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  controller.isCurrentIslandHaven
+                  isRefit
+                      ? 'Paid repairs and voyage refits. The next passage brings the Titan into reach.'
+                      : controller.isCurrentIslandHaven
                       ? 'Calm sheltered deep-water soundings and verdant sanctuary cliffs. A grand haven of safety.'
                       : 'A small uncharted atoll and tranquil sandy spit offering emergency respite from the storm.',
                   style: InkTheme.subtitle,
@@ -190,180 +197,194 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                   const SizedBox(height: 20),
                 ],
 
-                // Island Action Cards Grid
-                Text(
-                  hasChosenDuty
-                      ? 'CREW SHORE DUTY COMPLETED (PREPARING TO DEPART)'
-                      : 'CREW SHORE DUTY (CHOOSE ONE BEFORE TIDE TURNS)',
-                  style: InkTheme.statValue.copyWith(
-                    color: hasChosenDuty
-                        ? InkTheme.inkMuted
-                        : InkTheme.goldAccent,
-                    fontSize: 13,
-                    letterSpacing: 1.0,
+                if (controller.isCurrentIslandHaven && !hasChosenDuty)
+                  Text('Refitting first increases maximum hull used by careening and your first paid repair purchase.', style: InkTheme.caption),
+                if (!isRefit) ...[
+                  // Island Action Cards Grid
+                  Text(
+                    hasChosenDuty
+                        ? 'CREW SHORE DUTY COMPLETED (PREPARING TO DEPART)'
+                        : 'CREW SHORE DUTY (CHOOSE ONE BEFORE TIDE TURNS)',
+                    style: InkTheme.statValue.copyWith(
+                      color: hasChosenDuty
+                          ? InkTheme.inkMuted
+                          : InkTheme.goldAccent,
+                      fontSize: 13,
+                      letterSpacing: 1.0,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8),
+                  const SizedBox(height: 8),
 
-                // 1. Careen Hull Card
-                ParchmentCard(
-                  padding: const EdgeInsets.all(16),
-                  child: _cardRow(
-                    children: [
-                      const SvgAssetView(
-                        assetPath: PilotArt.anchor,
-                        width: 44,
-                        height: 44,
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Careen & Patch Hull Timbers',
-                              style: InkTheme.statValue.copyWith(fontSize: 16),
-                            ),
-                            Text(
-                              'Haul the ship into the tidal shallows, scrape brine barnacles, and caulk seams with oakum and pitch.',
-                              style: InkTheme.caption,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Restores ${controller.careenHealingHp} HP · Shore Duty Option',
-                              style: InkTheme.statLabel.copyWith(
-                                color: InkTheme.inkPrimary,
-                              ),
-                            ),
-                          ],
+                  // 1. Careen Hull Card
+                  ParchmentCard(
+                    padding: const EdgeInsets.all(16),
+                    child: _cardRow(
+                      children: [
+                        const SvgAssetView(
+                          assetPath: PilotArt.anchor,
+                          width: 44,
+                          height: 44,
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      InkButton(
-                        label: hasCareened
-                            ? 'CAREENED'
-                            : (hasChosenDuty
-                                  ? 'DUTY SPENT'
-                                  : (ship != null &&
-                                            ship.currentHp == ship.maxHp
-                                        ? 'HULL FULL'
-                                        : 'CAREEN (+${controller.careenHealingHp} HP)')),
-                        isPrimary: canCareen,
-                        onPressed: canCareen
-                            ? () => controller.dispatch(
-                                const CareenHullAtIsland(),
-                              )
-                            : null,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 12),
-
-                // 2. Drill Gunners Card
-                ParchmentCard(
-                  padding: const EdgeInsets.all(16),
-                  child: _cardRow(
-                    children: [
-                      const SvgAssetView(
-                        assetPath: PilotArt.cannons,
-                        width: 44,
-                        height: 44,
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Gunnery & Battery Drills',
-                              style: InkTheme.statValue.copyWith(fontSize: 16),
-                            ),
-                            Text(
-                              'Sight battery broadsides against offshore rocks and coordinate synchronized cannon volleys.',
-                              style: InkTheme.caption,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              '+15% Accuracy Boon on Next Battle • Shore Duty Option',
-                              style: InkTheme.statLabel.copyWith(
-                                color: InkTheme.inkPrimary,
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Careen & Patch Hull Timbers',
+                                style: InkTheme.statValue.copyWith(
+                                  fontSize: 16,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      InkButton(
-                        label: hasDrilled
-                            ? 'DRILLED'
-                            : (hasChosenDuty ? 'DUTY SPENT' : 'DRILL GUNS'),
-                        isPrimary: canDrill,
-                        onPressed: canDrill
-                            ? () => controller.dispatch(
-                                const DrillGunnersAtIsland(),
-                              )
-                            : null,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 12),
-
-                // 3. Forage Shoals Card
-                ParchmentCard(
-                  padding: const EdgeInsets.all(16),
-                  child: _cardRow(
-                    children: [
-                      const SvgAssetView(
-                        assetPath: PilotArt.treasure,
-                        width: 44,
-                        height: 44,
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Forage & Beachcomb Shoals',
-                              style: InkTheme.statValue.copyWith(fontSize: 16),
-                            ),
-                            Text(
-                              'Send shore parties along sandy spits and coral pools to scavenge wreckage drift and pearls.',
-                              style: InkTheme.caption,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              controller.isCurrentIslandHaven
-                                  ? 'Recovers 40–60 Gold Doubloons • Shore Duty Option'
-                                  : 'Recovers 25–35 Gold Doubloons • Shore Duty Option',
-                              style: InkTheme.statLabel.copyWith(
-                                color: InkTheme.inkPrimary,
+                              Text(
+                                'Haul the ship into the tidal shallows, scrape brine barnacles, and caulk seams with oakum and pitch.',
+                                style: InkTheme.caption,
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 4),
+                              Text(
+                                '${((controller.isCurrentIslandHaven ? services.havenCareenFraction : services.coveCareenFraction) * 100).round()}% of current maximum hull · Restores ${controller.careenHealingHp} HP · Shore Duty Option',
+                                style: InkTheme.statLabel.copyWith(
+                                  color: InkTheme.inkPrimary,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      InkButton(
-                        label: hasForaged
-                            ? 'FORAGED'
-                            : (hasChosenDuty ? 'DUTY SPENT' : 'FORAGE SHOALS'),
-                        isPrimary: canForage,
-                        onPressed: canForage
-                            ? () => controller.dispatch(
-                                const ForageShoalsAtIsland(),
-                              )
-                            : null,
-                      ),
-                    ],
+                        const SizedBox(width: 12),
+                        InkButton(
+                          label: hasCareened
+                              ? 'CAREENED'
+                              : (hasChosenDuty
+                                    ? 'DUTY SPENT'
+                                    : (ship != null &&
+                                              ship.currentHp == ship.maxHp
+                                          ? 'HULL FULL'
+                                          : 'CAREEN (+${controller.careenHealingHp} HP)')),
+                          isPrimary: canCareen,
+                          onPressed: canCareen
+                              ? () => controller.dispatch(
+                                  const CareenHullAtIsland(),
+                                )
+                              : null,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 16),
+                  const SizedBox(height: 12),
 
-                if (controller.isCurrentIslandHaven && ship != null) ...[
+                  // 2. Drill Gunners Card
+                  ParchmentCard(
+                    padding: const EdgeInsets.all(16),
+                    child: _cardRow(
+                      children: [
+                        const SvgAssetView(
+                          assetPath: PilotArt.cannons,
+                          width: 44,
+                          height: 44,
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Gunnery & Battery Drills',
+                                style: InkTheme.statValue.copyWith(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                'Sight battery broadsides against offshore rocks and coordinate synchronized cannon volleys.',
+                                style: InkTheme.caption,
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                '+${services.drillAccuracy}% Accuracy for the Whole Next Battle • Shore Duty Option',
+                                style: InkTheme.statLabel.copyWith(
+                                  color: InkTheme.inkPrimary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        InkButton(
+                          label: hasDrilled
+                              ? 'DRILLED'
+                              : (hasChosenDuty ? 'DUTY SPENT' : 'DRILL GUNS'),
+                          isPrimary: canDrill,
+                          onPressed: canDrill
+                              ? () => controller.dispatch(
+                                  const DrillGunnersAtIsland(),
+                                )
+                              : null,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // 3. Forage Shoals Card
+                  ParchmentCard(
+                    padding: const EdgeInsets.all(16),
+                    child: _cardRow(
+                      children: [
+                        const SvgAssetView(
+                          assetPath: PilotArt.treasure,
+                          width: 44,
+                          height: 44,
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Forage & Beachcomb Shoals',
+                                style: InkTheme.statValue.copyWith(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                'Send shore parties along sandy spits and coral pools to scavenge wreckage drift and pearls.',
+                                style: InkTheme.caption,
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                controller.isCurrentIslandHaven
+                                    ? 'Recovers ${services.havenForageMin}–${services.havenForageMax} Gold Doubloons • Shore Duty Option'
+                                    : 'Recovers ${services.coveForageMin}–${services.coveForageMax} Gold Doubloons • Shore Duty Option',
+                                style: InkTheme.statLabel.copyWith(
+                                  color: InkTheme.inkPrimary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        InkButton(
+                          label: hasForaged
+                              ? 'FORAGED'
+                              : (hasChosenDuty
+                                    ? 'DUTY SPENT'
+                                    : 'FORAGE SHOALS'),
+                          isPrimary: canForage,
+                          onPressed: canForage
+                              ? () => controller.dispatch(
+                                  const ForageShoalsAtIsland(),
+                                )
+                              : null,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                ],
+                if (controller.session.canUseVoyageShipwright &&
+                    ship != null) ...[
                   VoyageShipwrightView(controller: controller),
+                  const SizedBox(height: 16),
+                  PaidRepairView(controller: controller),
                   const SizedBox(height: 16),
                 ],
                 const SizedBox(height: 20),
@@ -410,8 +431,12 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
 
                 // Primary Depart Expedition Button
                 InkButton(
-                  label: 'DEPART ISLAND & TAKE THE HELM',
-                  semanticLabel: 'Depart the island haven and take the helm to steer next course',
+                  label: isRefit
+                      ? 'DEPART & TAKE THE HELM'
+                      : 'DEPART ISLAND & TAKE THE HELM',
+                  semanticLabel: isRefit
+                      ? 'Depart the shipwright and set course for the Titan'
+                      : 'Depart the island haven and take the helm to steer next course',
                   isPrimary: true,
                   onPressed: () => controller.dispatch(const DepartIsland()),
                 ),

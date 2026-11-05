@@ -45,7 +45,7 @@ void main() {
       // Verify header and contraband elements
       expect(find.byType(SmugglerScreen), findsOneWidget);
       expect(find.textContaining('SMUGGLER'), findsWidgets);
-      expect(find.textContaining('SEASONED OAK PLANKS'), findsOneWidget);
+      expect(find.text('PAID HULL REPAIRS'), findsOneWidget);
       expect(find.textContaining('CONTRABAND WARES'), findsOneWidget);
 
       // Tap Depart button

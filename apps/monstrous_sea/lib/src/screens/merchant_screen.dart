@@ -3,6 +3,8 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
+import '../widgets/hull_patch_kit_button.dart';
+import '../widgets/material_trade_view.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/svg_asset_view.dart';
@@ -32,7 +34,7 @@ class MerchantScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Header
-                Row(
+                _MerchantRow(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
@@ -51,7 +53,7 @@ class MerchantScreen extends StatelessWidget {
                         border: Border.all(color: InkTheme.goldAccent, width: 2),
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: Row(
+                      child: _MerchantRow(
                         children: [
                           SvgAssetView(assetPath: PilotArt.treasure, width: 22, height: 22),
                           const SizedBox(width: 8),
@@ -63,13 +65,15 @@ class MerchantScreen extends StatelessWidget {
                     InkButton(
                       label: 'LEAVE CHANDLERY',
                       semanticLabel: controller.session.merchantReturnPhase == SessionPhase.stronghold
-                          ? 'Leave Chandlery and return to stronghold' : 'Leave Chandlery and return to port',
+                          ? 'Leave Chandlery and return to stronghold' : controller.session.merchantReturnPhase == SessionPhase.helm ? 'Leave Chandlery and set course for the Titan' : 'Leave Chandlery and return to port',
                       onPressed: () => controller.dispatch(const LeaveMerchant()),
                     ),
                   ],
                 ),
                 const SizedBox(height: 16),
 
+                CarriedPatchKits(controller: controller),
+                MaterialTradeView(controller: controller),
                 // Quick Sell All Treasure Bar
                 if (hasTreasures)
                   Container(
@@ -80,7 +84,7 @@ class MerchantScreen extends StatelessWidget {
                       border: Border.all(color: InkTheme.goldAccent, width: 1.5),
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child: Row(
+                    child: _MerchantRow(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -97,7 +101,7 @@ class MerchantScreen extends StatelessWidget {
                   ),
 
                 // Wares & Cargo in two columns
-                Row(
+                _MerchantRow(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Merchant Wares
@@ -123,7 +127,7 @@ class MerchantScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(bottom: 8.0),
                                 child: ParchmentCard(
                                   padding: const EdgeInsets.all(10),
-                                  child: Row(
+                                  child: _MerchantRow(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       SvgAssetView(
@@ -136,7 +140,7 @@ class MerchantScreen extends StatelessWidget {
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Row(
+                                            _MerchantRow(
                                               children: [
                                                 Expanded(
                                                   child: Text(
@@ -225,7 +229,7 @@ class MerchantScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(bottom: 8.0),
                                 child: ParchmentCard(
                                   padding: const EdgeInsets.all(10),
-                                  child: Row(
+                                  child: _MerchantRow(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       SvgAssetView(
@@ -296,3 +300,19 @@ class MerchantScreen extends StatelessWidget {
 }
 
 
+
+/// Stacks trade sections and their controls before narrow columns compress text.
+class _MerchantRow extends StatelessWidget {
+  const _MerchantRow({required this.children, this.mainAxisAlignment = MainAxisAlignment.start, this.crossAxisAlignment = CrossAxisAlignment.center});
+  final List<Widget> children;
+  final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(builder: (context, constraints) {
+    if (constraints.maxWidth < 700) {
+      return Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children.map((child) => child is Expanded ? child.child : child is SizedBox && child.width != null ? const SizedBox(height: 10) : child).toList());
+    }
+    return Row(mainAxisAlignment: mainAxisAlignment, crossAxisAlignment: crossAxisAlignment, children: children);
+  });
+}

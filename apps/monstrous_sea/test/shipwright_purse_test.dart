@@ -14,6 +14,7 @@ GameController atVoyageShipwright({
     autoSave: false,
   )..dispatch(const BeginFirstVoyage('Reed'));
   controller.seaChart.currentLeg = controller.seaChart.midpointHavenLeg;
+    controller.seaChart.currentDestination = CourseDestination.midpointHaven;
   controller.session.phase = phase;
   controller.ship!.gold = gold;
   return controller;

@@ -79,9 +79,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      final warning = find.text(
-        'BELT FULL — Toss an item below to stow spoils',
-      );
+      final warning = find.textContaining('BELT FULL —');
       expect(warning, findsOneWidget);
       final bounds = tester.getRect(warning);
       expect(bounds.left, greaterThanOrEqualTo(0));

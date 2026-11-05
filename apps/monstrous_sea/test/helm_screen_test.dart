@@ -21,7 +21,9 @@ void main() {
       controller.dispatch(const NameCaptain('Ahab'));
       controller.dispatch(const ChooseShip(ShipClass.standard));
 
-      // Transition to Helm
+      // Transition to an ordinary heading choice after the opening fight.
+      controller.session.phase = SessionPhase.restArea;
+      controller.seaChart.currentLeg = 1;
       controller.dispatch(const TakeHelm());
       expect(controller.phase, SessionPhase.helm);
       expect(controller.currentCourseOptions.length, equals(3));
@@ -62,7 +64,7 @@ void main() {
 
       // Verify course was steered and encounter begun
       expect(controller.phase, isNot(equals(SessionPhase.helm)));
-      expect(controller.seaChart.currentLeg, equals(1));
+      expect(controller.seaChart.currentLeg, equals(2));
       expect(controller.voyageLog.length, equals(1));
     });
   });

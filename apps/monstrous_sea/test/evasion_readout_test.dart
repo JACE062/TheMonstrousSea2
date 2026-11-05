@@ -57,7 +57,7 @@ GameController _battle({
     return controller;
   }
   session.seaChart
-    ..currentLeg = session.seaChart.totalLegs - 1
+    ..currentLeg = session.seaChart.regionTitanLeg - 1
     ..currentRow = SeaChart.bossRow
     ..currentCol = SeaChart.bossCol - 1;
   session.phase = SessionPhase.restArea;

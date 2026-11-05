@@ -5,6 +5,7 @@ import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/armory_view.dart';
 import '../widgets/hull_gauge.dart';
+import '../widgets/nautical_chart.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
@@ -74,12 +75,54 @@ class _HelmScreenState extends State<HelmScreen> {
         final options = controller.currentCourseOptions;
         final currentLeg = controller.currentLeg;
         final totalLegs = controller.totalLegs;
+        final compact = MediaQuery.sizeOf(context).width < 600;
         final regionTitle = controller.seaChart.currentRegionName;
 
+        final courseCards = Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              options.length == 1
+                  ? 'LOOKOUT OBSERVATION • CONVERGENT APPROACH'
+                  : 'LOOKOUT OBSERVATIONS & COURSES',
+              style: InkTheme.statValue.copyWith(
+                color: InkTheme.goldAccent,
+                letterSpacing: 1.2,
+                fontSize: 14,
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // Course Option Cards
+            if (options.isEmpty)
+              ParchmentCard(
+                padding: const EdgeInsets.all(24),
+                child: Center(
+                  child: Text(
+                    'Awaiting the navigator to verify current soundings...',
+                    style: InkTheme.body,
+                  ),
+                ),
+              )
+            else
+              ...options.map((option) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: _CourseOptionCard(
+                    option: option,
+                    restriction: controller.session.courseRestriction(
+                      option.bearing,
+                    ),
+                    onSteer: _departing ? null : () => _steer(option.bearing),
+                  ),
+                );
+              }),
+          ],
+        );
         return _lastHelmView = ParchmentScaffold(
           body: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 820),
+              constraints: const BoxConstraints(maxWidth: 1280),
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -129,7 +172,7 @@ class _HelmScreenState extends State<HelmScreen> {
                                 child: Text(
                                   "THE QUARTERDECK • SETTING COURSE",
                                   style: InkTheme.titleLarge.copyWith(
-                                    fontSize: 22,
+                                    fontSize: compact ? 18 : 22,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -138,7 +181,7 @@ class _HelmScreenState extends State<HelmScreen> {
                           ),
                           const SizedBox(height: 6),
                           Text(
-                            '${ship?.name ?? 'Vessel'} • $regionTitle (Leg ${currentLeg + 1} of $totalLegs)',
+                            '${ship?.name ?? 'Vessel'} • $regionTitle (${currentLeg >= totalLegs ? 'Titan approach' : 'Leg ${currentLeg + 1} of $totalLegs'})',
                             style: InkTheme.subtitle.copyWith(
                               color: InkTheme.inkMuted,
                               fontSize: 14,
@@ -167,13 +210,13 @@ class _HelmScreenState extends State<HelmScreen> {
                                 Text(
                                   'PREVAILING OFFSHORE GALE: FRESH WESTERLIES',
                                   style: InkTheme.statValue.copyWith(
-                                    fontSize: 13,
+                                    fontSize: compact ? 11 : 13,
                                     letterSpacing: 1.0,
                                   ),
                                 ),
                                 const SizedBox(height: 2),
                                 Text(
-                                  'The wind drives your square riggers relentlessly seaward. A lee shore forbids retreat; survival lies in pressing outward.',
+                                  compact ? 'Every heading presses onward.' : 'The wind drives your square riggers relentlessly seaward. A lee shore forbids retreat; survival lies in pressing outward.',
                                   style: InkTheme.caption.copyWith(
                                     fontSize: 11.5,
                                   ),
@@ -260,44 +303,41 @@ class _HelmScreenState extends State<HelmScreen> {
                       ),
                       const SizedBox(height: 14),
                     ],
-                    Text(
-                      options.length == 1
-                          ? 'LOOKOUT OBSERVATION • CONVERGENT APPROACH'
-                          : 'LOOKOUT OBSERVATIONS & COURSES',
-                      style: InkTheme.statValue.copyWith(
-                        color: InkTheme.goldAccent,
-                        letterSpacing: 1.2,
-                        fontSize: 14,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-
-                    // Course Option Cards
-                    if (options.isEmpty)
-                      ParchmentCard(
-                        padding: const EdgeInsets.all(24),
-                        child: Center(
-                          child: Text(
-                            'Awaiting the navigator to verify current soundings...',
-                            style: InkTheme.body,
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final scrollingCourses = ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxHeight: MediaQuery.sizeOf(context).height * .75,
                           ),
-                        ),
-                      )
-                    else
-                      ...options.map((option) {
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 12),
-                          child: _CourseOptionCard(
-                            option: option,
-                            restriction: controller.session.courseRestriction(
-                              option.bearing,
-                            ),
-                            onSteer: _departing
-                                ? null
-                                : () => _steer(option.bearing),
+                          child: SingleChildScrollView(child: courseCards),
+                        );
+                        final chart = ParchmentCard(
+                          child: NauticalChart(
+                            chart: controller.seaChart,
+                            ship: ship,
+                            takeMotion: controller.takeNavigationMotion,
                           ),
                         );
-                      }),
+                        if (constraints.maxWidth < 900) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              chart,
+                              const SizedBox(height: 16),
+                              scrollingCourses,
+                            ],
+                          );
+                        }
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(flex: 4, child: chart),
+                            const SizedBox(width: 20),
+                            Expanded(flex: 6, child: scrollingCourses),
+                          ],
+                        );
+                      },
+                    ),
                     // Armory Toggle
                     ParchmentCard(
                       padding: const EdgeInsets.symmetric(
@@ -412,28 +452,36 @@ class _CourseOptionCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (option.isIdentified)
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 6,
-                    vertical: 2,
-                  ),
-                  decoration: BoxDecoration(
-                    color: InkTheme.goldAccent.withAlpha(40),
-                    border: Border.all(color: InkTheme.goldAccent),
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                  child: Text(
-                    option.nodeType.displayName.toUpperCase(),
-                    style: InkTheme.caption.copyWith(
-                      color: InkTheme.goldAccent,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
             ],
           ),
+          if (option.isIdentified)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: InkTheme.goldAccent.withAlpha(40),
+                  border: Border.all(color: InkTheme.goldAccent),
+                  borderRadius: BorderRadius.circular(3),
+                ),
+                child: Text(
+                  switch (option.destination) {
+                    CourseDestination.midpointHaven => 'MIDPOINT HAVEN',
+                    CourseDestination.repairRefit => 'REPAIR / REFIT',
+                    CourseDestination.specialistMerchant =>
+                      'SPECIALIST MERCHANT',
+                    CourseDestination.titan => 'REGIONAL TITAN',
+                    CourseDestination.ordinary =>
+                      option.nodeType.displayName.toUpperCase(),
+                  },
+                  style: InkTheme.caption.copyWith(
+                    color: InkTheme.goldAccent,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                  ),
+                ),
+              ),
+            ),
           const SizedBox(height: 10),
 
           // Lookout's Quote
@@ -449,8 +497,7 @@ class _CourseOptionCard extends StatelessWidget {
               children: [
                 Text(
                   '“ ',
-                  style: TextStyle(
-                    fontFamily: 'PirataOne',
+                  style: InkTheme.body.copyWith(
                     fontSize: 22,
                     color: InkTheme.goldAccent,
                     height: 0.8,

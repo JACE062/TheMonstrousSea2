@@ -112,7 +112,7 @@ GameController createPlaytestController(PlaytestConfig config) {
 
   if (config.destination == PlaytestDestination.caldera) {
     session.seaChart
-      ..currentLeg = session.seaChart.totalLegs
+      ..currentLeg = session.seaChart.regionTitanLeg
       ..currentRow = SeaChart.bossRow
       ..currentCol = SeaChart.bossCol;
     session.profile.metaInventory.add(leviathanCore: 1);
@@ -121,7 +121,7 @@ GameController createPlaytestController(PlaytestConfig config) {
   } else {
     if (config.destination == PlaytestDestination.titan) {
       session.seaChart
-        ..currentLeg = session.seaChart.totalLegs - 1
+        ..currentLeg = session.seaChart.regionTitanLeg - 1
         ..currentRow = SeaChart.bossRow
         ..currentCol = SeaChart.bossCol - 1;
     }

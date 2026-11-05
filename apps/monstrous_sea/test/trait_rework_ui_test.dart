@@ -204,15 +204,15 @@ void main() {
 
   for (final titan in [false, true]) {
     testWidgets(
-      'convergent ${titan ? 'Titan' : 'Haven'} keeps redraw disabled',
+      'fixed ${titan ? 'Titan' : 'Preparation'} keeps redraw disabled',
       (tester) async {
         final controller = stormNavigator();
         addTearDown(controller.dispose);
         controller.seaChart.currentLeg =
-            (titan ? controller.totalLegs : controller.midpointHavenLeg) - 1;
+            (titan ? controller.seaChart.regionTitanLeg : controller.totalLegs) - 1;
         controller.seaChart.clearPendingCourses();
         controller.seaChart.ensureCourseOptions(controller.session.rng);
-        expect(controller.currentCourseOptions, hasLength(1));
+        expect(controller.currentCourseOptions, hasLength(titan ? 1 : 2));
         await tester.pumpWidget(helm(controller));
         await tester.pumpAndSettle();
         expect(redrawButton(tester).onPressed, isNull);

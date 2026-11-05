@@ -1,9 +1,23 @@
+import 'dart:io';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 import 'package:monstrous_sea/src/game_controller.dart';
 import 'package:monstrous_sea/src/screens/shipwreck_screen.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
+
+class _WreckFontCache extends PathProviderPlatform {
+  _WreckFontCache(this.path);
+  final String path;
+  @override
+  Future<String?> getApplicationSupportPath() async => path;
+}
 
 Future<void> mountWreck(
   WidgetTester tester,
@@ -11,10 +25,24 @@ Future<void> mountWreck(
   double scale, {
   Key? captureKey,
 }) async {
-  InkTheme.disableGoogleFonts = true;
+  const fontCache = String.fromEnvironment('artFontCache');
+  InkTheme.disableGoogleFonts = fontCache.isEmpty;
+  if (fontCache.isNotEmpty) {
+    final previous = PathProviderPlatform.instance;
+    PathProviderPlatform.instance = _WreckFontCache(fontCache);
+    addTearDown(() => PathProviderPlatform.instance = previous);
+    await tester.runAsync(() async {
+      await (FontLoader('MaterialIcons')..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf'))).load();
+      InkTheme.themeData;
+      await GoogleFonts.pendingFonts([InkTheme.titleLarge, InkTheme.titleMedium,
+        InkTheme.subtitle, InkTheme.body, InkTheme.bodyBold, InkTheme.caption,
+        InkTheme.statLabel, InkTheme.statValue]);
+    });
+  }
+  final boundary = captureKey ?? GlobalKey();
   await tester.pumpWidget(
     RepaintBoundary(
-      key: captureKey,
+      key: boundary,
       child: MaterialApp(
         builder: (context, child) => MediaQuery(
           data: MediaQuery.of(context)
@@ -30,6 +58,20 @@ Future<void> mountWreck(
     ),
   );
   await tester.pumpAndSettle();
+  const proof = String.fromEnvironment('wreckProofPath');
+  if (proof.isNotEmpty && boundary is GlobalKey) {
+    await tester.runAsync(() async {
+      final image = await (boundary.currentContext!.findRenderObject() as RenderRepaintBoundary).toImage();
+      try {
+        final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+        final wreck = controller.session.currentWreck!;
+        await File('$proof-${wreck.condition.name}-${wreck.stage.name}-${tester.view.physicalSize.width}-$scale.png')
+            .writeAsBytes(bytes!.buffer.asUint8List());
+      } finally {
+        image.dispose();
+      }
+    });
+  }
 }
 
 GameController fullWreck() {
@@ -40,6 +82,9 @@ GameController fullWreck() {
   controller.session.phase = SessionPhase.shipwreck;
   controller.session.hasSalvagedCurrentWreck = true;
   controller.session.currentShipwreckName = 'The Forgotten Brig';
+  controller.session.currentWreck = WreckEncounter(id: 'feedback-wreck',
+    sighting: const WreckSighting(seed: 81, condition: WreckCondition.uncertain, clearClue: true),
+    stage: WreckStage.receipt);
   for (var i = 0; i < controller.ship!.maxCargo; i++) {
     controller.ship!.addCargo(randomConsumable(1, SeededGameRng(i)));
   }
@@ -88,24 +133,26 @@ void main() {
     }
   }
 
-  testWidgets(
-    'wreck choice describes current probabilities and no retired weapons',
-    (tester) async {
+  for (final condition in WreckCondition.values) {
+    testWidgets('$condition presents only its legal recovery choices and consistent Apex warning', (tester) async {
+      tester.view.physicalSize = const Size(360, 1100);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
       final controller = fullWreck();
       addTearDown(controller.dispose);
       controller.session.hasSalvagedCurrentWreck = false;
       controller.pendingLoot.clear();
+      controller.session.currentWreck = WreckEncounter(id: 'assessment',
+        sighting: WreckSighting(seed: 81, condition: condition, clearClue: true));
       await mountWreck(tester, controller, 1.3);
-      expect(
-        find.textContaining('25% chance: 1 Depth-Wrought Iron'),
-        findsOneWidget,
-      );
-      expect(find.textContaining('Military-Grade Weapon'), findsNothing);
-      expect(
-        find.textContaining('60–120 gold doubloons + 2–4 Sea Glass'),
-        findsOneWidget,
-      );
+      expect(find.text('QUICK SALVAGE & LEAVE'), condition == WreckCondition.fresh ? findsNothing : findsOneWidget);
+      expect(find.textContaining('An Apex predator may appear'), condition == WreckCondition.pickedClean ? findsNothing : findsOneWidget);
+      expect(find.text('SAIL PAST EMPTY'), findsOneWidget);
+      expect(find.text('SEARCH HOLD'), findsNothing);
+      expect(find.text('CRACK CHEST'), findsNothing);
+      expect(find.text('STRIP TIMBERS'), findsNothing);
       expect(tester.takeException(), isNull);
-    },
-  );
+    });
+  }
 }

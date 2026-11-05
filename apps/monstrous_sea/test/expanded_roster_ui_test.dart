@@ -109,12 +109,12 @@ void main() {
         await tester.pumpAndSettle();
         expect(
           find.text(
-            'SEASONED OAK PLANKS (+${controller.repairHpFor(0.25)} HP)',
+            'PAID HULL REPAIRS',
           ),
           findsOneWidget,
         );
         expect(
-          find.text('REPAIR (${controller.repairCostFor(0.25)}g)'),
+          find.text('REPAIR +${controller.repairHpFor(0.25)} HP · ${controller.repairCostFor(0.25)}g'),
           findsOneWidget,
         );
         while (controller.ship!.cargo.length < controller.ship!.maxCargo) {
