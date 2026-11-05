@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/gestures.dart';
@@ -49,7 +48,11 @@ Future<void> _fonts(WidgetTester tester) async {
   });
 }
 
-Future<void> _proof(WidgetTester tester, GlobalKey key, String name) async {
+Future<void> captureChartFocusProof(
+  WidgetTester tester,
+  GlobalKey key,
+  String name,
+) async {
   const prefix = String.fromEnvironment('mapFocusProofPath');
   if (prefix.isEmpty) return;
   await tester.runAsync(() async {
@@ -78,7 +81,7 @@ Future<void> _proof(WidgetTester tester, GlobalKey key, String name) async {
   });
 }
 
-GameController _helm({bool flat = false, int legs = 12}) {
+GameController chartFocusController({bool flat = false, int legs = 12}) {
   final c = GameController(
     session: GameSession(rng: SeededGameRng(24)),
     autoSave: false,
@@ -130,12 +133,13 @@ GameController _helm({bool flat = false, int legs = 12}) {
   return c;
 }
 
-Future<void> _mount(
+Future<void> mountChartFocus(
   WidgetTester tester,
   Widget screen,
   GlobalKey key,
-  Size size,
-) async {
+  Size size, {
+  double scale = 1.3,
+}) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
@@ -148,7 +152,7 @@ Future<void> _mount(
         theme: InkTheme.themeData,
         builder: (context, child) => MediaQuery(
           data: MediaQuery.of(context).copyWith(
-            textScaler: const TextScaler.linear(1.3),
+            textScaler: TextScaler.linear(scale),
             disableAnimations: true,
           ),
           child: child!,
@@ -176,11 +180,11 @@ void main() {
     testWidgets('unified chart and readable Nemesis reports at $size', (
       tester,
     ) async {
-      final c = _helm();
+      final c = chartFocusController();
       addTearDown(c.dispose);
       final before = c.seaChart.toJson();
       final key = GlobalKey();
-      await _mount(tester, HelmScreen(controller: c), key, size);
+      await mountChartFocus(tester, HelmScreen(controller: c), key, size);
       expect(find.text('CONSULT SEA CHART'), findsNothing);
       final nemesis = tester.widget<Text>(find.text('NEMESIS'));
       expect(nemesis.style!.color, InkTheme.crimsonAccent);
@@ -193,7 +197,10 @@ void main() {
       final reportRect = tester.getRect(
         find.text('LOOKOUT OBSERVATIONS & COURSES'),
       );
-      if (size.width >= 1100) {
+      if (tester
+              .widget<NauticalChart>(find.byType(NauticalChart))
+              .coursePanel !=
+          null) {
         expect(mapRect.contains(reportRect.topLeft), isTrue);
         expect(mapRect.height, greaterThan(size.height * .4));
         // Course wheel input scrolls its notes without changing the map camera.
@@ -201,14 +208,7 @@ void main() {
             .widget<InteractiveViewer>(find.byType(InteractiveViewer))
             .transformationController!;
         final transform = List<double>.from(camera.value.storage);
-        final reports = tester.state<ScrollableState>(
-          find
-              .descendant(
-                of: find.byKey(const ValueKey('helm-courses-scroll')),
-                matching: find.byType(Scrollable),
-              )
-              .first,
-        );
+        expect(find.byKey(const ValueKey('helm-courses-scroll')), findsNothing);
         await tester.sendEventToBinding(
           PointerScrollEvent(
             position: reportRect.center + const Offset(0, 60),
@@ -216,14 +216,13 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(reports.position.pixels, greaterThan(0));
         expect(camera.value.storage, orderedEquals(transform));
-        reports.position.jumpTo(0);
-        await tester.pumpAndSettle();
+        final lastButton = tester.getRect(find.text('STEER THIS HEADING').last);
+        expect(mapRect.contains(lastButton.bottomRight), isTrue);
       } else {
         expect(reportRect.top, greaterThan(mapRect.bottom));
       }
-      await _proof(
+      await captureChartFocusProof(
         tester,
         key,
         'helm-${size.width.toInt()}x${size.height.toInt()}',
@@ -232,7 +231,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('helm-voyage-log')));
       await tester.pumpAndSettle();
       expect(find.text('DEAD-RECKONING VOYAGE LOG'), findsOneWidget);
-      await _proof(
+      await captureChartFocusProof(
         tester,
         key,
         'log-${size.width.toInt()}x${size.height.toInt()}',
@@ -254,10 +253,10 @@ void main() {
   testWidgets(
     'wheel zoom claims only map signals and stops at the height bound',
     (tester) async {
-      final c = _helm(flat: true, legs: 36);
+      final c = chartFocusController(flat: true, legs: 36);
       addTearDown(c.dispose);
       final before = c.seaChart.toJson();
-      await _mount(
+      await mountChartFocus(
         tester,
         HelmScreen(controller: c),
         GlobalKey(),
@@ -287,7 +286,8 @@ void main() {
       }
       expect(scroll.position.pixels, pageOffset);
       expect(camera.value.getMaxScaleOnAxis(), closeTo(viewer.minScale, .001));
-      expect(viewer.minScale, greaterThanOrEqualTo(.5));
+      expect(viewer.minScale, greaterThanOrEqualTo(.9));
+      expect(46 * viewer.minScale, greaterThanOrEqualTo(41));
       expect(
         NauticalRouteGeometry(c.voyageLog).bounds.width * viewer.minScale,
         greaterThan(tester.getSize(map).width),
@@ -300,8 +300,8 @@ void main() {
       expect(scroll.position.pixels, pageOffset);
       // Normal page scrolling remains available outside the map.
       await tester.sendEventToBinding(
-        const PointerScrollEvent(
-          position: Offset(100, 60),
+        PointerScrollEvent(
+          position: tester.getCenter(find.text('Arrival')),
           scrollDelta: Offset(0, 140),
         ),
       );
@@ -312,46 +312,12 @@ void main() {
     },
   );
 
-  test('vertical extent controls zoom rather than a long horizontal wake', () {
-    final c = _helm(flat: true, legs: 36);
-    addTearDown(c.dispose);
-    final flat = NauticalRouteGeometry(c.voyageLog);
-    final diagonal = NauticalRouteGeometry(
-      c.voyageLog.map(
-        (entry) => VoyageLegRecord(
-          leg: entry.leg,
-          bearing: NavigationalBearing.larboardTack,
-          nodeType: entry.nodeType,
-          lookoutCall: entry.lookoutCall,
-          chartRow: 0,
-          chartCol: 0,
-        ),
-      ),
-    );
-    for (final height in [260.0, 500.0, 800.0]) {
-      expect(
-        chartMinimumScale(diagonal, height),
-        lessThan(chartMinimumScale(flat, height)),
-      );
-      for (final route in [flat, diagonal]) {
-        final visibleHeight = height / chartMinimumScale(route, height);
-        expect(
-          visibleHeight,
-          lessThanOrEqualTo(
-            2 * math.max(height, math.max(320, route.bounds.height + 200)) +
-                .01,
-          ),
-        );
-      }
-    }
-  });
-
   testWidgets('harbor and recovered cargo use established illustrations', (
     tester,
   ) async {
-    final c = _helm(legs: 5);
+    final c = chartFocusController(legs: 5);
     addTearDown(c.dispose);
-    await _mount(
+    await mountChartFocus(
       tester,
       Scaffold(body: NauticalChart(chart: c.seaChart)),
       GlobalKey(),
@@ -381,7 +347,7 @@ void main() {
           'Region 3 · Leg 14: Midpoint Haven · ARRIVED. A long observation remains readable in the ship’s log.';
       final key = GlobalKey();
       final tooltipKey = GlobalKey<TooltipState>();
-      await _mount(
+      await mountChartFocus(
         tester,
         Scaffold(
           body: Center(
@@ -420,7 +386,7 @@ void main() {
       );
       expect(rect.left, greaterThanOrEqualTo(0));
       expect(rect.right, lessThanOrEqualTo(360));
-      await _proof(tester, key, 'tooltip-360');
+      await captureChartFocusProof(tester, key, 'tooltip-360');
       expect(tester.takeException(), isNull);
     },
   );

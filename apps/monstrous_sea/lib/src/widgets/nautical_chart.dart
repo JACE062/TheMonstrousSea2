@@ -8,6 +8,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../theme/ink_theme.dart';
 import 'pilot_art.dart';
 import 'painters/sea_chart_paper_painter.dart';
+import 'painters/sea_chart_water_painter.dart';
 import 'svg_asset_view.dart';
 
 String voyageOutcomeLabel(VoyageLegRecord entry) => [
@@ -58,16 +59,11 @@ class NauticalRouteGeometry {
   late final Rect bounds;
 }
 
-/// At most twice the route's padded vertical span can be visible. Flat wakes
-/// retain a legible minimum paper height; their horizontal extent needs panning.
-double chartMinimumScale(NauticalRouteGeometry route, double viewportHeight) =>
-    (viewportHeight /
-            (2 *
-                math.max(
-                  viewportHeight,
-                  math.max(320, route.bounds.height + 200),
-                )))
-        .clamp(.06, 1.0);
+/// Keep 46-unit markers at least 41 logical pixels wide at every route length.
+const nauticalChartMinimumScale = .9;
+const nauticalChartMaximumScale = 3.0;
+
+double nauticalCoursePanelWidth(double width) => math.min(720, width * .5);
 
 Path routeSegment(Offset from, Offset to) => Path()
   ..moveTo(from.dx, from.dy)
@@ -83,6 +79,7 @@ class NauticalChart extends StatefulWidget {
     this.viewportHeight,
     this.expandViewport = false,
     this.coursePanel,
+    this.coursePanelWidth,
   });
   final SeaChart chart;
   final ShipState? ship;
@@ -91,6 +88,7 @@ class NauticalChart extends StatefulWidget {
   final double? viewportHeight;
   final bool expandViewport;
   final Widget? coursePanel;
+  final double? coursePanelWidth;
   @override
   State<NauticalChart> createState() => _NauticalChartState();
 }
@@ -131,18 +129,19 @@ class _NauticalChartState extends State<NauticalChart>
     ..setEntry(0, 0, scale)
     ..setEntry(1, 1, scale)
     ..setTranslationRaw(translation.dx, translation.dy, 0);
-  void _fit(_ChartScene scene) {
-    final bounds = scene.route.bounds.inflate(100);
-    final scale = math
-        .min(1.0, scene.viewport.height / bounds.height)
-        .clamp(chartMinimumScale(scene.route, scene.viewport.height), 1.0);
-    final wide = bounds.width * scale > scene.viewport.width;
-    final center = scene.at(wide ? scene.route.points.last : bounds.center);
-    final target = wide
-        ? Offset(scene.viewport.width * .68, scene.viewport.height / 2)
-        : scene.viewport.center(Offset.zero);
-    _camera.value = _view(scale, target - center * scale);
-    _userMoved = false;
+  void _centerJourney() {
+    final scene = _scene;
+    if (scene == null) return;
+    final scale = _camera.value.getMaxScaleOnAxis().clamp(
+      nauticalChartMinimumScale,
+      nauticalChartMaximumScale,
+    );
+    _camera.value = _view(
+      scale,
+      scene.viewport.center(Offset.zero) -
+          scene.at(scene.route.bounds.center) * scale,
+    );
+    _userMoved = true;
   }
 
   void _locate() {
@@ -166,7 +165,8 @@ class _NauticalChartState extends State<NauticalChart>
     _sceneKey = key;
     _scene = scene;
     if (previous == null) {
-      _fit(scene);
+      _locate();
+      _userMoved = false;
       final pending = widget.takeMotion?.call() ?? false;
       if (pending && !MediaQuery.disableAnimationsOf(context)) {
         _motion.forward(from: 0);
@@ -176,7 +176,8 @@ class _NauticalChartState extends State<NauticalChart>
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || _sceneKey != key) return;
       if (!_userMoved) {
-        _fit(scene);
+        _locate();
+        _userMoved = false;
         return;
       }
       // Rebase growing paper without moving the world under a panned viewport.
@@ -195,7 +196,7 @@ class _NauticalChartState extends State<NauticalChart>
       return KeyEventResult.ignored;
     }
     if (event.logicalKey == LogicalKeyboardKey.home) {
-      if (_scene != null) _fit(_scene!);
+      _centerJourney();
       return KeyEventResult.handled;
     }
     if (event.logicalKey == LogicalKeyboardKey.end) {
@@ -232,8 +233,8 @@ class _NauticalChartState extends State<NauticalChart>
     final focal = scene.viewport.center(Offset.zero);
     final world = _camera.toScene(focal);
     final bounded = scale.clamp(
-      chartMinimumScale(scene.route, scene.viewport.height),
-      3.0,
+      nauticalChartMinimumScale,
+      nauticalChartMaximumScale,
     );
     _camera.value = _view(bounded, focal - world * bounded);
   }
@@ -255,9 +256,6 @@ class _NauticalChartState extends State<NauticalChart>
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Positioned.fill(
-          child: CustomPaint(painter: _SeaPaperPainter(scene.offset)),
-        ),
         Positioned.fill(child: CustomPaint(painter: _WakePainter(points))),
         Positioned(
           left: points.first.dx - 23,
@@ -337,7 +335,8 @@ class _NauticalChartState extends State<NauticalChart>
     builder: (context, bounds) {
       final panelWidth = widget.coursePanel == null
           ? 0.0
-          : math.min(380.0, bounds.maxWidth * .35);
+          : widget.coursePanelWidth ??
+                nauticalCoursePanelWidth(bounds.maxWidth);
       return CustomPaint(
         painter: const SeaChartPaperPainter(),
         child: ClipPath(
@@ -365,7 +364,7 @@ class _NauticalChartState extends State<NauticalChart>
                       focusNode: _mapFocus,
                       onKeyEvent: _key,
                       child: Semantics(
-                        label: 'Travelled sea chart. Drag to pan, scroll to zoom. Arrow keys pan; Home frames the route; End locates the vessel.',
+                        label: 'Sea chart of travelled waters.',
                         // InteractiveViewer handles wheel scaling eagerly. Claim the
                         // signal before a parent Scrollable can also scroll the page.
                         child: Listener(
@@ -375,30 +374,40 @@ class _NauticalChartState extends State<NauticalChart>
                                   .register(event, (_) {});
                             }
                           },
-                          child: InteractiveViewer(
-                            key: const ValueKey('nautical-map-viewport'),
-                            transformationController: _camera,
-                            constrained: false,
-                            minScale: chartMinimumScale(
-                              route,
-                              scene.viewport.height,
-                            ),
-                            maxScale: 3,
-                            boundaryMargin: const EdgeInsets.all(
-                              double.infinity,
-                            ),
-                            onInteractionStart: (_) {
-                              _userMoved = true;
-                              _mapFocus.requestFocus();
-                            },
-                            child: SizedBox(
-                              width: scene.size.width,
-                              height: scene.size.height,
-                              child: AnimatedBuilder(
-                                animation: _motion,
-                                builder: (context, _) => _sceneContents(scene),
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              CustomPaint(
+                                key: const ValueKey('chart-moving-waters'),
+                                painter: SeaChartWaterPainter(
+                                  camera: _camera,
+                                  worldOffset: scene.offset,
+                                ),
                               ),
-                            ),
+                              InteractiveViewer(
+                                key: const ValueKey('nautical-map-viewport'),
+                                transformationController: _camera,
+                                constrained: false,
+                                minScale: nauticalChartMinimumScale,
+                                maxScale: nauticalChartMaximumScale,
+                                boundaryMargin: const EdgeInsets.all(
+                                  double.infinity,
+                                ),
+                                onInteractionStart: (_) {
+                                  _userMoved = true;
+                                  _mapFocus.requestFocus();
+                                },
+                                child: SizedBox(
+                                  width: scene.size.width,
+                                  height: scene.size.height,
+                                  child: AnimatedBuilder(
+                                    animation: _motion,
+                                    builder: (context, _) =>
+                                        _sceneContents(scene),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -419,6 +428,12 @@ class _NauticalChartState extends State<NauticalChart>
                   ),
                 ),
               ),
+              Positioned(
+                left: 32,
+                top: bounds.maxHeight < 400 ? 32 : null,
+                bottom: bounds.maxHeight < 400 ? null : 132,
+                child: _controls(),
+              ),
               if (widget.coursePanel != null)
                 Positioned(
                   top: 32,
@@ -434,6 +449,62 @@ class _NauticalChartState extends State<NauticalChart>
     },
   );
 
+  Widget _controls() => DecoratedBox(
+    decoration: BoxDecoration(
+      color: InkTheme.parchmentSurface.withValues(alpha: .96),
+      border: Border.all(color: InkTheme.inkMuted),
+      borderRadius: BorderRadius.circular(3),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          key: const ValueKey('zoom-out-chart'),
+          tooltip: 'Zoom out',
+          onPressed: () {
+            _zoomTo(_camera.value.getMaxScaleOnAxis() / 1.25);
+            _userMoved = true;
+          },
+          icon: const CustomPaint(
+            size: Size(24, 24),
+            painter: _ChartToolPainter(zoom: -1),
+          ),
+        ),
+        IconButton(
+          key: const ValueKey('zoom-in-chart'),
+          tooltip: 'Zoom in',
+          onPressed: () {
+            _zoomTo(_camera.value.getMaxScaleOnAxis() * 1.25);
+            _userMoved = true;
+          },
+          icon: const CustomPaint(
+            size: Size(24, 24),
+            painter: _ChartToolPainter(zoom: 1),
+          ),
+        ),
+        IconButton(
+          key: const ValueKey('fit-nautical-route'),
+          tooltip: 'Center journey',
+          onPressed: _centerJourney,
+          icon: const CustomPaint(
+            size: Size(24, 24),
+            painter: _ChartToolPainter(zoom: 0),
+          ),
+        ),
+        IconButton(
+          key: const ValueKey('locate-chart-vessel'),
+          tooltip: 'Find vessel',
+          onPressed: _locate,
+          icon: const SvgAssetView(
+            assetPath: PilotArt.standard,
+            width: 28,
+            height: 28,
+          ),
+        ),
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     final route = NauticalRouteGeometry(widget.chart.voyageLog);
@@ -445,73 +516,6 @@ class _NauticalChartState extends State<NauticalChart>
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            LayoutBuilder(
-              builder: (context, bounds) {
-                final title = Text(
-                  'TRAVELLED WATERS',
-                  style: InkTheme.titleMedium.copyWith(fontSize: 23),
-                );
-                final controls = Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      key: const ValueKey('zoom-out-chart'),
-                      tooltip: 'Zoom out',
-                      onPressed: () {
-                        _zoomTo(_camera.value.getMaxScaleOnAxis() / 1.25);
-                        _userMoved = true;
-                      },
-                      icon: const Icon(Icons.remove),
-                    ),
-                    IconButton(
-                      key: const ValueKey('zoom-in-chart'),
-                      tooltip: 'Zoom in',
-                      onPressed: () {
-                        _zoomTo(_camera.value.getMaxScaleOnAxis() * 1.25);
-                        _userMoved = true;
-                      },
-                      icon: const Icon(Icons.add),
-                    ),
-                    IconButton(
-                      key: const ValueKey('fit-nautical-route'),
-                      tooltip: 'Frame route height (Home)',
-                      onPressed: () {
-                        if (_scene != null) _fit(_scene!);
-                      },
-                      icon: const Icon(Icons.fit_screen),
-                    ),
-                    IconButton(
-                      key: const ValueKey('locate-chart-vessel'),
-                      tooltip: 'Locate vessel (End)',
-                      onPressed: _locate,
-                      icon: const Icon(Icons.my_location),
-                    ),
-                  ],
-                );
-                return bounds.maxWidth < 560
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          title,
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: controls,
-                          ),
-                        ],
-                      )
-                    : Row(
-                        children: [
-                          Expanded(child: title),
-                          controls,
-                        ],
-                      );
-              },
-            ),
-            Text(
-              'Drag to explore · Scroll or pinch to zoom',
-              style: InkTheme.caption,
-            ),
-            const SizedBox(height: 8),
             if (expands)
               Expanded(child: _viewport(route))
             else
@@ -681,54 +685,6 @@ class _WakePainter extends CustomPainter {
   bool shouldRepaint(_WakePainter old) => old.points != points;
 }
 
-class _SeaPaperPainter extends CustomPainter {
-  _SeaPaperPainter(this.offset);
-  final Offset offset;
-  @override
-  void paint(Canvas canvas, Size size) {
-    final ink = Paint()
-      ..color = InkTheme.inkMuted.withValues(alpha: .18)
-      ..strokeWidth = 1
-      ..style = PaintingStyle.stroke;
-    for (
-      var x = ((-offset.dx) / 110).floor();
-      x < (size.width - offset.dx) / 110;
-      x++
-    ) {
-      for (
-        var y = ((-offset.dy) / 90).floor();
-        y < (size.height - offset.dy) / 90;
-        y++
-      ) {
-        if ((x * 17 + y * 31).abs() % 7 > 3) continue;
-        final p = Offset(x * 110 + offset.dx + 25, y * 90 + offset.dy + 22);
-        for (var row = 0; row < 2; row++) {
-          canvas.drawPath(
-            Path()
-              ..moveTo(p.dx, p.dy + row * 6)
-              ..quadraticBezierTo(
-                p.dx + 5,
-                p.dy - 4 + row * 6,
-                p.dx + 10,
-                p.dy + row * 6,
-              )
-              ..quadraticBezierTo(
-                p.dx + 15,
-                p.dy + 4 + row * 6,
-                p.dx + 20,
-                p.dy + row * 6,
-              ),
-            ink,
-          );
-        }
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(_SeaPaperPainter old) => old.offset != offset;
-}
-
 class _CompassRosePainter extends CustomPainter {
   _CompassRosePainter(this.style);
   final TextStyle style;
@@ -777,4 +733,43 @@ class _CompassRosePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_CompassRosePainter old) => old.style != style;
+}
+
+class _ChartToolPainter extends CustomPainter {
+  const _ChartToolPainter({required this.zoom});
+  final int zoom;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final ink = Paint()
+      ..color = InkTheme.inkPrimary
+      ..strokeWidth = 1.6
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+    if (zoom == 0) {
+      final c = size.center(Offset.zero);
+      canvas.drawPath(
+        Path()
+          ..moveTo(c.dx, 2)
+          ..lineTo(size.width - 2, c.dy)
+          ..lineTo(c.dx, size.height - 2)
+          ..lineTo(2, c.dy)
+          ..close(),
+        ink,
+      );
+      canvas.drawCircle(c, 3, ink);
+      canvas.drawLine(Offset(c.dx, 0), Offset(c.dx, 6), ink);
+      canvas.drawLine(Offset(0, c.dy), Offset(6, c.dy), ink);
+    } else {
+      const c = Offset(9, 9);
+      canvas.drawCircle(c, 7, ink);
+      canvas.drawLine(const Offset(14, 14), const Offset(22, 22), ink);
+      canvas.drawLine(const Offset(5, 9), const Offset(13, 9), ink);
+      if (zoom > 0) {
+        canvas.drawLine(const Offset(9, 5), const Offset(9, 13), ink);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_ChartToolPainter oldDelegate) => oldDelegate.zoom != zoom;
 }

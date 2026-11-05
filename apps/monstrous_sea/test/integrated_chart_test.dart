@@ -157,9 +157,13 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('locate-chart-vessel')));
     await tester.pumpAndSettle();
     expect(camera.value.getMaxScaleOnAxis(), 1);
+    final located = List<double>.from(camera.value.storage);
     await tester.tap(find.byKey(const ValueKey('fit-nautical-route')));
     await tester.pumpAndSettle();
-    expect(camera.value.storage, orderedEquals(fit));
+    expect(camera.value.storage[12], isNot(closeTo(located[12], .01)));
+    await tester.sendKeyEvent(LogicalKeyboardKey.end);
+    await tester.pump();
+    expect(camera.value.storage, orderedEquals(located));
     expect(c.seaChart.toJson(), before);
     expect(tester.takeException(), isNull);
   });
@@ -207,12 +211,17 @@ void main() {
             });
             await tester.pumpAndSettle();
           }
-          final chartRect = tester.getRect(find.text('TRAVELLED WATERS'));
+          final chartRect = tester.getRect(
+            find.byKey(const ValueKey('nautical-map-viewport')),
+          );
           final choiceRect = tester.getRect(
             find.text('LOOKOUT OBSERVATIONS & COURSES'),
           );
-          if (width > 900) {
-            expect(chartRect.left, lessThan(choiceRect.left));
+          if (tester
+                  .widget<NauticalChart>(find.byType(NauticalChart))
+                  .coursePanel !=
+              null) {
+            expect(chartRect.contains(choiceRect.topLeft), isTrue);
           } else {
             expect(chartRect.top, lessThan(choiceRect.top));
           }

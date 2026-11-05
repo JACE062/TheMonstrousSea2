@@ -88,37 +88,6 @@ class SeaChartPaperPainter extends CustomPainter {
           ).createShader(stain),
       );
     }
-    final faint = Paint()
-      ..color = InkTheme.chartEdge.withValues(alpha: .1)
-      ..strokeWidth = 1;
-    for (var x = 25.0; x < size.width; x += 47) {
-      canvas.drawLine(Offset(x, 10), Offset(x, size.height - 10), faint);
-    }
-    for (var y = 25.0; y < size.height; y += 47) {
-      canvas.drawLine(Offset(10, y), Offset(size.width - 10, y), faint);
-    }
-    final rose = Offset(80, size.height - 80);
-    for (var ray = 0; ray < 16; ray++) {
-      final angle = ray * math.pi / 8;
-      canvas.drawLine(
-        rose,
-        rose + Offset(math.cos(angle), math.sin(angle)) * size.longestSide * 2,
-        faint,
-      );
-    }
-    final fold = Paint()
-      ..color = InkTheme.chartEdge.withValues(alpha: .08)
-      ..strokeWidth = 2;
-    canvas.drawLine(
-      Offset(size.width * .5, 0),
-      Offset(size.width * .5, size.height),
-      fold,
-    );
-    canvas.drawLine(
-      Offset(0, size.height * .5),
-      Offset(size.width, size.height * .5),
-      fold,
-    );
     final border = Paint()
       ..color = InkTheme.chartEdge.withValues(alpha: .65)
       ..style = PaintingStyle.stroke
