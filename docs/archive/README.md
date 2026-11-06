@@ -120,3 +120,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Chart refinement verification 2026-11-05
 
 [The readability/control receipt](playtests/CHART_REFINEMENT_2026_11_05.md) records minimum icon scale, continuous world-space markings, prompt tooltip timing, on-map tools, colored header/actions and wider non-scrolling lookout cards. The [manifest](playtests/evidence/chart-refinement-2026-11-05/manifest.json) retains the input screenshot, final visual/interaction checks, source commits and a new isolated Windows build. Previous evidence and both the normal/running preview bundles are preserved.
+
+## Chart bounds verification 2026-11-05
+
+[The bounds/marginalia receipt](playtests/CHART_BOUNDS_2026_11_05.md) records 30%-width bearing cards, camera limits for every input path, the home-port name, legend removal and faded curved/creature/coastal ornaments. The [manifest](playtests/evidence/chart-bounds-2026-11-05/manifest.json) retains the player screenshot, final checks/captures, source commit and isolated build verification. Earlier audits, existing build bundles and player saves are unchanged; Hull/Purse/Center Journey icon replacements remain deferred.
