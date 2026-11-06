@@ -128,3 +128,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Vessel location and service copy 2026-11-06
 
 [The follow-up receipt](playtests/CHART_LOCATE_2026_11_06.md) records zoom-preserving Find Vessel/End, closest permitted centering and concise pre-Titan service reports, including unchanged saved-plan data. The [manifest](playtests/evidence/chart-locate-2026-11-06/manifest.json) retains focused checks, selected final captures, the player screenshot and isolated native build verification. Earlier evidence, saves, icons and service rules are preserved.
+
+## Shore UI and port chart verification 2026-11-06
+
+[The shore UI receipt](playtests/SHORE_UI_2026_11_06.md) records tabbed chandlery trading, shared live inspection, the enlarged shore chart and confirmed port endpoints. The [manifest](playtests/evidence/shore-ui-2026-11-06/manifest.json) retains the three player inputs, final checks/captures and separate native build verification. The 36-item copy review remains pending, and regional artwork remains deferred; prior audits, saves and mechanics are unchanged.

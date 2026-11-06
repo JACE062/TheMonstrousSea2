@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-06",
+  "generatedUtc": "2026-11-06T21:15:33.167529+00:00",
+  "baseline": "f07b34e0f801b3a56e38e681b969c175ffb2c939",
+  "codeHead": "2cfd9be032b93fe277d1d2da771dc3f0c90503dc",
+  "codeCommits": [
+    "dd35ff2181d88f312ee641ea8ee9193c7c3c5451",
+    "5bf3accc54b8d5d086162bf175a63734c6c64313",
+    "2cfd9be032b93fe277d1d2da771dc3f0c90503dc"
+  ],
+  "validation": {
+    "appTests": 452,
+    "appAnalysis": "clean",
+    "focusedUiTests": 36,
+    "fontLoadedUiTests": 25,
+    "finalShoreCaptureTests": 5,
+    "windowsDebugBuild": "successful isolated build",
+    "coreAndSimulator": "unchanged; not repeated",
+    "documentationAndWhitespace": "checks/docs-and-whitespace.log"
+  },
+  "pendingCopyReview": {
+    "path": "docs/design/player-copy-review.md",
+    "proposalCount": 36,
+    "implementedCandidateIds": []
+  },
+  "regionalArt": "deferred; no replacement assets generated",
+  "sourceSha256": {
+    "apps/monstrous_sea/lib/main.dart": "e0331eb149f3c9c0f63e837c02f68bd03338a1618c4ba584abf7820f62652ced",
+    "apps/monstrous_sea/lib/src/screens/helm_screen.dart": "dcbbdbfce0c22ee1f145ffc9090f82d74c14ce9c10518c5be2914f1db10a28a1",
+    "apps/monstrous_sea/lib/src/screens/merchant_screen.dart": "10dbd543adc648cd3b08c51814693cd3ca6e268cfd109414b776bc4904f9ce4f",
+    "apps/monstrous_sea/lib/src/screens/respite_island_screen.dart": "4295aafd1c2f297324eb15a9a26d21851ff975a804ac107adcbd159d912871c6",
+    "apps/monstrous_sea/lib/src/screens/sea_chart_screen.dart": "f26432ce3bc41b7311210528687190971081c4494d96fa3e1ca68f0592efc0f7",
+    "apps/monstrous_sea/lib/src/screens/shrine_screen.dart": "b7875d65bcbea9e3556b33ca04b52c8211f72c57704ce185d749f55fe779d706",
+    "apps/monstrous_sea/lib/src/screens/stronghold_screen.dart": "b1037a824c9209e487fee15e0f3a7d5553f036dbe9a3ec1d272cdb60a0ebe405",
+    "apps/monstrous_sea/lib/src/widgets/material_trade_view.dart": "02ae3df212e7dcbdb82489df1652babbe07cc26449aa14b7b748824e93efbbc4",
+    "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart": "b4ca6f352e40bcdb7efddba7b934bbb48a66b2c68fdc3929d11336ee939b052c",
+    "apps/monstrous_sea/lib/src/widgets/vessel_inspection.dart": "c42394c3ccdc7a2ed755431628516e1e2329cec26c319e8c628070790dec23c4",
+    "apps/monstrous_sea/test/chart_art_test.dart": "30591b4fdae94f655bf910d7efa87669fdd0352c4b4e21b009e1fb35aac02c61",
+    "apps/monstrous_sea/test/chart_bounds_ui_test.dart": "7a89cb21640098a802fd2e3ffdb68bb5c2d6275e1254c0c44c0e8a3512af8697",
+    "apps/monstrous_sea/test/material_trade_ui_test.dart": "04eaef368242c3475918df3ce6894e299bc697a71d397c9ee264a8ebdf70f105",
+    "apps/monstrous_sea/test/settings_and_chart_update_test.dart": "0dbb276967d39baa0b57f21d83ace4e84f14c348a005263eac5c2d56d0fc30fa",
+    "apps/monstrous_sea/test/shore_ui_test.dart": "a6ab1bf27813bb5e50ea24fc158a1af08fcb6922ec580ed9f7b4e2737b1a893a"
+  },
+  "inputScreenshotSha256": {
+    "docs/playtests/2026-11-06/shore-ui/01-merchant.png": "4933d47cd1106afbce411b1b1d6d2065e32cc497716da9a9d2b0a7e5f796d1c7",
+    "docs/playtests/2026-11-06/shore-ui/02-inspection.png": "3664b79f0be155ef6c71abf924e4793d7518ac13d39d7b71b29d5a544be1d955",
+    "docs/playtests/2026-11-06/shore-ui/03-port-chart.png": "3e02b9887d8a54fb116fb91549e22e97c59c0a3d6c31130a77a2161476ae59b6"
+  },
+  "evidenceCopiedFrom": {
+    "visual/shore-ui-merchant-stock-1920.png": "apps/monstrous_sea/.dart_tool/shore-ui-merchant-stock-1920.png",
+    "visual/shore-ui-merchant-stock-360.png": "apps/monstrous_sea/.dart_tool/shore-ui-merchant-stock-360.png",
+    "visual/shore-ui-merchant-materials-1920.png": "apps/monstrous_sea/.dart_tool/shore-ui-merchant-materials-1920.png",
+    "visual/shore-ui-merchant-materials-360.png": "apps/monstrous_sea/.dart_tool/shore-ui-merchant-materials-360.png",
+    "visual/shore-ui-stronghold-controls.png": "apps/monstrous_sea/.dart_tool/shore-ui-stronghold-controls.png",
+    "visual/shore-ui-stronghold-inspection.png": "apps/monstrous_sea/.dart_tool/shore-ui-stronghold-inspection.png",
+    "visual/shore-ui-stronghold-chart-1.png": "apps/monstrous_sea/.dart_tool/shore-ui-stronghold-chart-1.png",
+    "visual/shore-ui-stronghold-chart-2.png": "apps/monstrous_sea/.dart_tool/shore-ui-stronghold-chart-2.png",
+    "visual/shore-ui-stronghold-chart-1-compact.png": "apps/monstrous_sea/.dart_tool/shore-ui-stronghold-chart-1-compact.png",
+    "visual/shore-ui-stronghold-chart-2-compact.png": "apps/monstrous_sea/.dart_tool/shore-ui-stronghold-chart-2-compact.png",
+    "checks/app-analysis.log": "apps/monstrous_sea/.dart_tool/shore-ui-analysis-final.log",
+    "checks/app-tests.log": "apps/monstrous_sea/.dart_tool/shore-ui-app-tests.log",
+    "checks/focused-ui-tests.log": "apps/monstrous_sea/.dart_tool/shore-ui-focused.log",
+    "checks/font-loaded-ui-tests.log": "apps/monstrous_sea/.dart_tool/shore-ui-fonts.log",
+    "checks/final-shore-captures.log": "apps/monstrous_sea/.dart_tool/shore-ui-final-captures.log",
+    "checks/windows-debug-build.log": ".dart_tool/shore-preview/native-build.log",
+    "checks/copy-inventory-initial.log": "apps/monstrous_sea/.dart_tool/player-copy-inventory.txt"
+  },
+  "hashConvention": "Source hashes use canonical git blob bytes; other hashes use preserved raw bytes.",
+  "preservation": {
+    "previousAuditAndEvidenceUnchanged": true,
+    "coreSimulatorAndApprovedArtUnchanged": true,
+    "playerSaveWritesByAgent": false,
+    "runningBundleOrEarlierPreviewsReplaced": false
+  },
+  "artifactSha256": {
+    ".gitattributes": "408384b55715a5d43854f6bc742c8407e663fb5e42063645e20e4e04e259d78a",
+    "checks/app-analysis.log": "4dc3cda74fdb0de6fc941242bcf15a5765c690e254c6cd1f9c0cdf593abfcfd7",
+    "checks/app-tests.log": "cd725d867118fc5e9003bcf88d8ac7741dba6bd86246c2b88552dbd5db09a3af",
+    "checks/copy-inventory-initial.log": "852d61cee08a4ce43a17baece2dfe893999ca91d98f6254959e8ca4d68321672",
+    "checks/docs-and-whitespace.log": "b80b94658f4c8187c90c3dda1995667abb44bf6cce9b136a4bb71a63ee076984",
+    "checks/final-shore-captures.log": "a8cde24ed1b42fa4c96e386f5549fcbebb3ac653161afc14e50ccc83ca7f0c4c",
+    "checks/focused-ui-tests.log": "07980269e1411cc19a0a164aaafe009a1f807b5971635cecd3a8a107690ffb62",
+    "checks/font-loaded-ui-tests.log": "319ce5a230ac3b6124fbf7eb41fcbb3b583aa8350ce34237f6a821d50c06e875",
+    "checks/windows-debug-build.log": "203b2f0fdc3fa3377c43a46371ed4647c42f72a2043bcb858df8dab1a1524145",
+    "native-source-verification.json": "f418b2eeb26d19a8042b333f40841b10d21735401f763f30bc7d145e39b176e7",
+    "visual/shore-ui-merchant-materials-1920.png": "7da2585f4e1e48b53581d5afd5abfe8afdeece3f089f41cd40a4832cac382660",
+    "visual/shore-ui-merchant-materials-360.png": "b6efb79b7236e477fc0e12b794424d91f11123b6349c9120b6fcc5fc96fd1e3b",
+    "visual/shore-ui-merchant-stock-1920.png": "bae260e291372a8d01d7015633aba7bcb59471498a5f9523e2d4ccb661ffb866",
+    "visual/shore-ui-merchant-stock-360.png": "e4f8056e438879bc79ed31bd97548f45cc38bc5c44fef803e0e91965c5495169",
+    "visual/shore-ui-stronghold-chart-1-compact.png": "ec4886c5b989c7cf98f1c927af05f873da9690de12677dde911bb944468863fb",
+    "visual/shore-ui-stronghold-chart-1.png": "5caf9940fecacef0e9f75749ae1894ef79d126eb289d802d9a925377438eae50",
+    "visual/shore-ui-stronghold-chart-2-compact.png": "35639bde39e82e86feded74b85bc7c060e163a305f75db14ac79b347c4c3270f",
+    "visual/shore-ui-stronghold-chart-2.png": "7bd41efef2b3fc6e524898d7da0f531830c174ab7469ece93e5a4fb215ca2803",
+    "visual/shore-ui-stronghold-controls.png": "b32df3b5afec6cf13e847b4eb3b41e016359a7d275dfa0de37cf99da3ecd766d",
+    "visual/shore-ui-stronghold-inspection.png": "8fcf7146e26f22e7c1ac16bd734c490be84675f5eeac75caf508b5beebb7119c"
+  }
+}

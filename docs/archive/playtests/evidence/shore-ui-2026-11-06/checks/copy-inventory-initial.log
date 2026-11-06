@@ -1,0 +1,132 @@
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:279 | Fortify Iron Plates (2T CD): Permanently adds +${(ship.dmgReductionMod * mult).round()} Damage Reduction for this battle and anchors your hull against forced push/pull this round.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:288 | Phosphor Spotter Flare (2T CD): Illuminates the monster for 2 turns — clears Obscured, suppresses monster Evasion to 0%, grants +15% Accuracy, and increases Blast damage taken by +25%.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:290 | Gun-Deck Bracing (2T CD): Set the hull and gun-deck braces to reduce incoming damage by ${(20 * mult).round()}% this round and steady your next offensive volley for +15% Accuracy and +${(20 * mult).round()}% Damage.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:485 | Current dodge chance after captain, regional and active-effect modifiers, capped at 95%. Unavoidable attacks bypass dodge.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:575 | Current dodge chance after Pin and Spotter Flare. Attack accuracy is a separate roll.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:607 | ${monster.carapacePlating} of ${monster.maxCarapace} plating intact. Deflects non-blast attacks.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:973 | Prow Ram closes to Short before impact. Charging from Medium retains its damage bonus.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:974 | Harpoon Winch attacks at its launch range, then pulls one band closer. Pin requires a hit.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:978 | Skirmisher applies your helm order after the main action and its movement.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1054 | Helm committed: ${widget.controller.session.lastHelmOrderThisTurn.displayName}
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1064 | SKIRMISHER · Act at ${currentRange.displayName}, then maneuver before the response.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1146 | IMPATIENT · Fire one weapon next. Belt available; helm already committed.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1147 | RECOVERY · Fittings unavailable. Maneuver, use belt, then Wait & Reload.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1273 | Opening shot accuracy: $accuracy% before ${monster.effectiveEvasion}% target dodge.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1277 |  Obscurity subtracts ${monster.obscurityAccuracyPenalty}% from accuracy.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1300 | $accuracy% accuracy · ${(weaponRangeDamageMultiplier(type, range) * 100).round()}% range damage
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1305 | ${type.displayName} volley out of range at ${range.displayName}. Advance to strike!
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1307 | Fire ${type.displayName} volley at ${range.displayName}. $accuracyTip ${badge?.badge ?? 
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1337 | ${_utilityTooltip(ship, range)}\n${_responseForecast(order, utility: true)}
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1347 | $name utility fitting cooling down (${ship.utilityCooldown} turns remaining)
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1480 | Order helm to fall back to ${currentRange.rangeAfterHelmOrder(order).displayName}
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1486 | Order helm to advance to ${currentRange.rangeAfterHelmOrder(order).displayName}
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1573 | Kinetic ram charge from Medium to Short Range (+25% bonus kinetic damage, 1.5x vs Carapace).
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1589 | Point-blank mortar fire at Short Range deals 70% damage and splashes 25% backfire onto your hull!
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1601 | Precision Culverin optimal Long Range (100% damage, pierces 50% Carapace).
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1606 | Long-barrel culverin suffers severe damage falloff (40%) at Short Range.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1624 | Standard broadside cannons deal 65% damage and suffer -15% accuracy at Long Range.
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1655 | Chain-Shot Broadside deals 45% damage at Long Range (+20% vs Pinned targets).
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1662 | Chain-Shot Broadside ($pct% Slicing damage at ${targetRange.displayName}, +20% vs Pinned).
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1668 | Shrapnel Howitzers ($pct% Slicing damage at ${targetRange.displayName}).
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1675 | Harpoon Winch deals $pct% damage, reels the monster 1 range band closer, and Pins it (1T).
+apps/monstrous_sea/lib/src/screens/battle_screen.dart:1681 | Harpoon Winch deals $pct% damage and Pins the monster at Short Range (1T).
+apps/monstrous_sea/lib/src/screens/captain_screen.dart:75 | The Bloodbound Ship has returned. Take command, then prepare your next voyage at the home port.
+apps/monstrous_sea/lib/src/screens/captain_screen.dart:76 | The Bloodbound Ship answers to your name. Your first voyage begins in the Siren Shoals.
+apps/monstrous_sea/lib/src/screens/captain_screen.dart:118 | Naval Cannon Battery · Broadside\nTwin Chaser Cannons · Signature\nGun-Deck Bracing · Utility
+apps/monstrous_sea/lib/src/screens/captain_screen.dart:126 | Three fixed fittings. Set your range, fire a volley, and survive the beast ahead. New blueprints await later generations at the home port.
+apps/monstrous_sea/lib/src/screens/death_screen.dart:150 | Generational Toll: ${lineage.captainsLost} Captains lost across time • ${lineage.totalMonstersDefeated} beasts slain in total
+apps/monstrous_sea/lib/src/screens/death_screen.dart:196 | Felled Captain ${nemesis.predecessorCaptain} in Region ${nemesis.regionIndex + 1}.
+apps/monstrous_sea/lib/src/screens/death_screen.dart:201 | The beast grows more cunning and ruthless in the deep. Confront it on a future voyage to avenge your ancestor.
+apps/monstrous_sea/lib/src/screens/death_screen.dart:220 | +${nemesis.bountyGold} Gold • +${nemesis.bountySeaGlass} Sea Glass • +${nemesis.bountyMonsterBone} Monster Bone • +${nemesis.bountyBarnacles} Barnacles
+apps/monstrous_sea/lib/src/screens/death_screen.dart:244 | Freighter Safe Stash Salvaged! The next heir will inherit 5% of accumulated gold and saved tactical belt provisions.
+apps/monstrous_sea/lib/src/screens/death_screen.dart:256 | Each heir inherits unique bloodline dispositions forged by your lineage\'s pact with the sea.
+apps/monstrous_sea/lib/src/screens/death_screen.dart:472 | The Bloodbound Ship returns to the home port. Prepare the next voyage there and choose from your unlocked ancestral blueprints.
+apps/monstrous_sea/lib/src/screens/helm_screen.dart:94 | Read the winds once per region to redraw ordinary headings. Haven, Titan and Nemesis courses hold fast.
+apps/monstrous_sea/lib/src/screens/helm_screen.dart:148 | ${controller.seaChart.currentRegionName} · Region ${controller.seaChart.currentRegionIndex + 1} of 3 · ${controller.currentLeg >= controller.totalLegs ? 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:26 | For as long as anyone remembers, your family has been bound to the Sea... 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:27 | \nTales tell of a long-ago captain who faced certain doom in the middle of a devastating storm. 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:28 | \nThe captain made a desperate plea: whatever damage the ship suffered, let it return to shore. 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:29 | \nIt seems a deal was struck, as the ship did indeed return from the voyage, but with nary a soul on board. 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:32 | You would refuse to venture out, but the Salt-Sickness has begun to wither away at your bones, 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:34 | \nYou know, deep down, that something is calling you out to Sea, and you cannot ignore it 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:36 | \n\nYou know that there are great beasts and ancient, foul leviathans that await you in that Monstrous Sea, 
+apps/monstrous_sea/lib/src/screens/intro_screen.dart:37 | but you have no choice but to take up your burden and calling. You can only hope that maybe, 
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:54 | Your lineages could not be loaded. Your saves have not been replaced. Retry to load them again.
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:93 | This lineage could not be opened. Your saved progress has not been replaced. Retry before continuing.
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:119 | The new lineage could not be saved. Existing lineages have not been replaced. Retry to reload the list.
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:139 | The alternate fate could not be opened. Your completed hunt and any existing branch remain preserved. Retry to reload.
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:261 | Your peaceful ending stays intact. The other fate is a separate save with its own progress. Returning here continues that same branch.
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:262 | This completed hunt has no usable pre-choice snapshot. Its ending is preserved; older endings cannot be safely reconstructed.
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:292 | Each save has its own captains, discoveries and ending. New Lineage starts a separate hunt.
+apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart:418 | Name this save. This label is separate from your captain’s name and does not set a permanent family surname.
+apps/monstrous_sea/lib/src/screens/loot_screen.dart:38 | The beast sinks into the deep, leaving flotsam and munitions in the brine.
+apps/monstrous_sea/lib/src/screens/loot_screen.dart:47 | These are the defeated creature’s full spoils. The cleared wreck’s separate cargo awaits recovery after these supplies are resolved.
+apps/monstrous_sea/lib/src/screens/loot_screen.dart:80 | +${controller.lastGoldSalvaged} GOLD SALVAGED DIRECTLY TO PURSE (Purse: ${ship?.gold ?? 0}g)
+apps/monstrous_sea/lib/src/screens/merchant_screen.dart:132 | PURSE: ${ship?.gold ?? 0}g · TACTICAL BELT ${cargo.length}/${ship?.maxCargo ?? 0}
+apps/monstrous_sea/lib/src/screens/port_screen.dart:65 | Unlock ancestral blueprints with materials recovered at sea. These permanent refits are separate from the fitting marks earned during a voyage.
+apps/monstrous_sea/lib/src/screens/port_screen.dart:496 | Ratify bloodline Pacts to increase Pact Burden. Primordial Cinders drop exclusively from Region Titans defeated under active Pact Burden (> 0)!
+apps/monstrous_sea/lib/src/screens/port_screen.dart:608 | Forge eldritch weapons from Titan Trophies and Primordial Cinders at the Covenant Altar. Once forged, a relic weapon is permanently mounted on its corresponding ancestral hull.
+apps/monstrous_sea/lib/src/screens/port_screen.dart:694 | Mounts on: ${def.blueprintId.displayName} (${def.weaponType.displayName})
+apps/monstrous_sea/lib/src/screens/port_screen.dart:787 | Consecrate permanent cursed monuments around Hunter\'s Respite using surplus Titan Trophies and Primordial Cinders. These monuments grant generational boons across all future voyages.
+apps/monstrous_sea/lib/src/screens/port_screen.dart:1078 | Captain ${controller.captainName} • Level ${ship.level} ${ship.shipClass.name.toUpperCase()}
+apps/monstrous_sea/lib/src/screens/port_screen.dart:1132 | 3 Mounts (${ship.markLabelForHardpoint(HardpointType.broadside)}/${ship.markLabelForHardpoint(HardpointType.signature)}/${ship.markLabelForHardpoint(HardpointType.utility)})
+apps/monstrous_sea/lib/src/screens/port_screen.dart:1215 | The altar hums in the captain’s quarters. Enact Pacts for Primordial Cinders, forge Eldritch Relics, or consecrate Harbor Monuments.
+apps/monstrous_sea/lib/src/screens/port_screen.dart:1263 | SET SAIL FOR ${controller.session.seaChart.currentRegionName.toUpperCase()}
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:139 | Paid repairs and voyage refits. The next passage brings the Titan into reach.
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:141 | Calm sheltered deep-water soundings and verdant sanctuary cliffs. A grand haven of safety.
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:142 | A small uncharted atoll and tranquil sandy spit offering emergency respite from the storm.
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:201 | Refitting first increases maximum hull used by careening and your first paid repair purchase.
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:240 | Haul the ship into the tidal shallows, scrape brine barnacles, and caulk seams with oakum and pitch.
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:245 | ${((controller.isCurrentIslandHaven ? services.havenCareenFraction : services.coveCareenFraction) * 100).round()}% of current maximum hull · Restores ${controller.careenHealingHp} HP · Shore Duty Option
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:297 | Sight battery broadsides against offshore rocks and coordinate synchronized cannon volleys.
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:302 | +${services.drillAccuracy}% Accuracy for the Whole Next Battle • Shore Duty Option
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:349 | Send shore parties along sandy spits and coral pools to scavenge wreckage drift and pearls.
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:355 | Recovers ${services.havenForageMin}–${services.havenForageMax} Gold Doubloons • Shore Duty Option
+apps/monstrous_sea/lib/src/screens/respite_island_screen.dart:356 | Recovers ${services.coveForageMin}–${services.coveForageMax} Gold Doubloons • Shore Duty Option
+apps/monstrous_sea/lib/src/screens/rest_screen.dart:87 | Leg ${seaChart.currentLeg} of ${seaChart.totalLegs} • ${seaChart.currentRegionName}
+apps/monstrous_sea/lib/src/screens/rest_screen.dart:156 | Hull integrity is critical! The carpenter can hammer emergency cross-beams and canvas tar to patch the hull to the 25% seaworthy floor.
+apps/monstrous_sea/lib/src/screens/rest_screen.dart:157 | Open ocean swells are too turbulent for hull careening. Seek a Respite Island for hull careening and a voyage shipwright for refits.
+apps/monstrous_sea/lib/src/screens/rest_screen.dart:201 | ENTER ${SeaChart.strongholdName(seaChart.currentRegionIndex + 1).toUpperCase()} (STRONGHOLD)
+apps/monstrous_sea/lib/src/screens/sea_chart_screen.dart:40 | ${seaChart.currentRegionName} · Region ${seaChart.currentRegionIndex + 1} of 3
+apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart:45 | Take the modest accessible salvage and leave, or forego it and linger for the deeper cargo.
+apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart:46 | The fresh cargo lies below. Recovering it takes a deliberate commitment; you can still sail past empty.
+apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart:108 | COMMITTED RECOVERY: High chance of a creature fight. An Apex predator may appear. Species and tier remain unknown until it appears.${wreck.condition == WreckCondition.uncertain ? 
+apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart:132 | THREAT CLEARED. The remaining small haul is ready to recover. There is no further fight here.
+apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart:133 | THREAT CLEARED. The full wreck cargo is ready to recover. No further risk choice or fight remains.
+apps/monstrous_sea/lib/src/screens/shrine_screen.dart:81 | Four ancient wardens lend their wrath against the Abyssal Font. Each dedication endures for this voyage.
+apps/monstrous_sea/lib/src/screens/shrine_screen.dart:110 | The phosphorescent glow dims as the wardens withdraw. The sea ahead awaits your passage.
+apps/monstrous_sea/lib/src/screens/shrine_screen.dart:131 | Your dedications are complete. Offer respects and seek guidance in the runes.
+apps/monstrous_sea/lib/src/screens/shrine_screen.dart:147 | A dedication lasts for this voyage. You may switch wardens above before committing.
+apps/monstrous_sea/lib/src/screens/shrine_screen.dart:168 | Offer respects without a dedication. Gain +10% accuracy in the next combat and reveal adjacent sea chart nodes.
+apps/monstrous_sea/lib/src/screens/shrine_screen.dart:301 | Weapon damage +${(current.damageBonus * 100).round()}% → +${(preview.damageBonus * 100).round()}%
+apps/monstrous_sea/lib/src/screens/shrine_screen.dart:306 | Critical chance +${current.critChanceBonus}% → +${preview.critChanceBonus}%
+apps/monstrous_sea/lib/src/screens/smuggler_screen.dart:86 | PURSE: ${ship.gold}g | TACTICAL BELT: ${ship.cargo.length}/${ship.maxCargo}
+apps/monstrous_sea/lib/src/screens/smuggler_screen.dart:113 | A clandestine merchant vessel rides the ocean swell under muffled lanterns, peddling contraband munitions.
+apps/monstrous_sea/lib/src/screens/stronghold_screen.dart:67 | Your voyage continues. Refit the vessel, replenish supplies, and prepare for the next region.
+apps/monstrous_sea/lib/src/screens/victory_screen.dart:46 | ${controller.session.monstersDefeatedThisLife} beasts defeated • ${controller.ship?.gold ?? 0} gold
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:22 | 2-turn cooldown. Adds +${(ship.dmgReductionMod * mult).round()} damage reduction for this battle and anchors the hull against forced movement this round.
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:25 | 2-turn cooldown. Launches a drifting tether-trap one band ahead. It drifts closer each round, then detonates for ${((16 + 5 * (ship.level - 1)) * mult).round()} Slicing damage and pins the beast for one turn.
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:26 | 2-turn cooldown. Illuminates the beast for two turns: clears obscurity, suppresses evasion, grants +15% accuracy and increases Blast damage taken by 25%.
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:28 | 2-turn cooldown. Set the built-in hull and gun-deck braces to reduce incoming damage by ${(20 * mult).round()}% this round and steady the next volley for +15% accuracy and +${(20 * mult).round()}% damage.
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:62 | Three fixed fittings. Inspect their voyage marks, blessings and ancestral refits here.
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:92 | ${canonical.displayName.toUpperCase()} · ${ship.markLabelForHardpoint(canonical)}
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:130 | Ancestral armament: Tier ${profile.armamentTierFor(ship.resolvedBlueprintId)}
+apps/monstrous_sea/lib/src/widgets/armory_view.dart:159 | Single-use provisions. Hull Patch Kits can also patch hull between battles. Other supplies are combat quick actions.
+apps/monstrous_sea/lib/src/widgets/hull_gauge.dart:31 | $currentHp of $maxHp HP, $percentRounded percent${isCritical ? ", Critical condition" : ""}
+apps/monstrous_sea/lib/src/widgets/loot_supplies_view.dart:83 | BELT FULL — Patch Kits can be used now if the hull needs repairs. Keeping supplies still requires a slot.
+apps/monstrous_sea/lib/src/widgets/material_trade_view.dart:37 | ${material.displayName}\n${stock.quantity(material)} remaining · ${session.materialUnitPrice(material)}g each\nOwned: ${material == TradeMaterial.seaGlass ? inventory.seaGlass : inventory.depthWroughtIron}
+apps/monstrous_sea/lib/src/widgets/nautical_chart.dart:326 | Region ${route.history[i].regionIndex + 1} · Leg ${route.history[i].leg}: ${voyageDestinationLabel(route.history[i])} · ${voyageOutcomeLabel(route.history[i])}
+apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart:47 | ${blessing.power.displayName}: ${blessing.subtitle}. ${blessing.description}
+apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart:73 | Basalt Aegis (${ship.basaltAegisTurns}T): absorbs incoming damage and returns a Tidal Shockwave when struck.
+apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart:100 | At 3 stacks, Arc Discharge purges Frenzy and shatters a lethal windup or applies Electro-Jolt.
+apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart:107 | Amplifies all incoming damage and reduces monster attack damage by ${monster.corrodedStacks * 5}%.
+apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart:123 | Burning: takes Fire damage at the start of its turn. Enables Thermal Detonation.
+apps/monstrous_sea/lib/src/widgets/paid_repair_view.dart:48 | REPAIRS REMAINING: ${((pool.remainingWork ?? 0) * 100 / ship.maxHp).toStringAsFixed(1).replaceFirst(RegExp(r
+apps/monstrous_sea/lib/src/widgets/settings_dialog.dart:107 | Adjust text magnification across all screens, charts, and chronicle logs.
+apps/monstrous_sea/lib/src/widgets/settings_dialog.dart:148 | Switch between atmospheric antique typography and clean high-legibility print.
+apps/monstrous_sea/lib/src/widgets/settings_dialog.dart:199 | "The leviathan thrashes in the deep swell! Load the broadside cannons and brace for impact!"
+apps/monstrous_sea/lib/src/widgets/utility_description.dart:6 | (+${ship.evasiveRiggingBonus}% above base) until the next successful dodge. 
+apps/monstrous_sea/lib/src/widgets/voyage_log_view.dart:29 | Region ${entry.regionIndex + 1} · Leg ${entry.leg} · ${entry.bearing.displayName}
+apps/monstrous_sea/lib/src/widgets/voyage_shipwright_view.dart:30 | Spend gold on hull refits and fitting tempering. These upgrades last for this voyage.
+apps/monstrous_sea/lib/src/widgets/voyage_shipwright_view.dart:56 | ${slot.displayName} · ${ship.markLabelForHardpoint(slot)}${ship.markForHardpoint(slot) < 3 ? 
+apps/monstrous_sea/lib/src/widgets/weapon_stats_view.dart:27 | ${(weaponRangeDamageMultiplier(weapon.weaponType, CombatRange.long) * 100).round()}%

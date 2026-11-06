@@ -1,0 +1,9 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: merchant tabs trade and inspect without losing stock at 360.0
+00:01 +1: merchant tabs trade and inspect without losing stock at 1920.0
+00:02 +2: vessel berths at stronghold 1 and history stays immutable
+00:03 +3: vessel berths at stronghold 2 and history stays immutable
+00:04 +4: stronghold uses the shared inspection action
+00:05 +5: (tearDownAll)
+00:05 +5: All tests passed!
