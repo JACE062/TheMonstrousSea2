@@ -7,6 +7,8 @@ import 'package:monstrous_core/monstrous_core.dart';
 
 import '../theme/ink_theme.dart';
 import 'pilot_art.dart';
+import 'chart_camera.dart';
+import 'chart_marginalia.dart';
 import 'painters/sea_chart_paper_painter.dart';
 import 'painters/sea_chart_water_painter.dart';
 import 'svg_asset_view.dart';
@@ -63,7 +65,7 @@ class NauticalRouteGeometry {
 const nauticalChartMinimumScale = .9;
 const nauticalChartMaximumScale = 3.0;
 
-double nauticalCoursePanelWidth(double width) => math.min(720, width * .5);
+double nauticalCoursePanelWidth(double width) => width * .3;
 
 Path routeSegment(Offset from, Offset to) => Path()
   ..moveTo(from.dx, from.dy)
@@ -119,7 +121,7 @@ class _NauticalChartState extends State<NauticalChart>
     duration: const Duration(milliseconds: 700),
     value: 1,
   );
-  final _camera = TransformationController();
+  final _camera = NauticalCameraController();
   final _mapFocus = FocusNode(debugLabel: 'Nautical map');
   _ChartScene? _scene;
   Object? _sceneKey;
@@ -128,6 +130,7 @@ class _NauticalChartState extends State<NauticalChart>
   Matrix4 _view(double scale, Offset translation) => Matrix4.identity()
     ..setEntry(0, 0, scale)
     ..setEntry(1, 1, scale)
+    ..setEntry(2, 2, scale)
     ..setTranslationRaw(translation.dx, translation.dy, 0);
   void _centerJourney() {
     final scene = _scene;
@@ -156,6 +159,13 @@ class _NauticalChartState extends State<NauticalChart>
   }
 
   void _configure(_ChartScene scene) {
+    _camera.bounds = NauticalCameraBounds(
+      travelled: scene.route.bounds,
+      viewport: scene.viewport,
+      sceneOffset: scene.offset,
+      minimumScale: nauticalChartMinimumScale,
+      maximumScale: nauticalChartMaximumScale,
+    );
     final key = (Object.hashAll(scene.route.points), scene.viewport);
     if (key == _sceneKey) {
       _scene = scene;
@@ -256,6 +266,7 @@ class _NauticalChartState extends State<NauticalChart>
     return Stack(
       clipBehavior: Clip.none,
       children: [
+        Positioned.fill(child: ChartMarginalia(points: points)),
         Positioned.fill(child: CustomPaint(painter: _WakePainter(points))),
         Positioned(
           left: points.first.dx - 23,
@@ -267,11 +278,14 @@ class _NauticalChartState extends State<NauticalChart>
           ),
         ),
         Positioned(
-          left: points.first.dx - 36,
+          left: points.first.dx - 24,
+          width: 180,
           top: points.first.dy + 28,
           child: Text(
-            'DEPARTURE',
-            style: InkTheme.statLabel.copyWith(fontSize: 10),
+            SeaChart.strongholdName(0),
+            key: const ValueKey('chart-home-port-label'),
+            textAlign: TextAlign.start,
+            style: InkTheme.statLabel.copyWith(fontSize: 11),
           ),
         ),
         for (var i = 0; i < route.history.length; i++)
@@ -525,17 +539,6 @@ class _NauticalChartState extends State<NauticalChart>
                     (MediaQuery.sizeOf(context).width < 600 ? 300 : 420),
                 child: _viewport(route),
               ),
-            const SizedBox(height: 8),
-            Wrap(
-              spacing: 12,
-              runSpacing: 4,
-              children: [
-                Text('Arrival', style: InkTheme.caption),
-                Text('Passed wreck', style: InkTheme.caption),
-                Text('Cargo recovered', style: InkTheme.caption),
-                Text('Skull: victory', style: InkTheme.caption),
-              ],
-            ),
           ],
         );
       },

@@ -63,6 +63,9 @@ Future<void> captureChartFocusProof(
       PilotArt.treasure,
       PilotArt.anchor,
       PilotArt.freighter,
+      PilotArt.shark,
+      PilotArt.squid,
+      PilotArt.serpent,
     ]) {
       await precacheImage(AssetImage(asset), key.currentContext!);
     }
@@ -301,7 +304,9 @@ void main() {
       // Normal page scrolling remains available outside the map.
       await tester.sendEventToBinding(
         PointerScrollEvent(
-          position: tester.getCenter(find.text('Arrival')),
+          position: tester.getCenter(
+            find.text('LOOKOUT OBSERVATIONS & COURSES'),
+          ),
           scrollDelta: Offset(0, 140),
         ),
       );

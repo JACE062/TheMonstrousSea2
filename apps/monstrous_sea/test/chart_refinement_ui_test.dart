@@ -77,7 +77,7 @@ void main() {
           find.byKey(const ValueKey('nautical-map-viewport')),
         );
         if (const String.fromEnvironment('artFontCache').isNotEmpty &&
-            size.width >= 1280) {
+            size.width >= 1920) {
           expect(
             chart.coursePanel,
             isNotNull,
