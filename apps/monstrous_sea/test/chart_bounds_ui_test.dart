@@ -99,6 +99,40 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('locate-chart-vessel')));
         await tester.pumpAndSettle();
         expectWithinWaters(camera);
+        expect(camera.value.getMaxScaleOnAxis(), closeTo(3, .001));
+        final bounds = camera.bounds!;
+        Offset vesselInViewport() =>
+            tester.getCenter(
+              find.byKey(const ValueKey('chart-current-vessel')),
+            ) -
+            tester.getTopLeft(map);
+        // At this zoom the camera can center both axes without hitting a bound.
+        expect(
+          (vesselInViewport() - bounds.viewport.center(Offset.zero)).distance,
+          lessThan(.01),
+        );
+        await captureChartFocusProof(
+          tester,
+          key,
+          'located-zoomed-${flat ? 'horizontal' : 'diagonal'}',
+        );
+        for (var i = 0; i < 10; i++) {
+          await tester.tap(find.byKey(const ValueKey('zoom-out-chart')));
+          await tester.pumpAndSettle();
+        }
+        await tester.sendKeyEvent(LogicalKeyboardKey.home);
+        await tester.pumpAndSettle();
+        await tester.sendKeyEvent(LogicalKeyboardKey.end);
+        await tester.pumpAndSettle();
+        expect(camera.value.getMaxScaleOnAxis(), closeTo(.9, .001));
+        expectWithinWaters(camera);
+        // At minimum zoom, the right edge prevents exact horizontal centering.
+        // Find Vessel reaches that edge while still centering the vertical axis.
+        expect(
+          vesselInViewport().dx,
+          closeTo(bounds.viewport.width - 160 * .9, .01),
+        );
+        expect(vesselInViewport().dy, closeTo(bounds.viewport.height / 2, .01));
         expect(
           tester
               .getRect(find.byKey(const ValueKey('voyage-marker-39')))

@@ -139,7 +139,8 @@ void main() {
         .widget<InteractiveViewer>(map)
         .transformationController!;
     final fit = List<double>.from(camera.value.storage);
-    await tester.drag(map, const Offset(-100, 30));
+    // Find Vessel can start at the eastern boundary. Pan back into the route.
+    await tester.drag(map, const Offset(100, 30));
     await tester.pumpAndSettle();
     expect(camera.value.storage[12], isNot(closeTo(fit[12], .01)));
     final scaleBeforeScroll = camera.value.getMaxScaleOnAxis();
@@ -154,9 +155,10 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.pump();
     expect(c.seaChart.toJson(), before);
+    final scaleBeforeLocate = camera.value.getMaxScaleOnAxis();
     await tester.tap(find.byKey(const ValueKey('locate-chart-vessel')));
     await tester.pumpAndSettle();
-    expect(camera.value.getMaxScaleOnAxis(), 1);
+    expect(camera.value.getMaxScaleOnAxis(), scaleBeforeLocate);
     final located = List<double>.from(camera.value.storage);
     await tester.tap(find.byKey(const ValueKey('fit-nautical-route')));
     await tester.pumpAndSettle();

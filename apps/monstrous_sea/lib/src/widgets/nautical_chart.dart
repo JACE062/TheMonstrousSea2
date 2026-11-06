@@ -64,6 +64,8 @@ class NauticalRouteGeometry {
 /// Keep 46-unit markers at least 41 logical pixels wide at every route length.
 const nauticalChartMinimumScale = .9;
 const nauticalChartMaximumScale = 3.0;
+// The vessel illustration sits above its arrival node.
+const _vesselCenterOffset = Offset(0, -23);
 
 double nauticalCoursePanelWidth(double width) => width * .3;
 
@@ -150,10 +152,14 @@ class _NauticalChartState extends State<NauticalChart>
   void _locate() {
     final scene = _scene;
     if (scene == null) return;
+    final scale = _camera.value.getMaxScaleOnAxis().clamp(
+      nauticalChartMinimumScale,
+      nauticalChartMaximumScale,
+    );
     _camera.value = _view(
-      1,
-      Offset(scene.viewport.width * .68, scene.viewport.height / 2) -
-          scene.at(scene.route.points.last),
+      scale,
+      scene.viewport.center(Offset.zero) -
+          (scene.at(scene.route.points.last) + _vesselCenterOffset) * scale,
     );
     _userMoved = true;
   }
@@ -305,8 +311,9 @@ class _NauticalChartState extends State<NauticalChart>
           ),
         Positioned(
           left: vessel.dx - 26,
-          top: vessel.dy - 43,
+          top: vessel.dy + _vesselCenterOffset.dy - 20,
           child: Semantics(
+            key: const ValueKey('chart-current-vessel'),
             label: 'Current vessel',
             child: Transform.rotate(
               angle: heading,

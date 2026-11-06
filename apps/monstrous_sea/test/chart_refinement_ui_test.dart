@@ -177,7 +177,7 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('locate-chart-vessel')));
         await tester.pumpAndSettle();
         expect(camera.value.storage[12], isNot(centered.storage[12]));
-        expect(camera.value.getMaxScaleOnAxis(), 1);
+        expect(camera.value.getMaxScaleOnAxis(), centered.getMaxScaleOnAxis());
         expect(c.seaChart.toJson(), before);
         expect(tester.takeException(), isNull);
       },
