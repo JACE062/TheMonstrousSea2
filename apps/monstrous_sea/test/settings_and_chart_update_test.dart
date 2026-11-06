@@ -80,6 +80,8 @@ void main() {
         await tester.pumpWidget(MaterialApp(theme: InkTheme.themeData,
           home: SeaChartScreen(seaChart: chart, isCurrentDefeated: !won, onClose: () {})));
         await tester.pumpAndSettle();
+        await tester.tap(find.text('VOYAGE LOG'));
+        await tester.pumpAndSettle();
         expect(find.text(won ? 'VICTORY' : 'ARRIVED'), findsOneWidget);
         expect(find.text(won ? 'ARRIVED' : 'VICTORY'), findsNothing);
         expect(find.text('VESSEL'), findsOneWidget);

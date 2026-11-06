@@ -131,7 +131,7 @@ void main() {
           isInPort ? findsOneWidget : findsNothing,
         );
         expect(find.text('VICTORY'), findsNothing);
-        expect(find.text('ARRIVED'), isInPort ? findsNothing : findsOneWidget);
+        expect(find.text('ARRIVED'), findsNothing);
         expect(find.byIcon(Icons.anchor), findsNothing);
         expect(find.byIcon(Icons.cloud_queue), findsNothing);
         expect(find.text('☠'), findsNothing);
@@ -162,6 +162,11 @@ void main() {
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
         await saveProof('compact');
+        await tester.tap(find.text('VOYAGE LOG'));
+        await tester.pumpAndSettle();
+        expect(find.text('ARRIVED'), isInPort ? findsNothing : findsOneWidget);
+        await tester.tap(find.text('CLOSE LOGBOOK'));
+        await tester.pumpAndSettle();
         await tester.ensureVisible(find.text('CLOSE SEA CHART'));
         await tester.tap(find.text('CLOSE SEA CHART'));
         expect(closed, isTrue);

@@ -206,6 +206,13 @@ void main() {
           .width;
       expect(panelWidth / width, closeTo(.3, .00001));
       expect(find.text(SeaChart.strongholdName(0)), findsOneWidget);
+      // The longer wake includes arrived strongholds. Pan back to the start;
+      // Find Vessel should not keep the whole old journey on screen.
+      await tester.drag(
+        find.byKey(const ValueKey('nautical-map-viewport')),
+        const Offset(10000, 0),
+      );
+      await tester.pumpAndSettle();
       final home = tester.getRect(
         find.byKey(const ValueKey('chart-home-port-label')),
       );

@@ -34,11 +34,24 @@ String voyageDestinationLabel(VoyageLegRecord entry) => entry.isNemesis
 /// World positions accumulate from the previous ship position. East is forward,
 /// port is north, and starboard south, matching the existing lookout bearings.
 class NauticalRouteGeometry {
-  NauticalRouteGeometry(Iterable<VoyageLegRecord> entries)
-    : history = List.unmodifiable(entries) {
+  NauticalRouteGeometry(
+    Iterable<VoyageLegRecord> entries, {
+    int regionIndex = 0,
+  }) : history = List.unmodifiable(entries) {
     var point = Offset.zero;
     points.add(point);
+    wakePoints.add(point);
+    void berth(int region) {
+      point += const Offset(92, 0);
+      ports.add((regionIndex: region, position: point));
+      wakePoints.add(point);
+    }
+
+    int? previousRegion;
     for (final entry in history) {
+      if (previousRegion != null && entry.regionIndex > previousRegion) {
+        berth(entry.regionIndex);
+      }
       final lateral = switch (entry.bearing) {
         NavigationalBearing.larboardTack => -64.0,
         NavigationalBearing.deadAhead => 0.0,
@@ -46,9 +59,14 @@ class NauticalRouteGeometry {
       };
       point += Offset(92, lateral);
       points.add(point);
+      wakePoints.add(point);
+      previousRegion = entry.regionIndex;
     }
+    // Region advancement confirms an arrived stronghold, including before the
+    // next encounter. This adds no serialized visit or numbered leg.
+    if (regionIndex > (previousRegion ?? 0)) berth(regionIndex);
     var minX = 0.0, minY = 0.0, maxX = 0.0, maxY = 0.0;
-    for (final p in points) {
+    for (final p in wakePoints) {
       minX = math.min(minX, p.dx);
       minY = math.min(minY, p.dy);
       maxX = math.max(maxX, p.dx);
@@ -58,6 +76,9 @@ class NauticalRouteGeometry {
   }
   final List<VoyageLegRecord> history;
   final List<Offset> points = [];
+  final List<Offset> wakePoints = [];
+  final List<({int regionIndex, Offset position})> ports = [];
+  Offset get currentPosition => wakePoints.last;
   late final Rect bounds;
 }
 
@@ -159,7 +180,7 @@ class _NauticalChartState extends State<NauticalChart>
     _camera.value = _view(
       scale,
       scene.viewport.center(Offset.zero) -
-          (scene.at(scene.route.points.last) + _vesselCenterOffset) * scale,
+          (scene.at(scene.route.currentPosition) + _vesselCenterOffset) * scale,
     );
     _userMoved = true;
   }
@@ -172,7 +193,7 @@ class _NauticalChartState extends State<NauticalChart>
       minimumScale: nauticalChartMinimumScale,
       maximumScale: nauticalChartMaximumScale,
     );
-    final key = (Object.hashAll(scene.route.points), scene.viewport);
+    final key = (Object.hashAll(scene.route.wakePoints), scene.viewport);
     if (key == _sceneKey) {
       _scene = scene;
       return;
@@ -258,22 +279,23 @@ class _NauticalChartState extends State<NauticalChart>
   Widget _sceneContents(_ChartScene scene) {
     final route = scene.route;
     final points = route.points.map(scene.at).toList();
-    var vessel = points.last;
-    if (points.length > 1 && _motion.value < 1) {
+    final wake = route.wakePoints.map(scene.at).toList();
+    var vessel = wake.last;
+    if (wake.length > 1 && _motion.value < 1) {
       vessel = Offset.lerp(
-        points[points.length - 2],
-        points.last,
+        wake[wake.length - 2],
+        wake.last,
         Curves.easeInOut.transform(_motion.value),
       )!;
     }
-    final heading = points.length < 2
+    final heading = wake.length < 2
         ? 0.0
-        : (points.last - points[points.length - 2]).direction;
+        : (wake.last - wake[wake.length - 2]).direction;
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Positioned.fill(child: ChartMarginalia(points: points)),
-        Positioned.fill(child: CustomPaint(painter: _WakePainter(points))),
+        Positioned.fill(child: ChartMarginalia(points: wake)),
+        Positioned.fill(child: CustomPaint(painter: _WakePainter(wake))),
         Positioned(
           left: points.first.dx - 23,
           top: points.first.dy - 23,
@@ -335,16 +357,17 @@ class _NauticalChartState extends State<NauticalChart>
             style: InkTheme.statLabel.copyWith(fontSize: 11),
           ),
         ),
-        if (widget.isInPort && route.history.isNotEmpty)
+        for (final port in route.ports)
           Positioned(
-            left: points.last.dx + 35,
-            top: points.last.dy + 30,
+            left: scene.at(port.position).dx - 23,
+            top: scene.at(port.position).dy - 23,
             child: Tooltip(
-              message: widget.chart.currentPortName,
+              key: ValueKey('chart-port-${port.regionIndex}'),
+              message: SeaChart.strongholdName(port.regionIndex),
               child: const SvgAssetView(
                 assetPath: PilotArt.portHaven,
-                width: 40,
-                height: 40,
+                width: 46,
+                height: 46,
               ),
             ),
           ),
@@ -528,7 +551,10 @@ class _NauticalChartState extends State<NauticalChart>
 
   @override
   Widget build(BuildContext context) {
-    final route = NauticalRouteGeometry(widget.chart.voyageLog);
+    final route = NauticalRouteGeometry(
+      widget.chart.voyageLog,
+      regionIndex: widget.chart.currentRegionIndex,
+    );
     return LayoutBuilder(
       builder: (context, bounds) {
         final expands =

@@ -13,10 +13,12 @@ class SeaChartScreen extends StatelessWidget {
     super.key,
     required this.seaChart,
     required this.onClose,
+    this.ship,
     this.isInPort = false,
     this.isCurrentDefeated = false,
   });
   final SeaChart seaChart;
+  final ShipState? ship;
   final VoidCallback onClose;
   final bool isInPort;
   // Retained adapter argument; actual victories come from committed outcomes.
@@ -26,13 +28,12 @@ class SeaChartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ParchmentScaffold(
-    body: Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 860),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+    body: Padding(
+      padding: const EdgeInsets.all(12),
+      child: LayoutBuilder(
+        builder: (context, bounds) {
+          final title = Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('NAUTICAL SEA CHART', style: InkTheme.titleLarge),
               Text(
@@ -47,26 +48,68 @@ class SeaChartScreen extends StatelessWidget {
                     : 'Leg $effectiveLeg of ${seaChart.totalLegs}',
                 style: InkTheme.statLabel,
               ),
-              Text(
-                'Midpoint choice ${seaChart.midpointHavenLeg} · Final preparation ${seaChart.totalLegs} · Titan afterward',
-                style: InkTheme.caption,
-              ),
-              const SizedBox(height: 14),
-              NauticalChart(
-                chart: seaChart,
-                isInPort: isInPort,
-                viewportHeight: (MediaQuery.sizeOf(context).height * .55).clamp(
-                  300,
-                  560,
+            ],
+          );
+          final actions = Wrap(
+            spacing: 12,
+            runSpacing: 8,
+            children: [
+              InkButton(
+                label: 'VOYAGE LOG',
+                compact: true,
+                icon: const Icon(Icons.menu_book, size: 21),
+                onPressed: () => showVoyagePanel(
+                  context,
+                  closeLabel: 'CLOSE LOGBOOK',
+                  child: VoyageLogView(chart: seaChart),
                 ),
               ),
-              const SizedBox(height: 16),
-              VoyageLogView(chart: seaChart),
-              const SizedBox(height: 20),
-              InkButton(label: 'CLOSE SEA CHART', onPressed: onClose),
+              InkButton(
+                label: 'CLOSE SEA CHART',
+                compact: true,
+                onPressed: onClose,
+              ),
             ],
-          ),
-        ),
+          );
+          final header = bounds.maxWidth >= 1000
+              ? Row(
+                  children: [
+                    Expanded(child: title),
+                    const SizedBox(width: 16),
+                    actions,
+                  ],
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [title, const SizedBox(height: 12), actions],
+                );
+          Widget chart() => NauticalChart(
+            chart: seaChart,
+            ship: ship,
+            isInPort: isInPort,
+            expandViewport: true,
+          );
+          if (bounds.maxHeight < 600) {
+            return SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  header,
+                  const SizedBox(height: 12),
+                  SizedBox(height: 400, child: chart()),
+                ],
+              ),
+            );
+          }
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              header,
+              const SizedBox(height: 12),
+              Expanded(child: chart()),
+            ],
+          );
+        },
       ),
     ),
   );
