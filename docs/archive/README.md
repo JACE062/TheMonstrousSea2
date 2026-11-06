@@ -124,3 +124,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Chart bounds verification 2026-11-05
 
 [The bounds/marginalia receipt](playtests/CHART_BOUNDS_2026_11_05.md) records 30%-width bearing cards, camera limits for every input path, the home-port name, legend removal and faded curved/creature/coastal ornaments. The [manifest](playtests/evidence/chart-bounds-2026-11-05/manifest.json) retains the player screenshot, final checks/captures, source commit and isolated build verification. Earlier audits, existing build bundles and player saves are unchanged; Hull/Purse/Center Journey icon replacements remain deferred.
+
+## Vessel location and service copy 2026-11-06
+
+[The follow-up receipt](playtests/CHART_LOCATE_2026_11_06.md) records zoom-preserving Find Vessel/End, closest permitted centering and concise pre-Titan service reports, including unchanged saved-plan data. The [manifest](playtests/evidence/chart-locate-2026-11-06/manifest.json) retains focused checks, selected final captures, the player screenshot and isolated native build verification. Earlier evidence, saves, icons and service rules are preserved.

@@ -1,0 +1,6 @@
+python tools/check_docs.py
+Documentation OK: 69 Markdown files, 837 local links, 17 archived sources / 268 section dispositions, 30 PT2 issues, catalog-promotion receipt, six unchanged original screenshots.
+
+git diff --check
+
+All checks passed.

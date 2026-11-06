@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-06",
+  "generatedUtc": "2026-11-06T20:06:01.765415+00:00",
+  "baseline": "a35dc2d4fec35a8b69284a41cbee04b55dfc5cfb",
+  "codeHead": "f17ec3e56d7ccb1209072f0fc137ebdabc159320",
+  "codeCommits": [
+    "df81165aa97e82a2d9a4de3a87cfac875452aa47",
+    "f17ec3e56d7ccb1209072f0fc137ebdabc159320"
+  ],
+  "validation": {
+    "fontLoadedUiTests": 31,
+    "coreChartTests": 25,
+    "appAndCoreAnalysis": "clean",
+    "windowsDebugBuild": "successful isolated build",
+    "fullSuitesAndSimulator": "not repeated; focused camera/copy scope",
+    "documentationAndWhitespace": "checks/docs-and-whitespace.log"
+  },
+  "status": "Zoom-preserving visible-vessel location and concise new/saved service reports implemented; icons deferred; economy tuning separately provisional.",
+  "sourceSha256": {
+    "apps/monstrous_sea/lib/src/screens/helm_screen.dart": "b63aa371fb58bd815e4cd0152d7fe1838ec2d004e6a0fd7c55666b448fe69cb9",
+    "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart": "f3ea7116ec7e58c28ff065ef3f8f0cb04eb8b922bf12cbd3d4d505e426930780",
+    "apps/monstrous_sea/test/chart_bounds_ui_test.dart": "bc962a32e0705127588ec2814e925d6c498bd4fdbace28c233b7f5eb428078c2",
+    "apps/monstrous_sea/test/chart_refinement_ui_test.dart": "a80c6d77cf682d6f585cf6b1144a0045ba2afa52d0401e98105978882b0f1306",
+    "apps/monstrous_sea/test/integrated_chart_test.dart": "0941607ab41b9beeb6aa4317b9845ee009d9e88b623b15b730481c777bf77f4b",
+    "apps/monstrous_sea/test/regional_services_test.dart": "bbac83fa5b7ad8f025417fb2b8c5805a3312e17a4eddb870d61a5fd1bf16b9e7",
+    "packages/monstrous_core/lib/src/rules/sea_chart.dart": "8f636447e796767a4ed5c3da0c08f26cf9307be48599d798cf85e36c64909e66"
+  },
+  "hashConvention": "source hashes use canonical git blobs; other hashes use preserved raw bytes.",
+  "inputScreenshotSha256": {
+    "docs/playtests/2026-11-06/chart-locate/01-pre-boss-callouts.png": "055b2e8fa3085da7caef476a570c4757bdf778d0519f09565331662b73ffbe16"
+  },
+  "evidenceCopiedFrom": {
+    "visual/chart-locate-located-zoomed-horizontal.png": "apps/monstrous_sea/.dart_tool/chart-locate-located-zoomed-horizontal.png",
+    "visual/chart-locate-located-zoomed-diagonal.png": "apps/monstrous_sea/.dart_tool/chart-locate-located-zoomed-diagonal.png",
+    "visual/chart-locate-bounds-horizontal.png": "apps/monstrous_sea/.dart_tool/chart-locate-bounds-horizontal.png",
+    "visual/chart-locate-bounds-diagonal.png": "apps/monstrous_sea/.dart_tool/chart-locate-bounds-diagonal.png",
+    "visual/chart-locate-preparation-choices-360.0.png": "apps/monstrous_sea/.dart_tool/chart-locate-preparation-choices-360.0.png",
+    "visual/chart-locate-preparation-choices-1280.0.png": "apps/monstrous_sea/.dart_tool/chart-locate-preparation-choices-1280.0.png",
+    "checks/app-analysis.log": "apps/monstrous_sea/.dart_tool/chart-locate-analysis.log",
+    "checks/core-analysis.log": "apps/monstrous_sea/.dart_tool/chart-locate-core-analysis.log",
+    "checks/font-loaded-ui-tests.log": "apps/monstrous_sea/.dart_tool/chart-locate-ui-tests.log",
+    "checks/core-chart-tests.log": "apps/monstrous_sea/.dart_tool/chart-locate-core-tests.log",
+    "checks/windows-debug-build.log": ".dart_tool/chart-locate-preview/native-build-final.log",
+    "checks/isolated-dependency-setup.log": ".dart_tool/chart-locate-preview/native-build.log"
+  },
+  "preservation": {
+    "olderAuditAndEvidenceUnchanged": true,
+    "simulatorUnchanged": true,
+    "playerSaveWritesByAgent": false,
+    "runningBundleOrEarlierPreviewsReplaced": false
+  },
+  "artifactSha256": {
+    ".gitattributes": "408384b55715a5d43854f6bc742c8407e663fb5e42063645e20e4e04e259d78a",
+    "checks/app-analysis.log": "d805cf5b563c9b054fd454f7e7ac807073f0e4c8844b45926b67c60654ab363d",
+    "checks/core-analysis.log": "33d5c77eebf4d6e86163d697a6f890c7383b7075174f12b322c114f029f7527a",
+    "checks/core-chart-tests.log": "c73f4706cf861212b8c6017dc1d7dd0645794705532f48baf458569b600d3767",
+    "checks/docs-and-whitespace.log": "69e28cbb33e06223c6168a25794288ae1e4da2e73330f865e75c9f4dd2cd894a",
+    "checks/font-loaded-ui-tests.log": "5bcea2ce86e332712b308185669637fc27ccf3dbd54accb811c4916032f0a0ca",
+    "checks/isolated-dependency-setup.log": "2d587be146706f0ace1eee3f204f98742dc2a57cbf0f07f021aca37dac2e2894",
+    "checks/windows-debug-build.log": "530cec7f3ba3d24c4256df46592ec1af4c50cbfe83c26bac87fb7c271471faa2",
+    "native-source-verification.json": "136428ba9f1c9a26d15a3c91b4a48a90b1b8a75d057e3fe482fbf01971e2c1a1",
+    "visual/chart-locate-bounds-diagonal.png": "f4cf46c3d7caf730d524e6b1a7afddb8f8a0cbec1e83fe29457f4c116e06154f",
+    "visual/chart-locate-bounds-horizontal.png": "94e2d979dd872740e7f948741f48be9269631cf1cb08e8f7a8f805c7c9064d8c",
+    "visual/chart-locate-located-zoomed-diagonal.png": "2ce76b8ccbd1f25e86c2f778a4b7d8999f3995f7ecaefde2789f2b8b013b4a60",
+    "visual/chart-locate-located-zoomed-horizontal.png": "4a8f051254e6a3b97228039c85a8c91611813e174c848a8169af37d3343ea25a",
+    "visual/chart-locate-preparation-choices-1280.0.png": "973a2664c2e69f2727ec93832c6d4f322dcc1b66cfd5518b6e6a8a9a88cb030c",
+    "visual/chart-locate-preparation-choices-360.0.png": "851b02e35966201c4d72e3a172a87c84f74cb9e938e784e233d0dd3740bb2067"
+  }
+}

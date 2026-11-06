@@ -1,0 +1,27 @@
+00:00 +0: loading test/rules/sea_chart_test.dart
+00:00 +0: test/rules/sea_chart_test.dart: SeaChart Progression & Navigation initializes at [0][0] with timesCompleted 0
+00:00 +1: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses SeaChart generates 3 distinct course options with bearings
+00:00 +2: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses SeaChart generates 3 distinct course options with bearings
+00:00 +3: test/rules/sea_chart_test.dart: The Kraken Boss Encounter identifies Kraken boss at [3][4] on loop 0 with difficulty 5
+00:00 +4: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses Steering along headings logs voyage legs into voyageLog
+00:00 +5: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses Steering along headings logs voyage legs into voyageLog
+00:00 +6: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses Steering along headings logs voyage legs into voyageLog
+00:00 +7: test/rules/sea_chart_test.dart: Map Loop Scaling cell [3][4] on loop 1 spawns random difficulty 9 monster, not Kraken
+00:00 +8: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses Leg 5 offers a side-heading Haven and two ordinary alternatives
+00:00 +9: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses Leg 5 offers a side-heading Haven and two ordinary alternatives
+00:00 +10: test/rules/sea_chart_test.dart: SeaChart Reset & Departure Waypoints reset() restores position to [0][0] while preserving maxRowReached
+00:00 +11: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses Leg 11 converges on the Titan after numbered preparation
+00:00 +12: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses Leg 11 converges on the Titan after numbered preparation
+00:00 +13: test/rules/sea_chart_test.dart: SeaChart Reset & Departure Waypoints advancing past column 4 increases maxRowReached
+00:00 +14: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +15: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +16: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +17: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +18: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +19: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +20: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +21: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +22: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +23: test/rules/dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +24: test/rules/sea_chart_test.dart: Procedural Expedition Grids & Strongholds departing a Respite Island guarantees 0% chance of an island on the immediately following leg
+00:00 +25: All tests passed!
