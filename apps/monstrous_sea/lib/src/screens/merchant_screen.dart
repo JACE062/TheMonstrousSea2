@@ -10,10 +10,19 @@ import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/svg_asset_view.dart';
 import '../widgets/weapon_stats_view.dart';
+import '../widgets/vessel_inspection.dart';
+import '../widgets/pilot_art.dart';
 
-class MerchantScreen extends StatelessWidget {
+class MerchantScreen extends StatefulWidget {
   const MerchantScreen({super.key, required this.controller});
   final GameController controller;
+  @override
+  State<MerchantScreen> createState() => _MerchantScreenState();
+}
+
+class _MerchantScreenState extends State<MerchantScreen> {
+  int _activeTab = 0;
+  GameController get controller => widget.controller;
   void _leave() {
     if (controller.phase == SessionPhase.merchant &&
         !controller.isPlayingEvents) {
@@ -95,13 +104,24 @@ class MerchantScreen extends StatelessWidget {
       return ParchmentScaffold(
         body: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1120),
+            constraints: const BoxConstraints(maxWidth: 820),
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text('HARPOON & HELM CHANDLERY', style: InkTheme.titleLarge),
+                  const Center(
+                    child: SvgAssetView(
+                      assetPath: PilotArt.helm,
+                      width: 56,
+                      height: 56,
+                    ),
+                  ),
+                  Text(
+                    'HARPOON & HELM CHANDLERY',
+                    style: InkTheme.titleLarge.copyWith(fontSize: 26),
+                    textAlign: TextAlign.center,
+                  ),
                   const SizedBox(height: 8),
                   Wrap(
                     spacing: 20,
@@ -109,7 +129,7 @@ class MerchantScreen extends StatelessWidget {
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       Text(
-                        'PURSE: ${ship?.gold ?? 0}g',
+                        'PURSE: ${ship?.gold ?? 0}g · TACTICAL BELT ${cargo.length}/${ship?.maxCargo ?? 0}',
                         style: InkTheme.statValue.copyWith(
                           color: InkTheme.goldAccent,
                         ),
@@ -119,12 +139,41 @@ class MerchantScreen extends StatelessWidget {
                         semanticLabel: returnLabel,
                         onPressed: _leave,
                       ),
+                      InspectVesselButton(controller: controller),
                     ],
                   ),
                   const SizedBox(height: 20),
-                  MaterialTradeView(controller: controller),
+                  VesselSummary(controller: controller),
                   CarriedPatchKits(controller: controller),
-                  if (cargo.any((item) => item is Treasure)) ...[
+                  const SizedBox(height: 16),
+                  LayoutBuilder(
+                    builder: (context, bounds) => Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        for (final (index, label) in [
+                          (0, 'SUPPLIES'),
+                          (1, 'MATERIALS'),
+                          (2, 'SELL BELT'),
+                        ])
+                          SizedBox(
+                            width: bounds.maxWidth < 540
+                                ? (bounds.maxWidth - 8) / 2
+                                : (bounds.maxWidth - 16) / 3,
+                            child: InkButton(
+                              key: ValueKey('merchant-tab-$index'),
+                              label: label,
+                              isPrimary: _activeTab == index,
+                              onPressed: () =>
+                                  setState(() => _activeTab = index),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  if (_activeTab == 2 &&
+                      cargo.any((item) => item is Treasure)) ...[
                     InkButton(
                       label: 'SELL ALL TREASURE',
                       onPressed: canTrade
@@ -133,22 +182,10 @@ class MerchantScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                   ],
-                  LayoutBuilder(
-                    builder: (context, constraints) =>
-                        constraints.maxWidth >= 960
-                        ? Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(child: wares),
-                              const SizedBox(width: 24),
-                              Expanded(child: belt),
-                            ],
-                          )
-                        : Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [wares, const SizedBox(height: 20), belt],
-                          ),
-                  ),
+                  if (_activeTab == 0) wares,
+                  if (_activeTab == 1)
+                    MaterialTradeView(controller: controller),
+                  if (_activeTab == 2) belt,
                   const SizedBox(height: 20),
                   InkButton(
                     label: 'LEAVE CHANDLERY & $returnLabel',

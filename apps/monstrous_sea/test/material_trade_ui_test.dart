@@ -49,6 +49,9 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
+      await tester.ensureVisible(find.byKey(const ValueKey('merchant-tab-1')));
+      await tester.tap(find.byKey(const ValueKey('merchant-tab-1')));
+      await tester.pumpAndSettle();
       final buyGlass = find.byKey(const ValueKey('buy-material-seaGlass'));
       await tester.ensureVisible(buyGlass);
       await tester.tap(buyGlass);

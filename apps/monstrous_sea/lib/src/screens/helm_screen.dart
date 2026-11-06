@@ -3,14 +3,12 @@ import 'package:monstrous_core/monstrous_core.dart';
 
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
-import '../widgets/armory_view.dart';
 import '../widgets/nautical_chart.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/voyage_log_view.dart';
-import '../widgets/pilot_art.dart';
-import '../widgets/svg_asset_view.dart';
+import '../widgets/vessel_inspection.dart';
 
 /// The chart and current lookout reports form one navigation surface.
 class HelmScreen extends StatefulWidget {
@@ -172,11 +170,6 @@ class _HelmScreenState extends State<HelmScreen> {
       closeLabel: 'CLOSE LOGBOOK',
       child: VoyageLogView(chart: controller.seaChart),
     );
-    void inspect() => showVoyagePanel(
-      context,
-      closeLabel: 'CLOSE INSPECTION',
-      child: ArmoryView(controller: controller),
-    );
     final status = Wrap(
       spacing: 10,
       runSpacing: 8,
@@ -204,17 +197,9 @@ class _HelmScreenState extends State<HelmScreen> {
       icon: const Icon(Icons.menu_book, size: 21, color: InkTheme.inkMuted),
       onPressed: openLog,
     );
-    final inspection = InkButton(
-      key: const ValueKey('helm-inspect-vessel'),
-      label: 'INSPECT VESSEL',
-      compact: true,
-      isPrimary: true,
-      icon: const SvgAssetView(
-        assetPath: PilotArt.standard,
-        width: 30,
-        height: 26,
-      ),
-      onPressed: inspect,
+    final inspection = InspectVesselButton(
+      buttonKey: const ValueKey('helm-inspect-vessel'),
+      controller: controller,
     );
     final tools = compact
         ? Column(

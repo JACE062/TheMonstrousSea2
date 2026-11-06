@@ -3,7 +3,6 @@ import 'package:monstrous_core/monstrous_core.dart';
 
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
-import '../widgets/armory_view.dart';
 import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
 import '../widgets/paid_repair_view.dart';
@@ -11,6 +10,7 @@ import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pause_menu.dart';
 import '../widgets/voyage_shipwright_view.dart';
+import '../widgets/vessel_inspection.dart';
 
 /// A mid-voyage berth. Permanent ancestral progression stays at the home port.
 class StrongholdScreen extends StatelessWidget {
@@ -22,7 +22,6 @@ class StrongholdScreen extends StatelessWidget {
 
   final GameController controller;
   final VoidCallback onOpenChart;
-
 
   @override
   Widget build(BuildContext context) => ListenableBuilder(
@@ -82,6 +81,7 @@ class StrongholdScreen extends StatelessWidget {
                             controller.dispatch(const VisitMerchant()),
                       ),
                       InkButton(label: 'SEA CHART', onPressed: onOpenChart),
+                      InspectVesselButton(controller: controller),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -95,14 +95,6 @@ class StrongholdScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 18),
                   VoyageShipwrightView(controller: controller),
-                  const SizedBox(height: 16),
-                  ExpansionTile(
-                    title: Text(
-                      'SHIP FITTINGS & BELT INSPECTION',
-                      style: InkTheme.statLabel,
-                    ),
-                    children: [ArmoryView(controller: controller)],
-                  ),
                 ],
               ],
             ),

@@ -25,10 +25,6 @@ class MaterialTradeView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text('PERMANENT MATERIALS', style: InkTheme.titleMedium),
-              Text(
-                'One finite shipment. Stored with your lineage; no belt slot required. Purchases compete with repairs and refits.',
-                style: InkTheme.caption,
-              ),
               for (final material in TradeMaterial.values)
                 Padding(
                   padding: const EdgeInsets.only(top: 12),
