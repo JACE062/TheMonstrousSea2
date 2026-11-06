@@ -138,7 +138,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                   isRefit
                       ? 'Paid repairs and voyage refits. The next passage brings the Titan into reach.'
                       : controller.isCurrentIslandHaven
-                      ? 'Calm sheltered deep-water soundings and verdant sanctuary cliffs. A grand haven of safety.'
+                                ? 'Calm shallows beneath verdant sanctuary cliffs.'
                       : 'A small uncharted atoll and tranquil sandy spit offering emergency respite from the storm.',
                   style: InkTheme.subtitle,
                   textAlign: TextAlign.center,

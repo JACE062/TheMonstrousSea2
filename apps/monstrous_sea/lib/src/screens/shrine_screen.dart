@@ -165,7 +165,7 @@ class _ShrineScreenState extends State<ShrineScreen> {
                             Text('RUNIC GUIDANCE', style: InkTheme.statValue),
                             const SizedBox(height: 6),
                             Text(
-                              'Offer respects without a dedication. Gain +10% accuracy in the next combat and reveal adjacent sea chart nodes.',
+                              'Offer respects without a dedication. Gain +10% accuracy in the next combat and receive next-leg lookout guidance.',
                               style: InkTheme.body,
                             ),
                             const SizedBox(height: 12),
