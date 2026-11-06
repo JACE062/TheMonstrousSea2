@@ -424,7 +424,7 @@ class _CourseOptionCard extends StatelessWidget {
     return 28 +
         headingHeight +
         8 +
-        measure(option.lookoutCall, quoteStyle, available).height +
+        measure(option.displayLookoutCall, quoteStyle, available).height +
         (restriction == null
             ? 0
             : measure(restriction, InkTheme.body, available).height + 8) +
@@ -472,7 +472,7 @@ class _CourseOptionCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 6),
-          Text(option.lookoutCall, style: quoteStyle),
+          Text(option.displayLookoutCall, style: quoteStyle),
           if (restriction != null) ...[
             const SizedBox(height: 8),
             Text(

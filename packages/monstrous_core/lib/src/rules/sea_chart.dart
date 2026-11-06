@@ -50,6 +50,18 @@ class CourseOption {
   final String? clearLookoutCall;
   final WreckSighting? wreckSighting;
 
+  static const repairRefitCall =
+      'Shipwright station to port. Paid hull repairs and voyage refits.';
+  static const specialistMerchantCall = 'Specialist merchant to starboard.';
+
+  /// Current service copy also applies to already-saved course plans. Retain
+  /// their stored calls for serialization/history rather than rewriting saves.
+  String get displayLookoutCall => switch (destination) {
+    CourseDestination.repairRefit => repairRefitCall,
+    CourseDestination.specialistMerchant => specialistMerchantCall,
+    _ => lookoutCall,
+  };
+
   CourseOption copyWith({
     bool? isIdentified,
     bool? isApex,
@@ -1024,7 +1036,7 @@ class SeaChart {
             bearing: NavigationalBearing.larboardTack,
             nodeType: EncounterNodeType.respiteIsland,
             difficultyLevel: difficultyForLeg(leg),
-            lookoutCall: 'Shipwright station to port. Paid hull repairs and voyage refits; no free shore duty.',
+            lookoutCall: CourseOption.repairRefitCall,
             isIdentified: true,
             destination: CourseDestination.repairRefit,
           ),
@@ -1032,7 +1044,7 @@ class SeaChart {
             bearing: NavigationalBearing.starboardTack,
             nodeType: EncounterNodeType.smugglerTrader,
             difficultyLevel: difficultyForLeg(leg),
-            lookoutCall: 'Specialist merchant to starboard. Limited glass, iron and supplies; exact wares on arrival.',
+            lookoutCall: CourseOption.specialistMerchantCall,
             isIdentified: true,
             destination: CourseDestination.specialistMerchant,
           ),

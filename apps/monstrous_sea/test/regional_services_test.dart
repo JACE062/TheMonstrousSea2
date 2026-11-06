@@ -30,6 +30,15 @@ GameController _preparation() {
   controller.ship!.gold = 1000;
   controller.ship!.currentHp = 20;
   controller.dispatch(const TakeHelm());
+  // An existing checkpoint keeps its original plan text; current service copy
+  // must render concisely without a save migration or plan rewrite.
+  final saved = controller.seaChart.toJson();
+  for (final option in saved['courseOptions'] as List) {
+    option['lookoutCall'] = option['destination'] == 'repairRefit'
+        ? 'Shipwright station to port. Paid hull repairs and voyage refits; no free shore duty.'
+        : 'Specialist merchant to starboard. Limited glass, iron and supplies; exact wares on arrival.';
+  }
+  controller.seaChart.restoreFromJson(saved);
   return controller;
 }
 
@@ -68,6 +77,7 @@ void main() {
           });
         }
         final controller = _preparation();
+        final savedChart = controller.seaChart.toJson();
         addTearDown(controller.dispose);
         final boundary = GlobalKey();
         Widget app(Widget screen) => MaterialApp(
@@ -91,6 +101,9 @@ void main() {
           find.textContaining('Specialist merchant to starboard'),
           findsOneWidget,
         );
+        expect(find.textContaining('no free shore duty'), findsNothing);
+        expect(find.textContaining('exact wares on arrival'), findsNothing);
+        expect(controller.seaChart.toJson(), savedChart);
         expect(tester.takeException(), isNull);
         const proofPrefix = String.fromEnvironment('navigationProofPath');
         Future<void> proof(String name) async {
