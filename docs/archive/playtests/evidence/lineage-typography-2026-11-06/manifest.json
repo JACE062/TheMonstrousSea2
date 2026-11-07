@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-06",
+  "generatedUtc": "2026-11-07T02:54:36.424619+00:00",
+  "baseline": "ec416e0f63827b4f78ebe017f9e236ce8556d67d",
+  "codeHead": "139c2c20fd9fc495a74ccf3123f47aed535c9c33",
+  "codeCommits": [
+    "80a76ef0fe7d31b4fe29814db656496ccadd2d3e",
+    "139c2c20fd9fc495a74ccf3123f47aed535c9c33"
+  ],
+  "validation": {
+    "appTests": 452,
+    "appAnalysis": "clean",
+    "fontLayoutCases": 4,
+    "fontModeCaptures": 8,
+    "fontModes": [
+      "serif",
+      "plain"
+    ],
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "widths": [
+      360,
+      1280
+    ],
+    "windowsDebugBuild": "successful isolated build",
+    "documentationAndWhitespace": "checks/docs-and-whitespace.log"
+  },
+  "baselineDiagnostic": "Prior typography also reproduces the existing 14px navigation overflow; diagnostic is separate from final passing checks.",
+  "sourceSha256": {
+    "apps/monstrous_sea/lib/src/screens/helm_screen.dart": "398e661fb1e5c7c6b39c15c1ad3408148029546077513e740107294c1eb5b79c",
+    "apps/monstrous_sea/lib/src/theme/ink_theme.dart": "35b21998e5864a0250a47433e27506b918814608fe407fc07bf0b9a6ed96b1fc",
+    "apps/monstrous_sea/test/lineage_menu_test.dart": "b69ecf2ef7b2f7a1d1634d219cda781517025495660df78acca421f8b0f958ac",
+    "apps/monstrous_sea/test/wreck_feedback_test.dart": "fa7489ef3c0330ab504e6632f618f4e0de4bd55f10bff7a74ed504584dcfbe67"
+  },
+  "inputScreenshotSha256": {
+    "docs/playtests/2026-11-06/lineage-type/01-player.png": "e6ea36442a617687d851c140576e7b5a797f44b23105aa65922d381c65d73843"
+  },
+  "evidenceCopiedFrom": {
+    "visual/lineage-type-new-lineage-plain-1280-1.15.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-plain-1280-1.15.png",
+    "visual/lineage-type-new-lineage-plain-1280-1.3.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-plain-1280-1.3.png",
+    "visual/lineage-type-new-lineage-plain-360-1.15.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-plain-360-1.15.png",
+    "visual/lineage-type-new-lineage-plain-360-1.3.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-plain-360-1.3.png",
+    "visual/lineage-type-new-lineage-serif-1280-1.15.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-serif-1280-1.15.png",
+    "visual/lineage-type-new-lineage-serif-1280-1.3.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-serif-1280-1.3.png",
+    "visual/lineage-type-new-lineage-serif-360-1.15.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-serif-360-1.15.png",
+    "visual/lineage-type-new-lineage-serif-360-1.3.png": "apps/monstrous_sea/.dart_tool/lineage-type-new-lineage-serif-360-1.3.png",
+    "checks/app-analysis.log": "apps/monstrous_sea/.dart_tool/lineage-type-analysis.log",
+    "checks/app-tests.log": "apps/monstrous_sea/.dart_tool/lineage-type-app-tests.log",
+    "checks/font-layout-tests.log": "apps/monstrous_sea/.dart_tool/lineage-type-fonts.log",
+    "checks/windows-debug-build.log": ".dart_tool/lineage-type-preview/native-build-final.log",
+    "diagnostics/prior-typography-layout.log": ".dart_tool/lineage-type-preview/baseline-layout.log"
+  },
+  "hashConvention": "Source hashes use canonical git blob bytes; other hashes use preserved raw bytes.",
+  "preservation": {
+    "priorAuditAndEvidenceUnchanged": true,
+    "coreSimulatorAndApprovedArtUnchanged": true,
+    "playerSaveWritesByAgent": false,
+    "previousBundlesOrCapturesReplaced": false
+  },
+  "artifactSha256": {
+    ".gitattributes": "408384b55715a5d43854f6bc742c8407e663fb5e42063645e20e4e04e259d78a",
+    "checks/app-analysis.log": "d805cf5b563c9b054fd454f7e7ac807073f0e4c8844b45926b67c60654ab363d",
+    "checks/app-tests.log": "c60ebaab7db08e4568807364895c24e432d67602a3aab57f952400aed8a391f5",
+    "checks/docs-and-whitespace.log": "83dea0aaddc8cf788ae42f2040463015c42632b851158c41909e2555833283e2",
+    "checks/font-layout-tests.log": "52e3304dd53b8571f0cbee9bb6cd52cbeb1d92f670c467ffc8a76ac916a9f160",
+    "checks/windows-debug-build.log": "f6d3832e93cf2d2cf90074f910ac7d7943d49b4807db44a6187b2beb34c61067",
+    "diagnostics/prior-typography-layout.log": "bc7189b6b9b3cc21afd903b2290f5f42cec09ec5c22da9a56f74e84f4ccd437b",
+    "native-source-verification.json": "7e60ba29db12b61acda2f75e06b6c1bc61c316e7dc66c2b753bed1dade63cb10",
+    "visual/lineage-type-new-lineage-plain-1280-1.15.png": "9f518a637ca0ebbebb63a47e938c88885e49cb439c54f2a137d61cacafdd73be",
+    "visual/lineage-type-new-lineage-plain-1280-1.3.png": "139e910412ba5c46e7e446072e51c1a797188827168db6f2b315ba7978728e98",
+    "visual/lineage-type-new-lineage-plain-360-1.15.png": "68a351525132519b2d9c9f1874cdd6eee5124a73512edf6b0d246e05604c731c",
+    "visual/lineage-type-new-lineage-plain-360-1.3.png": "bc12eac85398f83a4179cd33ed9beb22e581f874eca06838a2b2146a03d56c33",
+    "visual/lineage-type-new-lineage-serif-1280-1.15.png": "3258d6eb982fa8a09f4cb130f2212afae60ff0ab0a145b58600c2658b9053755",
+    "visual/lineage-type-new-lineage-serif-1280-1.3.png": "529a22cd48eb28288054887e32c3bb9f2f443ac0dfc286a403921aed4d899424",
+    "visual/lineage-type-new-lineage-serif-360-1.15.png": "3b99beb19093394b2c71431efa7ab0df6dead5ecfa3b0702e22013b604c6a74d",
+    "visual/lineage-type-new-lineage-serif-360-1.3.png": "d1255db36b4c4f314e7426223a118f5cda0399237f954189f3ca5564554f7c1d"
+  }
+}

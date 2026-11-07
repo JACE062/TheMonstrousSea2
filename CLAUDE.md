@@ -160,3 +160,5 @@ Nematocyst Lunge’s stable `jellyfishArcPulse` ID now strikes Short after closi
 `ironPlatesDescription` shares fitting-derived Ironclad tooltip/inspection copy. Its expression is unchanged; this is wording reuse, not a damage-reduction rule change. Progress counters remain in the optional log/tooltips rather than helm/chart headers. Treat copy-review decision states individually.
 
 Belt Help derives its displayed one/two-item limit from the existing Drillmaster gate. Copy terminology uses “turn”; quick-item reset/consumption remains unchanged. The wreck’s full-salvage framing does not combine its mutually exclusive quick/deep reward bundles.
+
+`InkTheme.textTheme` supplies `headlineSmall` and `labelLarge` from the selected Ink styles: Material 3 AlertDialog headings and TextButton actions otherwise inherit default sans-serif typography. Keep those defaults aligned with serif/high-legibility mode. The New Lineage visual check uses the real theme and cached fonts, without applying the old uniform review-font override; verify both modes at 115–130%.

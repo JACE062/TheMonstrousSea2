@@ -140,3 +140,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Copy clarification verification 2026-11-06
 
 [The clarification receipt](playtests/COPY_CLARIFICATIONS_2026_11_06.md) records the six subsequent answers: no wind caption, comprehensive wreck-salvage framing, hopeful working captain prose, the user's Nemesis wording, plain save identity and concise adaptive Belt Help. The [manifest](playtests/evidence/copy-clarifications-2026-11-06/manifest.json) retains focused checks, selected captures and a separate native build. All 36 copy decisions are implemented; C28 remains working prose. Earlier audits, builds and saves are preserved.
+
+## Lineage dialog typography verification 2026-11-06
+
+[The typography receipt](playtests/LINEAGE_TYPOGRAPHY_2026_11_06.md) records consistent New Lineage title/actions in the selected font mode, wide/compact serif/plain captures and the separately discovered existing large-text layout guard/stale copy checks. The [manifest](playtests/evidence/lineage-typography-2026-11-06/manifest.json) retains the new player image, final checks and isolated Windows verification. The broader menu redesign remains deferred; older evidence and saves are preserved.
