@@ -1,0 +1,23 @@
+{
+  "implementedIds": [
+    "C02",
+    "C17",
+    "C28",
+    "C29",
+    "C31",
+    "C35"
+  ],
+  "allReviewIdsImplemented": 36,
+  "workingProse": [
+    "C28"
+  ],
+  "decisions": {
+    "C02": "Remove wind caption.",
+    "C17": "Likely fight/Apex warning; lingering salvages the wreck in full, without loot-forfeiture framing.",
+    "C28": "Hope of homecoming; working line recorded in current review.",
+    "C29": "Use user victory-linked growth/ancestor wording.",
+    "C31": "Each lineage is its own save.",
+    "C35": "User short one-per-turn wording; preserve existing two-item Drillmaster exception and reset guidance."
+  },
+  "gameplayOrSaveChanges": false
+}

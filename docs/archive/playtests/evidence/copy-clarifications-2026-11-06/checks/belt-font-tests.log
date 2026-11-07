@@ -1,0 +1,14 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/copy-followup-preview/test/belt_controls_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: quick belt use targets its cargo index and keeps the round open
+00:01 +1: Drillmaster can use a second quick item before quota disables third
+00:01 +2: depleted items explain their state and help is keyboard accessible
+00:02 +3: playback disables items honestly while belt help remains usable
+00:02 +4: compact belt and scrollable help fit 360.0 at 1.15
+00:02 +5: compact belt and scrollable help fit 360.0 at 1.3
+00:03 +6: compact belt and scrollable help fit 1280.0 at 1.15
+00:03 +7: compact belt and scrollable help fit 1280.0 at 1.3
+00:04 +8: all six item effects stay available in help at 360.0
+00:04 +9: all six item effects stay available in help at 1280.0
+00:04 +10: (tearDownAll)
+00:04 +10: All tests passed!

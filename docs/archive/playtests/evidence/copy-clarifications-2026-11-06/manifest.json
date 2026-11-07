@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-06",
+  "generatedUtc": "2026-11-07T02:32:13.315751+00:00",
+  "baseline": "7dc648e120899e0a5b94c896c06b21f7d797183a",
+  "codeHead": "a4789224580330015cb214f38afd976b22249737",
+  "codeCommits": [
+    "a4789224580330015cb214f38afd976b22249737"
+  ],
+  "clarifiedIds": [
+    "C02",
+    "C17",
+    "C28",
+    "C29",
+    "C31",
+    "C35"
+  ],
+  "workingProse": [
+    "C28"
+  ],
+  "validation": {
+    "focusedAppTests": 53,
+    "navigationFontTests": 17,
+    "isolatedBeltFontTests": 10,
+    "appAnalysis": "clean",
+    "windowsDebugBuild": "successful isolated build",
+    "fullAppCoreSimulatorAndBalance": "not repeated; presentation-only follow-up",
+    "documentationAndWhitespace": "checks/docs-and-whitespace.log"
+  },
+  "sourceSha256": {
+    "apps/monstrous_sea/lib/src/screens/battle_screen.dart": "8bcc5d667615e2c836b25ca85319b3e91e9b10bf66c8194e67ddcad9e68bdcf6",
+    "apps/monstrous_sea/lib/src/screens/captain_screen.dart": "003a505d475de5508bfed379984bfa021cad3de44a1bebb441d0364c726335ca",
+    "apps/monstrous_sea/lib/src/screens/death_screen.dart": "3e11d3afc357b7281ca0d855dae48d893d02809d69db7d2465ba250d0a7b1a7c",
+    "apps/monstrous_sea/lib/src/screens/helm_screen.dart": "c093b1159016e386a34f8540519b2c14657cdc4c4c94d222ffac2531321c6061",
+    "apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart": "a9e7601d6b3aee2946b5aabb8cd6a9937a3ff32a674559ba8a635a11a4c2757b",
+    "apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart": "31e98e5ecc7e00d1739c044823e9107ce70c4a9534cacd466c40b8362be3fe0a",
+    "apps/monstrous_sea/test/belt_controls_test.dart": "b33f1fa4fcfeaaab199bdb354d22cbe2a2e4b61a6f1a8e1d14f32f7d48708c30",
+    "apps/monstrous_sea/test/helm_screen_test.dart": "e801bd1bdf1883dcceb97bedb9748315add854d4f9174c9b4d6e1c4d6c3fc2a0"
+  },
+  "evidenceCopiedFrom": {
+    "visual/helm-wide.png": "apps/monstrous_sea/.dart_tool/copy-followup-helm-1280x850.png",
+    "visual/helm-compact.png": "apps/monstrous_sea/.dart_tool/copy-followup-helm-360x900.png",
+    "visual/belt-help-wide.png": ".dart_tool/copy-followup-preview/build/belt-1280-1.15-help.png",
+    "visual/belt-help-compact.png": ".dart_tool/copy-followup-preview/build/belt-360-1.3-help.png",
+    "checks/app-analysis.log": "apps/monstrous_sea/.dart_tool/copy-followup-analysis.log",
+    "checks/focused-app-tests.log": "apps/monstrous_sea/.dart_tool/copy-followup-tests.log",
+    "checks/navigation-font-tests.log": "apps/monstrous_sea/.dart_tool/copy-followup-fonts.log",
+    "checks/belt-font-tests.log": ".dart_tool/copy-followup-preview/belt-font-tests.log",
+    "checks/windows-debug-build.log": ".dart_tool/copy-followup-preview/native-build-final.log",
+    "checks/isolated-dependencies.log": ".dart_tool/copy-followup-preview/native-dependencies.log"
+  },
+  "hashConvention": "Source hashes use canonical git blob bytes; other hashes use preserved raw bytes.",
+  "preservation": {
+    "previousAuditAndEvidenceUnchanged": true,
+    "coreSimulatorAndApprovedArtUnchanged": true,
+    "playerSaveWritesByAgent": false,
+    "previousBundlesOrCapturesReplaced": false
+  },
+  "artifactSha256": {
+    ".gitattributes": "408384b55715a5d43854f6bc742c8407e663fb5e42063645e20e4e04e259d78a",
+    "checks/app-analysis.log": "40d48cd4848082732da8be9ddb0a2cd1a993dc64aa76ebc78d33803b5744a91e",
+    "checks/belt-font-tests.log": "86726c68f351e82105010ebba12af2292081c08d6d0f99e8f68c72358b1727d1",
+    "checks/docs-and-whitespace.log": "cda5eb3ea038aa496028107e781ff5ad646faa06659df2329c0c78f3e4b5c991",
+    "checks/focused-app-tests.log": "18e8e866f4b199096babdf38e4b5c74f483b433b39420e13a5119ce3414fad2e",
+    "checks/isolated-dependencies.log": "973060bb6f7b5dac0714256cdc8d758cd1a855330d5cbd6aed3c0d116577dd4e",
+    "checks/navigation-font-tests.log": "cf32dba52c501a796ed4b7265b35ddda30977503d9a6dd04c073dc2c64c1c2bb",
+    "checks/windows-debug-build.log": "bc3c7efa6a26a75949e716f301b59f7ce177981ed8d82e70f27e66142f3c1c24",
+    "clarifications.json": "b7cc2c2cd0bdd217f27f5e6ce6d64a4043cbd78c55483b903317e3537ce803de",
+    "native-source-verification.json": "f2bb4e063e72608464e16d6b4e4aa4d9a71b7cf913a6705c66c3746fa6a0c27f",
+    "visual/belt-help-compact.png": "55478ce804c51564e1610f5150c5026c12303d61e5a62361142d10981fa7dd76",
+    "visual/belt-help-wide.png": "6c8b8619939c0a55af4863e2e1103a42186e18f59fb2ae0a3d65ad531b2d0630",
+    "visual/helm-compact.png": "c6704738c238a8ab0ec18ed9b2195cb90ecd06270bb57f61bdf207aa066f2e68",
+    "visual/helm-wide.png": "0c7715f326e692eae8a43cae7fee9f467b7f0e57429125d0e9f914a3988fee21"
+  }
+}

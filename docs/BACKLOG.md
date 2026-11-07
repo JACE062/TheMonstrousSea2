@@ -82,7 +82,9 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-08 — Sea chart needs a clearer player purpose
 
-- **Copy selections, implemented 6 November 2026:** The user approved 30 [review IDs](design/player-copy-review.md), now applied across chart headers, services, inspection, trading, wreck/loot, shrine/Covenant and save/settings copy. C02, C17, C28, C29, C31 and C35 require clarification and remain unchanged. No mechanics or tuning changed.
+- **Final copy clarifications, implemented 6 November 2026:** C02/C17/C28/C29/C31/C35 now follow the user’s [revised selections](design/player-copy-review.md): no wind explanation, comprehensive wreck recovery without loot-loss framing, hopeful working captain prose, victory-linked Nemesis wording, plain save identity and concise Belt Help retaining Drillmaster. All 36 IDs are delivered; C28 remains open to wording tweaks. Mechanics and tuning are unchanged.
+
+- **Copy selections, implemented 6 November 2026:** The user approved 30 [review IDs](design/player-copy-review.md), now applied across chart headers, services, inspection, trading, wreck/loot, shrine/Covenant and save/settings copy. The six subsequent clarifications are delivered in the follow-up above. No mechanics or tuning changed.
 
 - **Shore UI/chart follow-up, implemented 6 November 2026:** The [pre-boss merchant](playtests/2026-11-06/shore-ui/01-merchant.png) now follows the centered tabbed trading pattern and shows hull/inspection. The [stronghold inspection](playtests/2026-11-06/shore-ui/02-inspection.png) uses the same illustrated action as helm/chandlery. The [shore chart report](playtests/2026-11-06/shore-ui/03-port-chart.png) now has a full-width map, optional log panel and a genuine arrived-harbor endpoint instead of a detached icon beside the Titan. Removed the schedule/material instruction and corrected two stale refuge/rune descriptions. [Receipt](archive/README.md#shore-ui-and-port-chart-verification-2026-11-06). The [copy review](design/player-copy-review.md) now records the separately implemented and pending selections. Regional chart art is deferred below.
 

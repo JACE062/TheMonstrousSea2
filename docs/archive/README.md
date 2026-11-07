@@ -136,3 +136,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Approved player copy verification 2026-11-06
 
 [The approved-copy receipt](playtests/APPROVED_COPY_2026_11_06.md) records 30 implemented selections and six passages awaiting clarification. The [manifest](playtests/evidence/approved-copy-2026-11-06/manifest.json) retains the decision IDs, pending-text preservation check, final app/font checks, representative captures and separate Windows build verification. Earlier receipts retain their original status snapshots; the current copy review owns the latest decisions.
+
+## Copy clarification verification 2026-11-06
+
+[The clarification receipt](playtests/COPY_CLARIFICATIONS_2026_11_06.md) records the six subsequent answers: no wind caption, comprehensive wreck-salvage framing, hopeful working captain prose, the user's Nemesis wording, plain save identity and concise adaptive Belt Help. The [manifest](playtests/evidence/copy-clarifications-2026-11-06/manifest.json) retains focused checks, selected captures and a separate native build. All 36 copy decisions are implemented; C28 remains working prose. Earlier audits, builds and saves are preserved.
