@@ -1,7 +1,7 @@
 {
   "title": "Navigation and consumable artwork pass",
   "date": "2026-11-06",
-  "status": "Patch kit and kelp revised for review; revised hull preferred by user; not bundled",
+  "status": "Two fresh patch-kit variations for review; revised hull preferred; not bundled",
   "mode": "Built-in image_gen; transparent reference-based illustration",
   "reuse": [
     {
@@ -25,7 +25,7 @@
       "prompt": "Use case: precise-object-edit. Input image 1 is the exact edit target: the transparent Hull Patch Kit icon. Change ONLY the rope binding. Preserve the three stacked oak planks, their shapes/wood seams, diagonal wooden mallet, palette, bold ink contour style, composition, canvas and true alpha transparency. Replace the rope's bulky braided middle and malformed knot with TWO SIMPLE PARALLEL CORD WRAPS running vertically around the stack. Each wrap follows the plank surfaces and turns naturally over the top and under the bottom, with continuous believable paths. Tie-off is tucked behind the timber stack and invisible from this view: NO visible front knot, clump, braid, bow or looping tangle. Use smooth cream/tan cord with bold dark outlines and at most a few sparse diagonal rope marks. The mallet stays where it is. No new objects, labels, paper, glow, shadow or backdrop. Keep the complete icon fully inside a square 1254x1254 or larger transparent canvas.",
       "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-da7ab4c9-eb49-4a37-9a8f-db8f91a134d9.png",
       "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v2.png",
-      "status": "Revised candidate — awaiting user review",
+      "status": "Earlier rope-bound candidate retained; user requests review of two fresh alternatives",
       "references": [
         "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png"
       ],
@@ -54,7 +54,41 @@
         }
       ],
       "mode": "Built-in image_gen precise-object-edit",
-      "change": "Two clean rope wraps; tie-off hidden behind wood; malformed front knot removed."
+      "change": "Two clean rope wraps; tie-off hidden behind wood; malformed front knot removed.",
+      "alternatives": [
+        {
+          "id": "patch_loose_boards",
+          "label": "Loose boards and mallet",
+          "filename": "icon_hull_patch_kit_loose_boards_v1.png",
+          "prompt": "Use case: stylized-concept. Asset type: one Hull Patch Kit consumable illustration for a nautical game. Reference images 1 and 2 are STYLE REFERENCES ONLY; draw a new repair kit, do not copy their objects. Match their antique sea-chart simplicity: bold slightly irregular iron-gall #1B1612 contours, large flat warm cream #F4ECD8 and tan #D5C4A1 shapes, sparse dark wood-grain marks. A human-drawn, practical shipwright's kit with physically sensible parts and crisp joins. This is a small icon, so simplify aggressively; no glossy rendering, gradients, glow, shadow, dense engraving or decorative tiny details. Every timber has straight sawn edges and distinct top/side/end faces meeting coherently. No rounded pill-shaped planks, impossible merged objects, rope or knots. Square 1254x1254 or larger with true alpha transparency and at least 10% clear margin around the whole composition. No background, paper, frame, lettering, labels, emblems or other objects. Composition: a small fan of THREE short flat oak repair boards at the left, lightly overlapping but clearly separate, each board a plain rectangular sawn timber with a few economical grain lines. At the right lies ONE simple wooden caulking mallet, angled diagonally, separated from the boards by a small clear gap. The mallet has a single cylindrical wooden head and a straight handle inserted into the center of that head; show one unambiguous joint. The head is plain wood without decorative metal bands. Keep all parts similarly scaled and organized as a compact toolkit. NO bindings, straps, ties, nails, loose hardware or crossed tools. The clarity of the individual boards and the separate mallet is the priority.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-0160566c-ffaa-4ff3-9e9e-30e0786062a9.png",
+          "title": "Loose boards and mallet",
+          "kind": "consumable",
+          "mode": "Built-in image_gen; new reference-based illustration",
+          "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_loose_boards_v1.png",
+          "status": "Alternative candidate — awaiting user review",
+          "references": [
+            "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+            "apps/monstrous_sea/assets/art/icon_cannon_map.png"
+          ]
+        },
+        {
+          "id": "patch_leather_bundle",
+          "label": "Strapped shoring bundle",
+          "filename": "icon_hull_patch_kit_leather_bundle_v1.png",
+          "prompt": "Use case: stylized-concept. Asset type: one Hull Patch Kit consumable illustration for a nautical game. Reference images 1 and 2 are STYLE REFERENCES ONLY; draw a new repair kit, do not copy their objects. Match their antique sea-chart simplicity: bold slightly irregular iron-gall #1B1612 contours, large flat warm cream #F4ECD8 and tan #D5C4A1 shapes, sparse dark wood-grain marks. A human-drawn, practical shipwright's kit with physically sensible parts and crisp joins. This is a small icon, so simplify aggressively; no glossy rendering, gradients, glow, shadow, dense engraving or decorative tiny details. Every timber has straight sawn edges and distinct top/side/end faces meeting coherently. No rounded pill-shaped planks, impossible merged objects, rope or knots. Square 1254x1254 or larger with true alpha transparency and at least 10% clear margin around the whole composition. No background, paper, frame, lettering, labels, emblems or other objects. Composition: THREE short squared oak shoring boards stacked neatly in shallow three-quarter view, with the right end-grain faces clearly visible. ONE broad plain brown leather strap goes vertically around the center of the board stack, follows its top, front and bottom planes, and has a small rectangular brass buckle on the front. Show a believable closed loop, not a floating band or a knot. Sparse detail: one buckle frame, one pin, no extra holes. A simple wooden caulking mallet lies BELOW and beside the bundle with a narrow transparent gap, never threaded under or intersecting the strap or wood. Its plain wooden head and straight handle have a clear single joint; no decorative bands. A compact believable material bundle, not a treasure chest or box. Keep the wood as three distinct straight planks, not fused rounded lobes.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-19467daf-9139-49c0-869d-72300d301f44.png",
+          "title": "Strapped shoring bundle",
+          "kind": "consumable",
+          "mode": "Built-in image_gen; new reference-based illustration",
+          "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_leather_bundle_v1.png",
+          "status": "Alternative candidate — awaiting user review",
+          "references": [
+            "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+            "apps/monstrous_sea/assets/art/icon_cannon_map.png"
+          ]
+        }
+      ]
     },
     {
       "id": "kraken_ink",

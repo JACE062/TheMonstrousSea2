@@ -1,5 +1,5 @@
 # Candidate review composites only. Original generated PNGs remain unchanged.
-param([string]$Revision = '')
+param([string]$Revision = '', [switch]$PatchAlternatives)
 # Run with Windows PowerShell: powershell.exe -NoProfile -File tools/art/render_artwork_pass.ps1
 $ErrorActionPreference = 'Stop'
 if ($Revision -and $Revision -notmatch '^v[0-9]+$') { throw 'Revision must be v followed by digits' }
@@ -74,7 +74,8 @@ function Save-Proof($proof, [string]$name) {
   finally { $proof.G.Dispose(); $proof.Bitmap.Dispose() }
 }
 
-$checks = foreach ($asset in $review.assets) {
+$checkAssets = if ($PatchAlternatives) { @($review.assets[0].alternatives) } else { @($review.assets) }
+$checks = foreach ($asset in $checkAssets) {
   $assetPath = Join-Path $repoRoot $asset.path
   $check = [ArtworkAlphaCheck]::Inspect($assetPath)
   if ($check[0] -ne $check[1] -or $check[0] -lt 1024 -or $check[2] -lt .1 -or $check[3] -lt .03 -or $check[4] -ne 0) {
@@ -86,7 +87,31 @@ $checks = foreach ($asset in $review.assets) {
   }
   [ordered]@{ id = $asset.id; width = $check[0]; height = $check[1]; transparentFraction = $check[2]; paintedFraction = $check[3]; edgePixels = $check[4]; visibleBounds = $check[5..8]; sha256 = $hash }
 }
-$checks | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $outputRoot ('alpha-checks' + $suffix + '.json')) -Encoding UTF8
+$checksName = if ($PatchAlternatives) { 'patch-kit-variations' + $suffix + '-alpha-checks.json' } else { 'alpha-checks' + $suffix + '.json' }
+$checks | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $outputRoot $checksName) -Encoding UTF8
+
+if ($PatchAlternatives) {
+  if ($checkAssets.Count -ne 2) { throw 'Expected exactly two patch-kit alternatives' }
+  $proof = New-Proof 900 650 $paper
+  $proof.G.DrawString('Hull Patch Kit - two new variations', $titleFont, $brush, 24, 18)
+  $proof.G.DrawString('Large previews and actual 28 / 48 / 96 px samples. Neither option is selected.', $smallFont, $brush, 24, 56)
+  for ($i = 0; $i -lt $checkAssets.Count; $i++) {
+    $asset = $checkAssets[$i]; $x = $i * 450
+    $proof.G.DrawString($asset.title, $bodyFont, $brush, $x + 28, 100)
+    Draw-Art $proof.G (Join-Path $repoRoot $asset.path) ($x + 65) 135 320
+    $offset = 60
+    foreach ($size in @(28, 48, 96)) {
+      Draw-Art $proof.G (Join-Path $repoRoot $asset.path) ($x + $offset) (485 + (96 - $size) / 2) $size
+      $proof.G.DrawString([string]$size, $smallFont, $brush, $x + $offset, 597)
+      $offset += $size + 55
+    }
+    $proof.G.DrawRectangle($rule, $x + 14, 88, 422, 545)
+  }
+  Save-Proof $proof ('patch-kit-variations' + $suffix + '.png')
+  $bodyFont.Dispose(); $smallFont.Dispose(); $titleFont.Dispose(); $brush.Dispose(); $rule.Dispose()
+  Write-Output 'Two patch-kit alternative originals verified; review sheet rendered.'
+  return
+}
 
 $proof = New-Proof 1080 820 $paper
 $proof.G.DrawString('Consumables and chart controls - review candidates', $titleFont, $brush, 24, 18)

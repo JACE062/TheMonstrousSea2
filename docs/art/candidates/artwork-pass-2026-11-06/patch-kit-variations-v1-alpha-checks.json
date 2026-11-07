@@ -1,0 +1,32 @@
+﻿[
+    {
+        "id":  "patch_loose_boards",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.69411948749647068,
+        "paintedFraction":  0.2977941082952415,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              65,
+                              291,
+                              1189,
+                              1023
+                          ],
+        "sha256":  "213379283441B727042E0E1CD4C79B9D0A2FEBF886C2F5A95D5B630618F63361"
+    },
+    {
+        "id":  "patch_leather_bundle",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.50176405200328644,
+        "paintedFraction":  0.48325740405820988,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              78,
+                              197,
+                              1199,
+                              1150
+                          ],
+        "sha256":  "EFF9051FCEE07936B78884D8ADD75F1AB613526C12894F90ECEB6A343225AD71"
+    }
+]
