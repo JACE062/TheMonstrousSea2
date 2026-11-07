@@ -1,6 +1,9 @@
 # Candidate review composites only. Original generated PNGs remain unchanged.
+param([string]$Revision = '')
 # Run with Windows PowerShell: powershell.exe -NoProfile -File tools/art/render_artwork_pass.ps1
 $ErrorActionPreference = 'Stop'
+if ($Revision -and $Revision -notmatch '^v[0-9]+$') { throw 'Revision must be v followed by digits' }
+$suffix = if ($Revision) { '-' + $Revision } else { '' }
 Add-Type -AssemblyName System.Drawing
 Add-Type -ReferencedAssemblies System.Drawing -TypeDefinition @'
 using System;
@@ -83,7 +86,7 @@ $checks = foreach ($asset in $review.assets) {
   }
   [ordered]@{ id = $asset.id; width = $check[0]; height = $check[1]; transparentFraction = $check[2]; paintedFraction = $check[3]; edgePixels = $check[4]; visibleBounds = $check[5..8]; sha256 = $hash }
 }
-$checks | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $outputRoot 'alpha-checks.json') -Encoding UTF8
+$checks | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $outputRoot ('alpha-checks' + $suffix + '.json')) -Encoding UTF8
 
 $proof = New-Proof 1080 820 $paper
 $proof.G.DrawString('Consumables and chart controls - review candidates', $titleFont, $brush, 24, 18)
@@ -103,7 +106,7 @@ for ($i = 0; $i -lt $main.Count; $i++) {
   }
   $proof.G.DrawRectangle($rule, $x + 10, $y - 5, 340, 358)
 }
-Save-Proof $proof 'items-and-controls.png'
+Save-Proof $proof ('items-and-controls' + $suffix + '.png')
 
 $proof = New-Proof 1080 620 $chartPaper
 $proof.G.DrawString('Regional marginalia - placement study', $titleFont, $brush, 24, 18)
@@ -129,6 +132,6 @@ $route = [Drawing.Point[]]@((New-Object Drawing.Point(60, 555)), (New-Object Dra
 $proof.G.DrawLines($routePen, $route)
 foreach ($point in $route) { $proof.G.DrawEllipse($rule, $point.X - 12, $point.Y - 12, 24, 24) }
 $routePen.Dispose()
-Save-Proof $proof 'regional-context.png'
+Save-Proof $proof ('regional-context' + $suffix + '.png')
 $bodyFont.Dispose(); $smallFont.Dispose(); $titleFont.Dispose(); $brush.Dispose(); $rule.Dispose()
 Write-Output "8 original transparent PNGs verified; generated copies match sources. Two review sheets rendered."

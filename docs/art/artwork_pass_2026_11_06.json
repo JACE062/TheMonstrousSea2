@@ -1,7 +1,7 @@
 {
   "title": "Navigation and consumable artwork pass",
   "date": "2026-11-06",
-  "status": "Candidates for user review; not approved or bundled",
+  "status": "Patch kit and kelp revised for review; revised hull preferred by user; not bundled",
   "mode": "Built-in image_gen; transparent reference-based illustration",
   "reuse": [
     {
@@ -15,22 +15,46 @@
       "id": "hull_patch_kit",
       "title": "Hull Patch Kit",
       "kind": "consumable",
-      "filename": "icon_hull_patch_kit_map_v1.png",
+      "filename": "icon_hull_patch_kit_map_v2.png",
       "sizes": [
         28,
         48,
         96
       ],
-      "subject": "Draw one compact ship-repair bundle: three short oak shoring planks tightly lashed together with a single rope, a simple small wooden caulking mallet laid diagonally across their front. Planks are cream/tan with a few black wood seams; rope cream. Broad simple forms. No bottle, barrel, potion, nails scattered around, toolbox, extra tools or green medical cross.",
-      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw one compact ship-repair bundle: three short oak shoring planks tightly lashed together with a single rope, a simple small wooden caulking mallet laid diagonally across their front. Planks are cream/tan with a few black wood seams; rope cream. Broad simple forms. No bottle, barrel, potion, nails scattered around, toolbox, extra tools or green medical cross.",
-      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-a374eb3f-2a89-4902-b1bc-256c08820a5b.png",
-      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png",
-      "status": "Candidate — awaiting user selection",
+      "subject": "Two clean rope wraps; tie-off hidden behind wood; malformed front knot removed.",
+      "prompt": "Use case: precise-object-edit. Input image 1 is the exact edit target: the transparent Hull Patch Kit icon. Change ONLY the rope binding. Preserve the three stacked oak planks, their shapes/wood seams, diagonal wooden mallet, palette, bold ink contour style, composition, canvas and true alpha transparency. Replace the rope's bulky braided middle and malformed knot with TWO SIMPLE PARALLEL CORD WRAPS running vertically around the stack. Each wrap follows the plank surfaces and turns naturally over the top and under the bottom, with continuous believable paths. Tie-off is tucked behind the timber stack and invisible from this view: NO visible front knot, clump, braid, bow or looping tangle. Use smooth cream/tan cord with bold dark outlines and at most a few sparse diagonal rope marks. The mallet stays where it is. No new objects, labels, paper, glow, shadow or backdrop. Keep the complete icon fully inside a square 1254x1254 or larger transparent canvas.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-da7ab4c9-eb49-4a37-9a8f-db8f91a134d9.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v2.png",
+      "status": "Revised candidate — awaiting user review",
       "references": [
-        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
-        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+        "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png"
       ],
-      "reviewId": "A01"
+      "reviewId": "A01",
+      "history": [
+        {
+          "id": "hull_patch_kit",
+          "title": "Hull Patch Kit",
+          "kind": "consumable",
+          "filename": "icon_hull_patch_kit_map_v1.png",
+          "sizes": [
+            28,
+            48,
+            96
+          ],
+          "subject": "Draw one compact ship-repair bundle: three short oak shoring planks tightly lashed together with a single rope, a simple small wooden caulking mallet laid diagonally across their front. Planks are cream/tan with a few black wood seams; rope cream. Broad simple forms. No bottle, barrel, potion, nails scattered around, toolbox, extra tools or green medical cross.",
+          "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw one compact ship-repair bundle: three short oak shoring planks tightly lashed together with a single rope, a simple small wooden caulking mallet laid diagonally across their front. Planks are cream/tan with a few black wood seams; rope cream. Broad simple forms. No bottle, barrel, potion, nails scattered around, toolbox, extra tools or green medical cross.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-a374eb3f-2a89-4902-b1bc-256c08820a5b.png",
+          "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png",
+          "status": "Superseded candidate retained after user-requested revision",
+          "references": [
+            "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+            "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+          ],
+          "reviewId": "A01"
+        }
+      ],
+      "mode": "Built-in image_gen precise-object-edit",
+      "change": "Two clean rope wraps; tie-off hidden behind wood; malformed front knot removed."
     },
     {
       "id": "kraken_ink",
@@ -94,7 +118,7 @@
       },
       "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-5130ad26-366b-4072-8a5c-90edf067cc37.png",
       "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_chart_hull_map_v2.png",
-      "status": "Candidate — awaiting user selection",
+      "status": "User prefers revised hull v2, confirmed 6 November 2026; integration pending",
       "references": [
         "apps/monstrous_sea/assets/art/icon_treasure_map.png"
       ],
@@ -146,22 +170,46 @@
       "id": "sargasso_kelp",
       "title": "Sargasso Kelp",
       "kind": "ornament",
-      "filename": "chart_sargasso_kelp_map_v1.png",
+      "filename": "chart_sargasso_kelp_map_v2.png",
       "sizes": [
         96,
         180,
         260
       ],
-      "subject": "Draw a small chart vignette of three flowing kelp fronds with broad curling ribbon leaves and a few rounded air bladders, rising from one loose coil. The stems and leaves form an airy, horizontally balanced silhouette suitable as faded marginalia on an old sea chart. Cream/tan fills and black contours; a subtle muted olive #737850 accent is allowed on one or two broad leaves. No seabed, rocks, water background, fish, bubbles, people or frame. Sparse contours, not botanical realism.",
-      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw a small chart vignette of three flowing kelp fronds with broad curling ribbon leaves and a few rounded air bladders, rising from one loose coil. The stems and leaves form an airy, horizontally balanced silhouette suitable as faded marginalia on an old sea chart. Cream/tan fills and black contours; a subtle muted olive #737850 accent is allowed on one or two broad leaves. No seabed, rocks, water background, fish, bubbles, people or frame. Sparse contours, not botanical realism.",
-      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-23df496e-6531-4891-959c-cff718b174ea.png",
-      "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v1.png",
-      "status": "Candidate — awaiting user selection",
+      "subject": "Long overlapping seaweed strands replace the short branching sprig.",
+      "prompt": "Use case: precise-object-edit. Input image 1 is the existing transparent kelp candidate, used as the STYLE AND PALETTE edit target. Redraw its plant form completely to match the user's request: LONG TANGLING STRANDS OF SEAWEED drifting through the sea, rather than a short branch or decorative leaf sprig. Make an airy irregular patch of five long slender sinuous strands sweeping across one another at different angles, with clearly readable over-and-under crossings and open water gaps between the strands. The strands have elongated narrow ribbonlike kelp blades, occasional small air bladders, and varied loose curls. They trail horizontally and diagonally through a roughly square composition; no common central trunk, tidy vase-like stem, rooted base, symmetric foliage or leafy heraldic emblem. Preserve the approved simple antique nautical-chart style: bold iron-gall #1B1612 outlines, sparse interior curves, cream/tan fills with restrained muted olive #737850 accents. The result should look like a drifting tangle of long seaweed and stay readable as faded map marginalia. No dense engraving, photorealism, tiny intricate leaves, fish, seabed, rocks, waves, text, frame, shadow or paper. Square 1254x1254 or larger canvas, true alpha transparent background, full subject with clear padding on all edges.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-1638bec0-460d-4784-87b1-812011ce6d26.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v2.png",
+      "status": "Revised candidate — awaiting user review",
       "references": [
-        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
-        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+        "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v1.png"
       ],
-      "reviewId": "A07"
+      "reviewId": "A07",
+      "history": [
+        {
+          "id": "sargasso_kelp",
+          "title": "Sargasso Kelp",
+          "kind": "ornament",
+          "filename": "chart_sargasso_kelp_map_v1.png",
+          "sizes": [
+            96,
+            180,
+            260
+          ],
+          "subject": "Draw a small chart vignette of three flowing kelp fronds with broad curling ribbon leaves and a few rounded air bladders, rising from one loose coil. The stems and leaves form an airy, horizontally balanced silhouette suitable as faded marginalia on an old sea chart. Cream/tan fills and black contours; a subtle muted olive #737850 accent is allowed on one or two broad leaves. No seabed, rocks, water background, fish, bubbles, people or frame. Sparse contours, not botanical realism.",
+          "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw a small chart vignette of three flowing kelp fronds with broad curling ribbon leaves and a few rounded air bladders, rising from one loose coil. The stems and leaves form an airy, horizontally balanced silhouette suitable as faded marginalia on an old sea chart. Cream/tan fills and black contours; a subtle muted olive #737850 accent is allowed on one or two broad leaves. No seabed, rocks, water background, fish, bubbles, people or frame. Sparse contours, not botanical realism.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-23df496e-6531-4891-959c-cff718b174ea.png",
+          "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v1.png",
+          "status": "Superseded candidate retained after user-requested revision",
+          "references": [
+            "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+            "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+          ],
+          "reviewId": "A07"
+        }
+      ],
+      "mode": "Built-in image_gen precise-object-edit",
+      "change": "Long overlapping seaweed strands replace the short branching sprig."
     },
     {
       "id": "reach_caldera",
