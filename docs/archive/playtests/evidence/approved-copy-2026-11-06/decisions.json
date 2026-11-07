@@ -1,0 +1,74 @@
+{
+  "approvedAndImplemented": [
+    "C01",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C18",
+    "C19",
+    "C20",
+    "C21",
+    "C22",
+    "C23",
+    "C24",
+    "C25",
+    "C26",
+    "C27",
+    "C30",
+    "C32",
+    "C33",
+    "C34",
+    "C36"
+  ],
+  "awaitingClarification": [
+    "C02",
+    "C17",
+    "C28",
+    "C29",
+    "C31",
+    "C35"
+  ],
+  "pendingTextPreservation": {
+    "C02": {
+      "source": "apps/monstrous_sea/lib/src/screens/helm_screen.dart",
+      "matchesBaseline": true,
+      "normalizedSourceSha256": "024a7a882aa461f34437fa23b4e2c34b5646806a99fa365d418c068f718f1bea"
+    },
+    "C17": {
+      "source": "apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart",
+      "matchesBaseline": true,
+      "normalizedSourceSha256": "2abf30159f316f8ae4a061a56eea7d566dfe2be2a8ef29a0611880a545773823"
+    },
+    "C28": {
+      "source": "apps/monstrous_sea/lib/src/screens/captain_screen.dart",
+      "matchesBaseline": true,
+      "normalizedSourceSha256": "d25f0a242071165ff9a536c6de95b9b6b9484dadd02593f0a960feb31f81add8"
+    },
+    "C29": {
+      "source": "apps/monstrous_sea/lib/src/screens/death_screen.dart",
+      "matchesBaseline": true,
+      "normalizedSourceSha256": "90b7ce44da705e871c1c29a4824be54ad7e31be09d3a6d744987d8482adf2f94"
+    },
+    "C31": {
+      "source": "apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart",
+      "matchesBaseline": true,
+      "normalizedSourceSha256": "be680009769c5b0e38125d0ed515eaa37e320bcfe1253097a04a6437f6c495c4"
+    },
+    "C35": {
+      "source": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "matchesBaseline": true,
+      "normalizedSourceSha256": "c9fad78f93ed758aff6d8aa1580bb20f4fb67e1f91d77c7599c8a4fe499ea03a"
+    }
+  }
+}

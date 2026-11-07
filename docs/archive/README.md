@@ -131,4 +131,8 @@ Default ripgrep searches exclude this directory and the separate historical art 
 
 ## Shore UI and port chart verification 2026-11-06
 
-[The shore UI receipt](playtests/SHORE_UI_2026_11_06.md) records tabbed chandlery trading, shared live inspection, the enlarged shore chart and confirmed port endpoints. The [manifest](playtests/evidence/shore-ui-2026-11-06/manifest.json) retains the three player inputs, final checks/captures and separate native build verification. The 36-item copy review remains pending, and regional artwork remains deferred; prior audits, saves and mechanics are unchanged.
+[The shore UI receipt](playtests/SHORE_UI_2026_11_06.md) records tabbed chandlery trading, shared live inspection, the enlarged shore chart and confirmed port endpoints. The [manifest](playtests/evidence/shore-ui-2026-11-06/manifest.json) retains the three player inputs, final checks/captures and separate native build verification. The 36-item copy review was pending at this milestone, and regional artwork remains deferred; prior audits, saves and mechanics are unchanged.
+
+## Approved player copy verification 2026-11-06
+
+[The approved-copy receipt](playtests/APPROVED_COPY_2026_11_06.md) records 30 implemented selections and six passages awaiting clarification. The [manifest](playtests/evidence/approved-copy-2026-11-06/manifest.json) retains the decision IDs, pending-text preservation check, final app/font checks, representative captures and separate Windows build verification. Earlier receipts retain their original status snapshots; the current copy review owns the latest decisions.
