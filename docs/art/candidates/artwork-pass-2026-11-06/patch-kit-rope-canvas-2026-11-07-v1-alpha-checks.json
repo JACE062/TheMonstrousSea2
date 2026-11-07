@@ -1,0 +1,32 @@
+﻿[
+    {
+        "id":  "patch_rope_from_leather",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.50785683579690122,
+        "paintedFraction":  0.48038112171831637,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              79,
+                              197,
+                              1199,
+                              1149
+                          ],
+        "sha256":  "A58EDDD3D9ED2C92C86AB0F67EA60F1196D1691EE7FE1E4F772AF201A5FFBDFB"
+    },
+    {
+        "id":  "patch_canvas_packet",
+        "width":  1388,
+        "height":  1133,
+        "transparentFraction":  0.45204387118435413,
+        "paintedFraction":  0.53676640781786134,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              120,
+                              141,
+                              1257,
+                              1021
+                          ],
+        "sha256":  "D19A7B32D4147639E9F892E52DF50C2774A3E158A0060D7526F0D770C7B6F0E5"
+    }
+]

@@ -1,7 +1,7 @@
 {
   "title": "Navigation and consumable artwork pass",
   "date": "2026-11-06",
-  "status": "Packed Hull Patch Kit proposal for review; loose-board and strapped alternatives declined; not bundled",
+  "status": "Rope-only and canvas variations requested 7 November 2026, prepared for review; not bundled",
   "mode": "Built-in image_gen; transparent reference-based illustration",
   "reuse": [
     {
@@ -25,7 +25,7 @@
       "prompt": "Use case: precise-object-edit. Input image 1 is the exact edit target: the transparent Hull Patch Kit icon. Change ONLY the rope binding. Preserve the three stacked oak planks, their shapes/wood seams, diagonal wooden mallet, palette, bold ink contour style, composition, canvas and true alpha transparency. Replace the rope's bulky braided middle and malformed knot with TWO SIMPLE PARALLEL CORD WRAPS running vertically around the stack. Each wrap follows the plank surfaces and turns naturally over the top and under the bottom, with continuous believable paths. Tie-off is tucked behind the timber stack and invisible from this view: NO visible front knot, clump, braid, bow or looping tangle. Use smooth cream/tan cord with bold dark outlines and at most a few sparse diagonal rope marks. The mallet stays where it is. No new objects, labels, paper, glow, shadow or backdrop. Keep the complete icon fully inside a square 1254x1254 or larger transparent canvas.",
       "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-da7ab4c9-eb49-4a37-9a8f-db8f91a134d9.png",
       "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v2.png",
-      "status": "Earlier rope-bound candidates retained; packed repair-crate proposal pending review",
+      "status": "Rope-only edit of the leather version and canvas variant awaiting review",
       "references": [
         "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png"
       ],
@@ -82,7 +82,7 @@
           "kind": "consumable",
           "mode": "Built-in image_gen; new reference-based illustration",
           "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_leather_bundle_v1.png",
-          "status": "Declined by user: separate mallet does not read as a self-contained consumable; leather strap also rejected",
+          "status": "Leather binding declined; user selected its squared boards, hammer geometry and separate arrangement as the basis for the rope edit on 7 November",
           "references": [
             "apps/monstrous_sea/assets/art/icon_treasure_map.png",
             "apps/monstrous_sea/assets/art/icon_cannon_map.png"
@@ -102,9 +102,46 @@
           "apps/monstrous_sea/assets/art/icon_treasure_map.png",
           "apps/monstrous_sea/assets/art/icon_blast_pack_map.png"
         ],
-        "status": "Candidate — awaiting user review",
+        "status": "Declined by user as worse than earlier candidates; retain as evidence",
         "subject": "One open supply crate with short repair boards and sealed pitch pot packed inside; no detached tools or bindings."
-      }
+      },
+      "rounds": [
+        {
+          "id": "rope-canvas-2026-11-07",
+          "date": "2026-11-07",
+          "title": "Hull Patch Kit - rope and canvas",
+          "brief": "User requests the leather-version geometry with only the belt exchanged for rope, retaining the separate hammer, plus the discussed canvas variation. No lashing of the hammer.",
+          "assets": [
+            {
+              "id": "patch_rope_from_leather",
+              "title": "Rope replacement",
+              "filename": "icon_hull_patch_kit_rope_from_leather_v1.png",
+              "prompt": "Use case: precise-object-edit. Input image 1 is the EXACT edit target: three squared wooden shoring planks in a leather belt, with a separate square-headed wooden mallet below. Make ONLY ONE localized change: replace the brown leather belt and brass buckle with a simple cream/tan HEMP ROPE binding around the WOOD STACK ONLY. Two narrow adjacent turns of cord follow the same vertical path over the top, down the front and around the bottom of the planks that the belt occupied. Give the cord dark ink contours and only a few sparse diagonal rope marks. The tie-off is behind the stack, out of sight: no bulky front knot, bow or buckle. Fill the space exposed by the removed wide belt with coherent matching plank faces/grain. CRITICAL INVARIANTS: preserve EXACTLY the three squared planks' geometry, count, dimensions, orientation and position; preserve the separate mallet's square head, handle, geometry, position and gap below the boards; preserve canvas, framing, palette and sparse ink drawing style. DO NOT lash the hammer, move it, bind it, overlap it with the stack, or combine the objects. No canvas, crate, extra objects, tools or symbols. True alpha transparency, same square canvas. The result must visibly be the original leather version with only its belt/buckle exchanged for rope.",
+              "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-0ab54cce-df6e-45e8-9d39-f4ed6e2375a6.png",
+              "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_rope_from_leather_v1.png",
+              "mode": "Built-in image_gen precise-object-edit",
+              "references": [
+                "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_leather_bundle_v1.png"
+              ],
+              "status": "Candidate — awaiting user review"
+            },
+            {
+              "id": "patch_canvas_packet",
+              "title": "Canvas-wrapped kit",
+              "filename": "icon_hull_patch_kit_canvas_packet_v1.png",
+              "prompt": "Use case: precise-object-edit. Input image 1 is a subject/style reference and edit starting point: preserve the SAME three squared oak repair planks and the same plain square-headed wooden mallet, with their simple broad proportions, cream/tan colors and bold ink contour style. Make an alternate Hull Patch Kit packaged in ONE FOLDED PIECE OF WORN SAILCLOTH. Remove the belt and buckle completely. Arrange the boards and mallet together in a compact shallow canvas packet: the cloth folds up around the lower half and sides of the stack, while the board tops remain plainly visible. The wooden mallet rests alongside the boards inside the packet's lower fold, visibly a separate object held by the cloth; its square head and straight handle remain recognizable. No rope or lashing around the hammer. Use only two or three broad believable cloth folds, a plain folded-over edge and a few restrained wear marks. Cream/tan sailcloth, a slightly darker tan fold interior; sparse detail that reads at 48 pixels. Do not make a leather pouch, strapped stack, crate, chest, toolbox or shopping bag. No rope, knots, buckle, handle, pitch pot, labels, stitches, medical cross or extra supplies. Keep the approved antique nautical-map character with large simple forms and dark #1B1612 ink outlines; no photorealism, dense texture, fine hatching, glow, drop shadow, paper backdrop or frame. Square 1254x1254 or larger, true alpha-transparent background and clear margins around the whole packet.",
+              "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-cb1801e5-fe16-4a76-a41c-32c6f0f58c53.png",
+              "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_canvas_packet_v1.png",
+              "mode": "Built-in image_gen precise-object-edit",
+              "references": [
+                "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_leather_bundle_v1.png"
+              ],
+              "status": "Candidate — awaiting user review"
+            }
+          ]
+        }
+      ],
+      "currentReviewRound": "rope-canvas-2026-11-07"
     },
     {
       "id": "kraken_ink",

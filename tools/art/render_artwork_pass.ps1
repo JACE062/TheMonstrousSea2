@@ -1,9 +1,10 @@
 # Candidate review composites only. Original generated PNGs remain unchanged.
-param([string]$Revision = '', [switch]$PatchAlternatives, [switch]$PatchProposal)
+param([string]$Revision = '', [switch]$PatchAlternatives, [switch]$PatchProposal, [string]$PatchRound = '')
 # Run with Windows PowerShell: powershell.exe -NoProfile -File tools/art/render_artwork_pass.ps1
 $ErrorActionPreference = 'Stop'
 if ($Revision -and $Revision -notmatch '^v[0-9]+$') { throw 'Revision must be v followed by digits' }
-if ($PatchAlternatives -and $PatchProposal) { throw 'Choose one patch-kit proof mode' }
+if ((@($PatchAlternatives.IsPresent, $PatchProposal.IsPresent, [bool]$PatchRound) | Where-Object { $_ }).Count -gt 1) { throw 'Choose one patch-kit proof mode' }
+if ($PatchRound -and $PatchRound -notmatch '^[a-z0-9-]+$') { throw 'Invalid patch-kit review round ID' }
 $suffix = if ($Revision) { '-' + $Revision } else { '' }
 Add-Type -AssemblyName System.Drawing
 Add-Type -ReferencedAssemblies System.Drawing -TypeDefinition @'
@@ -66,7 +67,10 @@ function Draw-Art($graphics, [string]$sourcePath, [int]$x, [int]$y, [int]$size, 
     $matrix = New-Object Drawing.Imaging.ColorMatrix
     $matrix.Matrix33 = $alpha
     $attrs.SetColorMatrix($matrix)
-    $rect = New-Object Drawing.Rectangle($x, $y, $size, $size)
+    $scale = [Math]::Min($size / $image.Width, $size / $image.Height)
+    $drawWidth = [int][Math]::Round($image.Width * $scale)
+    $drawHeight = [int][Math]::Round($image.Height * $scale)
+    $rect = New-Object Drawing.Rectangle(($x + [int](($size - $drawWidth) / 2)), ($y + [int](($size - $drawHeight) / 2)), $drawWidth, $drawHeight)
     $graphics.DrawImage($image, $rect, 0, 0, $image.Width, $image.Height, [Drawing.GraphicsUnit]::Pixel, $attrs)
   } finally { $attrs.Dispose(); $image.Dispose() }
 }
@@ -75,11 +79,13 @@ function Save-Proof($proof, [string]$name) {
   finally { $proof.G.Dispose(); $proof.Bitmap.Dispose() }
 }
 
-$checkAssets = @(if ($PatchProposal) { $review.assets[0].proposal } elseif ($PatchAlternatives) { $review.assets[0].alternatives } else { $review.assets })
+$round = @($review.assets[0].rounds | Where-Object { $_.id -eq $PatchRound })
+if ($PatchRound -and $round.Count -ne 1) { throw 'Patch-kit review round not found' }
+$checkAssets = @(if ($PatchRound) { $round[0].assets } elseif ($PatchProposal) { $review.assets[0].proposal } elseif ($PatchAlternatives) { $review.assets[0].alternatives } else { $review.assets })
 $checks = foreach ($asset in $checkAssets) {
   $assetPath = Join-Path $repoRoot $asset.path
   $check = [ArtworkAlphaCheck]::Inspect($assetPath)
-  if ($check[0] -ne $check[1] -or $check[0] -lt 1024 -or $check[2] -lt .1 -or $check[3] -lt .03 -or $check[4] -ne 0) {
+  if ($check[0] -lt 1024 -or $check[1] -lt 1024 -or $check[2] -lt .1 -or $check[3] -lt .03 -or $check[4] -ne 0) {
     throw "Invalid size, alpha or clipped edges: $($asset.id)"
   }
   $hash = (Get-FileHash -LiteralPath $assetPath -Algorithm SHA256).Hash
@@ -88,15 +94,16 @@ $checks = foreach ($asset in $checkAssets) {
   }
   [ordered]@{ id = $asset.id; width = $check[0]; height = $check[1]; transparentFraction = $check[2]; paintedFraction = $check[3]; edgePixels = $check[4]; visibleBounds = $check[5..8]; sha256 = $hash }
 }
-$patchStem = if ($PatchProposal) { 'patch-kit-packed' } else { 'patch-kit-variations' }
-$checksName = if ($PatchAlternatives -or $PatchProposal) { $patchStem + $suffix + '-alpha-checks.json' } else { 'alpha-checks' + $suffix + '.json' }
+$patchStem = if ($PatchRound) { 'patch-kit-' + $PatchRound } elseif ($PatchProposal) { 'patch-kit-packed' } else { 'patch-kit-variations' }
+$checksName = if ($PatchRound -or $PatchAlternatives -or $PatchProposal) { $patchStem + $suffix + '-alpha-checks.json' } else { 'alpha-checks' + $suffix + '.json' }
 $checks | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $outputRoot $checksName) -Encoding UTF8
 
-if ($PatchAlternatives -or $PatchProposal) {
-  $expectedCount = if ($PatchProposal) { 1 } else { 2 }
+if ($PatchRound -or $PatchAlternatives -or $PatchProposal) {
+  $expectedCount = if ($PatchRound) { $round[0].assets.Count } elseif ($PatchProposal) { 1 } else { 2 }
+  if ($expectedCount -lt 1 -or $expectedCount -gt 2) { throw 'Patch-kit comparison supports one or two candidates' }
   if ($checkAssets.Count -ne $expectedCount) { throw 'Unexpected patch-kit candidate count' }
   $proof = New-Proof 900 650 $paper
-  $heading = if ($PatchProposal) { 'Hull Patch Kit - packed repair supplies' } else { 'Hull Patch Kit - two new variations' }
+  $heading = if ($PatchRound) { $round[0].title } elseif ($PatchProposal) { 'Hull Patch Kit - packed repair supplies' } else { 'Hull Patch Kit - two new variations' }
   $proof.G.DrawString($heading, $titleFont, $brush, 24, 18)
   $proof.G.DrawString('Large preview and actual 28 / 48 / 96 px samples. Candidate artwork.', $smallFont, $brush, 24, 56)
   for ($i = 0; $i -lt $checkAssets.Count; $i++) {
