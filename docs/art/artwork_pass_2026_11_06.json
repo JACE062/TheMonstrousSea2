@@ -1,0 +1,188 @@
+{
+  "title": "Navigation and consumable artwork pass",
+  "date": "2026-11-06",
+  "status": "Candidates for user review; not approved or bundled",
+  "mode": "Built-in image_gen; transparent reference-based illustration",
+  "reuse": [
+    {
+      "id": "sargasso_fog",
+      "path": "apps/monstrous_sea/assets/art/icon_fog_map.png",
+      "status": "Existing approved art; regional marginalia mapping proposed"
+    }
+  ],
+  "assets": [
+    {
+      "id": "hull_patch_kit",
+      "title": "Hull Patch Kit",
+      "kind": "consumable",
+      "filename": "icon_hull_patch_kit_map_v1.png",
+      "sizes": [
+        28,
+        48,
+        96
+      ],
+      "subject": "Draw one compact ship-repair bundle: three short oak shoring planks tightly lashed together with a single rope, a simple small wooden caulking mallet laid diagonally across their front. Planks are cream/tan with a few black wood seams; rope cream. Broad simple forms. No bottle, barrel, potion, nails scattered around, toolbox, extra tools or green medical cross.",
+      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw one compact ship-repair bundle: three short oak shoring planks tightly lashed together with a single rope, a simple small wooden caulking mallet laid diagonally across their front. Planks are cream/tan with a few black wood seams; rope cream. Broad simple forms. No bottle, barrel, potion, nails scattered around, toolbox, extra tools or green medical cross.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-a374eb3f-2a89-4902-b1bc-256c08820a5b.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+      ],
+      "reviewId": "A01"
+    },
+    {
+      "id": "kraken_ink",
+      "title": "Bottled Kraken Ink",
+      "kind": "consumable",
+      "filename": "icon_kraken_ink_map_v1.png",
+      "sizes": [
+        28,
+        48,
+        96
+      ],
+      "subject": "Draw a squat wide stoneware ink jar, rounded rectangular body, short neck, cork stopper with a simple cloth cap tied by cord. Cream/tan vessel. A single large dark ink droplet painted on its front, plus one small black ink drip from the lip, makes its contents unmistakable. No writing. Wide jar silhouette, distinctly NOT a spherical alchemy vial or a wooden barrel. No fuse, flame, tentacles, weapons or explosion.",
+      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw a squat wide stoneware ink jar, rounded rectangular body, short neck, cork stopper with a simple cloth cap tied by cord. Cream/tan vessel. A single large dark ink droplet painted on its front, plus one small black ink drip from the lip, makes its contents unmistakable. No writing. Wide jar silhouette, distinctly NOT a spherical alchemy vial or a wooden barrel. No fuse, flame, tentacles, weapons or explosion.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-5f096cc6-1821-4ef2-b7bc-20a3c74ffd10.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_kraken_ink_map_v1.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+      ],
+      "reviewId": "A02"
+    },
+    {
+      "id": "alchemical_pitch",
+      "title": "Alchemical Pitch Flask",
+      "kind": "consumable",
+      "filename": "icon_alchemical_pitch_map_v1.png",
+      "sizes": [
+        28,
+        48,
+        96
+      ],
+      "subject": "Draw one tall pear-shaped glass flask with narrow neck and cork, a simple cord loop tied around the neck. Inside is thick dark brown-black pitch with one broad amber/rust eddy. The body tapers toward its neck and has a slightly flattened bottom; distinctly taller/narrower than the reference round tincture bottle and not a stoneware jar or barrel. One broad cream glass contour only. No rainbow colors, no flame, no fuse, no label, no chemistry apparatus.",
+      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw one tall pear-shaped glass flask with narrow neck and cork, a simple cord loop tied around the neck. Inside is thick dark brown-black pitch with one broad amber/rust eddy. The body tapers toward its neck and has a slightly flattened bottom; distinctly taller/narrower than the reference round tincture bottle and not a stoneware jar or barrel. One broad cream glass contour only. No rainbow colors, no flame, no fuse, no label, no chemistry apparatus.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-f65443ef-6a3d-42bc-9cd3-48a9a28dd988.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_alchemical_pitch_map_v1.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+      ],
+      "reviewId": "A03"
+    },
+    {
+      "id": "chart_hull",
+      "title": "Hull",
+      "kind": "control",
+      "filename": "icon_chart_hull_map_v2.png",
+      "sizes": [
+        28,
+        36,
+        48
+      ],
+      "subject": "Draw one simple broad wooden sailing-ship HULL ONLY in side view, bow pointing right, curved keel and raised prow, a flat open top edge. Three wide cream/tan planking bands with bold black outlines. No sails, masts, rigging, flags, water, shield, heart or tools. Strong compact silhouette readable at 28 pixels; minimal interior detail. This represents the vessel's hull condition.",
+      "prompt": "Use case: stylized-concept. Create a transparent small game icon: a WOODEN SHIP HULL with no mast or sails. Input images are style references ONLY. Match the treasure chest's bold continuous dark ink outlines and tan wood. Side view, simple curved keel, raised prow pointing right, three wide planks and very few seams. Every outer and inner wood edge is bounded by a clearly visible #1B1612 INK STROKE as thick as the chest reference, including around the entire silhouette. Flat cream #F4ECD8 and tan #D5C4A1 fills. No glow, blur, shadow, gradients, feathered edges, paper or black backdrop. Keep the drawing compact with clean fully transparent margins on a square 1024x1024 or larger canvas. The entire hull must read at 28px. No water, extra symbols, labels or decorative frame. Transparent background is mandatory.",
+      "rejectedVariant": {
+        "filename": "icon_chart_hull_map_v1.png",
+        "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw one simple broad wooden sailing-ship HULL ONLY in side view, bow pointing right, curved keel and raised prow, a flat open top edge. Three wide cream/tan planking bands with bold black outlines. No sails, masts, rigging, flags, water, shield, heart or tools. Strong compact silhouette readable at 28 pixels; minimal interior detail. This represents the vessel's hull condition.",
+        "reason": "Soft silhouette and halo do not match the approved crisp outlined collection.",
+        "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-94379225-bbe2-402b-b7d9-2b0b981c8f41.png"
+      },
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-5130ad26-366b-4072-8a5c-90edf067cc37.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_chart_hull_map_v2.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png"
+      ],
+      "reviewId": "A04"
+    },
+    {
+      "id": "chart_purse",
+      "title": "Purse",
+      "kind": "control",
+      "filename": "icon_chart_purse_map_v1.png",
+      "sizes": [
+        28,
+        36,
+        48
+      ],
+      "subject": "Draw a plump tan leather coin purse tied at the neck with a single dark cord, two large brass-gold coins resting against its lower right side. Simple smooth bold outline, a few broad folds. Coins have no symbols, lettering or embossing. Compact legible silhouette at 28 pixels, no treasure chest, modern currency sign, gem or surrounding objects.",
+      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw a plump tan leather coin purse tied at the neck with a single dark cord, two large brass-gold coins resting against its lower right side. Simple smooth bold outline, a few broad folds. Coins have no symbols, lettering or embossing. Compact legible silhouette at 28 pixels, no treasure chest, modern currency sign, gem or surrounding objects.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-dbe84128-0490-42e5-a76a-64421c0d69f8.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_chart_purse_map_v1.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+      ],
+      "reviewId": "A05"
+    },
+    {
+      "id": "center_journey",
+      "title": "Center Journey",
+      "kind": "control",
+      "filename": "icon_center_journey_map_v1.png",
+      "sizes": [
+        28,
+        36,
+        48
+      ],
+      "subject": "Draw a simple antique brass chart-divider instrument with two legs spread, viewed face-on, each pointed foot poised at one of two small waypoint rings. A short gently curving dashed course connects the rings below the hinge. The object should clearly suggest measuring the whole plotted journey. One bold brass hinge and two cream/tan legs with black outline. Only two waypoint rings and three broad dashes. Compact geometric clarity at 28 pixels. NO paper sheet, compass rose, crosshair, target, arrows, numerals or labels.",
+      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw a simple antique brass chart-divider instrument with two legs spread, viewed face-on, each pointed foot poised at one of two small waypoint rings. A short gently curving dashed course connects the rings below the hinge. The object should clearly suggest measuring the whole plotted journey. One bold brass hinge and two cream/tan legs with black outline. Only two waypoint rings and three broad dashes. Compact geometric clarity at 28 pixels. NO paper sheet, compass rose, crosshair, target, arrows, numerals or labels.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-5a623d4a-8649-4441-9c7a-48a78cb4fe8d.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_center_journey_map_v1.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+      ],
+      "reviewId": "A06"
+    },
+    {
+      "id": "sargasso_kelp",
+      "title": "Sargasso Kelp",
+      "kind": "ornament",
+      "filename": "chart_sargasso_kelp_map_v1.png",
+      "sizes": [
+        96,
+        180,
+        260
+      ],
+      "subject": "Draw a small chart vignette of three flowing kelp fronds with broad curling ribbon leaves and a few rounded air bladders, rising from one loose coil. The stems and leaves form an airy, horizontally balanced silhouette suitable as faded marginalia on an old sea chart. Cream/tan fills and black contours; a subtle muted olive #737850 accent is allowed on one or two broad leaves. No seabed, rocks, water background, fish, bubbles, people or frame. Sparse contours, not botanical realism.",
+      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw a small chart vignette of three flowing kelp fronds with broad curling ribbon leaves and a few rounded air bladders, rising from one loose coil. The stems and leaves form an airy, horizontally balanced silhouette suitable as faded marginalia on an old sea chart. Cream/tan fills and black contours; a subtle muted olive #737850 accent is allowed on one or two broad leaves. No seabed, rocks, water background, fish, bubbles, people or frame. Sparse contours, not botanical realism.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-23df496e-6531-4891-959c-cff718b174ea.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v1.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+      ],
+      "reviewId": "A07"
+    },
+    {
+      "id": "reach_caldera",
+      "title": "Boiling Reach",
+      "kind": "ornament",
+      "filename": "chart_reach_caldera_map_v1.png",
+      "sizes": [
+        96,
+        180,
+        260
+      ],
+      "subject": "Draw a small antique chart vignette of a volcanic island: a low oval broken caldera rim on the left, a single taller cone to its right with an open crater and two broad curling steam wisps. One narrow rust-red lava channel runs down the cone. Cream/tan landform and black contours. A few short separated shore ripples, no filled sea. Simple sparse hand-drawn map symbol, not a realistic scene. No treasure marks, buildings, labels, eruption particles, billowing smoke, monsters or route markers.",
+      "prompt": "Use case: stylized-concept. Asset type: transparent nautical game illustration. Input images are STYLE REFERENCES only, not edit targets. Match the approved reference art's simple hand-inked 17th-century sea-map style: bold slightly uneven iron-gall #1B1612 contours, broad cream #F4ECD8 and tan #D5C4A1 forms, restrained brass #C59B27 and rust #8C2D19 only where specified, very sparse internal marks. This must work as a small UI illustration, with an unmistakable silhouette. NO photorealism, fine engraving, dense hatching, glow, 3D, drop shadow, lettering, labels, border, badge or paper background. Square 1024x1024 or larger canvas, true alpha transparency, at least 10 percent clear margin around the entire drawing. Keep the subject centered and fully inside the canvas. Draw a small antique chart vignette of a volcanic island: a low oval broken caldera rim on the left, a single taller cone to its right with an open crater and two broad curling steam wisps. One narrow rust-red lava channel runs down the cone. Cream/tan landform and black contours. A few short separated shore ripples, no filled sea. Simple sparse hand-drawn map symbol, not a realistic scene. No treasure marks, buildings, labels, eruption particles, billowing smoke, monsters or route markers.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-8e90d5ef-3c18-4fb0-aa93-396132f9ed41.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_reach_caldera_map_v1.png",
+      "status": "Candidate — awaiting user selection",
+      "references": [
+        "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
+      ],
+      "reviewId": "A08"
+    }
+  ]
+}

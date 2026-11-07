@@ -1,0 +1,122 @@
+﻿[
+    {
+        "id":  "hull_patch_kit",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.60611084402320869,
+        "paintedFraction":  0.38720687102706747,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              118,
+                              266,
+                              1131,
+                              1022
+                          ],
+        "sha256":  "F5E02394615E7FADE8602DB58AB0B417997FAD2C021F968E6CDF6B4217801458"
+    },
+    {
+        "id":  "kraken_ink",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.52342742458582292,
+        "paintedFraction":  0.46950746447094976,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              150,
+                              121,
+                              1095,
+                              1174
+                          ],
+        "sha256":  "C8491E565B5DF0DDC6256693F0624BD5970128289AC4BC397193ED631D4A1CB8"
+    },
+    {
+        "id":  "alchemical_pitch",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.73720839724365284,
+        "paintedFraction":  0.2544031348488664,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              334,
+                              63,
+                              894,
+                              1206
+                          ],
+        "sha256":  "C6C3B2A58AF3B707A9C9B7FB007F9ECDEA6909496F0F09E993519BC2B9E60403"
+    },
+    {
+        "id":  "chart_hull",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.74922926062437523,
+        "paintedFraction":  0.24558796222105211,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              68,
+                              361,
+                              1206,
+                              922
+                          ],
+        "sha256":  "EB927179722ABA094E3D3F8B9FDED3A441AF582E853FDADD4D2E028EF717C252"
+    },
+    {
+        "id":  "chart_purse",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.59510618651892888,
+        "paintedFraction":  0.39795779502402517,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              152,
+                              121,
+                              1101,
+                              1179
+                          ],
+        "sha256":  "DB2B02145016C042555C04C8129CC0200336BEB518BE1353FCAB9FBEDD063D0E"
+    },
+    {
+        "id":  "center_journey",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.78967400013735944,
+        "paintedFraction":  0.19801388348353849,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              119,
+                              122,
+                              1135,
+                              1151
+                          ],
+        "sha256":  "A161E10291166E54B6ED6C86A4C5628DFB3D0A5ECFE56C4D5FE4C7AEE7681145"
+    },
+    {
+        "id":  "sargasso_kelp",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.76881888642150542,
+        "paintedFraction":  0.21030310661385956,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              76,
+                              162,
+                              1177,
+                              1127
+                          ],
+        "sha256":  "BAC0FC54A2DDBCEC756CC5F296DAC7069CB2FA2E91ECADC99AA587168B036286"
+    },
+    {
+        "id":  "reach_caldera",
+        "width":  1254,
+        "height":  1254,
+        "transparentFraction":  0.716102729638363,
+        "paintedFraction":  0.23794543266968349,
+        "edgePixels":  0,
+        "visibleBounds":  [
+                              87,
+                              176,
+                              1159,
+                              1058
+                          ],
+        "sha256":  "5D8E96D7959250A86D6773DD64E0C39A534F24AE0295E121B9F87497EA3B63C5"
+    }
+]
