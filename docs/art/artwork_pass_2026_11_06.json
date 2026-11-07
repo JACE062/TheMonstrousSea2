@@ -170,19 +170,19 @@
       "id": "sargasso_kelp",
       "title": "Sargasso Kelp",
       "kind": "ornament",
-      "filename": "chart_sargasso_kelp_map_v2.png",
+      "filename": "chart_sargasso_kelp_map_v3.png",
       "sizes": [
         96,
         180,
         260
       ],
-      "subject": "Long overlapping seaweed strands replace the short branching sprig.",
-      "prompt": "Use case: precise-object-edit. Input image 1 is the existing transparent kelp candidate, used as the STYLE AND PALETTE edit target. Redraw its plant form completely to match the user's request: LONG TANGLING STRANDS OF SEAWEED drifting through the sea, rather than a short branch or decorative leaf sprig. Make an airy irregular patch of five long slender sinuous strands sweeping across one another at different angles, with clearly readable over-and-under crossings and open water gaps between the strands. The strands have elongated narrow ribbonlike kelp blades, occasional small air bladders, and varied loose curls. They trail horizontally and diagonally through a roughly square composition; no common central trunk, tidy vase-like stem, rooted base, symmetric foliage or leafy heraldic emblem. Preserve the approved simple antique nautical-chart style: bold iron-gall #1B1612 outlines, sparse interior curves, cream/tan fills with restrained muted olive #737850 accents. The result should look like a drifting tangle of long seaweed and stay readable as faded map marginalia. No dense engraving, photorealism, tiny intricate leaves, fish, seabed, rocks, waves, text, frame, shadow or paper. Square 1254x1254 or larger canvas, true alpha transparent background, full subject with clear padding on all edges.",
-      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-1638bec0-460d-4784-87b1-812011ce6d26.png",
-      "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v2.png",
-      "status": "Revised candidate — awaiting user review",
+      "subject": "Long overlapping kelp strands without berry-like pods.",
+      "prompt": "Use case: precise-object-edit. Input image 1 is the EXACT edit target: transparent tangled-kelp chart ornament. Remove ALL FOUR small gold/ochre berry-like oval pods (air bladders) and their short connecting stalks. They are approximately at 59% across / 23% down, 31% / 44%, 27% / 66%, and 59% / 77%. Restore clear alpha-transparent space where the pods and stalks were, with clean continuous contours for any adjacent long seaweed strands. Change NOTHING else: preserve the long intertwined ribbon strands, every curl and crossing, overall composition, muted olive/cream/tan colors, bold dark ink outlines, scale, framing and square canvas. No new leaves, pods, berries, circles, buds, fruit, flowers, ornaments or objects. Do not redraw or rearrange the strands. Preserve true alpha transparency; no paper, black backdrop, checkerboard, shadow or glow. The only visible change is that all four oval pods and their short stalks are gone.",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-7bc3dfe8-12ea-4b0c-87c3-1e2e7ba39dbd.png",
+      "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v3.png",
+      "status": "Revised candidate — pod removal requested by user; awaiting review",
       "references": [
-        "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v1.png"
+        "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v2.png"
       ],
       "reviewId": "A07",
       "history": [
@@ -206,10 +206,32 @@
             "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png"
           ],
           "reviewId": "A07"
+        },
+        {
+          "id": "sargasso_kelp",
+          "title": "Sargasso Kelp",
+          "kind": "ornament",
+          "filename": "chart_sargasso_kelp_map_v2.png",
+          "sizes": [
+            96,
+            180,
+            260
+          ],
+          "subject": "Long overlapping seaweed strands replace the short branching sprig.",
+          "prompt": "Use case: precise-object-edit. Input image 1 is the existing transparent kelp candidate, used as the STYLE AND PALETTE edit target. Redraw its plant form completely to match the user's request: LONG TANGLING STRANDS OF SEAWEED drifting through the sea, rather than a short branch or decorative leaf sprig. Make an airy irregular patch of five long slender sinuous strands sweeping across one another at different angles, with clearly readable over-and-under crossings and open water gaps between the strands. The strands have elongated narrow ribbonlike kelp blades, occasional small air bladders, and varied loose curls. They trail horizontally and diagonally through a roughly square composition; no common central trunk, tidy vase-like stem, rooted base, symmetric foliage or leafy heraldic emblem. Preserve the approved simple antique nautical-chart style: bold iron-gall #1B1612 outlines, sparse interior curves, cream/tan fills with restrained muted olive #737850 accents. The result should look like a drifting tangle of long seaweed and stay readable as faded map marginalia. No dense engraving, photorealism, tiny intricate leaves, fish, seabed, rocks, waves, text, frame, shadow or paper. Square 1254x1254 or larger canvas, true alpha transparent background, full subject with clear padding on all edges.",
+          "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-1638bec0-460d-4784-87b1-812011ce6d26.png",
+          "path": "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v2.png",
+          "status": "Superseded candidate; user requested removal of all berry-like pods",
+          "references": [
+            "docs/art/candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v1.png"
+          ],
+          "reviewId": "A07",
+          "mode": "Built-in image_gen precise-object-edit",
+          "change": "Long overlapping seaweed strands replace the short branching sprig."
         }
       ],
       "mode": "Built-in image_gen precise-object-edit",
-      "change": "Long overlapping seaweed strands replace the short branching sprig."
+      "change": "Remove all four oval pods and connecting stalks while retaining the long tangled strands."
     },
     {
       "id": "reach_caldera",
