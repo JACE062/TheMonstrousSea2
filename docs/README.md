@@ -21,7 +21,7 @@ Start here for The Monstrous Sea V2. This guide replaced the overlapping handoff
 
 The [asset manifest](art/sea_map_art_manifest.json), [art revision records](art/sea_map_revisions_v5.json), and [approved chart markers](art/chart_icon_prompts.json) are visual evidence for asset work. They do not define gameplay. [Playtest screenshots](playtests/2026-10-20/) remain available as evidence.
 
-The [6 November artwork review](art/artwork-pass-2026-11-06.md) contains the consumable/chart candidates and small-size/regional proofs. The user selected the rope-bound Hull Patch Kit on 7 November; it is integrated into the app, while the remaining drafts stay outside the production bundle. Stronghold shipwright Master Refits remain deferred under [FUT-01](BACKLOG.md#future-master-refits), reaffirmed as the user's Daedalus Hammer-like direction.
+The [6 November artwork review](art/artwork-pass-2026-11-06.md) retains the consumable/chart candidates and small-size/regional proofs. All eight selected illustrations are approved and integrated as of 7 November, including the revised hull and berry-free kelp; unused alternatives remain outside the bundle. Stronghold shipwright Master Refits remain deferred under [FUT-01](BACKLOG.md#future-master-refits), reaffirmed as the user's Daedalus Hammer-like direction.
 
 ## Authority and status
 

@@ -66,6 +66,12 @@ Future<void> captureChartFocusProof(
       PilotArt.shark,
       PilotArt.squid,
       PilotArt.serpent,
+      PilotArt.chartHull,
+      PilotArt.chartPurse,
+      PilotArt.centerJourney,
+      PilotArt.sargassoKelp,
+      PilotArt.reachCaldera,
+      PilotArt.fog,
     ]) {
       await precacheImage(AssetImage(asset), key.currentContext!);
     }

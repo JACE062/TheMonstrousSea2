@@ -1,8 +1,12 @@
 # Consumable and chart artwork review — 6 November 2026
 
-**Status: the user approved the rope replacement on 7 November 2026; Hull Patch Kit now uses it in the app. Other asset selections remain in review.** The user scheduled this focused pass after the navigation/playtest UI work. Broader hardpoint, material, Covenant and home-menu artwork remains deferred in [the backlog](../BACKLOG.md#deferred-ui-art-and-icons).
+**Status: all eight selected illustrations approved and integrated on 7 November 2026, using the revised hull and berry-free kelp.** The user scheduled this focused pass after the navigation/playtest UI work. Broader hardpoint, material, Covenant and home-menu artwork remains deferred in [the backlog](../BACKLOG.md#deferred-ui-art-and-icons).
 
-The project requires approved art in the app bundle ([developer guide](../../CLAUDE.md#presentation-and-art)). Review originals live in a separate [candidate directory](candidates/artwork-pass-2026-11-06/). Only the selected rope kit has been copied into the app; unselected drafts remain outside the bundle. Existing approved assets, player saves and historical evidence are preserved.
+The project requires approved art in the app bundle ([developer guide](../../CLAUDE.md#presentation-and-art)). Review originals live in a separate [candidate directory](candidates/artwork-pass-2026-11-06/). All eight selected originals have been copied unchanged into the app; unused alternatives remain outside the bundle. Existing approved assets, player saves and historical evidence are preserved.
+
+## Approved complete pass
+
+The user approved the rest of the pass after selecting the rope kit, explicitly retaining the revised hull and berry-free kelp. The app now uses the three accurate consumable illustrations, revised Hull/Purse status art, chart dividers for Center Journey, Drift kelp/fog and Reach volcanic marginalia. [Complete integration verification](../archive/README.md#approved-artwork-pass-verification-2026-11-07) records the visited-region-only rendering checks, real-font layouts and separate Windows preview. All prior drafts and receipts below remain historical evidence.
 
 ## Approved Hull Patch Kit
 
@@ -52,28 +56,28 @@ The initial individual previews numbered nine because the hull had two drafts. T
 
 Both were generated afresh from the approved treasure/cannon style references, rather than editing the old rounded planks and rope. [Alternative alpha checks/hashes](candidates/artwork-pass-2026-11-06/patch-kit-variations-v1-alpha-checks.json) verify the source copies and transparency. Reproduce the comparison with `powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/art/render_artwork_pass.ps1 -PatchAlternatives -Revision v1`. The following combined sheet retains the earlier patch-kit candidate as retained evidence; the loose-board option and leather binding were declined, with the leather version's geometry reused for the latest edit.
 
-## Candidates
+## Selected illustrations and earlier review proof
 
 ![Consumables and controls, including small-size proofs](candidates/artwork-pass-2026-11-06/items-and-controls-v3.png)
 
-| ID | Candidate | Intended mapping |
+| ID | Selection | Integrated use |
 | --- | --- | --- |
-| A01 | Hull Patch Kit — [approved rope replacement](#approved-hull-patch-kit); earlier drafts retained for comparison | Replace the incorrectly reused tincture bottle for this consumable everywhere the shared item-art selector is used. |
-| A02 | [Bottled Kraken Ink](candidates/artwork-pass-2026-11-06/icon_kraken_ink_map_v1.png) — squat stoneware jar with ink drop | Replace the incorrectly reused Blast Pack barrel. The broad jar silhouette differs from both flasks. |
-| A03 | [Alchemical Pitch Flask](candidates/artwork-pass-2026-11-06/icon_alchemical_pitch_map_v1.png) — tall narrow flask with dark pitch | Replace the incorrectly reused Blast Pack barrel. The shape and restrained rust accent distinguish it from the round multicolored tincture. |
-| A04 | [Hull](candidates/artwork-pass-2026-11-06/icon_chart_hull_map_v2.png) — bare planked hull | Replace the chart status shield. Retain the Hull label, numbers and condition colors. The user prefers this revised hull to the first attempt. |
-| A05 | [Purse](candidates/artwork-pass-2026-11-06/icon_chart_purse_map_v1.png) — tied coin pouch | Replace the chart's generic overlapping circles. Retain the Purse label, gold amount and gold accent. |
-| A06 | [Center Journey](candidates/artwork-pass-2026-11-06/icon_center_journey_map_v1.png) — dividers spanning a plotted course | Replace the centering symbol. Retain the tooltip, input behavior and current zoom. |
+| A01 | Hull Patch Kit — [approved rope replacement](#approved-hull-patch-kit); earlier drafts retained for comparison | Replaces the tincture bottle through the shared item-art selector. |
+| A02 | [Bottled Kraken Ink](candidates/artwork-pass-2026-11-06/icon_kraken_ink_map_v1.png) — squat stoneware jar with ink drop | Replaces the Blast Pack barrel. The broad jar silhouette differs from both flasks. |
+| A03 | [Alchemical Pitch Flask](candidates/artwork-pass-2026-11-06/icon_alchemical_pitch_map_v1.png) — tall narrow flask with dark pitch | Replaces the Blast Pack barrel. The tall shape and restrained rust accent distinguish it from the round multicolored tincture. |
+| A04 | [Hull](candidates/artwork-pass-2026-11-06/icon_chart_hull_map_v2.png) — bare planked hull | Replaces the chart status shield. Retain the Hull label, numbers and condition colors. The user prefers this revised hull to the first attempt. |
+| A05 | [Purse](candidates/artwork-pass-2026-11-06/icon_chart_purse_map_v1.png) — tied coin pouch | Replaces the chart's generic overlapping circles. Retain the Purse label, gold amount and gold accent. |
+| A06 | [Center Journey](candidates/artwork-pass-2026-11-06/icon_center_journey_map_v1.png) — dividers spanning a plotted course | Replaces the centering symbol. Retain the tooltip, input behavior and current zoom. |
 | A07 | [Sargasso kelp](candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v3.png) | Long tangled strands of decorative kelp near committed Drift history, paired with the existing approved fog illustration. |
 | A08 | [Boiling Reach](candidates/artwork-pass-2026-11-06/chart_reach_caldera_map_v1.png) — cone and broken caldera | Decorative volcanic landforms near committed Reach history. |
 
-Control samples include the existing 22-pixel badge size and larger 28/36-pixel alternatives. A starting integration proposal is 28–32 logical pixels for the illustrated controls, with final layout checks at 115–130% text. The images supplement existing labels and tooltips; small-size readability is part of the selection, not established by inspecting only the large originals.
+Control samples include the existing 22-pixel badge size and larger 28/36-pixel alternatives. The integrated hull/purse illustrations use 32 logical pixels and Center Journey uses 28; real-font layouts were checked at 115–130% text. The images supplement existing labels and tooltips; small-size readability is part of the selection, not established by inspecting only the large originals.
 
 ## Regional treatment
 
 ![Full-strength and faded regional decoration](candidates/artwork-pass-2026-11-06/regional-context-v3.png)
 
-This is a placement study, **not a gameplay screenshot**. Existing [fog artwork](../../apps/monstrous_sea/assets/art/icon_fog_map.png) is reusable; no replacement is needed. Proposed ornaments move with the chart and are faded below route markers. Final placement must avoid obscuring the wake, labels or controls. It must depend only on visited regions/committed history, reveal no future destinations, consume no gameplay RNG and add no terrain rules. Keep the existing creature marginalia and structural map linework.
+This retained image is the original placement study, **not a gameplay screenshot**. Existing [fog artwork](../../apps/monstrous_sea/assets/art/icon_fog_map.png) is reusable; no replacement is needed. Integrated ornaments move with the chart and are faded below route markers. Placement uses committed regional visits, avoids recorded markers and other illustrations, and adds no terrain rules or gameplay RNG. Existing creature marginalia and structural map linework remain; later-region illustrations replace generic coast sketches in those waters.
 
 ## Provenance and verification
 
@@ -82,4 +86,4 @@ This is a placement study, **not a gameplay screenshot**. Existing [fog artwork]
 - [The proof renderer](../../tools/art/render_artwork_pass.ps1) resizes/composites copies for review only. It does not modify the originals. The retained v3 sheets describe the pre-approval state; render the current record into a new version with `powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/art/render_artwork_pass.ps1 -Revision v4` from the repository root.
 - The combined, regional and patch-kit comparison sheets were visually inspected at full size before selection. The [integration receipt](../archive/README.md#hull-patch-kit-art-verification-2026-11-07) separately records verification of the approved kit in the app. Earlier candidate proofs do not imply approval or runtime integration of the other illustrations.
 
-The Hull Patch Kit mapping is integrated. After their own selections, integrate the ink and pitch mappings through `SvgAssetView.pathForItem`; then update selected helm badges, Center Journey control and regional marginalia. Adding illustrations to the currently text-only inspection/combat belt is a separate presentation change. Verify bundle decoding, item identity, visited-region-only placement and realistic chart layouts. Do not change saves, encounters or provisional tuning as part of this art pass.
+All eight selections are integrated and verified. Adding illustrations to the currently text-only inspection/combat belt remains separate presentation work. The pass changes no saves, encounters or provisional tuning.

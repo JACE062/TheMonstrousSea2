@@ -9,6 +9,8 @@ import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/voyage_log_view.dart';
 import '../widgets/vessel_inspection.dart';
+import '../widgets/pilot_art.dart';
+import '../widgets/svg_asset_view.dart';
 
 /// The chart and current lookout reports form one navigation surface.
 class HelmScreen extends StatefulWidget {
@@ -65,10 +67,7 @@ class _HelmScreenState extends State<HelmScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text('EMERGENCY HULL TRIAGE', style: InkTheme.statValue),
-                Text(
-                  'Patch the hull to 25% integrity.',
-                  style: InkTheme.body,
-                ),
+                Text('Patch the hull to 25% integrity.', style: InkTheme.body),
                 InkButton(
                   label: 'PATCH TO 25% · ${controller.emergencyRepairCost}g',
                   onPressed:
@@ -172,13 +171,13 @@ class _HelmScreenState extends State<HelmScreen> {
             label: 'HULL',
             value: '${ship.currentHp}/${ship.maxHp}',
             color: hullColor,
-            icon: Icons.shield_outlined,
+            art: PilotArt.chartHull,
           ),
           _HelmStatusBadge(
             label: 'PURSE',
             value: '${ship.gold}g',
             color: InkTheme.goldAccent,
-            icon: Icons.toll,
+            art: PilotArt.chartPurse,
           ),
         ],
       ],
@@ -515,11 +514,11 @@ class _HelmStatusBadge extends StatelessWidget {
     required this.label,
     required this.value,
     required this.color,
-    required this.icon,
+    required this.art,
   });
   final String label, value;
   final Color color;
-  final IconData icon;
+  final String art;
   @override
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -531,7 +530,9 @@ class _HelmStatusBadge extends StatelessWidget {
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, color: color, size: 22),
+        ExcludeSemantics(
+          child: SvgAssetView(assetPath: art, width: 32, height: 32),
+        ),
         const SizedBox(width: 8),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

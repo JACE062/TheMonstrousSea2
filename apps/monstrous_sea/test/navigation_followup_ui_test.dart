@@ -62,6 +62,8 @@ Future<void> _proof(WidgetTester tester, GlobalKey key, String name) async {
       PilotArt.standard,
       PilotArt.defeatedMonster,
       PilotArt.hullPatchKit,
+      PilotArt.krakenInk,
+      PilotArt.alchemicalPitch,
       'assets/art/icon_blast_pack_map.png',
       'assets/art/icon_unstable_tincture_map_v4.png',
     ]) {
@@ -202,7 +204,7 @@ void main() {
       c.session.merchantStock = [
         kit,
         generateConsumable(ConsumableType.krakenInkBomb, RarityLevel.common),
-        generateConsumable(ConsumableType.blastPack, RarityLevel.common),
+        generateConsumable(ConsumableType.alchemicalPitch, RarityLevel.common),
       ];
       c.session.onSaleMerchantIndex = 1;
       final key = GlobalKey();

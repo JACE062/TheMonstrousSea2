@@ -9,8 +9,101 @@ import 'svg_asset_view.dart';
 /// Faded illustrations and uncertain coast sketches, without waypoint semantics.
 /// Anchors depend only on recorded points; neither offers nor gameplay RNG enter.
 class ChartMarginalia extends StatelessWidget {
-  const ChartMarginalia({super.key, required this.points});
+  const ChartMarginalia({
+    super.key,
+    required this.points,
+    this.regionVisits = const [],
+  });
   final List<Offset> points;
+  final List<({int regionIndex, Offset point})> regionVisits;
+
+  bool _hasRegionalArt(Offset point) => regionVisits.any(
+    (visit) => visit.regionIndex > 0 && visit.point.dx <= point.dx,
+  );
+
+  // Regional illustrations use committed visits, never the active region or
+  // offered courses. They remain anchored when another visit is appended.
+  List<Widget> _regionalIllustrations() {
+    final occupied = [
+      for (var i = 0; i < points.length; i += 10) ...[
+        Rect.fromLTWH(points[i].dx + 145, points[i].dy - 280, 300, 190),
+        if (!_hasRegionalArt(points[i]))
+          Rect.fromLTWH(points[i].dx + 70, points[i].dy + 120, 250, 165),
+      ],
+    ];
+    final illustrations = <Widget>[];
+    void add(
+      String key,
+      String asset,
+      Rect target,
+      double opacity, {
+      bool above = false,
+    }) {
+      final direction = above ? -1.0 : 1.0;
+      for (final shift in [0.0, direction * 190, direction * 380]) {
+        final rect = target.shift(Offset(0, shift));
+        if (occupied.any((other) => other.inflate(16).overlaps(rect)) ||
+            points.any(
+              (point) => Rect.fromCenter(
+                center: point,
+                width: 100,
+                height: 100,
+              ).overlaps(rect),
+            )) {
+          continue;
+        }
+        occupied.add(rect);
+        illustrations.add(
+          Positioned.fromRect(
+            rect: rect,
+            child: Opacity(
+              opacity: opacity,
+              child: SvgAssetView(
+                key: ValueKey(key),
+                assetPath: asset,
+                width: rect.width,
+                height: rect.height,
+              ),
+            ),
+          ),
+        );
+        break;
+      }
+    }
+
+    for (final region in [1, 2]) {
+      final visits = regionVisits
+          .where((visit) => visit.regionIndex == region)
+          .toList();
+      for (var i = 0; i < visits.length; i += 6) {
+        final anchor = visits[i].point;
+        if (region == 1) {
+          add(
+            'chart-kelp-$i',
+            PilotArt.sargassoKelp,
+            Rect.fromLTWH(anchor.dx - 110, anchor.dy + 115, 220, 170),
+            .26,
+          );
+          add(
+            'chart-fog-$i',
+            PilotArt.fog,
+            Rect.fromLTWH(anchor.dx - 120, anchor.dy - 260, 240, 150),
+            .22,
+            above: true,
+          );
+        } else {
+          add(
+            'chart-caldera-$i',
+            PilotArt.reachCaldera,
+            Rect.fromLTWH(anchor.dx - 130, anchor.dy + 115, 260, 190),
+            .27,
+          );
+        }
+      }
+    }
+    return illustrations;
+  }
+
   @override
   Widget build(BuildContext context) => IgnorePointer(
     child: ExcludeSemantics(
@@ -58,17 +151,21 @@ class ChartMarginalia extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              left: points[i].dx + 70,
-              top: points[i].dy + 120,
-              width: 250,
-              height: 165,
-              child: Opacity(
-                opacity: .24,
-                child: CustomPaint(painter: _UncertainCoast(InkTheme.caption)),
+            if (!_hasRegionalArt(points[i]))
+              Positioned(
+                left: points[i].dx + 70,
+                top: points[i].dy + 120,
+                width: 250,
+                height: 165,
+                child: Opacity(
+                  opacity: .24,
+                  child: CustomPaint(
+                    painter: _UncertainCoast(InkTheme.caption),
+                  ),
+                ),
               ),
-            ),
           ],
+          ..._regionalIllustrations(),
         ],
       ),
     ),

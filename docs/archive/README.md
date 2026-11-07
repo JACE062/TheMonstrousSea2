@@ -148,3 +148,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Hull Patch Kit art verification 2026-11-07
 
 [The approval/integration receipt](playtests/PATCH_KIT_ART_2026_11_07.md) records the user's selected rope-bound kit, shared item-art mapping, bundle/alpha and existing flow checks, font-loaded merchant captures and a separate Windows build. The [manifest](playtests/evidence/patch-kit-art-2026-11-07/manifest.json) retains source hashes and built-asset correspondence. Other candidates and earlier artwork remain preserved; player saves and gameplay rules are unchanged.
+
+## Approved artwork pass verification 2026-11-07
+
+[The complete-pass receipt](playtests/ARTWORK_PASS_2026_11_07.md) records the seven remaining selected illustrations, including revised hull and berry-free kelp, accurate ink/pitch mappings, chart controls and committed-region marginalia. The [manifest](playtests/evidence/artwork-pass-2026-11-07/manifest.json) retains hashes, 34-image bundle verification, UI/font checks, regional/menu captures and separate Windows correspondence. Earlier drafts, evidence, bundles and player saves are preserved; provisional gameplay tuning is unchanged.

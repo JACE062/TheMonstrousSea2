@@ -7,6 +7,8 @@ import 'package:monstrous_sea/src/theme/ink_theme.dart';
 import 'package:monstrous_sea/src/widgets/chart_camera.dart';
 import 'package:monstrous_sea/src/widgets/chart_marginalia.dart';
 import 'package:monstrous_sea/src/widgets/nautical_chart.dart';
+import 'package:monstrous_sea/src/widgets/pilot_art.dart';
+import 'package:monstrous_sea/src/widgets/svg_asset_view.dart';
 
 import 'chart_focus_ui_test.dart'
     show chartFocusController, mountChartFocus, captureChartFocusProof;
@@ -43,6 +45,64 @@ void main() {
       'artFontCache',
     ).isEmpty,
   );
+
+  for (final legs in [6, 18, 30]) {
+    testWidgets('regional art follows only committed visits at $legs legs', (
+      tester,
+    ) async {
+      final c = chartFocusController(legs: legs);
+      addTearDown(c.dispose);
+      // An arrived stronghold may already name a later region. That alone
+      // must not paint its decorations over earlier recorded waters.
+      c.seaChart.timesCompleted = 2;
+      final before = c.seaChart.toJson();
+      final key = GlobalKey();
+      await mountChartFocus(
+        tester,
+        HelmScreen(controller: c),
+        key,
+        const Size(1600, 1000),
+      );
+      final marginalia = find.byType(ChartMarginalia);
+      Finder ornament(String path) => find.descendant(
+        of: marginalia,
+        matching: find.byWidgetPredicate(
+          (w) => w is SvgAssetView && w.assetPath == path,
+        ),
+      );
+      expect(
+        ornament(PilotArt.sargassoKelp),
+        legs > 12 ? findsWidgets : findsNothing,
+      );
+      expect(ornament(PilotArt.fog), legs > 12 ? findsWidgets : findsNothing);
+      expect(
+        ornament(PilotArt.reachCaldera),
+        legs > 24 ? findsWidgets : findsNothing,
+      );
+      expect(c.seaChart.toJson(), before);
+      // Give the capture the appropriate region name after the gating check.
+      c.seaChart.timesCompleted = legs ~/ 12;
+      await tester.pumpWidget(const SizedBox.shrink());
+      await mountChartFocus(
+        tester,
+        HelmScreen(controller: c),
+        key,
+        const Size(1600, 1000),
+      );
+      await captureChartFocusProof(tester, key, 'regional-art-$legs');
+      if (legs > 12) {
+        final beforePan = c.seaChart.toJson();
+        await tester.drag(
+          find.byKey(const ValueKey('nautical-map-viewport')),
+          const Offset(0, -180),
+        );
+        await tester.pumpAndSettle();
+        await captureChartFocusProof(tester, key, 'regional-art-$legs-detail');
+        expect(c.seaChart.toJson(), beforePan);
+      }
+      expect(tester.takeException(), isNull);
+    });
+  }
 
   for (final flat in [true, false]) {
     testWidgets(

@@ -19,6 +19,13 @@ class PilotArt {
       'assets/art/icon_unstable_tincture_map_v4.png';
   static const hullPatchKit =
       'assets/art/icon_hull_patch_kit_rope_from_leather_v1.png';
+  static const krakenInk = 'assets/art/icon_kraken_ink_map_v1.png';
+  static const alchemicalPitch = 'assets/art/icon_alchemical_pitch_map_v1.png';
+  static const chartHull = 'assets/art/icon_chart_hull_map_v2.png';
+  static const chartPurse = 'assets/art/icon_chart_purse_map_v1.png';
+  static const centerJourney = 'assets/art/icon_center_journey_map_v1.png';
+  static const sargassoKelp = 'assets/art/chart_sargasso_kelp_map_v3.png';
+  static const reachCaldera = 'assets/art/chart_reach_caldera_map_v1.png';
   static const blastPack = 'assets/art/icon_blast_pack_map.png';
   static const chakram = 'assets/art/icon_chakram_map.png';
   static const cannon = 'assets/art/icon_cannon_map.png';
@@ -50,6 +57,13 @@ class PilotArt {
     kraken,
     unstableTincture,
     hullPatchKit,
+    krakenInk,
+    alchemicalPitch,
+    chartHull,
+    chartPurse,
+    centerJourney,
+    sargassoKelp,
+    reachCaldera,
     blastPack,
     chakram,
     cannon,

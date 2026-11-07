@@ -294,7 +294,18 @@ class _NauticalChartState extends State<NauticalChart>
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Positioned.fill(child: ChartMarginalia(points: wake)),
+        Positioned.fill(
+          child: ChartMarginalia(
+            points: wake,
+            regionVisits: [
+              for (var i = 0; i < route.history.length; i++)
+                (
+                  regionIndex: route.history[i].regionIndex,
+                  point: points[i + 1],
+                ),
+            ],
+          ),
+        ),
         Positioned.fill(child: CustomPaint(painter: _WakePainter(wake))),
         Positioned(
           left: points.first.dx - 23,
@@ -530,9 +541,10 @@ class _NauticalChartState extends State<NauticalChart>
           key: const ValueKey('fit-nautical-route'),
           tooltip: 'Center journey',
           onPressed: _centerJourney,
-          icon: const CustomPaint(
-            size: Size(24, 24),
-            painter: _ChartToolPainter(zoom: 0),
+          icon: const SvgAssetView(
+            assetPath: PilotArt.centerJourney,
+            width: 28,
+            height: 28,
           ),
         ),
         IconButton(

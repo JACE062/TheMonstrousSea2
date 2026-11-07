@@ -27,8 +27,8 @@ class SvgAssetView extends StatelessWidget {
         ConsumableType.unstableTincture => PilotArt.unstableTincture,
         ConsumableType.hullPatchKit => PilotArt.hullPatchKit,
         ConsumableType.blastPack => PilotArt.blastPack,
-        ConsumableType.krakenInkBomb => PilotArt.blastPack,
-        ConsumableType.alchemicalPitch => PilotArt.blastPack,
+        ConsumableType.krakenInkBomb => PilotArt.krakenInk,
+        ConsumableType.alchemicalPitch => PilotArt.alchemicalPitch,
         ConsumableType.chakram => PilotArt.chakram,
       };
     }

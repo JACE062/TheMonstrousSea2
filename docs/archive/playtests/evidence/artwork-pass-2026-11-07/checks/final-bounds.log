@@ -1,0 +1,11 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: regional art follows only committed visits at 6 legs
+00:01 +1: regional art follows only committed visits at 18 legs
+00:02 +2: regional art follows only committed visits at 30 legs
+00:03 +3: drag inertia, keyboard, zoom and resize stay in horizontal travelled waters
+00:05 +4: drag inertia, keyboard, zoom and resize stay in diagonal travelled waters
+00:06 +5: short voyages lock the horizontal camera when the whole route fits
+00:06 +6: bearings occupy 30 percent with named home and non-interactive chart marginalia
+00:07 +7: (tearDownAll)
+00:07 +7: All tests passed!

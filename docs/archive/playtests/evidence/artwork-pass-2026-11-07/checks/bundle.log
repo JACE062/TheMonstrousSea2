@@ -1,0 +1,39 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/raster_art_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: The art bundle contains exactly the active illustrations
+00:00 +1: assets/art/ship_standard_map.png decodes from the bundle with real transparency
+00:00 +2: assets/art/ship_freighter_pilot_v2.png decodes from the bundle with real transparency
+00:00 +3: assets/art/ship_ironclad_map_v2.png decodes from the bundle with real transparency
+00:00 +4: assets/art/ship_corvette_map.png decodes from the bundle with real transparency
+00:00 +5: assets/art/ship_flying_dutchman_map.png decodes from the bundle with real transparency
+00:00 +6: assets/art/monster_shark_map.png decodes from the bundle with real transparency
+00:00 +7: assets/art/monster_serpent_map.png decodes from the bundle with real transparency
+00:00 +8: assets/art/monster_jellyfish_map.png decodes from the bundle with real transparency
+00:00 +9: assets/art/monster_squid_map_v5.png decodes from the bundle with real transparency
+00:00 +10: assets/art/monster_crustacean_map.png decodes from the bundle with real transparency
+00:00 +11: assets/art/monster_kraken_boss_v5.png decodes from the bundle with real transparency
+00:00 +12: assets/art/icon_unstable_tincture_map_v4.png decodes from the bundle with real transparency
+00:00 +13: assets/art/icon_hull_patch_kit_rope_from_leather_v1.png decodes from the bundle with real transparency
+00:00 +14: assets/art/icon_kraken_ink_map_v1.png decodes from the bundle with real transparency
+00:00 +15: assets/art/icon_alchemical_pitch_map_v1.png decodes from the bundle with real transparency
+00:00 +16: assets/art/icon_chart_hull_map_v2.png decodes from the bundle with real transparency
+00:00 +17: assets/art/icon_chart_purse_map_v1.png decodes from the bundle with real transparency
+00:00 +18: assets/art/icon_center_journey_map_v1.png decodes from the bundle with real transparency
+00:00 +19: assets/art/chart_sargasso_kelp_map_v3.png decodes from the bundle with real transparency
+00:00 +20: assets/art/chart_reach_caldera_map_v1.png decodes from the bundle with real transparency
+00:00 +21: assets/art/icon_blast_pack_map.png decodes from the bundle with real transparency
+00:00 +22: assets/art/icon_chakram_map.png decodes from the bundle with real transparency
+00:00 +23: assets/art/icon_cannon_map.png decodes from the bundle with real transparency
+00:00 +24: assets/art/icon_torpedo_launcher_map_v2.png decodes from the bundle with real transparency
+00:00 +25: assets/art/icon_blade_launcher_map.png decodes from the bundle with real transparency
+00:00 +26: assets/art/icon_lightning_railgun_map.png decodes from the bundle with real transparency
+00:00 +27: assets/art/icon_flamethrower_map_v2.png decodes from the bundle with real transparency
+00:01 +28: assets/art/icon_treasure_map.png decodes from the bundle with real transparency
+00:01 +29: assets/art/icon_helm_map.png decodes from the bundle with real transparency
+00:01 +30: assets/art/icon_anchor_map.png decodes from the bundle with real transparency
+00:01 +31: assets/art/icon_cannons_map.png decodes from the bundle with real transparency
+00:01 +32: assets/art/icon_port_haven_map.png decodes from the bundle with real transparency
+00:01 +33: assets/art/icon_skull_map.png decodes from the bundle with real transparency
+00:01 +34: assets/art/icon_fog_map.png decodes from the bundle with real transparency
+00:01 +35: (tearDownAll)
+00:01 +35: All tests passed!

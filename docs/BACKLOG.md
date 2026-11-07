@@ -433,7 +433,7 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ## Deferred UI art and icons
 
-Tied to PT2-04–07. The user scheduled a focused consumable/chart pass on 6 November 2026. [Candidate illustrations and size/placement proofs](art/artwork-pass-2026-11-06.md) retain the reviews. The rope-bound Hull Patch Kit was approved and integrated on 7 November; other proposed replacements remain in review. Other rows below remain deferred. Audit/reuse approved assets before generating replacements.
+Tied to PT2-04–07. The user scheduled a focused consumable/chart pass on 6 November 2026. [The artwork record](art/artwork-pass-2026-11-06.md) retains reviews and the eight selected illustrations, all approved and integrated on 7 November: the rope kit, ink, pitch, revised hull, purse, dividers, berry-free kelp and volcanic island. [Verification](archive/README.md#approved-artwork-pass-verification-2026-11-07) covers menus, chart controls, committed-region decoration and a separate Windows build. Other rows below remain deferred. Audit/reuse approved assets before generating replacements.
 
 ### Art style and workflow
 
@@ -450,12 +450,12 @@ Tied to PT2-04–07. The user scheduled a focused consumable/chart pass on 6 Nov
 | Home-port Merchant | Item trading was removed on 5 November; this former button-art request is superseded. | A future material broker is only FUT-08; no replacement merchant icon is scheduled. |
 | Home-port Blueprints | Needs a recognizable shipwright/drafting identity. | Existing art may be insufficient; check the gallery before adding a dedicated drafting image to the production list. |
 | Sea Chart buttons | Thematic imagery is inconsistent or absent depending on screen. | `icon_helm_map.png`, nautical navigation assets, and prior chart imagery. |
-| Chart Hull / Purse / Center Journey | User dislikes the current symbols; replacements explicitly deferred on 5 November 2026. Keep the colored badges and named controls usable meanwhile. | Audit approved nautical art and prepare distinct thematic hull, currency and journey-centering briefs during the curated icon pass. No final mappings selected. |
-| Regional chart illustrations | User requested on 6 November for later: kelp and fog banks in the Sargasso Drift; volcanoes and calderas in the Boiling Reach. | Plan region-specific ornaments/icons around travelled waters during the curated art pass. These are future visual details, not new terrain rules, revealed encounters or approved replacement assets. |
+| Chart Hull / Purse / Center Journey | Approved and integrated 7 November: revised wooden hull, coin purse and chart dividers. | Colored hull/gold values, labels, tooltips and camera actions remain. The original choices/drafts are preserved in the artwork record. |
+| Regional chart illustrations | Approved and integrated 7 November: berry-free kelp and reused fog for committed Drift visits; cone/caldera for committed Reach visits. | Faded, noninteractive ornaments move with the chart, avoiding recorded markers and other illustrations. Offers and the active region alone do not reveal regional art; no terrain rules or gameplay RNG were added. |
 | Covenant altar / pacts | The altar banner's Material fire icon is an intentional temporary placeholder (21 October 2026), not approved final art. | Audit existing assets, then commission a custom nautical/parchment Covenant or pact icon during the art pass. Retain the banner's COMMUNE entry; the duplicate lower Covenant action has been removed. |
 | Other existing navigation controls | Review consistency alongside the above. | `icon_port_haven_map.png`, `icon_anchor_map.png`, `icon_cannons_map.png` as appropriate. |
 
-These are audit candidates, not approved final mappings. Screenshots 4 and 5 in the playtest also show that themed icons still exist in some locations; reconcile usage instead of assuming all icons were removed.
+Rows still marked deferred are audit candidates; integrated rows record selected mappings. Screenshots 4 and 5 in the playtest also show that themed icons still exist in some locations; reconcile usage instead of assuming all icons were removed.
 
 ### Art consumables
 
@@ -466,11 +466,11 @@ Every current consumable needs its own accurate image. The current mappings belo
 | Unstable Tincture / `unstableTincture` | `icon_unstable_tincture_map_v4.png` | Audit/reuse approved bottle art. |
 | Hull Patch Kit / `hullPatchKit` | `icon_hull_patch_kit_rope_from_leather_v1.png` | User-approved rope version integrated 7 November 2026 through the shared item-art selector. [Verification](archive/README.md#hull-patch-kit-art-verification-2026-11-07). |
 | Blast Pack / `blastPack` | `icon_blast_pack_map.png` | Audit/reuse approved explosive bundle art. |
-| Bottled Kraken Ink / `krakenInkBomb` | Blast Pack image | Dedicated ink vessel image, clearly different from pitch and explosives. |
-| Alchemical Pitch Flask / `alchemicalPitch` | Blast Pack image | Dedicated pitch vessel image, clearly different from ink and tincture. |
+| Bottled Kraken Ink / `krakenInkBomb` | `icon_kraken_ink_map_v1.png` | Approved squat ink jar integrated 7 November through the shared item-art selector. |
+| Alchemical Pitch Flask / `alchemicalPitch` | `icon_alchemical_pitch_map_v1.png` | Approved tall pitch flask integrated 7 November through the shared item-art selector. |
 | Chakram / `chakram` | `icon_chakram_map.png` | Audit/reuse approved throwing-disc art. |
 
-Apply the eventual mapping consistently to merchants, loot, belt inspection, salvage results, and battle actions. Consumables remain single-use and have no rarity/charge variants requiring separate pictures.
+The shared selector supplies each consumable's accurate illustration in merchant, loot and wreck-supply views. Combat belt controls and vessel belt inspection currently use text; adding illustrations there is separate presentation work. Consumables remain single-use and have no rarity/charge variants requiring separate pictures.
 
 ### Art meta-materials and trophies
 
