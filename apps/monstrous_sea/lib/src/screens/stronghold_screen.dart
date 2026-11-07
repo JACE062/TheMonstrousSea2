@@ -46,7 +46,7 @@ class StrongholdScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'Voyage stronghold · ${controller.seaChart.currentRegionName}',
+                  controller.seaChart.currentRegionName,
                   style: InkTheme.subtitle,
                   textAlign: TextAlign.center,
                 ),
@@ -62,11 +62,6 @@ class StrongholdScreen extends StatelessWidget {
                           style: InkTheme.body,
                         ),
                         HullGauge(currentHp: ship.currentHp, maxHp: ship.maxHp),
-                        const SizedBox(height: 12),
-                        Text(
-                          'Your voyage continues. Refit the vessel, replenish supplies, and prepare for the next region.',
-                          style: InkTheme.body,
-                        ),
                       ],
                     ),
                   ),

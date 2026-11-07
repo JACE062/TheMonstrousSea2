@@ -43,7 +43,7 @@ class ShipwreckScreen extends StatelessWidget {
       WreckCondition.pickedClean =>
         'The open holds have been stripped. Only a small, quick haul remains.',
       WreckCondition.uncertain => 'Take the modest accessible salvage and leave, or forego it and linger for the deeper cargo.',
-      WreckCondition.fresh => 'The fresh cargo lies below. Recovering it takes a deliberate commitment; you can still sail past empty.',
+      WreckCondition.fresh => 'Fresh cargo lies below the broken decks.',
     };
     return ParchmentScaffold(
       body: Center(
@@ -128,9 +128,7 @@ class ShipwreckScreen extends StatelessWidget {
                 ] else if (wreck.stage == WreckStage.recovery) ...[
                   ParchmentCard(
                     child: Text(
-                      wreck.condition == WreckCondition.pickedClean
-                          ? 'THREAT CLEARED. The remaining small haul is ready to recover. There is no further fight here.'
-                          : 'THREAT CLEARED. The full wreck cargo is ready to recover. No further risk choice or fight remains.',
+                      'The wreck is clear. Recover the remaining cargo.',
                       style: InkTheme.body,
                     ),
                   ),

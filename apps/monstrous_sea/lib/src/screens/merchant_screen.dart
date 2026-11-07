@@ -48,8 +48,6 @@ class _MerchantScreenState extends State<MerchantScreen> {
       final wares = Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('MERCHANT WARES FOR SALE', style: InkTheme.statLabel),
-          const SizedBox(height: 10),
           if (stock.isEmpty)
             ParchmentCard(
               child: Text(
@@ -188,7 +186,7 @@ class _MerchantScreenState extends State<MerchantScreen> {
                   if (_activeTab == 2) belt,
                   const SizedBox(height: 20),
                   InkButton(
-                    label: 'LEAVE CHANDLERY & $returnLabel',
+                    label: returnLabel,
                     onPressed: _leave,
                   ),
                 ],

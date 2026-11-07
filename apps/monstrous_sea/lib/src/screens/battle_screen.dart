@@ -276,7 +276,7 @@ class _BattleScreenState extends State<BattleScreen> {
     final mult = ship.multiplierForHardpointMark(HardpointType.utility);
     return switch (bpId) {
       BlueprintId.ironclad =>
-        'Fortify Iron Plates (2T CD): Permanently adds +${(ship.dmgReductionMod * mult).round()} Damage Reduction for this battle and anchors your hull against forced push/pull this round.',
+        ironPlatesDescription(ship),
       BlueprintId.clipper =>
         'Evasive Rigging: ${evasiveRiggingDescription(ship)}',
       BlueprintId.corsair =>

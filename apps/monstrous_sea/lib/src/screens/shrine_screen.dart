@@ -128,7 +128,7 @@ class _ShrineScreenState extends State<ShrineScreen> {
                       const SizedBox(height: 8),
                       if (powers.isEmpty)
                         Text(
-                          'Your dedications are complete. Offer respects and seek guidance in the runes.',
+                          'The wardens have received your vows.',
                           style: InkTheme.body,
                         )
                       else
@@ -144,7 +144,7 @@ class _ShrineScreenState extends State<ShrineScreen> {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'A dedication lasts for this voyage. You may switch wardens above before committing.',
+                          'Dedications endure for this voyage.',
                           style: InkTheme.caption,
                         ),
                         const SizedBox(height: 10),

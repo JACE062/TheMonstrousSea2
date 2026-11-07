@@ -258,8 +258,8 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
                   const SizedBox(height: 8),
                   Text(
                     selected.canExploreOtherFate
-                        ? 'Your peaceful ending stays intact. The other fate is a separate save with its own progress. Returning here continues that same branch.'
-                        : 'This completed hunt has no usable pre-choice snapshot. Its ending is preserved; older endings cannot be safely reconstructed.',
+                        ? 'Explore the other fate in a separate save. Your peaceful ending is preserved.'
+                        : "This hunt's final choice was not recorded. Its ending remains safe.",
                     style: InkTheme.caption,
                   ),
                 ],
@@ -415,7 +415,7 @@ class _NewLineageDialogState extends State<_NewLineageDialog> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text(
-              'Name this save. This label is separate from your captain’s name and does not set a permanent family surname.',
+              'Name this save.',
             ),
             const SizedBox(height: 16),
             TextFormField(

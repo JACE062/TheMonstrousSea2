@@ -81,9 +81,10 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        final duties = tester.widgetList<Text>(
-          find.textContaining('Shore Duty Option'),
-        );
+        final duties = [
+          for (final description in ['Restores', 'Accuracy · next battle', 'Recovers'])
+            tester.widget<Text>(find.textContaining(description)),
+        ];
         expect(duties.length, 3);
         expect(duties.map((t) => t.style!.color).toSet(), {
           InkTheme.inkPrimary,
@@ -117,7 +118,9 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.text('VICTORY'), findsNothing);
-      expect(find.textContaining('Leg 2 of 10'), findsOneWidget);
+      expect(chart.currentLeg, 2);
+      expect(find.text(chart.currentRegionName), findsOneWidget);
+      expect(find.textContaining('Leg 2 of 10'), findsNothing);
       await tester.pumpWidget(
         MaterialApp(
           home: SeaChartScreen(seaChart: chart, isInPort: true, onClose: () {}),

@@ -62,7 +62,7 @@ class _PortScreenState extends State<PortScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      'Unlock ancestral blueprints with materials recovered at sea. These permanent refits are separate from the fitting marks earned during a voyage.',
+                      'Ancestral blueprints endure across generations.',
                       style: InkTheme.body.copyWith(fontSize: 14),
                     ),
                     const SizedBox(height: 12),
@@ -493,7 +493,7 @@ class _PortScreenState extends State<PortScreen> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
-                                'Ratify bloodline Pacts to increase Pact Burden. Primordial Cinders drop exclusively from Region Titans defeated under active Pact Burden (> 0)!',
+                                'Defeat Titans under a Pact to earn Primordial Cinders.',
                                 style: InkTheme.caption.copyWith(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
@@ -605,7 +605,7 @@ class _PortScreenState extends State<PortScreen> {
                     ] else if (_covenantTabIndex == 1) ...[
                       // TAB 2: ELDRITCH RELIC WEAPONS
                       Text(
-                        'Forge eldritch weapons from Titan Trophies and Primordial Cinders at the Covenant Altar. Once forged, a relic weapon is permanently mounted on its corresponding ancestral hull.',
+                        'Forge a permanent relic for its ancestral hull.',
                         style: InkTheme.caption.copyWith(fontSize: 12.5),
                       ),
                       const SizedBox(height: 12),
@@ -784,7 +784,7 @@ class _PortScreenState extends State<PortScreen> {
                     ] else ...[
                       // TAB 3: CURSED HARBOR MONUMENTS
                       Text(
-                        'Consecrate permanent cursed monuments around Hunter\'s Respite using surplus Titan Trophies and Primordial Cinders. These monuments grant generational boons across all future voyages.',
+                        'Consecrate a monument to bless future generations.',
                         style: InkTheme.caption.copyWith(fontSize: 12.5),
                       ),
                       const SizedBox(height: 12),
@@ -1212,7 +1212,7 @@ class _PortScreenState extends State<PortScreen> {
                               ),
                               const SizedBox(height: 2),
                               Text(
-                                'The altar hums in the captain’s quarters. Enact Pacts for Primordial Cinders, forge Eldritch Relics, or consecrate Harbor Monuments.',
+                                'The altar hums in the captain’s quarters.',
                                 style: InkTheme.caption.copyWith(fontSize: 12),
                               ),
                             ],

@@ -27,7 +27,7 @@ class VoyageShipwrightView extends StatelessWidget {
           children: [
             Text('VOYAGE SHIPWRIGHT', style: InkTheme.titleMedium),
             Text(
-              'Spend gold on hull refits and fitting tempering. These upgrades last for this voyage.',
+              'Refits last for this voyage.',
               style: InkTheme.body,
             ),
             const SizedBox(height: 8),

@@ -37,17 +37,11 @@ class SeaChartScreen extends StatelessWidget {
             children: [
               Text('NAUTICAL SEA CHART', style: InkTheme.titleLarge),
               Text(
-                '${seaChart.currentRegionName} · Region ${seaChart.currentRegionIndex + 1} of 3',
+                seaChart.currentRegionName,
                 style: InkTheme.subtitle,
               ),
-              Text(
-                isInPort
-                    ? 'ANCHORED IN PORT'
-                    : effectiveLeg > seaChart.totalLegs
-                    ? 'Titan encounter'
-                    : 'Leg $effectiveLeg of ${seaChart.totalLegs}',
-                style: InkTheme.statLabel,
-              ),
+              if (isInPort)
+                Text('ANCHORED IN PORT', style: InkTheme.statLabel),
             ],
           );
           final actions = Wrap(

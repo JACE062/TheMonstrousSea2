@@ -78,7 +78,7 @@ void main() {
       await tester.ensureVisible(find.text('MERCHANT'));
       await tester.tap(find.text('MERCHANT'));
       await tester.pumpAndSettle();
-      final leave = find.text('LEAVE CHANDLERY & RETURN TO STRONGHOLD');
+      final leave = find.text('RETURN TO STRONGHOLD');
       await tester.ensureVisible(leave);
       await tester.tap(leave);
       await tester.pumpAndSettle();

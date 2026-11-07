@@ -215,7 +215,7 @@ void main() {
         tester.getRect(art).right,
         lessThan(tester.getRect(find.text(kit.name)).left),
       );
-      await tester.ensureVisible(find.text('MERCHANT WARES FOR SALE'));
+      await tester.ensureVisible(find.text(kit.name));
       await _proof(tester, key, 'merchant-$width');
       expect(tester.takeException(), isNull);
     });

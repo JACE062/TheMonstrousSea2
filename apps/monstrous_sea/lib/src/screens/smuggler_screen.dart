@@ -110,7 +110,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'A clandestine merchant vessel rides the ocean swell under muffled lanterns, peddling contraband munitions.',
+                  'A shadowed ketch trades beneath muffled lanterns.',
                   style: InkTheme.subtitle,
                   textAlign: TextAlign.center,
                 ),
@@ -377,8 +377,7 @@ class _SmugglerScreenState extends State<SmugglerScreen> {
 
                 // Departure Button
                 InkButton(
-                  label: MediaQuery.sizeOf(context).width < 600
-                      ? 'DEPART SMUGGLER' : 'DEPART SMUGGLER & CONTINUE EXPEDITION',
+                  label: 'DEPART KETCH',
                   isPrimary: true,
                   semanticLabel: 'Depart the smuggler ketch and continue naval voyage',
                   onPressed: () => controller.dispatch(const DepartSmuggler()),

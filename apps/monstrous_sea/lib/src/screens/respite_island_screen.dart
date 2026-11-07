@@ -197,14 +197,12 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                   const SizedBox(height: 20),
                 ],
 
-                if (controller.isCurrentIslandHaven && !hasChosenDuty)
-                  Text('Refitting first increases maximum hull used by careening and your first paid repair purchase.', style: InkTheme.caption),
                 if (!isRefit) ...[
                   // Island Action Cards Grid
                   Text(
                     hasChosenDuty
-                        ? 'CREW SHORE DUTY COMPLETED (PREPARING TO DEPART)'
-                        : 'CREW SHORE DUTY (CHOOSE ONE BEFORE TIDE TURNS)',
+                        ? 'SHORE DUTY COMPLETE'
+                        : 'SHORE DUTY · CHOOSE ONE',
                     style: InkTheme.statValue.copyWith(
                       color: hasChosenDuty
                           ? InkTheme.inkMuted
@@ -242,7 +240,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                '${((controller.isCurrentIslandHaven ? services.havenCareenFraction : services.coveCareenFraction) * 100).round()}% of current maximum hull · Restores ${controller.careenHealingHp} HP · Shore Duty Option',
+                                '${((controller.isCurrentIslandHaven ? services.havenCareenFraction : services.coveCareenFraction) * 100).round()}% of current maximum hull · Restores ${controller.careenHealingHp} HP',
                                 style: InkTheme.statLabel.copyWith(
                                   color: InkTheme.inkPrimary,
                                 ),
@@ -299,7 +297,7 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                '+${services.drillAccuracy}% Accuracy for the Whole Next Battle • Shore Duty Option',
+                                '+${services.drillAccuracy}% Accuracy · next battle',
                                 style: InkTheme.statLabel.copyWith(
                                   color: InkTheme.inkPrimary,
                                 ),
@@ -352,8 +350,8 @@ class _RespiteIslandScreenState extends State<RespiteIslandScreen> {
                               const SizedBox(height: 4),
                               Text(
                                 controller.isCurrentIslandHaven
-                                    ? 'Recovers ${services.havenForageMin}–${services.havenForageMax} Gold Doubloons • Shore Duty Option'
-                                    : 'Recovers ${services.coveForageMin}–${services.coveForageMax} Gold Doubloons • Shore Duty Option',
+                                    ? 'Recovers ${services.havenForageMin}–${services.havenForageMax} gold'
+                                    : 'Recovers ${services.coveForageMin}–${services.coveForageMax} gold',
                                 style: InkTheme.statLabel.copyWith(
                                   color: InkTheme.inkPrimary,
                                 ),

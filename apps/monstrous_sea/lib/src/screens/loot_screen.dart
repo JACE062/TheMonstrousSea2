@@ -44,7 +44,7 @@ class LootScreen extends StatelessWidget {
                     WreckStage.recovery) ...[
                   ParchmentCard(
                     child: Text(
-                      'These are the defeated creature’s full spoils. The cleared wreck’s separate cargo awaits recovery after these supplies are resolved.',
+                      "The beast's spoils. Wreck cargo still awaits.",
                       style: InkTheme.body,
                     ),
                   ),
@@ -77,7 +77,7 @@ class LootScreen extends StatelessWidget {
                         const SizedBox(width: 12),
                         Flexible(
                           child: Text(
-                            '+${controller.lastGoldSalvaged} GOLD SALVAGED DIRECTLY TO PURSE (Purse: ${ship?.gold ?? 0}g)',
+                            '+${controller.lastGoldSalvaged} gold · Purse: ${ship?.gold ?? 0}g',
                             style: InkTheme.statLabel.copyWith(
                               color: InkTheme.goldAccent,
                               fontSize: 16,

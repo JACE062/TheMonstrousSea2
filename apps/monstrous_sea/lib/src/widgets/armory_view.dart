@@ -19,7 +19,7 @@ class ArmoryView extends StatelessWidget {
     final mult = ship.multiplierForHardpointMark(HardpointType.utility);
     return switch (ship.resolvedBlueprintId) {
       BlueprintId.ironclad =>
-        '2-turn cooldown. Adds +${(ship.dmgReductionMod * mult).round()} damage reduction for this battle and anchors the hull against forced movement this round.',
+        ironPlatesDescription(ship),
       BlueprintId.clipper => evasiveRiggingDescription(ship),
       BlueprintId.corsair =>
         '2-turn cooldown. Launches a drifting tether-trap one band ahead. It drifts closer each round, then detonates for ${((16 + 5 * (ship.level - 1)) * mult).round()} Slicing damage and pins the beast for one turn.',
@@ -56,11 +56,6 @@ class ArmoryView extends StatelessWidget {
           Text(
             'SHIP FITTINGS & TACTICAL BELT',
             style: InkTheme.titleMedium.copyWith(fontSize: 22),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            'Three fixed fittings. Inspect their voyage marks, blessings and ancestral refits here.',
-            style: InkTheme.body.copyWith(fontSize: 14),
           ),
           const SizedBox(height: 14),
           for (final slot in ship.hardpoints) ...[
@@ -156,7 +151,7 @@ class ArmoryView extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Text(
-            'Single-use provisions. Hull Patch Kits can also patch hull between battles. Other supplies are combat quick actions.',
+            'Patch Kits can be used between battles.',
             style: InkTheme.body.copyWith(fontSize: 14),
           ),
           const SizedBox(height: 10),

@@ -44,13 +44,13 @@ void main() {
 
       // Verify header and contraband elements
       expect(find.byType(SmugglerScreen), findsOneWidget);
-      expect(find.textContaining('SMUGGLER'), findsWidgets);
+      expect(find.text(controller.currentSmugglerName.toUpperCase()), findsOneWidget);
       expect(find.text('PAID HULL REPAIRS'), findsOneWidget);
       expect(find.textContaining('CONTRABAND WARES'), findsOneWidget);
 
       // Tap Depart button
       controller.seaChart.setNodeTypeAt(1, 3, EncounterNodeType.beastCombat);
-      final departFinder = find.text('DEPART SMUGGLER & CONTINUE EXPEDITION');
+      final departFinder = find.text('DEPART KETCH');
       expect(departFinder, findsOneWidget);
       await tester.ensureVisible(departFinder);
       await tester.tap(departFinder);

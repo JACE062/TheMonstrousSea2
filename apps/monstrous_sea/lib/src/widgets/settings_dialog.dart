@@ -102,11 +102,6 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         letterSpacing: 0.8,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Adjust text magnification across all screens, charts, and chronicle logs.',
-                      style: InkTheme.caption.copyWith(fontSize: 12.5),
-                    ),
                     const SizedBox(height: 10),
                     Row(
                       children: [
@@ -145,7 +140,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'Switch between atmospheric antique typography and clean high-legibility print.',
+                      'Antique or plain type.',
                       style: InkTheme.caption.copyWith(fontSize: 12.5),
                     ),
                     const SizedBox(height: 10),

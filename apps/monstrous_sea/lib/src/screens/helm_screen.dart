@@ -66,7 +66,7 @@ class _HelmScreenState extends State<HelmScreen> {
               children: [
                 Text('EMERGENCY HULL TRIAGE', style: InkTheme.statValue),
                 Text(
-                  'Patch the hull to 25% integrity before choosing a heading.',
+                  'Patch the hull to 25% integrity.',
                   style: InkTheme.body,
                 ),
                 InkButton(
@@ -91,7 +91,7 @@ class _HelmScreenState extends State<HelmScreen> {
                 Text('STORM-SEER', style: InkTheme.statLabel),
                 const SizedBox(height: 4),
                 Text(
-                  'Read the winds once per region to redraw ordinary headings. Haven, Titan and Nemesis courses hold fast.',
+                  'Read the winds anew. Once per region; only ordinary headings change.',
                   style: InkTheme.caption,
                 ),
                 const SizedBox(height: 8),
@@ -145,7 +145,7 @@ class _HelmScreenState extends State<HelmScreen> {
           style: InkTheme.titleLarge.copyWith(fontSize: compact ? 26 : 32),
         ),
         Text(
-          '${controller.seaChart.currentRegionName} · Region ${controller.seaChart.currentRegionIndex + 1} of 3 · ${controller.currentLeg >= controller.totalLegs ? 'Titan approach' : 'Leg ${controller.currentLeg + 1} of ${controller.totalLegs}'}',
+          controller.seaChart.currentRegionName,
           style: InkTheme.subtitle.copyWith(fontSize: 15),
         ),
         const SizedBox(height: 3),
