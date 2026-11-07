@@ -289,7 +289,8 @@ class _HelmScreenState extends State<HelmScreen> {
                         );
                     final overlay =
                         constraints.maxWidth >= 1000 &&
-                        reportsHeight <= constraints.maxHeight - 76;
+                        // Allow for card/control borders and scaled line metrics.
+                        reportsHeight <= constraints.maxHeight - 108;
                     if (overlay) {
                       return NauticalChart(
                         chart: controller.seaChart,

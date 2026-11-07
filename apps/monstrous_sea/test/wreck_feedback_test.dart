@@ -147,7 +147,7 @@ void main() {
         sighting: WreckSighting(seed: 81, condition: condition, clearClue: true));
       await mountWreck(tester, controller, 1.3);
       expect(find.text('QUICK SALVAGE & LEAVE'), condition == WreckCondition.fresh ? findsNothing : findsOneWidget);
-      expect(find.textContaining('An Apex predator may appear'), condition == WreckCondition.pickedClean ? findsNothing : findsOneWidget);
+      expect(find.textContaining('an Apex may be lurking'), condition == WreckCondition.pickedClean ? findsNothing : findsOneWidget);
       expect(find.text('SAIL PAST EMPTY'), findsOneWidget);
       expect(find.text('SEARCH HOLD'), findsNothing);
       expect(find.text('CRACK CHEST'), findsNothing);
