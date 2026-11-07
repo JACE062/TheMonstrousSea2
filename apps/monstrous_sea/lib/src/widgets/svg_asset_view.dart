@@ -25,7 +25,7 @@ class SvgAssetView extends StatelessWidget {
     if (item is Consumable) {
       return switch (item.type) {
         ConsumableType.unstableTincture => PilotArt.unstableTincture,
-        ConsumableType.hullPatchKit => PilotArt.unstableTincture,
+        ConsumableType.hullPatchKit => PilotArt.hullPatchKit,
         ConsumableType.blastPack => PilotArt.blastPack,
         ConsumableType.krakenInkBomb => PilotArt.blastPack,
         ConsumableType.alchemicalPitch => PilotArt.blastPack,

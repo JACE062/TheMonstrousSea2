@@ -61,6 +61,7 @@ Future<void> _proof(WidgetTester tester, GlobalKey key, String name) async {
       PilotArt.portHaven,
       PilotArt.standard,
       PilotArt.defeatedMonster,
+      PilotArt.hullPatchKit,
       'assets/art/icon_blast_pack_map.png',
       'assets/art/icon_unstable_tincture_map_v4.png',
     ]) {

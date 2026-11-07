@@ -144,3 +144,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Lineage dialog typography verification 2026-11-06
 
 [The typography receipt](playtests/LINEAGE_TYPOGRAPHY_2026_11_06.md) records consistent New Lineage title/actions in the selected font mode, wide/compact serif/plain captures and the separately discovered existing large-text layout guard/stale copy checks. The [manifest](playtests/evidence/lineage-typography-2026-11-06/manifest.json) retains the new player image, final checks and isolated Windows verification. The broader menu redesign remains deferred; older evidence and saves are preserved.
+
+## Hull Patch Kit art verification 2026-11-07
+
+[The approval/integration receipt](playtests/PATCH_KIT_ART_2026_11_07.md) records the user's selected rope-bound kit, shared item-art mapping, bundle/alpha and existing flow checks, font-loaded merchant captures and a separate Windows build. The [manifest](playtests/evidence/patch-kit-art-2026-11-07/manifest.json) retains source hashes and built-asset correspondence. Other candidates and earlier artwork remain preserved; player saves and gameplay rules are unchanged.

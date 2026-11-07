@@ -17,6 +17,8 @@ class PilotArt {
   static const kraken = 'assets/art/monster_kraken_boss_v5.png';
   static const unstableTincture =
       'assets/art/icon_unstable_tincture_map_v4.png';
+  static const hullPatchKit =
+      'assets/art/icon_hull_patch_kit_rope_from_leather_v1.png';
   static const blastPack = 'assets/art/icon_blast_pack_map.png';
   static const chakram = 'assets/art/icon_chakram_map.png';
   static const cannon = 'assets/art/icon_cannon_map.png';
@@ -47,6 +49,7 @@ class PilotArt {
     crustacean,
     kraken,
     unstableTincture,
+    hullPatchKit,
     blastPack,
     chakram,
     cannon,

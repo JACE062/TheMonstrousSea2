@@ -1,0 +1,383 @@
+{
+  "date": "2026-11-07",
+  "approval": "User selected the rope version",
+  "selectedAsset": "assets/art/icon_hull_patch_kit_rope_from_leather_v1.png",
+  "selectedSha256": "A58EDDD3D9ED2C92C86AB0F67EA60F1196D1691EE7FE1E4F772AF201A5FFBDFB",
+  "preview": ".dart_tool/patch-kit-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+  "build": "Windows Debug; compiled without launching",
+  "builtAssetMatchesApproval": true,
+  "dependencyLockMatches": true,
+  "sourceCount": 90,
+  "sources": [
+    {
+      "path": "lib/main.dart",
+      "sha256": "D989DA093605FA447E74147A828209072E50F8AD5CDDEEB96B02116292ABF8C0"
+    },
+    {
+      "path": "lib/src/game_controller.dart",
+      "sha256": "7C89EAE05FAFECE7CC9B3D8F329D39DD465EDCFFE912DDA708DD8FFB0E27AB44"
+    },
+    {
+      "path": "lib/src/battle/battle_presentation.dart",
+      "sha256": "4A288FFEDB567E92A09080A9FF15DA9D40C7C5F9F7D4130B4FDBF3EA781B9B77"
+    },
+    {
+      "path": "lib/src/battle/monstrous_sea_battle_game.dart",
+      "sha256": "9E76A403F9F1DC0AA060885B77C62F89EC38F7924E459E6D78B125716EF427DB"
+    },
+    {
+      "path": "lib/src/playtest/playtest_config.dart",
+      "sha256": "05237C8647E072EE15530C1A3588DF6B8E364C5890F899C881ECBBE7656544A2"
+    },
+    {
+      "path": "lib/src/playtest/playtest_host.dart",
+      "sha256": "7744543AB37574940CEAF873A91F801FDF6A1C3F8901E83108A0A711DD7CAFD8"
+    },
+    {
+      "path": "lib/src/playtest/playtest_screen.dart",
+      "sha256": "01320501845FF3FDEFE0CB84AFC0FC43DD45B243F0E5411060112D4F6BEACEC2"
+    },
+    {
+      "path": "lib/src/screens/battle_screen.dart",
+      "sha256": "5DF96AA748BFFD389F2AB72AF34E4C25DBBE281EC2FD6AF57865FDD9A815D3B7"
+    },
+    {
+      "path": "lib/src/screens/caldera_outcome_screen.dart",
+      "sha256": "D3BD038F12F655066865340B75BFDC8935E01276459F592567A5012C2F3C3A81"
+    },
+    {
+      "path": "lib/src/screens/captain_screen.dart",
+      "sha256": "003A505D475DE5508BFED379984BFA021CAD3DE44A1BEBB441D0364C726335CA"
+    },
+    {
+      "path": "lib/src/screens/death_screen.dart",
+      "sha256": "37A2A26138D8167B8C5C91F2C5AC288E32992EBD6DD115015160DCC48D6DDDEE"
+    },
+    {
+      "path": "lib/src/screens/helm_screen.dart",
+      "sha256": "2F845C2208A34A477989D9506EFEDECEF719FF2E067CDFF8E51D6D29E1A1BBE4"
+    },
+    {
+      "path": "lib/src/screens/intro_screen.dart",
+      "sha256": "1D79803862685EF12CAA30AB5C54A3EABD98039976EB7F863E50B75697F87427"
+    },
+    {
+      "path": "lib/src/screens/lineage_menu_screen.dart",
+      "sha256": "A874AF5DEF4D7223B732DBEB1A187C5756D63D14627A690D0C13F8C025E626F0"
+    },
+    {
+      "path": "lib/src/screens/loot_screen.dart",
+      "sha256": "C00794BC3C0BD00177DEE1ABBB75434ECA1D17DAF1184ED58A6E6634B2D68D17"
+    },
+    {
+      "path": "lib/src/screens/merchant_screen.dart",
+      "sha256": "029F3B11E0280A4927EBEF451D767A582B8E2F238169D4172207B07EDC655316"
+    },
+    {
+      "path": "lib/src/screens/port_screen.dart",
+      "sha256": "EA77CFBB3E6D5EC822C6549CB8742215E58E07343F0220DF00507B996A4642DD"
+    },
+    {
+      "path": "lib/src/screens/respite_island_screen.dart",
+      "sha256": "657C94C461E4304323C7B103018B8A9F1F0A00293BBC579C33D58618F1887FE3"
+    },
+    {
+      "path": "lib/src/screens/rest_screen.dart",
+      "sha256": "F25BFD49CDD4A6A58B870F06BD9668062DD1DA6CF89E0ED1DCEEEBBF8E88533A"
+    },
+    {
+      "path": "lib/src/screens/sea_chart_screen.dart",
+      "sha256": "1435BC438590BAD7A1A9B1D55EF12DFBDD6FC5014D485327209E4D0F0F1D26CC"
+    },
+    {
+      "path": "lib/src/screens/shipwreck_screen.dart",
+      "sha256": "092437EB0EDE8D291D9508E87CA0030D3CA42CC20C92138D391394A471531562"
+    },
+    {
+      "path": "lib/src/screens/shrine_screen.dart",
+      "sha256": "6315D213BAFAE78ABA4E0D0CD4EA505603C9A20291595E975ABFAF42AE0BFA39"
+    },
+    {
+      "path": "lib/src/screens/smuggler_screen.dart",
+      "sha256": "722ED16478F7976EA752980098CF00E257FC53450E2C0F1505741E837FBF882A"
+    },
+    {
+      "path": "lib/src/screens/stronghold_screen.dart",
+      "sha256": "3C5306A4151B60F2B4B1EED598D52F698D80AB9376CD26F5B2581B61930F8DDE"
+    },
+    {
+      "path": "lib/src/screens/victory_screen.dart",
+      "sha256": "92C6500CC774D0CAF293357AFB5DDEE4DB2F7CFD5AEB358996FF278EB7ED4A95"
+    },
+    {
+      "path": "lib/src/services/caldera_snapshot.dart",
+      "sha256": "BDE2D8D27C858D20BB31B1A89AB081DB4E239325FB5919A804DF8DDC45851A17"
+    },
+    {
+      "path": "lib/src/services/lineage_store.dart",
+      "sha256": "E2266F07B7FC187EFA0E58A99994A261E4D06AB814204153D14B199418BCFD00"
+    },
+    {
+      "path": "lib/src/services/storage_service.dart",
+      "sha256": "213758FBD36471489BA9E24B305A8CA43F43506D2B34D5B9F17B5B7EA8C64063"
+    },
+    {
+      "path": "lib/src/settings/game_settings.dart",
+      "sha256": "C55F18314F94FAEA9795690FA4E92CA4D735F1E4D87C2AB0B4EB4BD0F2451BBE"
+    },
+    {
+      "path": "lib/src/theme/ink_theme.dart",
+      "sha256": "C1902FA843C712B0A7B2D06942BA8A9D8DB5045F6A9BAAF3689B68A08EE274FA"
+    },
+    {
+      "path": "lib/src/widgets/armory_view.dart",
+      "sha256": "CD30430286BE709784CDD08FC1F73A00887ED06F9887199C21AF77902A8A8949"
+    },
+    {
+      "path": "lib/src/widgets/battle_chronicle_dialog.dart",
+      "sha256": "E96D5D7FB63445DFE64937CC6C8044B3BA1698F62026D3172437838391B12862"
+    },
+    {
+      "path": "lib/src/widgets/battle_lookout.dart",
+      "sha256": "5E40B26D45D9D3AD632564E3E36F385589F64FFC292F7F329870250E03F356B9"
+    },
+    {
+      "path": "lib/src/widgets/chart_camera.dart",
+      "sha256": "859DF73DFF3F9E04CDE3826F3E21D30A4307CFCBE19F59DDEF77D30C55DABBD6"
+    },
+    {
+      "path": "lib/src/widgets/chart_marginalia.dart",
+      "sha256": "9777126681359433F422BF3B8F78EE128A9838FB8DF2EB0E01FB02365FA4780D"
+    },
+    {
+      "path": "lib/src/widgets/combat_log_view.dart",
+      "sha256": "D0B83F141C02F7768A9CC07248E9D3D93450DF6349E20558686004AC35745360"
+    },
+    {
+      "path": "lib/src/widgets/hull_gauge.dart",
+      "sha256": "4CEF9F6105CD701F0987029F7DE3E3DDBB361D578B1A6AF89EBD9856271C1C7B"
+    },
+    {
+      "path": "lib/src/widgets/hull_patch_kit_button.dart",
+      "sha256": "DC14DDD25303DA3A3A0CC4CD0CAEC756514CE33FDE7E3AA0726AF287639EA0B3"
+    },
+    {
+      "path": "lib/src/widgets/ink_button.dart",
+      "sha256": "89FE3E5C871DEBFCC20CA3076763A23CF934D0F3AA7DC67E4F255D6C0477F835"
+    },
+    {
+      "path": "lib/src/widgets/loot_supplies_view.dart",
+      "sha256": "337BD360F4E6E6F851D3FEB7929E00BEFE1733F1DDA8435B86F5F1403DA81F73"
+    },
+    {
+      "path": "lib/src/widgets/material_trade_view.dart",
+      "sha256": "D95A5302DAC8C232BDC342A2C3E1FD5E91F44FBD1115C8DE2242DCB53C5F9882"
+    },
+    {
+      "path": "lib/src/widgets/nautical_chart.dart",
+      "sha256": "EC21BE744C361049F582242BFAEA960E9AB375A17B52956F2E69390EE84B4B05"
+    },
+    {
+      "path": "lib/src/widgets/ocean_power_badges.dart",
+      "sha256": "046F83751AA75DAE8CA340F3D3ECE504FD15A0D89A781213C305FCD5632C1533"
+    },
+    {
+      "path": "lib/src/widgets/paid_repair_view.dart",
+      "sha256": "E2703F2F8157067A49B13D715C747691FCA962FF0A5041A7FEB6A68CE7EFF602"
+    },
+    {
+      "path": "lib/src/widgets/parchment_card.dart",
+      "sha256": "B3B200DDB42A2DB0D25AAC58B850BDCA8DCBA53A7A7710909B8FEFD83A3886EF"
+    },
+    {
+      "path": "lib/src/widgets/parchment_scaffold.dart",
+      "sha256": "74A816C11D46E69328A1472985B44839E6A6255EDB2AB469A058543E28E6AEEC"
+    },
+    {
+      "path": "lib/src/widgets/pause_menu.dart",
+      "sha256": "1379DFFE3D76ED36D0DC8C9891C391A19FFA5D20C798C75F8B6DAF80BAC461CD"
+    },
+    {
+      "path": "lib/src/widgets/pilot_art.dart",
+      "sha256": "A97F7EE98EE08C295272DBD243CF4F89D1A42036E1FB809D0FA7E3FB94547088"
+    },
+    {
+      "path": "lib/src/widgets/settings_dialog.dart",
+      "sha256": "6CB54F62FDD8FEB329FB02E6736E4E4A56A6548853F29A0171F768B59C04BD8C"
+    },
+    {
+      "path": "lib/src/widgets/svg_asset_view.dart",
+      "sha256": "1041EBD551B79255FA32058D64721347677D77697F0455FB93108BB7CFB3A7B5"
+    },
+    {
+      "path": "lib/src/widgets/typewriter_text.dart",
+      "sha256": "A744369E9A789B42CF15EF70B9F1C2E8943D1AE723D7890E5B32AAD6AF38E5C9"
+    },
+    {
+      "path": "lib/src/widgets/utility_description.dart",
+      "sha256": "7C5721371D318B9C1FDF6F3A44A4B219FAF740233292DBE7DB5861CE123EE226"
+    },
+    {
+      "path": "lib/src/widgets/vessel_inspection.dart",
+      "sha256": "C42394C3CCDC7A2ED755431628516E1E2329CEC26C319E8C628070790DEC23C4"
+    },
+    {
+      "path": "lib/src/widgets/voyage_log_view.dart",
+      "sha256": "589342D463E43A52916AFE6D3D2E952B20053B6D9F4E36A74EB13BE93A9D90B2"
+    },
+    {
+      "path": "lib/src/widgets/voyage_shipwright_view.dart",
+      "sha256": "8160B107EAE246725F33368150CC3046134EF044D74887F8002B662D1300AF80"
+    },
+    {
+      "path": "lib/src/widgets/weapon_stats_view.dart",
+      "sha256": "0A9A4A5E23E2F6B1B18F9ED3D187C49B8BB69EF49975D989FC733F5D5386CD24"
+    },
+    {
+      "path": "lib/src/widgets/wreck_supplies_view.dart",
+      "sha256": "F6324A5E8450EE7F009B0C1706AEF3F7B8C35A8E460A7B550B0710CE98A72124"
+    },
+    {
+      "path": "lib/src/widgets/painters/animated_wave_painter.dart",
+      "sha256": "E562703FC7B05D37165BDDF3AAB25FA618680702690FF36B7528633687765F1F"
+    },
+    {
+      "path": "lib/src/widgets/painters/cartouche_border_painter.dart",
+      "sha256": "76086579C22F630D812BBEF57F7DE8E6EBAEB519D8295B2F831A430EF5ADB05D"
+    },
+    {
+      "path": "lib/src/widgets/painters/compass_rose_painter.dart",
+      "sha256": "B4869888C3A0AD6283182358F11E2F6D0666824FB191CB635E733B54E729063D"
+    },
+    {
+      "path": "lib/src/widgets/painters/parchment_texture_painter.dart",
+      "sha256": "6121EE8E3978862003B422BC27291299DEC3EF7D56FE4807CE33FD30FDF2B50B"
+    },
+    {
+      "path": "lib/src/widgets/painters/sea_chart_paper_painter.dart",
+      "sha256": "F2312C35D81B0E1F0939AFBF1B8341716C391B1D53C7C16E7F9D696E57F98CE4"
+    },
+    {
+      "path": "lib/src/widgets/painters/sea_chart_water_painter.dart",
+      "sha256": "795EAB25CBD1D1B35250648847B3BDAC4186F986DD4E900783FF01CB289DEEFF"
+    },
+    {
+      "path": "assets/art/icon_anchor_map.png",
+      "sha256": "54D79F5506E9ECEF5DF337A8D80C432BD1BD28F07F9895946AF63A4765CC07FB"
+    },
+    {
+      "path": "assets/art/icon_blade_launcher_map.png",
+      "sha256": "2F313695A0FEFFF899C6271925B995F64F696EC6B22E75B7E0215E7D0F0A0FC6"
+    },
+    {
+      "path": "assets/art/icon_blast_pack_map.png",
+      "sha256": "8EC092012E86D2B46E4A59DBC6E86D5568067C38812CF3621AADCF77A8F40B1A"
+    },
+    {
+      "path": "assets/art/icon_cannon_map.png",
+      "sha256": "E63E8B906D8139AEDE3419B1B97405AF767E229D0BCDCE5B57391560B26B67C0"
+    },
+    {
+      "path": "assets/art/icon_cannons_map.png",
+      "sha256": "88B8BEC167BCB22EEE8861142A979EEF9234498D35D4B51E704174C912E6B023"
+    },
+    {
+      "path": "assets/art/icon_chakram_map.png",
+      "sha256": "89242C1A02E0E2AC58368C08D35CC1FF354F3EF9625EFFE6E39CC50F33C1BA63"
+    },
+    {
+      "path": "assets/art/icon_flamethrower_map_v2.png",
+      "sha256": "B05A4E7C8477857156E694CF6FBF96660E74D5799BFEF559A526147712893711"
+    },
+    {
+      "path": "assets/art/icon_fog_map.png",
+      "sha256": "8928AB59F1CB11D90E144B62CB17651D9FEE7F5551FF519AAEDA7384365588D6"
+    },
+    {
+      "path": "assets/art/icon_helm_map.png",
+      "sha256": "4266AC3F619C4164746C3A558CE71507FA8BBF7A08601328F3CF4FD0C9C55379"
+    },
+    {
+      "path": "assets/art/icon_hull_patch_kit_rope_from_leather_v1.png",
+      "sha256": "A58EDDD3D9ED2C92C86AB0F67EA60F1196D1691EE7FE1E4F772AF201A5FFBDFB"
+    },
+    {
+      "path": "assets/art/icon_lightning_railgun_map.png",
+      "sha256": "EE12E52C66905E32512D7225DF2F27B0A01BDF86F752787ED02C4519EAD27D62"
+    },
+    {
+      "path": "assets/art/icon_port_haven_map.png",
+      "sha256": "863442E887FB72E257C929D776AD35041BD820280F282E00E650EF879E29BC81"
+    },
+    {
+      "path": "assets/art/icon_skull_map.png",
+      "sha256": "369D472CCB91B4BF29A2DCE8266DE03B11E147CECDB7A46427E13D1BC98C6555"
+    },
+    {
+      "path": "assets/art/icon_torpedo_launcher_map_v2.png",
+      "sha256": "C82A9FB40F63FC64CCCDF2FC6AB7ACACA4CEEAB0C16EE717A4B524B2CA63D7E3"
+    },
+    {
+      "path": "assets/art/icon_treasure_map.png",
+      "sha256": "CAC0DF49903C581F639237913BE5D59E5C516E130D56062AC6FAD935BF7F247F"
+    },
+    {
+      "path": "assets/art/icon_unstable_tincture_map_v4.png",
+      "sha256": "D80A71A21D128F2B382170DE7F64D69D394B65B17BC42C7A2FDB25EF5DD67D9A"
+    },
+    {
+      "path": "assets/art/monster_crustacean_map.png",
+      "sha256": "5A3247505C53F7A7D1E3F371B075AB56E050BBAFE3D34D9AB8827DCAABD76A01"
+    },
+    {
+      "path": "assets/art/monster_jellyfish_map.png",
+      "sha256": "20D66D48E4CE5C8E3801043944AE248CDCFAC30CEA3430E15B973531DAAC125F"
+    },
+    {
+      "path": "assets/art/monster_kraken_boss_v5.png",
+      "sha256": "6929D92DDBBFC049FE2393F8D4379946184310C649F770BE05C3DE4E0B8DF147"
+    },
+    {
+      "path": "assets/art/monster_serpent_map.png",
+      "sha256": "6870DE7B735F62B228C1036C8F08C6485035607A5923DB91FEEC8B348A5629EA"
+    },
+    {
+      "path": "assets/art/monster_shark_map.png",
+      "sha256": "E5A4F8C558ECB2D764B4C3EB9E22AD6DA51636BC390D926AE5BF2035271C0167"
+    },
+    {
+      "path": "assets/art/monster_squid_map_v5.png",
+      "sha256": "DBC1E31434BA3A4C402A7DF0D2184B71EFF2094014F2D269BF1FA8621ED46161"
+    },
+    {
+      "path": "assets/art/ship_corvette_map.png",
+      "sha256": "B5EDD7D4594AB2DA59D7351B6B4D343272CBA1A1728A5A449CAE72CAD72DA786"
+    },
+    {
+      "path": "assets/art/ship_flying_dutchman_map.png",
+      "sha256": "9763B6234F08DD720CCA9E25BBCB4E337E033C1F634F59AC222050507BC2AB3B"
+    },
+    {
+      "path": "assets/art/ship_freighter_pilot_v2.png",
+      "sha256": "C0A86992A1A2647996F8F0504A20AF010B14D26657CACF4FB9BF889744BE36CA"
+    },
+    {
+      "path": "assets/art/ship_ironclad_map_v2.png",
+      "sha256": "0D5FD76AAC5794703DBAB29F09CA6F3E5D52812E0089B543FE17775E52553DE6"
+    },
+    {
+      "path": "assets/art/ship_standard_map.png",
+      "sha256": "AEB057AF7CB85F7FA7522A1B1996F3B532DB5521CB6AF0A29D53B325AEF6EB33"
+    }
+  ],
+  "checks": {
+    "appAnalysis": "No issues",
+    "bundleAndAlphaTests": 28,
+    "existingMerchantSalvageBeltTests": 25,
+    "merchantCaptureTests": 2
+  },
+  "visual": [
+    "visual/approved-merchant-360.0.png",
+    "visual/approved-merchant-1280.0.png"
+  ]
+}

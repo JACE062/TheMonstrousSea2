@@ -1,12 +1,18 @@
 # Consumable and chart artwork review — 6 November 2026
 
-**Status: rope-only edit of the leather version and a canvas variant prepared for review on 7 November 2026; production art mappings unchanged.** The user scheduled this focused pass after the navigation/playtest UI work. Broader hardpoint, material, Covenant and home-menu artwork remains deferred in [the backlog](../BACKLOG.md#deferred-ui-art-and-icons).
+**Status: the user approved the rope replacement on 7 November 2026; Hull Patch Kit now uses it in the app. Other asset selections remain in review.** The user scheduled this focused pass after the navigation/playtest UI work. Broader hardpoint, material, Covenant and home-menu artwork remains deferred in [the backlog](../BACKLOG.md#deferred-ui-art-and-icons).
 
-The project requires approved art in the app bundle ([developer guide](../../CLAUDE.md#presentation-and-art)). These originals therefore live in a separate [candidate directory](candidates/artwork-pass-2026-11-06/). Selection is the next step before integration. Existing approved assets, player saves and historical evidence remain unchanged.
+The project requires approved art in the app bundle ([developer guide](../../CLAUDE.md#presentation-and-art)). Review originals live in a separate [candidate directory](candidates/artwork-pass-2026-11-06/). Only the selected rope kit has been copied into the app; unselected drafts remain outside the bundle. Existing approved assets, player saves and historical evidence are preserved.
+
+## Approved Hull Patch Kit
+
+The user selected the **rope replacement**: “I like the rope one better, let's go with that one.” [The approved PNG](../../apps/monstrous_sea/assets/art/icon_hull_patch_kit_rope_from_leather_v1.png) is copied unchanged from its candidate original. `PilotArt.hullPatchKit` and the shared `SvgAssetView.pathForItem` mapping now use it for illustrated merchant and reward menus, including wreck cargo. Combat and inspection currently use text-only belt controls.
+
+[Integration verification](../archive/README.md#hull-patch-kit-art-verification-2026-11-07) records 53 targeted checks, two font-loaded merchant captures, clean analysis and an isolated Windows preview. The canvas alternative remains preserved and unselected.
 
 ## User-requested revisions
 
-- **Hull Patch Kit, latest direction — 7 November:** The user prefers the leather version's squared planks and square-headed hammer as the starting point. Replace only its belt/buckle with rope and retain the separate hammer's arrangement; do not lash the hammer back onto the boards. Also try the discussed canvas-wrapped version. The repair-crate concept was declined. These two requested edits are candidates, not automatic approval of an asset. Retain the [first patch kit](candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png) and [rope revision](candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v2.png) for comparison.
+- **Hull Patch Kit, latest direction — 7 November:** The user prefers the leather version's squared planks and square-headed hammer as the starting point. Replace only its belt/buckle with rope and retain the separate hammer's arrangement; do not lash the hammer back onto the boards. Also try the discussed canvas-wrapped version. The repair-crate concept was declined. The user subsequently selected the rope edit; the canvas alternative was not selected. Retain the [first patch kit](candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png) and [rope revision](candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v2.png) for comparison.
 - **Sargasso kelp:** Replace the small branching sprig with long overlapping strands, loose curls and open gaps suitable for faded chart decoration. The latest revision removes all four berry-like pods and their stalks; [the strand revision with pods](candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v2.png) and [its regional proof](candidates/artwork-pass-2026-11-06/regional-context-v2.png) remain preserved. [Earlier kelp](candidates/artwork-pass-2026-11-06/chart_sargasso_kelp_map_v1.png).
 - **Hull:** The user prefers the revised hull. Other candidates are not automatically approved by that preference.
 
@@ -14,7 +20,7 @@ The initial individual previews numbered nine because the hull had two drafts. T
 
 ## Rope and canvas variations
 
-**Requested 7 November 2026.** Both use the leather version as the edit source.
+**Requested 7 November 2026; rope subsequently approved and integrated.** Both use the leather version as the edit source. This comparison preserves the review before selection.
 
 ![Rope replacement and canvas-wrapped kit at large and icon sizes](candidates/artwork-pass-2026-11-06/patch-kit-rope-canvas-2026-11-07-v1.png)
 
@@ -52,7 +58,7 @@ Both were generated afresh from the approved treasure/cannon style references, r
 
 | ID | Candidate | Intended mapping |
 | --- | --- | --- |
-| A01 | Hull Patch Kit — [rope and canvas variations](#rope-and-canvas-variations); earlier drafts retained for comparison | Replace the incorrectly reused tincture bottle for this consumable everywhere the shared item-art selector is used. |
+| A01 | Hull Patch Kit — [approved rope replacement](#approved-hull-patch-kit); earlier drafts retained for comparison | Replace the incorrectly reused tincture bottle for this consumable everywhere the shared item-art selector is used. |
 | A02 | [Bottled Kraken Ink](candidates/artwork-pass-2026-11-06/icon_kraken_ink_map_v1.png) — squat stoneware jar with ink drop | Replace the incorrectly reused Blast Pack barrel. The broad jar silhouette differs from both flasks. |
 | A03 | [Alchemical Pitch Flask](candidates/artwork-pass-2026-11-06/icon_alchemical_pitch_map_v1.png) — tall narrow flask with dark pitch | Replace the incorrectly reused Blast Pack barrel. The shape and restrained rust accent distinguish it from the round multicolored tincture. |
 | A04 | [Hull](candidates/artwork-pass-2026-11-06/icon_chart_hull_map_v2.png) — bare planked hull | Replace the chart status shield. Retain the Hull label, numbers and condition colors. The user prefers this revised hull to the first attempt. |
@@ -73,7 +79,7 @@ This is a placement study, **not a gameplay screenshot**. Existing [fog artwork]
 
 - Generated with the built-in `image_gen` tool using the approved treasure/tincture PNGs as style references. [The prompt record](artwork_pass_2026_11_06.json) contains each exact prompt, source path, candidate path, reference list and the rejected hull attempt's rationale.
 - The eight primary candidate originals, two earlier patch-kit alternatives and repair-crate proposal are 1254 × 1254 PNGs with true alpha. The latest rope/canvas originals retain the dimensions recorded above. [Alpha checks and SHA-256 hashes](candidates/artwork-pass-2026-11-06/alpha-checks-v3.json) confirm clear padding, no painted edge pixels and byte-identical copies of generated sources. The requested 10% margin was not consistently met, but none of the drawings is clipped.
-- [The proof renderer](../../tools/art/render_artwork_pass.ps1) resizes/composites copies for review only. It does not modify the originals. Reproduce with `powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/art/render_artwork_pass.ps1 -Revision v3` from the repository root.
-- The combined, regional and patch-kit comparison sheets were visually inspected at full size. The application's asset bundle and runtime remain unchanged at this review stage; no Flutter build or gameplay suite is claimed for candidate artwork.
+- [The proof renderer](../../tools/art/render_artwork_pass.ps1) resizes/composites copies for review only. It does not modify the originals. The retained v3 sheets describe the pre-approval state; render the current record into a new version with `powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/art/render_artwork_pass.ps1 -Revision v4` from the repository root.
+- The combined, regional and patch-kit comparison sheets were visually inspected at full size before selection. The [integration receipt](../archive/README.md#hull-patch-kit-art-verification-2026-11-07) separately records verification of the approved kit in the app. Earlier candidate proofs do not imply approval or runtime integration of the other illustrations.
 
-After selection, integrate the three consumable mappings through `SvgAssetView.pathForItem` so merchants, salvage, loot, inspection and combat use the same identities; then update the two helm badges, Center Journey control and regional marginalia. Verify bundle decoding, item identity, visited-region-only placement and realistic chart layouts. Do not change saves, encounters or provisional tuning as part of this art pass.
+The Hull Patch Kit mapping is integrated. After their own selections, integrate the ink and pitch mappings through `SvgAssetView.pathForItem`; then update selected helm badges, Center Journey control and regional marginalia. Adding illustrations to the currently text-only inspection/combat belt is a separate presentation change. Verify bundle decoding, item identity, visited-region-only placement and realistic chart layouts. Do not change saves, encounters or provisional tuning as part of this art pass.

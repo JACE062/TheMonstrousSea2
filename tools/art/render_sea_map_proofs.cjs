@@ -46,7 +46,7 @@ async function main() {
   for(const [j,size] of [22,36,48].entries()) layers.push({input:await sharp(artPath(a.filename)).resize(size,size).png().toBuffer(),left:left+16+j*52,top:top+12});
   layers.push({input:label(a.title,cell),left,top:top+68});
  }
- await sharp({create:{width:720,height:330,channels:4,background:'#F4ECD8'}}).composite(layers).png().toFile(path.join(out,'sea_map_icons_small.png'));
+ await sharp({create:{width:720,height:Math.ceil(icons.length/4)*110,channels:4,background:'#F4ECD8'}}).composite(layers).png().toFile(path.join(out,'sea_map_icons_small.png'));
  fs.writeFileSync(path.join(out,'sea_map_asset_checks.json'),JSON.stringify({note:'Original PNGs checked; composites used only for review.',checks},null,2)+'\n');
  const revisionFile = manifest.latestRevisionManifest || 'sea_map_revisions_v2.json';
  const revisionStem = path.basename(revisionFile, '.json');

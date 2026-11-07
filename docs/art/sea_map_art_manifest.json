@@ -482,6 +482,21 @@
       "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a12d09-83de-7291-bd95-823d7e2b940e\\exec-e7e01e7b-17e2-4b2a-b8f7-545840936322.png",
       "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_fog_map.png",
       "status": "Integrated on Sea Chart"
+    },
+    {
+      "slug": "icon_hull_patch_kit",
+      "title": "Hull Patch Kit",
+      "kind": "icon",
+      "filename": "icon_hull_patch_kit_rope_from_leather_v1.png",
+      "subject": "Squared shoring planks bound with rope; separate square-headed mallet, retaining the leather version's arrangement.",
+      "mode": "Built-in image_gen precise-object-edit",
+      "promptRecord": "artwork_pass_2026_11_06.json",
+      "promptRecordAssetId": "patch_rope_from_leather",
+      "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-0ab54cce-df6e-45e8-9d39-f4ed6e2375a6.png",
+      "candidatePath": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_rope_from_leather_v1.png",
+      "destination": "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/assets/art/icon_hull_patch_kit_rope_from_leather_v1.png",
+      "status": "User-approved rope version integrated 2026-11-07",
+      "approvedOn": "2026-11-07"
     }
   ],
   "previewAlternatives": [
@@ -503,7 +518,7 @@
     }
   ],
   "latestRevisionManifest": "sea_map_revisions_v5.json",
-  "updatedOn": "2026-10-12",
+  "updatedOn": "2026-11-07",
   "validation": {
     "result": "Passed",
     "coverage": "23 active assets and the earlier squid alternative decode with transparent padding. Six scenes cover all ship designs and monster species at 1100x720 and 800x600 with chronicle open and closed. Logical bounds and rendered ink pixels remain within the HUD/dock arena. Volley and loot-flow tests pass.",
@@ -588,5 +603,12 @@
     "svgSources": 23,
     "activeAssets": 26,
     "bytesRemovedFromBundle": 18367359
+  },
+  "currentActiveAssetCount": 27,
+  "latestIntegration": {
+    "date": "2026-11-07",
+    "asset": "icon_hull_patch_kit",
+    "receipt": "../archive/playtests/PATCH_KIT_ART_2026_11_07.md",
+    "note": "Earlier validation/archive counts are preserved historical snapshots."
   }
 }

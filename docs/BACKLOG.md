@@ -433,7 +433,7 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ## Deferred UI art and icons
 
-Tied to PT2-04–07. The user scheduled a focused consumable/chart pass on 6 November 2026. [Eight candidate illustrations and size/placement proofs](art/artwork-pass-2026-11-06.md) are prepared for selection; production mappings remain unchanged. Other rows below remain deferred. Audit/reuse approved assets before generating replacements.
+Tied to PT2-04–07. The user scheduled a focused consumable/chart pass on 6 November 2026. [Candidate illustrations and size/placement proofs](art/artwork-pass-2026-11-06.md) retain the reviews. The rope-bound Hull Patch Kit was approved and integrated on 7 November; other proposed replacements remain in review. Other rows below remain deferred. Audit/reuse approved assets before generating replacements.
 
 ### Art style and workflow
 
@@ -464,7 +464,7 @@ Every current consumable needs its own accurate image. The current mappings belo
 | Identity / enum | Current art | Later work |
 | --- | --- | --- |
 | Unstable Tincture / `unstableTincture` | `icon_unstable_tincture_map_v4.png` | Audit/reuse approved bottle art. |
-| Hull Patch Kit / `hullPatchKit` | Unstable Tincture image | Dedicated repair materials/toolkit image. |
+| Hull Patch Kit / `hullPatchKit` | `icon_hull_patch_kit_rope_from_leather_v1.png` | User-approved rope version integrated 7 November 2026 through the shared item-art selector. [Verification](archive/README.md#hull-patch-kit-art-verification-2026-11-07). |
 | Blast Pack / `blastPack` | `icon_blast_pack_map.png` | Audit/reuse approved explosive bundle art. |
 | Bottled Kraken Ink / `krakenInkBomb` | Blast Pack image | Dedicated ink vessel image, clearly different from pitch and explosives. |
 | Alchemical Pitch Flask / `alchemicalPitch` | Blast Pack image | Dedicated pitch vessel image, clearly different from ink and tincture. |
