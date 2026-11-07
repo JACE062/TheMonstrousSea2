@@ -1,8 +1,9 @@
 # Candidate review composites only. Original generated PNGs remain unchanged.
-param([string]$Revision = '', [switch]$PatchAlternatives)
+param([string]$Revision = '', [switch]$PatchAlternatives, [switch]$PatchProposal)
 # Run with Windows PowerShell: powershell.exe -NoProfile -File tools/art/render_artwork_pass.ps1
 $ErrorActionPreference = 'Stop'
 if ($Revision -and $Revision -notmatch '^v[0-9]+$') { throw 'Revision must be v followed by digits' }
+if ($PatchAlternatives -and $PatchProposal) { throw 'Choose one patch-kit proof mode' }
 $suffix = if ($Revision) { '-' + $Revision } else { '' }
 Add-Type -AssemblyName System.Drawing
 Add-Type -ReferencedAssemblies System.Drawing -TypeDefinition @'
@@ -74,7 +75,7 @@ function Save-Proof($proof, [string]$name) {
   finally { $proof.G.Dispose(); $proof.Bitmap.Dispose() }
 }
 
-$checkAssets = if ($PatchAlternatives) { @($review.assets[0].alternatives) } else { @($review.assets) }
+$checkAssets = @(if ($PatchProposal) { $review.assets[0].proposal } elseif ($PatchAlternatives) { $review.assets[0].alternatives } else { $review.assets })
 $checks = foreach ($asset in $checkAssets) {
   $assetPath = Join-Path $repoRoot $asset.path
   $check = [ArtworkAlphaCheck]::Inspect($assetPath)
@@ -87,16 +88,19 @@ $checks = foreach ($asset in $checkAssets) {
   }
   [ordered]@{ id = $asset.id; width = $check[0]; height = $check[1]; transparentFraction = $check[2]; paintedFraction = $check[3]; edgePixels = $check[4]; visibleBounds = $check[5..8]; sha256 = $hash }
 }
-$checksName = if ($PatchAlternatives) { 'patch-kit-variations' + $suffix + '-alpha-checks.json' } else { 'alpha-checks' + $suffix + '.json' }
+$patchStem = if ($PatchProposal) { 'patch-kit-packed' } else { 'patch-kit-variations' }
+$checksName = if ($PatchAlternatives -or $PatchProposal) { $patchStem + $suffix + '-alpha-checks.json' } else { 'alpha-checks' + $suffix + '.json' }
 $checks | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $outputRoot $checksName) -Encoding UTF8
 
-if ($PatchAlternatives) {
-  if ($checkAssets.Count -ne 2) { throw 'Expected exactly two patch-kit alternatives' }
+if ($PatchAlternatives -or $PatchProposal) {
+  $expectedCount = if ($PatchProposal) { 1 } else { 2 }
+  if ($checkAssets.Count -ne $expectedCount) { throw 'Unexpected patch-kit candidate count' }
   $proof = New-Proof 900 650 $paper
-  $proof.G.DrawString('Hull Patch Kit - two new variations', $titleFont, $brush, 24, 18)
-  $proof.G.DrawString('Large previews and actual 28 / 48 / 96 px samples. Neither option is selected.', $smallFont, $brush, 24, 56)
+  $heading = if ($PatchProposal) { 'Hull Patch Kit - packed repair supplies' } else { 'Hull Patch Kit - two new variations' }
+  $proof.G.DrawString($heading, $titleFont, $brush, 24, 18)
+  $proof.G.DrawString('Large preview and actual 28 / 48 / 96 px samples. Candidate artwork.', $smallFont, $brush, 24, 56)
   for ($i = 0; $i -lt $checkAssets.Count; $i++) {
-    $asset = $checkAssets[$i]; $x = $i * 450
+    $asset = $checkAssets[$i]; $x = $i * 450 + (900 - $checkAssets.Count * 450) / 2
     $proof.G.DrawString($asset.title, $bodyFont, $brush, $x + 28, 100)
     Draw-Art $proof.G (Join-Path $repoRoot $asset.path) ($x + 65) 135 320
     $offset = 60
@@ -107,9 +111,9 @@ if ($PatchAlternatives) {
     }
     $proof.G.DrawRectangle($rule, $x + 14, 88, 422, 545)
   }
-  Save-Proof $proof ('patch-kit-variations' + $suffix + '.png')
+  Save-Proof $proof ($patchStem + $suffix + '.png')
   $bodyFont.Dispose(); $smallFont.Dispose(); $titleFont.Dispose(); $brush.Dispose(); $rule.Dispose()
-  Write-Output 'Two patch-kit alternative originals verified; review sheet rendered.'
+  Write-Output ($checkAssets.Count.ToString() + ' patch-kit candidate originals verified; review sheet rendered.')
   return
 }
 

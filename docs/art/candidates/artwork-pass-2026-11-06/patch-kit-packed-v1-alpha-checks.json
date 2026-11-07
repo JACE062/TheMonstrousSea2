@@ -1,0 +1,15 @@
+﻿{
+    "id":  "patch_repair_crate",
+    "width":  1254,
+    "height":  1254,
+    "transparentFraction":  0.61023099288019966,
+    "paintedFraction":  0.37535707108862487,
+    "edgePixels":  0,
+    "visibleBounds":  [
+                          112,
+                          288,
+                          1125,
+                          987
+                      ],
+    "sha256":  "F993AB7E190508CB3883275E15B9ED7AEFAF319076FBF79CBC8E518D1A837705"
+}

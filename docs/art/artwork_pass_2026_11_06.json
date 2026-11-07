@@ -1,7 +1,7 @@
 {
   "title": "Navigation and consumable artwork pass",
   "date": "2026-11-06",
-  "status": "Two fresh patch-kit variations for review; revised hull preferred; not bundled",
+  "status": "Packed Hull Patch Kit proposal for review; loose-board and strapped alternatives declined; not bundled",
   "mode": "Built-in image_gen; transparent reference-based illustration",
   "reuse": [
     {
@@ -25,7 +25,7 @@
       "prompt": "Use case: precise-object-edit. Input image 1 is the exact edit target: the transparent Hull Patch Kit icon. Change ONLY the rope binding. Preserve the three stacked oak planks, their shapes/wood seams, diagonal wooden mallet, palette, bold ink contour style, composition, canvas and true alpha transparency. Replace the rope's bulky braided middle and malformed knot with TWO SIMPLE PARALLEL CORD WRAPS running vertically around the stack. Each wrap follows the plank surfaces and turns naturally over the top and under the bottom, with continuous believable paths. Tie-off is tucked behind the timber stack and invisible from this view: NO visible front knot, clump, braid, bow or looping tangle. Use smooth cream/tan cord with bold dark outlines and at most a few sparse diagonal rope marks. The mallet stays where it is. No new objects, labels, paper, glow, shadow or backdrop. Keep the complete icon fully inside a square 1254x1254 or larger transparent canvas.",
       "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-da7ab4c9-eb49-4a37-9a8f-db8f91a134d9.png",
       "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v2.png",
-      "status": "Earlier rope-bound candidate retained; user requests review of two fresh alternatives",
+      "status": "Earlier rope-bound candidates retained; packed repair-crate proposal pending review",
       "references": [
         "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_map_v1.png"
       ],
@@ -66,7 +66,7 @@
           "kind": "consumable",
           "mode": "Built-in image_gen; new reference-based illustration",
           "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_loose_boards_v1.png",
-          "status": "Alternative candidate — awaiting user review",
+          "status": "Declined by user: separate mallet does not read as a self-contained consumable; leather strap also rejected",
           "references": [
             "apps/monstrous_sea/assets/art/icon_treasure_map.png",
             "apps/monstrous_sea/assets/art/icon_cannon_map.png"
@@ -82,13 +82,29 @@
           "kind": "consumable",
           "mode": "Built-in image_gen; new reference-based illustration",
           "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_leather_bundle_v1.png",
-          "status": "Alternative candidate — awaiting user review",
+          "status": "Declined by user: separate mallet does not read as a self-contained consumable; leather strap also rejected",
           "references": [
             "apps/monstrous_sea/assets/art/icon_treasure_map.png",
             "apps/monstrous_sea/assets/art/icon_cannon_map.png"
           ]
         }
-      ]
+      ],
+      "proposal": {
+        "id": "patch_repair_crate",
+        "title": "Packed repair crate",
+        "kind": "consumable",
+        "filename": "icon_hull_patch_kit_repair_crate_v1.png",
+        "prompt": "Use case: stylized-concept. Asset type: Hull Patch Kit consumable icon for a nautical game. Input images 1 and 2 are STYLE REFERENCES ONLY, not edit targets and not subject matter. Draw ONE SELF-CONTAINED READY-TO-USE REPAIR KIT, with every component packed INSIDE one small open wooden supply crate. The kit's consumable contents are pre-cut oak repair boards and hull-sealing pitch. Composition: a compact rectangular shipping crate in simple shallow three-quarter view; three short squared oak patch boards fit snugly together in the left half, and one small squat sealed pitch pot sits snugly in the right half. Their tops are visible above the low crate rim but all their bases are INSIDE the crate. A dark tar-black lid or single dark pitch mark makes the pot distinct. The crate is plain sawn wood, a simple open box with solid front and side faces, coherent straight joints, and no decorative hardware. This is one unified object silhouette, not a spread of crafting supplies. NO HAMMER, MALLET, AXE, HAND TOOLS, LOOSE PIECES, ROPE, STRAPS, BUCKLES, HANDLES, TREASURE CHEST LID, LOCK, COINS, FUSE OR MEDICAL CROSS. Match the existing simple sea-map drawing style: bold slightly uneven iron-gall #1B1612 outlines, broad warm cream #F4ECD8 and tan #D5C4A1 wooden forms, a few sparse wood-grain strokes, flat colors and quiet hand-drawn character. Simplify aggressively for readability at 48 pixels. No dense hatching, fine texture, photorealism, 3D rendering, gloss, gradients, glow, shadows, text, symbols, labels, badges or frame. Square 1254x1254 or larger with TRUE alpha transparency; center the whole kit with clear margins on all four sides. No paper, colored backdrop or checkerboard baked in.",
+        "mode": "Built-in image_gen; new reference-based illustration",
+        "source": "C:\\Users\\jcarvajal\\.codex\\generated_images\\01a1aa07-3c56-70f0-9afc-5a55577b334b\\exec-b16b6327-d937-43d0-bd15-be59cd6ec9f8.png",
+        "path": "docs/art/candidates/artwork-pass-2026-11-06/icon_hull_patch_kit_repair_crate_v1.png",
+        "references": [
+          "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+          "apps/monstrous_sea/assets/art/icon_blast_pack_map.png"
+        ],
+        "status": "Candidate — awaiting user review",
+        "subject": "One open supply crate with short repair boards and sealed pitch pot packed inside; no detached tools or bindings."
+      }
     },
     {
       "id": "kraken_ink",
