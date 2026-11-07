@@ -198,7 +198,7 @@ class _DeathScreenState extends State<DeathScreen> {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'The beast grows more cunning and ruthless in the deep. Confront it on a future voyage to avenge your ancestor.',
+                          'The beast grows stronger after its victory. Confront it on a future voyage to avenge your fallen ancestor.',
                           style: InkTheme.body,
                         ),
                         const Divider(

@@ -293,8 +293,8 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pump(const Duration(milliseconds: 300));
       expect(find.text('TACTICAL BELT'), findsOneWidget);
-      expect(find.textContaining('does not end'), findsWidgets);
-      expect(find.textContaining('single', findRichText: true), findsWidgets);
+      expect(find.textContaining('do not end your turn'), findsWidgets);
+      expect(find.textContaining('Limit one per turn'), findsWidgets);
       expect(tester.takeException(), isNull);
       await _dispose(tester, controller);
     },

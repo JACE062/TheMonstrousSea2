@@ -148,13 +148,6 @@ class _HelmScreenState extends State<HelmScreen> {
           controller.seaChart.currentRegionName,
           style: InkTheme.subtitle.copyWith(fontSize: 15),
         ),
-        const SizedBox(height: 3),
-        Text(
-          compact
-              ? 'FRESH WESTERLIES · ONWARD'
-              : 'FRESH WESTERLIES · EVERY HEADING PRESSES ONWARD',
-          style: InkTheme.caption.copyWith(fontSize: 11),
-        ),
       ],
     );
     final hullFraction = ship == null || ship.maxHp == 0

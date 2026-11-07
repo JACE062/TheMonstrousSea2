@@ -184,20 +184,19 @@ class _BattleScreenState extends State<BattleScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Each item is single-use and does not end your turn '
-                    '(0 turn cost). You can still give a helm order and use a fitting.',
+                    'Quick-use belt consumables do not end your turn. '
+                    'Limit ${limit == 1 ? 'one' : 'two'} per turn${limit == 2 ? ' with Drillmaster' : ''}.',
                     style: InkTheme.body,
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Use one quick item per round, or two with Drillmaster. '
                     'A fitting action or Wait & Reload (when available) '
-                    'finishes the round and refreshes this limit.',
+                    'finishes the turn and refreshes this limit.',
                     style: InkTheme.body,
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Used this round: $used/$limit',
+                    'Used this turn: $used/$limit',
                     style: InkTheme.statLabel,
                   ),
                   for (final item in items) ...[

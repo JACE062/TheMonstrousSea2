@@ -7,7 +7,7 @@ import 'package:monstrous_sea/src/screens/helm_screen.dart';
 void main() {
   group('HelmScreen Widget Tests', () {
     testWidgets(
-      'combines map, logbook, prevailing wind and three course options',
+      'combines map, region, logbook and three course options',
       (WidgetTester tester) async {
         tester.view.physicalSize = const Size(1200, 1600);
         tester.view.devicePixelRatio = 1.0;
@@ -34,9 +34,10 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        // Verify quarterdeck header and gale notice
+        // The header identifies the region without a wind/routing explanation.
         expect(find.text('NAUTICAL SEA CHART'), findsOneWidget);
-        expect(find.textContaining('FRESH WESTERLIES'), findsOneWidget);
+        expect(find.text(controller.seaChart.currentRegionName), findsOneWidget);
+        expect(find.textContaining('FRESH WESTERLIES'), findsNothing);
         expect(
           find.textContaining('LOOKOUT OBSERVATIONS & COURSES'),
           findsOneWidget,

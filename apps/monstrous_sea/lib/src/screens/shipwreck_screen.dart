@@ -42,7 +42,7 @@ class ShipwreckScreen extends StatelessWidget {
     final assessment = switch (wreck.condition) {
       WreckCondition.pickedClean =>
         'The open holds have been stripped. Only a small, quick haul remains.',
-      WreckCondition.uncertain => 'Take the modest accessible salvage and leave, or forego it and linger for the deeper cargo.',
+      WreckCondition.uncertain => 'Take a quick haul and sail on, or linger to salvage the wreck in full.',
       WreckCondition.fresh => 'Fresh cargo lies below the broken decks.',
     };
     return ParchmentScaffold(
@@ -105,7 +105,7 @@ class ShipwreckScreen extends StatelessWidget {
                   if (wreck.condition != WreckCondition.pickedClean) ...[
                     ParchmentCard(
                       child: Text(
-                        'COMMITTED RECOVERY: High chance of a creature fight. An Apex predator may appear. Species and tier remain unknown until it appears.${wreck.condition == WreckCondition.uncertain ? ' You cannot take the quick haul as well.' : ''}',
+                        'A fight is likely; an Apex may be lurking.',
                         style: InkTheme.body.copyWith(
                           color: InkTheme.crimsonAccent,
                         ),

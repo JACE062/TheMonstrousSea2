@@ -123,7 +123,7 @@ class _CaptainScreenState extends State<CaptainScreen> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Three fixed fittings. Set your range, fire a volley, and survive the beast ahead. New blueprints await later generations at the home port.',
+                        'Set your range, fire a volley, and pray to make it home someday. The port has waited generations for a captain’s return.',
                         style: InkTheme.body.copyWith(fontSize: 15),
                       ),
                     ],

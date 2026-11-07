@@ -289,7 +289,7 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
                 Text('YOUR LINEAGES', style: InkTheme.titleMedium),
                 const SizedBox(height: 8),
                 Text(
-                  'Each save has its own captains, discoveries and ending. New Lineage starts a separate hunt.',
+                  'Each lineage is its own save.',
                   style: InkTheme.body,
                 ),
                 const SizedBox(height: 12),
