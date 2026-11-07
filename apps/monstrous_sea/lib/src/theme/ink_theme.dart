@@ -166,6 +166,9 @@ class InkTheme {
       textTheme: TextTheme(
         headlineLarge: titleLarge,
         headlineMedium: titleMedium,
+        // Material 3 dialogs/actions otherwise retain default sans-serif fonts.
+        headlineSmall: titleMedium,
+        labelLarge: titleMedium.copyWith(fontSize: 18),
         bodyLarge: body,
         bodyMedium: body,
         bodySmall: caption,

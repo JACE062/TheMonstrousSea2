@@ -20,6 +20,7 @@ import 'package:monstrous_sea/src/settings/game_settings.dart';
 import 'package:monstrous_sea/src/services/storage_service.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
 import 'package:monstrous_sea/src/widgets/parchment_scaffold.dart';
+import 'chart_focus_ui_test.dart' show mountChartFocus, captureChartFocusProof;
 import 'package:monstrous_sea/src/widgets/ink_button.dart';
 import 'package:monstrous_sea/src/widgets/painters/cartouche_border_painter.dart';
 import 'package:monstrous_sea/src/widgets/settings_dialog.dart';
@@ -625,6 +626,46 @@ void main() {
           ..seed('Original Lineage')
           ..seed('A completed family with a long save label', completed: true);
         final key = GlobalKey();
+        if (const String.fromEnvironment('artFontCache').isNotEmpty) {
+          final oldFonts = InkTheme.disableGoogleFonts;
+          final oldMode = GameSettings.instance.highLegibilityFont;
+          addTearDown(() {
+            InkTheme.disableGoogleFonts = oldFonts;
+            GameSettings.instance.setHighLegibilityFont(oldMode);
+          });
+          InkTheme.disableGoogleFonts = false;
+          const cleanFonts = String.fromEnvironment('cleanFontRoot');
+          if (cleanFonts.isNotEmpty) {
+            // Load the real clean face for captures; Flutter tests otherwise
+            // render unspecified fonts as Ahem blocks. Do not override the theme.
+            await tester.runAsync(() async {
+              await (FontLoader('Roboto')
+                    ..addFont(File('$cleanFonts/roboto-regular.ttf').readAsBytes().then(ByteData.sublistView))
+                    ..addFont(File('$cleanFonts/roboto-bold.ttf').readAsBytes().then(ByteData.sublistView)))
+                  .load();
+            });
+          }
+          for (final plain in [false, true]) {
+            GameSettings.instance.setHighLegibilityFont(plain);
+            await mountChartFocus(
+              tester,
+              LineageMenuScreen(
+                store: store,
+                gameBuilder: (_, _) => const SizedBox.shrink(),
+              ),
+              key,
+              Size(width, 900),
+              scale: scale,
+            );
+            await click(tester, 'NEW LINEAGE');
+            await captureChartFocusProof(tester, key,
+              'new-lineage-${plain ? 'plain' : 'serif'}-${width.toInt()}-$scale');
+            await tester.enterText(find.byKey(const ValueKey('lineage-label')), 'A new beginning');
+            expect(tester.takeException(), isNull);
+            await click(tester, 'CANCEL');
+          }
+          return;
+        }
         await tester.pumpWidget(
           RepaintBoundary(
             key: key,
