@@ -14,6 +14,7 @@ import '../widgets/ocean_power_badges.dart';
 import '../widgets/parchment_scaffold.dart';
 import '../widgets/pause_menu.dart';
 import '../widgets/utility_description.dart';
+import '../widgets/combat_stats.dart';
 
 /// Battle-facing effect copy; shared by the compact buttons and their help.
 extension on ConsumableType {
@@ -274,8 +275,7 @@ class _BattleScreenState extends State<BattleScreen> {
         .firstOrNull;
     final mult = ship.multiplierForHardpointMark(HardpointType.utility);
     return switch (bpId) {
-      BlueprintId.ironclad =>
-        ironPlatesDescription(ship),
+      BlueprintId.ironclad => ironPlatesDescription(ship),
       BlueprintId.clipper =>
         'Evasive Rigging: ${evasiveRiggingDescription(ship)}',
       BlueprintId.corsair =>
@@ -480,18 +480,9 @@ class _BattleScreenState extends State<BattleScreen> {
                           ship.name,
                           style: InkTheme.titleMedium.copyWith(fontSize: 20),
                         ),
-                        Tooltip(
-                          message: 'Current dodge chance after captain, regional and active-effect modifiers, capped at 95%. Unavoidable attacks bypass dodge.',
-                          child: Text(
-                            key: const ValueKey('ship-combat-stats'),
-                            'Level ${ship.level} ${ship.shipClass.name.toUpperCase()}'
-                            '${ship.currentDmgReduction > 0 ? ' • Fortified: -${ship.currentDmgReduction} Dmg' : ''}'
-                            ' • Evade: ${ship.effectiveEvasion}%'
-                            '${ship.isAnchoredThisTurn ? ' • Anchored' : ''}'
-                            '${ship.gunneryDrillBuffActive ? ' • Braced Volley (+15% Accuracy/+20% Damage)' : ''}'
-                            '${ship.pitchCoatingActive ? ' • Pitch Coated (+25% Fire/Burn)' : ''}',
-                            style: InkTheme.caption,
-                          ),
+                        ShipCombatStats(
+                          key: const ValueKey('ship-combat-stats'),
+                          ship: ship,
                         ),
                         const SizedBox(height: 8),
                         HullGauge(
@@ -569,22 +560,10 @@ class _BattleScreenState extends State<BattleScreen> {
                               ),
                           ],
                         ),
-                        Tooltip(
-                          message:
-                              'Current dodge chance after Pin and Spotter Flare. Attack accuracy is a separate roll.'
-                              '${monster.obscurityAccuracyPenalty > 0 ? ' Obscurity lowers shot accuracy by ${monster.obscurityAccuracyPenalty}%, separately from dodge. Successful hits have a 25% chance to disperse it; Spotter Flare clears it. There is no fixed turn duration.' : ''}',
-                          child: Text(
-                            key: const ValueKey('monster-combat-stats'),
-                            'Danger Level ${monster.level}'
-                            '${monster.numberOfTentacles > 0 ? ' • ${monster.numberOfTentacles} Tentacles' : ''}'
-                            '${monster.frenzyStacks > 0 ? ' • Frenzy: +${monster.frenzyStacks * 25}%' : ''}'
-                            ' • Dodge: ${monster.effectiveEvasion}%'
-                            '${monster.obscurityAccuracyPenalty > 0 ? ' • Obscurity: -${monster.obscurityAccuracyPenalty}% shot accuracy' : ''}'
-                            '${monster.isPinnedThisTurn ? ' • Pinned' : ''}'
-                            '${monster.spotterFlareTurns > 0 ? ' • ☀️ Illuminated (${monster.spotterFlareTurns}T)' : ''}'
-                            '${ship.activeTetherTrapDistance != null ? ' • 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}' : ''}',
-                            style: InkTheme.caption,
-                          ),
+                        MonsterCombatStats(
+                          key: const ValueKey('monster-combat-stats'),
+                          monster: monster,
+                          ship: ship,
                         ),
                         const SizedBox(height: 8),
                         HullGauge(

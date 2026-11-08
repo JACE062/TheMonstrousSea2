@@ -3,9 +3,12 @@ import 'dart:ui' as ui;
 
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 import 'package:monstrous_sea/src/battle/battle_presentation.dart';
 import 'package:monstrous_sea/src/battle/monstrous_sea_battle_game.dart';
@@ -14,12 +17,21 @@ import 'package:monstrous_sea/src/screens/battle_screen.dart';
 import 'package:monstrous_sea/src/theme/ink_theme.dart';
 
 const _font = String.fromEnvironment('reviewFontPath');
+const _gameFontCache = String.fromEnvironment('artFontCache');
+
+class _StatsFontRoot extends PathProviderPlatform {
+  _StatsFontRoot(this.path);
+  final String path;
+  @override
+  Future<String?> getApplicationSupportPath() async => path;
+}
 
 GameController _battle({
   bool region2 = true,
   bool volatile = false,
   bool reckless = false,
   bool apexShark = false,
+  ShipClass shipClass = ShipClass.clipper,
 }) {
   final session = GameSession(
     rng: SeededGameRng(42),
@@ -29,9 +41,9 @@ GameController _battle({
   );
   final controller = GameController(session: session, autoSave: false)
     ..dispatch(const NameCaptain('Evasion review'));
-  session.profile.unlockedBlueprints.add(BlueprintId.clipper.name);
+  session.profile.unlockedBlueprints.add(shipClass.name);
   session.activeQuirk = reckless ? BloodlineTrait.recklessHelmsman : null;
-  controller.dispatch(const ChooseShip(ShipClass.clipper));
+  controller.dispatch(ChooseShip(shipClass));
   if (region2) session.seaChart.advanceRegion(session.rng);
   if (apexShark) {
     final chart = session.seaChart.toJson()
@@ -72,6 +84,27 @@ Future<MonstrousSeaBattleGame> _mount(
   GameController controller, {
   GlobalKey? captureKey,
 }) async {
+  if (_gameFontCache.isNotEmpty) {
+    final previous = PathProviderPlatform.instance;
+    PathProviderPlatform.instance = _StatsFontRoot(_gameFontCache);
+    addTearDown(() => PathProviderPlatform.instance = previous);
+    await tester.runAsync(() async {
+      await (FontLoader(
+        'MaterialIcons',
+      )..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf'))).load();
+      InkTheme.themeData;
+      await GoogleFonts.pendingFonts([
+        InkTheme.titleLarge,
+        InkTheme.titleMedium,
+        InkTheme.subtitle,
+        InkTheme.body,
+        InkTheme.bodyBold,
+        InkTheme.caption,
+        InkTheme.statLabel,
+        InkTheme.statValue,
+      ]);
+    });
+  }
   final size = tester.view.physicalSize / tester.view.devicePixelRatio;
   final game = MonstrousSeaBattleGame(
     ship: controller.ship!,
@@ -110,12 +143,19 @@ Future<MonstrousSeaBattleGame> _mount(
   return game;
 }
 
-String _stats(WidgetTester tester, String side) =>
-    tester.widget<Text>(find.byKey(ValueKey('$side-combat-stats'))).data!;
+String _stats(WidgetTester tester, String side) => tester
+    .widgetList<Text>(
+      find.descendant(
+        of: find.byKey(ValueKey('$side-combat-stats')),
+        matching: find.byType(Text),
+      ),
+    )
+    .map((text) => text.data!)
+    .join(' ');
 
 void main() {
   setUpAll(() async {
-    InkTheme.disableGoogleFonts = true;
+    InkTheme.disableGoogleFonts = _gameFontCache.isEmpty;
     if (_font.isNotEmpty) {
       await (FontLoader(
         'EvasionReview',
@@ -125,6 +165,88 @@ void main() {
       )..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf'))).load();
     }
   });
+
+  for (final width in [360.0, 1280.0]) {
+    testWidgets('status hover targets are independent at $width', (
+      tester,
+    ) async {
+      tester.view.physicalSize = Size(width, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final controller = _battle(region2: false, shipClass: ShipClass.ironclad);
+      addTearDown(controller.dispose);
+      controller.ship!.currentDmgReduction = 6;
+      controller.currentMonster!
+        ..spotterFlareTurns = 1
+        ..spotterFlareAccuracyBonus = 23
+        ..spotterFlareBlastBonus = .4;
+      final captureKey = GlobalKey();
+      await _mount(tester, controller, captureKey: captureKey);
+      final hp = controller.ship!.currentHp;
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      await mouse.addPointer(location: Offset.zero);
+      addTearDown(mouse.removePointer);
+      const flareHelp =
+          'Suppresses Obscurity and dodge. Shots gain +23% accuracy; '
+          'Blast damage taken increases by 40%.';
+      const armorHelp =
+          'Reduces each incoming hit by 6 damage. '
+          'Fortification lasts for the rest of this battle.';
+      Future<void> hover(String target, String help, String proof) async {
+        await mouse.moveTo(tester.getCenter(find.byKey(ValueKey(target))));
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+        expect(find.text(help), findsOneWidget);
+        const prefix = String.fromEnvironment('statusTooltipProofPath');
+        if (prefix.isNotEmpty) {
+          await tester.runAsync(() async {
+            final boundary =
+                captureKey.currentContext!.findRenderObject()
+                    as RenderRepaintBoundary;
+            final image = await boundary.toImage();
+            try {
+              final bytes = await image.toByteData(
+                format: ui.ImageByteFormat.png,
+              );
+              await File('$prefix-$proof-${width.toInt()}.png')
+                  .writeAsBytes(bytes!.buffer.asUint8List());
+            } finally {
+              image.dispose();
+            }
+          });
+        }
+      }
+
+      await hover('monster-stat-illuminated', flareHelp, 'illuminated');
+      expect(find.textContaining('Current dodge chance'), findsNothing);
+      await hover('ship-stat-fortified', armorHelp, 'fortified');
+      expect(find.text(flareHelp), findsNothing);
+      expect(find.textContaining('Current dodge chance'), findsNothing);
+      await hover(
+        'monster-stat-dodge',
+        'Current dodge chance after Pin and Spotter Flare. Attack accuracy is a separate roll.',
+        'dodge',
+      );
+      expect(find.text(armorHelp), findsNothing);
+      await hover(
+        'ship-stat-evasion',
+        'Current dodge chance after captain, regional and active-effect modifiers, capped at 95%. Unavoidable attacks bypass dodge.',
+        'evade',
+      );
+      await mouse.moveTo(Offset.zero);
+      await tester.pump(const Duration(milliseconds: 500));
+      await tester.longPress(
+        find.byKey(const ValueKey('monster-stat-illuminated')),
+      );
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(find.text(flareHelp), findsOneWidget);
+      expect(controller.ship!.currentHp, hp);
+      expect(controller.phase, SessionPhase.battle);
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+  }
 
   for (final width in [360.0, 1280.0]) {
     for (final volatile in [false, true]) {
@@ -278,20 +400,61 @@ void main() {
       ship
         ..captainQuirkId = BloodlineTraitId.recklessHelmsman
         ..basaltBarrierHp = 35
-        ..basaltAegisTurns = 2;
+        ..basaltAegisTurns = 2
+        ..currentDmgReduction = 6;
       final activated = CombatEffectsChanged.capture(ship);
       ship
         ..captainQuirkId = null
         ..basaltBarrierHp = 0
         ..basaltAegisTurns = 0
-        ..currentEvasion = 7;
+        ..currentEvasion = 7
+        ..currentDmgReduction = 0;
       final expired = CombatEffectsChanged.capture(ship);
+      final monster = controller.currentMonster!
+        ..spotterFlareTurns = 2
+        ..spotterFlareAccuracyBonus = 30
+        ..spotterFlareBlastBonus = .5;
+      final flared = CombatEffectsChanged.capture(monster);
+      monster
+        ..spotterFlareTurns = 0
+        ..spotterFlareAccuracyBonus = 99
+        ..spotterFlareBlastBonus = 1;
+      final unlit = CombatEffectsChanged.capture(monster);
       controller.setIsPlayingEvents(true);
       await tester.pump();
       expect(_stats(tester, 'ship'), contains('Evade: 25%'));
+      expect(find.byKey(const ValueKey('ship-stat-fortified')), findsNothing);
+      expect(
+        find.byKey(const ValueKey('monster-stat-illuminated')),
+        findsNothing,
+      );
       game.presentation.apply(activated);
       await tester.pump();
       expect(_stats(tester, 'ship'), contains('Evade: 55%'));
+      final armorTip = tester.widget<Tooltip>(
+        find.descendant(
+          of: find.byKey(const ValueKey('ship-stat-fortified')),
+          matching: find.byType(Tooltip),
+        ),
+      );
+      expect(armorTip.message, contains('6 damage'));
+      game.presentation.apply(flared);
+      await tester.pump();
+      final flareTip = tester.widget<Tooltip>(
+        find.descendant(
+          of: find.byKey(const ValueKey('monster-stat-illuminated')),
+          matching: find.byType(Tooltip),
+        ),
+      );
+      expect(flareTip.message, contains('+30% accuracy'));
+      expect(flareTip.message, contains('50%'));
+      expect(flareTip.message, isNot(contains('99%')));
+      game.presentation.apply(unlit);
+      await tester.pump();
+      expect(
+        find.byKey(const ValueKey('monster-stat-illuminated')),
+        findsNothing,
+      );
       expect(
         BattlePresentation.effectReadouts(game.presentation.ship)['Evasion'],
         'Evasion 55%',
@@ -309,6 +472,7 @@ void main() {
       game.presentation.apply(expired);
       await tester.pump();
       expect(_stats(tester, 'ship'), contains('Evade: 7%'));
+      expect(find.byKey(const ValueKey('ship-stat-fortified')), findsNothing);
       expect(tester.takeException(), isNull);
       controller.setIsPlayingEvents(false);
       await tester.pumpWidget(const SizedBox.shrink());

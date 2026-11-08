@@ -152,3 +152,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Approved artwork pass verification 2026-11-07
 
 [The complete-pass receipt](playtests/ARTWORK_PASS_2026_11_07.md) records the seven remaining selected illustrations, including revised hull and berry-free kelp, accurate ink/pitch mappings, chart controls and committed-region marginalia. The [manifest](playtests/evidence/artwork-pass-2026-11-07/manifest.json) retains hashes, 34-image bundle verification, UI/font checks, regional/menu captures and separate Windows correspondence. Earlier drafts, evidence, bundles and player saves are preserved; provisional gameplay tuning is unchanged.
+
+## Combat status tooltip verification 2026-11-08
+
+[The status-help receipt](playtests/COMBAT_STATUS_TOOLTIPS_2026_11_08.md) records independent inline effect targets, displayed-state values, real hover/long-press checks and font-loaded compact/desktop captures. The [manifest](playtests/evidence/combat-status-tooltips-2026-11-08/manifest.json) retains input/capture hashes, check logs and correspondence with a separate Windows preview. Existing combat rules, saves, artwork and earlier evidence remain intact.

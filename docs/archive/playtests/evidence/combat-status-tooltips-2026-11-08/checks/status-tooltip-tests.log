@@ -1,0 +1,35 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Serpent HUD shows effective dodge after Pin and Flare
+00:01 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:01 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:01 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 1200.0
+00:01 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / true
+00:01 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Defeating monster transitions to LootScreen
+00:02 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Defeating monster transitions to LootScreen
+00:02 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Defeating monster transitions to LootScreen
+00:02 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Defeating monster transitions to LootScreen
+00:02 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_flow_test.dart: Defeating monster transitions to LootScreen
+00:02 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: bombardier command layout and modal bounds at 1440.0
+00:02 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / true / true
+00:02 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: corsair command layout and modal bounds at 600.0
+00:02 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: corsair command layout and modal bounds at 600.0
+00:02 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: corsair command layout and modal bounds at 600.0
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / true / false
+00:02 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: ironclad command layout and modal bounds at 1920.0
+00:02 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: ironclad command layout and modal bounds at 1920.0
+00:03 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso Apex shark accuracy and dodge at 360.0
+00:03 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: ironclad command layout and modal bounds at 360.0
+00:03 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: ironclad command layout and modal bounds at 360.0
+00:03 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: HUD applies cap, Pin and real Flare zero rather than hiding it
+00:03 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: clipper command layout and modal bounds at 1024.0
+00:03 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: captured dodge updates at effects and barrier depletion, not future live state
+00:03 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 800.0
+00:04 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: (tearDownAll)
+00:04 +31: All tests passed!
