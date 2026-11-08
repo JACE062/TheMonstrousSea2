@@ -235,13 +235,13 @@ class _BattleScreenState extends State<BattleScreen> {
         'Illustration unavailable. Battle actions remain ready.',
         style: InkTheme.caption,
       ),
-      TextButton(
+      const SizedBox(height: 6),
+      InkButton(
+        label: _battleGame.isRetryingArtwork ? 'LOADING ART...' : 'RETRY ART',
+        compact: true,
         onPressed: _battleGame.isRetryingArtwork
             ? null
             : _battleGame.retryArtwork,
-        child: Text(
-          _battleGame.isRetryingArtwork ? 'LOADING ART...' : 'RETRY ART',
-        ),
       ),
     ],
   );
@@ -1102,22 +1102,22 @@ class _BattleScreenState extends State<BattleScreen> {
         ),
       const SizedBox(height: 8),
       _buildUtilityRow(ship, range, order),
-      if (_decisions.canStartCombination)
+      if (_decisions.canStartCombination) ...[
+        const SizedBox(height: 6),
         Align(
           alignment: Alignment.centerRight,
-          child: TextButton(
+          child: InkButton(
             key: const ValueKey('impatient-combination'),
+            label: 'IMPATIENT · UTILITY + WEAPON',
+            compact: true,
             onPressed: _isActionLocked
                 ? null
                 : () => _dispatchCombatAction(
                     const ExecuteShipSpecialAction(borrowNextAction: true),
                   ),
-            child: Text(
-              'IMPATIENT · UTILITY + WEAPON',
-              style: InkTheme.caption,
-            ),
           ),
         ),
+      ],
       if (_decisions.combinationPending || _decisions.recovering)
         Text(
           _decisions.combinationPending

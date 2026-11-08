@@ -270,9 +270,10 @@ class _PortScreenState extends State<PortScreen> {
               ),
             ),
             actions: [
-              TextButton(
+              InkButton(
+                label: 'Close',
+                compact: true,
                 onPressed: () => Navigator.pop(ctx),
-                child: Text('Close', style: InkTheme.statLabel),
               ),
             ],
           );
@@ -916,9 +917,10 @@ class _PortScreenState extends State<PortScreen> {
               ),
             ),
             actions: [
-              TextButton(
+              InkButton(
+                label: 'Close',
+                compact: true,
                 onPressed: () => Navigator.pop(ctx),
-                child: Text('Close', style: InkTheme.statLabel),
               ),
             ],
           );

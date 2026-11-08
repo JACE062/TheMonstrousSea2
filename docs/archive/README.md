@@ -160,3 +160,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Shrine button verification 2026-11-08
 
 [The shrine-button receipt](playtests/SHRINE_BUTTON_2026_11_08.md) records the boxed departure action, existing UI checks, compact/desktop captures and a separate Windows build. The action's wording and command are unchanged.
+
+## Encounter button verification 2026-11-08
+
+[The encounter audit receipt](playtests/ENCOUNTER_BUTTONS_2026_11_08.md) records four further boxed actions, the remaining encounter-screen review, existing functional checks and font-loaded captures. [Evidence](playtests/evidence/encounter-buttons-2026-11-08/manifest.json) keeps the separate pre-existing compact Covenant overflow and interrupted capture attempt distinct from passing checks and the isolated Windows build.

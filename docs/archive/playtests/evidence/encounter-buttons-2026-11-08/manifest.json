@@ -1,0 +1,182 @@
+{
+  "date": "2026-11-08",
+  "baseCommit": "b0dc5cbcf6f8ad90a973e934514ffb64483c5b18",
+  "scope": "Four encounter/port text actions use shared compact boxed InkButtons",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "4E9DD45221BA1186F618C44357057CE3A480BF2E6A5E9F20E66250EFDB1EAE7C"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "C8693ED4889AB1D0A5DAE0F3A1AA259ADA711501F4680566C0FED869DDB11A40"
+    }
+  ],
+  "audit": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/caldera_outcome_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/captain_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/death_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/helm_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/intro_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/loot_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/merchant_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/respite_island_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/rest_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/sea_chart_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/smuggler_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/stronghold_screen.dart",
+      "rawTextButtonCount": 0
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/victory_screen.dart",
+      "rawTextButtonCount": 0
+    }
+  ],
+  "checks": {
+    "existingUiCases": 33,
+    "appAnalysis": "passed",
+    "fontCaptureCombinedAttempt": "interrupted at Covenant fixture after 32 completed cases",
+    "finalIsolatedImpatientCases": 4,
+    "finalDesktopCovenantCapture": "passed",
+    "compactCovenant130percent": "failed: existing unchanged heading/tab/monument row overflow",
+    "nativeWindowsDebug": "passed",
+    "previewLaunched": false,
+    "livePlayerStorageUsed": false
+  },
+  "preview": {
+    "executable": ".dart_tool/encounter-buttons-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+    "executableSha256": "18E90DFE9B6CBB7567067E1244FCFA7A3BA52E4889E1727640A7D850E97528A6",
+    "matchingSourceAssetCount": 98,
+    "dependencyLockSha256": "D9A4E8C99522976F02E167273D2CF6B3736CC51C268E005C448758C4A8BD21D6"
+  },
+  "restoredCaptureFixtures": [
+    {
+      "path": "apps/monstrous_sea/test/battle_art_recovery_test.dart",
+      "sha256": "00219375FBFEFAFA6C4FDC33F10311D2B75534863D84648A119EB68194E0A687"
+    },
+    {
+      "path": "apps/monstrous_sea/test/expanded_roster_ui_test.dart",
+      "sha256": "BDB012B7D40A93EFFE24C3B9D605E00F43A5F9BDBC9150159E6FCA8DD8605EDD"
+    },
+    {
+      "path": "apps/monstrous_sea/test/blueprint_drafting_test.dart",
+      "sha256": "0AA6DB7025C8387AFE37EBD42D1AA32FCB9AB79B954613DDC105BEDE3CBAD148"
+    },
+    {
+      "path": "apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart",
+      "sha256": "10AB2B2267A8B7D50F21CCABDD1B8E96F10C65CB8DF91D32732A2C9B09AC8A1D"
+    }
+  ],
+  "captures": [
+    {
+      "path": "visual/blueprint-close-1200.png",
+      "sha256": "682D31DE422BFD4ACC908D5338C224F39E425FA1B2B9FE42DEED382C65F91EB6",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/blueprint-close-360.png",
+      "sha256": "F4A8B052D70CBD3AEBD2712862609A438CA9243977F87476DDBF4F48BA6F15AA",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/impatient-1280-1.15.png",
+      "sha256": "2440D594A103BBCC1ED69D82668EA4DC697BBA231C10B7A1951C864B838612E6",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/impatient-1280-1.3.png",
+      "sha256": "974C8636FB120D0BD6810D4544B2BD08D6AE668488361AAC6C214D366E70141C",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/impatient-360-1.15.png",
+      "sha256": "BCE5D907A593F2F847C8465E9E88D70E87A953B56A6CA0FDD0F43B6DA9B2E8C3",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/impatient-360-1.3.png",
+      "sha256": "C9429A489B7BC1E1CECC420885585679192A2EA4BB29FB62DFA1EFEAF85F8A75",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/monument-close-1200.png",
+      "sha256": "A460B3F94DBED2DFFF1E0A28750CC9B5374ACC8363B61488C5AFB2C8B12C99F1",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/monument-close-360.png",
+      "sha256": "C6BA7B6322E9E9D25F0F6F7ABB5AFD84905A77B3F99127F08B89C87F6245B9B4",
+      "knownExistingLayoutFailure": true
+    },
+    {
+      "path": "visual/retry-1280-1.15.png",
+      "sha256": "89D32C53F829D077AFC07FF4D072A53CCA1F0478ACB31065B61139C74C7DA8C7",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/retry-1280-1.3.png",
+      "sha256": "FB5EAC5CA356477A42EAF5C0CF6340144AC022A64904085D5F54CFD1A0E3E61D",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/retry-360-1.15.png",
+      "sha256": "4C7194C37610E3FC57214893FF77C6117FCAADAFDCAFB784B653FCA3D7964509",
+      "knownExistingLayoutFailure": false
+    },
+    {
+      "path": "visual/retry-360-1.3.png",
+      "sha256": "5E8D4022BDE50BA7AE9B75701B96C0DED10BE9893874DFE0487370C6C7347CF5",
+      "knownExistingLayoutFailure": false
+    }
+  ]
+}
