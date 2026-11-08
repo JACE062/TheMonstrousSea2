@@ -156,3 +156,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Combat status tooltip verification 2026-11-08
 
 [The status-help receipt](playtests/COMBAT_STATUS_TOOLTIPS_2026_11_08.md) records independent inline effect targets, displayed-state values, real hover/long-press checks and font-loaded compact/desktop captures. The [manifest](playtests/evidence/combat-status-tooltips-2026-11-08/manifest.json) retains input/capture hashes, check logs and correspondence with a separate Windows preview. Existing combat rules, saves, artwork and earlier evidence remain intact.
+
+## Shrine button verification 2026-11-08
+
+[The shrine-button receipt](playtests/SHRINE_BUTTON_2026_11_08.md) records the boxed departure action, existing UI checks, compact/desktop captures and a separate Windows build. The action's wording and command are unchanged.

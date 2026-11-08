@@ -182,10 +182,11 @@ class _ShrineScreenState extends State<ShrineScreen> {
                           ],
                         ),
                       ),
-                      TextButton(
+                      const SizedBox(height: 16),
+                      InkButton(
+                        label: 'SAIL PAST IN REVERENCE',
                         onPressed: () =>
                             controller.dispatch(const DepartShrine()),
-                        child: const Text('SAIL PAST IN REVERENCE'),
                       ),
                     ],
                   ],

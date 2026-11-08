@@ -1,0 +1,13 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/new_encounters_test.dart: New Encounter UI Screens SmugglerScreen renders contraband wares, handles repair, and departs
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 1200.0
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/new_encounters_test.dart: New Encounter UI Screens ShrineScreen renders inscription, handles rune consultation, and departs
+00:01 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 360.0
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 1200.0
+00:01 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: An open socket previews Tier I and accepts the selected power
+00:01 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Runes remain available when no power can manifest
+00:01 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Combat blessing and status badges wrap in compact panels
+00:01 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: (tearDownAll)
+00:01 +9: All tests passed!

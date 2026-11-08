@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-08",
+  "baseCommit": "5f12122ccc28bfb90ea205088769191293a73f48",
+  "scope": "Replace the shrine skip TextButton with shared boxed InkButton plus spacing",
+  "input": {
+    "path": "docs/playtests/2026-11-08/shrine-button/01-player.png",
+    "sha256": "FDB713FC40CDEB84759A80F4A157E9759E3A999CDB8C1511B01BE887CC13D72E"
+  },
+  "source": {
+    "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+    "sha256": "4C2760D268001060FB0AECEB64A3C6EB7E6C895B5FED941DAE287C30CF99E0F1"
+  },
+  "checks": {
+    "existingUiCases": 9,
+    "fontLoadedExistingFixture": 1,
+    "captureTextScale": 1.3,
+    "temporaryCaptureHookRestored": true,
+    "nativeWindowsDebug": "passed",
+    "previewLaunched": false,
+    "livePlayerStorageUsed": false
+  },
+  "preview": {
+    "executable": ".dart_tool/shrine-button-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+    "executableSha256": "72798A4ACEAC389BDCCAA150A54A460D496875BAB3994B87ADDF04AE0DDB6AAC",
+    "matchingSourceAssetCount": 98,
+    "dependencyLockSha256": "D9A4E8C99522976F02E167273D2CF6B3736CC51C268E005C448758C4A8BD21D6"
+  },
+  "captures": [
+    {
+      "path": "docs/playtests/2026-11-08/shrine-button/shrine-1200.png",
+      "sha256": "4AA7B4AB7272A18CDD9754373552F0317B98B3E3C3D2C8FF4B5213685AF68B02"
+    },
+    {
+      "path": "docs/playtests/2026-11-08/shrine-button/shrine-360.png",
+      "sha256": "9770910CE2988080EFAAEF6B40EBC0B80FDAB0D1414FF862C2E9BA997FEFB42C"
+    }
+  ]
+}

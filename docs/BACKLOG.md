@@ -624,6 +624,7 @@ See the [verification receipt](archive/README.md#later-verification-receipts) fo
 
 ## Navigation refactor playtest follow-up — 5 November 2026
 
+- **Shrine button follow-up, 8 November 2026 — implemented; player replay pending:** “Sail past in reverence” now uses the shared boxed `InkButton`, with a gap below Runic Guidance, matching the other shrine actions. Its label and departure command are unchanged. [Player report](playtests/2026-11-08/shrine-button/01-player.png) and [verification](archive/README.md#shrine-button-verification-2026-11-08) retain the compact/desktop presentation checks.
 - **Second batch, implemented:** [Nemesis label](playtests/2026-11-05/chart-focus/01-nemesis-label.png) now reads NEMESIS in crimson; normal/fogged beast labels retain their meaning. [Tooltip feedback](playtests/2026-11-05/chart-focus/05-grey-tooltip.png) is addressed by a shared parchment/ink theme matching combat cartouches. The map/layout revision is tracked in PT2-08 above; broader app palette work remains separate.
 
 - [Merchant layout report](playtests/2026-11-05/03-merchant-layout.png): larger leading art and responsive cards are implemented; duplicated Single Use/value text is removed. No home supply shop remains; FUT-08 is separate future work.
