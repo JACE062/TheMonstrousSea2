@@ -90,6 +90,9 @@ const _vesselCenterOffset = Offset(0, -23);
 
 double nauticalCoursePanelWidth(double width) => width * .3;
 
+double nauticalAuxiliaryPanelWidth(double width) =>
+    math.min(360, nauticalCoursePanelWidth(width));
+
 Path routeSegment(Offset from, Offset to) => Path()
   ..moveTo(from.dx, from.dy)
   ..lineTo(to.dx, to.dy);
@@ -105,6 +108,7 @@ class NauticalChart extends StatefulWidget {
     this.expandViewport = false,
     this.coursePanel,
     this.coursePanelWidth,
+    this.auxiliaryPanel,
   });
   final SeaChart chart;
   final ShipState? ship;
@@ -114,6 +118,7 @@ class NauticalChart extends StatefulWidget {
   final bool expandViewport;
   final Widget? coursePanel;
   final double? coursePanelWidth;
+  final Widget? auxiliaryPanel;
   @override
   State<NauticalChart> createState() => _NauticalChartState();
 }
@@ -489,6 +494,16 @@ class _NauticalChartState extends State<NauticalChart>
                 bottom: bounds.maxHeight < 400 ? null : 132,
                 child: _controls(),
               ),
+              if (widget.auxiliaryPanel != null)
+                Positioned(
+                  top: 32,
+                  left: 32,
+                  width: nauticalAuxiliaryPanelWidth(bounds.maxWidth),
+                  child: KeyedSubtree(
+                    key: const ValueKey('chart-auxiliary-panel'),
+                    child: widget.auxiliaryPanel!,
+                  ),
+                ),
               if (widget.coursePanel != null)
                 Positioned(
                   top: 32,

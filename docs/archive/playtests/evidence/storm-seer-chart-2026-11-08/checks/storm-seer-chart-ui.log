@@ -1,0 +1,49 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/storm_seer_chart_layout_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/storm_seer_chart_layout_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/storm_seer_chart_layout_test.dart: Storm-Seer keeps a full chart at Size(2508.0, 1429.0) / 1.15 / false / false
+00:02 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1280.0, 850.0)
+00:02 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: readable map and all reports without a nested scroll at Size(2546.0, 1424.0) / 1.15
+00:02 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: readable map and all reports without a nested scroll at Size(2546.0, 1424.0) / 1.15
+00:02 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: readable map and all reports without a nested scroll at Size(2546.0, 1424.0) / 1.15
+00:02 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: readable map and all reports without a nested scroll at Size(2546.0, 1424.0) / 1.15
+00:02 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:03 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:03 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart: unified chart and readable Nemesis reports at Size(1600.0, 1000.0)
+00:03 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 18 legs
+00:03 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 18 legs
+00:03 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 18 legs
+00:03 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/storm_seer_chart_layout_test.dart: Storm-Seer keeps a full chart at Size(1920.0, 1080.0) / 1.3 / false / true
+00:03 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/storm_seer_chart_layout_test.dart: Storm-Seer keeps a full chart at Size(1920.0, 1080.0) / 1.3 / false / true
+00:03 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/storm_seer_chart_layout_test.dart: Storm-Seer keeps a full chart at Size(1920.0, 1080.0) / 1.3 / false / true
+00:03 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: readable map and all reports without a nested scroll at Size(1280.0, 850.0) / 1.3
+00:03 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: readable map and all reports without a nested scroll at Size(1280.0, 850.0) / 1.3
+00:03 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: regional art follows only committed visits at 30 legs
+00:04 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: long horizontal route retains legible markers at maximum zoom-out
+00:04 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: long horizontal route retains legible markers at maximum zoom-out
+00:05 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: drag inertia, keyboard, zoom and resize stay in horizontal travelled waters
+00:05 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: drag inertia, keyboard, zoom and resize stay in horizontal travelled waters
+00:05 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: drag inertia, keyboard, zoom and resize stay in horizontal travelled waters
+00:05 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: drag inertia, keyboard, zoom and resize stay in horizontal travelled waters
+00:06 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: drag inertia, keyboard, zoom and resize stay in diagonal travelled waters
+00:08 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: short voyages lock the horizontal camera when the whole route fits
+00:08 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: bearings occupy 30 percent with named home and non-interactive chart marginalia
+00:09 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_bounds_ui_test.dart: (tearDownAll)
+00:09 +45: All tests passed!

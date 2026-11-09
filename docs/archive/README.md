@@ -176,3 +176,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Approved action and condition copy verification 2026-11-08
 
 [The approved D03–D44 receipt](playtests/APPROVED_MECHANIC_COPY_2026_11_08.md) records all remaining selections, Burning/Shaken names, concise effects and linked contextual help, plus the explicitly authorized Blast retaliation. [Evidence](playtests/evidence/approved-mechanic-copy-2026-11-08/manifest.json) retains full/focused checks, compact/desktop font-loaded captures and correspondence with a fresh Windows preview. D01–D02 and earlier evidence retain their original status snapshots; saves, prior bundles and provisional economy tuning are preserved.
+
+## Storm-Seer chart layout verification 2026-11-08
+
+[The layout receipt](playtests/STORM_SEER_CHART_2026_11_08.md) records the reproduced desktop collapse, separate on-map auxiliary notes, independent text measurement and compact fallback/resize checks. [Evidence](playtests/evidence/storm-seer-chart-2026-11-08/manifest.json) preserves the player input, before/after checks, font-loaded layouts and fresh Windows preview correspondence. Existing saves, prior bundles, navigation mechanics and provisional tuning are preserved.

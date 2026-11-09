@@ -82,6 +82,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-08 — Sea chart needs a clearer player purpose
 
+- **Storm-Seer chart collapse, 8 November 2026 — implemented; player replay pending:** [The player screenshot](playtests/2026-11-08/storm-seer-chart/01-player.png) shows a shallow map with all reports below on a desktop window. A fixed 340-pixel Storm-Seer allowance was being added to the bearing stack, unnecessarily selecting the compact fallback. Desktop Storm-Seer/emergency repair notes now occupy a separate top-left chart panel, measured independently from the unchanged 30% bearing column. Available/spent redraws, combined triage, scaled desktop sizes and compact/resize transitions are covered by [verification](archive/README.md#storm-seer-chart-layout-verification-2026-11-08). Constrained windows retain one page scroll; text size, course content, camera bounds, abilities, saves and tuning are unchanged.
+
 - **Final copy clarifications, implemented 6 November 2026:** C02/C17/C28/C29/C31/C35 now follow the user’s [revised selections](design/player-copy-review.md): no wind explanation, comprehensive wreck recovery without loot-loss framing, hopeful working captain prose, victory-linked Nemesis wording, plain save identity and concise Belt Help retaining Drillmaster. All 36 IDs are delivered; C28 remains open to wording tweaks. Mechanics and tuning are unchanged.
 
 - **Copy selections, implemented 6 November 2026:** The user approved 30 [review IDs](design/player-copy-review.md), now applied across chart headers, services, inspection, trading, wreck/loot, shrine/Covenant and save/settings copy. The six subsequent clarifications are delivered in the follow-up above. No mechanics or tuning changed.

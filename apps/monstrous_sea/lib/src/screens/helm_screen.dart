@@ -44,10 +44,9 @@ class _HelmScreenState extends State<HelmScreen> {
     }
   }
 
-  Widget _reports() {
+  Widget _reports({Widget? support}) {
     final controller = widget.controller;
     final options = controller.currentCourseOptions;
-    final ship = controller.ship;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -61,6 +60,38 @@ class _HelmScreenState extends State<HelmScreen> {
           ),
         ),
         const SizedBox(height: 10),
+        ?support,
+        if (options.isEmpty)
+          ParchmentCard(
+            child: Text(
+              'Awaiting the navigator to verify current soundings...',
+              style: InkTheme.body,
+            ),
+          ),
+        for (final option in options)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: _CourseOptionCard(
+              option: option,
+              restriction: controller.session.courseRestriction(option.bearing),
+              onSteer: () => _steer(option.bearing),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget? _supportReports() {
+    final controller = widget.controller;
+    final ship = controller.ship;
+    if (!controller.canEmergencyRepairAtSea &&
+        controller.activeBoon?.id != BloodlineTraitId.stormSeer) {
+      return null;
+    }
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
         if (controller.canEmergencyRepairAtSea) ...[
           ParchmentCard(
             child: Column(
@@ -113,22 +144,6 @@ class _HelmScreenState extends State<HelmScreen> {
           ),
           const SizedBox(height: 10),
         ],
-        if (options.isEmpty)
-          ParchmentCard(
-            child: Text(
-              'Awaiting the navigator to verify current soundings...',
-              style: InkTheme.body,
-            ),
-          ),
-        for (final option in options)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: _CourseOptionCard(
-              option: option,
-              restriction: controller.session.courseRestriction(option.bearing),
-              onSteer: () => _steer(option.bearing),
-            ),
-          ),
       ],
     );
   }
@@ -247,17 +262,19 @@ class _HelmScreenState extends State<HelmScreen> {
       // Capture these widgets while still at the helm. LayoutBuilder can run
       // again after departure, when the session already owns the next encounter.
       final header = _header(context, MediaQuery.sizeOf(context).width < 752);
+      final support = _supportReports();
       final reports = _reports();
+      final compactReports = _reports(support: support);
+      final triageCost = controller.canEmergencyRepairAtSea
+          ? controller.emergencyRepairCost
+          : null;
+      final stormSeer = controller.activeBoon?.id == BloodlineTraitId.stormSeer;
+      final redrawRestriction = controller.stormSeerRedrawRestriction;
       final options = List<CourseOption>.of(controller.currentCourseOptions);
       final restrictions = {
         for (final option in options)
           option.bearing: controller.session.courseRestriction(option.bearing),
       };
-      final extraHeight =
-          (controller.canEmergencyRepairAtSea ? 260.0 : 0.0) +
-          (controller.activeBoon?.id == BloodlineTraitId.stormSeer
-              ? 340.0
-              : 0.0);
       return _lastHelmView = ParchmentScaffold(
         body: Padding(
           padding: const EdgeInsets.all(10),
@@ -274,7 +291,6 @@ class _HelmScreenState extends State<HelmScreen> {
                     );
                     final reportsHeight =
                         32 +
-                        extraHeight +
                         options.fold(
                           0.0,
                           (height, option) =>
@@ -287,10 +303,19 @@ class _HelmScreenState extends State<HelmScreen> {
                               ) +
                               10,
                         );
+                    final supportHeight = _supportReportsHeight(
+                      context,
+                      nauticalAuxiliaryPanelWidth(constraints.maxWidth),
+                      triageCost: triageCost,
+                      stormSeer: stormSeer,
+                      redrawRestriction: redrawRestriction,
+                    );
                     final overlay =
                         constraints.maxWidth >= 1000 &&
                         // Allow for card/control borders and scaled line metrics.
-                        reportsHeight <= constraints.maxHeight - 108;
+                        reportsHeight <= constraints.maxHeight - 108 &&
+                        // Keep the auxiliary notes clear of the compass/tools.
+                        supportHeight <= constraints.maxHeight - 240;
                     if (overlay) {
                       return NauticalChart(
                         chart: controller.seaChart,
@@ -299,6 +324,7 @@ class _HelmScreenState extends State<HelmScreen> {
                         expandViewport: true,
                         coursePanelWidth: panelWidth,
                         coursePanel: reports,
+                        auxiliaryPanel: support,
                       );
                     }
                     // Large text and short windows use one ordinary page scroll. Never
@@ -318,7 +344,7 @@ class _HelmScreenState extends State<HelmScreen> {
                             ),
                           ),
                           const SizedBox(height: 16),
-                          reports,
+                          compactReports,
                         ],
                       ),
                     );
@@ -331,6 +357,79 @@ class _HelmScreenState extends State<HelmScreen> {
       );
     },
   );
+}
+
+Size _measureReportText(
+  BuildContext context,
+  String text,
+  TextStyle style,
+  double width,
+) {
+  final painter = TextPainter(
+    text: TextSpan(
+      text: text,
+      style: DefaultTextStyle.of(context).style.merge(style),
+    ),
+    textDirection: Directionality.of(context),
+    textScaler: MediaQuery.textScalerOf(context),
+  )..layout(maxWidth: width);
+  final size = painter.size;
+  painter.dispose();
+  return size;
+}
+
+// Measure the auxiliary cards independently of the 30% bearing column.
+// These match their padding, borders, text and button sizes, including a spent use.
+double _supportReportsHeight(
+  BuildContext context,
+  double width, {
+  int? triageCost,
+  required bool stormSeer,
+  String? redrawRestriction,
+}) {
+  double text(String value, TextStyle style, double available) =>
+      _measureReportText(context, value, style, available).height;
+  var height = 0.0;
+  if (triageCost != null) {
+    final available = width - 35;
+    height +=
+        35 +
+        text('EMERGENCY HULL TRIAGE', InkTheme.statValue, available) +
+        text('Patch the hull to 25% integrity.', InkTheme.body, available) +
+        (text(
+                  'PATCH TO 25% · ${triageCost}g',
+                  InkTheme.titleMedium.copyWith(fontSize: 18),
+                  available - 23,
+                ) +
+                23)
+            .clamp(48.0, double.infinity) +
+        10;
+  }
+  if (stormSeer) {
+    final available = width - 27;
+    height +=
+        27 +
+        text('STORM-SEER', InkTheme.statLabel, available) +
+        4 +
+        text(
+          'Read the winds anew. Once per region; only ordinary headings change.',
+          InkTheme.caption,
+          available,
+        ) +
+        8 +
+        (text(
+                  'READ THE WINDS',
+                  InkTheme.titleMedium.copyWith(fontSize: 16),
+                  available - 19,
+                ) +
+                11)
+            .clamp(36.0, double.infinity) +
+        (redrawRestriction == null
+            ? 0
+            : 6 + text(redrawRestriction, InkTheme.caption, available)) +
+        10;
+  }
+  return height;
 }
 
 class _CourseOptionCard extends StatelessWidget {
@@ -362,19 +461,8 @@ class _CourseOptionCard extends StatelessWidget {
     double width, {
     String? restriction,
   }) {
-    Size measure(String text, TextStyle style, double available) {
-      final painter = TextPainter(
-        text: TextSpan(
-          text: text,
-          style: DefaultTextStyle.of(context).style.merge(style),
-        ),
-        textDirection: TextDirection.ltr,
-        textScaler: MediaQuery.textScalerOf(context),
-      )..layout(maxWidth: available);
-      final size = painter.size;
-      painter.dispose();
-      return size;
-    }
+    Size measure(String text, TextStyle style, double available) =>
+        _measureReportText(context, text, style, available);
 
     final available = width - 24;
     final headingHeight = measure(
