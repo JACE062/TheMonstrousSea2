@@ -95,6 +95,7 @@ class _CaptainScreenState extends State<CaptainScreen> {
                       decoration: InputDecoration(
                         hintText: 'Enter captain name',
                         errorText: _nameError,
+                        errorMaxLines: 3,
                         filled: true,
                         fillColor: InkTheme.parchmentHighlight,
                         border: const OutlineInputBorder(),

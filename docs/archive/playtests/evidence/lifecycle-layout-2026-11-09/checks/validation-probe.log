@@ -1,0 +1,38 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% captainInvalid Size(360.0, 900.0)
+00:00 +1: 115% captainInvalid Size(800.0, 480.0)
+00:01 +2: 115% captainInvalid Size(1280.0, 850.0)
+00:01 +3: 130% captainInvalid Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Captain validation must remain fully readable.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart:276:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart line 276
+The test description was:
+  130% captainInvalid Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +3 -1: 130% captainInvalid Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 130% captainInvalid Size(360.0, 900.0)
+  
+00:01 +3 -1: 130% captainInvalid Size(800.0, 480.0)
+00:01 +4 -1: 130% captainInvalid Size(1280.0, 850.0)
+00:01 +5 -1: (tearDownAll)
+00:02 +5 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% captainInvalid Size(360.0, 900.0)

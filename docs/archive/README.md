@@ -196,3 +196,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Home and lineage layout audit 2026-11-09
 
 [The home/menu audit](playtests/HOME_LAYOUT_2026_11_09.md) records responsive Covenant headings, tabs and upgrade controls, readable compact home summaries and complete selected save labels. [Evidence](playtests/evidence/home-layout-2026-11-09/manifest.json) retains the reproduced failures, 174-case matrix, related regressions, font-loaded proofs and isolated Windows preview correspondence. Progression, saves, artwork, previous audits and provisional tuning are unchanged.
+
+## Lifecycle layout audit 2026-11-09
+
+[The intro/succession/ending audit](playtests/LIFECYCLE_LAYOUT_2026_11_09.md) records full-width compact heir names/descriptions, wrapped captain validation and review of the existing prologue/ending layouts. [Evidence](playtests/evidence/lifecycle-layout-2026-11-09/manifest.json) retains baseline failures, 229 layout cases, related regressions, font-loaded proofs and a separate Windows preview. Approved prose, succession/ending effects, player saves, earlier evidence and provisional tuning are unchanged.

@@ -1,0 +1,684 @@
+{
+  "date": "2026-11-09",
+  "baseCommit": "5ee19944643abfe6235d52942e85b5e31070a01f",
+  "request": "Review intro, captain naming, death/heir selection and endings at 115%, including long names and trait descriptions.",
+  "scope": "Full-width compact heir names/descriptions and wrapped captain validation; approved prose, commands, offered heirs and persistence unchanged.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/death_screen.dart",
+      "sha256": "cb08106545f4055aadba3575dde91bf7273ece6b71c328f6306f7f7130a5cde0"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/captain_screen.dart",
+      "sha256": "601294df93be6ca187868b87902f347851fb6f08a3a34e434405e06df9db3108"
+    },
+    {
+      "path": "apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart",
+      "sha256": "d713f0408c96472b348c1cc126c2bf393c1432b92da4a9afccd1d304d3408054"
+    }
+  ],
+  "unchangedScreenAndLoreInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/intro_screen.dart",
+      "sha256": "1d79803862685ef12caa30ab5c54a3eabd98039976eb7f863e50b75697f87427"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/victory_screen.dart",
+      "sha256": "92c6500cc774d0caf293357afb5ddee4db2f7cfd5aeb358996ff278eb7ed4a95"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/caldera_outcome_screen.dart",
+      "sha256": "d3bd038f12f655066865340b75bfdc8935e01276459f592567a5012c2f3c3a81"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/eldritch_lore.dart",
+      "sha256": "a0f9e725f107862f2d1f3f85820e101b18387aba21c369f308ec91a5652d43e1"
+    }
+  ],
+  "checks": {
+    "gameFontMatrixPassed": 229,
+    "offlineMatrixPassed": 229,
+    "existingRelatedPassed": 54,
+    "combinedOfflinePassed": 283,
+    "finalValidationFontSubsetPassed": 6,
+    "primaryTextScale": 1.15,
+    "secondaryTextScale": 1.3,
+    "sizes": [
+      [
+        360,
+        900
+      ],
+      [
+        800,
+        480
+      ],
+      [
+        1280,
+        850
+      ]
+    ],
+    "matrixAreas": {
+      "screenStates": 51,
+      "allHeirTraitPairs": 128,
+      "largerTextStates": 27,
+      "additionalHulls": 8,
+      "additionalTitans": 6,
+      "unbrokenNames": 9
+    },
+    "boons": 8,
+    "quirks": 8,
+    "approvedHulls": 5,
+    "titans": 3,
+    "keyboardInset": 240,
+    "unbrokenNameStressLength": 80,
+    "stressLengthIsNotANameLimit": true,
+    "fontQualification": "Cached Pirata One/IM Fell English and Material Icons for visual/ellipsis review; SDK Roboto for offline matrix.",
+    "fixtureTiming": "The intro ticker is frozen after full typewriter reveal, or at its intentionally partial opening. Normal Material animations run; final validation captures wait for error fade. Native exit is intercepted and cancelled.",
+    "assertions": [
+      "All boxed actions reachable with complete game-font labels",
+      "Viewport and keyboard bounds",
+      "Compact selected names and trait descriptions retain readable width",
+      "All offered candidates can be selected without mutating offers",
+      "Exact selected/local name input",
+      "Full validation text",
+      "Embark stays fixed inside the frame as prose scrolls",
+      "Profile/ship/chart/offers/phase/ending/read state unchanged",
+      "Only the intended exit-error case requests the intercepted exit"
+    ],
+    "relatedCoverage": [
+      "Onboarding and full app frame",
+      "Actual heir succession and storage",
+      "Titan Nemesis/Vendetta exclusions",
+      "Caldera choices/acknowledgement/restart",
+      "Ending snapshots and menu continuity"
+    ],
+    "analysis": "clean",
+    "format": "unchanged",
+    "documentation": "clean"
+  },
+  "baseline": {
+    "cases": 51,
+    "passed": 47,
+    "failed": 4,
+    "failure": "Long selected heir names had only about 149px width at 360px, alongside Selected."
+  },
+  "validationProbe": {
+    "cases": 6,
+    "passed": 5,
+    "failed": 1,
+    "failure": "Captain validation ellipsized at 360px/130%."
+  },
+  "preview": {
+    "correspondence": "preview-correspondence.json",
+    "path": ".dart_tool/lifecycle-layout-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+    "launched": false,
+    "sha256": "dae1adb47646fe6294686278a17ea904d37d44d34ed2d9525e7178323624f05f",
+    "matchedFiles": 120,
+    "bundledAssets": 34,
+    "unchangedCoreInputs": 53
+  },
+  "preserved": [
+    "Player saves",
+    "Earlier previews/audit evidence",
+    "Approved prose/art",
+    "Onboarding, heir generation and family-name rules",
+    "Succession and ending effects/persistence",
+    "Provisional gameplay tuning"
+  ],
+  "visualProofs": [
+    {
+      "path": "visual/before/error-captainInvalid-standard-kraken-1280-1.3-content.png",
+      "sha256": "ff59f6741e0ddfd763b981f97357972dd6dcbb4f95be5bd9bc379b8163a0679e",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/error-captainInvalid-standard-kraken-1280-1.3.png",
+      "sha256": "ff59f6741e0ddfd763b981f97357972dd6dcbb4f95be5bd9bc379b8163a0679e",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/error-captainInvalid-standard-kraken-360-1.15-content.png",
+      "sha256": "2ec01436bc73573580458b0342c09f533d0171ae0bf63a7ae4f4a190d9e887ec",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/error-captainInvalid-standard-kraken-360-1.15.png",
+      "sha256": "a9acf23ebe18bd5939a002f143e557090a25c9b339a21453f70f25392d854d23",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/error-captainInvalid-standard-kraken-800-1.3-content.png",
+      "sha256": "a268b967b17f0fc3720a8be69606e5e01d23f7fbca43eccd3e5cde704693d3a7",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/error-captainInvalid-standard-kraken-800-1.3.png",
+      "sha256": "664d73ba29e3715999ef097845ba116081487f7b4e292dbda76e43027afa5a9d",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/heir-deathNemesis-standard-kraken-360-1.15-selected-heir.png",
+      "sha256": "ae2a9a625a088d120c42f8a0adf43c6d164d63e2839859f0996c6812392022db",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/heir-deathNemesis-standard-kraken-360-1.15.png",
+      "sha256": "69a546ce9c2de12b7af639296374a1d9e720126b6824abce3c761bbe0f9f55c8",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainFirst-standard-kraken-360-1.15-content.png",
+      "sha256": "1ccafcf57c98c63f4d486619ff8b498dbfff0ebb2f5a9862b21fa97d3819059f",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainFirst-standard-kraken-360-1.15.png",
+      "sha256": "cfaf260056c1548d5aba2eefaee7c9e769c4ed057b79d1d2eed52ec028d6e195",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainInvalid-standard-kraken-360-1.15-content.png",
+      "sha256": "4fba5d8ea827fb4e3059ff426b99f16b7ff51db8bfdb837638033a16d1706c2c",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainInvalid-standard-kraken-360-1.15.png",
+      "sha256": "028ae662d768d9fa865e0c0aaec0f693b33c03b52afba98b736556b7b9adacf8",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainKeyboard-standard-kraken-360-1.15-content.png",
+      "sha256": "f706754ebc25017db3d1147d577b95cffdab38f0e0f6df2d0e20e2fd946cce60",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainKeyboard-standard-kraken-360-1.15.png",
+      "sha256": "5011260383bf23ce3c1447abbef6cdea53945879666e88ed842b862da70909fb",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainReturning-standard-kraken-360-1.15-content.png",
+      "sha256": "7e55e8de623381c8f585990ca97d46dbd8b4094112703c3bc0bdb2c04d48dd56",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-captainReturning-standard-kraken-360-1.15.png",
+      "sha256": "7e55e8de623381c8f585990ca97d46dbd8b4094112703c3bc0bdb2c04d48dd56",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-claimSuccession-standard-kraken-360-1.15.png",
+      "sha256": "0e09de32633c21268f069fd1e20ecef2b2d2a11533cdf1064b758e53570922a2",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-deathKeyboard-standard-kraken-360-1.15.png",
+      "sha256": "ab4d7b227e19589b190e4c5623eac33ca711bb9b0c4aad180f7800e238770eb6",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-deathNemesis-standard-kraken-360-1.15.png",
+      "sha256": "69a546ce9c2de12b7af639296374a1d9e720126b6824abce3c761bbe0f9f55c8",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-deathNoOffers-standard-kraken-360-1.15-content.png",
+      "sha256": "f90e82ce72e7285effdd5ebce509ce87795b9cba56ab51768d479426009dbcb3",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-deathNoOffers-standard-kraken-360-1.15.png",
+      "sha256": "4dcdd587e68279e9dd1225f2a7e17f9ea9edb9fb80d0dda999deb1c782469f3b",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-deathTitan-standard-kraken-360-1.15.png",
+      "sha256": "86e5423f0e8d04cd128af08d2b06e17cd067a8ac4ed6c1f6741f63f4f72850c8",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-finalChoice-standard-kraken-360-1.15-content.png",
+      "sha256": "c3f2dabc7d7ea97f654f4ccfa5fb7805b39e73ed68b0eda24f4bfc6a2d7ae2e7",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-finalChoice-standard-kraken-360-1.15.png",
+      "sha256": "414886a47027a2fa051ecd42df0fbb96021ddbe8b2dfe69d7f4497ab692b4729",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-huntEnded-standard-kraken-360-1.15-content.png",
+      "sha256": "8711dfb1b572326b0020fd04cdc6ac957fb4e9f2ff0255b2c75f79a5a72e0728",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-huntEnded-standard-kraken-360-1.15.png",
+      "sha256": "8711dfb1b572326b0020fd04cdc6ac957fb4e9f2ff0255b2c75f79a5a72e0728",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-huntEndedMenu-standard-kraken-360-1.15-content.png",
+      "sha256": "0f6e63a75e4c40fdc34dc6a284af68471aaa9d555825cf0a7945079f9f38f30e",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-huntEndedMenu-standard-kraken-360-1.15.png",
+      "sha256": "0f6e63a75e4c40fdc34dc6a284af68471aaa9d555825cf0a7945079f9f38f30e",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-huntExitError-standard-kraken-360-1.15-content.png",
+      "sha256": "b4c1fa7d4d7322defbeaff28bb2cb2d7e23c13618718b33c6f65991016ced554",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-huntExitError-standard-kraken-360-1.15.png",
+      "sha256": "b4c1fa7d4d7322defbeaff28bb2cb2d7e23c13618718b33c6f65991016ced554",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-introComplete-standard-kraken-360-1.15-content.png",
+      "sha256": "7e00254e275d4be7b6251076d1e688e4b77bbd2911e71b34ad876e41c52ac2b3",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-introComplete-standard-kraken-360-1.15.png",
+      "sha256": "794562ebbce12d966b79d118167ce4d205b6a695e2d08aeddae229050aba5007",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-introOpening-standard-kraken-360-1.15-content.png",
+      "sha256": "779f1abbc752baffbb15b31fc820b11a65c5c17ccf40a98d15785b5ffa0013e5",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-introOpening-standard-kraken-360-1.15.png",
+      "sha256": "779f1abbc752baffbb15b31fc820b11a65c5c17ccf40a98d15785b5ffa0013e5",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-outcomeClaim-standard-kraken-360-1.15-content.png",
+      "sha256": "8767bef96a8dacd9391495d39d071b3852afabac6f5b80245e457fd00f553ef6",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-outcomeClaim-standard-kraken-360-1.15.png",
+      "sha256": "d8b160c828219bc828d51fd1b1de9ab1f712c9138524f93114538994e414f196",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-outcomeShatter-standard-kraken-360-1.15-content.png",
+      "sha256": "c5f841071ef6dff8dcf6e72ed2ca6efcb8762686bdd12cc8b48387aec7985cf3",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/before/life-outcomeShatter-standard-kraken-360-1.15.png",
+      "sha256": "fd3a991064737d07056e79a22902f2efc4dadc67e124359636856633c95281d6",
+      "stage": "baseline/probe; initial validation images do not qualify final fade visibility"
+    },
+    {
+      "path": "visual/reviewed/life-captainFirst-standard-kraken-360-1.15-content.png",
+      "sha256": "1ccafcf57c98c63f4d486619ff8b498dbfff0ebb2f5a9862b21fa97d3819059f",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-captainFirst-standard-kraken-360-1.15.png",
+      "sha256": "cfaf260056c1548d5aba2eefaee7c9e769c4ed057b79d1d2eed52ec028d6e195",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-1280-1.3-content.png",
+      "sha256": "ff59f6741e0ddfd763b981f97357972dd6dcbb4f95be5bd9bc379b8163a0679e",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-1280-1.3.png",
+      "sha256": "ff59f6741e0ddfd763b981f97357972dd6dcbb4f95be5bd9bc379b8163a0679e",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-360-1.15-content.png",
+      "sha256": "2ec01436bc73573580458b0342c09f533d0171ae0bf63a7ae4f4a190d9e887ec",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-360-1.15.png",
+      "sha256": "a9acf23ebe18bd5939a002f143e557090a25c9b339a21453f70f25392d854d23",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-360-1.3-content.png",
+      "sha256": "b7087c2069df2b3f28f595b588e5dd3eda865c89c1d723bc182587d84827e8a4",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-360-1.3.png",
+      "sha256": "d9aea8b4c57f3aaf36d20f151fa4025878f9d4523a1a716ba551df51effbfe66",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-800-1.3-content.png",
+      "sha256": "a268b967b17f0fc3720a8be69606e5e01d23f7fbca43eccd3e5cde704693d3a7",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainInvalid-standard-kraken-800-1.3.png",
+      "sha256": "664d73ba29e3715999ef097845ba116081487f7b4e292dbda76e43027afa5a9d",
+      "stage": "layout proof before final error-fade timing correction"
+    },
+    {
+      "path": "visual/reviewed/life-captainKeyboard-standard-kraken-360-1.15-content.png",
+      "sha256": "775456c5d135b2b1e95d48ae4a4a9536288a7b76d298acb0ffbc72fd5feb3ded",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-captainKeyboard-standard-kraken-360-1.15.png",
+      "sha256": "3ea489625a1b720fa9b8795747acea4a87a1be80284d6c89003cd4f7695b1ca3",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-captainKeyboard-standard-kraken-360-1.3-content.png",
+      "sha256": "ce00f1e02dd73b0ed33ba58848335bb31dde413b882e0df0a11a8de175c6646b",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-captainKeyboard-standard-kraken-360-1.3.png",
+      "sha256": "d43d0a8751236fb4c9f54b5c3bbd81886e52238d2f0b54f44ba95cf72bcf9368",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-captainReturning-standard-kraken-360-1.15-content.png",
+      "sha256": "7e55e8de623381c8f585990ca97d46dbd8b4094112703c3bc0bdb2c04d48dd56",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-captainReturning-standard-kraken-360-1.15.png",
+      "sha256": "7e55e8de623381c8f585990ca97d46dbd8b4094112703c3bc0bdb2c04d48dd56",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-claimSuccession-standard-kraken-360-1.15-content.png",
+      "sha256": "20596d54b49d382638451505e65f71354b6e16552ce2b7504bcc6bad10858275",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-claimSuccession-standard-kraken-360-1.15-selected-heir.png",
+      "sha256": "2b510cd69f5b0ca9f9f4b702ea2c1593363a892ddedae92d617464c82b77cc05",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-claimSuccession-standard-kraken-360-1.15.png",
+      "sha256": "0e09de32633c21268f069fd1e20ecef2b2d2a11533cdf1064b758e53570922a2",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-claimSuccession-standard-kraken-360-1.3-content.png",
+      "sha256": "c863a19ac69d37e2852058a9673f0bc244403df0a842cab48cb04e6edb0dc47c",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-claimSuccession-standard-kraken-360-1.3-selected-heir.png",
+      "sha256": "de23778564aeba7d2022f47c2a7fa18d9cce6a0eeb01bc9003d540c115d206e7",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-claimSuccession-standard-kraken-360-1.3.png",
+      "sha256": "d880aa0dd0dda01e4b6661d520c99b91b828cbd64a1c5581e762e66f2c70ff37",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathKeyboard-standard-kraken-360-1.15-content.png",
+      "sha256": "6ea90386b77aa0994566f701651052f795728a7c9de50bf06bdeb87d09de689c",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathKeyboard-standard-kraken-360-1.15-selected-heir.png",
+      "sha256": "a658c3f2288701e41651d3993351af7337d7692488150b32861e70ce37d35b20",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathKeyboard-standard-kraken-360-1.15.png",
+      "sha256": "ab4d7b227e19589b190e4c5623eac33ca711bb9b0c4aad180f7800e238770eb6",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathKeyboard-standard-kraken-360-1.3-content.png",
+      "sha256": "35abc76812541ef9e5c136ed7814aee0e7a3a09b835d4be73cfd565f088748dc",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathKeyboard-standard-kraken-360-1.3-selected-heir.png",
+      "sha256": "4a20f45ff54949794b1837cc5d3ad64f9867e9d340ddd17c97efe0527ac9dc43",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathKeyboard-standard-kraken-360-1.3.png",
+      "sha256": "751216b609dc0201fb4f1cc1031ca1b9a43eeabb93e784276e63de4df7d40c6d",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathNemesis-standard-kraken-360-1.15-content.png",
+      "sha256": "49156abfeeef51f137609660852c3e5b1a02b4ebf6b8c414eed5cf0e71d8a22e",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathNemesis-standard-kraken-360-1.15-selected-heir.png",
+      "sha256": "e516067b59da9b8e10eedac7dc08ac8a711a0c27fa452eb5b03cdf1000b61f68",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathNemesis-standard-kraken-360-1.15.png",
+      "sha256": "69a546ce9c2de12b7af639296374a1d9e720126b6824abce3c761bbe0f9f55c8",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathNoOffers-standard-kraken-360-1.15-content.png",
+      "sha256": "f90e82ce72e7285effdd5ebce509ce87795b9cba56ab51768d479426009dbcb3",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathNoOffers-standard-kraken-360-1.15.png",
+      "sha256": "4dcdd587e68279e9dd1225f2a7e17f9ea9edb9fb80d0dda999deb1c782469f3b",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathTitan-standard-kraken-360-1.15-content.png",
+      "sha256": "20596d54b49d382638451505e65f71354b6e16552ce2b7504bcc6bad10858275",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathTitan-standard-kraken-360-1.15-selected-heir.png",
+      "sha256": "2b510cd69f5b0ca9f9f4b702ea2c1593363a892ddedae92d617464c82b77cc05",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-deathTitan-standard-kraken-360-1.15.png",
+      "sha256": "86e5423f0e8d04cd128af08d2b06e17cd067a8ac4ed6c1f6741f63f4f72850c8",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-finalChoice-standard-kraken-360-1.15-content.png",
+      "sha256": "c3f2dabc7d7ea97f654f4ccfa5fb7805b39e73ed68b0eda24f4bfc6a2d7ae2e7",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-finalChoice-standard-kraken-360-1.15.png",
+      "sha256": "414886a47027a2fa051ecd42df0fbb96021ddbe8b2dfe69d7f4497ab692b4729",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-finalChoice-standard-kraken-360-1.3-content.png",
+      "sha256": "08f20e8a18721f56acf85eac4d85b475abe0cd13ff3da2ad54ba69efa01b7d7e",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-finalChoice-standard-kraken-360-1.3.png",
+      "sha256": "1c007d69c568cbb4a7d934be9166e4f132c3a6dc471467856e8b38e798c93dc4",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntEnded-standard-kraken-360-1.15-content.png",
+      "sha256": "8711dfb1b572326b0020fd04cdc6ac957fb4e9f2ff0255b2c75f79a5a72e0728",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntEnded-standard-kraken-360-1.15.png",
+      "sha256": "8711dfb1b572326b0020fd04cdc6ac957fb4e9f2ff0255b2c75f79a5a72e0728",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntEndedMenu-standard-kraken-360-1.15-content.png",
+      "sha256": "0f6e63a75e4c40fdc34dc6a284af68471aaa9d555825cf0a7945079f9f38f30e",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntEndedMenu-standard-kraken-360-1.15.png",
+      "sha256": "0f6e63a75e4c40fdc34dc6a284af68471aaa9d555825cf0a7945079f9f38f30e",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntEndedMenu-standard-kraken-360-1.3-content.png",
+      "sha256": "ebbfdf3bf337603f9291929a7e2a97acfc729e3204a6f43ae63d1b048bbd56bc",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntEndedMenu-standard-kraken-360-1.3.png",
+      "sha256": "ebbfdf3bf337603f9291929a7e2a97acfc729e3204a6f43ae63d1b048bbd56bc",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntExitError-standard-kraken-360-1.15-content.png",
+      "sha256": "b4c1fa7d4d7322defbeaff28bb2cb2d7e23c13618718b33c6f65991016ced554",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-huntExitError-standard-kraken-360-1.15.png",
+      "sha256": "b4c1fa7d4d7322defbeaff28bb2cb2d7e23c13618718b33c6f65991016ced554",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-introComplete-standard-kraken-360-1.15-content.png",
+      "sha256": "7e00254e275d4be7b6251076d1e688e4b77bbd2911e71b34ad876e41c52ac2b3",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-introComplete-standard-kraken-360-1.15.png",
+      "sha256": "794562ebbce12d966b79d118167ce4d205b6a695e2d08aeddae229050aba5007",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-introComplete-standard-kraken-360-1.3-content.png",
+      "sha256": "8b67a4b252f3a179e99590b7740c3a3e45045ac428b3d2817c2752b612093e87",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-introComplete-standard-kraken-360-1.3.png",
+      "sha256": "ff76c182acca4ab5c91903a849b82cd0217ea9ed1359cd32313dfdcae981b8a2",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-introOpening-standard-kraken-360-1.15-content.png",
+      "sha256": "779f1abbc752baffbb15b31fc820b11a65c5c17ccf40a98d15785b5ffa0013e5",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-introOpening-standard-kraken-360-1.15.png",
+      "sha256": "779f1abbc752baffbb15b31fc820b11a65c5c17ccf40a98d15785b5ffa0013e5",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeClaim-standard-kraken-360-1.15-content.png",
+      "sha256": "8767bef96a8dacd9391495d39d071b3852afabac6f5b80245e457fd00f553ef6",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeClaim-standard-kraken-360-1.15.png",
+      "sha256": "d8b160c828219bc828d51fd1b1de9ab1f712c9138524f93114538994e414f196",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeClaim-standard-kraken-360-1.3-content.png",
+      "sha256": "ffab2a95099f5de54399b1f36e3737fab6264954c040894861566586b9666847",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeClaim-standard-kraken-360-1.3.png",
+      "sha256": "9bd5af2cbc277b61028a04d566288120adbb91d5ae96a466004b1f444a3a0493",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeShatter-standard-kraken-360-1.15-content.png",
+      "sha256": "c5f841071ef6dff8dcf6e72ed2ca6efcb8762686bdd12cc8b48387aec7985cf3",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeShatter-standard-kraken-360-1.15.png",
+      "sha256": "fd3a991064737d07056e79a22902f2efc4dadc67e124359636856633c95281d6",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeShatter-standard-kraken-360-1.3-content.png",
+      "sha256": "c722dcb0c7a75eda1b0d29618b068e636adb803cc8f1ba58e0a448bf3a37f1a1",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/reviewed/life-outcomeShatter-standard-kraken-360-1.3.png",
+      "sha256": "672f12d1f4d737cc09563feb8b5df59752351bfb58cc5a8c5f6f4143953d02b6",
+      "stage": "reviewed game-font layout"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-1280-1.3-content.png",
+      "sha256": "47168052e197ebe4580dfea572f4917877c81742f98009d3124d74f4811c4eea",
+      "stage": "final validation with Material error fade advanced"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-1280-1.3.png",
+      "sha256": "47168052e197ebe4580dfea572f4917877c81742f98009d3124d74f4811c4eea",
+      "stage": "final validation with Material error fade advanced"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-360-1.15-content.png",
+      "sha256": "575ec4099612df905bd79dcf2a351e0c40cf2b382c01600bc6456290524cba08",
+      "stage": "final validation with Material error fade advanced"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-360-1.15.png",
+      "sha256": "9dfb1b96256d9cde7117ee897dccf1da75d6b9f31d659f2776467bddd863f239",
+      "stage": "final validation with Material error fade advanced"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-360-1.3-content.png",
+      "sha256": "d1060528c5654165377a88c52a7d0f0c2cbdfc655f22c4f3712114f31e6668de",
+      "stage": "final validation with Material error fade advanced"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-360-1.3.png",
+      "sha256": "a9f836b9f0f966308442c0935906384dee4078d08f9e3f2705ccef4b5cd67445",
+      "stage": "final validation with Material error fade advanced"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-800-1.3-content.png",
+      "sha256": "f446b90607521ff967fbe2c0af9193f1f2475487375ab2a58653caa113c2dd92",
+      "stage": "final validation with Material error fade advanced"
+    },
+    {
+      "path": "visual/validation-final/life-captainInvalid-standard-kraken-800-1.3.png",
+      "sha256": "fee3a999bd301fb8128e108a0ac81b282904aaa4996e6648404950bed4ee39f2",
+      "stage": "final validation with Material error fade advanced"
+    }
+  ],
+  "logs": [
+    "checks/analysis.log",
+    "checks/baseline-heir-capture.log",
+    "checks/baseline.log",
+    "checks/docs.log",
+    "checks/final-validation-proof.log",
+    "checks/fixture-compile-probe.log",
+    "checks/format.log",
+    "checks/matrix-game-fonts.log",
+    "checks/offline-and-related.log",
+    "checks/preview-build.log",
+    "checks/preview-pub.log",
+    "checks/validation-probe.log"
+  ]
+}

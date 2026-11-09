@@ -73,11 +73,112 @@ class _DeathScreenState extends State<DeathScreen> {
     );
   }
 
+  Widget _heirHeading(HeirCandidate candidate, bool selected) {
+    final name = Text(
+      candidate.defaultName,
+      style: InkTheme.titleMedium.copyWith(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: selected ? InkTheme.crimsonAccent : InkTheme.inkPrimary,
+      ),
+    );
+    final badge = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      decoration: BoxDecoration(
+        color: InkTheme.goldAccent.withValues(alpha: 0.2),
+        border: Border.all(color: InkTheme.goldAccent),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Text(
+        'SELECTED',
+        style: InkTheme.caption.copyWith(
+          color: InkTheme.goldAccent,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 480) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              name,
+              if (selected) ...[const SizedBox(height: 6), badge],
+            ],
+          );
+        }
+        return Row(
+          children: [
+            Expanded(child: name),
+            if (selected) ...[const SizedBox(width: 8), badge],
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _heirTrait(BloodlineTrait trait, {required bool isBoon}) {
+    final tone = isBoon ? Colors.blue : Colors.deepOrange;
+    final badge = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        color: tone.withValues(alpha: 0.15),
+        border: Border.all(color: tone.shade700),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Text(
+        isBoon ? 'BOON' : 'QUIRK',
+        style: InkTheme.caption.copyWith(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+          color: tone.shade800,
+        ),
+      ),
+    );
+    final name = Text(trait.name, style: InkTheme.bodyBold);
+    final description = Text(trait.description, style: InkTheme.caption);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 480) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Wrap(
+                spacing: 8,
+                runSpacing: 4,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [badge, name],
+              ),
+              const SizedBox(height: 4),
+              description,
+            ],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            badge,
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [name, description],
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final lineage = widget.controller.lineage;
     final lastRecord = lineage.history.isNotEmpty ? lineage.history.last : null;
-    final claimedCore = widget.controller.session.calderaOutcome == CalderaClimaxChoice.claimCore ||
+    final claimedCore =
+        widget.controller.session.calderaOutcome ==
+            CalderaClimaxChoice.claimCore ||
         lastRecord?.causeOfDeath == EldritchLore.claimLedgerCause ||
         lastRecord?.causeOfDeath.contains('Ascended') == true;
     final isFreighter =
@@ -105,9 +206,7 @@ class _DeathScreenState extends State<DeathScreen> {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  claimedCore
-                      ? EldritchLore.claimSuccessionSubtitle
-                      : 'The timbers splintered. The deep claimed another valiant captain.',
+                  claimedCore ? EldritchLore.claimSuccessionSubtitle : 'The timbers splintered. The deep claimed another valiant captain.',
                   style: InkTheme.subtitle,
                   textAlign: TextAlign.center,
                 ),
@@ -298,145 +397,11 @@ class _DeathScreenState extends State<DeathScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        candidate.defaultName,
-                                        style: InkTheme.titleMedium.copyWith(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: isSelected
-                                              ? InkTheme.crimsonAccent
-                                              : InkTheme.inkPrimary,
-                                        ),
-                                      ),
-                                    ),
-                                    if (isSelected) ...[
-                                      const SizedBox(width: 8),
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 8,
-                                          vertical: 2,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: InkTheme.goldAccent.withValues(
-                                            alpha: 0.2,
-                                          ),
-                                          border: Border.all(
-                                            color: InkTheme.goldAccent,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            4,
-                                          ),
-                                        ),
-                                        child: Text(
-                                          'SELECTED',
-                                          style: InkTheme.caption.copyWith(
-                                            color: InkTheme.goldAccent,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ],
-                                ),
+                                _heirHeading(candidate, isSelected),
                                 const SizedBox(height: 10),
-                                // Boon
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 6,
-                                        vertical: 2,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: Colors.blue.withValues(
-                                          alpha: 0.15,
-                                        ),
-                                        border: Border.all(
-                                          color: Colors.blue.shade700,
-                                        ),
-                                        borderRadius: BorderRadius.circular(4),
-                                      ),
-                                      child: Text(
-                                        'BOON',
-                                        style: InkTheme.caption.copyWith(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.blue.shade800,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            candidate.boon.name,
-                                            style: InkTheme.bodyBold,
-                                          ),
-                                          Text(
-                                            candidate.boon.description,
-                                            style: InkTheme.caption,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                _heirTrait(candidate.boon, isBoon: true),
                                 const SizedBox(height: 8),
-                                // Quirk
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 6,
-                                        vertical: 2,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: Colors.deepOrange.withValues(
-                                          alpha: 0.15,
-                                        ),
-                                        border: Border.all(
-                                          color: Colors.deepOrange.shade700,
-                                        ),
-                                        borderRadius: BorderRadius.circular(4),
-                                      ),
-                                      child: Text(
-                                        'QUIRK',
-                                        style: InkTheme.caption.copyWith(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.deepOrange.shade800,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            candidate.quirk.name,
-                                            style: InkTheme.bodyBold,
-                                          ),
-                                          Text(
-                                            candidate.quirk.description,
-                                            style: InkTheme.caption,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                _heirTrait(candidate.quirk, isBoon: false),
                               ],
                             ),
                           ),

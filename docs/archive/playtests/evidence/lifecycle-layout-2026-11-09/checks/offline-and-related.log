@@ -1,0 +1,290 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% introOpening Size(360.0, 900.0)
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% introOpening Size(360.0, 900.0)
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:00 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:00 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:01 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: DeathScreen renders Nemesis banner and 3 selectable Heir candidate cards
+00:01 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainFirst Size(360.0, 900.0)
+00:01 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainFirst Size(360.0, 900.0)
+00:01 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/death_screen_and_controller_test.dart: Heir returns to a valid blueprint at port (active unlocked: true)
+00:01 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainFirst Size(800.0, 480.0)
+00:01 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainFirst Size(1280.0, 850.0)
+00:01 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainReturning Size(360.0, 900.0)
+00:01 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainReturning Size(800.0, 480.0)
+00:01 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainReturning Size(1280.0, 850.0)
+00:01 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainInvalid Size(360.0, 900.0)
+00:01 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainInvalid Size(800.0, 480.0)
+00:01 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/titan_death_ui_test.dart: (setUpAll)
+00:01 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainInvalid Size(1280.0, 850.0)
+00:01 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/titan_death_ui_test.dart: The Kraken death offers heirs without Nemesis or Vendetta
+00:02 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/titan_death_ui_test.dart: The Kraken death offers heirs without Nemesis or Vendetta
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/titan_death_ui_test.dart: The Kraken death offers heirs without Nemesis or Vendetta
+00:02 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/titan_death_ui_test.dart: The Kraken death offers heirs without Nemesis or Vendetta
+00:02 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/titan_death_ui_test.dart: The Kraken death offers heirs without Nemesis or Vendetta
+00:02 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis Size(800.0, 480.0)
+00:02 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis Size(800.0, 480.0)
+00:02 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/titan_death_ui_test.dart: The Ancient Leviathan death offers heirs without Nemesis or Vendetta
+00:02 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis Size(1280.0, 850.0)
+00:02 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis Size(1280.0, 850.0)
+00:02 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathTitan Size(360.0, 900.0)
+00:03 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathTitan Size(800.0, 480.0)
+00:03 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathTitan Size(1280.0, 850.0)
+00:03 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 360.0 / 1.15
+00:03 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 360.0 / 1.15
+00:03 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 360.0 / 1.15
+00:03 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 360.0 / 1.15
+00:04 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 360.0 / 1.15
+00:04 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 360.0 / 1.15
+00:04 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathKeyboard Size(1280.0, 850.0)
+00:04 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 360.0 / 1.3
+00:04 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% claimSuccession Size(360.0, 900.0)
+00:04 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore is read before continuation at 1280.0 / 1.15
+00:04 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% claimSuccession Size(800.0, 480.0)
+00:04 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% claimSuccession Size(800.0, 480.0)
+00:04 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.shatterCore survives disk restart before and after acknowledgement
+00:04 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% claimSuccession Size(1280.0, 850.0)
+00:04 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 360.0 / 1.15
+00:05 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 360.0 / 1.15
+00:05 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 360.0 / 1.15
+00:05 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 360.0 / 1.15
+00:05 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% outcomeClaim Size(360.0, 900.0)
+00:05 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 360.0 / 1.3
+00:05 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 360.0 / 1.3
+00:05 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 360.0 / 1.3
+00:05 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% outcomeShatter Size(360.0, 900.0)
+00:05 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 1280.0 / 1.15
+00:05 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 1280.0 / 1.15
+00:05 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 1280.0 / 1.15
+00:05 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntEnded Size(360.0, 900.0)
+00:05 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 1280.0 / 1.3
+00:05 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore is read before continuation at 1280.0 / 1.3
+00:05 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntEnded Size(1280.0, 850.0)
+00:05 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore survives disk restart before and after acknowledgement
+00:05 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_ending_flow_test.dart: CalderaClimaxChoice.claimCore survives disk restart before and after acknowledgement
+00:05 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntEndedMenu Size(800.0, 480.0)
+00:05 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntEndedMenu Size(800.0, 480.0)
+00:05 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntEndedMenu Size(1280.0, 850.0)
+00:05 +67: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntExitError Size(360.0, 900.0)
+00:05 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntExitError Size(800.0, 480.0)
+00:06 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% huntExitError Size(1280.0, 850.0)
+00:06 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% captainInvalid Size(360.0, 900.0)
+00:06 +71: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% captainInvalid Size(800.0, 480.0)
+00:06 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% captainInvalid Size(1280.0, 850.0)
+00:06 +73: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/0 Size(360.0, 900.0)
+00:06 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_snapshot_test.dart: loaded choice captures before mutation even when immediately resolved
+00:06 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/0 Size(1280.0, 850.0)
+00:06 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/caldera_snapshot_test.dart: snapshot failure prevents publishing ending; retry retains exact pre-choice state
+GameController persistence error: FileSystemException: Fixture snapshot failure, path = ''
+00:06 +76: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/0 Size(1280.0, 850.0)
+00:06 +77: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/0 Size(1280.0, 850.0)
+00:06 +78: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/0 Size(1280.0, 850.0)
+00:06 +79: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/1 Size(360.0, 900.0)
+00:07 +80: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/1 Size(1280.0, 850.0)
+00:07 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/2 Size(360.0, 900.0)
+00:07 +82: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/2 Size(1280.0, 850.0)
+00:07 +83: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:07 +84: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:07 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:08 +86: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:08 +87: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:08 +88: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.15
+00:08 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/5 Size(1280.0, 850.0)
+00:08 +90: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: Overzealous accuracy tooltips at 360.0 / 1.15
+00:08 +91: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: Overzealous accuracy tooltips at 360.0 / 1.15
+00:08 +92: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/6 Size(1280.0, 850.0)
+00:09 +93: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 360.0 / 1.3
+00:09 +94: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/7 Size(360.0, 900.0)
+00:09 +95: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: Overzealous accuracy tooltips at 360.0 / 1.3
+00:09 +96: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 0/7 Size(1280.0, 850.0)
+00:09 +97: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 1280.0 / 1.15
+00:09 +98: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/0 Size(360.0, 900.0)
+00:09 +99: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: Overzealous accuracy tooltips at 1280.0 / 1.15
+00:09 +100: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/0 Size(1280.0, 850.0)
+00:09 +101: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: redraw is spent once and visibly explained at 1280.0 / 1.3
+00:10 +102: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/1 Size(360.0, 900.0)
+00:10 +103: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: Overzealous accuracy tooltips at 1280.0 / 1.3
+00:10 +104: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: Overzealous accuracy tooltips at 1280.0 / 1.3
+00:10 +105: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/2 Size(360.0, 900.0)
+00:10 +106: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/2 Size(360.0, 900.0)
+00:10 +107: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: fixed Titan keeps redraw disabled
+00:10 +108: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/2 Size(1280.0, 850.0)
+00:11 +109: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/2 Size(1280.0, 850.0)
+00:11 +110: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: Vendetta compulsion visibly disables the redraw
+00:11 +111: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/3 Size(360.0, 900.0)
+00:11 +112: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: outgoing helm rejects a retained redraw callback
+00:11 +113: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/3 Size(1280.0, 850.0)
+00:11 +114: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/trait_rework_ui_test.dart: restored helm shows redraw already spent in this region
+00:11 +115: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/4 Size(360.0, 900.0)
+00:11 +116: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/4 Size(1280.0, 850.0)
+00:12 +117: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/5 Size(360.0, 900.0)
+00:12 +118: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/5 Size(1280.0, 850.0)
+00:12 +119: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 1/6 Size(360.0, 900.0)
+00:12 +120: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:12 +121: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +122: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +123: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +124: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +125: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +126: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:13 +127: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:14 +128: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:14 +129: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:14 +130: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:14 +131: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:14 +132: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 2/4 Size(360.0, 900.0)
+00:14 +133: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:15 +134: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:15 +135: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:15 +136: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:15 +137: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:16 +138: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:16 +139: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 2/7 Size(360.0, 900.0)
+00:16 +140: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.15
+00:16 +141: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.15
+00:16 +142: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 3/0 Size(360.0, 900.0)
+00:16 +143: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.3
+00:16 +144: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.3
+00:16 +145: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 3/1 Size(360.0, 900.0)
+00:16 +146: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.15
+00:17 +147: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.15
+00:17 +148: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 3/2 Size(360.0, 900.0)
+00:17 +149: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.3
+00:17 +150: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.3
+00:17 +151: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.3
+00:17 +152: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 3/3 Size(1280.0, 850.0)
+00:17 +153: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:17 +154: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:18 +155: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:18 +156: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:18 +157: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:18 +158: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:18 +159: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 3/6 Size(1280.0, 850.0)
+00:18 +160: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: completed lineage can return to menu without erasing its ending
+00:19 +161: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: completed lineage can return to menu without erasing its ending
+00:19 +162: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 3/7 Size(1280.0, 850.0)
+00:19 +163: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:19 +164: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:19 +165: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:19 +166: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 4/1 Size(360.0, 900.0)
+00:19 +167: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:19 +168: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:19 +169: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:20 +170: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 4/2 Size(1280.0, 850.0)
+00:20 +171: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: title-menu exit retries platform failures
+00:20 +172: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 4/3 Size(360.0, 900.0)
+00:20 +173: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:20 +174: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:20 +175: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:20 +176: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:20 +177: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 4/5 Size(360.0, 900.0)
+00:20 +178: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: an unreadable selected slot can retry without blocking another save
+00:21 +179: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: an unreadable selected slot can retry without blocking another save
+00:21 +180: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 4/6 Size(360.0, 900.0)
+00:21 +181: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 360.0 / 1.15
+00:21 +182: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 360.0 / 1.15
+00:21 +183: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 4/7 Size(360.0, 900.0)
+00:21 +184: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 360.0 / 1.3
+00:21 +185: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 4/7 Size(1280.0, 850.0)
+00:21 +186: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 1280.0 / 1.15
+00:21 +187: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/0 Size(360.0, 900.0)
+00:21 +188: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 1280.0 / 1.3
+00:21 +189: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/0 Size(1280.0, 850.0)
+00:22 +190: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/1 Size(360.0, 900.0)
+00:22 +191: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/1 Size(1280.0, 850.0)
+00:22 +192: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/2 Size(360.0, 900.0)
+00:22 +193: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/2 Size(1280.0, 850.0)
+00:22 +194: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/3 Size(360.0, 900.0)
+00:22 +195: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/3 Size(1280.0, 850.0)
+00:22 +196: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/4 Size(360.0, 900.0)
+00:23 +197: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/4 Size(1280.0, 850.0)
+00:23 +198: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/5 Size(360.0, 900.0)
+00:23 +199: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/5 Size(1280.0, 850.0)
+00:23 +200: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/6 Size(360.0, 900.0)
+00:23 +201: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/6 Size(1280.0, 850.0)
+00:23 +202: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/7 Size(360.0, 900.0)
+00:23 +203: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 5/7 Size(1280.0, 850.0)
+00:23 +204: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/0 Size(360.0, 900.0)
+00:23 +205: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/0 Size(1280.0, 850.0)
+00:24 +206: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/1 Size(360.0, 900.0)
+00:24 +207: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/1 Size(1280.0, 850.0)
+00:24 +208: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/2 Size(360.0, 900.0)
+00:24 +209: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/2 Size(1280.0, 850.0)
+00:24 +210: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/3 Size(360.0, 900.0)
+00:24 +211: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/3 Size(1280.0, 850.0)
+00:24 +212: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/4 Size(360.0, 900.0)
+00:25 +213: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/4 Size(1280.0, 850.0)
+00:25 +214: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/5 Size(360.0, 900.0)
+00:25 +215: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/5 Size(1280.0, 850.0)
+00:25 +216: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/6 Size(360.0, 900.0)
+00:25 +217: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/6 Size(1280.0, 850.0)
+00:25 +218: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/7 Size(360.0, 900.0)
+00:25 +219: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 6/7 Size(1280.0, 850.0)
+00:26 +220: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/0 Size(360.0, 900.0)
+00:26 +221: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/0 Size(1280.0, 850.0)
+00:26 +222: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/1 Size(360.0, 900.0)
+00:26 +223: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/1 Size(1280.0, 850.0)
+00:26 +224: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/2 Size(360.0, 900.0)
+00:26 +225: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/2 Size(1280.0, 850.0)
+00:26 +226: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/3 Size(360.0, 900.0)
+00:27 +227: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/3 Size(1280.0, 850.0)
+00:27 +228: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/4 Size(360.0, 900.0)
+00:27 +229: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/4 Size(1280.0, 850.0)
+00:27 +230: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/5 Size(360.0, 900.0)
+00:27 +231: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/5 Size(1280.0, 850.0)
+00:27 +232: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/6 Size(360.0, 900.0)
+00:28 +233: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/6 Size(1280.0, 850.0)
+00:28 +234: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/7 Size(360.0, 900.0)
+00:28 +235: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% heir pair 7/7 Size(1280.0, 850.0)
+00:28 +236: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% introComplete Size(360.0, 900.0)
+00:28 +237: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% introComplete Size(800.0, 480.0)
+00:28 +238: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% introComplete Size(1280.0, 850.0)
+00:28 +239: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% captainKeyboard Size(360.0, 900.0)
+00:28 +240: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% captainKeyboard Size(800.0, 480.0)
+00:28 +241: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% captainKeyboard Size(1280.0, 850.0)
+00:28 +242: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% deathKeyboard Size(360.0, 900.0)
+00:29 +243: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% deathKeyboard Size(800.0, 480.0)
+00:29 +244: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% deathKeyboard Size(1280.0, 850.0)
+00:29 +245: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% claimSuccession Size(360.0, 900.0)
+00:29 +246: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% claimSuccession Size(800.0, 480.0)
+00:29 +247: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% claimSuccession Size(1280.0, 850.0)
+00:29 +248: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% finalChoice Size(360.0, 900.0)
+00:29 +249: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% finalChoice Size(800.0, 480.0)
+00:29 +250: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% finalChoice Size(1280.0, 850.0)
+00:29 +251: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% outcomeClaim Size(360.0, 900.0)
+00:29 +252: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% outcomeClaim Size(800.0, 480.0)
+00:29 +253: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% outcomeClaim Size(1280.0, 850.0)
+00:30 +254: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% outcomeShatter Size(360.0, 900.0)
+00:30 +255: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% outcomeShatter Size(800.0, 480.0)
+00:30 +256: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% outcomeShatter Size(1280.0, 850.0)
+00:30 +257: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% huntEndedMenu Size(360.0, 900.0)
+00:30 +258: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% huntEndedMenu Size(800.0, 480.0)
+00:30 +259: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 130% huntEndedMenu Size(1280.0, 850.0)
+00:30 +260: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% ironclad death Size(360.0, 900.0)
+00:30 +261: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% ironclad death Size(1280.0, 850.0)
+00:30 +262: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% clipper death Size(360.0, 900.0)
+00:30 +263: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% clipper death Size(1280.0, 850.0)
+00:30 +264: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% bombardier death Size(360.0, 900.0)
+00:30 +265: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% bombardier death Size(1280.0, 850.0)
+00:31 +266: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% corsair death Size(360.0, 900.0)
+00:31 +267: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% corsair death Size(1280.0, 850.0)
+00:31 +268: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% worldSerpent death Size(360.0, 900.0)
+00:31 +269: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% worldSerpent death Size(800.0, 480.0)
+00:31 +270: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% worldSerpent death Size(1280.0, 850.0)
+00:31 +271: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% ancientLeviathan death Size(360.0, 900.0)
+00:31 +272: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% ancientLeviathan death Size(800.0, 480.0)
+00:32 +273: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% ancientLeviathan death Size(1280.0, 850.0)
+00:32 +274: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainFirst unbroken name Size(360.0, 900.0)
+00:32 +275: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainFirst unbroken name Size(800.0, 480.0)
+00:32 +276: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% captainFirst unbroken name Size(1280.0, 850.0)
+00:32 +277: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis unbroken name Size(360.0, 900.0)
+00:32 +278: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis unbroken name Size(800.0, 480.0)
+00:32 +279: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis unbroken name Size(1280.0, 850.0)
+00:32 +280: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% finalChoice unbroken name Size(360.0, 900.0)
+00:32 +281: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% finalChoice unbroken name Size(800.0, 480.0)
+00:32 +282: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% finalChoice unbroken name Size(1280.0, 850.0)
+00:32 +283: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: (tearDownAll)
+00:32 +283: All tests passed!

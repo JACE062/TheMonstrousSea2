@@ -1,0 +1,165 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% introOpening Size(360.0, 900.0)
+00:00 +1: 115% introOpening Size(800.0, 480.0)
+00:00 +2: 115% introOpening Size(1280.0, 850.0)
+00:00 +3: 115% introComplete Size(360.0, 900.0)
+00:01 +4: 115% introComplete Size(800.0, 480.0)
+00:01 +5: 115% introComplete Size(1280.0, 850.0)
+00:01 +6: 115% captainFirst Size(360.0, 900.0)
+00:01 +7: 115% captainFirst Size(800.0, 480.0)
+00:01 +8: 115% captainFirst Size(1280.0, 850.0)
+00:01 +9: 115% captainReturning Size(360.0, 900.0)
+00:01 +10: 115% captainReturning Size(800.0, 480.0)
+00:01 +11: 115% captainReturning Size(1280.0, 850.0)
+00:01 +12: 115% captainInvalid Size(360.0, 900.0)
+00:02 +13: 115% captainInvalid Size(800.0, 480.0)
+00:02 +14: 115% captainInvalid Size(1280.0, 850.0)
+00:02 +15: 115% captainKeyboard Size(360.0, 900.0)
+00:02 +16: 115% captainKeyboard Size(800.0, 480.0)
+00:02 +17: 115% captainKeyboard Size(1280.0, 850.0)
+00:02 +18: 115% deathNemesis Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <200>
+  Actual: <148.8811492919922>
+   Which: is not a value greater than <200>
+Selected heir names need readable width beside the badge.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart:333:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart line 333
+The test description was:
+  115% deathNemesis Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +18 -1: 115% deathNemesis Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% deathNemesis Size(360.0, 900.0)
+  
+00:03 +18 -1: 115% deathNemesis Size(800.0, 480.0)
+00:03 +19 -1: 115% deathNemesis Size(1280.0, 850.0)
+00:03 +20 -1: 115% deathTitan Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <200>
+  Actual: <148.8811492919922>
+   Which: is not a value greater than <200>
+Selected heir names need readable width beside the badge.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart:333:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart line 333
+The test description was:
+  115% deathTitan Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +20 -2: 115% deathTitan Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% deathTitan Size(360.0, 900.0)
+  
+00:03 +20 -2: 115% deathTitan Size(800.0, 480.0)
+00:03 +21 -2: 115% deathTitan Size(1280.0, 850.0)
+00:04 +22 -2: 115% deathNoOffers Size(360.0, 900.0)
+00:04 +23 -2: 115% deathNoOffers Size(800.0, 480.0)
+00:04 +24 -2: 115% deathNoOffers Size(1280.0, 850.0)
+00:04 +25 -2: 115% deathKeyboard Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <200>
+  Actual: <148.8811492919922>
+   Which: is not a value greater than <200>
+Selected heir names need readable width beside the badge.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart:333:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart line 333
+The test description was:
+  115% deathKeyboard Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +25 -3: 115% deathKeyboard Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% deathKeyboard Size(360.0, 900.0)
+  
+00:04 +25 -3: 115% deathKeyboard Size(800.0, 480.0)
+00:04 +26 -3: 115% deathKeyboard Size(1280.0, 850.0)
+00:04 +27 -3: 115% claimSuccession Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <200>
+  Actual: <148.8811492919922>
+   Which: is not a value greater than <200>
+Selected heir names need readable width beside the badge.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart:333:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart line 333
+The test description was:
+  115% claimSuccession Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +27 -4: 115% claimSuccession Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% claimSuccession Size(360.0, 900.0)
+  
+00:05 +27 -4: 115% claimSuccession Size(800.0, 480.0)
+00:05 +28 -4: 115% claimSuccession Size(1280.0, 850.0)
+00:05 +29 -4: 115% finalChoice Size(360.0, 900.0)
+00:05 +30 -4: 115% finalChoice Size(800.0, 480.0)
+00:05 +31 -4: 115% finalChoice Size(1280.0, 850.0)
+00:05 +32 -4: 115% outcomeClaim Size(360.0, 900.0)
+00:05 +33 -4: 115% outcomeClaim Size(800.0, 480.0)
+00:05 +34 -4: 115% outcomeClaim Size(1280.0, 850.0)
+00:05 +35 -4: 115% outcomeShatter Size(360.0, 900.0)
+00:05 +36 -4: 115% outcomeShatter Size(800.0, 480.0)
+00:05 +37 -4: 115% outcomeShatter Size(1280.0, 850.0)
+00:06 +38 -4: 115% huntEnded Size(360.0, 900.0)
+00:06 +39 -4: 115% huntEnded Size(800.0, 480.0)
+00:06 +40 -4: 115% huntEnded Size(1280.0, 850.0)
+00:06 +41 -4: 115% huntEndedMenu Size(360.0, 900.0)
+00:06 +42 -4: 115% huntEndedMenu Size(800.0, 480.0)
+00:06 +43 -4: 115% huntEndedMenu Size(1280.0, 850.0)
+00:06 +44 -4: 115% huntExitError Size(360.0, 900.0)
+00:06 +45 -4: 115% huntExitError Size(800.0, 480.0)
+00:06 +46 -4: 115% huntExitError Size(1280.0, 850.0)
+00:06 +47 -4: (tearDownAll)
+00:06 +47 -4: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% claimSuccession Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathKeyboard Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathNemesis Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart: 115% deathTitan Size(360.0, 900.0)
