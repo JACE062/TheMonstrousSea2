@@ -204,3 +204,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Overlay layout audit 2026-11-09
 
 [The Pause/Settings/inspection/help audit](playtests/OVERLAY_LAYOUT_2026_11_09.md) records wrapping Settings headings, route-aware Escape dismissal for hover help and placement of deeper keyword explanations beside earlier cards. [Evidence](playtests/evidence/overlay-layout-2026-11-09/manifest.json) retains the baseline, 264 layout cases, related regressions, font-loaded proofs and a separate Windows preview. Save gates, gameplay effects, approved copy/artwork, player saves and earlier evidence remain unchanged.
+
+## Logbook layout audit 2026-11-09
+
+[The voyage log/Chronicle audit](playtests/LOGBOOK_LAYOUT_2026_11_09.md) records a separate return-to-latest footer and working desktop keyboard paging for both log panels. [Evidence](playtests/evidence/logbook-layout-2026-11-09/manifest.json) retains baseline/probe results, 159 layout cases, related regressions, font-loaded proofs and a separate Windows preview. Full entry text, live-follow/manual-reading behavior, voyage boundaries, player saves and earlier evidence are preserved.

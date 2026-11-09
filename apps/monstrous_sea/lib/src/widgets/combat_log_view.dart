@@ -18,12 +18,16 @@ class CombatLogView extends StatefulWidget {
     super.key,
     required this.entries,
     this.scrollState,
+    this.controller,
     this.showHeader = true,
   });
 
   /// Accepts either [List<CombatLogEntry>] or [List<String>] for maximum versatility.
   final List<dynamic> entries;
   final CombatLogScrollState? scrollState;
+
+  /// An optional modal-owned controller, also used for keyboard scrolling.
+  final ScrollController? controller;
   final bool showHeader;
 
   @override
@@ -42,10 +46,13 @@ class _CombatLogViewState extends State<CombatLogView> {
   void initState() {
     super.initState();
     _followingLatest = widget.scrollState?.followingLatest ?? true;
-    _scrollController = ScrollController(
-      initialScrollOffset: widget.scrollState?.offset ?? 0,
-      keepScrollOffset: widget.scrollState == null,
-    )..addListener(_rememberPosition);
+    _scrollController =
+        (widget.controller ??
+              ScrollController(
+                initialScrollOffset: widget.scrollState?.offset ?? 0,
+                keepScrollOffset: widget.scrollState == null,
+              ))
+          ..addListener(_rememberPosition);
     _entryCount = widget.entries.length;
     _scheduleLatest();
   }
@@ -64,7 +71,8 @@ class _CombatLogViewState extends State<CombatLogView> {
   @override
   void dispose() {
     _rememberPosition();
-    _scrollController.dispose();
+    _scrollController.removeListener(_rememberPosition);
+    if (widget.controller == null) _scrollController.dispose();
     super.dispose();
   }
 
@@ -216,70 +224,61 @@ class _CombatLogViewState extends State<CombatLogView> {
               const SizedBox(height: 4),
             ],
             Expanded(
-              child: Stack(
-                children: [
-                  Positioned.fill(
-                    child: NotificationListener<ScrollMetricsNotification>(
-                      onNotification: (_) {
-                        if (_followingLatest) _scheduleLatest();
-                        return false;
-                      },
-                      child: NotificationListener<ScrollNotification>(
-                        onNotification: _onScroll,
-                        child: entries.isEmpty
-                            ? Center(
-                                child: Text(
-                                  'The open swell is calm... for now.',
-                                  style: InkTheme.caption,
-                                ),
-                              )
-                            : ListView.builder(
-                                controller: _scrollController,
-                                itemCount: entries.length,
-                                itemBuilder: (context, index) {
-                                  final item = entries[index];
-                                  final CombatLogEntry entry =
-                                      item is CombatLogEntry
-                                      ? item
-                                      : CombatLogEntry(
-                                          message: item.toString(),
-                                          actor:
-                                              item.toString().contains(
-                                                    'beast',
-                                                  ) ||
-                                                  item.toString().contains(
-                                                    'Kraken',
-                                                  ) ||
-                                                  item.toString().contains(
-                                                    'spewed',
-                                                  )
-                                              ? CombatLogActor.monster
-                                              : CombatLogActor.ship,
-                                        );
+              child: NotificationListener<ScrollMetricsNotification>(
+                onNotification: (_) {
+                  if (_followingLatest) _scheduleLatest();
+                  return false;
+                },
+                child: NotificationListener<ScrollNotification>(
+                  onNotification: _onScroll,
+                  child: entries.isEmpty
+                      ? Center(
+                          child: Text(
+                            'The open swell is calm... for now.',
+                            style: InkTheme.caption,
+                          ),
+                        )
+                      : ListView.builder(
+                          controller: _scrollController,
+                          itemCount: entries.length,
+                          itemBuilder: (context, index) {
+                            final item = entries[index];
+                            final CombatLogEntry entry = item is CombatLogEntry
+                                ? item
+                                : CombatLogEntry(
+                                    message: item.toString(),
+                                    actor:
+                                        item.toString().contains('beast') ||
+                                            item.toString().contains(
+                                              'Kraken',
+                                            ) ||
+                                            item.toString().contains('spewed')
+                                        ? CombatLogActor.monster
+                                        : CombatLogActor.ship,
+                                  );
 
-                                  return _buildEntryRow(entry);
-                                },
-                              ),
-                      ),
-                    ),
-                  ),
-                  if (!_followingLatest)
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: InkButton(
-                        label: 'LATEST MESSAGES',
-                        compact: true,
-                        onPressed: () {
-                          setState(() => _followingLatest = true);
-                          _rememberPosition();
-                          _scheduleLatest();
-                        },
-                      ),
-                    ),
-                ],
+                            return _buildEntryRow(entry);
+                          },
+                        ),
+                ),
               ),
             ),
+            if (!_followingLatest)
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: InkButton(
+                    label: 'LATEST MESSAGES',
+                    compact: true,
+                    onPressed: () {
+                      setState(() => _followingLatest = true);
+                      _rememberPosition();
+                      _scheduleLatest();
+                    },
+                  ),
+                ),
+              ),
           ],
         ),
       ),

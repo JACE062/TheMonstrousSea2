@@ -15,54 +15,61 @@ Future<void> showBattleChronicle(
   CombatLogScrollState? scrollState,
 }) async {
   final previousFocus = FocusManager.instance.primaryFocus;
+  final scrollController = ScrollController(
+    initialScrollOffset: scrollState?.offset ?? 0,
+  );
   final route = DialogRoute<void>(
     context: context,
-    builder: (context) => CallbackShortcuts(
-      bindings: {
-        const SingleActivator(LogicalKeyboardKey.escape): () =>
-            Navigator.of(context).pop(),
-      },
-      child: Focus(
-        autofocus: true,
-        child: Dialog(
-          backgroundColor: InkTheme.parchmentSurface,
-          insetPadding: const EdgeInsets.all(16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
-            side: const BorderSide(color: InkTheme.inkPrimary, width: 2),
-          ),
-          child: LayoutBuilder(
-            builder: (context, bounds) => SizedBox(
-              width: math.min(860, bounds.maxWidth),
-              height: math.min(680, bounds.maxHeight),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text('CHRONICLE OF BATTLE', style: InkTheme.titleMedium),
-                    const SizedBox(height: 12),
-                    Expanded(
-                      child: ListenableBuilder(
-                        listenable: controller,
-                        builder: (context, _) => CombatLogView(
-                          entries: controller.structuredCombatLog,
-                          scrollState: scrollState,
-                          showHeader: false,
+    builder: (context) => PrimaryScrollController(
+      controller: scrollController,
+      child: CallbackShortcuts(
+        bindings: {
+          const SingleActivator(LogicalKeyboardKey.escape): () =>
+              Navigator.of(context).pop(),
+        },
+        child: Focus(
+          autofocus: true,
+          child: Dialog(
+            backgroundColor: InkTheme.parchmentSurface,
+            insetPadding: const EdgeInsets.all(16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+              side: const BorderSide(color: InkTheme.inkPrimary, width: 2),
+            ),
+            child: LayoutBuilder(
+              builder: (context, bounds) => SizedBox(
+                width: math.min(860, bounds.maxWidth),
+                height: math.min(680, bounds.maxHeight),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text('CHRONICLE OF BATTLE', style: InkTheme.titleMedium),
+                      const SizedBox(height: 12),
+                      Expanded(
+                        child: ListenableBuilder(
+                          listenable: controller,
+                          builder: (context, _) => CombatLogView(
+                            entries: controller.structuredCombatLog,
+                            scrollState: scrollState,
+                            controller: scrollController,
+                            showHeader: false,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: InkButton(
-                        key: const ValueKey('chronicle-close'),
-                        label: 'CLOSE',
-                        compact: true,
-                        onPressed: () => Navigator.of(context).pop(),
+                      const SizedBox(height: 12),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: InkButton(
+                          key: const ValueKey('chronicle-close'),
+                          label: 'CLOSE',
+                          compact: true,
+                          onPressed: () => Navigator.of(context).pop(),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -71,8 +78,12 @@ Future<void> showBattleChronicle(
       ),
     ),
   );
-  await Navigator.of(context, rootNavigator: true).push(route);
-  await route.completed;
+  try {
+    await Navigator.of(context, rootNavigator: true).push(route);
+    await route.completed;
+  } finally {
+    scrollController.dispose();
+  }
   if (previousFocus?.context != null && previousFocus!.canRequestFocus) {
     previousFocus.requestFocus();
   }

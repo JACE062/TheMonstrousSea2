@@ -1,0 +1,30 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart
+test/logbook_layout_matrix_test.dart:133:32: Error: The method 'toJson' isn't defined for the type 'MonsterState'.
+ - 'MonsterState' is from 'package:monstrous_core/src/model/combatant.dart' ('../../packages/monstrous_core/lib/src/model/combatant.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'toJson'.
+  'monster': c.currentMonster!.toJson(),
+                               ^^^^^^
+test/logbook_layout_matrix_test.dart:244:27: Error: No named parameter with the name 'focusNode'.
+                          focusNode: opener,
+                          ^^^^^^^^^
+lib/src/widgets/ink_button.dart:7:9: Context: Found this candidate, but the arguments don't match.
+  const InkButton({
+        ^^^^^^^^^
+00:00 +0 -1: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: test/logbook_layout_matrix_test.dart:133:32: Error: The method 'toJson' isn't defined for the type 'MonsterState'.
+   - 'MonsterState' is from 'package:monstrous_core/src/model/combatant.dart' ('../../packages/monstrous_core/lib/src/model/combatant.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'toJson'.
+    'monster': c.currentMonster!.toJson(),
+                                 ^^^^^^
+  test/logbook_layout_matrix_test.dart:244:27: Error: No named parameter with the name 'focusNode'.
+                            focusNode: opener,
+                            ^^^^^^^^^
+  lib/src/widgets/ink_button.dart:7:9: Context: Found this candidate, but the arguments don't match.
+    const InkButton({
+          ^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart

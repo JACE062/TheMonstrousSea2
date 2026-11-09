@@ -1,0 +1,173 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% chronicleKeyboard Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than <141113.8>
+  Actual: <141113.8>
+   Which: is not a value less than <141113.8>
+History scroll must move the open Chronicle.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:369:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 369
+The test description was:
+  115% chronicleKeyboard Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: 115% chronicleKeyboard Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleKeyboard Size(360.0, 900.0)
+  
+00:01 +0 -1: 115% chronicleKeyboard Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than <52858.8>
+  Actual: <52858.8>
+   Which: is not a value less than <52858.8>
+History scroll must move the open Chronicle.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:369:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 369
+The test description was:
+  115% chronicleKeyboard Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: 115% chronicleKeyboard Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleKeyboard Size(800.0, 480.0)
+  
+00:01 +0 -2: 115% chronicleKeyboard Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than <51866.8>
+  Actual: <51866.8>
+   Which: is not a value less than <51866.8>
+History scroll must move the open Chronicle.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:369:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 369
+The test description was:
+  115% chronicleKeyboard Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -3: 115% chronicleKeyboard Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleKeyboard Size(1280.0, 850.0)
+  
+00:02 +0 -3: 115% voyageKeyboard Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <0>
+  Actual: <0.0>
+   Which: is not a value greater than <0>
+Page Down should scroll the open logbook.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:289:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 289
+The test description was:
+  115% voyageKeyboard Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -4: 115% voyageKeyboard Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageKeyboard Size(360.0, 900.0)
+  
+00:02 +0 -4: 115% voyageKeyboard Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <0>
+  Actual: <0.0>
+   Which: is not a value greater than <0>
+Page Down should scroll the open logbook.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:289:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 289
+The test description was:
+  115% voyageKeyboard Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -5: 115% voyageKeyboard Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageKeyboard Size(800.0, 480.0)
+  
+00:03 +0 -5: 115% voyageKeyboard Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <0>
+  Actual: <0.0>
+   Which: is not a value greater than <0>
+Page Down should scroll the open logbook.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:289:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 289
+The test description was:
+  115% voyageKeyboard Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -6: 115% voyageKeyboard Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageKeyboard Size(1280.0, 850.0)
+  
+00:04 +0 -6: (tearDownAll)
+00:04 +0 -6: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleKeyboard Size(1280.0, 850.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleKeyboard Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleKeyboard Size(800.0, 480.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% voyageKeyboard Size(1280.0, 850.0)
+  ... and 2 more

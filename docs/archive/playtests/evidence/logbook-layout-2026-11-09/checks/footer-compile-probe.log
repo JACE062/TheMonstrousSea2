@@ -1,0 +1,22 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart
+lib/src/widgets/combat_log_view.dart:279:15: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+              ),
+              ^
+lib/src/widgets/combat_log_view.dart:279:15: Error: Expected ']' before this.
+              ),
+              ^
+00:00 +0 -1: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: lib/src/widgets/combat_log_view.dart:279:15: Error: Expected an identifier, but got ')'.
+  Try inserting an identifier before ')'.
+                ),
+                ^
+  lib/src/widgets/combat_log_view.dart:279:15: Error: Expected ']' before this.
+                ),
+                ^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart

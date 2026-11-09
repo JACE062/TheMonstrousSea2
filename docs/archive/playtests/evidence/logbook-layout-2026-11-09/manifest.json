@@ -1,0 +1,664 @@
+{
+  "date": "2026-11-09",
+  "baseCommit": "5f41b50f549d7c1320c3badfafa5b66446d71885",
+  "request": "Review voyage log and combat Chronicle at 115% text, including long entries, expanded details and scrolling.",
+  "scope": "Separate Latest Messages footer and keyboard paging for log panels; full entry text, history boundaries, live-follow/reading behavior and gameplay unchanged.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/combat_log_view.dart",
+      "sha256": "b6870ee52ee853d6d5577c53d0d7964914d1572d0c727e165c76be4b4c3f6f79"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/battle_chronicle_dialog.dart",
+      "sha256": "71764176be7b1a446784c1a9faed8bd7118e40bece49abf6a8d9ac85168b67f9"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/voyage_log_view.dart",
+      "sha256": "1376b2ac68827aef89cf4ed6942447229a7fcd37ce6212fd519261c166060bba"
+    },
+    {
+      "path": "apps/monstrous_sea/test/logbook_layout_matrix_test.dart",
+      "sha256": "88a6d554ed35f7bd2986416227f6c2e9b9c0c43550bdf51208fa88bb35045723"
+    }
+  ],
+  "unchangedInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/game_controller.dart",
+      "sha256": "7c89eae05fafece7cc9b3d8f329d39dd465edcffe912dda708dd8ffb0e27ab44"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "e68a904a29f2cb8e6e0085900ce5fe4d5f1b41a79636cda9058db1aa5179af88"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/helm_screen.dart",
+      "sha256": "c86395ceed6e69a306d990636c7d8d82e3e1dfbe16c3ab4bba4578565feef0a5"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/sea_chart_screen.dart",
+      "sha256": "1435bc438590bad7a1a9b1d55ef12dfbdd6fc5014d485327209e4d0f0f1d26cc"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/vessel_inspection.dart",
+      "sha256": "9c0ced49caa2fc51f6558a7765c58af562f5d2bbb72008b82dd75d97e9f35af9"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/theme/ink_theme.dart",
+      "sha256": "c1902fa843c712b0a7b2d06942ba8a9d8db5045f6a9baaf3689b68a08ee274fa"
+    }
+  ],
+  "baseline": {
+    "cases": 33,
+    "passed": 24,
+    "failed": 9,
+    "finding": "Latest Messages covered history text in reading/live/resize states at all three sizes."
+  },
+  "keyboardProbe": {
+    "cases": 6,
+    "passed": 0,
+    "failed": 6,
+    "finding": "Page Up/Down did not move either open log before primary-controller wiring."
+  },
+  "matrix": {
+    "gameFonts": 159,
+    "offlineWithExistingRegressions": 196,
+    "sharedInspectionRegressions": 87,
+    "offlineTotal": 283,
+    "relatedExistingTotal": 124,
+    "primarySizes": [
+      [
+        360,
+        900
+      ],
+      [
+        800,
+        480
+      ],
+      [
+        1280,
+        850
+      ]
+    ],
+    "mobileSize": [
+      360,
+      760
+    ],
+    "primaryScale": 1.15,
+    "stressScale": 1.3,
+    "states": 15,
+    "chronicleEntries": 240,
+    "fullVoyageArrivals": 39,
+    "coverage": {
+      "atmospheric115": 45,
+      "plain115": 45,
+      "stress130": 42,
+      "mobile": 12,
+      "additionalActors": 15
+    }
+  },
+  "isolation": {
+    "storage": "All fixture controllers autosave-disabled; no live profile path.",
+    "actions": "No player combat/trade/departure commands during layout reading.",
+    "snapshots": "Profile, ship, chart, phase, playback flag and monster HP unchanged; existing log entries preserved.",
+    "liveUpdates": "Only explicit fixture messages are appended, to test following and history reading.",
+    "fonts": "Cached Pirata One/IM Fell English for game-font proofs; bundled Roboto/Material Icons for plain/offline modes."
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/analyze-probe.log",
+      "sha256": "549c84727a31f2aa300d873262906c5bdf20af0042985ddb79d5f72fd46b3291"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/analyze.log",
+      "sha256": "da8db33605545a85bf0e554bbbb6cd0215dc9f1d223a98b1a550f384f2f20c28"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/baseline.log",
+      "sha256": "ab8452bff9b903832454a2282be4fee1aad0ddd00e4254ab157a611a97c0839c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/detail-fixture-compile-probe.log",
+      "sha256": "dbcd66320195b297397d80d0c7d8a2379963d521a52a1640c706b3f61c897243"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/diff-check.log",
+      "sha256": "bec4f792ce1c5346ee7817361f60174389735b7c4d5e093a16266206c4cf4e6f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/docs.log",
+      "sha256": "e55d23ab47449957c1ef36a82229c0e84674aa116f1da09866b13f13192fae64"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/first-fix.log",
+      "sha256": "1374fc8156afcc6fa24efd1368dc2cfc023ef37be42f4bde1778de562ccac830"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/fixture-compile-probe.log",
+      "sha256": "44d33378508da5d49855baadb58873c9cd5df32bc6d416663a72c33914e8b31a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/fixture-scope-probe.log",
+      "sha256": "5f959c7a3a95438b6a45595987e58ab5f043d54c023086c44b91f294eb16be9c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/footer-compile-probe.log",
+      "sha256": "a7aa116b1a7838913ea1861efee64636832250deee1dfda408806f813016fe3e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/format.log",
+      "sha256": "20edeb1f47f7b9ab73adc166304f89551f151e46e67e2fad44795b46309cd839"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/keyboard-probe.log",
+      "sha256": "2d78609257521cfeeb7dff8cb4d639165c496e9bd8c173ffb6d946007e6a157e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/matrix-and-regressions-offline.log",
+      "sha256": "c39ac398d001e906a1b3a63ce43ec3d96d5ab7e05ef6540452c9649d3001705f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/matrix-game-fonts.log",
+      "sha256": "2786e93e55c2c745aab23048dd72906c827f6675fc042e4ec2c680a89623464a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/preview-build.log",
+      "sha256": "4bc48757e3ad3bfcf550fae69f0af6bb7a924bd80a762a27860037248aa3f930"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/preview-pub.log",
+      "sha256": "973060bb6f7b5dac0714256cdc8d758cd1a855330d5cbd6aed3c0d116577dd4e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/scroll-inputs.log",
+      "sha256": "66745fed6b48ca30332ddee595ca48f2298cabaab80d7819d898ed016b1b593a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/checks/shared-inspection-regressions.log",
+      "sha256": "7e386b582bcdbd6a4642dedf13f90eab43274df13e3d9b08fb601805ac27fd89"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleDetails-360-1.15-ink-2-true-open.png",
+      "sha256": "a0e2d60832c2f274ec948f15fe82b19ef086c56ff7855a51653f6ea4867a87f7",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleEmpty-360-1.15-ink-2-true-open.png",
+      "sha256": "1f1441e0a3e407d37cb92babcdaff62855880df2793b8be75f91d8944b883338",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleHistory-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleLive-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleLive-360-1.15-ink-2-true-reading.png",
+      "sha256": "32eb888d078e463bdf66ad8828b85ee5e2feb5b5cf2c2cf1544474e3b44e4edb",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleReading-1280-1.15-ink-2-true-open.png",
+      "sha256": "bd612df4ca666bd8dcd7282aa832687834731e7ab83f6792f5e6e71b543ae4cd",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleReading-1280-1.15-ink-2-true-reading.png",
+      "sha256": "7406c9e4c19062f3a5c4bef55b8d4ec197290e8e6194410a1d2f78fbaeb16f90",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleReading-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleReading-360-1.15-ink-2-true-reading.png",
+      "sha256": "32eb888d078e463bdf66ad8828b85ee5e2feb5b5cf2c2cf1544474e3b44e4edb",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleReading-800-1.15-ink-2-true-open.png",
+      "sha256": "b7afd861419f3bb9ed3362cc4b3fb53f43867d4ef508f39fdd525bcd2376c29e",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleReading-800-1.15-ink-2-true-reading.png",
+      "sha256": "a4d78dd46142a97639d942fd249a68feefc92d3e0694afe4c090a814282e6b09",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleResize-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleResize-360-1.15-ink-2-true-reading.png",
+      "sha256": "32eb888d078e463bdf66ad8828b85ee5e2feb5b5cf2c2cf1544474e3b44e4edb",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-chronicleShort-360-1.15-ink-2-true-open.png",
+      "sha256": "3362933cc0f774caf6a04860f7bfc7aaba22bd5f6e34aed876f73a12479b6a4e",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-shoreLog-360-1.15-ink-2-true-oldest.png",
+      "sha256": "8ae721dbd7702abad432a6e190e32462bdee069379a7626cf087b6cf759b7fdb",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-shoreLog-360-1.15-ink-2-true-open.png",
+      "sha256": "ad85a37a32f28c53ec69dbcce75df2b0ee4ac3b5235708753f07192df30354f3",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-voyageDetails-360-1.15-ink-2-true-oldest.png",
+      "sha256": "a4a43ecec147e9cb4369694ece1c00ec761bd1068ee2a31e4fcf8fcebd00ddca",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-voyageDetails-360-1.15-ink-2-true-open.png",
+      "sha256": "a4a43ecec147e9cb4369694ece1c00ec761bd1068ee2a31e4fcf8fcebd00ddca",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-voyageEmpty-360-1.15-ink-2-true-open.png",
+      "sha256": "f12bdb7a2ec56d4147b56547b144e2b11b9b3f9f6c567d92a83ea8e7584589f2",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-voyageHistory-360-1.15-ink-2-true-oldest.png",
+      "sha256": "d55da0a3dfe8a78a06d2364af9e69b66c445faca908a62a5f65f992ac38de393",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/before/log-voyageHistory-360-1.15-ink-2-true-open.png",
+      "sha256": "bb1615145e86b8efc341dfc81ccb8711e462227a0a85a6887797564c22606f8b",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleDetails-360x900-1.15-ink-2-true-windows-detail-start.png",
+      "sha256": "1828ea63ac611087ca2cc4ab98054a5633e51e17f1be406e6a0e5e6af3f2f407",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleDetails-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "a0e2d60832c2f274ec948f15fe82b19ef086c56ff7855a51653f6ea4867a87f7",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleEmpty-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "1f1441e0a3e407d37cb92babcdaff62855880df2793b8be75f91d8944b883338",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleHistory-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleKeyboard-360x900-1.15-ink-2-true-windows-latest.png",
+      "sha256": "f7251a5a3cac1720704fe6ae97e40290737dab84a1f3b186a93be6b7b7d41b86",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleKeyboard-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleKeyboard-360x900-1.15-ink-2-true-windows-reading.png",
+      "sha256": "0a299bd0f3a9a970548c777c26d827894981a9a2289b9a19f4a7eb93c54147d0",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleLive-360x900-1.15-ink-2-true-windows-latest.png",
+      "sha256": "87dfad21430d4bee6fa09ceb38f1ea167f8413036ba613f41587c7b1f87a0d84",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleLive-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleLive-360x900-1.15-ink-2-true-windows-reading.png",
+      "sha256": "bc51980dfa0ca3b2ed67037e70e8c400b42d45656703daef3f428d56ce54d17b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-1280x850-1.15-ink-2-true-windows-latest.png",
+      "sha256": "f16a6474ce579acece8e885f425b47261153e061ce27be935150fb3248d7565c",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-1280x850-1.15-ink-2-true-windows-open.png",
+      "sha256": "bd612df4ca666bd8dcd7282aa832687834731e7ab83f6792f5e6e71b543ae4cd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-1280x850-1.15-ink-2-true-windows-reading.png",
+      "sha256": "429660ddfdb54992fb5785b2cbda9e2029d4ba651e22f47a8c63f250455a63da",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-360x900-1.15-ink-2-true-windows-latest.png",
+      "sha256": "f7251a5a3cac1720704fe6ae97e40290737dab84a1f3b186a93be6b7b7d41b86",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-360x900-1.15-ink-2-true-windows-reading.png",
+      "sha256": "bc51980dfa0ca3b2ed67037e70e8c400b42d45656703daef3f428d56ce54d17b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.15-ink-2-true-windows-latest.png",
+      "sha256": "4eccf2b36cce2180381a8743cc509cea0fd93aae2094d80555a1ee074e7bafaf",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.15-ink-2-true-windows-open.png",
+      "sha256": "b7afd861419f3bb9ed3362cc4b3fb53f43867d4ef508f39fdd525bcd2376c29e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.15-ink-2-true-windows-reading.png",
+      "sha256": "d3701aa2430b2a1782a0950e0b4bf81bb4537c43e2ee139a8749f8de1059fdac",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.3-ink-2-true-windows-latest.png",
+      "sha256": "8480e22f24de315a19195060f39c0a769ff568c85b38ad9511afc1b7ff350b13",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.3-ink-2-true-windows-open.png",
+      "sha256": "bb9fb59cd66c554a01ff986d4d65093c92d9df56667cdbfd400ce9419da6e27f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.3-ink-2-true-windows-reading.png",
+      "sha256": "9dccd43370bc63309cf6db9ea4bddb71ba1c5c429e016bcafa7ac3199a0cd1c1",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.3-plain-2-true-windows-latest.png",
+      "sha256": "9aa74acb0bd79d1d336b42c289f1c1430d39f609c4c022045ca3f3ff8eb4c534",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.3-plain-2-true-windows-open.png",
+      "sha256": "769dc0c9f7f125e568d4b1632fd86b79927a045889ac773b24ee850686ad4df1",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleReading-800x480-1.3-plain-2-true-windows-reading.png",
+      "sha256": "5b44db7a0e95b593d5c66b235380f9e1135ab733d0a08b648d23f6f7c6440c8d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleResize-360x900-1.15-ink-2-true-windows-latest.png",
+      "sha256": "f7251a5a3cac1720704fe6ae97e40290737dab84a1f3b186a93be6b7b7d41b86",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleResize-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleResize-360x900-1.15-ink-2-true-windows-reading.png",
+      "sha256": "bc51980dfa0ca3b2ed67037e70e8c400b42d45656703daef3f428d56ce54d17b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleScrollbar-360x900-1.15-ink-2-true-windows-latest.png",
+      "sha256": "f7251a5a3cac1720704fe6ae97e40290737dab84a1f3b186a93be6b7b7d41b86",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleScrollbar-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleScrollbar-360x900-1.15-ink-2-true-windows-reading.png",
+      "sha256": "c5776acc92275f2c0ebc91def12a41500280f7be93cfbc192ae245cdaf06d4cd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleShort-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "3362933cc0f774caf6a04860f7bfc7aaba22bd5f6e34aed876f73a12479b6a4e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleWheel-360x900-1.15-ink-2-true-windows-latest.png",
+      "sha256": "f7251a5a3cac1720704fe6ae97e40290737dab84a1f3b186a93be6b7b7d41b86",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleWheel-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-chronicleWheel-360x900-1.15-ink-2-true-windows-reading.png",
+      "sha256": "9d42ea0ed54297443df0c56088d75abc7bfa80dac3f0421c37531d87075f1b15",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-shoreLog-360x900-1.15-ink-2-true-windows-oldest.png",
+      "sha256": "8ae721dbd7702abad432a6e190e32462bdee069379a7626cf087b6cf759b7fdb",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-shoreLog-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "ad85a37a32f28c53ec69dbcce75df2b0ee4ac3b5235708753f07192df30354f3",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageDetails-360x900-1.15-ink-2-true-windows-oldest.png",
+      "sha256": "a4a43ecec147e9cb4369694ece1c00ec761bd1068ee2a31e4fcf8fcebd00ddca",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageDetails-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "a4a43ecec147e9cb4369694ece1c00ec761bd1068ee2a31e4fcf8fcebd00ddca",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageDetails-800x480-1.3-ink-2-true-windows-oldest.png",
+      "sha256": "183c99f9f54683b8b50b3ac7d5acd147c7f22555ab8ff0d0bded8e6dad1651df",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageDetails-800x480-1.3-ink-2-true-windows-open.png",
+      "sha256": "89d32f498ee7500b6de3d21a0ca87f8ac7aad4e4dd326e9ae817ad02408d614d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageDetails-800x480-1.3-plain-2-true-windows-oldest.png",
+      "sha256": "5cbc27ac5c3d554c71b269efadb2da09f23309e2593e5b667587817b516e052d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageDetails-800x480-1.3-plain-2-true-windows-open.png",
+      "sha256": "a043a537ccf988c6d8795b7da6994ab2e046feac170cdeec3334fef49b703fce",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageEmpty-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "f12bdb7a2ec56d4147b56547b144e2b11b9b3f9f6c567d92a83ea8e7584589f2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageHistory-360x900-1.15-ink-2-true-windows-oldest.png",
+      "sha256": "d55da0a3dfe8a78a06d2364af9e69b66c445faca908a62a5f65f992ac38de393",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageHistory-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "bb1615145e86b8efc341dfc81ccb8711e462227a0a85a6887797564c22606f8b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageKeyboard-360x900-1.15-ink-2-true-windows-oldest.png",
+      "sha256": "9e4229c966c6f9758e662352e9b37bcbaea3f8c4ce9cf93547ba0902144bab6f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/final/log-voyageKeyboard-360x900-1.15-ink-2-true-windows-open.png",
+      "sha256": "bb1615145e86b8efc341dfc81ccb8711e462227a0a85a6887797564c22606f8b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleDetails-360-1.15-ink-2-true-open.png",
+      "sha256": "a0e2d60832c2f274ec948f15fe82b19ef086c56ff7855a51653f6ea4867a87f7",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleEmpty-360-1.15-ink-2-true-open.png",
+      "sha256": "1f1441e0a3e407d37cb92babcdaff62855880df2793b8be75f91d8944b883338",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleHistory-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleLive-360-1.15-ink-2-true-latest.png",
+      "sha256": "87dfad21430d4bee6fa09ceb38f1ea167f8413036ba613f41587c7b1f87a0d84",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleLive-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleLive-360-1.15-ink-2-true-reading.png",
+      "sha256": "bc51980dfa0ca3b2ed67037e70e8c400b42d45656703daef3f428d56ce54d17b",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-1280-1.15-ink-2-true-latest.png",
+      "sha256": "f16a6474ce579acece8e885f425b47261153e061ce27be935150fb3248d7565c",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-1280-1.15-ink-2-true-open.png",
+      "sha256": "bd612df4ca666bd8dcd7282aa832687834731e7ab83f6792f5e6e71b543ae4cd",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-1280-1.15-ink-2-true-reading.png",
+      "sha256": "429660ddfdb54992fb5785b2cbda9e2029d4ba651e22f47a8c63f250455a63da",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-360-1.15-ink-2-true-latest.png",
+      "sha256": "f7251a5a3cac1720704fe6ae97e40290737dab84a1f3b186a93be6b7b7d41b86",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-360-1.15-ink-2-true-reading.png",
+      "sha256": "bc51980dfa0ca3b2ed67037e70e8c400b42d45656703daef3f428d56ce54d17b",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-800-1.15-ink-2-true-latest.png",
+      "sha256": "4eccf2b36cce2180381a8743cc509cea0fd93aae2094d80555a1ee074e7bafaf",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-800-1.15-ink-2-true-open.png",
+      "sha256": "b7afd861419f3bb9ed3362cc4b3fb53f43867d4ef508f39fdd525bcd2376c29e",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleReading-800-1.15-ink-2-true-reading.png",
+      "sha256": "d3701aa2430b2a1782a0950e0b4bf81bb4537c43e2ee139a8749f8de1059fdac",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleResize-360-1.15-ink-2-true-latest.png",
+      "sha256": "f7251a5a3cac1720704fe6ae97e40290737dab84a1f3b186a93be6b7b7d41b86",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleResize-360-1.15-ink-2-true-open.png",
+      "sha256": "79d741c61503fdda041fa80a3233a2ba90c8c1262d80b48de24a44a5d0758366",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleResize-360-1.15-ink-2-true-reading.png",
+      "sha256": "bc51980dfa0ca3b2ed67037e70e8c400b42d45656703daef3f428d56ce54d17b",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-chronicleShort-360-1.15-ink-2-true-open.png",
+      "sha256": "3362933cc0f774caf6a04860f7bfc7aaba22bd5f6e34aed876f73a12479b6a4e",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-shoreLog-360-1.15-ink-2-true-oldest.png",
+      "sha256": "8ae721dbd7702abad432a6e190e32462bdee069379a7626cf087b6cf759b7fdb",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-shoreLog-360-1.15-ink-2-true-open.png",
+      "sha256": "ad85a37a32f28c53ec69dbcce75df2b0ee4ac3b5235708753f07192df30354f3",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-voyageDetails-360-1.15-ink-2-true-oldest.png",
+      "sha256": "a4a43ecec147e9cb4369694ece1c00ec761bd1068ee2a31e4fcf8fcebd00ddca",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-voyageDetails-360-1.15-ink-2-true-open.png",
+      "sha256": "a4a43ecec147e9cb4369694ece1c00ec761bd1068ee2a31e4fcf8fcebd00ddca",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-voyageEmpty-360-1.15-ink-2-true-open.png",
+      "sha256": "f12bdb7a2ec56d4147b56547b144e2b11b9b3f9f6c567d92a83ea8e7584589f2",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-voyageHistory-360-1.15-ink-2-true-oldest.png",
+      "sha256": "d55da0a3dfe8a78a06d2364af9e69b66c445faca908a62a5f65f992ac38de393",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/logbook-layout-2026-11-09/visual/first-fix/log-voyageHistory-360-1.15-ink-2-true-open.png",
+      "sha256": "bb1615145e86b8efc341dfc81ccb8711e462227a0a85a6887797564c22606f8b",
+      "stage": "first-fix"
+    }
+  ],
+  "stages": {
+    "before": "Initial valid 33-case baseline.",
+    "first-fix": "Footer fixed, before keyboard wiring.",
+    "final": "Complete source with keyboard paging and 159-case coverage."
+  },
+  "probeNotes": "Fixture compile/scope probes and footer/detail compile probes are retained separately from player-facing findings. Both logs show complete entries; no per-entry expansion UI was invented.",
+  "previewCorrespondence": "preview-correspondence.json"
+}

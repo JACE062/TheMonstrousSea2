@@ -1,0 +1,269 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% voyageEmpty Size(360.0, 900.0)
+00:01 +1: 115% voyageEmpty Size(800.0, 480.0)
+00:01 +2: 115% voyageEmpty Size(1280.0, 850.0)
+00:01 +3: 115% voyageHistory Size(360.0, 900.0)
+00:01 +4: 115% voyageHistory Size(800.0, 480.0)
+00:02 +5: 115% voyageHistory Size(1280.0, 850.0)
+00:02 +6: 115% voyageDetails Size(360.0, 900.0)
+00:02 +7: 115% voyageDetails Size(800.0, 480.0)
+00:02 +8: 115% voyageDetails Size(1280.0, 850.0)
+00:02 +9: 115% shoreLog Size(360.0, 900.0)
+00:03 +10: 115% shoreLog Size(800.0, 480.0)
+00:03 +11: 115% shoreLog Size(1280.0, 850.0)
+00:03 +12: 115% chronicleEmpty Size(360.0, 900.0)
+00:03 +13: 115% chronicleEmpty Size(800.0, 480.0)
+00:03 +14: 115% chronicleEmpty Size(1280.0, 850.0)
+00:03 +15: 115% chronicleShort Size(360.0, 900.0)
+00:03 +16: 115% chronicleShort Size(800.0, 480.0)
+00:04 +17: 115% chronicleShort Size(1280.0, 850.0)
+00:04 +18: 115% chronicleHistory Size(360.0, 900.0)
+00:04 +19: 115% chronicleHistory Size(800.0, 480.0)
+00:04 +20: 115% chronicleHistory Size(1280.0, 850.0)
+00:05 +21: 115% chronicleDetails Size(360.0, 900.0)
+00:05 +22: 115% chronicleDetails Size(800.0, 480.0)
+00:05 +23: 115% chronicleDetails Size(1280.0, 850.0)
+00:05 +24: 115% chronicleReading Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleReading Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +24 -1: 115% chronicleReading Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleReading Size(360.0, 900.0)
+  
+00:06 +24 -1: 115% chronicleReading Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleReading Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +24 -2: 115% chronicleReading Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleReading Size(800.0, 480.0)
+  
+00:06 +24 -2: 115% chronicleReading Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleReading Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +24 -3: 115% chronicleReading Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleReading Size(1280.0, 850.0)
+  
+00:07 +24 -3: 115% chronicleLive Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleLive Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +24 -4: 115% chronicleLive Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleLive Size(360.0, 900.0)
+  
+00:07 +24 -4: 115% chronicleLive Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleLive Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +24 -5: 115% chronicleLive Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleLive Size(800.0, 480.0)
+  
+00:07 +24 -5: 115% chronicleLive Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleLive Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +24 -6: 115% chronicleLive Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleLive Size(1280.0, 850.0)
+  
+00:08 +24 -6: 115% chronicleResize Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleResize Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +24 -7: 115% chronicleResize Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleResize Size(360.0, 900.0)
+  
+00:08 +24 -7: 115% chronicleResize Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleResize Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +24 -8: 115% chronicleResize Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleResize Size(800.0, 480.0)
+  
+00:08 +24 -8: 115% chronicleResize Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Return-to-latest control must not cover the text being read.
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:338:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 338
+The test description was:
+  115% chronicleResize Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +24 -9: 115% chronicleResize Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleResize Size(1280.0, 850.0)
+  
+00:08 +24 -9: (tearDownAll)
+00:08 +24 -9: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleLive Size(1280.0, 850.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleLive Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleLive Size(800.0, 480.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleReading Size(1280.0, 850.0)
+  ... and 5 more

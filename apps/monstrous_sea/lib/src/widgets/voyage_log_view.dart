@@ -75,7 +75,7 @@ Future<void> showVoyagePanel(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Flexible(child: SingleChildScrollView(child: child)),
+            Flexible(child: SingleChildScrollView(primary: true, child: child)),
             const SizedBox(height: 12),
             InkButton(
               label: closeLabel,

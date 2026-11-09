@@ -1,0 +1,14 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart
+test/logbook_layout_matrix_test.dart:355:42: Error: No named parameter with the name 'alignment'.
+        await tester.ensureVisible(last, alignment: 0);
+                                         ^^^^^^^^^
+00:00 +0 -1: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: test/logbook_layout_matrix_test.dart:355:42: Error: No named parameter with the name 'alignment'.
+          await tester.ensureVisible(last, alignment: 0);
+                                           ^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart

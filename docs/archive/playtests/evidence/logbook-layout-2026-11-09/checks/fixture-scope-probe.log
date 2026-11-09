@@ -1,0 +1,977 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% voyageEmpty Size(360.0, 900.0)
+00:01 +1: 115% voyageEmpty Size(800.0, 480.0)
+00:01 +2: 115% voyageEmpty Size(1280.0, 850.0)
+00:01 +3: 115% voyageHistory Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:294:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  115% voyageHistory Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +3 -1: 115% voyageHistory Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageHistory Size(360.0, 900.0)
+  
+00:02 +3 -1: 115% voyageHistory Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:294:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  115% voyageHistory Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +3 -2: 115% voyageHistory Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageHistory Size(800.0, 480.0)
+  
+00:03 +3 -2: 115% voyageHistory Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:294:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  115% voyageHistory Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +3 -3: 115% voyageHistory Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageHistory Size(1280.0, 850.0)
+  
+00:03 +3 -3: 115% voyageDetails Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:294:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  115% voyageDetails Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +3 -4: 115% voyageDetails Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageDetails Size(360.0, 900.0)
+  
+00:03 +3 -4: 115% voyageDetails Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:294:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  115% voyageDetails Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +3 -5: 115% voyageDetails Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageDetails Size(800.0, 480.0)
+  
+00:04 +3 -5: 115% voyageDetails Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Too many elements
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:294:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  115% voyageDetails Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +3 -6: 115% voyageDetails Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% voyageDetails Size(1280.0, 850.0)
+  
+00:04 +3 -6: 115% shoreLog Size(360.0, 900.0)
+00:04 +4 -6: 115% shoreLog Size(800.0, 480.0)
+00:05 +5 -6: 115% shoreLog Size(1280.0, 850.0)
+00:05 +6 -6: 115% chronicleEmpty Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:383:16)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 383
+The test description was:
+  115% chronicleEmpty Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +6 -7: 115% chronicleEmpty Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleEmpty Size(360.0, 900.0)
+  
+00:05 +6 -7: 115% chronicleEmpty Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:383:16)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 383
+The test description was:
+  115% chronicleEmpty Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +6 -8: 115% chronicleEmpty Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleEmpty Size(800.0, 480.0)
+  
+00:05 +6 -8: 115% chronicleEmpty Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:383:16)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 383
+The test description was:
+  115% chronicleEmpty Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +6 -9: 115% chronicleEmpty Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleEmpty Size(1280.0, 850.0)
+  
+00:05 +6 -9: 115% chronicleShort Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 2. Alexandrina Waverley-Montgomery of
+the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleShort Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +6 -10: 115% chronicleShort Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleShort Size(360.0, 900.0)
+  
+00:05 +6 -10: 115% chronicleShort Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 2. Alexandrina Waverley-Montgomery of
+the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleShort Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +6 -11: 115% chronicleShort Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleShort Size(800.0, 480.0)
+  
+00:05 +6 -11: 115% chronicleShort Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 2. Alexandrina Waverley-Montgomery of
+the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleShort Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +6 -12: 115% chronicleShort Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleShort Size(1280.0, 850.0)
+  
+00:06 +6 -12: 115% chronicleHistory Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleHistory Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +6 -13: 115% chronicleHistory Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleHistory Size(360.0, 900.0)
+  
+00:06 +6 -13: 115% chronicleHistory Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleHistory Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +6 -14: 115% chronicleHistory Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleHistory Size(800.0, 480.0)
+  
+00:06 +6 -14: 115% chronicleHistory Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleHistory Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +6 -15: 115% chronicleHistory Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleHistory Size(1280.0, 850.0)
+  
+00:07 +6 -15: 115% chronicleDetails Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "FULL ACCOUNT
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          The last echoes fade beneath the waves.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleDetails Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +6 -16: 115% chronicleDetails Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleDetails Size(360.0, 900.0)
+  
+00:07 +6 -16: 115% chronicleDetails Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "FULL ACCOUNT
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          The last echoes fade beneath the waves.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleDetails Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +6 -17: 115% chronicleDetails Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleDetails Size(800.0, 480.0)
+  
+00:07 +6 -17: 115% chronicleDetails Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "FULL ACCOUNT
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron
+volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker.
+Carapace splinters, but the creature turns through the smoke. The lookout calls a new attack as the
+crew reloads the guns.
+
+          The last echoes fade beneath the waves.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleDetails Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +6 -18: 115% chronicleDetails Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleDetails Size(1280.0, 850.0)
+  
+00:07 +6 -18: 115% chronicleReading Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleReading Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +6 -19: 115% chronicleReading Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleReading Size(360.0, 900.0)
+  
+00:08 +6 -19: 115% chronicleReading Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleReading Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +6 -20: 115% chronicleReading Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleReading Size(800.0, 480.0)
+  
+00:08 +6 -20: 115% chronicleReading Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleReading Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +6 -21: 115% chronicleReading Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleReading Size(1280.0, 850.0)
+  
+00:08 +6 -21: 115% chronicleLive Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleLive Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +6 -22: 115% chronicleLive Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleLive Size(360.0, 900.0)
+  
+00:09 +6 -22: 115% chronicleLive Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleLive Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +6 -23: 115% chronicleLive Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleLive Size(800.0, 480.0)
+  
+00:09 +6 -23: 115% chronicleLive Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleLive Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +6 -24: 115% chronicleLive Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleLive Size(1280.0, 850.0)
+  
+00:09 +6 -24: 115% chronicleResize Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleResize Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +6 -25: 115% chronicleResize Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleResize Size(360.0, 900.0)
+  
+00:09 +6 -25: 115% chronicleResize Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleResize Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +6 -26: 115% chronicleResize Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleResize Size(800.0, 480.0)
+  
+00:10 +6 -26: 115% chronicleResize Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Entry 239. Alexandrina Waverley-Montgomery
+of the Saltbound Watch orders the broadside. The iron volley tears through the swell toward Behemoth
+Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but the creature turns
+through the smoke. The lookout calls a new attack as the crew reloads the guns. Alexandrina
+Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears through the
+swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace splinters, but
+the creature turns through the smoke. The lookout calls a new attack as the crew reloads the guns.
+Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The iron volley tears
+through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s Undertaker. Carapace
+splinters, but the creature turns through the smoke. The lookout calls a new attack as the crew
+reloads the guns. Alexandrina Waverley-Montgomery of the Saltbound Watch orders the broadside. The
+iron volley tears through the swell toward Behemoth Mako — Alexandrina Waverley-Montgomery’s
+Undertaker. Carapace splinters, but the creature turns through the smoke. The lookout calls a new
+attack as the crew reloads the guns.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart:314:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart line 314
+The test description was:
+  115% chronicleResize Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +6 -27: 115% chronicleResize Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% chronicleResize Size(1280.0, 850.0)
+  
+00:10 +6 -27: (tearDownAll)
+00:10 +6 -27: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleDetails Size(1280.0, 850.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleDetails Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleDetails Size(800.0, 480.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/logbook_layout_matrix_test.dart: 115% chronicleEmpty Size(1280.0, 850.0)
+  ... and 23 more

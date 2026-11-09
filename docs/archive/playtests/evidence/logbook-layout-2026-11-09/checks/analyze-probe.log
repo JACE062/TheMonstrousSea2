@@ -1,0 +1,8 @@
+Analyzing monstrous_sea...                                      
+
+warning - Unused import: 'dart:ui'. Try removing the import directive - test\logbook_layout_matrix_test.dart:3:8 - unused_import
+warning - The library 'dart:ui' doesn't export a member with the shown name 'ByteData'. Try removing the name from the list of shown members - test\logbook_layout_matrix_test.dart:3:23 - undefined_shown_name
+warning - Unused import: 'package:monstrous_sea/src/widgets/nautical_chart.dart'. Try removing the import directive - test\logbook_layout_matrix_test.dart:20:8 - unused_import
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\logbook_layout_matrix_test.dart:367:11 - curly_braces_in_flow_control_structures
+
+4 issues found. (ran in 44.1s)
