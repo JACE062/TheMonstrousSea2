@@ -1,0 +1,870 @@
+{
+  "date": "2026-11-09",
+  "baseCommit": "b9ad9d331a3c9413606b5af3be71f3bdb4e50f92",
+  "request": "Review combat at 115% text across all hulls, trait pairs, full belts and multiple effects.",
+  "scope": "Bounded integrity-first status HUD, body-based arena/dock budgets, readable desktop lookout and nonduplicated reload labels. Gameplay and saves unchanged.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "e68a904a29f2cb8e6e0085900ce5fe4d5f1b41a79636cda9058db1aa5179af88"
+    },
+    {
+      "path": "apps/monstrous_sea/test/combat_layout_matrix_test.dart",
+      "sha256": "e580bcefb8b1c3671759f23ab9b837a57a2b2a77220deb46e761166c774372bf"
+    },
+    {
+      "path": "apps/monstrous_sea/test/evasion_readout_test.dart",
+      "sha256": "236907d5391b0f43788cbb1c58c1b2acbfc9364abc7e7c0f1a0a32b13defda3f"
+    }
+  ],
+  "checks": {
+    "gameFontMatrixPassed": 505,
+    "hermeticMatrixPassed": 505,
+    "existingRelatedPassed": 130,
+    "combinedHermeticPassed": 635,
+    "primaryTextScale": 1.15,
+    "secondaryTextScale": 1.3,
+    "hulls": 5,
+    "boons": 8,
+    "quirks": 8,
+    "hullTraitPairCases": 320,
+    "sizes": [
+      [
+        360,
+        900
+      ],
+      [
+        800,
+        600
+      ],
+      [
+        1280,
+        900
+      ],
+      [
+        1672,
+        952
+      ]
+    ],
+    "matrixAreas": {
+      "allHullTraitPairs": 320,
+      "denseAndReady": 20,
+      "additionalStagesAndEffects": 150,
+      "largerTextAndDialogs": 15
+    },
+    "fontQualification": "Cached Pirata One/IM Fell English plus Material Icons for visual/ellipsis review; offline SDK Roboto for hermetic matrix. Ahem probes are not player-rendering evidence.",
+    "assertions": [
+      "HUD/dock separation and initial integrity visibility",
+      "Two mounted combatants remain between HUD and dock",
+      "Full brief desktop lookout fits with game fonts",
+      "Every fitting, belt item and helm order is reachable",
+      "Action bounds and real-font label/subtitle clipping",
+      "Every active effect remains accessible",
+      "Footer stays fixed while commands scroll",
+      "Stat help, Belt Help, intent inspection and Chronicle fit and dismiss",
+      "Captured ship/profile/chart/encounter state unchanged"
+    ],
+    "analysis": "clean",
+    "format": "unchanged",
+    "documentation": "clean",
+    "finalSourceGameFontSubsetPassed": 3,
+    "finalSourceNote": "The final source adds offline-only bundled-font loading and scrolls existing hover-test targets into view; the cached-game-font branch and reviewed runtime layout are unchanged. Three demanding cached-font cases also pass on this final source."
+  },
+  "preliminaryLogs": {
+    "initial-probe.log": "Five genuine short-window HUD overlaps; ten Belt Help fixture-scroll failures.",
+    "before-cooldown-labels.log": "Four compact reloading-name clipping failures after HUD correction.",
+    "tooltip-probe.log": "Fixture incorrectly looked for suppressed Obscurity on an Illuminated target.",
+    "capture-file-lock.log": "504 cases passed; one screenshot write failed because a Windows viewer held the previous PNG open.",
+    "pre-lookout-matrix.log": "505 passed before visual review prompted more desktop lookout room.",
+    "ahem-probe.log": "Placeholder-font geometry comparison; offline fixture now loads SDK Roboto.",
+    "offline-setup-probe.log": "Unsupported package-URI lookup and an old hover fixture without scrolling; corrected in final source."
+  },
+  "preview": {
+    "correspondence": "preview-correspondence.json",
+    "path": ".dart_tool/combat-layout-reviewed-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+    "launched": false,
+    "sha256": "aeeb84abd8c4bf9ae539f3d2c1acf03c23c7be5511fce6b0cf956daa8a9ada41",
+    "matchedFiles": 120,
+    "bundledAssets": 34,
+    "unchangedCoreInputs": 53
+  },
+  "preserved": [
+    "Player saves",
+    "Previous previews and audit evidence",
+    "Approved artwork",
+    "Combat and progression rules",
+    "Provisional economy tuning"
+  ],
+  "visualProofs": [
+    {
+      "path": "visual/battle-bombardier-cooldowns-360-1.15-scrolled.png",
+      "sha256": "1bb768ef75ea2733f7ce16e15dfe078ae8b4ac784b6bf07d9f8c8aab475777ed",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-cooldowns-360-1.15.png",
+      "sha256": "effe03819132e4bb1704aa1573ae6e4164630e8c1c6643d1e982c8e8b18fc762",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-1280-1.15-scrolled.png",
+      "sha256": "c00320f21476dfa9213db6d8a9c80e7abfb430e954bd5c390b674afa41f8fccf",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-1280-1.15.png",
+      "sha256": "bac81f42cd50ad487c71a41307aa9ef4ae48ee7fe59b7299b9fb43e36943f38a",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-1672-1.3-scrolled.png",
+      "sha256": "8857a30bac6b1c7c837fcfe856a5e4c79eaa885712ef3c732467fb6b62b911f7",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-1672-1.3.png",
+      "sha256": "3ef563331d4ed95c373cc0713b7d700fd3543e51c9c7ddded722fa2e01df2164",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-360-1.15-scrolled.png",
+      "sha256": "6ba80b031fdceb7f9818c2636e92d42e97ac7e9749126c368832bad5e2786e6b",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-360-1.15.png",
+      "sha256": "465e0e89b2e0d07c7045d4936b042cdb2b8b52da03626d05754426445db00ed9",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-800-1.15-scrolled.png",
+      "sha256": "75ee53487d872b320598b4d8fb5c2c1720528affd1f3df2229a8beb014ed86a9",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-dense-800-1.15.png",
+      "sha256": "e20c54aedca64b74b114d1c2e4cb7be1b0eacb1990803a4fff57f21979134eb4",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-recovery-1672-1.15-scrolled.png",
+      "sha256": "b14c5a8d4720e6afbfa6c2d2927af7809950f44a9f044facc864af707dd07d24",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-recovery-1672-1.15.png",
+      "sha256": "b14c5a8d4720e6afbfa6c2d2927af7809950f44a9f044facc864af707dd07d24",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-status-help-1672-1.3.png",
+      "sha256": "a4a441d7884df4f5e621727b752bc904b3b2f5661d8519616de3efeb7da39587",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-windup-1672-1.15-scrolled.png",
+      "sha256": "7e0a0d8afb37f60de42299529e4118dc0d667fb19cbf8b0e7d3a00da791b3c39",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-bombardier-windup-1672-1.15.png",
+      "sha256": "7e0a0d8afb37f60de42299529e4118dc0d667fb19cbf8b0e7d3a00da791b3c39",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-cooldowns-360-1.15-scrolled.png",
+      "sha256": "16c114cc43659f4c9b3dfdfd207af54709169369fa4cf01db38d494d8caccbb2",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-cooldowns-360-1.15.png",
+      "sha256": "9c802c8a7d187f168e27177e135f0cbd9d8b3b614fca20fade138ecdab6a74b1",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-1280-1.15-scrolled.png",
+      "sha256": "10aa94c585188f3f17aa79f1c3a55ba8b9163bb9611110310e75dcbc0c51ca2e",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-1280-1.15.png",
+      "sha256": "e711685a2f4619ecc54a4f48b54713473a67edcc70e4053f931283ea0afbdc0d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-1672-1.3-scrolled.png",
+      "sha256": "8ef5abd85b77e4dcf40a7f1761db37562c3e2d1b4b4d066f78f30aa9d0963ae5",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-1672-1.3.png",
+      "sha256": "60ef5a785d25d63cbb14a96bdb592a58f62cf7230660e5d1868dac0109d8ff9d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-360-1.15-scrolled.png",
+      "sha256": "2427372db3ccdc04453f827d3bd25009581598bedf03b8b69cece51a6473c195",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-360-1.15.png",
+      "sha256": "6374f9df04b3e56acb1e44d24f1d0fd13de155497e8ebd1c2c3f96e269fe0ff6",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-800-1.15-scrolled.png",
+      "sha256": "173fe90fecf2fa38f7d298bec28ad46168dc5ea14fb8e9fd68b33ee42576bb9d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-dense-800-1.15.png",
+      "sha256": "8bb1834a9695311d28de045b31613691c1f3fae3531afe3540ef7316604570ad",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-recovery-1672-1.15-scrolled.png",
+      "sha256": "e2664287973c47deaf4828c1603b4a3f76d8bf0c383f4856700ac2dd4b69da78",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-recovery-1672-1.15.png",
+      "sha256": "8b151d9d236fb768b3b8383256c7bdc278ee2531f9ea346085bfa20027cdf617",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-status-help-1672-1.3.png",
+      "sha256": "16b37ac4d6f0ecf29c8f3db7b0327cd0349da0dd9061b3ffa463ee71498d1d4d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-windup-1672-1.15-scrolled.png",
+      "sha256": "8c57b321486c7121899b3b104bb44f7ae302753c42fa7ddec561df8e66892279",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-clipper-windup-1672-1.15.png",
+      "sha256": "8c57b321486c7121899b3b104bb44f7ae302753c42fa7ddec561df8e66892279",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-cooldowns-360-1.15-scrolled.png",
+      "sha256": "22daaec4288c2aa84c11177a08ba423d46f0cc419f2b4b5db6ea664d0d88bd28",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-cooldowns-360-1.15.png",
+      "sha256": "9b75f7491c6aa1351e3d26cadce1da9ad8ea5ba3aead7f098f9f4664b45e6856",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-1280-1.15-scrolled.png",
+      "sha256": "5a995397044001d71817fdab18576dccb7fa5e677410e72aff22a9e16c3dc815",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-1280-1.15.png",
+      "sha256": "a61d412d5a026cad31464bedd29169e18034f8dde917e2807ebc80b669ff379d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-1672-1.3-scrolled.png",
+      "sha256": "03f81953661efc1ae06960339c9cb75a3ab23211e91c1f287b4fc3d7d53cc5a9",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-1672-1.3.png",
+      "sha256": "aaa953b2940ed28e7d05eb4ebbf8086c93f773a63ba7f4be25cc318a60945d6d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-360-1.15-scrolled.png",
+      "sha256": "897cc515900fb1f5b07dcbc6b08eb017b0185b9e337648f8ab91281e9d014595",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-360-1.15.png",
+      "sha256": "65bf03e5cbd5ef12a84fae5be928b7414ace7290fa4762d86baf0be344f7771f",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-800-1.15-scrolled.png",
+      "sha256": "9e3ae4e8e159cd5f11baff74a7f7c5184acd11715d13690dd728cc1bbebf8951",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-dense-800-1.15.png",
+      "sha256": "73a186f56c080bbb98ce1aa8227f4e5de5cd365a4e08b27d14977739ed690d0a",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-recovery-1672-1.15-scrolled.png",
+      "sha256": "a0421f8bfa82fce105315e7c4cbe487f09a2559e8bb703c459be5fd49bc442ce",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-recovery-1672-1.15.png",
+      "sha256": "cc32f2966a9a74fef6d468f3c81e4618ba7cf6b2b711ec5fb9fa242498731988",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-status-help-1672-1.3.png",
+      "sha256": "c68244b213fb7a987b34e693bb6506c6ee1d5dbf578da569a92271db0466ca00",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-windup-1672-1.15-scrolled.png",
+      "sha256": "26e58018e1bbbb58889a3fb1446e770f7dc41207ef9b3397139a57c69c6dd225",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-corsair-windup-1672-1.15.png",
+      "sha256": "26e58018e1bbbb58889a3fb1446e770f7dc41207ef9b3397139a57c69c6dd225",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-cooldowns-360-1.15-scrolled.png",
+      "sha256": "6f47f901d05a11506cca68a8d70f9766c3711f8ffa41262b328a1cd8aeaecd30",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-cooldowns-360-1.15.png",
+      "sha256": "357212babc034f186056e38c790685aaff33c46842a71760c5d32b352a686fcf",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-1280-1.15-scrolled.png",
+      "sha256": "45f93349e637a9771bc8074294ef6281ed76a29b2d45061ccb9bdf47ee7ea05e",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-1280-1.15.png",
+      "sha256": "0d0e16dff3c9b50ee1770f6548e4418d152a0263e3e96f0700375b04993fc907",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-1672-1.3-scrolled.png",
+      "sha256": "89b89fb0ef274b95111203c18dcf5c3096f3c5ede53fc9ddcc78d6d80d894962",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-1672-1.3.png",
+      "sha256": "ac64df6725683b389c6e0ef71e7038ab3904115145e81bde93c6be40178ac23d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-360-1.15-scrolled.png",
+      "sha256": "c8de88276ed685f0fc8b804505891c6c5e32ac24955b14dc7255e91be42d54db",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-360-1.15.png",
+      "sha256": "9d738f244572dde3f6417463147cf13aa706c75122c910b1e7b3bac392b7e3a6",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-800-1.15-scrolled.png",
+      "sha256": "fd0e57e270ad02d2cf404ba41e8d0d3b575ea0ac653d02443945bbf83c5d462c",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-dense-800-1.15.png",
+      "sha256": "a9f27843bac3b66e1bef9bc6f1bb752d9b6fca949b6cff8f2ce305cfafd1e26d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-recovery-1672-1.15-scrolled.png",
+      "sha256": "7c75b722edbecd43ed8865c423b1bfe9686b2c26ccbc0dd7d9bfecc388d444cf",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-recovery-1672-1.15.png",
+      "sha256": "34618779c407e7acae4ae5848249e236d3e6a5413c5eccc16a54a019689ea0eb",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-status-help-1672-1.3.png",
+      "sha256": "68a713ca07c87a89c4988282c78053a14eeac18281a1c2e76b7d07af960842eb",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-windup-1672-1.15-scrolled.png",
+      "sha256": "1286abebff8c3668cb530ac039acd3dab007992c35f8d3fd86c7c5a3b35732cb",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-ironclad-windup-1672-1.15.png",
+      "sha256": "1286abebff8c3668cb530ac039acd3dab007992c35f8d3fd86c7c5a3b35732cb",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-cooldowns-360-1.15-scrolled.png",
+      "sha256": "11532d1ccc665c4fba67c860204f1bd39a14f30ff3aed30094f518e2f9d651e2",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-cooldowns-360-1.15.png",
+      "sha256": "4a72fb64e4416eb44f6ace69f1dd098d4f5a79c75d35d405a2f074e44c2dbf03",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-1280-1.15-scrolled.png",
+      "sha256": "032ed6caf9aabdb58b5ec5a80bd6bf2231a1d91567511184922db07d8562b2c5",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-1280-1.15.png",
+      "sha256": "d1198e543b57f93d28b6aa1704794797d9ebaa43edaae82ae6bc569ab74e8b81",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-1672-1.3-scrolled.png",
+      "sha256": "315c45c358b53fe580a88db8906df9d3862af780afef90f1026f82a53c679458",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-1672-1.3.png",
+      "sha256": "313f2ccacbaee73879ee1b1daaa6ef1b2772485205724d4cb9013c1e78b95ee1",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-360-1.15-scrolled.png",
+      "sha256": "56c0e53a5e191e23765e97e897e0cd60b284af6ed7914068733a11f04e5084dc",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-360-1.15.png",
+      "sha256": "df948b94a2de204000b3ab939064410853d9e149f06d32f374cdbd414f027bf2",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-800-1.15-scrolled.png",
+      "sha256": "4703ba5a90b49bc5571e9e3c05a7b8cd3e3f95aafedd15769e9d465fa2eceaef",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-dense-800-1.15.png",
+      "sha256": "110064cf6f92f711809a1272ff8f851b92c889e31bc06ab4173fceb29606792a",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-recovery-1672-1.15-scrolled.png",
+      "sha256": "107b0a9ee5315d94369a90f683eef4c432352ee87bf0c61ef8eabd38bc43c61d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-recovery-1672-1.15.png",
+      "sha256": "107b0a9ee5315d94369a90f683eef4c432352ee87bf0c61ef8eabd38bc43c61d",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-status-help-1672-1.3.png",
+      "sha256": "4e1cc25660440ac8d4cd1ebe901926d3cc08de7fc7de91c47019488e53c0888e",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-windup-1672-1.15-scrolled.png",
+      "sha256": "2629f01781012a9fcbb7a1c71bc6ec0babc7f8e1a5fbed1ae6daa6702290453e",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/battle-standard-windup-1672-1.15.png",
+      "sha256": "2629f01781012a9fcbb7a1c71bc6ec0babc7f8e1a5fbed1ae6daa6702290453e",
+      "stage": "pre-lookout refinement"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-cooldowns-360-1.15-scrolled.png",
+      "sha256": "66b5f668558fab66ff3ff9c6e333eca48dbebf82d007f2c893b7e03e50868613",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-cooldowns-360-1.15.png",
+      "sha256": "effe03819132e4bb1704aa1573ae6e4164630e8c1c6643d1e982c8e8b18fc762",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-1280-1.15-scrolled.png",
+      "sha256": "207638cbee8918f7f7c8d6979083c59f905d1e8233c2bd678ab7ba704f7e7caf",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-1280-1.15.png",
+      "sha256": "2966764498f2700cc9e97f3e174eda7ad14c3108ecf64919f80561920104031f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-1672-1.3-scrolled.png",
+      "sha256": "4ef557b7a12c4ab6007c089cb059b61cde88db4e106983e3040caf54bb72639e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-1672-1.3.png",
+      "sha256": "6356ffb0207f54c05a966bdc37f5e0b563b6a698fbf0ef486a13597597f8d021",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-360-1.15-scrolled.png",
+      "sha256": "8c43d3b588f63e4869aa46e970c533f8cef42d74f9e570cba4549186019d6e00",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-360-1.15.png",
+      "sha256": "465e0e89b2e0d07c7045d4936b042cdb2b8b52da03626d05754426445db00ed9",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-800-1.15-scrolled.png",
+      "sha256": "baaa601d4402d9229797287c75c28fe7b61f85106beab17b983e2d5cf8424715",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-dense-800-1.15.png",
+      "sha256": "dd5ac6e0ef0ed9b2f22ffcb845e5b42c19361f3d7d96dcf2b8b7a8311c4e2d21",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-recovery-1672-1.15-scrolled.png",
+      "sha256": "7fa100519704f9de7cfb24d327f8d527fb3e03eafe289f03d7cf4622d02f4be6",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-recovery-1672-1.15.png",
+      "sha256": "d9a52f62a6d547c7708065b74536c70c18a4abde92c25ab77c5ef8d047acbf0b",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-status-help-1672-1.3.png",
+      "sha256": "e15c7b00b290317a51f096f902d179b9933d471f0b5e8772feadb1a95b2d32d1",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-windup-1672-1.15-scrolled.png",
+      "sha256": "7e0a0d8afb37f60de42299529e4118dc0d667fb19cbf8b0e7d3a00da791b3c39",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-bombardier-windup-1672-1.15.png",
+      "sha256": "7e0a0d8afb37f60de42299529e4118dc0d667fb19cbf8b0e7d3a00da791b3c39",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-cooldowns-360-1.15-scrolled.png",
+      "sha256": "a8956f46a8b10ae178dd42772b2f9145b31fef690fb4f7bb8322eb34bfb1170e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-cooldowns-360-1.15.png",
+      "sha256": "eb6e25475c929253bbfaadb8578ebd84500dbdbc2d94c926b31e82a4030a3cf1",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-1280-1.15-scrolled.png",
+      "sha256": "fc390aef79b4a14fa479adb3fad421cb89964a8f240af88897ba046aea89bad5",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-1280-1.15.png",
+      "sha256": "e02c7f49f84c27c1b55dac028b9e242a9e3ae02d0097f8c1e3141ee4725af7b4",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-1672-1.3-scrolled.png",
+      "sha256": "7068562df9248170d49b6530cd407dd51ed6cd330a940fa96f372ba85b9995a8",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-1672-1.3.png",
+      "sha256": "1065bdbc1f40ff9bcb7fef9de443e0c0a326ff3c44434241386fca345f5e8cb9",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-360-1.15-scrolled.png",
+      "sha256": "9d046df3e178ff40f04b593fb5e29870f3ce09720d6ee8875d5041328846b2af",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-360-1.15.png",
+      "sha256": "981b1f5d0c7165ba993768355d201fc90f9ed2c2288cb4fdd8f89826a181bff8",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-800-1.15-scrolled.png",
+      "sha256": "632f0e8abb01d8d14b8fa3e0772aefa242781e771d33ed84a2922cd92babb91e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-dense-800-1.15.png",
+      "sha256": "d8314132a408a6d3085404d65b0139c3c31fd0a323cc3f626c5515b9b3e6ebb6",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-recovery-1672-1.15-scrolled.png",
+      "sha256": "2b7322d9af5130e76fc8ea77e012a99edda9dcc2d37bc0befdd8547b265c0f59",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-recovery-1672-1.15.png",
+      "sha256": "c3af90b21f524572554928b14860494967ce609f5403bcdc987ad4c8ee5037f0",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-status-help-1672-1.3.png",
+      "sha256": "2f8371dda67a827d88a26ffa66a7feea019d82099ab8627f99805ba41938d6fd",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-windup-1672-1.15-scrolled.png",
+      "sha256": "8c57b321486c7121899b3b104bb44f7ae302753c42fa7ddec561df8e66892279",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-clipper-windup-1672-1.15.png",
+      "sha256": "8c57b321486c7121899b3b104bb44f7ae302753c42fa7ddec561df8e66892279",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-cooldowns-360-1.15-scrolled.png",
+      "sha256": "d8c04db877d8ba68498a9c576373a7f9e50dc56046b572e87e09e425418fb1da",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-cooldowns-360-1.15.png",
+      "sha256": "12b83df9719b9eefd8d99200d456e9b8e1c734b0031521ee66a9d66f2e929e92",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-1280-1.15-scrolled.png",
+      "sha256": "a1fbc15a8607939d4eedbcd17013d5b0aa85219f77647bda75418f6327856a21",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-1280-1.15.png",
+      "sha256": "475bc1e0ff50ec67757139ed5d5822b98f7bda254925a615f0d1c0f952e3c92b",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-1672-1.3-scrolled.png",
+      "sha256": "ce4691644923659b6e541f60d53bce7eb1f40746b019b19da20ec4643aa3b632",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-1672-1.3.png",
+      "sha256": "72222ca50e4f3f014da2bbe6813d30d05c6d943f9ddd5c584383d516a45a0dce",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-360-1.15-scrolled.png",
+      "sha256": "16aa39d43d7ef6016ce19f189a7d24113a41cae710544d21da87ac08feeea804",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-360-1.15.png",
+      "sha256": "ec7ee93515daa3b5a254bc97af07c62f2b461fc38145f2d6353f147da7e2719a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-800-1.15-scrolled.png",
+      "sha256": "3d9ee21e2f894f1afca5911b5afbcccdcaadd992dbf96b2c3c4f36afd88bb25c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-dense-800-1.15.png",
+      "sha256": "03243c6b9eaf0e65c9219299833b69a7bb117229f70f23930955fbb78f89e60e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-recovery-1672-1.15-scrolled.png",
+      "sha256": "80f9077495fbb2224138215d7f102d238e17bd1874f11ebf7861b58e7bea6433",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-recovery-1672-1.15.png",
+      "sha256": "acce8f3033df9055f4fef4e37a0e09c4c1709ff480f834dc6731032e201dab0c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-status-help-1672-1.3.png",
+      "sha256": "c0a2a9e74dcb893e0421317a479e4e3c35d19337309207c1406cb9274b7e6dce",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-windup-1672-1.15-scrolled.png",
+      "sha256": "26e58018e1bbbb58889a3fb1446e770f7dc41207ef9b3397139a57c69c6dd225",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-corsair-windup-1672-1.15.png",
+      "sha256": "26e58018e1bbbb58889a3fb1446e770f7dc41207ef9b3397139a57c69c6dd225",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-cooldowns-360-1.15-scrolled.png",
+      "sha256": "b13c58c390f76082db869fccace4c74570fc7b579ca50f97af36ab1dcbfc8ead",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-cooldowns-360-1.15.png",
+      "sha256": "c8e849f9afb71c7c464f3669db37ac177721fb1b4cba3a686d9acaaef9edc80c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-1280-1.15-scrolled.png",
+      "sha256": "e8b182b2d0e97734c66fe4fc025e3942d5206fa362a8baed799a22a711081c5e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-1280-1.15.png",
+      "sha256": "550111e16db8dc86a112a227f2dccc97ff34bf31bd2b9561e5b3c5c336d04459",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-1672-1.3-scrolled.png",
+      "sha256": "1ba036036c2324ef0aada490e7f64f8d3ceccc8bd65358732f0f1accda82faa6",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-1672-1.3.png",
+      "sha256": "8672e2f9a9f93a88c69c9dbf9d761281cb232c5c4f238b5d3a8c2e3a6ba53fd7",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-360-1.15-scrolled.png",
+      "sha256": "e5481bf780bc3b079e5cf29d386bec953c6f0aa93020ae31c380f430043b650a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-360-1.15.png",
+      "sha256": "238ab3b695d92c7ae746beb1e382b2a438d868fe0cc03fb1e79e67ac289fe029",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-800-1.15-scrolled.png",
+      "sha256": "933dd903651a592c14e2563dd1cecbe17105745b7ca31d5435e72f2779641c9c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-dense-800-1.15.png",
+      "sha256": "f9bb7c26515b1d2114c24bacdc80f9412d868b1fdf90bec3670766b823b020c7",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-recovery-1672-1.15-scrolled.png",
+      "sha256": "a7fdef02bdf394df70c0cdba07cee45a8ff96e2a7053de8ad066fa20a67b8728",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-recovery-1672-1.15.png",
+      "sha256": "cd2fae2888ff898ab74d4e511a4cb9d00129e66d326cad745e8421e2aceef9b4",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-status-help-1672-1.3.png",
+      "sha256": "e90b966c835adf09901e354cb1938c182d099fb43093955ca97943db4f64a968",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-windup-1672-1.15-scrolled.png",
+      "sha256": "1286abebff8c3668cb530ac039acd3dab007992c35f8d3fd86c7c5a3b35732cb",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-ironclad-windup-1672-1.15.png",
+      "sha256": "1286abebff8c3668cb530ac039acd3dab007992c35f8d3fd86c7c5a3b35732cb",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-cooldowns-360-1.15-scrolled.png",
+      "sha256": "0277dc4f2ef3d0b72313382b38ff1829c4f50fa226580c0fe657431b9abeff57",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-cooldowns-360-1.15.png",
+      "sha256": "4a72fb64e4416eb44f6ace69f1dd098d4f5a79c75d35d405a2f074e44c2dbf03",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-1280-1.15-scrolled.png",
+      "sha256": "f417e7e775bbb3460840854b91d231ad2c50082c90d859006f12973f607a14c5",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-1280-1.15.png",
+      "sha256": "23bd0a06b97c72bc65512152d7df27bcaa831d6a7e876b540c48b38961a39e2d",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-1672-1.3-scrolled.png",
+      "sha256": "d251db61c6fe1e1105b2fa4dcafbd791d6602fbb33d9691fb7edd810b37c7587",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-1672-1.3.png",
+      "sha256": "ae5f820add605ded3328bea7df35fc437c2a15bdebc0e6343891c32a0d59f41f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-360-1.15-scrolled.png",
+      "sha256": "21484b720681e627dedc879e2ef216d53ef8b29e3d4043bbe912b4976182a12f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-360-1.15.png",
+      "sha256": "df948b94a2de204000b3ab939064410853d9e149f06d32f374cdbd414f027bf2",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-800-1.15-scrolled.png",
+      "sha256": "e05f1ff47872e4be639c1c2ecc5c856d7a2e5aaf95a5e75701b2f139568bfb1c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-dense-800-1.15.png",
+      "sha256": "050b6f5cb8230e4b5b45d2baa884dea9204059e0a9b1a809090503aa720dc798",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-recovery-1672-1.15-scrolled.png",
+      "sha256": "72b2ed4658e9e2c50f846bfa6fe7dde9eb8f31b9fb0a9044bcb0f604ba81a76a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-recovery-1672-1.15.png",
+      "sha256": "4b82668a8d0ca3d3e369e9cda1d2dce8027d40c60657b9a8d935f9b6d7cc0c05",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-status-help-1672-1.3.png",
+      "sha256": "9b36f1a9ed449831429d8a47b962b265ff03618b164f57febbf549dc2785d963",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-windup-1672-1.15-scrolled.png",
+      "sha256": "2629f01781012a9fcbb7a1c71bc6ec0babc7f8e1a5fbed1ae6daa6702290453e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "visual/reviewed/battle-standard-windup-1672-1.15.png",
+      "sha256": "2629f01781012a9fcbb7a1c71bc6ec0babc7f8e1a5fbed1ae6daa6702290453e",
+      "stage": "reviewed"
+    }
+  ],
+  "logs": [
+    "checks/ahem-probe.log",
+    "checks/analysis.log",
+    "checks/before-cooldown-labels.log",
+    "checks/capture-file-lock.log",
+    "checks/compact-offline.log",
+    "checks/docs.log",
+    "checks/final-source-game-fonts.log",
+    "checks/format.log",
+    "checks/hermetic-and-related.log",
+    "checks/initial-probe.log",
+    "checks/matrix-game-fonts.log",
+    "checks/offline-setup-probe.log",
+    "checks/pre-lookout-matrix.log",
+    "checks/preview-build.log",
+    "checks/preview-pub.log",
+    "checks/reviewed-preview-build.log",
+    "checks/reviewed-preview-pub.log",
+    "checks/tooltip-probe.log"
+  ]
+}

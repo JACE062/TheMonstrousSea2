@@ -1,0 +1,509 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% standard veteranCannoneer/bloodOath
+00:01 +1: 115% standard veteranCannoneer/recklessHelmsman
+00:01 +2: 115% standard veteranCannoneer/superstitious
+00:01 +3: 115% standard veteranCannoneer/exactingShipwright
+00:01 +4: 115% standard veteranCannoneer/overzealousGunner
+00:01 +5: 115% standard veteranCannoneer/daredevil
+00:02 +6: 115% standard veteranCannoneer/impatient
+00:02 +7: 115% standard veteranCannoneer/skirmisher
+00:02 +8: 115% standard stormSeer/bloodOath
+00:02 +9: 115% standard stormSeer/recklessHelmsman
+00:02 +10: 115% standard stormSeer/superstitious
+00:03 +11: 115% standard stormSeer/exactingShipwright
+00:03 +12: 115% standard stormSeer/overzealousGunner
+00:03 +13: 115% standard stormSeer/daredevil
+00:03 +14: 115% standard stormSeer/impatient
+00:03 +15: 115% standard stormSeer/skirmisher
+00:04 +16: 115% standard ironConstitution/bloodOath
+00:04 +17: 115% standard ironConstitution/recklessHelmsman
+00:04 +18: 115% standard ironConstitution/superstitious
+00:04 +19: 115% standard ironConstitution/exactingShipwright
+00:04 +20: 115% standard ironConstitution/overzealousGunner
+00:04 +21: 115% standard ironConstitution/daredevil
+00:05 +22: 115% standard ironConstitution/impatient
+00:05 +23: 115% standard ironConstitution/skirmisher
+00:05 +24: 115% standard smugglersKin/bloodOath
+00:05 +25: 115% standard smugglersKin/recklessHelmsman
+00:05 +26: 115% standard smugglersKin/superstitious
+00:05 +27: 115% standard smugglersKin/exactingShipwright
+00:06 +28: 115% standard smugglersKin/overzealousGunner
+00:06 +29: 115% standard smugglersKin/daredevil
+00:06 +30: 115% standard smugglersKin/impatient
+00:06 +31: 115% standard smugglersKin/skirmisher
+00:06 +32: 115% standard drillmaster/bloodOath
+00:06 +33: 115% standard drillmaster/recklessHelmsman
+00:06 +34: 115% standard drillmaster/superstitious
+00:07 +35: 115% standard drillmaster/exactingShipwright
+00:07 +36: 115% standard drillmaster/overzealousGunner
+00:07 +37: 115% standard drillmaster/daredevil
+00:07 +38: 115% standard drillmaster/impatient
+00:07 +39: 115% standard drillmaster/skirmisher
+00:07 +40: 115% standard preciseCommander/bloodOath
+00:08 +41: 115% standard preciseCommander/recklessHelmsman
+00:08 +42: 115% standard preciseCommander/superstitious
+00:08 +43: 115% standard preciseCommander/exactingShipwright
+00:08 +44: 115% standard preciseCommander/overzealousGunner
+00:08 +45: 115% standard preciseCommander/daredevil
+00:08 +46: 115% standard preciseCommander/impatient
+00:08 +47: 115% standard preciseCommander/skirmisher
+00:09 +48: 115% standard skilledCarpenter/bloodOath
+00:09 +49: 115% standard skilledCarpenter/recklessHelmsman
+00:09 +50: 115% standard skilledCarpenter/superstitious
+00:09 +51: 115% standard skilledCarpenter/exactingShipwright
+00:09 +52: 115% standard skilledCarpenter/overzealousGunner
+00:09 +53: 115% standard skilledCarpenter/daredevil
+00:09 +54: 115% standard skilledCarpenter/impatient
+00:10 +55: 115% standard skilledCarpenter/skirmisher
+00:10 +56: 115% standard quartermaster/bloodOath
+00:10 +57: 115% standard quartermaster/recklessHelmsman
+00:10 +58: 115% standard quartermaster/superstitious
+00:10 +59: 115% standard quartermaster/exactingShipwright
+00:10 +60: 115% standard quartermaster/overzealousGunner
+00:10 +61: 115% standard quartermaster/daredevil
+00:11 +62: 115% standard quartermaster/impatient
+00:11 +63: 115% standard quartermaster/skirmisher
+00:11 +64: 115% standard dense status at Size(360.0, 900.0)
+00:11 +65: 115% standard dense status at Size(800.0, 600.0)
+00:11 +66: 115% standard dense status at Size(1280.0, 900.0)
+00:11 +67: 115% standard ready at compact width
+00:12 +68: 115% standard cooldowns at Size(360.0, 900.0)
+00:12 +69: 115% standard cooldowns at Size(800.0, 600.0)
+00:12 +70: 115% standard cooldowns at Size(1672.0, 952.0)
+00:12 +71: 115% standard combination at Size(360.0, 900.0)
+00:12 +72: 115% standard combination at Size(800.0, 600.0)
+00:12 +73: 115% standard combination at Size(1672.0, 952.0)
+00:13 +74: 115% standard recovery at Size(360.0, 900.0)
+00:13 +75: 115% standard recovery at Size(800.0, 600.0)
+00:13 +76: 115% standard recovery at Size(1672.0, 952.0)
+00:13 +77: 115% standard beltSpent at Size(360.0, 900.0)
+00:13 +78: 115% standard beltSpent at Size(800.0, 600.0)
+00:13 +79: 115% standard beltSpent at Size(1672.0, 952.0)
+00:13 +80: 115% standard emptyBelt at Size(360.0, 900.0)
+00:14 +81: 115% standard emptyBelt at Size(800.0, 600.0)
+00:14 +82: 115% standard emptyBelt at Size(1672.0, 952.0)
+00:14 +83: 115% standard windup at Size(360.0, 900.0)
+00:14 +84: 115% standard windup at Size(800.0, 600.0)
+00:14 +85: 115% standard windup at Size(1672.0, 952.0)
+00:14 +86: 115% standard release at Size(360.0, 900.0)
+00:14 +87: 115% standard release at Size(800.0, 600.0)
+00:14 +88: 115% standard release at Size(1672.0, 952.0)
+00:15 +89: 115% standard longRange at Size(360.0, 900.0)
+00:15 +90: 115% standard longRange at Size(800.0, 600.0)
+00:15 +91: 115% standard longRange at Size(1672.0, 952.0)
+00:15 +92: 115% standard storm at Size(360.0, 900.0)
+00:15 +93: 115% standard storm at Size(800.0, 600.0)
+00:15 +94: 115% standard storm at Size(1672.0, 952.0)
+00:15 +95: 115% standard wake at Size(360.0, 900.0)
+00:15 +96: 115% standard wake at Size(800.0, 600.0)
+00:16 +97: 115% standard wake at Size(1672.0, 952.0)
+00:16 +98: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:16 +99: 130% standard dense and dialogs at Size(800.0, 600.0)
+00:17 +100: 130% standard dense and dialogs at Size(1672.0, 952.0)
+00:17 +101: 115% ironclad veteranCannoneer/bloodOath
+00:17 +102: 115% ironclad veteranCannoneer/recklessHelmsman
+00:17 +103: 115% ironclad veteranCannoneer/superstitious
+00:17 +104: 115% ironclad veteranCannoneer/exactingShipwright
+00:18 +105: 115% ironclad veteranCannoneer/overzealousGunner
+00:18 +106: 115% ironclad veteranCannoneer/daredevil
+00:18 +107: 115% ironclad veteranCannoneer/impatient
+00:18 +108: 115% ironclad veteranCannoneer/skirmisher
+00:18 +109: 115% ironclad stormSeer/bloodOath
+00:18 +110: 115% ironclad stormSeer/recklessHelmsman
+00:18 +111: 115% ironclad stormSeer/superstitious
+00:19 +112: 115% ironclad stormSeer/exactingShipwright
+00:19 +113: 115% ironclad stormSeer/overzealousGunner
+00:19 +114: 115% ironclad stormSeer/daredevil
+00:19 +115: 115% ironclad stormSeer/impatient
+00:19 +116: 115% ironclad stormSeer/skirmisher
+00:19 +117: 115% ironclad ironConstitution/bloodOath
+00:19 +118: 115% ironclad ironConstitution/recklessHelmsman
+00:20 +119: 115% ironclad ironConstitution/superstitious
+00:20 +120: 115% ironclad ironConstitution/exactingShipwright
+00:20 +121: 115% ironclad ironConstitution/overzealousGunner
+00:20 +122: 115% ironclad ironConstitution/daredevil
+00:20 +123: 115% ironclad ironConstitution/impatient
+00:20 +124: 115% ironclad ironConstitution/skirmisher
+00:20 +125: 115% ironclad smugglersKin/bloodOath
+00:21 +126: 115% ironclad smugglersKin/recklessHelmsman
+00:21 +127: 115% ironclad smugglersKin/superstitious
+00:21 +128: 115% ironclad smugglersKin/exactingShipwright
+00:21 +129: 115% ironclad smugglersKin/overzealousGunner
+00:21 +130: 115% ironclad smugglersKin/daredevil
+00:21 +131: 115% ironclad smugglersKin/impatient
+00:21 +132: 115% ironclad smugglersKin/skirmisher
+00:22 +133: 115% ironclad drillmaster/bloodOath
+00:22 +134: 115% ironclad drillmaster/recklessHelmsman
+00:22 +135: 115% ironclad drillmaster/superstitious
+00:22 +136: 115% ironclad drillmaster/exactingShipwright
+00:22 +137: 115% ironclad drillmaster/overzealousGunner
+00:22 +138: 115% ironclad drillmaster/daredevil
+00:22 +139: 115% ironclad drillmaster/impatient
+00:23 +140: 115% ironclad drillmaster/skirmisher
+00:23 +141: 115% ironclad preciseCommander/bloodOath
+00:23 +142: 115% ironclad preciseCommander/recklessHelmsman
+00:23 +143: 115% ironclad preciseCommander/superstitious
+00:23 +144: 115% ironclad preciseCommander/exactingShipwright
+00:23 +145: 115% ironclad preciseCommander/overzealousGunner
+00:23 +146: 115% ironclad preciseCommander/daredevil
+00:23 +147: 115% ironclad preciseCommander/impatient
+00:24 +148: 115% ironclad preciseCommander/skirmisher
+00:24 +149: 115% ironclad skilledCarpenter/bloodOath
+00:24 +150: 115% ironclad skilledCarpenter/recklessHelmsman
+00:24 +151: 115% ironclad skilledCarpenter/superstitious
+00:24 +152: 115% ironclad skilledCarpenter/exactingShipwright
+00:24 +153: 115% ironclad skilledCarpenter/overzealousGunner
+00:24 +154: 115% ironclad skilledCarpenter/daredevil
+00:24 +155: 115% ironclad skilledCarpenter/impatient
+00:25 +156: 115% ironclad skilledCarpenter/skirmisher
+00:25 +157: 115% ironclad quartermaster/bloodOath
+00:25 +158: 115% ironclad quartermaster/recklessHelmsman
+00:25 +159: 115% ironclad quartermaster/superstitious
+00:25 +160: 115% ironclad quartermaster/exactingShipwright
+00:25 +161: 115% ironclad quartermaster/overzealousGunner
+00:25 +162: 115% ironclad quartermaster/daredevil
+00:25 +163: 115% ironclad quartermaster/impatient
+00:26 +164: 115% ironclad quartermaster/skirmisher
+00:26 +165: 115% ironclad dense status at Size(360.0, 900.0)
+00:26 +166: 115% ironclad dense status at Size(800.0, 600.0)
+00:26 +167: 115% ironclad dense status at Size(1280.0, 900.0)
+00:26 +168: 115% ironclad ready at compact width
+00:26 +169: 115% ironclad cooldowns at Size(360.0, 900.0)
+00:26 +170: 115% ironclad cooldowns at Size(800.0, 600.0)
+00:27 +171: 115% ironclad cooldowns at Size(1672.0, 952.0)
+00:27 +172: 115% ironclad combination at Size(360.0, 900.0)
+00:27 +173: 115% ironclad combination at Size(800.0, 600.0)
+00:27 +174: 115% ironclad combination at Size(1672.0, 952.0)
+00:27 +175: 115% ironclad recovery at Size(360.0, 900.0)
+00:27 +176: 115% ironclad recovery at Size(800.0, 600.0)
+00:27 +177: 115% ironclad recovery at Size(1672.0, 952.0)
+00:28 +178: 115% ironclad beltSpent at Size(360.0, 900.0)
+00:28 +179: 115% ironclad beltSpent at Size(800.0, 600.0)
+00:28 +180: 115% ironclad beltSpent at Size(1672.0, 952.0)
+00:28 +181: 115% ironclad emptyBelt at Size(360.0, 900.0)
+00:28 +182: 115% ironclad emptyBelt at Size(800.0, 600.0)
+00:28 +183: 115% ironclad emptyBelt at Size(1672.0, 952.0)
+00:28 +184: 115% ironclad windup at Size(360.0, 900.0)
+00:28 +185: 115% ironclad windup at Size(800.0, 600.0)
+00:29 +186: 115% ironclad windup at Size(1672.0, 952.0)
+00:29 +187: 115% ironclad release at Size(360.0, 900.0)
+00:29 +188: 115% ironclad release at Size(800.0, 600.0)
+00:29 +189: 115% ironclad release at Size(1672.0, 952.0)
+00:29 +190: 115% ironclad longRange at Size(360.0, 900.0)
+00:29 +191: 115% ironclad longRange at Size(800.0, 600.0)
+00:29 +192: 115% ironclad longRange at Size(1672.0, 952.0)
+00:29 +193: 115% ironclad storm at Size(360.0, 900.0)
+00:30 +194: 115% ironclad storm at Size(800.0, 600.0)
+00:30 +195: 115% ironclad storm at Size(1672.0, 952.0)
+00:30 +196: 115% ironclad wake at Size(360.0, 900.0)
+00:30 +197: 115% ironclad wake at Size(800.0, 600.0)
+00:30 +198: 115% ironclad wake at Size(1672.0, 952.0)
+00:30 +199: 130% ironclad dense and dialogs at Size(360.0, 900.0)
+00:30 +200: 130% ironclad dense and dialogs at Size(800.0, 600.0)
+00:31 +201: 130% ironclad dense and dialogs at Size(1672.0, 952.0)
+00:31 +202: 115% clipper veteranCannoneer/bloodOath
+00:31 +203: 115% clipper veteranCannoneer/recklessHelmsman
+00:31 +204: 115% clipper veteranCannoneer/superstitious
+00:31 +205: 115% clipper veteranCannoneer/exactingShipwright
+00:31 +206: 115% clipper veteranCannoneer/overzealousGunner
+00:32 +207: 115% clipper veteranCannoneer/daredevil
+00:32 +208: 115% clipper veteranCannoneer/impatient
+00:32 +209: 115% clipper veteranCannoneer/skirmisher
+00:32 +210: 115% clipper stormSeer/bloodOath
+00:32 +211: 115% clipper stormSeer/recklessHelmsman
+00:32 +212: 115% clipper stormSeer/superstitious
+00:32 +213: 115% clipper stormSeer/exactingShipwright
+00:33 +214: 115% clipper stormSeer/overzealousGunner
+00:33 +215: 115% clipper stormSeer/daredevil
+00:33 +216: 115% clipper stormSeer/impatient
+00:33 +217: 115% clipper stormSeer/skirmisher
+00:33 +218: 115% clipper ironConstitution/bloodOath
+00:33 +219: 115% clipper ironConstitution/recklessHelmsman
+00:33 +220: 115% clipper ironConstitution/superstitious
+00:34 +221: 115% clipper ironConstitution/exactingShipwright
+00:34 +222: 115% clipper ironConstitution/overzealousGunner
+00:34 +223: 115% clipper ironConstitution/daredevil
+00:34 +224: 115% clipper ironConstitution/impatient
+00:34 +225: 115% clipper ironConstitution/skirmisher
+00:34 +226: 115% clipper smugglersKin/bloodOath
+00:34 +227: 115% clipper smugglersKin/recklessHelmsman
+00:35 +228: 115% clipper smugglersKin/superstitious
+00:35 +229: 115% clipper smugglersKin/exactingShipwright
+00:35 +230: 115% clipper smugglersKin/overzealousGunner
+00:35 +231: 115% clipper smugglersKin/daredevil
+00:35 +232: 115% clipper smugglersKin/impatient
+00:36 +233: 115% clipper smugglersKin/skirmisher
+00:36 +234: 115% clipper drillmaster/bloodOath
+00:36 +235: 115% clipper drillmaster/recklessHelmsman
+00:36 +236: 115% clipper drillmaster/superstitious
+00:36 +237: 115% clipper drillmaster/exactingShipwright
+00:36 +238: 115% clipper drillmaster/overzealousGunner
+00:37 +239: 115% clipper drillmaster/daredevil
+00:37 +240: 115% clipper drillmaster/impatient
+00:37 +241: 115% clipper drillmaster/skirmisher
+00:37 +242: 115% clipper preciseCommander/bloodOath
+00:37 +243: 115% clipper preciseCommander/recklessHelmsman
+00:38 +244: 115% clipper preciseCommander/superstitious
+00:38 +245: 115% clipper preciseCommander/exactingShipwright
+00:38 +246: 115% clipper preciseCommander/overzealousGunner
+00:38 +247: 115% clipper preciseCommander/daredevil
+00:38 +248: 115% clipper preciseCommander/impatient
+00:38 +249: 115% clipper preciseCommander/skirmisher
+00:39 +250: 115% clipper skilledCarpenter/bloodOath
+00:39 +251: 115% clipper skilledCarpenter/recklessHelmsman
+00:39 +252: 115% clipper skilledCarpenter/superstitious
+00:39 +253: 115% clipper skilledCarpenter/exactingShipwright
+00:39 +254: 115% clipper skilledCarpenter/overzealousGunner
+00:40 +255: 115% clipper skilledCarpenter/daredevil
+00:40 +256: 115% clipper skilledCarpenter/impatient
+00:40 +257: 115% clipper skilledCarpenter/skirmisher
+00:40 +258: 115% clipper quartermaster/bloodOath
+00:40 +259: 115% clipper quartermaster/recklessHelmsman
+00:40 +260: 115% clipper quartermaster/superstitious
+00:41 +261: 115% clipper quartermaster/exactingShipwright
+00:41 +262: 115% clipper quartermaster/overzealousGunner
+00:41 +263: 115% clipper quartermaster/daredevil
+00:41 +264: 115% clipper quartermaster/impatient
+00:41 +265: 115% clipper quartermaster/skirmisher
+00:42 +266: 115% clipper dense status at Size(360.0, 900.0)
+00:42 +267: 115% clipper dense status at Size(800.0, 600.0)
+00:42 +268: 115% clipper dense status at Size(1280.0, 900.0)
+00:42 +269: 115% clipper ready at compact width
+00:42 +270: 115% clipper cooldowns at Size(360.0, 900.0)
+00:42 +271: 115% clipper cooldowns at Size(800.0, 600.0)
+00:43 +272: 115% clipper cooldowns at Size(1672.0, 952.0)
+00:43 +273: 115% clipper combination at Size(360.0, 900.0)
+00:43 +274: 115% clipper combination at Size(800.0, 600.0)
+00:43 +275: 115% clipper combination at Size(1672.0, 952.0)
+00:44 +276: 115% clipper recovery at Size(360.0, 900.0)
+00:44 +277: 115% clipper recovery at Size(800.0, 600.0)
+00:44 +278: 115% clipper recovery at Size(1672.0, 952.0)
+00:44 +279: 115% clipper beltSpent at Size(360.0, 900.0)
+00:44 +280: 115% clipper beltSpent at Size(800.0, 600.0)
+00:45 +281: 115% clipper beltSpent at Size(1672.0, 952.0)
+00:45 +282: 115% clipper emptyBelt at Size(360.0, 900.0)
+00:45 +283: 115% clipper emptyBelt at Size(800.0, 600.0)
+00:45 +284: 115% clipper emptyBelt at Size(1672.0, 952.0)
+00:45 +285: 115% clipper windup at Size(360.0, 900.0)
+00:45 +286: 115% clipper windup at Size(800.0, 600.0)
+00:46 +287: 115% clipper windup at Size(1672.0, 952.0)
+00:46 +288: 115% clipper release at Size(360.0, 900.0)
+00:46 +289: 115% clipper release at Size(800.0, 600.0)
+00:46 +290: 115% clipper release at Size(1672.0, 952.0)
+00:47 +291: 115% clipper longRange at Size(360.0, 900.0)
+00:47 +292: 115% clipper longRange at Size(800.0, 600.0)
+00:47 +293: 115% clipper longRange at Size(1672.0, 952.0)
+00:47 +294: 115% clipper storm at Size(360.0, 900.0)
+00:47 +295: 115% clipper storm at Size(800.0, 600.0)
+00:47 +296: 115% clipper storm at Size(1672.0, 952.0)
+00:48 +297: 115% clipper wake at Size(360.0, 900.0)
+00:48 +298: 115% clipper wake at Size(800.0, 600.0)
+00:48 +299: 115% clipper wake at Size(1672.0, 952.0)
+00:48 +300: 130% clipper dense and dialogs at Size(360.0, 900.0)
+00:49 +301: 130% clipper dense and dialogs at Size(800.0, 600.0)
+00:49 +302: 130% clipper dense and dialogs at Size(1672.0, 952.0)
+00:50 +303: 115% bombardier veteranCannoneer/bloodOath
+00:50 +304: 115% bombardier veteranCannoneer/recklessHelmsman
+00:50 +305: 115% bombardier veteranCannoneer/superstitious
+00:50 +306: 115% bombardier veteranCannoneer/exactingShipwright
+00:51 +307: 115% bombardier veteranCannoneer/overzealousGunner
+00:51 +308: 115% bombardier veteranCannoneer/daredevil
+00:51 +309: 115% bombardier veteranCannoneer/impatient
+00:51 +310: 115% bombardier veteranCannoneer/skirmisher
+00:52 +311: 115% bombardier stormSeer/bloodOath
+00:52 +312: 115% bombardier stormSeer/recklessHelmsman
+00:52 +313: 115% bombardier stormSeer/superstitious
+00:52 +314: 115% bombardier stormSeer/exactingShipwright
+00:52 +315: 115% bombardier stormSeer/overzealousGunner
+00:52 +316: 115% bombardier stormSeer/daredevil
+00:53 +317: 115% bombardier stormSeer/impatient
+00:53 +318: 115% bombardier stormSeer/skirmisher
+00:53 +319: 115% bombardier ironConstitution/bloodOath
+00:53 +320: 115% bombardier ironConstitution/recklessHelmsman
+00:54 +321: 115% bombardier ironConstitution/superstitious
+00:54 +322: 115% bombardier ironConstitution/exactingShipwright
+00:54 +323: 115% bombardier ironConstitution/overzealousGunner
+00:54 +324: 115% bombardier ironConstitution/daredevil
+00:54 +325: 115% bombardier ironConstitution/impatient
+00:54 +326: 115% bombardier ironConstitution/skirmisher
+00:55 +327: 115% bombardier smugglersKin/bloodOath
+00:55 +328: 115% bombardier smugglersKin/recklessHelmsman
+00:55 +329: 115% bombardier smugglersKin/superstitious
+00:55 +330: 115% bombardier smugglersKin/exactingShipwright
+00:55 +331: 115% bombardier smugglersKin/overzealousGunner
+00:56 +332: 115% bombardier smugglersKin/daredevil
+00:56 +333: 115% bombardier smugglersKin/impatient
+00:56 +334: 115% bombardier smugglersKin/skirmisher
+00:56 +335: 115% bombardier drillmaster/bloodOath
+00:57 +336: 115% bombardier drillmaster/recklessHelmsman
+00:57 +337: 115% bombardier drillmaster/superstitious
+00:57 +338: 115% bombardier drillmaster/exactingShipwright
+00:57 +339: 115% bombardier drillmaster/overzealousGunner
+00:57 +340: 115% bombardier drillmaster/daredevil
+00:58 +341: 115% bombardier drillmaster/impatient
+00:58 +342: 115% bombardier drillmaster/skirmisher
+00:58 +343: 115% bombardier preciseCommander/bloodOath
+00:58 +344: 115% bombardier preciseCommander/recklessHelmsman
+00:59 +345: 115% bombardier preciseCommander/superstitious
+00:59 +346: 115% bombardier preciseCommander/exactingShipwright
+00:59 +347: 115% bombardier preciseCommander/overzealousGunner
+00:59 +348: 115% bombardier preciseCommander/daredevil
+00:59 +349: 115% bombardier preciseCommander/impatient
+00:59 +350: 115% bombardier preciseCommander/skirmisher
+01:00 +351: 115% bombardier skilledCarpenter/bloodOath
+01:00 +352: 115% bombardier skilledCarpenter/recklessHelmsman
+01:00 +353: 115% bombardier skilledCarpenter/superstitious
+01:00 +354: 115% bombardier skilledCarpenter/exactingShipwright
+01:01 +355: 115% bombardier skilledCarpenter/overzealousGunner
+01:01 +356: 115% bombardier skilledCarpenter/daredevil
+01:01 +357: 115% bombardier skilledCarpenter/impatient
+01:01 +358: 115% bombardier skilledCarpenter/skirmisher
+01:01 +359: 115% bombardier quartermaster/bloodOath
+01:02 +360: 115% bombardier quartermaster/recklessHelmsman
+01:02 +361: 115% bombardier quartermaster/superstitious
+01:02 +362: 115% bombardier quartermaster/exactingShipwright
+01:02 +363: 115% bombardier quartermaster/overzealousGunner
+01:02 +364: 115% bombardier quartermaster/daredevil
+01:03 +365: 115% bombardier quartermaster/impatient
+01:03 +366: 115% bombardier quartermaster/skirmisher
+01:03 +367: 115% bombardier dense status at Size(360.0, 900.0)
+01:03 +368: 115% bombardier dense status at Size(800.0, 600.0)
+01:04 +369: 115% bombardier dense status at Size(1280.0, 900.0)
+01:04 +370: 115% bombardier ready at compact width
+01:04 +371: 115% bombardier cooldowns at Size(360.0, 900.0)
+01:04 +372: 115% bombardier cooldowns at Size(800.0, 600.0)
+01:04 +373: 115% bombardier cooldowns at Size(1672.0, 952.0)
+01:05 +374: 115% bombardier combination at Size(360.0, 900.0)
+01:05 +375: 115% bombardier combination at Size(800.0, 600.0)
+01:05 +376: 115% bombardier combination at Size(1672.0, 952.0)
+01:05 +377: 115% bombardier recovery at Size(360.0, 900.0)
+01:06 +378: 115% bombardier recovery at Size(800.0, 600.0)
+01:06 +379: 115% bombardier recovery at Size(1672.0, 952.0)
+01:06 +380: 115% bombardier beltSpent at Size(360.0, 900.0)
+01:06 +381: 115% bombardier beltSpent at Size(800.0, 600.0)
+01:07 +382: 115% bombardier beltSpent at Size(1672.0, 952.0)
+01:07 +383: 115% bombardier emptyBelt at Size(360.0, 900.0)
+01:07 +384: 115% bombardier emptyBelt at Size(800.0, 600.0)
+01:07 +385: 115% bombardier emptyBelt at Size(1672.0, 952.0)
+01:07 +386: 115% bombardier windup at Size(360.0, 900.0)
+01:07 +387: 115% bombardier windup at Size(800.0, 600.0)
+01:08 +388: 115% bombardier windup at Size(1672.0, 952.0)
+01:08 +389: 115% bombardier release at Size(360.0, 900.0)
+01:08 +390: 115% bombardier release at Size(800.0, 600.0)
+01:08 +391: 115% bombardier release at Size(1672.0, 952.0)
+01:09 +392: 115% bombardier longRange at Size(360.0, 900.0)
+01:09 +393: 115% bombardier longRange at Size(800.0, 600.0)
+01:09 +394: 115% bombardier longRange at Size(1672.0, 952.0)
+01:09 +395: 115% bombardier storm at Size(360.0, 900.0)
+01:09 +396: 115% bombardier storm at Size(800.0, 600.0)
+01:09 +397: 115% bombardier storm at Size(1672.0, 952.0)
+01:10 +398: 115% bombardier wake at Size(360.0, 900.0)
+01:10 +399: 115% bombardier wake at Size(800.0, 600.0)
+01:10 +400: 115% bombardier wake at Size(1672.0, 952.0)
+01:10 +401: 130% bombardier dense and dialogs at Size(360.0, 900.0)
+01:11 +402: 130% bombardier dense and dialogs at Size(800.0, 600.0)
+01:12 +403: 130% bombardier dense and dialogs at Size(1672.0, 952.0)
+01:12 +404: 115% corsair veteranCannoneer/bloodOath
+01:12 +405: 115% corsair veteranCannoneer/recklessHelmsman
+01:12 +406: 115% corsair veteranCannoneer/superstitious
+01:12 +407: 115% corsair veteranCannoneer/exactingShipwright
+01:13 +408: 115% corsair veteranCannoneer/overzealousGunner
+01:13 +409: 115% corsair veteranCannoneer/daredevil
+01:13 +410: 115% corsair veteranCannoneer/impatient
+01:13 +411: 115% corsair veteranCannoneer/skirmisher
+01:14 +412: 115% corsair stormSeer/bloodOath
+01:14 +413: 115% corsair stormSeer/recklessHelmsman
+01:14 +414: 115% corsair stormSeer/superstitious
+01:14 +415: 115% corsair stormSeer/exactingShipwright
+01:15 +416: 115% corsair stormSeer/overzealousGunner
+01:15 +417: 115% corsair stormSeer/daredevil
+01:15 +418: 115% corsair stormSeer/impatient
+01:15 +419: 115% corsair stormSeer/skirmisher
+01:15 +420: 115% corsair ironConstitution/bloodOath
+01:16 +421: 115% corsair ironConstitution/recklessHelmsman
+01:16 +422: 115% corsair ironConstitution/superstitious
+01:16 +423: 115% corsair ironConstitution/exactingShipwright
+01:17 +424: 115% corsair ironConstitution/overzealousGunner
+01:17 +425: 115% corsair ironConstitution/daredevil
+01:17 +426: 115% corsair ironConstitution/impatient
+01:17 +427: 115% corsair ironConstitution/skirmisher
+01:17 +428: 115% corsair smugglersKin/bloodOath
+01:17 +429: 115% corsair smugglersKin/recklessHelmsman
+01:18 +430: 115% corsair smugglersKin/superstitious
+01:18 +431: 115% corsair smugglersKin/exactingShipwright
+01:18 +432: 115% corsair smugglersKin/overzealousGunner
+01:18 +433: 115% corsair smugglersKin/daredevil
+01:19 +434: 115% corsair smugglersKin/impatient
+01:19 +435: 115% corsair smugglersKin/skirmisher
+01:19 +436: 115% corsair drillmaster/bloodOath
+01:19 +437: 115% corsair drillmaster/recklessHelmsman
+01:20 +438: 115% corsair drillmaster/superstitious
+01:20 +439: 115% corsair drillmaster/exactingShipwright
+01:20 +440: 115% corsair drillmaster/overzealousGunner
+01:20 +441: 115% corsair drillmaster/daredevil
+01:20 +442: 115% corsair drillmaster/impatient
+01:21 +443: 115% corsair drillmaster/skirmisher
+01:21 +444: 115% corsair preciseCommander/bloodOath
+01:21 +445: 115% corsair preciseCommander/recklessHelmsman
+01:21 +446: 115% corsair preciseCommander/superstitious
+01:22 +447: 115% corsair preciseCommander/exactingShipwright
+01:22 +448: 115% corsair preciseCommander/overzealousGunner
+01:22 +449: 115% corsair preciseCommander/daredevil
+01:22 +450: 115% corsair preciseCommander/impatient
+01:23 +451: 115% corsair preciseCommander/skirmisher
+01:23 +452: 115% corsair skilledCarpenter/bloodOath
+01:23 +453: 115% corsair skilledCarpenter/recklessHelmsman
+01:23 +454: 115% corsair skilledCarpenter/superstitious
+01:23 +455: 115% corsair skilledCarpenter/exactingShipwright
+01:24 +456: 115% corsair skilledCarpenter/overzealousGunner
+01:24 +457: 115% corsair skilledCarpenter/daredevil
+01:24 +458: 115% corsair skilledCarpenter/impatient
+01:25 +459: 115% corsair skilledCarpenter/skirmisher
+01:25 +460: 115% corsair quartermaster/bloodOath
+01:25 +461: 115% corsair quartermaster/recklessHelmsman
+01:25 +462: 115% corsair quartermaster/superstitious
+01:26 +463: 115% corsair quartermaster/exactingShipwright
+01:26 +464: 115% corsair quartermaster/overzealousGunner
+01:26 +465: 115% corsair quartermaster/daredevil
+01:26 +466: 115% corsair quartermaster/impatient
+01:27 +467: 115% corsair quartermaster/skirmisher
+01:27 +468: 115% corsair dense status at Size(360.0, 900.0)
+01:27 +469: 115% corsair dense status at Size(800.0, 600.0)
+01:27 +470: 115% corsair dense status at Size(1280.0, 900.0)
+01:27 +471: 115% corsair ready at compact width
+01:28 +472: 115% corsair cooldowns at Size(360.0, 900.0)
+01:28 +473: 115% corsair cooldowns at Size(800.0, 600.0)
+01:28 +474: 115% corsair cooldowns at Size(1672.0, 952.0)
+01:28 +475: 115% corsair combination at Size(360.0, 900.0)
+01:28 +476: 115% corsair combination at Size(800.0, 600.0)
+01:29 +477: 115% corsair combination at Size(1672.0, 952.0)
+01:29 +478: 115% corsair recovery at Size(360.0, 900.0)
+01:29 +479: 115% corsair recovery at Size(800.0, 600.0)
+01:29 +480: 115% corsair recovery at Size(1672.0, 952.0)
+01:30 +481: 115% corsair beltSpent at Size(360.0, 900.0)
+01:30 +482: 115% corsair beltSpent at Size(800.0, 600.0)
+01:30 +483: 115% corsair beltSpent at Size(1672.0, 952.0)
+01:30 +484: 115% corsair emptyBelt at Size(360.0, 900.0)
+01:30 +485: 115% corsair emptyBelt at Size(800.0, 600.0)
+01:30 +486: 115% corsair emptyBelt at Size(1672.0, 952.0)
+01:31 +487: 115% corsair windup at Size(360.0, 900.0)
+01:31 +488: 115% corsair windup at Size(800.0, 600.0)
+01:31 +489: 115% corsair windup at Size(1672.0, 952.0)
+01:31 +490: 115% corsair release at Size(360.0, 900.0)
+01:32 +491: 115% corsair release at Size(800.0, 600.0)
+01:32 +492: 115% corsair release at Size(1672.0, 952.0)
+01:32 +493: 115% corsair longRange at Size(360.0, 900.0)
+01:32 +494: 115% corsair longRange at Size(800.0, 600.0)
+01:33 +495: 115% corsair longRange at Size(1672.0, 952.0)
+01:33 +496: 115% corsair storm at Size(360.0, 900.0)
+01:33 +497: 115% corsair storm at Size(800.0, 600.0)
+01:33 +498: 115% corsair storm at Size(1672.0, 952.0)
+01:33 +499: 115% corsair wake at Size(360.0, 900.0)
+01:33 +500: 115% corsair wake at Size(800.0, 600.0)
+01:34 +501: 115% corsair wake at Size(1672.0, 952.0)
+01:34 +502: 130% corsair dense and dialogs at Size(360.0, 900.0)
+01:34 +503: 130% corsair dense and dialogs at Size(800.0, 600.0)
+01:35 +504: 130% corsair dense and dialogs at Size(1672.0, 952.0)
+01:35 +505: (tearDownAll)
+01:35 +505: All tests passed!

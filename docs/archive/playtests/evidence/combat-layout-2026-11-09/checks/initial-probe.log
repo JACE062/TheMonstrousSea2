@@ -1,0 +1,451 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% standard dense status at Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% standard dense status at Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: 115% standard dense status at Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% standard dense status at Size(360.0, 900.0)
+  
+00:01 +0 -1: 115% standard dense status at Size(800.0, 600.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <320.0>
+  Actual: <324.0>
+   Which: is not a value less than or equal to <320.0>
+HUD and command dock overlap.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:229:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 229
+The test description was:
+  115% standard dense status at Size(800.0, 600.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: 115% standard dense status at Size(800.0, 600.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% standard dense status at Size(800.0, 600.0)
+  
+00:01 +0 -2: 115% standard dense status at Size(1280.0, 900.0)
+00:02 +1 -2: 115% standard ready at compact width
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:319:7)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% standard ready at compact width
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +1 -3: 115% standard ready at compact width [E]
+  Test failed. See exception logs above.
+  The test description was: 115% standard ready at compact width
+  
+00:02 +1 -3: 115% ironclad dense status at Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% ironclad dense status at Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +1 -4: 115% ironclad dense status at Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% ironclad dense status at Size(360.0, 900.0)
+  
+00:03 +1 -4: 115% ironclad dense status at Size(800.0, 600.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <320.0>
+  Actual: <321.0>
+   Which: is not a value less than or equal to <320.0>
+HUD and command dock overlap.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:229:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 229
+The test description was:
+  115% ironclad dense status at Size(800.0, 600.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +1 -5: 115% ironclad dense status at Size(800.0, 600.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% ironclad dense status at Size(800.0, 600.0)
+  
+00:03 +1 -5: 115% ironclad dense status at Size(1280.0, 900.0)
+00:03 +2 -5: 115% ironclad ready at compact width
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:319:7)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% ironclad ready at compact width
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +2 -6: 115% ironclad ready at compact width [E]
+  Test failed. See exception logs above.
+  The test description was: 115% ironclad ready at compact width
+  
+00:04 +2 -6: 115% clipper dense status at Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% clipper dense status at Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +2 -7: 115% clipper dense status at Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% clipper dense status at Size(360.0, 900.0)
+  
+00:04 +2 -7: 115% clipper dense status at Size(800.0, 600.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <320.0>
+  Actual: <321.0>
+   Which: is not a value less than or equal to <320.0>
+HUD and command dock overlap.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:229:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 229
+The test description was:
+  115% clipper dense status at Size(800.0, 600.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +2 -8: 115% clipper dense status at Size(800.0, 600.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% clipper dense status at Size(800.0, 600.0)
+  
+00:05 +2 -8: 115% clipper dense status at Size(1280.0, 900.0)
+00:05 +3 -8: 115% clipper ready at compact width
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:319:7)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% clipper ready at compact width
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +3 -9: 115% clipper ready at compact width [E]
+  Test failed. See exception logs above.
+  The test description was: 115% clipper ready at compact width
+  
+00:05 +3 -9: 115% bombardier dense status at Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% bombardier dense status at Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +3 -10: 115% bombardier dense status at Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% bombardier dense status at Size(360.0, 900.0)
+  
+00:05 +3 -10: 115% bombardier dense status at Size(800.0, 600.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <320.0>
+  Actual: <321.0>
+   Which: is not a value less than or equal to <320.0>
+HUD and command dock overlap.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:229:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 229
+The test description was:
+  115% bombardier dense status at Size(800.0, 600.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +3 -11: 115% bombardier dense status at Size(800.0, 600.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% bombardier dense status at Size(800.0, 600.0)
+  
+00:06 +3 -11: 115% bombardier dense status at Size(1280.0, 900.0)
+00:06 +4 -11: 115% bombardier ready at compact width
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:319:7)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% bombardier ready at compact width
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +4 -12: 115% bombardier ready at compact width [E]
+  Test failed. See exception logs above.
+  The test description was: 115% bombardier ready at compact width
+  
+00:06 +4 -12: 115% corsair dense status at Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% corsair dense status at Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +4 -13: 115% corsair dense status at Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% corsair dense status at Size(360.0, 900.0)
+  
+00:07 +4 -13: 115% corsair dense status at Size(800.0, 600.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <320.0>
+  Actual: <344.0>
+   Which: is not a value less than or equal to <320.0>
+HUD and command dock overlap.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:229:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:308:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 229
+The test description was:
+  115% corsair dense status at Size(800.0, 600.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +4 -14: 115% corsair dense status at Size(800.0, 600.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% corsair dense status at Size(800.0, 600.0)
+  
+00:07 +4 -14: 115% corsair dense status at Size(1280.0, 900.0)
+00:07 +5 -14: 115% corsair ready at compact width
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with key [<'belt-help'>] (considering only
+hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:275:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart:319:7)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart line 275
+The test description was:
+  115% corsair ready at compact width
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +5 -15: 115% corsair ready at compact width [E]
+  Test failed. See exception logs above.
+  The test description was: 115% corsair ready at compact width
+  
+00:08 +5 -15: (tearDownAll)
+00:08 +5 -15: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier dense status at Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier dense status at Size(800.0, 600.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier ready at compact width
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper dense status at Size(360.0, 900.0)
+  ... and 11 more

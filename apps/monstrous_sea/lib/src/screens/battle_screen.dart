@@ -88,19 +88,23 @@ class _BattleScreenState extends State<BattleScreen> {
   final _chronicleScroll = CombatLogScrollState();
   final _commandScroll = ScrollController();
   final _beltScroll = ScrollController();
+  final _statusScroll = ScrollController();
+  final _lookoutScroll = ScrollController();
+  Size _viewport = Size.zero;
   double _hudBottom = 160;
   double _dockHeight = 250;
 
   bool get _sideLookout {
-    final viewport = MediaQuery.sizeOf(context);
+    final viewport = _viewport;
     return viewport.width >= 1100 && viewport.height >= 700;
   }
 
-  double get _lookoutWidth =>
-      (MediaQuery.sizeOf(context).width * 0.22).clamp(240.0, 290.0);
+  double get _lookoutWidth => (_viewport.width * 0.22).clamp(240.0, 290.0);
   double get _commandHeightBudget {
-    final height = MediaQuery.sizeOf(context).height;
-    return (height - _hudBottom - 200).clamp(240.0, height * 0.65);
+    final height = _viewport.height;
+    // Leave room for the arena, dock padding and the gaps around both panels.
+    final arenaRoom = height < 700 ? 100.0 : (_sideLookout ? 300.0 : 180.0);
+    return (height - _hudBottom - arenaRoom - 49).clamp(120.0, height * 0.65);
   }
 
   HelmOrder _selectedHelmOrder = HelmOrder.holdLine;
@@ -251,6 +255,8 @@ class _BattleScreenState extends State<BattleScreen> {
   void dispose() {
     _commandScroll.dispose();
     _beltScroll.dispose();
+    _statusScroll.dispose();
+    _lookoutScroll.dispose();
     _battleGame.artworkRevision.removeListener(_onArtworkChanged);
     _battleGame.presentation.removeListener(_onArtworkChanged);
     super.dispose();
@@ -432,459 +438,537 @@ class _BattleScreenState extends State<BattleScreen> {
     return ParchmentScaffold(
       showBorder: false,
       showPauseButton: false,
-      body: Stack(
-        children: [
-          Semantics(
-            liveRegion: true,
-            label: _battleGame.presentation.announcement,
-            child: const SizedBox.shrink(),
-          ),
-          // 1. Flame 2D Battle Arena
-          // The arena only renders events. Flame otherwise captures Tab before
-          // Flutter can move focus between the actual battle controls.
-          Positioned.fill(
-            child: ExcludeFocus(
-              child: GameWidget(game: _battleGame, autofocus: false),
-            ),
-          ),
-
-          // 2. Top HUD: Combatant Vitality & Stats
-          Positioned(
-            top: 16,
-            left: 16,
-            right: 16,
-            child: Row(
-              key: _statusKey,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Ship Status Panel (Left)
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: InkTheme.parchmentSurface.withValues(alpha: 0.9),
-                      border: Border.all(
-                        color: InkTheme.inkPrimary,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          ship.name,
-                          style: InkTheme.titleMedium.copyWith(fontSize: 20),
-                        ),
-                        ShipCombatStats(
-                          key: const ValueKey('ship-combat-stats'),
-                          ship: ship,
-                        ),
-                        const SizedBox(height: 8),
-                        HullGauge(
-                          currentHp: ship.currentHp,
-                          maxHp: ship.maxHp,
-                          animationDuration: const Duration(milliseconds: 140),
-                        ),
-                        ShipPowerStatusBadges(ship: ship),
-                        if (_battleGame.isShipArtUnavailable)
-                          _artRecoveryNotice(),
-                      ],
-                    ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          _viewport = constraints.biggest;
+          return Stack(
+            children: [
+              Semantics(
+                liveRegion: true,
+                label: _battleGame.presentation.announcement,
+                child: const SizedBox.shrink(),
+              ),
+              // 1. Flame 2D Battle Arena
+              // The arena only renders events. Flame otherwise captures Tab before
+              // Flutter can move focus between the actual battle controls.
+              Positioned.fill(
+                child: ExcludeFocus(
+                  child: GameWidget(
+                    key: const ValueKey('combat-arena'),
+                    game: _battleGame,
+                    autofocus: false,
                   ),
                 ),
-                const SizedBox(width: 16),
+              ),
 
-                // Monster Status Panel (Right)
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: InkTheme.parchmentSurface.withValues(alpha: 0.9),
-                      border: Border.all(
-                        color:
-                            (monster.isApex || monster.name.contains('Kraken'))
-                            ? InkTheme.crimsonAccent
-                            : InkTheme.inkPrimary,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                monster.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: InkTheme.titleMedium.copyWith(
-                                  fontSize: 20,
+              // 2. Top HUD: Combatant Vitality & Stats
+              Positioned(
+                top: 16,
+                left: 16,
+                right: 16,
+                child: ConstrainedBox(
+                  key: _statusKey,
+                  constraints: BoxConstraints(
+                    maxHeight: _viewport.height * 0.28,
+                  ),
+                  child: Scrollbar(
+                    controller: _statusScroll,
+                    thumbVisibility: true,
+                    child: SingleChildScrollView(
+                      key: const ValueKey('combat-status-scroll'),
+                      controller: _statusScroll,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Ship Status Panel (Left)
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                color: InkTheme.parchmentSurface.withValues(
+                                  alpha: 0.9,
+                                ),
+                                border: Border.all(
+                                  color: InkTheme.inkPrimary,
+                                  width: 1.5,
+                                ),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    ship.name,
+                                    style: InkTheme.titleMedium.copyWith(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  HullGauge(
+                                    currentHp: ship.currentHp,
+                                    maxHp: ship.maxHp,
+                                    animationDuration: const Duration(
+                                      milliseconds: 140,
+                                    ),
+                                  ),
+                                  ShipCombatStats(
+                                    key: const ValueKey('ship-combat-stats'),
+                                    ship: ship,
+                                  ),
+                                  ShipPowerStatusBadges(ship: ship),
+                                  if (_battleGame.isShipArtUnavailable)
+                                    _artRecoveryNotice(),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+
+                          // Monster Status Panel (Right)
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                color: InkTheme.parchmentSurface.withValues(
+                                  alpha: 0.9,
+                                ),
+                                border: Border.all(
                                   color:
                                       (monster.isApex ||
                                           monster.name.contains('Kraken'))
                                       ? InkTheme.crimsonAccent
                                       : InkTheme.inkPrimary,
+                                  width: 1.5,
                                 ),
+                                borderRadius: BorderRadius.circular(4),
                               ),
-                            ),
-                            if (monster.isApex)
-                              Container(
-                                margin: const EdgeInsets.only(right: 4),
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 6,
-                                  vertical: 2,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: InkTheme.crimsonAccent,
-                                  borderRadius: BorderRadius.circular(2),
-                                ),
-                                child: Text(
-                                  'APEX',
-                                  style: InkTheme.caption.copyWith(
-                                    color: InkTheme.parchmentHighlight,
-                                    fontSize: 10.5,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                        MonsterCombatStats(
-                          key: const ValueKey('monster-combat-stats'),
-                          monster: monster,
-                          ship: ship,
-                        ),
-                        const SizedBox(height: 8),
-                        HullGauge(
-                          currentHp: monster.currentHp,
-                          maxHp: monster.maxHp,
-                          label: 'BEAST INTEGRITY',
-                          animationDuration: const Duration(milliseconds: 140),
-                        ),
-                        if (_battleGame.isMonsterArtUnavailable)
-                          _artRecoveryNotice(),
-                        MonsterPowerStatusBadges(monster: monster),
-                        if (monster.species == MonsterSpecies.crustacean ||
-                            monster.maxCarapace > 0) ...[
-                          const SizedBox(height: 8),
-                          if (monster.carapacePlating > 0) ...[
-                            Semantics(
-                              label: 'Carapace Armor Plating',
-                              value:
-                                  '${monster.carapacePlating} of ${monster.maxCarapace} plating intact. Deflects non-blast attacks.',
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  LayoutBuilder(
-                                    builder: (context, constraints) {
-                                      final label = Text(
-                                        'CARAPACE ARMOR',
-                                        style: InkTheme.statLabel.copyWith(
-                                          color: const Color(0xFF6B4226),
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      );
-                                      final value = Text(
-                                        '${monster.carapacePlating}/${monster.maxCarapace} PLATES',
-                                        style: InkTheme.statValue.copyWith(
-                                          color: const Color(0xFF6B4226),
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      );
-                                      if (constraints.maxWidth <
-                                          240 *
-                                              MediaQuery.textScalerOf(context)
-                                                  .scale(1)) {
-                                        return Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            label,
-                                            FittedBox(
-                                              fit: BoxFit.scaleDown,
-                                              child: value,
-                                            ),
-                                          ],
-                                        );
-                                      }
-                                      return Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Flexible(child: label),
-                                          const SizedBox(width: 8),
-                                          value,
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                  const SizedBox(height: 3),
-                                  Stack(
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Container(
-                                        height: 14,
-                                        decoration: BoxDecoration(
-                                          color: InkTheme.parchmentDark,
-                                          borderRadius: BorderRadius.circular(
-                                            2,
-                                          ),
-                                          border: Border.all(
-                                            color: const Color(0xFF6B4226),
-                                            width: 1.2,
+                                      Expanded(
+                                        child: Text(
+                                          monster.name,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: InkTheme.titleMedium.copyWith(
+                                            fontSize: 20,
+                                            color:
+                                                (monster.isApex ||
+                                                    monster.name.contains(
+                                                      'Kraken',
+                                                    ))
+                                                ? InkTheme.crimsonAccent
+                                                : InkTheme.inkPrimary,
                                           ),
                                         ),
                                       ),
-                                      FractionallySizedBox(
-                                        widthFactor: monster.maxCarapace > 0
-                                            ? (monster.carapacePlating /
-                                                      monster.maxCarapace)
-                                                  .clamp(0.0, 1.0)
-                                            : 0.0,
-                                        child: Container(
-                                          height: 14,
+                                      if (monster.isApex)
+                                        Container(
+                                          margin: const EdgeInsets.only(
+                                            right: 4,
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 6,
+                                            vertical: 2,
+                                          ),
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFF8B5A2B),
+                                            color: InkTheme.crimsonAccent,
                                             borderRadius: BorderRadius.circular(
-                                              1.5,
+                                              2,
                                             ),
                                           ),
+                                          child: Text(
+                                            'APEX',
+                                            style: InkTheme.caption.copyWith(
+                                              color:
+                                                  InkTheme.parchmentHighlight,
+                                              fontSize: 10.5,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8),
+                                  HullGauge(
+                                    currentHp: monster.currentHp,
+                                    maxHp: monster.maxHp,
+                                    label: 'BEAST INTEGRITY',
+                                    animationDuration: const Duration(
+                                      milliseconds: 140,
+                                    ),
+                                  ),
+                                  MonsterCombatStats(
+                                    key: const ValueKey('monster-combat-stats'),
+                                    monster: monster,
+                                    ship: ship,
+                                  ),
+                                  if (_battleGame.isMonsterArtUnavailable)
+                                    _artRecoveryNotice(),
+                                  MonsterPowerStatusBadges(monster: monster),
+                                  if (monster.species ==
+                                          MonsterSpecies.crustacean ||
+                                      monster.maxCarapace > 0) ...[
+                                    const SizedBox(height: 8),
+                                    if (monster.carapacePlating > 0) ...[
+                                      Semantics(
+                                        label: 'Carapace Armor Plating',
+                                        value:
+                                            '${monster.carapacePlating} of ${monster.maxCarapace} plating intact. Deflects non-blast attacks.',
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            LayoutBuilder(
+                                              builder: (context, constraints) {
+                                                final label = Text(
+                                                  'CARAPACE ARMOR',
+                                                  style: InkTheme.statLabel
+                                                      .copyWith(
+                                                        color: const Color(
+                                                          0xFF6B4226,
+                                                        ),
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                  maxLines: 1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                );
+                                                final value = Text(
+                                                  '${monster.carapacePlating}/${monster.maxCarapace} PLATES',
+                                                  style: InkTheme.statValue
+                                                      .copyWith(
+                                                        color: const Color(
+                                                          0xFF6B4226,
+                                                        ),
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                );
+                                                if (constraints.maxWidth <
+                                                    240 *
+                                                        MediaQuery.textScalerOf(
+                                                          context,
+                                                        ).scale(1)) {
+                                                  return Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      label,
+                                                      FittedBox(
+                                                        fit: BoxFit.scaleDown,
+                                                        child: value,
+                                                      ),
+                                                    ],
+                                                  );
+                                                }
+                                                return Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Flexible(child: label),
+                                                    const SizedBox(width: 8),
+                                                    value,
+                                                  ],
+                                                );
+                                              },
+                                            ),
+                                            const SizedBox(height: 3),
+                                            Stack(
+                                              children: [
+                                                Container(
+                                                  height: 14,
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        InkTheme.parchmentDark,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          2,
+                                                        ),
+                                                    border: Border.all(
+                                                      color: const Color(
+                                                        0xFF6B4226,
+                                                      ),
+                                                      width: 1.2,
+                                                    ),
+                                                  ),
+                                                ),
+                                                FractionallySizedBox(
+                                                  widthFactor:
+                                                      monster.maxCarapace > 0
+                                                      ? (monster.carapacePlating /
+                                                                monster
+                                                                    .maxCarapace)
+                                                            .clamp(0.0, 1.0)
+                                                      : 0.0,
+                                                  child: Container(
+                                                    height: 14,
+                                                    decoration: BoxDecoration(
+                                                      color: const Color(
+                                                        0xFF8B5A2B,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            1.5,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(height: 2),
+                                            Text(
+                                              'Deflects standard shots. Shatter with Blast/Culverin!',
+                                              style: InkTheme.caption.copyWith(
+                                                fontSize: 10.5,
+                                                fontStyle: FontStyle.italic,
+                                                color: const Color(0xFF6B4226),
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ] else ...[
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 4,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: InkTheme.crimsonAccent
+                                              .withValues(alpha: 0.12),
+                                          border: Border.all(
+                                            color: InkTheme.crimsonAccent,
+                                            width: 1.2,
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            3,
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(
+                                              Icons.shield_outlined,
+                                              size: 14,
+                                              color: InkTheme.crimsonAccent,
+                                            ),
+                                            const SizedBox(width: 6),
+                                            Flexible(
+                                              child: Text(
+                                                'CARAPACE SHATTERED (Vulnerable)',
+                                                style: InkTheme.caption
+                                                    .copyWith(
+                                                      color: InkTheme
+                                                          .crimsonAccent,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 10.5,
+                                                    ),
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
-                                  ),
-                                  const SizedBox(height: 2),
-                                  Text(
-                                    'Deflects standard shots. Shatter with Blast/Culverin!',
-                                    style: InkTheme.caption.copyWith(
-                                      fontSize: 10.5,
-                                      fontStyle: FontStyle.italic,
-                                      color: const Color(0xFF6B4226),
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
+                                  ],
                                 ],
                               ),
                             ),
-                          ] else ...[
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: InkTheme.crimsonAccent.withValues(
-                                  alpha: 0.12,
-                                ),
-                                border: Border.all(
-                                  color: InkTheme.crimsonAccent,
-                                  width: 1.2,
-                                ),
-                                borderRadius: BorderRadius.circular(3),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.shield_outlined,
-                                    size: 14,
-                                    color: InkTheme.crimsonAccent,
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Flexible(
-                                    child: Text(
-                                      'CARAPACE SHATTERED (Vulnerable)',
-                                      style: InkTheme.caption.copyWith(
-                                        color: InkTheme.crimsonAccent,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 10.5,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                          ),
                         ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              if (_sideLookout)
+                Positioned(
+                  key: const ValueKey('lookout-side'),
+                  top: _hudBottom,
+                  right: 16,
+                  width: _lookoutWidth,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight:
+                          (_viewport.height - _hudBottom - _dockHeight - 42)
+                              .clamp(80.0, 900.0),
+                    ),
+                    child: Scrollbar(
+                      controller: _lookoutScroll,
+                      thumbVisibility: true,
+                      child: SingleChildScrollView(
+                        controller: _lookoutScroll,
+                        child: _lookout(
+                          currentRange,
+                          activeHelmOrder,
+                          ship,
+                          monster,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              // A bounded dock keeps compact windows usable through deliberate scroll.
+              Positioned(
+                bottom: 16,
+                left: 16,
+                right: 16,
+                child: Container(
+                  key: _dockKey,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: InkTheme.parchmentSurface.withValues(alpha: 0.97),
+                    border: Border.all(color: InkTheme.inkPrimary, width: 2),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: _commandHeightBudget,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (!_sideLookout) ...[
+                          ConstrainedBox(
+                            constraints: BoxConstraints(
+                              maxHeight:
+                                  (_commandHeightBudget *
+                                          (_viewport.height < 700 ? 0.3 : 0.4))
+                                      .clamp(60.0, _viewport.height * 0.18),
+                            ),
+                            child: Scrollbar(
+                              controller: _lookoutScroll,
+                              thumbVisibility: true,
+                              child: SingleChildScrollView(
+                                controller: _lookoutScroll,
+                                child: _lookout(
+                                  currentRange,
+                                  activeHelmOrder,
+                                  ship,
+                                  monster,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                        ],
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: Scrollbar(
+                            controller: _commandScroll,
+                            thumbVisibility: true,
+                            child: SingleChildScrollView(
+                              controller: _commandScroll,
+                              key: const ValueKey('command-station-scroll'),
+                              child: LayoutBuilder(
+                                builder: (context, constraints) {
+                                  final helm = _buildHelmPanel(
+                                    currentRange,
+                                    enemyPreviewRange,
+                                    activeHelmOrder,
+                                    ship,
+                                    monster,
+                                  );
+                                  final actions = _buildHardpoints(
+                                    ship,
+                                    monster,
+                                    previewRange,
+                                    activeHelmOrder,
+                                    needsEmergencyPass,
+                                  );
+                                  if (constraints.maxWidth < 640) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        helm,
+                                        const SizedBox(height: 10),
+                                        actions,
+                                      ],
+                                    );
+                                  }
+                                  return Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(flex: 4, child: helm),
+                                      const SizedBox(width: 16),
+                                      Expanded(flex: 6, child: actions),
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        FocusTraversalGroup(
+                          // The belt's LayoutBuilder builds after the icons.
+                          // Explicit order keeps keyboard traversal in visual order.
+                          policy: OrderedTraversalPolicy(),
+                          child: Row(
+                            key: const ValueKey('battle-dock-footer'),
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Expanded(
+                                child: FocusTraversalOrder(
+                                  order: const NumericFocusOrder(1),
+                                  child: _buildBelt(
+                                    ship,
+                                    quickUsed,
+                                    maxQuickBeltUses,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              const FocusTraversalOrder(
+                                order: NumericFocusOrder(2),
+                                child: PauseMenuButton(),
+                              ),
+                              FocusTraversalOrder(
+                                order: const NumericFocusOrder(3),
+                                child: IconButton(
+                                  icon: const Icon(
+                                    Icons.menu_book_outlined,
+                                    color: InkTheme.inkPrimary,
+                                  ),
+                                  tooltip: 'Chronicle Log',
+                                  onPressed: () => showBattleChronicle(
+                                    context,
+                                    widget.controller,
+                                    scrollState: _chronicleScroll,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-
-          if (_sideLookout)
-            Positioned(
-              key: const ValueKey('lookout-side'),
-              top: _hudBottom,
-              right: 16,
-              width: _lookoutWidth,
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight:
-                      (MediaQuery.sizeOf(context).height -
-                              _hudBottom -
-                              _dockHeight -
-                              42)
-                          .clamp(80.0, 900.0),
-                ),
-                child: SingleChildScrollView(
-                  child: _lookout(currentRange, activeHelmOrder, ship, monster),
-                ),
               ),
-            ),
-          // A bounded dock keeps compact windows usable through deliberate scroll.
-          Positioned(
-            bottom: 16,
-            left: 16,
-            right: 16,
-            child: Container(
-              key: _dockKey,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: InkTheme.parchmentSurface.withValues(alpha: 0.97),
-                border: Border.all(color: InkTheme.inkPrimary, width: 2),
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxHeight: _commandHeightBudget),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (!_sideLookout) ...[
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxHeight:
-                              (_commandHeightBudget *
-                                      (MediaQuery.sizeOf(context).height < 700
-                                          ? 0.3
-                                          : 0.4))
-                                  .clamp(
-                                    60.0,
-                                    MediaQuery.sizeOf(context).height * 0.18,
-                                  ),
-                        ),
-                        child: SingleChildScrollView(
-                          child: _lookout(
-                            currentRange,
-                            activeHelmOrder,
-                            ship,
-                            monster,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                    ],
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: Scrollbar(
-                        controller: _commandScroll,
-                        thumbVisibility: true,
-                        child: SingleChildScrollView(
-                          controller: _commandScroll,
-                          key: const ValueKey('command-station-scroll'),
-                          child: LayoutBuilder(
-                            builder: (context, constraints) {
-                              final helm = _buildHelmPanel(
-                                currentRange,
-                                enemyPreviewRange,
-                                activeHelmOrder,
-                                ship,
-                                monster,
-                              );
-                              final actions = _buildHardpoints(
-                                ship,
-                                monster,
-                                previewRange,
-                                activeHelmOrder,
-                                needsEmergencyPass,
-                              );
-                              if (constraints.maxWidth < 640) {
-                                return Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    helm,
-                                    const SizedBox(height: 10),
-                                    actions,
-                                  ],
-                                );
-                              }
-                              return Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(flex: 4, child: helm),
-                                  const SizedBox(width: 16),
-                                  Expanded(flex: 6, child: actions),
-                                ],
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    FocusTraversalGroup(
-                      // The belt's LayoutBuilder builds after the icons.
-                      // Explicit order keeps keyboard traversal in visual order.
-                      policy: OrderedTraversalPolicy(),
-                      child: Row(
-                        key: const ValueKey('battle-dock-footer'),
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Expanded(
-                            child: FocusTraversalOrder(
-                              order: const NumericFocusOrder(1),
-                              child: _buildBelt(
-                                ship,
-                                quickUsed,
-                                maxQuickBeltUses,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          const FocusTraversalOrder(
-                            order: NumericFocusOrder(2),
-                            child: PauseMenuButton(),
-                          ),
-                          FocusTraversalOrder(
-                            order: const NumericFocusOrder(3),
-                            child: IconButton(
-                              icon: const Icon(
-                                Icons.menu_book_outlined,
-                                color: InkTheme.inkPrimary,
-                              ),
-                              tooltip: 'Chronicle Log',
-                              onPressed: () => showBattleChronicle(
-                                context,
-                                widget.controller,
-                                scrollState: _chronicleScroll,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
@@ -1242,7 +1326,7 @@ class _BattleScreenState extends State<BattleScreen> {
     final accuracyTip =
         'Opening shot accuracy: $accuracy%. Target dodge: ${monster.effectiveEvasion}%.';
     final name = weapons.length == 1
-        ? (isReady ? type.displayName : '${type.displayName} (${cooldown}T CD)')
+        ? type.displayName
         : '${type.displayName} ($readyCount/${weapons.length})';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

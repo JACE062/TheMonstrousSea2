@@ -208,6 +208,9 @@ void main() {
           );
           await tester.pumpAndSettle();
         }
+        await mouse.moveTo(Offset.zero);
+        await tester.ensureVisible(find.byKey(ValueKey(target)));
+        await tester.pumpAndSettle();
         await mouse.moveTo(tester.getCenter(find.byKey(ValueKey(target))));
         await tester.pump(const Duration(milliseconds: 500));
         await tester.pumpAndSettle();
@@ -260,6 +263,10 @@ void main() {
       );
       await mouse.moveTo(Offset.zero);
       await tester.pump(const Duration(milliseconds: 500));
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('monster-stat-illuminated')),
+      );
+      await tester.pumpAndSettle();
       await tester.longPress(
         find.byKey(const ValueKey('monster-stat-illuminated')),
       );

@@ -1,0 +1,7 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 130% bombardier dense and dialogs at Size(360.0, 900.0)
+00:01 +1: 130% bombardier dense and dialogs at Size(800.0, 600.0)
+00:02 +2: 130% bombardier dense and dialogs at Size(1672.0, 952.0)
+00:02 +3: (tearDownAll)
+00:02 +3: All tests passed!

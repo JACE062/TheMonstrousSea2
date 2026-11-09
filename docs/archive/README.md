@@ -188,3 +188,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Encounter layout audit 2026-11-09
 
 [The shore/encounter audit](playtests/ENCOUNTER_LAYOUT_2026_11_09.md) records the merchant/Haven/shrine/stronghold review, additional ketch and supply checks, clipped narrow footer and compact action-spacing corrections. [Evidence](playtests/evidence/encounter-layout-2026-11-09/manifest.json) retains the initial failure, final game-font/offline results, representative captures and fresh Windows preview correspondence. Existing services, mechanics, player saves, artwork, prior evidence and provisional tuning are preserved.
+
+## Combat layout audit 2026-11-09
+
+[The combat audit](playtests/COMBAT_LAYOUT_2026_11_09.md) records the five-hull, all-trait-pair review at 115%, crowded status/dock separation, clear lookout forecasts, compact reload-label correction and selected 130% dialog/help checks. [Evidence](playtests/evidence/combat-layout-2026-11-09/manifest.json) retains reproduced failures, final checks, font-loaded captures and isolated Windows preview correspondence. Gameplay, player saves, artwork, prior evidence and provisional tuning remain unchanged.
