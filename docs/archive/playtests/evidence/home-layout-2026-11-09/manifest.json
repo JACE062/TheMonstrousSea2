@@ -1,0 +1,789 @@
+{
+  "date": "2026-11-09",
+  "baseCommit": "cf685f5de4690f83252419abac61c2097a0600ea",
+  "request": "Review home port, blueprint/upgrade screens and lineage menus at 115% text.",
+  "scope": "Responsive home and Covenant layout; full selected save label; unchanged commands, prices, gates, progression, persistence and approved art.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "20290dc57cd1fefdcb072bf2f0583d09006ef31268a2eea4be87f26e02db39d0"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart",
+      "sha256": "b588f38b0b82e6cc8c7cb2924aa6566b7328dc6caa09ff6f497a0429d2b11270"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ink_button.dart",
+      "sha256": "3d469c9da81e021bdf69a2acf4575f4027db4d009c4a63ae84f10ccb6082da72"
+    },
+    {
+      "path": "apps/monstrous_sea/test/home_layout_matrix_test.dart",
+      "sha256": "d2fc52c6e602b323a8479d7326e4cb2833c8257d3c06722f2cda3dec3b9b171c"
+    }
+  ],
+  "unchangedFixtureHelpers": [
+    {
+      "path": "apps/monstrous_sea/test/chart_focus_ui_test.dart",
+      "sha256": "074b61c79bc0a58e57262cdb8e976cf89a0f3c29c2e0dd9a813ed6b37086b085"
+    },
+    {
+      "path": "apps/monstrous_sea/test/navigation_layout_matrix_test.dart",
+      "sha256": "ac8a7054e30d2464560f295bc89daec02e05739b7d0a3be1a620e31457d37712"
+    },
+    {
+      "path": "apps/monstrous_sea/test/lineage_menu_test.dart",
+      "sha256": "1626b2e2a369c2dd04dfbe61d22bf88cabb979628ef15fb54bf8283e9c5f1a45"
+    }
+  ],
+  "checks": {
+    "gameFontMatrixPassed": 174,
+    "offlineMatrixPassed": 174,
+    "existingRelatedPassed": 60,
+    "combinedOfflinePassed": 234,
+    "finalStatFormattingProofPassed": 1,
+    "primaryTextScale": 1.15,
+    "secondaryTextScale": 1.3,
+    "sizes": [
+      [
+        360,
+        900
+      ],
+      [
+        800,
+        480
+      ],
+      [
+        1280,
+        850
+      ]
+    ],
+    "matrixAreas": {
+      "homeAndCovenantStates": 60,
+      "lineageListStates": 27,
+      "newLineageStates": 15,
+      "additionalHulls": 32,
+      "traitDescriptionPairs": 16,
+      "largerTextHome": 15,
+      "largerTextMenus": 9
+    },
+    "hulls": 5,
+    "ancestralTiers": [
+      1,
+      2,
+      3
+    ],
+    "monumentFixtureRanks": [
+      0,
+      2,
+      10
+    ],
+    "monumentRanksAreNotACap": true,
+    "maximumSaveLabelCharacters": 60,
+    "keyboardInset": 240,
+    "fontQualification": "Cached Pirata One/IM Fell English and Material Icons for typography/ellipsis review; bundled SDK Roboto for the offline matrix.",
+    "assertions": [
+      "Home title and hull meter retain readable compact width",
+      "Boxed/text actions and checkboxes scroll into reach",
+      "Viewport and dialog bounds",
+      "Complete game-font action labels/subtitles",
+      "Profiles, ships, chart and memory lineage saves unchanged during browsing/rejected submissions",
+      "Close/Cancel remain accessible"
+    ],
+    "relatedCoverage": [
+      "Blueprint purchases and commissions",
+      "Ancestral armament upgrades",
+      "Covenant actions",
+      "Lineage creation, branching and error handling",
+      "Disposable lineage storage safeguards",
+      "Shore flows and shared button defaults"
+    ],
+    "analysis": "clean",
+    "format": "unchanged",
+    "documentation": "clean"
+  },
+  "baseline": {
+    "cases": 99,
+    "passed": 87,
+    "failed": 12,
+    "failure": "Compact Covenant heading/tabs/pact/relic/monument rows overflowed at 360 pixels across four progression states."
+  },
+  "longLabelProbe": {
+    "cases": 3,
+    "passed": 2,
+    "failed": 1,
+    "failure": "Continue selected-save subtitle clipped at 360 pixels for 60 wide glyphs."
+  },
+  "visualFindings": [
+    "Home title squeezed into fragments beside purse controls despite passing overflow checks",
+    "Fitting marks split mid-mark; now separated from mount count on a centered line"
+  ],
+  "preview": {
+    "correspondence": "preview-correspondence.json",
+    "path": ".dart_tool/home-lineage-layout-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+    "launched": false,
+    "sha256": "75f5cf5a704b6684e5790347a7185cf47a04be69c6a71fd861fbce08142252c6",
+    "matchedFiles": 120,
+    "bundledAssets": 34,
+    "unchangedCoreInputs": 53
+  },
+  "preserved": [
+    "Player saves",
+    "Existing previews and audit evidence",
+    "Gameplay, upgrade and storage rules",
+    "Approved art",
+    "Provisional balance tuning"
+  ],
+  "visualProofs": [
+    {
+      "path": "visual/before/home-pacts-poor-standard-360-1.15.png",
+      "sha256": "303cd14acbbd36955b0e6667d6c4b65900cc3c678b9c9c60595f3a67922651ad",
+      "stage": "baseline Covenant overflow"
+    },
+    {
+      "path": "visual/final/home-blueprints-maxed-standard-360-1.3-controls.png",
+      "sha256": "3da6c019c1cc1642abf4032083826de6cdd50463db777fd9704645ecf8760912",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-blueprints-maxed-standard-360-1.3.png",
+      "sha256": "e5abbb317b313937e7f69cbf432258e523773043e0e9a5527990f9cddb0a3382",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-blueprints-rich-standard-1280-1.15-controls.png",
+      "sha256": "da5c045fd589931db48bb2c906e8f600c0f9cf4fad80e4bd2a778e30e40a2911",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-blueprints-rich-standard-1280-1.15.png",
+      "sha256": "a15acdba317be3448192f186338f63e7358d5179a34199637ddea0055a755a46",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-blueprints-rich-standard-360-1.15-controls.png",
+      "sha256": "32799d52917227099bb7bf2af7078b4d2ff7914bfd06f1cc0cd425980f618d86",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-blueprints-rich-standard-360-1.15.png",
+      "sha256": "de10ce2cc36bddc75ca54790bfad02c9fb664c5c446562c95ffd8fe0269520f3",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-alternate-list-360-1.15.png",
+      "sha256": "6bb71124a51c289bde03b86f72ed49385cd2d3582db620f109c2cc256ab66124",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-catalogError-list-360-1.15.png",
+      "sha256": "b864f2f0342db3313ee81f58bad044f7a2548dd1badfe6ce1064118c56f06ba2",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-empty-createError-360-1.15.png",
+      "sha256": "b597b96751d85b39a119e7e04e52f288f46e982f65556b9f326ecd912836137c",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-empty-empty-360-1.15.png",
+      "sha256": "d6471c525755662befbee4572ec9191c217bf316ca668e81de78b689ebbf6b66",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-empty-invalid-360-1.15.png",
+      "sha256": "dfb6c1cd4f8d3e0043991bbc9a8b381dc87b7623f1b057ca41319f0054f5a862",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-empty-keyboard-360-1.15.png",
+      "sha256": "9005d312959ee36cc56a504c328a18b06586b62c47139b7b460331e7698b240a",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-empty-list-360-1.15.png",
+      "sha256": "a7e90024350a608e86a624d04056d50259e8b8ececb2db5f54c616fe93cf2e84",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-empty-longLabel-360-1.15.png",
+      "sha256": "67742eb1e296bb459b05fdfbe4397234f8ae3b61a26180d52e884b5dccbb9bac",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-ending-list-360-1.15.png",
+      "sha256": "6b627db24b6eca0e5f496708cf0cfddf876084a43d192ea63dc60af3005b6653",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-many-list-360-1.15.png",
+      "sha256": "b616acb213be0557a6e2d2dbc23652a1284a2476579500c6d36f7b729d25e3f1",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-noSnapshot-list-360-1.15.png",
+      "sha256": "6295a2472156905743013808dbd4db4bd491543d5c3d96364fe8471423f8dc75",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-openError-list-360-1.15.png",
+      "sha256": "672e124677aa799e92206a34c6deb7bd892adc5d0fde1b61008aed36eab56b0f",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-unreadable-list-360-1.15.png",
+      "sha256": "64777ef446269ebe943f0a1d84317deb7259cf265d47aa6818bdc22735176acd",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-menu-wideLabel-list-360-1.15.png",
+      "sha256": "d485ad9fe09fc4d92f7840be504517e63004d07a1f9cb5293cfdc4a971805262",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-monuments-maxed-standard-360-1.3-controls.png",
+      "sha256": "f3070d3da9b1a1555432ce2404cd1aebd6a65afebc8b49eb57901371ca57b748",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-monuments-maxed-standard-360-1.3.png",
+      "sha256": "1a679bb7a4ae3472c6bedb60f5561e19dce179b93960c37f346af43fa2beabf8",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-monuments-rich-standard-1280-1.15-controls.png",
+      "sha256": "a26189d102b755d4524831a463ae3e9c1909a75dc28b9b15515294a091595b9f",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-monuments-rich-standard-1280-1.15.png",
+      "sha256": "a26189d102b755d4524831a463ae3e9c1909a75dc28b9b15515294a091595b9f",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-monuments-rich-standard-360-1.15-controls.png",
+      "sha256": "6baa517a5199081bb81a80b2e47d3c6aaf3f9d584838f243c17710865eb04566",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-monuments-rich-standard-360-1.15.png",
+      "sha256": "1eea667f3db59ce1d2a1e8eb648b920dc6ba868e04617c55dd31b8f487b76d1f",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-overview-maxed-standard-360-1.3-controls.png",
+      "sha256": "64cd3d5ade303d3361d3558ff94eec28ddc2576c0f75ce06989d5707407df744",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-maxed-standard-360-1.3.png",
+      "sha256": "856b59c3fe993fa7401841107add6733b0e87384b285c3959c61ad94ca489156",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-bombardier-1280-1.15-controls.png",
+      "sha256": "e3d838bc3ce969048e947b9c0d260aca3bedd076d3933a859db98198d629eb1e",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-bombardier-1280-1.15.png",
+      "sha256": "5c1bd7b2f5b52b1935c00e51d96c3fbc7b21d17bc7f97dd9f8a5198df324582e",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-bombardier-360-1.15-controls.png",
+      "sha256": "d7d17df63e586d14cb470db70ebc8aca33b6c96809b23e5044537f734bb27211",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-bombardier-360-1.15.png",
+      "sha256": "be79083fcdb8eec48d1d447164781cfc998547ad14042a98de5a586f55c249d7",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-clipper-1280-1.15-controls.png",
+      "sha256": "e3d838bc3ce969048e947b9c0d260aca3bedd076d3933a859db98198d629eb1e",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-clipper-1280-1.15.png",
+      "sha256": "6c76fabf70f94918b70eccfa70d008cfccfa530fe3e6a9b90f8158f331d4b0f2",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-clipper-360-1.15-controls.png",
+      "sha256": "d7d17df63e586d14cb470db70ebc8aca33b6c96809b23e5044537f734bb27211",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-clipper-360-1.15.png",
+      "sha256": "787f6c98005885eb615da78066393333d5ba0916ecf5209d57055ff7fd86bc93",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-corsair-1280-1.15-controls.png",
+      "sha256": "ba4ee25b341d18b871fecaad4fd43d8ec2784e65e5673de76ad391fd7babf8e4",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-corsair-1280-1.15.png",
+      "sha256": "8002188c9934b9d1e9558d6891ba046fbd03a4a4966497983c957c90a13e8f26",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-corsair-360-1.15-controls.png",
+      "sha256": "9f93df8d811d4de1c4b100c34c42c3943574d720f90a7e16e3cb95ead89ecbc6",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-corsair-360-1.15.png",
+      "sha256": "29f3fc3bb5f52098a0ca95b8c743e90f69345bfc84283627de16c3958b5f5626",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-ironclad-1280-1.15-controls.png",
+      "sha256": "e3d838bc3ce969048e947b9c0d260aca3bedd076d3933a859db98198d629eb1e",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-ironclad-1280-1.15.png",
+      "sha256": "da01685402a68a4c99ce86a4531c9737726f376449a899ce305570ee1c256834",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-ironclad-360-1.15-controls.png",
+      "sha256": "d7d17df63e586d14cb470db70ebc8aca33b6c96809b23e5044537f734bb27211",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-ironclad-360-1.15.png",
+      "sha256": "b3868289d0e6f98a68c49d32f2227080cd11e95886586b1ba2dc9579b1fa4742",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-standard-360-1.15-controls.png",
+      "sha256": "d7d17df63e586d14cb470db70ebc8aca33b6c96809b23e5044537f734bb27211",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-owned-standard-360-1.15.png",
+      "sha256": "0b542e5308f618df95b5d6c2a45ab2454c43cb3bda016e0e742a26358703f02e",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-rich-standard-1280-1.15-controls.png",
+      "sha256": "403ccf7db1771a4f640543adc826fca1f37d5e80196d5be6cac9533a16846779",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-rich-standard-1280-1.15.png",
+      "sha256": "f3e98d8bb02d5820dabbb9729fb7e97950a20f8280e9a8baaa9726ff0987dac7",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-rich-standard-360-1.15-controls.png",
+      "sha256": "337ebc75ab6d9885c45cb97079fc49a2641232eebdf54f6ef5f54a2082f64d38",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-overview-rich-standard-360-1.15.png",
+      "sha256": "7674196ece3ca14ec510214f9e37120a1bf9aa1c2c5c9773bd21d6982bf18004",
+      "stage": "after compact summary correction; before fitting-mark line formatting"
+    },
+    {
+      "path": "visual/final/home-pacts-maxed-standard-360-1.3-controls.png",
+      "sha256": "f08a97c93dd28987e242c0b629350a064befd89e857011830089cc28d19f94da",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-pacts-maxed-standard-360-1.3.png",
+      "sha256": "1d7d1c3d15cdce24a3db521b7943ee7903867997748edc1fb14e1959ea0bfa0d",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-pacts-rich-standard-1280-1.15-controls.png",
+      "sha256": "ebed8a5b4e7d730a481cf751b912f0e9d14821e21e78b63f7796a8266ab12d09",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-pacts-rich-standard-1280-1.15.png",
+      "sha256": "fb39c3be532669a7ce8c536cc1ccbc6d1affdb55747a9a691602cd5d32154010",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-pacts-rich-standard-360-1.15-controls.png",
+      "sha256": "0c4e10ab01f67044d9764513464a407a713951b5771ffb1717e59c284551eea0",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-pacts-rich-standard-360-1.15.png",
+      "sha256": "1a9e4d949f84e8006708d75fe1df65dd7ba462b8f1c63ea3dc9e2b06af5fa9a1",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-relics-maxed-standard-360-1.3-controls.png",
+      "sha256": "6b2fff3aaff108e8619d3bd8ec8034e7e1de302c5730cfbe78d5de2487991675",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-relics-maxed-standard-360-1.3.png",
+      "sha256": "6b2fff3aaff108e8619d3bd8ec8034e7e1de302c5730cfbe78d5de2487991675",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-relics-rich-standard-1280-1.15-controls.png",
+      "sha256": "b5f7c2767062f5e4e3be696515af97196280e6870dee609dd3628be7ac4c5e91",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-relics-rich-standard-1280-1.15.png",
+      "sha256": "b5f7c2767062f5e4e3be696515af97196280e6870dee609dd3628be7ac4c5e91",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-relics-rich-standard-360-1.15-controls.png",
+      "sha256": "46e65b2dfc921b456a7ff2a097ceb27f87a716d854e0d19223ce4bb4c5c3e115",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-relics-rich-standard-360-1.15.png",
+      "sha256": "46e65b2dfc921b456a7ff2a097ceb27f87a716d854e0d19223ce4bb4c5c3e115",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-stats-overview-rich-standard-360-1.15-controls.png",
+      "sha256": "337ebc75ab6d9885c45cb97079fc49a2641232eebdf54f6ef5f54a2082f64d38",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/final/home-stats-overview-rich-standard-360-1.15.png",
+      "sha256": "5313b8051fa97c83f6575d3e9ae6d27a9896ce0740174d4b8097e97a784d2ab9",
+      "stage": "final reviewed foreground/layout"
+    },
+    {
+      "path": "visual/reviewed/home-blueprints-maxed-standard-360-1.3-controls.png",
+      "sha256": "8531c7920c395e11473bbe342ea4ea446772b7e18cd338d4828d779930ca0615",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-blueprints-maxed-standard-360-1.3.png",
+      "sha256": "ef8cdc439d317e559ccf578d2f6146bcc2145ce5768438d4af110b6845da8f65",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-blueprints-rich-standard-1280-1.15-controls.png",
+      "sha256": "da5c045fd589931db48bb2c906e8f600c0f9cf4fad80e4bd2a778e30e40a2911",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-blueprints-rich-standard-1280-1.15.png",
+      "sha256": "a15acdba317be3448192f186338f63e7358d5179a34199637ddea0055a755a46",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-blueprints-rich-standard-360-1.15-controls.png",
+      "sha256": "9117974a10b1ce56bd48103fc2b7881e1239657567e25c46637306a793fa9203",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-blueprints-rich-standard-360-1.15.png",
+      "sha256": "08abe2d43afa6617b4e9fb0ccbfba03e814eef911d61eb7c464c937bc0848b64",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-alternate-list-360-1.15.png",
+      "sha256": "6bb71124a51c289bde03b86f72ed49385cd2d3582db620f109c2cc256ab66124",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-catalogError-list-360-1.15.png",
+      "sha256": "b864f2f0342db3313ee81f58bad044f7a2548dd1badfe6ce1064118c56f06ba2",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-empty-createError-360-1.15.png",
+      "sha256": "b597b96751d85b39a119e7e04e52f288f46e982f65556b9f326ecd912836137c",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-empty-empty-360-1.15.png",
+      "sha256": "d6471c525755662befbee4572ec9191c217bf316ca668e81de78b689ebbf6b66",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-empty-invalid-360-1.15.png",
+      "sha256": "dfb6c1cd4f8d3e0043991bbc9a8b381dc87b7623f1b057ca41319f0054f5a862",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-empty-keyboard-360-1.15.png",
+      "sha256": "9005d312959ee36cc56a504c328a18b06586b62c47139b7b460331e7698b240a",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-empty-list-360-1.15.png",
+      "sha256": "a7e90024350a608e86a624d04056d50259e8b8ececb2db5f54c616fe93cf2e84",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-empty-longLabel-360-1.15.png",
+      "sha256": "67742eb1e296bb459b05fdfbe4397234f8ae3b61a26180d52e884b5dccbb9bac",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-ending-list-360-1.15.png",
+      "sha256": "6b627db24b6eca0e5f496708cf0cfddf876084a43d192ea63dc60af3005b6653",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-many-list-360-1.15.png",
+      "sha256": "b616acb213be0557a6e2d2dbc23652a1284a2476579500c6d36f7b729d25e3f1",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-noSnapshot-list-360-1.15.png",
+      "sha256": "6295a2472156905743013808dbd4db4bd491543d5c3d96364fe8471423f8dc75",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-openError-list-360-1.15.png",
+      "sha256": "672e124677aa799e92206a34c6deb7bd892adc5d0fde1b61008aed36eab56b0f",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-unreadable-list-360-1.15.png",
+      "sha256": "64777ef446269ebe943f0a1d84317deb7259cf265d47aa6818bdc22735176acd",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-menu-wideLabel-list-360-1.15.png",
+      "sha256": "d485ad9fe09fc4d92f7840be504517e63004d07a1f9cb5293cfdc4a971805262",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-monuments-maxed-standard-360-1.3-controls.png",
+      "sha256": "7ce574bf6bb35e6d30c6d58cc5f88ca341abad07a002e31ee5bf33ab4ce87ca6",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-monuments-maxed-standard-360-1.3.png",
+      "sha256": "ca38aa80515fc0ad2b1ba9ac614f9d6c3339563e4803cde1487bb47e6eebfc0d",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-monuments-rich-standard-1280-1.15-controls.png",
+      "sha256": "a26189d102b755d4524831a463ae3e9c1909a75dc28b9b15515294a091595b9f",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-monuments-rich-standard-1280-1.15.png",
+      "sha256": "a26189d102b755d4524831a463ae3e9c1909a75dc28b9b15515294a091595b9f",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-monuments-rich-standard-360-1.15-controls.png",
+      "sha256": "ad0aca1719449d5065c38b2caccbd24b8bc75f029a9422dd44d28bd4b1a3b844",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-monuments-rich-standard-360-1.15.png",
+      "sha256": "91ecdff5dfcd81d68de95e9475a9f6c52f82df276fb948c288c0d6216a25bda7",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-maxed-standard-360-1.3-controls.png",
+      "sha256": "97520f005a89df230f8e5b725eeb19c47d4eca89d9d49f8c57062a1ea0749f99",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-maxed-standard-360-1.3.png",
+      "sha256": "16c70de956e2cd07e749e22b9650be96120e63be05a24a3f1aa0c1030984fadc",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-bombardier-1280-1.15-controls.png",
+      "sha256": "e3d838bc3ce969048e947b9c0d260aca3bedd076d3933a859db98198d629eb1e",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-bombardier-1280-1.15.png",
+      "sha256": "5c1bd7b2f5b52b1935c00e51d96c3fbc7b21d17bc7f97dd9f8a5198df324582e",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-bombardier-360-1.15-controls.png",
+      "sha256": "876958e36f0f09a62a13e18187f768b9a4504571b438d18cebde8252d5576876",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-bombardier-360-1.15.png",
+      "sha256": "dd6c3de52ce1e74617e9bc89037218d66c1fe779a1a92ec6d7c54023c692bd95",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-clipper-1280-1.15-controls.png",
+      "sha256": "e3d838bc3ce969048e947b9c0d260aca3bedd076d3933a859db98198d629eb1e",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-clipper-1280-1.15.png",
+      "sha256": "6c76fabf70f94918b70eccfa70d008cfccfa530fe3e6a9b90f8158f331d4b0f2",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-clipper-360-1.15-controls.png",
+      "sha256": "876958e36f0f09a62a13e18187f768b9a4504571b438d18cebde8252d5576876",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-clipper-360-1.15.png",
+      "sha256": "632a9362ad60c530cc24c89e535383cfb04117f4d23528f6204c6000563ad213",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-corsair-1280-1.15-controls.png",
+      "sha256": "ba4ee25b341d18b871fecaad4fd43d8ec2784e65e5673de76ad391fd7babf8e4",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-corsair-1280-1.15.png",
+      "sha256": "8002188c9934b9d1e9558d6891ba046fbd03a4a4966497983c957c90a13e8f26",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-corsair-360-1.15-controls.png",
+      "sha256": "b4fd892fb10bcc078a404d3848a216e314dc9a265e09eb2abb80c7edb7b76c4a",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-corsair-360-1.15.png",
+      "sha256": "308ec3c558cf2886ee89c777a8b535f5eec5607983f18e536797ed3455ee4465",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-ironclad-1280-1.15-controls.png",
+      "sha256": "e3d838bc3ce969048e947b9c0d260aca3bedd076d3933a859db98198d629eb1e",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-ironclad-1280-1.15.png",
+      "sha256": "da01685402a68a4c99ce86a4531c9737726f376449a899ce305570ee1c256834",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-ironclad-360-1.15-controls.png",
+      "sha256": "876958e36f0f09a62a13e18187f768b9a4504571b438d18cebde8252d5576876",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-ironclad-360-1.15.png",
+      "sha256": "8940785a066b52db0136a1b5f32f48c5bacc93a624abc9b98ad4c7c024df50af",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-standard-360-1.15-controls.png",
+      "sha256": "876958e36f0f09a62a13e18187f768b9a4504571b438d18cebde8252d5576876",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-owned-standard-360-1.15.png",
+      "sha256": "4aee8cca6fe670480a1eed9ccea5e4198167f2ddab2e8e6be4974aeba5b58c8b",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-rich-standard-1280-1.15-controls.png",
+      "sha256": "403ccf7db1771a4f640543adc826fca1f37d5e80196d5be6cac9533a16846779",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-rich-standard-1280-1.15.png",
+      "sha256": "f3e98d8bb02d5820dabbb9729fb7e97950a20f8280e9a8baaa9726ff0987dac7",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-rich-standard-360-1.15-controls.png",
+      "sha256": "337ebc75ab6d9885c45cb97079fc49a2641232eebdf54f6ef5f54a2082f64d38",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-overview-rich-standard-360-1.15.png",
+      "sha256": "cca877e90fc7f6dfad55fdf1d54c2e10458535c241c454d6f9913781e69fbaf2",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-pacts-maxed-standard-360-1.3-controls.png",
+      "sha256": "2efc951d85e646ee45b326ca1cdced1fd6c1a75ccdc185871322133d4acfc134",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-pacts-maxed-standard-360-1.3.png",
+      "sha256": "62ab5d8b5232c89c5d20744d6b36a577fe2b9a201cc87d020d29196370c11810",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-pacts-rich-standard-1280-1.15-controls.png",
+      "sha256": "ebed8a5b4e7d730a481cf751b912f0e9d14821e21e78b63f7796a8266ab12d09",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-pacts-rich-standard-1280-1.15.png",
+      "sha256": "fb39c3be532669a7ce8c536cc1ccbc6d1affdb55747a9a691602cd5d32154010",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-pacts-rich-standard-360-1.15-controls.png",
+      "sha256": "1466f78dba544e145c0390fcbfd499011d9b268ad616dfb01c80dbac5517caf5",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-pacts-rich-standard-360-1.15.png",
+      "sha256": "6b78d8edebc652005649ff68df185304362ea1c861682ddf4e8e6be4f40c3be2",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-relics-maxed-standard-360-1.3-controls.png",
+      "sha256": "4c69cdc29385613a8533abad306a64e802195749ee32f3e0a297885c79efa5a0",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-relics-maxed-standard-360-1.3.png",
+      "sha256": "4c69cdc29385613a8533abad306a64e802195749ee32f3e0a297885c79efa5a0",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-relics-rich-standard-1280-1.15-controls.png",
+      "sha256": "b5f7c2767062f5e4e3be696515af97196280e6870dee609dd3628be7ac4c5e91",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-relics-rich-standard-1280-1.15.png",
+      "sha256": "b5f7c2767062f5e4e3be696515af97196280e6870dee609dd3628be7ac4c5e91",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-relics-rich-standard-360-1.15-controls.png",
+      "sha256": "aa69861ccb92ba37b890333e1486d0be86e4ac55894edd18418ae7d98f055f8f",
+      "stage": "probe before compact home-summary correction"
+    },
+    {
+      "path": "visual/reviewed/home-relics-rich-standard-360-1.15.png",
+      "sha256": "aa69861ccb92ba37b890333e1486d0be86e4ac55894edd18418ae7d98f055f8f",
+      "stage": "probe before compact home-summary correction"
+    }
+  ],
+  "logs": [
+    "checks/analysis-probe.log",
+    "checks/analysis.log",
+    "checks/baseline-capture.log",
+    "checks/baseline-matrix.log",
+    "checks/docs.log",
+    "checks/final-stat-proof.log",
+    "checks/format.log",
+    "checks/long-label-before.log",
+    "checks/matrix-game-fonts.log",
+    "checks/offline-and-related.log",
+    "checks/pre-header-matrix.log",
+    "checks/pre-stat-format-matrix.log",
+    "checks/preview-build.log",
+    "checks/preview-pub.log"
+  ]
+}

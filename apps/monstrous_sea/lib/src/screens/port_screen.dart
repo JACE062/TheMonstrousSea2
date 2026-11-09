@@ -351,10 +351,13 @@ class _PortScreenState extends State<PortScreen> {
               borderRadius: BorderRadius.circular(4),
               side: const BorderSide(color: InkTheme.crimsonAccent, width: 2),
             ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            title: Wrap(
+              spacing: 12,
+              runSpacing: 8,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     const Icon(
                       Icons.nights_stay,
@@ -362,11 +365,13 @@ class _PortScreenState extends State<PortScreen> {
                       size: 26,
                     ),
                     const SizedBox(width: 8),
-                    Text(
-                      'ABYSSAL COVENANT ALTAR',
-                      style: InkTheme.titleMedium.copyWith(
-                        color: InkTheme.crimsonAccent,
-                        fontSize: 20,
+                    Flexible(
+                      child: Text(
+                        'ABYSSAL COVENANT ALTAR',
+                        style: InkTheme.titleMedium.copyWith(
+                          color: InkTheme.crimsonAccent,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                   ],
@@ -451,7 +456,8 @@ class _PortScreenState extends State<PortScreen> {
                     const SizedBox(height: 12),
 
                     // Navigation Tabs: PACTS | RELICS | MONUMENTS
-                    Row(
+                    _responsiveRow(
+                      breakpoint: 560,
                       children: [
                         Expanded(
                           child: _covenantTabButton(
@@ -552,7 +558,10 @@ class _PortScreenState extends State<PortScreen> {
                                 setDialogState(() {});
                                 setState(() {});
                               },
-                              title: Row(
+                              title: Wrap(
+                                spacing: 8,
+                                runSpacing: 4,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   Text(
                                     pact.name.toUpperCase(),
@@ -564,7 +573,6 @@ class _PortScreenState extends State<PortScreen> {
                                           : InkTheme.inkPrimary,
                                     ),
                                   ),
-                                  const Spacer(),
                                   Container(
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 6,
@@ -654,32 +662,31 @@ class _PortScreenState extends State<PortScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
+                              _responsiveRow(
                                 children: [
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Row(
+                                        Wrap(
+                                          spacing: 8,
+                                          runSpacing: 4,
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.center,
                                           children: [
-                                            Flexible(
-                                              child: Text(
-                                                def.name.toUpperCase(),
-                                                style: InkTheme.titleMedium
-                                                    .copyWith(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: isUnlocked
-                                                          ? InkTheme
-                                                                .crimsonAccent
-                                                          : InkTheme.inkPrimary,
-                                                    ),
-                                              ),
+                                            Text(
+                                              def.name.toUpperCase(),
+                                              style: InkTheme.titleMedium
+                                                  .copyWith(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: isUnlocked
+                                                        ? InkTheme.crimsonAccent
+                                                        : InkTheme.inkPrimary,
+                                                  ),
                                             ),
                                             if (isUnlocked) ...[
-                                              const SizedBox(width: 8),
                                               Container(
                                                 padding:
                                                     const EdgeInsets.symmetric(
@@ -715,6 +722,7 @@ class _PortScreenState extends State<PortScreen> {
                                       ],
                                     ),
                                   ),
+                                  const SizedBox(width: 8),
                                   if (isUnlocked)
                                     Text(
                                       'ACTIVE ON HULL',
@@ -830,27 +838,27 @@ class _PortScreenState extends State<PortScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
+                              _responsiveRow(
                                 children: [
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Row(
+                                        Wrap(
+                                          spacing: 8,
+                                          runSpacing: 4,
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.center,
                                           children: [
-                                            Flexible(
-                                              child: Text(
-                                                def.name.toUpperCase(),
-                                                style: InkTheme.titleMedium
-                                                    .copyWith(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                              ),
+                                            Text(
+                                              def.name.toUpperCase(),
+                                              style: InkTheme.titleMedium
+                                                  .copyWith(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                             ),
-                                            const SizedBox(width: 8),
                                             Container(
                                               padding:
                                                   const EdgeInsets.symmetric(
@@ -887,6 +895,7 @@ class _PortScreenState extends State<PortScreen> {
                                       ],
                                     ),
                                   ),
+                                  const SizedBox(width: 8),
                                   InkButton(
                                     label: canUpgrade
                                         ? 'UPGRADE (Rank $nextRank)'
@@ -943,6 +952,31 @@ class _PortScreenState extends State<PortScreen> {
     );
   }
 
+  Widget _responsiveRow({
+    required List<Widget> children,
+    double breakpoint = 500,
+    CrossAxisAlignment rowAlignment = CrossAxisAlignment.center,
+    CrossAxisAlignment columnAlignment = CrossAxisAlignment.stretch,
+  }) => LayoutBuilder(
+    builder: (context, constraints) {
+      if (constraints.maxWidth >= breakpoint) {
+        return Row(crossAxisAlignment: rowAlignment, children: children);
+      }
+      return Column(
+        crossAxisAlignment: columnAlignment,
+        children: [
+          for (final child in children)
+            if (child is Expanded)
+              child.child
+            else if (child is SizedBox && child.width != null)
+              SizedBox(height: child.width)
+            else
+              child,
+        ],
+      );
+    },
+  );
+
   Widget _covenantTabButton({
     required String label,
     required IconData icon,
@@ -973,12 +1007,15 @@ class _PortScreenState extends State<PortScreen> {
               color: isSelected ? Colors.white : InkTheme.inkPrimary,
             ),
             const SizedBox(width: 6),
-            Text(
-              label,
-              style: InkTheme.caption.copyWith(
-                color: isSelected ? Colors.white : InkTheme.inkPrimary,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
+            Flexible(
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: InkTheme.caption.copyWith(
+                  color: isSelected ? Colors.white : InkTheme.inkPrimary,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
               ),
             ),
           ],
@@ -1003,8 +1040,7 @@ class _PortScreenState extends State<PortScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Port Banner
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                _responsiveRow(
                   children: [
                     Expanded(
                       child: Column(
@@ -1025,6 +1061,7 @@ class _PortScreenState extends State<PortScreen> {
                     const SizedBox(width: 8),
                     Row(
                       mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         const PauseMenuButton(),
                         const SizedBox(width: 4),
@@ -1071,8 +1108,9 @@ class _PortScreenState extends State<PortScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        _responsiveRow(
+                          rowAlignment: CrossAxisAlignment.start,
+                          columnAlignment: CrossAxisAlignment.start,
                           children: [
                             SvgAssetView(
                               assetPath: PilotArt.forShip(ship),
@@ -1145,7 +1183,7 @@ class _PortScreenState extends State<PortScreen> {
                             ),
                             _vesselStat(
                               'SHIP FITTINGS',
-                              '3 Mounts (${ship.markLabelForHardpoint(HardpointType.broadside)}/${ship.markLabelForHardpoint(HardpointType.signature)}/${ship.markLabelForHardpoint(HardpointType.utility)})',
+                              '3 Mounts\n${ship.markLabelForHardpoint(HardpointType.broadside)} / ${ship.markLabelForHardpoint(HardpointType.signature)} / ${ship.markLabelForHardpoint(HardpointType.utility)}',
                             ),
                             _vesselStat(
                               'MONSTERS SLAIN',
@@ -1172,7 +1210,7 @@ class _PortScreenState extends State<PortScreen> {
                       alpha: 0.05,
                     ),
                     padding: const EdgeInsets.all(12),
-                    child: Row(
+                    child: _responsiveRow(
                       children: [
                         // Placeholder; replace with curated Covenant art (BACKLOG art pass).
                         const Icon(
@@ -1293,7 +1331,11 @@ class _PortScreenState extends State<PortScreen> {
       children: [
         Text(label, style: InkTheme.statLabel.copyWith(fontSize: 12.5)),
         const SizedBox(height: 2),
-        Text(value, style: InkTheme.statValue.copyWith(fontSize: 16)),
+        Text(
+          value,
+          textAlign: TextAlign.center,
+          style: InkTheme.statValue.copyWith(fontSize: 16),
+        ),
       ],
     );
   }

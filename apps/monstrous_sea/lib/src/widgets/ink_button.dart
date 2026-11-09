@@ -10,6 +10,7 @@ class InkButton extends StatelessWidget {
     required this.onPressed,
     this.icon,
     this.subtitle,
+    this.subtitleMaxLines = 2,
     this.subtitleColor,
     this.isDanger = false,
     this.isPrimary = false,
@@ -23,6 +24,9 @@ class InkButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget? icon;
   final String? subtitle;
+
+  /// Allow user-entered labels to wrap fully where the entire name matters.
+  final int? subtitleMaxLines;
   final Color? subtitleColor;
   final bool isDanger;
   final bool isPrimary;
@@ -106,8 +110,10 @@ class InkButton extends StatelessWidget {
                     const SizedBox(height: 1),
                     Text(
                       subtitle!,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                      maxLines: subtitleMaxLines,
+                      overflow: subtitleMaxLines == null
+                          ? null
+                          : TextOverflow.ellipsis,
                       style: InkTheme.caption.copyWith(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,

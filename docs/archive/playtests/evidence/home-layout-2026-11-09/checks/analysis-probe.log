@@ -1,0 +1,7 @@
+Analyzing monstrous_sea...                                      
+
+warning - Unused import: 'package:monstrous_sea/src/services/lineage_store.dart'. Try removing the import directive - test\home_layout_matrix_test.dart:13:8 - unused_import
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\home_layout_matrix_test.dart:341:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\home_layout_matrix_test.dart:345:5 - curly_braces_in_flow_control_structures
+
+3 issues found. (ran in 18.4s)

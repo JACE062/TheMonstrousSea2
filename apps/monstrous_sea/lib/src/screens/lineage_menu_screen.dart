@@ -231,6 +231,7 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
                 ],
                 InkButton(
                   label: 'CONTINUE',
+                  subtitleMaxLines: null,
                   subtitle: selected == null
                       ? 'Select a lineage below'
                       : selected.slot.label,
@@ -288,10 +289,7 @@ class _LineageMenuScreenState extends State<LineageMenuScreen> {
                 const SizedBox(height: 28),
                 Text('YOUR LINEAGES', style: InkTheme.titleMedium),
                 const SizedBox(height: 8),
-                Text(
-                  'Each lineage is its own save.',
-                  style: InkTheme.body,
-                ),
+                Text('Each lineage is its own save.', style: InkTheme.body),
                 const SizedBox(height: 12),
                 if (!_busy && _error == null && _summaries.isEmpty)
                   Text(
@@ -414,9 +412,7 @@ class _NewLineageDialogState extends State<_NewLineageDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'Name this save.',
-            ),
+            const Text('Name this save.'),
             const SizedBox(height: 16),
             TextFormField(
               key: const ValueKey('lineage-label'),
