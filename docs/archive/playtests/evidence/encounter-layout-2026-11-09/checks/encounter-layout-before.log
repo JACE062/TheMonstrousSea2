@@ -1,0 +1,123 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% merchant at Size(360.0, 900.0)
+00:00 +1: 115% merchant at Size(800.0, 480.0)
+00:01 +2: 115% merchant at Size(1280.0, 850.0)
+00:01 +3: 115% merchantFull at Size(360.0, 900.0)
+00:01 +4: 115% merchantFull at Size(800.0, 480.0)
+00:01 +5: 115% merchantFull at Size(1280.0, 850.0)
+00:01 +6: 115% merchantPoor at Size(360.0, 900.0)
+00:01 +7: 115% merchantPoor at Size(800.0, 480.0)
+00:01 +8: 115% merchantPoor at Size(1280.0, 850.0)
+00:01 +9: 115% merchantEmpty at Size(360.0, 900.0)
+00:01 +10: 115% merchantEmpty at Size(800.0, 480.0)
+00:02 +11: 115% merchantEmpty at Size(1280.0, 850.0)
+00:02 +12: 115% materials at Size(360.0, 900.0)
+00:02 +13: 115% materials at Size(800.0, 480.0)
+00:02 +14: 115% materials at Size(1280.0, 850.0)
+00:02 +15: 115% sellBelt at Size(360.0, 900.0)
+00:02 +16: 115% sellBelt at Size(800.0, 480.0)
+00:02 +17: 115% sellBelt at Size(1280.0, 850.0)
+00:02 +18: 115% merchantInspect at Size(360.0, 900.0)
+00:03 +19: 115% merchantInspect at Size(800.0, 480.0)
+00:03 +20: 115% merchantInspect at Size(1280.0, 850.0)
+00:03 +21: 115% haven at Size(360.0, 900.0)
+00:03 +22: 115% haven at Size(800.0, 480.0)
+00:03 +23: 115% haven at Size(1280.0, 850.0)
+00:03 +24: 115% havenSpent at Size(360.0, 900.0)
+00:03 +25: 115% havenSpent at Size(800.0, 480.0)
+00:03 +26: 115% havenSpent at Size(1280.0, 850.0)
+00:03 +27: 115% havenMax at Size(360.0, 900.0)
+00:03 +28: 115% havenMax at Size(800.0, 480.0)
+00:03 +29: 115% havenMax at Size(1280.0, 850.0)
+00:03 +30: 115% cove at Size(360.0, 900.0)
+00:04 +31: 115% cove at Size(800.0, 480.0)
+00:04 +32: 115% cove at Size(1280.0, 850.0)
+00:04 +33: 115% refit at Size(360.0, 900.0)
+00:04 +34: 115% refit at Size(800.0, 480.0)
+00:04 +35: 115% refit at Size(1280.0, 850.0)
+00:04 +36: 115% repairsSpent at Size(360.0, 900.0)
+00:04 +37: 115% repairsSpent at Size(800.0, 480.0)
+00:04 +38: 115% repairsSpent at Size(1280.0, 850.0)
+00:04 +39: 115% shrine at Size(360.0, 900.0)
+00:04 +40: 115% shrine at Size(800.0, 480.0)
+00:04 +41: 115% shrine at Size(1280.0, 850.0)
+00:04 +42: 115% shrineCompare at Size(360.0, 900.0)
+00:04 +43: 115% shrineCompare at Size(800.0, 480.0)
+00:04 +44: 115% shrineCompare at Size(1280.0, 850.0)
+00:04 +45: 115% shrineForbidden at Size(360.0, 900.0)
+00:05 +46: 115% shrineForbidden at Size(800.0, 480.0)
+00:05 +47: 115% shrineForbidden at Size(1280.0, 850.0)
+00:05 +48: 115% shrineSovereign at Size(360.0, 900.0)
+00:05 +49: 115% shrineSovereign at Size(800.0, 480.0)
+00:05 +50: 115% shrineSovereign at Size(1280.0, 850.0)
+00:05 +51: 115% shrineComplete at Size(360.0, 900.0)
+00:05 +52: 115% shrineComplete at Size(800.0, 480.0)
+00:05 +53: 115% shrineComplete at Size(1280.0, 850.0)
+00:05 +54: 115% stronghold at Size(360.0, 900.0)
+00:05 +55: 115% stronghold at Size(800.0, 480.0)
+00:05 +56: 115% stronghold at Size(1280.0, 850.0)
+00:05 +57: 115% strongholdMax at Size(360.0, 900.0)
+00:05 +58: 115% strongholdMax at Size(800.0, 480.0)
+00:05 +59: 115% strongholdMax at Size(1280.0, 850.0)
+00:05 +60: 115% strongholdInspect at Size(360.0, 900.0)
+00:05 +61: 115% strongholdInspect at Size(800.0, 480.0)
+00:05 +62: 115% strongholdInspect at Size(1280.0, 850.0)
+00:05 +63: 115% smuggler at Size(360.0, 900.0)
+00:06 +64: 115% smuggler at Size(800.0, 480.0)
+00:06 +65: 115% smuggler at Size(1280.0, 850.0)
+00:06 +66: 115% smugglerGift at Size(360.0, 900.0)
+00:06 +67: 115% smugglerGift at Size(800.0, 480.0)
+00:06 +68: 115% smugglerGift at Size(1280.0, 850.0)
+00:06 +69: 115% smugglerSell at Size(360.0, 900.0)
+00:06 +70: 115% smugglerSell at Size(800.0, 480.0)
+00:06 +71: 115% smugglerSell at Size(1280.0, 850.0)
+00:06 +72: 115% smugglerArmory at Size(360.0, 900.0)
+00:06 +73: 115% smugglerArmory at Size(800.0, 480.0)
+00:07 +74: 115% smugglerArmory at Size(1280.0, 850.0)
+00:07 +75: 115% lootFull at Size(360.0, 900.0)
+00:07 +76: 115% lootFull at Size(800.0, 480.0)
+00:07 +77: 115% lootFull at Size(1280.0, 850.0)
+00:07 +78: 115% lootAvailable at Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Action label clipped: LEAVE LEFTOVER & CONTINUE
+
+When the exception was thrown, this was the stack:
+#4      auditButtons (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart:273:9)
+<asynchronous suspension>
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart:338:3)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart:377:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart line 273
+The test description was:
+  115% lootAvailable at Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +78 -1: 115% lootAvailable at Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% lootAvailable at Size(360.0, 900.0)
+  
+00:07 +78 -1: 115% lootAvailable at Size(800.0, 480.0)
+00:07 +79 -1: 115% lootAvailable at Size(1280.0, 850.0)
+00:07 +80 -1: 115% wreckAssess at Size(360.0, 900.0)
+00:07 +81 -1: 115% wreckAssess at Size(800.0, 480.0)
+00:07 +82 -1: 115% wreckAssess at Size(1280.0, 850.0)
+00:07 +83 -1: 115% wreckReceipt at Size(360.0, 900.0)
+00:08 +84 -1: 115% wreckReceipt at Size(800.0, 480.0)
+00:08 +85 -1: 115% wreckReceipt at Size(1280.0, 850.0)
+00:08 +86 -1: (tearDownAll)
+00:08 +86 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart: 115% lootAvailable at Size(360.0, 900.0)

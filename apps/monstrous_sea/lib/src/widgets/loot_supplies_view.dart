@@ -25,7 +25,8 @@ class LootSuppliesView extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          for (final child in children)
+          for (final child in children) ...[
+            if (child is InkButton) const SizedBox(height: 8),
             if (child is Expanded)
               child.child
             else if (child is SizedBox)
@@ -34,6 +35,7 @@ class LootSuppliesView extends StatelessWidget {
               Align(alignment: Alignment.centerLeft, child: child)
             else
               child,
+          ],
         ],
       );
     },
@@ -177,30 +179,28 @@ class LootSuppliesView extends StatelessWidget {
           const SizedBox(height: 16),
 
           // Primary Action Buttons (placed directly below spoils)
-          Row(
-            children: [
-              if (pendingLoot.isNotEmpty && !isFull)
-                Expanded(
-                  child: InkButton(
-                    label: 'TAKE ALL SPOILS',
-                    isPrimary: true,
-                    onPressed: () => controller.dispatch(const TakeAllLoot()),
-                  ),
-                ),
-              if (pendingLoot.isNotEmpty && !isFull) const SizedBox(width: 12),
+          _itemDetails([
+            if (pendingLoot.isNotEmpty && !isFull)
               Expanded(
                 child: InkButton(
-                  label: pendingLoot.isEmpty
-                      ? 'CONTINUE VOYAGE'
-                      : 'LEAVE LEFTOVER & CONTINUE',
-                  onPressed: () {
-                    controller.dispatch(const LeaveRemainingLoot());
-                    onContinue?.call();
-                  },
+                  label: 'TAKE ALL SPOILS',
+                  isPrimary: true,
+                  onPressed: () => controller.dispatch(const TakeAllLoot()),
                 ),
               ),
-            ],
-          ),
+            if (pendingLoot.isNotEmpty && !isFull) const SizedBox(width: 12),
+            Expanded(
+              child: InkButton(
+                label: pendingLoot.isEmpty
+                    ? 'CONTINUE VOYAGE'
+                    : 'LEAVE LEFTOVER & CONTINUE',
+                onPressed: () {
+                  controller.dispatch(const LeaveRemainingLoot());
+                  onContinue?.call();
+                },
+              ),
+            ),
+          ]),
           const SizedBox(height: 20),
 
           // Cargo Hold Management (Jettison options to free space)

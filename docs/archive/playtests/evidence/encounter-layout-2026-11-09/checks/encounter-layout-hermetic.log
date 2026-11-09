@@ -1,0 +1,170 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% merchant at Size(360.0, 900.0)
+00:00 +1: 115% merchant at Size(800.0, 480.0)
+00:00 +2: 115% merchant at Size(1280.0, 850.0)
+00:01 +3: 115% merchantFull at Size(360.0, 900.0)
+00:01 +4: 115% merchantFull at Size(800.0, 480.0)
+00:01 +5: 115% merchantFull at Size(1280.0, 850.0)
+00:01 +6: 115% merchantPoor at Size(360.0, 900.0)
+00:01 +7: 115% merchantPoor at Size(800.0, 480.0)
+00:01 +8: 115% merchantPoor at Size(1280.0, 850.0)
+00:01 +9: 115% merchantEmpty at Size(360.0, 900.0)
+00:01 +10: 115% merchantEmpty at Size(800.0, 480.0)
+00:01 +11: 115% merchantEmpty at Size(1280.0, 850.0)
+00:01 +12: 115% materials at Size(360.0, 900.0)
+00:02 +13: 115% materials at Size(800.0, 480.0)
+00:02 +14: 115% materials at Size(1280.0, 850.0)
+00:02 +15: 115% sellBelt at Size(360.0, 900.0)
+00:02 +16: 115% sellBelt at Size(800.0, 480.0)
+00:02 +17: 115% sellBelt at Size(1280.0, 850.0)
+00:02 +18: 115% merchantInspect at Size(360.0, 900.0)
+00:02 +19: 115% merchantInspect at Size(800.0, 480.0)
+00:02 +20: 115% merchantInspect at Size(1280.0, 850.0)
+00:02 +21: 115% haven at Size(360.0, 900.0)
+00:03 +22: 115% haven at Size(800.0, 480.0)
+00:03 +23: 115% haven at Size(1280.0, 850.0)
+00:03 +24: 115% havenSpent at Size(360.0, 900.0)
+00:03 +25: 115% havenSpent at Size(800.0, 480.0)
+00:03 +26: 115% havenSpent at Size(1280.0, 850.0)
+00:03 +27: 115% havenInspect at Size(360.0, 900.0)
+00:03 +28: 115% havenInspect at Size(800.0, 480.0)
+00:03 +29: 115% havenInspect at Size(1280.0, 850.0)
+00:03 +30: 115% havenMax at Size(360.0, 900.0)
+00:03 +31: 115% havenMax at Size(800.0, 480.0)
+00:03 +32: 115% havenMax at Size(1280.0, 850.0)
+00:03 +33: 115% cove at Size(360.0, 900.0)
+00:03 +34: 115% cove at Size(800.0, 480.0)
+00:03 +35: 115% cove at Size(1280.0, 850.0)
+00:03 +36: 115% refit at Size(360.0, 900.0)
+00:03 +37: 115% refit at Size(800.0, 480.0)
+00:04 +38: 115% refit at Size(1280.0, 850.0)
+00:04 +39: 115% repairsSpent at Size(360.0, 900.0)
+00:04 +40: 115% repairsSpent at Size(800.0, 480.0)
+00:04 +41: 115% repairsSpent at Size(1280.0, 850.0)
+00:04 +42: 115% shrine at Size(360.0, 900.0)
+00:04 +43: 115% shrine at Size(800.0, 480.0)
+00:04 +44: 115% shrine at Size(1280.0, 850.0)
+00:04 +45: 115% shrineCompare at Size(360.0, 900.0)
+00:04 +46: 115% shrineCompare at Size(800.0, 480.0)
+00:04 +47: 115% shrineCompare at Size(1280.0, 850.0)
+00:04 +48: 115% shrineForbidden at Size(360.0, 900.0)
+00:04 +49: 115% shrineForbidden at Size(800.0, 480.0)
+00:04 +50: 115% shrineForbidden at Size(1280.0, 850.0)
+00:04 +51: 115% shrineSovereign at Size(360.0, 900.0)
+00:04 +52: 115% shrineSovereign at Size(800.0, 480.0)
+00:04 +53: 115% shrineSovereign at Size(1280.0, 850.0)
+00:04 +54: 115% shrineComplete at Size(360.0, 900.0)
+00:05 +55: 115% shrineComplete at Size(800.0, 480.0)
+00:05 +56: 115% shrineComplete at Size(1280.0, 850.0)
+00:05 +57: 115% stronghold at Size(360.0, 900.0)
+00:05 +58: 115% stronghold at Size(800.0, 480.0)
+00:05 +59: 115% stronghold at Size(1280.0, 850.0)
+00:05 +60: 115% strongholdMax at Size(360.0, 900.0)
+00:05 +61: 115% strongholdMax at Size(800.0, 480.0)
+00:05 +62: 115% strongholdMax at Size(1280.0, 850.0)
+00:05 +63: 115% strongholdInspect at Size(360.0, 900.0)
+00:05 +64: 115% strongholdInspect at Size(800.0, 480.0)
+00:05 +65: 115% strongholdInspect at Size(1280.0, 850.0)
+00:05 +66: 115% smuggler at Size(360.0, 900.0)
+00:05 +67: 115% smuggler at Size(800.0, 480.0)
+00:05 +68: 115% smuggler at Size(1280.0, 850.0)
+00:05 +69: 115% smugglerGift at Size(360.0, 900.0)
+00:05 +70: 115% smugglerGift at Size(800.0, 480.0)
+00:05 +71: 115% smugglerGift at Size(1280.0, 850.0)
+00:06 +72: 115% smugglerSell at Size(360.0, 900.0)
+00:06 +73: 115% smugglerSell at Size(800.0, 480.0)
+00:06 +74: 115% smugglerSell at Size(1280.0, 850.0)
+00:06 +75: 115% smugglerArmory at Size(360.0, 900.0)
+00:06 +76: 115% smugglerArmory at Size(800.0, 480.0)
+00:06 +77: 115% smugglerArmory at Size(1280.0, 850.0)
+00:06 +78: 115% lootFull at Size(360.0, 900.0)
+00:06 +79: 115% lootFull at Size(800.0, 480.0)
+00:06 +80: 115% lootFull at Size(1280.0, 850.0)
+00:06 +81: 115% lootAvailable at Size(360.0, 900.0)
+00:07 +82: 115% lootAvailable at Size(800.0, 480.0)
+00:07 +83: 115% lootAvailable at Size(1280.0, 850.0)
+00:07 +84: 115% wreckAssess at Size(360.0, 900.0)
+00:07 +85: 115% wreckAssess at Size(800.0, 480.0)
+00:07 +86: 115% wreckAssess at Size(1280.0, 850.0)
+00:07 +87: 115% wreckReceipt at Size(360.0, 900.0)
+00:07 +88: 115% wreckReceipt at Size(800.0, 480.0)
+00:07 +89: 115% wreckReceipt at Size(1280.0, 850.0)
+00:07 +90: 115% standard havenMax at 360.0
+00:07 +91: 115% standard havenMax at 1280.0
+00:07 +92: 115% standard strongholdInspect at 360.0
+00:07 +93: 115% standard strongholdInspect at 1280.0
+00:07 +94: 115% standard shrineCompare at 360.0
+00:07 +95: 115% standard shrineCompare at 1280.0
+00:07 +96: 115% ironclad havenMax at 360.0
+00:07 +97: 115% ironclad havenMax at 1280.0
+00:07 +98: 115% ironclad strongholdInspect at 360.0
+00:07 +99: 115% ironclad strongholdInspect at 1280.0
+00:07 +100: 115% ironclad shrineCompare at 360.0
+00:08 +101: 115% ironclad shrineCompare at 1280.0
+00:08 +102: 115% clipper havenMax at 360.0
+00:08 +103: 115% clipper havenMax at 1280.0
+00:08 +104: 115% clipper strongholdInspect at 360.0
+00:08 +105: 115% clipper strongholdInspect at 1280.0
+00:08 +106: 115% clipper shrineCompare at 360.0
+00:08 +107: 115% clipper shrineCompare at 1280.0
+00:08 +108: 115% bombardier havenMax at 360.0
+00:08 +109: 115% bombardier havenMax at 1280.0
+00:08 +110: 115% bombardier strongholdInspect at 360.0
+00:08 +111: 115% bombardier strongholdInspect at 1280.0
+00:08 +112: 115% bombardier shrineCompare at 360.0
+00:08 +113: 115% bombardier shrineCompare at 1280.0
+00:08 +114: 115% corsair havenMax at 360.0
+00:08 +115: 115% corsair havenMax at 1280.0
+00:08 +116: 115% corsair strongholdInspect at 360.0
+00:08 +117: 115% corsair strongholdInspect at 1280.0
+00:08 +118: 115% corsair shrineCompare at 360.0
+00:09 +119: 115% corsair shrineCompare at 1280.0
+00:09 +120: 115% shrine magmaVentLord comparison at 360.0
+00:09 +121: 115% shrine magmaVentLord comparison at 800.0
+00:09 +122: 115% shrine magmaVentLord comparison at 1280.0
+00:09 +123: 115% shrine tempestSovereign comparison at 360.0
+00:09 +124: 115% shrine tempestSovereign comparison at 800.0
+00:09 +125: 115% shrine tempestSovereign comparison at 1280.0
+00:09 +126: 115% shrine brinemother comparison at 360.0
+00:09 +127: 115% shrine brinemother comparison at 800.0
+00:09 +128: 115% shrine brinemother comparison at 1280.0
+00:09 +129: 115% shrine earthshakerTitan comparison at 360.0
+00:09 +130: 115% shrine earthshakerTitan comparison at 800.0
+00:09 +131: 115% shrine earthshakerTitan comparison at 1280.0
+00:09 +132: 130% merchantFull at 360.0
+00:09 +133: 130% merchantFull at 1280.0
+00:09 +134: 130% materials at 360.0
+00:09 +135: 130% materials at 1280.0
+00:10 +136: 130% havenMax at 360.0
+00:10 +137: 130% havenMax at 1280.0
+00:10 +138: 130% shrineCompare at 360.0
+00:10 +139: 130% shrineCompare at 1280.0
+00:10 +140: 130% shrineForbidden at 360.0
+00:10 +141: 130% shrineForbidden at 1280.0
+00:10 +142: 130% strongholdInspect at 360.0
+00:10 +143: 130% strongholdInspect at 1280.0
+00:10 +144: 130% smugglerGift at 360.0
+00:10 +145: 130% smugglerGift at 1280.0
+00:10 +146: 130% lootFull at 360.0
+00:10 +147: 130% lootFull at 1280.0
+00:10 +148: 130% lootAvailable at 360.0
+00:10 +149: 130% lootAvailable at 1280.0
+00:10 +150: 130% wreckReceipt at 360.0
+00:10 +151: 130% wreckReceipt at 1280.0
+00:10 +152: 115% region 0 merchant at 360.0
+00:10 +153: 115% region 0 merchant at 1280.0
+00:10 +154: 115% region 0 haven at 360.0
+00:11 +155: 115% region 0 haven at 1280.0
+00:11 +156: 115% region 0 shrineForbidden at 360.0
+00:11 +157: 115% region 0 shrineForbidden at 1280.0
+00:11 +158: 115% region 2 merchant at 360.0
+00:11 +159: 115% region 2 merchant at 1280.0
+00:11 +160: 115% region 2 haven at 360.0
+00:11 +161: 115% region 2 haven at 1280.0
+00:11 +162: 115% region 2 shrineForbidden at 360.0
+00:11 +163: 115% region 2 shrineForbidden at 1280.0
+00:11 +164: 115% Iron Bastion inspection at 360.0
+00:11 +165: 115% Iron Bastion inspection at 1280.0
+00:11 +166: (tearDownAll)
+00:11 +166: All tests passed!

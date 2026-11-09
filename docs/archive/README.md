@@ -184,3 +184,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Navigation layout audit 2026-11-09
 
 [The trait/state audit](playtests/NAVIGATION_LAYOUT_2026_11_09.md) records all trait pairs, regional stops, real Nemesis/restriction states, the additional midpoint-fit correction and a larger usable map in page-scroll layouts. [Evidence](playtests/evidence/navigation-layout-2026-11-09/manifest.json) retains the initial failure, final 319-case result, representative font-loaded proofs and fresh Windows preview correspondence. Existing saves, art, earlier evidence and provisional gameplay tuning are preserved.
+
+## Encounter layout audit 2026-11-09
+
+[The shore/encounter audit](playtests/ENCOUNTER_LAYOUT_2026_11_09.md) records the merchant/Haven/shrine/stronghold review, additional ketch and supply checks, clipped narrow footer and compact action-spacing corrections. [Evidence](playtests/evidence/encounter-layout-2026-11-09/manifest.json) retains the initial failure, final game-font/offline results, representative captures and fresh Windows preview correspondence. Existing services, mechanics, player saves, artwork, prior evidence and provisional tuning are preserved.
