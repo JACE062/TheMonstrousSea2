@@ -180,3 +180,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Storm-Seer chart layout verification 2026-11-08
 
 [The layout receipt](playtests/STORM_SEER_CHART_2026_11_08.md) records the reproduced desktop collapse, separate on-map auxiliary notes, independent text measurement and compact fallback/resize checks. [Evidence](playtests/evidence/storm-seer-chart-2026-11-08/manifest.json) preserves the player input, before/after checks, font-loaded layouts and fresh Windows preview correspondence. Existing saves, prior bundles, navigation mechanics and provisional tuning are preserved.
+
+## Navigation layout audit 2026-11-09
+
+[The trait/state audit](playtests/NAVIGATION_LAYOUT_2026_11_09.md) records all trait pairs, regional stops, real Nemesis/restriction states, the additional midpoint-fit correction and a larger usable map in page-scroll layouts. [Evidence](playtests/evidence/navigation-layout-2026-11-09/manifest.json) retains the initial failure, final 319-case result, representative font-loaded proofs and fresh Windows preview correspondence. Existing saves, art, earlier evidence and provisional gameplay tuning are preserved.

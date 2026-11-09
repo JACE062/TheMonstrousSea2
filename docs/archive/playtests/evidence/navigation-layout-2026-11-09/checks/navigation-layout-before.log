@@ -1,0 +1,158 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% traits veteranCannoneer + bloodOath
+00:00 +1: 115% traits veteranCannoneer + recklessHelmsman
+00:00 +2: 115% traits veteranCannoneer + superstitious
+00:00 +3: 115% traits veteranCannoneer + exactingShipwright
+00:01 +4: 115% traits veteranCannoneer + overzealousGunner
+00:01 +5: 115% traits veteranCannoneer + daredevil
+00:01 +6: 115% traits veteranCannoneer + impatient
+00:01 +7: 115% traits veteranCannoneer + skirmisher
+00:01 +8: 115% traits stormSeer + bloodOath
+00:01 +9: 115% traits stormSeer + recklessHelmsman
+00:01 +10: 115% traits stormSeer + superstitious
+00:01 +11: 115% traits stormSeer + exactingShipwright
+00:01 +12: 115% traits stormSeer + overzealousGunner
+00:01 +13: 115% traits stormSeer + daredevil
+00:01 +14: 115% traits stormSeer + impatient
+00:01 +15: 115% traits stormSeer + skirmisher
+00:01 +16: 115% traits ironConstitution + bloodOath
+00:02 +17: 115% traits ironConstitution + recklessHelmsman
+00:02 +18: 115% traits ironConstitution + superstitious
+00:02 +19: 115% traits ironConstitution + exactingShipwright
+00:02 +20: 115% traits ironConstitution + overzealousGunner
+00:02 +21: 115% traits ironConstitution + daredevil
+00:02 +22: 115% traits ironConstitution + impatient
+00:02 +23: 115% traits ironConstitution + skirmisher
+00:02 +24: 115% traits smugglersKin + bloodOath
+00:02 +25: 115% traits smugglersKin + recklessHelmsman
+00:02 +26: 115% traits smugglersKin + superstitious
+00:02 +27: 115% traits smugglersKin + exactingShipwright
+00:02 +28: 115% traits smugglersKin + overzealousGunner
+00:02 +29: 115% traits smugglersKin + daredevil
+00:02 +30: 115% traits smugglersKin + impatient
+00:02 +31: 115% traits smugglersKin + skirmisher
+00:02 +32: 115% traits drillmaster + bloodOath
+00:02 +33: 115% traits drillmaster + recklessHelmsman
+00:03 +34: 115% traits drillmaster + superstitious
+00:03 +35: 115% traits drillmaster + exactingShipwright
+00:03 +36: 115% traits drillmaster + overzealousGunner
+00:03 +37: 115% traits drillmaster + daredevil
+00:03 +38: 115% traits drillmaster + impatient
+00:03 +39: 115% traits drillmaster + skirmisher
+00:03 +40: 115% traits preciseCommander + bloodOath
+00:03 +41: 115% traits preciseCommander + recklessHelmsman
+00:03 +42: 115% traits preciseCommander + superstitious
+00:03 +43: 115% traits preciseCommander + exactingShipwright
+00:03 +44: 115% traits preciseCommander + overzealousGunner
+00:03 +45: 115% traits preciseCommander + daredevil
+00:03 +46: 115% traits preciseCommander + impatient
+00:03 +47: 115% traits preciseCommander + skirmisher
+00:03 +48: 115% traits skilledCarpenter + bloodOath
+00:03 +49: 115% traits skilledCarpenter + recklessHelmsman
+00:03 +50: 115% traits skilledCarpenter + superstitious
+00:04 +51: 115% traits skilledCarpenter + exactingShipwright
+00:04 +52: 115% traits skilledCarpenter + overzealousGunner
+00:04 +53: 115% traits skilledCarpenter + daredevil
+00:04 +54: 115% traits skilledCarpenter + impatient
+00:04 +55: 115% traits skilledCarpenter + skirmisher
+00:04 +56: 115% traits quartermaster + bloodOath
+00:04 +57: 115% traits quartermaster + recklessHelmsman
+00:04 +58: 115% traits quartermaster + superstitious
+00:04 +59: 115% traits quartermaster + exactingShipwright
+00:04 +60: 115% traits quartermaster + overzealousGunner
+00:04 +61: 115% traits quartermaster + daredevil
+00:04 +62: 115% traits quartermaster + impatient
+00:04 +63: 115% traits quartermaster + skirmisher
+00:04 +64: 115% region 0 ordinary Size(1672.0, 952.0)
+00:04 +65: 115% region 0 ordinary Size(1920.0, 1080.0)
+00:04 +66: 115% region 0 midpoint Size(1672.0, 952.0)
+00:04 +67: 115% region 0 midpoint Size(1920.0, 1080.0)
+00:04 +68: 115% region 0 preparation Size(1672.0, 952.0)
+00:04 +69: 115% region 0 preparation Size(1920.0, 1080.0)
+00:05 +70: 115% region 0 titan Size(1672.0, 952.0)
+00:05 +71: 115% region 0 titan Size(1920.0, 1080.0)
+00:05 +72: 115% region 0 vendetta Size(1672.0, 952.0)
+00:05 +73: 115% region 0 vendetta Size(1920.0, 1080.0)
+00:05 +74: 115% region 0 fog Size(1672.0, 952.0)
+00:05 +75: 115% region 0 fog Size(1920.0, 1080.0)
+00:05 +76: 115% region 0 spent Size(1672.0, 952.0)
+00:05 +77: 115% region 0 spent Size(1920.0, 1080.0)
+00:05 +78: 115% region 0 lowHull Size(1672.0, 952.0)
+00:05 +79: 115% region 0 lowHull Size(1920.0, 1080.0)
+00:05 +80: 115% region 0 identified Size(1672.0, 952.0)
+00:05 +81: 115% region 0 identified Size(1920.0, 1080.0)
+00:05 +82: 115% region 0 longNemesis Size(1672.0, 952.0)
+00:05 +83: 115% region 0 longNemesis Size(1920.0, 1080.0)
+00:05 +84: 115% region 1 ordinary Size(1672.0, 952.0)
+00:05 +85: 115% region 1 ordinary Size(1920.0, 1080.0)
+00:05 +86: 115% region 1 midpoint Size(1672.0, 952.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: not null
+  Actual: <null>
+115% desktop navigation should keep the full chart.
+
+When the exception was thrown, this was the stack:
+#4      checkHelm (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_layout_matrix_test.dart:112:5)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_layout_matrix_test.dart:171:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_layout_matrix_test.dart line 112
+The test description was:
+  115% region 1 midpoint Size(1672.0, 952.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +86 -1: 115% region 1 midpoint Size(1672.0, 952.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% region 1 midpoint Size(1672.0, 952.0)
+  
+00:06 +86 -1: 115% region 1 midpoint Size(1920.0, 1080.0)
+00:06 +87 -1: 115% region 1 preparation Size(1672.0, 952.0)
+00:06 +88 -1: 115% region 1 preparation Size(1920.0, 1080.0)
+00:06 +89 -1: 115% region 1 titan Size(1672.0, 952.0)
+00:06 +90 -1: 115% region 1 titan Size(1920.0, 1080.0)
+00:06 +91 -1: 115% region 1 vendetta Size(1672.0, 952.0)
+00:06 +92 -1: 115% region 1 vendetta Size(1920.0, 1080.0)
+00:06 +93 -1: 115% region 1 fog Size(1672.0, 952.0)
+00:06 +94 -1: 115% region 1 fog Size(1920.0, 1080.0)
+00:06 +95 -1: 115% region 1 spent Size(1672.0, 952.0)
+00:06 +96 -1: 115% region 1 spent Size(1920.0, 1080.0)
+00:06 +97 -1: 115% region 1 lowHull Size(1672.0, 952.0)
+00:06 +98 -1: 115% region 1 lowHull Size(1920.0, 1080.0)
+00:06 +99 -1: 115% region 1 identified Size(1672.0, 952.0)
+00:06 +100 -1: 115% region 1 identified Size(1920.0, 1080.0)
+00:07 +101 -1: 115% region 1 longNemesis Size(1672.0, 952.0)
+00:07 +102 -1: 115% region 1 longNemesis Size(1920.0, 1080.0)
+00:07 +103 -1: 115% region 2 ordinary Size(1672.0, 952.0)
+00:07 +104 -1: 115% region 2 ordinary Size(1920.0, 1080.0)
+00:07 +105 -1: 115% region 2 midpoint Size(1672.0, 952.0)
+00:07 +106 -1: 115% region 2 midpoint Size(1920.0, 1080.0)
+00:07 +107 -1: 115% region 2 preparation Size(1672.0, 952.0)
+00:07 +108 -1: 115% region 2 preparation Size(1920.0, 1080.0)
+00:07 +109 -1: 115% region 2 titan Size(1672.0, 952.0)
+00:07 +110 -1: 115% region 2 titan Size(1920.0, 1080.0)
+00:07 +111 -1: 115% region 2 vendetta Size(1672.0, 952.0)
+00:07 +112 -1: 115% region 2 vendetta Size(1920.0, 1080.0)
+00:07 +113 -1: 115% region 2 fog Size(1672.0, 952.0)
+00:07 +114 -1: 115% region 2 fog Size(1920.0, 1080.0)
+00:07 +115 -1: 115% region 2 spent Size(1672.0, 952.0)
+00:07 +116 -1: 115% region 2 spent Size(1920.0, 1080.0)
+00:07 +117 -1: 115% region 2 lowHull Size(1672.0, 952.0)
+00:07 +118 -1: 115% region 2 lowHull Size(1920.0, 1080.0)
+00:07 +119 -1: 115% region 2 identified Size(1672.0, 952.0)
+00:08 +120 -1: 115% region 2 identified Size(1920.0, 1080.0)
+00:08 +121 -1: 115% region 2 longNemesis Size(1672.0, 952.0)
+00:08 +122 -1: 115% region 2 longNemesis Size(1920.0, 1080.0)
+00:08 +123 -1: (tearDownAll)
+00:08 +123 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_layout_matrix_test.dart: 115% region 1 midpoint Size(1672.0, 952.0)

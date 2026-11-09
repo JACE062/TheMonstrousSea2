@@ -312,8 +312,8 @@ class _HelmScreenState extends State<HelmScreen> {
                     );
                     final overlay =
                         constraints.maxWidth >= 1000 &&
-                        // Allow for card/control borders and scaled line metrics.
-                        reportsHeight <= constraints.maxHeight - 108 &&
+                        // The chart insets its reports by 32 pixels at each end.
+                        reportsHeight <= constraints.maxHeight - 64 &&
                         // Keep the auxiliary notes clear of the compass/tools.
                         supportHeight <= constraints.maxHeight - 240;
                     if (overlay) {
@@ -338,9 +338,10 @@ class _HelmScreenState extends State<HelmScreen> {
                             chart: controller.seaChart,
                             ship: controller.ship,
                             takeMotion: controller.takeNavigationMotion,
-                            viewportHeight: (constraints.maxHeight * .58).clamp(
+                            // Leave the report heading visible as a page-scroll target.
+                            viewportHeight: (constraints.maxHeight - 100).clamp(
                               260,
-                              440,
+                              double.infinity,
                             ),
                           ),
                           const SizedBox(height: 16),

@@ -1,0 +1,261 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/navigation_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% ordinary traits veteranCannoneer + bloodOath
+00:00 +1: 115% lowHull traits veteranCannoneer + bloodOath
+00:00 +2: 115% ordinary traits veteranCannoneer + recklessHelmsman
+00:00 +3: 115% lowHull traits veteranCannoneer + recklessHelmsman
+00:00 +4: 115% ordinary traits veteranCannoneer + superstitious
+00:00 +5: 115% lowHull traits veteranCannoneer + superstitious
+00:01 +6: 115% ordinary traits veteranCannoneer + exactingShipwright
+00:01 +7: 115% lowHull traits veteranCannoneer + exactingShipwright
+00:01 +8: 115% ordinary traits veteranCannoneer + overzealousGunner
+00:01 +9: 115% lowHull traits veteranCannoneer + overzealousGunner
+00:01 +10: 115% ordinary traits veteranCannoneer + daredevil
+00:01 +11: 115% lowHull traits veteranCannoneer + daredevil
+00:01 +12: 115% ordinary traits veteranCannoneer + impatient
+00:01 +13: 115% lowHull traits veteranCannoneer + impatient
+00:01 +14: 115% ordinary traits veteranCannoneer + skirmisher
+00:01 +15: 115% lowHull traits veteranCannoneer + skirmisher
+00:01 +16: 115% ordinary traits stormSeer + bloodOath
+00:01 +17: 115% lowHull traits stormSeer + bloodOath
+00:01 +18: 115% ordinary traits stormSeer + recklessHelmsman
+00:01 +19: 115% lowHull traits stormSeer + recklessHelmsman
+00:01 +20: 115% ordinary traits stormSeer + superstitious
+00:01 +21: 115% lowHull traits stormSeer + superstitious
+00:01 +22: 115% ordinary traits stormSeer + exactingShipwright
+00:02 +23: 115% lowHull traits stormSeer + exactingShipwright
+00:02 +24: 115% ordinary traits stormSeer + overzealousGunner
+00:02 +25: 115% lowHull traits stormSeer + overzealousGunner
+00:02 +26: 115% ordinary traits stormSeer + daredevil
+00:02 +27: 115% lowHull traits stormSeer + daredevil
+00:02 +28: 115% ordinary traits stormSeer + impatient
+00:02 +29: 115% lowHull traits stormSeer + impatient
+00:02 +30: 115% ordinary traits stormSeer + skirmisher
+00:02 +31: 115% lowHull traits stormSeer + skirmisher
+00:02 +32: 115% ordinary traits ironConstitution + bloodOath
+00:02 +33: 115% lowHull traits ironConstitution + bloodOath
+00:02 +34: 115% ordinary traits ironConstitution + recklessHelmsman
+00:02 +35: 115% lowHull traits ironConstitution + recklessHelmsman
+00:02 +36: 115% ordinary traits ironConstitution + superstitious
+00:02 +37: 115% lowHull traits ironConstitution + superstitious
+00:02 +38: 115% ordinary traits ironConstitution + exactingShipwright
+00:02 +39: 115% lowHull traits ironConstitution + exactingShipwright
+00:02 +40: 115% ordinary traits ironConstitution + overzealousGunner
+00:02 +41: 115% lowHull traits ironConstitution + overzealousGunner
+00:02 +42: 115% ordinary traits ironConstitution + daredevil
+00:03 +43: 115% lowHull traits ironConstitution + daredevil
+00:03 +44: 115% ordinary traits ironConstitution + impatient
+00:03 +45: 115% lowHull traits ironConstitution + impatient
+00:03 +46: 115% ordinary traits ironConstitution + skirmisher
+00:03 +47: 115% lowHull traits ironConstitution + skirmisher
+00:03 +48: 115% ordinary traits smugglersKin + bloodOath
+00:03 +49: 115% lowHull traits smugglersKin + bloodOath
+00:03 +50: 115% ordinary traits smugglersKin + recklessHelmsman
+00:03 +51: 115% lowHull traits smugglersKin + recklessHelmsman
+00:03 +52: 115% ordinary traits smugglersKin + superstitious
+00:03 +53: 115% lowHull traits smugglersKin + superstitious
+00:03 +54: 115% ordinary traits smugglersKin + exactingShipwright
+00:03 +55: 115% lowHull traits smugglersKin + exactingShipwright
+00:03 +56: 115% ordinary traits smugglersKin + overzealousGunner
+00:03 +57: 115% lowHull traits smugglersKin + overzealousGunner
+00:03 +58: 115% ordinary traits smugglersKin + daredevil
+00:03 +59: 115% lowHull traits smugglersKin + daredevil
+00:03 +60: 115% ordinary traits smugglersKin + impatient
+00:03 +61: 115% lowHull traits smugglersKin + impatient
+00:03 +62: 115% ordinary traits smugglersKin + skirmisher
+00:04 +63: 115% lowHull traits smugglersKin + skirmisher
+00:04 +64: 115% ordinary traits drillmaster + bloodOath
+00:04 +65: 115% lowHull traits drillmaster + bloodOath
+00:04 +66: 115% ordinary traits drillmaster + recklessHelmsman
+00:04 +67: 115% lowHull traits drillmaster + recklessHelmsman
+00:04 +68: 115% ordinary traits drillmaster + superstitious
+00:04 +69: 115% lowHull traits drillmaster + superstitious
+00:04 +70: 115% ordinary traits drillmaster + exactingShipwright
+00:04 +71: 115% lowHull traits drillmaster + exactingShipwright
+00:04 +72: 115% ordinary traits drillmaster + overzealousGunner
+00:04 +73: 115% lowHull traits drillmaster + overzealousGunner
+00:04 +74: 115% ordinary traits drillmaster + daredevil
+00:04 +75: 115% lowHull traits drillmaster + daredevil
+00:04 +76: 115% ordinary traits drillmaster + impatient
+00:04 +77: 115% lowHull traits drillmaster + impatient
+00:04 +78: 115% ordinary traits drillmaster + skirmisher
+00:04 +79: 115% lowHull traits drillmaster + skirmisher
+00:04 +80: 115% ordinary traits preciseCommander + bloodOath
+00:04 +81: 115% lowHull traits preciseCommander + bloodOath
+00:04 +82: 115% ordinary traits preciseCommander + recklessHelmsman
+00:04 +83: 115% lowHull traits preciseCommander + recklessHelmsman
+00:04 +84: 115% ordinary traits preciseCommander + superstitious
+00:04 +85: 115% lowHull traits preciseCommander + superstitious
+00:04 +86: 115% ordinary traits preciseCommander + exactingShipwright
+00:05 +87: 115% lowHull traits preciseCommander + exactingShipwright
+00:05 +88: 115% ordinary traits preciseCommander + overzealousGunner
+00:05 +89: 115% lowHull traits preciseCommander + overzealousGunner
+00:05 +90: 115% ordinary traits preciseCommander + daredevil
+00:05 +91: 115% lowHull traits preciseCommander + daredevil
+00:05 +92: 115% ordinary traits preciseCommander + impatient
+00:05 +93: 115% lowHull traits preciseCommander + impatient
+00:05 +94: 115% ordinary traits preciseCommander + skirmisher
+00:05 +95: 115% lowHull traits preciseCommander + skirmisher
+00:05 +96: 115% ordinary traits skilledCarpenter + bloodOath
+00:05 +97: 115% lowHull traits skilledCarpenter + bloodOath
+00:05 +98: 115% ordinary traits skilledCarpenter + recklessHelmsman
+00:05 +99: 115% lowHull traits skilledCarpenter + recklessHelmsman
+00:05 +100: 115% ordinary traits skilledCarpenter + superstitious
+00:05 +101: 115% lowHull traits skilledCarpenter + superstitious
+00:05 +102: 115% ordinary traits skilledCarpenter + exactingShipwright
+00:05 +103: 115% lowHull traits skilledCarpenter + exactingShipwright
+00:05 +104: 115% ordinary traits skilledCarpenter + overzealousGunner
+00:05 +105: 115% lowHull traits skilledCarpenter + overzealousGunner
+00:05 +106: 115% ordinary traits skilledCarpenter + daredevil
+00:05 +107: 115% lowHull traits skilledCarpenter + daredevil
+00:05 +108: 115% ordinary traits skilledCarpenter + impatient
+00:05 +109: 115% lowHull traits skilledCarpenter + impatient
+00:05 +110: 115% ordinary traits skilledCarpenter + skirmisher
+00:06 +111: 115% lowHull traits skilledCarpenter + skirmisher
+00:06 +112: 115% ordinary traits quartermaster + bloodOath
+00:06 +113: 115% lowHull traits quartermaster + bloodOath
+00:06 +114: 115% ordinary traits quartermaster + recklessHelmsman
+00:06 +115: 115% lowHull traits quartermaster + recklessHelmsman
+00:06 +116: 115% ordinary traits quartermaster + superstitious
+00:06 +117: 115% lowHull traits quartermaster + superstitious
+00:06 +118: 115% ordinary traits quartermaster + exactingShipwright
+00:06 +119: 115% lowHull traits quartermaster + exactingShipwright
+00:06 +120: 115% ordinary traits quartermaster + overzealousGunner
+00:06 +121: 115% lowHull traits quartermaster + overzealousGunner
+00:06 +122: 115% ordinary traits quartermaster + daredevil
+00:06 +123: 115% lowHull traits quartermaster + daredevil
+00:06 +124: 115% ordinary traits quartermaster + impatient
+00:06 +125: 115% lowHull traits quartermaster + impatient
+00:06 +126: 115% ordinary traits quartermaster + skirmisher
+00:06 +127: 115% lowHull traits quartermaster + skirmisher
+00:06 +128: 115% region 0 opening Size(1280.0, 850.0)
+00:06 +129: 115% region 0 opening Size(1672.0, 952.0)
+00:06 +130: 115% region 0 opening Size(1920.0, 1080.0)
+00:06 +131: 115% region 0 ordinary Size(1280.0, 850.0)
+00:06 +132: 115% region 0 ordinary Size(1672.0, 952.0)
+00:06 +133: 115% region 0 ordinary Size(1920.0, 1080.0)
+00:06 +134: 115% region 0 midpoint Size(1280.0, 850.0)
+00:06 +135: 115% region 0 midpoint Size(1672.0, 952.0)
+00:07 +136: 115% region 0 midpoint Size(1920.0, 1080.0)
+00:07 +137: 115% region 0 preparation Size(1280.0, 850.0)
+00:07 +138: 115% region 0 preparation Size(1672.0, 952.0)
+00:07 +139: 115% region 0 preparation Size(1920.0, 1080.0)
+00:07 +140: 115% region 0 titan Size(1280.0, 850.0)
+00:07 +141: 115% region 0 titan Size(1672.0, 952.0)
+00:07 +142: 115% region 0 titan Size(1920.0, 1080.0)
+00:07 +143: 115% region 0 vendetta Size(1280.0, 850.0)
+00:07 +144: 115% region 0 vendetta Size(1672.0, 952.0)
+00:07 +145: 115% region 0 vendetta Size(1920.0, 1080.0)
+00:07 +146: 115% region 0 fog Size(1280.0, 850.0)
+00:07 +147: 115% region 0 fog Size(1672.0, 952.0)
+00:07 +148: 115% region 0 fog Size(1920.0, 1080.0)
+00:07 +149: 115% region 0 spent Size(1280.0, 850.0)
+00:07 +150: 115% region 0 spent Size(1672.0, 952.0)
+00:07 +151: 115% region 0 spent Size(1920.0, 1080.0)
+00:07 +152: 115% region 0 lowHull Size(1280.0, 850.0)
+00:07 +153: 115% region 0 lowHull Size(1672.0, 952.0)
+00:07 +154: 115% region 0 lowHull Size(1920.0, 1080.0)
+00:07 +155: 115% region 0 identified Size(1280.0, 850.0)
+00:07 +156: 115% region 0 identified Size(1672.0, 952.0)
+00:07 +157: 115% region 0 identified Size(1920.0, 1080.0)
+00:07 +158: 115% region 0 longNemesis Size(1280.0, 850.0)
+00:07 +159: 115% region 0 longNemesis Size(1672.0, 952.0)
+00:07 +160: 115% region 0 longNemesis Size(1920.0, 1080.0)
+00:07 +161: 115% region 1 opening Size(1280.0, 850.0)
+00:07 +162: 115% region 1 opening Size(1672.0, 952.0)
+00:08 +163: 115% region 1 opening Size(1920.0, 1080.0)
+00:08 +164: 115% region 1 ordinary Size(1280.0, 850.0)
+00:08 +165: 115% region 1 ordinary Size(1672.0, 952.0)
+00:08 +166: 115% region 1 ordinary Size(1920.0, 1080.0)
+00:08 +167: 115% region 1 midpoint Size(1280.0, 850.0)
+00:08 +168: 115% region 1 midpoint Size(1672.0, 952.0)
+00:08 +169: 115% region 1 midpoint Size(1920.0, 1080.0)
+00:08 +170: 115% region 1 preparation Size(1280.0, 850.0)
+00:08 +171: 115% region 1 preparation Size(1672.0, 952.0)
+00:08 +172: 115% region 1 preparation Size(1920.0, 1080.0)
+00:08 +173: 115% region 1 titan Size(1280.0, 850.0)
+00:08 +174: 115% region 1 titan Size(1672.0, 952.0)
+00:08 +175: 115% region 1 titan Size(1920.0, 1080.0)
+00:08 +176: 115% region 1 vendetta Size(1280.0, 850.0)
+00:08 +177: 115% region 1 vendetta Size(1672.0, 952.0)
+00:08 +178: 115% region 1 vendetta Size(1920.0, 1080.0)
+00:08 +179: 115% region 1 fog Size(1280.0, 850.0)
+00:08 +180: 115% region 1 fog Size(1672.0, 952.0)
+00:08 +181: 115% region 1 fog Size(1920.0, 1080.0)
+00:08 +182: 115% region 1 spent Size(1280.0, 850.0)
+00:08 +183: 115% region 1 spent Size(1672.0, 952.0)
+00:08 +184: 115% region 1 spent Size(1920.0, 1080.0)
+00:08 +185: 115% region 1 lowHull Size(1280.0, 850.0)
+00:08 +186: 115% region 1 lowHull Size(1672.0, 952.0)
+00:08 +187: 115% region 1 lowHull Size(1920.0, 1080.0)
+00:08 +188: 115% region 1 identified Size(1280.0, 850.0)
+00:08 +189: 115% region 1 identified Size(1672.0, 952.0)
+00:09 +190: 115% region 1 identified Size(1920.0, 1080.0)
+00:09 +191: 115% region 1 longNemesis Size(1280.0, 850.0)
+00:09 +192: 115% region 1 longNemesis Size(1672.0, 952.0)
+00:09 +193: 115% region 1 longNemesis Size(1920.0, 1080.0)
+00:09 +194: 115% region 2 opening Size(1280.0, 850.0)
+00:09 +195: 115% region 2 opening Size(1672.0, 952.0)
+00:09 +196: 115% region 2 opening Size(1920.0, 1080.0)
+00:09 +197: 115% region 2 ordinary Size(1280.0, 850.0)
+00:09 +198: 115% region 2 ordinary Size(1672.0, 952.0)
+00:09 +199: 115% region 2 ordinary Size(1920.0, 1080.0)
+00:09 +200: 115% region 2 midpoint Size(1280.0, 850.0)
+00:09 +201: 115% region 2 midpoint Size(1672.0, 952.0)
+00:09 +202: 115% region 2 midpoint Size(1920.0, 1080.0)
+00:09 +203: 115% region 2 preparation Size(1280.0, 850.0)
+00:09 +204: 115% region 2 preparation Size(1672.0, 952.0)
+00:09 +205: 115% region 2 preparation Size(1920.0, 1080.0)
+00:09 +206: 115% region 2 titan Size(1280.0, 850.0)
+00:09 +207: 115% region 2 titan Size(1672.0, 952.0)
+00:09 +208: 115% region 2 titan Size(1920.0, 1080.0)
+00:09 +209: 115% region 2 vendetta Size(1280.0, 850.0)
+00:09 +210: 115% region 2 vendetta Size(1672.0, 952.0)
+00:09 +211: 115% region 2 vendetta Size(1920.0, 1080.0)
+00:09 +212: 115% region 2 fog Size(1280.0, 850.0)
+00:09 +213: 115% region 2 fog Size(1672.0, 952.0)
+00:09 +214: 115% region 2 fog Size(1920.0, 1080.0)
+00:09 +215: 115% region 2 spent Size(1280.0, 850.0)
+00:09 +216: 115% region 2 spent Size(1672.0, 952.0)
+00:09 +217: 115% region 2 spent Size(1920.0, 1080.0)
+00:09 +218: 115% region 2 lowHull Size(1280.0, 850.0)
+00:10 +219: 115% region 2 lowHull Size(1672.0, 952.0)
+00:10 +220: 115% region 2 lowHull Size(1920.0, 1080.0)
+00:10 +221: 115% region 2 identified Size(1280.0, 850.0)
+00:10 +222: 115% region 2 identified Size(1672.0, 952.0)
+00:10 +223: 115% region 2 identified Size(1920.0, 1080.0)
+00:10 +224: 115% region 2 longNemesis Size(1280.0, 850.0)
+00:10 +225: 115% region 2 longNemesis Size(1672.0, 952.0)
+00:10 +226: 115% region 2 longNemesis Size(1920.0, 1080.0)
+00:10 +227: large/compact midpoint at Size(360.0, 900.0) / 1.15
+00:10 +228: large/compact longNemesis at Size(360.0, 900.0) / 1.15
+00:10 +229: large/compact lowHull at Size(360.0, 900.0) / 1.15
+00:10 +230: large/compact midpoint at Size(360.0, 900.0) / 1.3
+00:10 +231: large/compact longNemesis at Size(360.0, 900.0) / 1.3
+00:10 +232: large/compact lowHull at Size(360.0, 900.0) / 1.3
+00:10 +233: large/compact midpoint at Size(1280.0, 850.0) / 1.15
+00:10 +234: large/compact longNemesis at Size(1280.0, 850.0) / 1.15
+00:10 +235: large/compact lowHull at Size(1280.0, 850.0) / 1.15
+00:10 +236: large/compact midpoint at Size(1280.0, 850.0) / 1.3
+00:10 +237: large/compact longNemesis at Size(1280.0, 850.0) / 1.3
+00:10 +238: large/compact lowHull at Size(1280.0, 850.0) / 1.3
+00:10 +239: large/compact midpoint at Size(1672.0, 952.0) / 1.15
+00:10 +240: large/compact longNemesis at Size(1672.0, 952.0) / 1.15
+00:10 +241: large/compact lowHull at Size(1672.0, 952.0) / 1.15
+00:10 +242: large/compact midpoint at Size(1672.0, 952.0) / 1.3
+00:10 +243: large/compact longNemesis at Size(1672.0, 952.0) / 1.3
+00:10 +244: large/compact lowHull at Size(1672.0, 952.0) / 1.3
+00:10 +245: high-legibility 115% midpoint
+00:11 +246: high-legibility 115% longNemesis
+00:11 +247: high-legibility 115% lowHull
+00:11 +248: 115% port chart region 0 at Size(360.0, 900.0)
+00:11 +249: 115% port chart region 0 at Size(1280.0, 850.0)
+00:11 +250: 115% port chart region 0 at Size(1672.0, 952.0)
+00:11 +251: 115% port chart region 1 at Size(360.0, 900.0)
+00:11 +252: 115% port chart region 1 at Size(1280.0, 850.0)
+00:11 +253: 115% port chart region 1 at Size(1672.0, 952.0)
+00:11 +254: 115% port chart region 2 at Size(360.0, 900.0)
+00:11 +255: 115% port chart region 2 at Size(1280.0, 850.0)
+00:11 +256: 115% port chart region 2 at Size(1672.0, 952.0)
+00:11 +257: (tearDownAll)
+00:11 +257: All tests passed!
