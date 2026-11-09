@@ -51,8 +51,7 @@ ShipWeapon generateShipWeapon(
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Short-barreled heavy iron carronades delivering devastating close-quarters Piercing slugs (Short: 100%, Med: 80%, Long: 35%).',
+        description: 'Short-barreled heavy iron carronades delivering devastating close-quarters Piercing slugs (Short: 100%, Med: 80%, Long: 35%).',
         value: 25 * level,
         rarity: rarity,
         damage: rng.nextIntRange(12, 15) * level,
@@ -66,8 +65,7 @@ ShipWeapon generateShipWeapon(
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Rifled long-barrel swivel guns engineered for flat-trajectory accuracy across Medium and Long range (Short: 75%, Med: 100%, Long: 100%).',
+        description: 'Rifled long-barrel swivel guns engineered for flat-trajectory accuracy across Medium and Long range (Short: 75%, Med: 100%, Long: 100%).',
         value: 25 * level,
         rarity: rarity,
         damage: rng.nextIntRange(9, 11) * level,
@@ -81,8 +79,7 @@ ShipWeapon generateShipWeapon(
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Linked iron chain-shot that shreds tentacles and deals +20% bonus Slicing damage against Pinned targets (Short: 100%, Med: 85%, Long: 45%).',
+        description: desc,
         value: 25 * level,
         rarity: rarity,
         damage: rng.nextIntRange(10, 13) * level,
@@ -96,8 +93,7 @@ ShipWeapon generateShipWeapon(
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Deck howitzers firing Slicing canister shrapnel across the surface (Short: 70%, Med: 100%, Long: 75%).',
+        description: 'Deck howitzers firing Slicing canister shrapnel across the surface (Short: 70%, Med: 100%, Long: 75%).',
         value: 25 * level,
         rarity: rarity,
         damage: rng.nextIntRange(10, 13) * level,
@@ -111,8 +107,7 @@ ShipWeapon generateShipWeapon(
       return ShipWeapon(
         id: weaponId,
         name: type.displayName,
-        description:
-            'Synchronized twin bow-chaser cannons with high-velocity sighting (+10% accuracy; Short: 75%, Med: 100%, Long: 90%).',
+        description: 'Synchronized twin bow-chaser cannons with high-velocity sighting (+10% accuracy; Short: 75%, Med: 100%, Long: 90%).',
         value: 35 * level,
         rarity: rarity,
         damage: rng.nextIntRange(16, 20) * level,
@@ -254,8 +249,8 @@ ShipWeapon randomShipWeapon(
   final pool = includeSignature
       ? ShipWeaponType.values
       : ShipWeaponType.values
-          .where((t) => !t.isSignature && !t.isBlueprintIntrinsic)
-          .toList();
+            .where((t) => !t.isSignature && !t.isBlueprintIntrinsic)
+            .toList();
   final type = pool[rng.nextInt(pool.length)];
   return generateShipWeapon(type, level, weaponRarity, rng, id: id);
 }

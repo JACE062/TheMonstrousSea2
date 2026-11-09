@@ -535,9 +535,8 @@ int calculateHitChance(
           defender,
           attacker,
           [12, 20, 30][tier - 1],
-          DamageType.piercing,
+          DamageType.blast,
           source: 'Tidal Shockwave',
-          carapaceMultiplier: 1.5,
         ),
       );
     }
@@ -635,10 +634,7 @@ List<GameEvent> executeShipWeaponVolley(
     if (magmaBurn && blessingShip != null) {
       final tier = blessingShip.highestBlessingTier(OceanPower.magmaVentLord);
       // "Scaled slightly by region": +10% per region beyond the first.
-      damage =
-          ([6, 10, 15][(tier - 1).clamp(0, 2)] *
-                  (1 + 0.10 * (regionIndex ?? difficulty - 1).clamp(0, 2)))
-              .round();
+      damage = magmaBurnDamage(tier, regionIndex ?? difficulty - 1);
     }
     if (combatant is MonsterState && blessingShip != null) {
       final utility = blessingShip.blessings[HardpointType.utility];
@@ -758,6 +754,13 @@ List<GameEvent> executeShipWeaponVolley(
   return (canAct, events);
 }
 
+/// Shared base values for resolution and prospective blessing explanations.
+int magmaBurnDamage(int tier, int regionIndex) =>
+    ([6, 10, 15][(tier - 1).clamp(0, 2)] * (1 + 0.10 * regionIndex.clamp(0, 2)))
+        .round();
+
+int arcDischargeDamage(int tier) => [12, 20, 28][(tier - 1).clamp(0, 2)];
+
 /// Applies Corroded once, before mitigation, for every incoming damage source.
 int amplifyMonsterDamage(ShipState ship, MonsterState monster, int damage) =>
     (damage *
@@ -874,7 +877,7 @@ List<GameEvent> _addStatic(ShipState ship, MonsterState monster, int stacks) {
     dealBlessingDamage(
       ship,
       monster,
-      [12, 20, 28][(tier - 1).clamp(0, 2)],
+      arcDischargeDamage(tier),
       DamageType.shock,
       source: 'Arc Discharge',
     ),

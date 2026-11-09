@@ -124,26 +124,22 @@ class EldritchLore {
     CovenantPactId.feedingFrenzy: CovenantPactLoreEntry(
       name: 'Feeding Frenzy',
       flavor: 'The scent of ancestral blood drives the deep into a rabid fury.',
-      effectDescription:
-          'Monsters deal +15% attack damage; Shark frenzy triggers at 60% HP instead of 40%.',
+      effectDescription: 'Monsters deal +15% attack damage; Shark frenzy triggers at 60% HP instead of 40%.',
     ),
     CovenantPactId.chokingFog: CovenantPactLoreEntry(
       name: 'Choking Fog',
       flavor: 'Dark, strange mists blanket the seas.',
-      effectDescription:
-          'Lookout calls on navigation headings are muffled and obscured by fog.',
+      effectDescription: 'Lookout calls on navigation headings are muffled and obscured by fog.',
     ),
     CovenantPactId.brittleOak: CovenantPactLoreEntry(
       name: 'Brittle Oak',
       flavor: 'Corrosive abyssal brine seeps into the flagship’s planking.',
-      effectDescription:
-          'Careening and resting restore 25% less HP; Port repairs cost +30% more gold.',
+      effectDescription: 'Careening and resting restore 25% less HP; Port repairs cost +30% more gold.',
     ),
     CovenantPactId.volatileEnvirons: CovenantPactLoreEntry(
       name: 'Volatile Environs',
       flavor: 'The ocean itself rebels against the bloodbound keel.',
-      effectDescription:
-          'Sargasso kelp drag doubles; Boiling Reach scald deals greater damage, more often.',
+      effectDescription: 'Sargasso kelp drag doubles; Boiling Reach scald deals greater damage, more often.',
     ),
     CovenantPactId.apexEmergence: CovenantPactLoreEntry(
       name: 'Apex Emergence',
@@ -158,31 +154,23 @@ class EldritchLore {
   static const relics = <EldritchRelicId, EldritchRelicLoreEntry>{
     EldritchRelicId.siphonRam: EldritchRelicLoreEntry(
       name: 'Abyssal Siphon Ram',
-      description:
-          'A jagged prow forged from hollow leviathan bone that drinks lifeblood and dark power from rammed beasts.',
-      effectSummary:
-          'Shatters Carapace and heals the flagship for 30% of damage dealt to flesh.',
+      description: 'A jagged prow forged from hollow leviathan bone that drinks lifeblood and dark power from rammed beasts.',
+      effectSummary: 'Shatters Carapace and heals the flagship for 30% of damage dealt to flesh.',
     ),
     EldritchRelicId.ghostwakeCulverin: EldritchRelicLoreEntry(
       name: 'Ghostwake Rail-Culverin',
-      description:
-          'Rifled in cold phosphor bronze, its projectiles phase through mist and arc with abyssal static.',
-      effectSummary:
-          'Ignores monster Obscurity; critical hits deal +8 bonus Shock damage.',
+      description: 'Rifled in cold phosphor bronze, its projectiles phase through mist and arc with abyssal static.',
+      effectSummary: 'Ignores monster Obscurity; critical hits deal +8 bonus Shock damage.',
     ),
     EldritchRelicId.brimstoneMortar: EldritchRelicLoreEntry(
       name: 'Caldera Brimstone Mortar',
-      description:
-          'Fires hollow shells packed with pressurized sulfur from the world’s boiling rim.',
-      effectSummary:
-          '2.0x Blast vs Carapace, disrupts frenzy, and inflicts Burn on every hit.',
+      description: 'Fires hollow shells packed with pressurized sulfur from the world’s boiling rim.',
+      effectSummary: '2.0x Blast vs Carapace, disrupts frenzy, and inflicts Burning on every hit.',
     ),
     EldritchRelicId.sinewWinch: EldritchRelicLoreEntry(
       name: 'Kraken-Sinew Drag Winch',
-      description:
-          'Spun from living abyssal tendon that writhes and constricts around its quarry.',
-      effectSummary:
-          'Severs tentacles and inflicts virulent Poison on the tethered beast.',
+      description: 'Spun from living abyssal tendon that writhes and constricts around its quarry.',
+      effectSummary: 'Severs tentacles and inflicts virulent Poison on the tethered beast.',
     ),
   };
 

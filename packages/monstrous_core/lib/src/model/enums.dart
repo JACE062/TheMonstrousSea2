@@ -16,7 +16,7 @@ enum DamageType {
 }
 
 enum StatusEffect {
-  burn('Burn', 'Burning'),
+  burn('Burning', 'Burning'),
   poison('Poison', 'Poisoned'),
   stun('Stun', 'Stunned');
 
@@ -66,35 +66,35 @@ enum CombatRange {
 
   /// Returns the next closer range band, or [short] if already at point-blank.
   CombatRange get closer => switch (this) {
-        CombatRange.long => CombatRange.medium,
-        CombatRange.medium => CombatRange.short,
-        CombatRange.short => CombatRange.short,
-      };
+    CombatRange.long => CombatRange.medium,
+    CombatRange.medium => CombatRange.short,
+    CombatRange.short => CombatRange.short,
+  };
 
   /// Returns the next farther range band, or [long] if already at distance.
   CombatRange get farther => switch (this) {
-        CombatRange.short => CombatRange.medium,
-        CombatRange.medium => CombatRange.long,
-        CombatRange.long => CombatRange.long,
-      };
+    CombatRange.short => CombatRange.medium,
+    CombatRange.medium => CombatRange.long,
+    CombatRange.long => CombatRange.long,
+  };
 
   /// Returns the bounded list of valid [HelmOrder]s available at this distance.
   List<HelmOrder> get availableHelmOrders => switch (this) {
-        CombatRange.long => const [HelmOrder.holdLine, HelmOrder.advance],
-        CombatRange.medium => const [
-            HelmOrder.advance,
-            HelmOrder.holdLine,
-            HelmOrder.fallBack,
-          ],
-        CombatRange.short => const [HelmOrder.holdLine, HelmOrder.fallBack],
-      };
+    CombatRange.long => const [HelmOrder.holdLine, HelmOrder.advance],
+    CombatRange.medium => const [
+      HelmOrder.advance,
+      HelmOrder.holdLine,
+      HelmOrder.fallBack,
+    ],
+    CombatRange.short => const [HelmOrder.holdLine, HelmOrder.fallBack],
+  };
 
   /// Calculates the destination range band after executing [order].
   CombatRange rangeAfterHelmOrder(HelmOrder order) => switch (order) {
-        HelmOrder.advance => closer,
-        HelmOrder.holdLine => this,
-        HelmOrder.fallBack => farther,
-      };
+    HelmOrder.advance => closer,
+    HelmOrder.holdLine => this,
+    HelmOrder.fallBack => farther,
+  };
 
   @override
   String toString() => displayName;
@@ -203,7 +203,7 @@ enum UtilityHardpointId {
   ),
   evasiveRigging(
     'Evasive Rigging',
-    'Double ship Evasion until next dodge and immediately shift 1 range band away from the monster.',
+    'Grants an evasion boost until the next successful dodge and moves one range band away.',
     cooldownTurns: 2,
   ),
   driftingTetherTrap(
@@ -275,7 +275,7 @@ enum ConsumableType {
   ),
   alchemicalPitch(
     'Alchemical Pitch Flask',
-    'Coats the next weapon volley in volatile naptha (+25% Fire damage and inflicts Burn).',
+    'Your next volley deals +25% damage; hits apply Burning.',
     DamageType.fire,
   );
 
@@ -376,7 +376,11 @@ enum NavigationalBearing {
   deadAhead('Due East (Dead Ahead)', 'E', 'Dead Ahead'),
   starboardTack('East-Southeast (Starboard Tack)', 'E-SE', 'Starboard Tack');
 
-  const NavigationalBearing(this.displayName, this.abbreviation, this.shortName);
+  const NavigationalBearing(
+    this.displayName,
+    this.abbreviation,
+    this.shortName,
+  );
   final String displayName;
   final String abbreviation;
   final String shortName;

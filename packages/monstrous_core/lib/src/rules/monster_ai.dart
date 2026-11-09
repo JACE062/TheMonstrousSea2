@@ -651,7 +651,7 @@ MonsterIntent selectNextMonsterIntent(
           ship.addStatus(StatusEffect.burn);
           events.add(
             NarrationEvent(
-              '${intent.name} engulfs ${ship.name} in superheated caldera fire (Burn)!',
+              '${intent.name} engulfs ${ship.name} in superheated caldera fire (Burning)!',
             ),
           );
         }

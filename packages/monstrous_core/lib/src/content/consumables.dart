@@ -65,7 +65,7 @@ AttackResult resolveConsumableEffect(Consumable consumable, GameRng rng) {
         damageType: consumable.type.damageType,
         statusEffect: StatusEffect.burn,
         description:
-            '${consumable.name} coats the guns in incendiary pitch (+25% Fire damage & Burn on next volley)!',
+            '${consumable.name} coats the guns in incendiary pitch (+25% damage & Burning on next volley)!',
       );
     case ConsumableType.unstableTincture:
       const effects = [

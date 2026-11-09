@@ -638,7 +638,7 @@ void main() {
       expect(monster.hasStatus(StatusEffect.burn), isFalse);
 
       final ticked = events.firstWhere((e) => e is StatusEffectTicked) as StatusEffectTicked;
-      expect(ticked.effectName, equals('Burn'));
+      expect(ticked.effectName, equals('Burning'));
       expect(ticked.damage, equals(10));
       expect(ticked.woreOff, isTrue);
     });

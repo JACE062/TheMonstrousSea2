@@ -32,7 +32,7 @@ class TraitLore {
     BloodlineTraitId.ironConstitution: BloodlineTraitLoreEntry(
       name: 'Iron Constitution',
       flavor: 'A constitution weathered by bilge water and foul rations.',
-      description: 'Burn and Poison deal 50% less damage to your ship.',
+      description: 'Burning and Poison deal 50% less damage to your ship.',
     ),
     BloodlineTraitId.smugglersKin: BloodlineTraitLoreEntry(
       name: "Smuggler's Kin",
@@ -42,7 +42,8 @@ class TraitLore {
     BloodlineTraitId.drillmaster: BloodlineTraitLoreEntry(
       name: 'Drillmaster',
       flavor: 'Demands relentless powder drills and quarterdeck discipline.',
-      description: 'Use up to two consumable belt items per turn instead of one.',
+      description:
+          'Use up to two consumable belt items per turn instead of one.',
     ),
     BloodlineTraitId.preciseCommander: BloodlineTraitLoreEntry(
       name: 'Precise Commander',
@@ -52,7 +53,7 @@ class TraitLore {
     BloodlineTraitId.skilledCarpenter: BloodlineTraitLoreEntry(
       name: 'Skilled Carpenter',
       flavor: 'Knows where sound timber and a patient crew can save a vessel.',
-      description: 'All healing is 20% better at restoring hull. Healing modifiers multiply together.',
+      description: 'Hull healing is 20% more effective.',
     ),
     BloodlineTraitId.quartermaster: BloodlineTraitLoreEntry(
       name: 'Quartermaster',
@@ -86,7 +87,8 @@ class TraitLore {
     ),
     BloodlineTraitId.overzealousGunner: BloodlineTraitLoreEntry(
       name: 'Overzealous Gunner',
-      flavor: 'Demands more powder and faster fire, leaving little time to aim.',
+      flavor:
+          'Demands more powder and faster fire, leaving little time to aim.',
       description: 'Broadside and Signature attacks deal +20% weapon damage with -10% shot accuracy.',
     ),
     BloodlineTraitId.daredevil: BloodlineTraitLoreEntry(
@@ -97,11 +99,12 @@ class TraitLore {
     BloodlineTraitId.impatient: BloodlineTraitLoreEntry(
       name: 'Impatient',
       flavor: 'Demands action now, leaving the crew scrambling to recover.',
-      description: 'Push the crew to use Utility then one weapon action before the enemy responds. On the next turn, only helm, belt and Wait & Reload remain usable.',
+      description: 'Use Utility and one weapon before the beast responds. Your fittings are unavailable next turn.',
     ),
     BloodlineTraitId.skirmisher: BloodlineTraitLoreEntry(
       name: 'Skirmisher',
-      flavor: 'Strikes from position, then slips away before the answering blow.',
+      flavor:
+          'Strikes from position, then slips away before the answering blow.',
       description: 'Your helm maneuver always resolves after your main action, before the enemy responds.',
     ),
   };

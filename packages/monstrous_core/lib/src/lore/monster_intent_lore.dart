@@ -43,7 +43,7 @@ abstract final class MonsterIntentLore {
     name: 'Breaching Lunge',
     subtitle: 'Charges 1 Band • Hits Short & Med',
     description: 'The predator whips its tail around to launch a high-speed lunging bite that tracks retreating hulls.',
-    tacticalTip: 'Closes 1 band before striking Short and Medium Range. Pin with a Harpoon or stun with a Mortar to halt its charge!',
+    tacticalTip: 'Closes 1 band before striking Short and Medium Range. Pin or Stun prevents its charge.',
     telegraphLog: 'drops beneath the whitecaps, readying for a relentless Breaching Lunge!',
   );
 
@@ -77,7 +77,7 @@ abstract final class MonsterIntentLore {
     name: 'Tremor Shell-Slam',
     subtitle: 'Stationary • Hits Short & Med',
     description: 'Raises its entire armored bulk and crashes down, sending a concussive shockwave through nearby water.',
-    tacticalTip: 'Sweeps both Short and Medium Range, rattling rigging (-15% Evasion). Fall back to Long Range or Fortify!',
+    tacticalTip: 'Sweeps Short and Medium Range and reduces ship evasion by 15%. Long Range avoids the sweep.',
     telegraphLog: 'rears its massive plated bulk above the waterline for a wide Tremor Shell-Slam!',
   );
 
@@ -97,13 +97,15 @@ abstract final class MonsterIntentLore {
     subtitle: 'Advances 1 Band • Hits Short',
     description: 'Pulses forward and drives its stinging crown into vessels within reach.',
     tacticalTip: 'Moves 1 band closer, then strikes Short Range. From Medium, fall back to Long to stay beyond its reach.',
-    telegraphLog: 'draws its stinging crown back, preparing a Nematocyst Lunge!',
+    telegraphLog:
+        'draws its stinging crown back, preparing a Nematocyst Lunge!',
   );
 
   static const jellyfishNematocystCurtain = MonsterIntentLoreEntry(
     name: 'Nematocyst Curtain',
     subtitle: 'Stationary • Hits Med & Long',
-    description: 'Discharges a broad net of venomous filaments across the outer waters.',
+    description:
+        'Discharges a broad net of venomous filaments across the outer waters.',
     tacticalTip: 'Hits Medium and Long Range and inflicts Poison. Close to Short to get inside the drifting net.',
     telegraphLog: 'unfurls a drifting lattice of glowing tendrils for a Nematocyst Curtain!',
   );
@@ -122,7 +124,7 @@ abstract final class MonsterIntentLore {
     name: 'Abyssal Under-Strike',
     subtitle: 'Unavoidable Ambush • Sets Range to Short',
     description: 'Having slipped into distant waters, the serpent dives straight into the trench to erupt directly beneath your keel.',
-    tacticalTip: 'UNAVOIDABLE BY HELM! Erupts at Short Range regardless of movement. Use Fortify, Evasive Veer, or Stun to survive!',
+    tacticalTip: 'Erupts at Short Range regardless of helm movement. Stun interrupts the attack.',
     telegraphLog: 'vanishes vertically into the black trench—preparing an unavoidable Abyssal Under-Strike from below!',
   );
 
@@ -130,7 +132,7 @@ abstract final class MonsterIntentLore {
     name: 'Venomous Spit-Volley',
     subtitle: 'Hits Med & Long • Retreats 1 Band After',
     description: 'Hurls globules of blinding neuro-venom across outer ranges before slithering backward into the mist.',
-    tacticalTip: 'Hits Medium & Long Range (Safe at Short), then retreats 1 band farther without gaining dodge. Pin halves its innate dodge and prevents retreat; Spotter Flare suppresses dodge.',
+    tacticalTip: 'Hits Medium and Long Range, then retreats 1 band. Pinned prevents its retreat.',
     telegraphLog: 'flares its hood and hisses, preparing a Venomous Spit-Volley before recoiling!',
   );
 
@@ -138,7 +140,7 @@ abstract final class MonsterIntentLore {
     name: 'Fanged Whip-Recoil',
     subtitle: 'Hits Short & Med • Retreats 1 Band After',
     description: 'Lashes across close waters with fangs bared, using the recoil to slip one range band away.',
-    tacticalTip: 'Hits Short & Medium Range, then retreats 1 band farther. Pin with a Harpoon Winch to prevent its retreat!',
+    tacticalTip: 'Hits Short and Medium Range, then retreats 1 band. Pinned prevents its retreat.',
     telegraphLog: 'coils like a spring, poising for a Fanged Whip-Recoil to strike and slip away!',
   );
 
@@ -157,7 +159,7 @@ abstract final class MonsterIntentLore {
     name: 'Sweeping Tentacles',
     subtitle: 'Stationary • Hits Short & Med',
     description: 'Thrashes all intact arms in a violent broadside sweep that batters close and mid-range vessels.',
-    tacticalTip: 'One strike per remaining tentacle across Short and Medium Range. Retreat to Long to avoid the sweep; Slicing weapons and Harpoon Winch sever limbs to weaken later sweeps. Armor and bracing reduce each hit.',
+    tacticalTip: 'One strike per remaining tentacle across Short and Medium Range. Long Range avoids the sweep.',
     telegraphLog: 'raises its writhing crown of arms for a broadside Sweeping Tentacles thrash!',
   );
 
@@ -165,7 +167,7 @@ abstract final class MonsterIntentLore {
     name: 'Constricting Beak',
     subtitle: 'Stationary • Hits Short + Grapples Helm',
     description: 'Latches onto the hull at point-blank range, gouging timbers with its chitinous beak and locking the rudder.',
-    tacticalTip: 'Hits Short Range only. On hit, Grapples the ship for 1 round (locks Helm Order to Hold Line)!',
+    tacticalTip: 'Hits Short Range and applies Grappled for 1 round.',
     telegraphLog: 'spreads its barbed arms at point-blank range to latch on with a Constricting Beak!',
   );
 
@@ -173,7 +175,7 @@ abstract final class MonsterIntentLore {
     name: 'Ink-Shroud Lash',
     subtitle: 'Hits Short & Med • Cloaks in Ink & Retreats',
     description: 'Whips the hull while jetting backward in a blinding cloud of abyssal ink.',
-    tacticalTip: 'Hits Short & Medium Range, cloaks the beast in ink that lowers shot accuracy (not dodge), and retreats 1 band farther. Successful hits have a 25% chance to disperse ink; Spotter Flare clears it.',
+    tacticalTip: 'Hits Short and Medium Range, applies Obscurity, then retreats 1 range band.',
     telegraphLog: 'pressurizes its mantle siphon, preparing an Ink-Shroud Lash to blind and retreat!',
   );
 
@@ -183,7 +185,7 @@ abstract final class MonsterIntentLore {
     name: 'Maelstrom Crush (Wind-Up 1/2)',
     subtitle: 'Gathering Power • No Strike This Turn',
     description: 'The Kraken raises all colossal limbs forty feet above the waves as a whirlpool forms beneath the ship.',
-    tacticalTip: '2-TURN BOSS WIND-UP! Release cannot miss or be dodged at any range. Disrupt with Heavy Mortar, Harpoon Winch, Blast Pack, Stun or a windup-breaking blessing; defenses still reduce damage.',
+    tacticalTip: 'Release next turn cannot miss or be dodged at any range. Interrupt before release, or prepare your defenses.',
     telegraphLog: 'heaves its titanic bulk skyward—initiating a 2-turn wind-up for Maelstrom Crush!',
   );
 
@@ -191,7 +193,7 @@ abstract final class MonsterIntentLore {
     name: 'Maelstrom Crush (IMMINENT 2/2)',
     subtitle: 'UNAVOIDABLE • ALL RANGES THIS TURN!',
     description: 'Towering tentacles descend across the entire sea lane in an inescapable cataclysm of foam and timber.',
-    tacticalTip: 'UNAVOIDABLE RELEASE! Interrupt with Heavy Mortar, Harpoon Winch, Blast Pack, Stun or a windup-breaking blessing. Armor, Gun-Deck Bracing, barriers and damage weakening still apply.',
+    tacticalTip: 'Unavoidable release at all ranges this turn. Interrupt before release, or prepare your defenses.',
     telegraphLog: 'roars from the abyss—Maelstrom Crush will strike ALL RANGES at the end of this turn!',
   );
 
@@ -199,7 +201,7 @@ abstract final class MonsterIntentLore {
     name: 'Tidal Coil Maelstrom (Wind-Up 1/2)',
     subtitle: 'Gathering Power • No Strike This Turn',
     description: 'The World Serpent encircles the entire horizon, spinning the sea into a suffocating, corrosive funnel.',
-    tacticalTip: '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Stun!',
+    tacticalTip: 'Strikes all ranges next turn. Interrupt before release, or prepare your defenses.',
     telegraphLog: 'encircles the entire sea lane in mile-long coils—winding up Tidal Coil Maelstrom!',
   );
 
@@ -207,7 +209,7 @@ abstract final class MonsterIntentLore {
     name: 'Tidal Coil Maelstrom (IMMINENT 2/2)',
     subtitle: 'STRIKES ALL RANGES THIS TURN!',
     description: 'The constricting whirlpool collapses inward, crushing everything on the surface in venomous brine.',
-    tacticalTip: 'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch or Black-Powder Charge, or use a defensive Utility or belt item!',
+    tacticalTip: 'Strikes all ranges this turn. Interrupt before release, or prepare your defenses.',
     telegraphLog: 'tightens its horizon-spanning coils—Tidal Coil Maelstrom strikes ALL RANGES this turn!',
   );
 
@@ -215,7 +217,7 @@ abstract final class MonsterIntentLore {
     name: 'Caldera Superheat (Wind-Up 1/2)',
     subtitle: 'Gathering Power • No Strike This Turn',
     description: 'The Ancient Leviathan inhales boiling magma from the trench floor, its dorsal plates glowing white-hot.',
-    tacticalTip: '2-TURN BOSS WIND-UP! Strikes ALL RANGES next turn. Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Stun!',
+    tacticalTip: 'Strikes all ranges next turn. Interrupt before release, or prepare your defenses.',
     telegraphLog: 'parts its volcanic dorsal vents, drawing in trench magma for Caldera Superheat!',
   );
 
@@ -223,7 +225,7 @@ abstract final class MonsterIntentLore {
     name: 'Caldera Superheat (IMMINENT 2/2)',
     subtitle: 'STRIKES ALL RANGES THIS TURN!',
     description: 'Unleashes a horizon-spanning eruption of superheated steam and molten slag across the entire reach.',
-    tacticalTip: 'HITS ALL RANGES THIS TURN! Interrupt with Heavy Mortar, Harpoon Winch, Black-Powder Charge, or Fortify!',
+    tacticalTip: 'Strikes all ranges this turn. Interrupt before release, or prepare your defenses.',
     telegraphLog: 'glows blinding white—Caldera Superheat will scorch ALL RANGES at the end of this turn!',
   );
 }

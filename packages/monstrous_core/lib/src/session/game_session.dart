@@ -1442,7 +1442,7 @@ class GameSession {
       ));
     }
 
-    // Consume Alchemical Pitch Flask buff (+25% Fire Damage + Burn on hit)
+    // Consume Alchemical Pitch Flask buff (+25% volley damage; hits apply Burning)
     final hadPitchCoating = ship!.pitchCoatingActive;
     if (hadPitchCoating) {
       ship!.pitchCoatingActive = false;
@@ -1529,7 +1529,7 @@ class GameSession {
         currentMonster!.addStatus(StatusEffect.burn);
         events.add(CombatEffectsChanged.capture(currentMonster!));
         events.add(NarrationEvent(
-          'Alchemical Pitch ignites ${currentMonster!.name} in inextinguishable flames (Burn)!',
+          'Alchemical Pitch ignites ${currentMonster!.name} in inextinguishable flames (Burning)!',
         ));
       }
 
@@ -1574,7 +1574,7 @@ class GameSession {
         currentMonster!.addStatus(StatusEffect.burn);
         events.add(CombatEffectsChanged.capture(currentMonster!));
         events.add(const NarrationEvent(
-          'Caldera Brimstone Mortar coats the beast in searing hydrothermal sulfur (Burn)!',
+          'Caldera Brimstone Mortar coats the beast in searing hydrothermal sulfur (Burning)!',
         ));
       }
 
@@ -1781,7 +1781,7 @@ class GameSession {
         ship!.pitchCoatingActive = true;
         events.add(CombatEffectsChanged.capture(ship!));
         events.add(NarrationEvent(
-          'Quick Action (0T): ${item.name} coats the deck guns in incendiary pitch (+25% Fire damage & Burn on next volley)!',
+          'Quick Action (0T): ${item.name} coats the deck guns in incendiary pitch (+25% volley damage; hits apply Burning)!',
         ));
       case ConsumableType.unstableTincture:
       case ConsumableType.blastPack:

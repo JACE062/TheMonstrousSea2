@@ -247,7 +247,7 @@ class MonsterIntent {
         rangeAtStrike: postHelmRange,
         projectedEndOfRoundRange: postHelmRange,
         estimatedDamage: 0,
-        summaryBadge: 'WIND-UP (1/2): No strike this turn! Disrupt with Mortar, Harpoon, Blast Pack, Stun, or a windup-breaking blessing.',
+        summaryBadge: 'WIND-UP (1/2): No strike this turn! Interrupt before release, or prepare your defenses.',
       );
     }
 
@@ -335,15 +335,15 @@ class MonsterIntent {
         rangeAtStrike: rangeAtStrike,
         projectedEndOfRoundRange: endRange,
         estimatedDamage: estimatedDamage,
-        summaryBadge:
-            isUnavoidable
-                ? 'UNAVOIDABLE: ALL RANGES • $krakenMaelstromBaseDamage base Blast damage before weakening and defenses. Interrupt or brace!'
-                : 'CATASTROPHE IMMINENT: Strikes ALL RANGES (~$estimatedDamage Dmg)! Disrupt with Stun or a windup-breaking blessing, or brace.',
+        summaryBadge: isUnavoidable
+            ? 'UNAVOIDABLE: ALL RANGES • $krakenMaelstromBaseDamage base Blast damage before weakening and defenses. Interrupt before release, or prepare your defenses.'
+            : 'CATASTROPHE IMMINENT: Strikes ALL RANGES (~$estimatedDamage Dmg)! Interrupt before release, or prepare your defenses.',
       );
     }
 
     if (id == MonsterIntentId.squidSweepingTentacles &&
-        tentacleCount != null && damagePerTentacle != null) {
+        tentacleCount != null &&
+        damagePerTentacle != null) {
       final perHit = (damagePerTentacle * damageMultiplier).round();
       final total = tentacleCount * perHit;
       return IntentPreviewOutcome(
