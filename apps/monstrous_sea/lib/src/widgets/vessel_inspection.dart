@@ -16,15 +16,17 @@ class InspectVesselButton extends StatelessWidget {
     super.key,
     required this.controller,
     this.buttonKey,
+    this.compact = false,
   });
   final GameController controller;
   final Key? buttonKey;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) => InkButton(
     key: buttonKey,
     label: 'INSPECT VESSEL',
-    compact: true,
+    compact: compact,
     isPrimary: true,
     icon: const SvgAssetView(
       assetPath: PilotArt.standard,

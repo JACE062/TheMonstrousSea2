@@ -1,0 +1,7 @@
+# Inspect Vessel sizing — 8 November 2026
+
+The [player screenshot](../../playtests/2026-11-08/inspect-sizing/01-player.png) showed Inspect Vessel smaller than Merchant and Sea Chart. `InspectVesselButton` previously forced compact sizing everywhere. It now defaults to regular `InkButton` padding/type at merchants and strongholds, with a `compact` option explicitly selected by the helm beside its compact Voyage Log. The illustrated primary border and inspection behavior remain.
+
+All **14 existing shore/chart UI checks passed with the copied game fonts** at desktop/compact/short sizes and 115–130% text. Coverage includes opening/closing live inspection, trading without losing stock and chart/header layouts. Visually reviewed [stronghold controls](evidence/inspect-sizing-2026-11-08/visual/inspect-stronghold-controls.png), [compact merchant](evidence/inspect-sizing-2026-11-08/visual/inspect-merchant-360.png) and [chart header](evidence/inspect-sizing-2026-11-08/visual/inspect-refined-1280x850-1.3.png). No new tests or temporary fixture edits were needed.
+
+Analysis, formatting, documentation and whitespace checks pass. A separate Windows Debug build succeeded at `.dart_tool/inspect-sizing-preview/build/windows/x64/runner/Debug/monstrous_sea.exe`, without launching it. [The manifest](evidence/inspect-sizing-2026-11-08/manifest.json) records source/asset/lock correspondence and image/build hashes; [logs](evidence/inspect-sizing-2026-11-08/checks/) retain results. Player saves, earlier builds/evidence, gameplay rules and provisional tuning are preserved.

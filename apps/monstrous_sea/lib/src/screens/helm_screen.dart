@@ -192,6 +192,7 @@ class _HelmScreenState extends State<HelmScreen> {
     final inspection = InspectVesselButton(
       buttonKey: const ValueKey('helm-inspect-vessel'),
       controller: controller,
+      compact: true,
     );
     final tools = compact
         ? Column(

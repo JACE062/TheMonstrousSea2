@@ -164,3 +164,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Encounter button verification 2026-11-08
 
 [The encounter audit receipt](playtests/ENCOUNTER_BUTTONS_2026_11_08.md) records four further boxed actions, the remaining encounter-screen review, existing functional checks and font-loaded captures. [Evidence](playtests/evidence/encounter-buttons-2026-11-08/manifest.json) keeps the separate pre-existing compact Covenant overflow and interrupted capture attempt distinct from passing checks and the isolated Windows build.
+
+## Inspection button sizing verification 2026-11-08
+
+[The sizing receipt](playtests/INSPECT_SIZING_2026_11_08.md) records regular shore inspection buttons, the explicitly compact helm variant, existing UI checks and a separate Windows preview. [Evidence](playtests/evidence/inspect-sizing-2026-11-08/manifest.json) retains the player image, selected captures and build correspondence.
