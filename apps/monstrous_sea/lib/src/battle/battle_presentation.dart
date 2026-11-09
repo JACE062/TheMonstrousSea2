@@ -116,7 +116,7 @@ class BattlePresentation extends ChangeNotifier {
         'Corroded': 'Corroded ${actor.corrodedStacks}/3',
       if (actor.isElectroJolted) 'Electro-Jolt': 'Electro-Jolt',
       if (actor.tremorAccPenalty > 0)
-        'Tremor': 'Tremor -${actor.tremorAccPenalty}%',
+        'Tremor': 'Shaken -${actor.tremorAccPenalty}%',
     },
   };
 

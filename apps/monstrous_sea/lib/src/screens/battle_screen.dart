@@ -15,25 +15,26 @@ import '../widgets/parchment_scaffold.dart';
 import '../widgets/pause_menu.dart';
 import '../widgets/utility_description.dart';
 import '../widgets/combat_stats.dart';
+import '../widgets/mechanic_text.dart';
 
 /// Battle-facing effect copy; shared by the compact buttons and their help.
 extension on ConsumableType {
   ({String summary, String details}) get beltEffect => switch (this) {
     ConsumableType.hullPatchKit => (
       summary: 'Repair 30% hull',
-      details: 'Restore 30% of maximum hull, subject to healing restrictions.',
+      details: 'Restore 30% of maximum hull.',
     ),
     ConsumableType.krakenInkBomb => (
       summary: '+25% evasion',
       details: 'Shroud the ship in smoke, granting +25% evasion.',
     ),
     ConsumableType.alchemicalPitch => (
-      summary: '+25% volley + Burn',
-      details: 'Boost the next volley damage by 25%; hits apply Burn.',
+      summary: '+25% volley + Burning',
+      details: 'Your next volley deals +25% damage; hits apply Burning.',
     ),
     ConsumableType.unstableTincture => (
-      summary: 'Random Burn, Poison or Stun',
-      details: 'Inflict a random Burn, Poison or Stun with no initial damage.',
+      summary: 'Random Burning, Poison or Stun',
+      details: 'Inflicts Burning, Poison or Stun at random.',
     ),
     ConsumableType.blastPack => (
       summary: '5 Blast · 75% hit',
@@ -151,8 +152,7 @@ class _BattleScreenState extends State<BattleScreen> {
     if (item.isDepleted) return 'This item has already been spent.';
     if (_isActionLocked) return 'Wait for the current action to finish.';
     if (used >= limit) {
-      return 'Quick-item limit reached this round ($used/$limit used). '
-          'Use a fitting action to finish the round.';
+      return 'Quick-item limit reached this turn ($used/$limit used).';
     }
     return null;
   }
@@ -203,10 +203,11 @@ class _BattleScreenState extends State<BattleScreen> {
                   for (final item in items) ...[
                     const Divider(color: InkTheme.inkMuted),
                     Text(item.name, style: InkTheme.titleMedium),
-                    Text(
+                    MechanicText(
                       item.type == ConsumableType.hullPatchKit
                           ? 'Restore ${_decisions.hullPatchHp} hull HP.'
                           : item.type.beltEffect.details,
+                      mechanics: _mechanics,
                       style: InkTheme.body,
                     ),
                     if (item.isDepleted)
@@ -270,24 +271,11 @@ class _BattleScreenState extends State<BattleScreen> {
   }
 
   String _utilityTooltip(ShipState ship, CombatRange previewRange) {
-    final bpId = BlueprintId.values
-        .where((b) => b.name == ship.blueprintId)
-        .firstOrNull;
-    final mult = ship.multiplierForHardpointMark(HardpointType.utility);
-    return switch (bpId) {
-      BlueprintId.ironclad => ironPlatesDescription(ship),
-      BlueprintId.clipper =>
-        'Evasive Rigging: ${evasiveRiggingDescription(ship)}',
-      BlueprintId.corsair =>
-        'Drifting Tether-Trap (2T CD): Launches a floating tether-mine 1 band ahead (${previewRange == CombatRange.short
-            ? 'Instant detonation at Short!'
-            : previewRange == CombatRange.medium
-            ? 'Sets at distance 1'
-            : 'Sets at distance 2'}). Detonates for ${(16 + 5 * (ship.level - 1) * mult).round()} Slicing damage and Pins the beast (1T).',
-      BlueprintId.bombardier => 'Phosphor Spotter Flare (2T CD): Illuminates the monster for 2 turns — clears Obscured, suppresses monster Evasion to 0%, grants +15% Accuracy, and increases Blast damage taken by +25%.',
-      _ =>
-        'Gun-Deck Bracing (2T CD): Set the hull and gun-deck braces to reduce incoming damage by ${(20 * mult).round()}% this round and steady your next offensive volley for +15% Accuracy and +${(20 * mult).round()}% Damage.',
-    };
+    final description = utilityDescription(ship);
+    return ship.resolvedBlueprintId == BlueprintId.corsair &&
+            previewRange == CombatRange.short
+        ? '$description Detonates immediately at Short range.'
+        : description;
   }
 
   Future<void> _dispatchCombatAction(Command command) async {
@@ -375,8 +363,19 @@ class _BattleScreenState extends State<BattleScreen> {
     }
   }
 
+  MechanicContext get _mechanics => MechanicContext(
+    ship: _battleGame.presentation.ship,
+    monster: _battleGame.presentation.monster,
+    regionIndex: widget.controller.seaChart.currentRegionIndex,
+  );
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => MechanicScope(
+    data: _mechanics,
+    child: Builder(builder: _buildBattle),
+  );
+
+  Widget _buildBattle(BuildContext context) {
     // Register dependency on MediaQuery so window resizing re-triggers build and insets sync
     final _ = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) => _syncArenaInsets());
@@ -953,7 +952,6 @@ class _BattleScreenState extends State<BattleScreen> {
       if (ship.resolvedBlueprintId.utilityHardpoint ==
           UtilityHardpointId.evasiveRigging)
         'Evasive Rigging moves one range band away.',
-      if (widget.controller.usesLateHelm) 'Skirmisher applies your helm order after the main action and its movement.',
     ],
     isResolving: _isActionLocked,
   );
@@ -1037,12 +1035,6 @@ class _BattleScreenState extends State<BattleScreen> {
             : 'Order resolves when you use a fitting.',
         style: InkTheme.caption,
       ),
-      if (widget.controller.usesLateHelm)
-        Text(
-          'SKIRMISHER · Act at ${currentRange.displayName}, then maneuver before the response.',
-          key: const ValueKey('late-helm-hint'),
-          style: InkTheme.caption,
-        ),
       if (widget.controller.activeQuirk?.id == BloodlineTraitId.daredevil)
         Text(
           ship.currentHp * 2 <= ship.maxHp
@@ -1121,15 +1113,15 @@ class _BattleScreenState extends State<BattleScreen> {
       if (_decisions.combinationPending || _decisions.recovering)
         Text(
           _decisions.combinationPending
-              ? 'IMPATIENT · Fire one weapon next. Belt available; helm already committed.'
-              : 'RECOVERY · Fittings unavailable. Maneuver, use belt, then Wait & Reload.',
+              ? 'Fire one weapon to complete the combination.'
+              : 'Recovery · Fittings unavailable this turn.',
           key: const ValueKey('impatient-status'),
           style: InkTheme.caption,
         ),
       if (needsEmergencyPass) ...[
         const SizedBox(height: 6),
         Tooltip(
-          message: 'Finish the turn and advance fitting cooldowns. No evasion bonus.',
+          message: 'End the turn and advance fitting cooldowns.',
           child: InkButton(
             key: const ValueKey('emergency-pass'),
             label: 'WAIT & RELOAD',
@@ -1248,12 +1240,7 @@ class _BattleScreenState extends State<BattleScreen> {
       ignoreObscurity: ignoresObscurity,
     );
     final accuracyTip =
-        'Opening shot accuracy: $accuracy% before ${monster.effectiveEvasion}% target dodge.'
-        '${ignoresObscurity
-            ? ' Ghostwake ignores obscurity.'
-            : monster.obscurityAccuracyPenalty > 0
-            ? ' Obscurity subtracts ${monster.obscurityAccuracyPenalty}% from accuracy.'
-            : ''}';
+        'Opening shot accuracy: $accuracy%. Target dodge: ${monster.effectiveEvasion}%.';
     final name = weapons.length == 1
         ? (isReady ? type.displayName : '${type.displayName} (${cooldown}T CD)')
         : '${type.displayName} ($readyCount/${weapons.length})';
@@ -1265,7 +1252,7 @@ class _BattleScreenState extends State<BattleScreen> {
           style: InkTheme.caption,
         ),
         Expanded(
-          child: Tooltip(
+          child: MechanicTooltip(
             message:
                 '${badge?.tip ?? ''} $accuracyTip\n${_responseForecast(order, weaponType: type)}',
             child: InkButton(
@@ -1310,7 +1297,7 @@ class _BattleScreenState extends State<BattleScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text('UTILITY', style: InkTheme.caption),
-        Tooltip(
+        MechanicTooltip(
           message:
               '${_utilityTooltip(ship, range)}\n${_responseForecast(order, utility: true)}',
           child: InkButton(
@@ -1344,7 +1331,7 @@ class _BattleScreenState extends State<BattleScreen> {
     final details = restriction == null
         ? effect.details
         : '${effect.details}\n$restriction';
-    return Tooltip(
+    return MechanicTooltip(
       message: details,
       child: InkButton(
         label: item.name,
@@ -1548,35 +1535,35 @@ class _BattleScreenState extends State<BattleScreen> {
         } else if (targetRange == CombatRange.medium) {
           return const _TacticalBadgeInfo(
             badge: '125% CHARGE',
-            tip: 'Kinetic ram charge from Medium to Short Range (+25% bonus kinetic damage, 1.5x vs Carapace).',
+            tip: 'Charges from Medium to Short for +25% damage.',
           );
         }
         return const _TacticalBadgeInfo(
           badge: '100% RAM IMPACT',
-          tip: 'Point-blank Prow Ram strike (100% damage, 1.5x vs Carapace).',
+          tip: 'Strikes at Short range.',
         );
       case ShipWeaponType.heavyMortar:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
             badge: '100% HIGH ARC',
-            tip: 'Heavy Siege Mortar optimal Long Range (100% damage, 2.0x vs Carapace).',
+            tip: 'Deals 2× damage to Carapace.',
           );
         } else if (targetRange == CombatRange.short) {
           return const _TacticalBadgeInfo(
             badge: '70% • 25% SPLASH',
-            tip: 'Point-blank mortar fire at Short Range deals 70% damage and splashes 25% backfire onto your hull!',
+            tip: 'Deals 2× damage to Carapace. Deals 25% self-damage at Short range.',
             isWarning: true,
           );
         }
         return _TacticalBadgeInfo(
           badge: '$pct% CARAPACE BREAKER',
-          tip: 'Heavy Siege Mortar at Medium Range (85% damage, 2.0x vs Carapace).',
+          tip: 'Deals 2× damage to Carapace.',
         );
       case ShipWeaponType.precisionCulverin:
         if (targetRange == CombatRange.long) {
           return const _TacticalBadgeInfo(
             badge: '100% SNIPER',
-            tip: 'Precision Culverin optimal Long Range (100% damage, pierces 50% Carapace).',
+            tip: 'Pierces 50% of Carapace.',
           );
         } else if (targetRange == CombatRange.short) {
           return const _TacticalBadgeInfo(
@@ -1587,7 +1574,7 @@ class _BattleScreenState extends State<BattleScreen> {
         }
         return _TacticalBadgeInfo(
           badge: '$pct% ARMOR PIERCER',
-          tip: 'Precision Culverin at Medium Range (85% damage, pierces 50% Carapace).',
+          tip: 'Pierces 50% of Carapace.',
         );
       case ShipWeaponType.twinChasers:
         return _TacticalBadgeInfo(

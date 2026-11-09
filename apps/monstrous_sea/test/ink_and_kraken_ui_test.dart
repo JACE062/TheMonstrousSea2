@@ -1,3 +1,4 @@
+import 'package:monstrous_sea/src/widgets/mechanic_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:monstrous_core/monstrous_core.dart';
@@ -49,9 +50,9 @@ void main() {
         expect(
           find.byWidgetPredicate(
             (widget) =>
-                widget is Tooltip &&
-                widget.message!.contains(
-                  'Opening shot accuracy: 60% before 0% target dodge',
+                widget is MechanicTooltip &&
+                widget.message.contains(
+                  'Opening shot accuracy: 60%. Target dodge: 0%',
                 ),
           ),
           findsOneWidget,
@@ -96,8 +97,8 @@ void main() {
     expect(
       find.byWidgetPredicate(
         (widget) =>
-            widget is Tooltip &&
-            widget.message!.contains('Opening shot accuracy: 95%'),
+            widget is MechanicTooltip &&
+            widget.message.contains('Opening shot accuracy: 95%'),
       ),
       findsWidgets,
     );

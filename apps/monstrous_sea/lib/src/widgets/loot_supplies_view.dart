@@ -4,6 +4,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import 'ink_button.dart';
+import 'mechanic_text.dart';
 import 'hull_patch_kit_button.dart';
 import 'parchment_card.dart';
 import 'svg_asset_view.dart';
@@ -132,8 +133,8 @@ class LootSuppliesView extends StatelessWidget {
                               fontSize: 16,
                             ),
                           ),
-                          Text(
-                            item.description,
+                          MechanicText(
+                            currentItemDescription(item),
                             style: InkTheme.caption.copyWith(fontSize: 13),
                           ),
                           const SizedBox(height: 3),

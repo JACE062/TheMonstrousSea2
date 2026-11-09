@@ -11,6 +11,8 @@ import '../widgets/parchment_scaffold.dart';
 import '../widgets/pause_menu.dart';
 import '../widgets/svg_asset_view.dart';
 import '../widgets/pilot_art.dart';
+import '../widgets/mechanic_text.dart';
+import '../widgets/utility_description.dart';
 
 /// Hub screen at Hunter's Respite Port for repairs, trade, and chart planning.
 class PortScreen extends StatefulWidget {
@@ -167,6 +169,18 @@ class _PortScreenState extends State<PortScreen> {
                                         fontSize: 13,
                                       ),
                                     ),
+                                  if (bpId == BlueprintId.bombardier) ...[
+                                    const SizedBox(height: 8),
+                                    MechanicText(
+                                      spotterFlareDescription(detailed: true),
+                                      style: InkTheme.body.copyWith(
+                                        fontSize: 13,
+                                      ),
+                                      mechanics: const MechanicContext(
+                                        utilityMultiplier: 1,
+                                      ),
+                                    ),
+                                  ],
                                   const SizedBox(height: 12),
                                   if (isActive)
                                     Text(

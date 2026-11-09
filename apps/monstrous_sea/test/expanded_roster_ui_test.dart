@@ -1,3 +1,4 @@
+import 'package:monstrous_sea/src/widgets/mechanic_text.dart';
 import 'package:flame/components.dart';
 import 'package:monstrous_sea/src/battle/monstrous_sea_battle_game.dart';
 
@@ -107,14 +108,11 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
+        expect(find.text('PAID HULL REPAIRS'), findsOneWidget);
         expect(
           find.text(
-            'PAID HULL REPAIRS',
+            'REPAIR +${controller.repairHpFor(0.25)} HP · ${controller.repairCostFor(0.25)}g',
           ),
-          findsOneWidget,
-        );
-        expect(
-          find.text('REPAIR +${controller.repairHpFor(0.25)} HP · ${controller.repairCostFor(0.25)}g'),
           findsOneWidget,
         );
         while (controller.ship!.cargo.length < controller.ship!.maxCargo) {
@@ -234,7 +232,10 @@ void main() {
     expect(find.byKey(const ValueKey('impatient-combination')), findsOneWidget);
     controller.dispatch(const ExecuteShipSpecialAction(borrowNextAction: true));
     await tester.pump();
-    expect(find.textContaining('Fire one weapon next.'), findsOneWidget);
+    expect(
+      find.textContaining('Fire one weapon to complete the combination.'),
+      findsOneWidget,
+    );
     expect(find.byKey(const ValueKey('emergency-pass')), findsNothing);
     expect(
       find.byWidgetPredicate(
@@ -254,7 +255,10 @@ void main() {
     controller.ship!.isGrappled = true;
     controller.notify();
     await tester.pump();
-    expect(find.textContaining('Fittings unavailable.'), findsOneWidget);
+    expect(
+      find.textContaining('Fittings unavailable this turn.'),
+      findsOneWidget,
+    );
     expect(
       tester
           .widget<InkButton>(find.byKey(const ValueKey('emergency-pass')))
@@ -274,9 +278,7 @@ void main() {
     final wait = find.byKey(const ValueKey('emergency-pass'));
     expect(find.text('WAIT & RELOAD'), findsOneWidget);
     expect(
-      find.byTooltip(
-        'Finish the turn and advance fitting cooldowns. No evasion bonus.',
-      ),
+      find.byTooltip('End the turn and advance fitting cooldowns.'),
       findsOneWidget,
     );
     await tester.ensureVisible(wait);
@@ -342,9 +344,13 @@ void main() {
       );
       expect(
         find.textContaining('then maneuver before the response.'),
+        findsNothing,
+      );
+      expect(
+        find.text('Order resolves after your main action.'),
         findsOneWidget,
       );
-      expect(find.byKey(const ValueKey('late-helm-hint')), findsOneWidget);
+      expect(find.byKey(const ValueKey('late-helm-hint')), findsNothing);
       expect(find.byKey(const ValueKey('emergency-pass')), findsNothing);
       for (final weapon in controller.ship!.equippedWeapons) {
         weapon.chargeCountdown = 2;
@@ -386,9 +392,8 @@ void main() {
       expect(
         find.byWidgetPredicate(
           (w) =>
-              w is Tooltip &&
-              (w.message?.contains('Opening shot accuracy: $expected%') ??
-                  false),
+              w is MechanicTooltip &&
+              w.message.contains('Opening shot accuracy: $expected%'),
         ),
         findsWidgets,
       );
@@ -430,7 +435,10 @@ void main() {
           const ExecuteShipSpecialAction(borrowNextAction: true),
         );
         await tester.pump(const Duration(milliseconds: 100));
-        expect(find.textContaining('Fire one weapon next.'), findsOneWidget);
+        expect(
+          find.textContaining('Fire one weapon to complete the combination.'),
+          findsOneWidget,
+        );
         await capture(tester, 'battle-pending-$width-$scale');
         controller.currentMonster!.currentHp = 1000;
         controller.dispatch(
@@ -439,7 +447,10 @@ void main() {
         controller.ship!.isGrappled = true;
         controller.notify();
         await tester.pump(const Duration(milliseconds: 100));
-        expect(find.textContaining('Fittings unavailable.'), findsOneWidget);
+        expect(
+          find.textContaining('Fittings unavailable this turn.'),
+          findsOneWidget,
+        );
         expect(find.byKey(const ValueKey('emergency-pass')), findsOneWidget);
         await capture(tester, 'battle-recovery-$width-$scale');
         if (reviewFont.isNotEmpty) {
@@ -503,7 +514,7 @@ void main() {
           ),
           CombatRange.medium,
         );
-        final tip = tester.widget<Tooltip>(
+        final tip = tester.widget<MechanicTooltip>(
           find.ancestor(
             of: find.byWidgetPredicate(
               (w) =>
@@ -513,7 +524,7 @@ void main() {
                       ) ??
                       false),
             ),
-            matching: find.byType(Tooltip),
+            matching: find.byType(MechanicTooltip),
           ),
         );
         expect(tip.message, contains('After action: Medium Range'));
@@ -540,7 +551,7 @@ void main() {
           tester.state<TooltipState>(tooltip).ensureTooltipVisible();
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 500));
-          expect(find.text(tip.message!), findsOneWidget);
+          expect(find.text(tip.message), findsOneWidget);
           await capture(tester, 'forecast-${blueprint.name}');
         }
         // The global helm-only outcome is explicitly conditional; the specific

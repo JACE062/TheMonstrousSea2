@@ -1,3 +1,4 @@
+import 'package:monstrous_sea/src/widgets/mechanic_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:monstrous_core/monstrous_core.dart';
@@ -45,7 +46,7 @@ void main() {
       await mountBattle(tester, controller);
       expect(
         find.byWidgetPredicate(
-          (w) => w is Tooltip && (w.message?.contains(numericCopy) ?? false),
+          (w) => w is MechanicTooltip && w.message.contains(numericCopy),
         ),
         findsOneWidget,
       );

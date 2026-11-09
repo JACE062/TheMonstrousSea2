@@ -85,6 +85,12 @@ Battle playback owns a detached `BattlePresentation`, shared by the Flutter HUD 
 
 `ShipState.effectiveEvasion` is the shared ship dodge threshold for combat, HUD and effect readouts; it combines current evasion, captain bonus and live Basalt effects with the existing 0–95 cap. `MonsterState.effectiveEvasion` shares Pin/Flare handling and the actual 0–100 d100 bounds. Do not duplicate these formulas in Flutter. The removed global range modifier stays removed. `CombatantPresentation` freezes captain Boon/Quirk IDs alongside current effects; apply that context to detached actors during initial/idle synchronization and playback. Read HUD percentages from those displayed actors so later source mutations cannot leak ahead of causal events.
 
+## Linked mechanic help
+
+`MechanicScope` passes the displayed ship/monster and current region into `MechanicText` and `MechanicTooltip`. Battle scopes use detached presentation actors, never the already-resolved live encounter. Shrine descriptions supply the prospective blessing; shared `magmaBurnDamage`/`arcDischargeDamage` helpers keep base numbers aligned with core. Magma/Tempest/Corroded use their existing highest-tier rules; Shaken uses its Broadside tier or captured active penalty. Home Flare details retain base stats, and active/inspection Illuminated help uses captured bonuses or the existing utility multiplier. `currentItemDescription` presents approved Hull Patch Kit/Chain-Shot copy for stored items without rewriting saves.
+
+Keyword anchors use overlay portals, semantic activation, hover, keyboard and long press. F1 opens action help without dispatching the action; keyword activation opens its explanation. Parent ownership keeps linked cards open, suppresses cyclic ancestor links and cancels close timers on disposal. Cards prefer space beside the parent, clamp to the viewport and scroll if needed; Escape/close/outside interaction dismisses them. Keep those pointer/focus/touch lifecycle checks when extending terms. Definitions belong in contextual help rather than repeating interaction manuals in every action description.
+
 ## Tooling on Windows
 
 Dart/Flutter analysis and test workers can stall in restricted Windows sandboxes because they use child processes and local IPC/loopback. Use the execution tool's supported permission override when needed; the available API here is `sandbox_permissions: "require_escalated"`, not the historical `BypassSandbox` / `manage_task` arguments.

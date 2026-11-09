@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 
 import '../theme/ink_theme.dart';
+import 'mechanic_text.dart';
 import 'ink_button.dart';
 
 /// Intent essentials for the detached, currently displayed battle state.
@@ -226,6 +227,7 @@ class BattleLookout extends StatelessWidget {
                 ?.damage,
           )
         : null;
+    final mechanics = MechanicScope.of(context);
     showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
@@ -271,8 +273,7 @@ class BattleLookout extends StatelessWidget {
                 if (preview.estimatedDamage > 0 ||
                     (sweepMechanics?.estimatedDamage ?? 0) > 0)
                   Text(
-                    'Damage estimates precede applicable weakening, armor, bracing '
-                    'and barriers; avoidance checks are separate.'
+                    'Base damage before avoidance and defenses.'
                     '${intent.id == MonsterIntentId.squidSweepingTentacles ? ' Sweep defenses apply to each strike.' : ''}',
                     style: InkTheme.caption,
                   ),
@@ -290,7 +291,11 @@ class BattleLookout extends StatelessWidget {
               ],
               const SizedBox(height: 12),
               Text('Counterplay', style: InkTheme.bodyBold),
-              Text(intent.tacticalTip, style: InkTheme.body),
+              MechanicText(
+                intent.tacticalTip,
+                style: InkTheme.body,
+                mechanics: mechanics,
+              ),
             ],
           ),
         ),

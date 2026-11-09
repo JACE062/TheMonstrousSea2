@@ -326,7 +326,7 @@ void main() {
           spec.hull == BlueprintId.corsair ? findsOneWidget : findsNothing,
         );
         expect(
-          find.textContaining('Evasive Rigging opens range'),
+          find.textContaining('Evasive Rigging moves one range band away'),
           spec.hull == BlueprintId.clipper ? findsOneWidget : findsNothing,
         );
         expect(

@@ -1,0 +1,457 @@
+00:00 +0: loading test/rules/combat_test.dart
+00:00 +0: test/rules/combat_test.dart: calculateAttack Tests d100 roll > hitChance results in miss
+00:00 +1: test/rules/blast_retaliation_test.dart: tier 1 shockwave is Blast with Flare 0.0 / shell 0
+00:00 +2: test/rules/blast_retaliation_test.dart: tier 1 shockwave is Blast with Flare 0.0 / shell 0
+00:00 +3: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +4: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +5: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +6: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +7: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +8: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +9: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +10: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +11: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +12: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +13: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +14: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +15: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +16: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +17: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +18: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +19: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +20: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +21: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +22: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +23: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +24: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +25: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +26: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +27: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +28: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +29: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +30: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +31: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +32: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:00 +33: test/rules/combat_test.dart: Crustacean CarapaceTrait Tests absorbs piercing/kinetic damage point-for-point and emits CarapaceAbsorbed
+00:00 +34: test/rules/combat_test.dart: Crustacean CarapaceTrait Tests absorbs piercing/kinetic damage point-for-point and emits CarapaceAbsorbed
+00:00 +35: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +36: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +37: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +38: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +39: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +40: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +41: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +42: test/session\caldera_outcome_test.dart: CalderaClimaxChoice.claimCore uses canonical prose and acknowledgement never reapplies it
+00:00 +43: test/session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:00 +44: test/session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:00 +45: test/session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:00 +46: test/session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:00 +47: test/session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:00 +48: test/rules/combat_test.dart: updateStatusEffects Tests BURN deals 5 * difficulty damage and wears off on d100 > 75
+00:00 +49: test/session\captain_roster_catalog_test.dart: current traits and legacy Salt-Addict resolve through catalog serialization
+00:00 +50: test/rules/combat_test.dart: updateStatusEffects Tests BURN persists on d100 <= 75
+00:00 +51: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +52: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +53: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +54: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +55: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +56: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +57: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +58: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +59: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +60: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +61: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +62: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +63: test/session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:00 +64: test/session\combat_presentation_replay_test.dart: effects snapshots cannot secretly repair HP, shell or limb playback
+00:00 +65: test/session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:00 +66: test/session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:00 +67: test/session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:00 +68: test/session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:00 +69: test/session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:00 +70: test/session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:00 +71: test/session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:00 +72: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +73: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +74: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +75: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +76: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +77: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +78: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +79: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +80: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +81: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +82: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +83: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +84: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +85: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +86: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +87: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +88: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +89: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +90: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +91: test/session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:00 +92: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +93: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +94: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +95: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +96: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +97: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +98: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +99: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +100: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +101: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +102: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +103: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +104: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +105: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +106: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +107: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +108: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +109: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +110: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +111: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +112: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +113: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +114: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +115: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +116: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +117: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +118: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +119: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +120: test/session\combat_presentation_replay_test.dart: fatal backfire and a fatal strike plus reactive kill retain both deaths
+00:00 +121: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration IssueHelmOrder repositions vessel and FireWeaponVolley resolves at new range
+00:00 +122: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration IssueHelmOrder repositions vessel and FireWeaponVolley resolves at new range
+00:00 +123: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration IssueHelmOrder repositions vessel and FireWeaponVolley resolves at new range
+00:00 +124: test/session\combat_presentation_replay_test.dart: victory holds the final Ram impact range through engine cleanup
+00:00 +125: test/session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 100
+00:00 +126: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Bounded Helm Orders: cannot retreat beyond Long or sail into monster at Short
+00:00 +127: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Bounded Helm Orders: cannot retreat beyond Long or sail into monster at Short
+00:00 +128: test/session\combat_status_boundaries_test.dart: failed recovery allows repeated Poison ticks within the same fight
+00:00 +129: test/session\combat_presentation_replay_test.dart: Harpoon, Wake and trap retain shell, tentacle and health endpoints
+00:00 +130: test/session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram cannot fire from Long Range, but works at Medium and surges to Short
+00:00 +131: test/session\combat_status_boundaries_test.dart: combat reset clears all statuses without healing or changing build
+00:00 +132: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +133: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +134: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +135: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +136: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +137: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +138: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +139: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +140: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +141: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +142: test/session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:00 +143: test/session\full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +144: test/session\full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +145: test/session\full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +146: test/session\full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +147: test/session\full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +148: test/session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Davy Jones easter egg initiates Kraken encounter with Flying Dutchman
+00:00 +149: test/session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Davy Jones easter egg initiates Kraken encounter with Flying Dutchman
+00:00 +150: test/session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Davy Jones easter egg initiates Kraken encounter with Flying Dutchman
+00:00 +151: test/session\home_merchant_test.dart: home has no merchant or direct trading backdoor
+00:00 +152: test/session\home_merchant_test.dart: home has no merchant or direct trading backdoor
+00:00 +153: test/session\home_merchant_test.dart: home has no merchant or direct trading backdoor
+00:00 +154: test/session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Flying Dutchman defeats The Kraken in battle and collects loot
+00:00 +155: test/session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Flying Dutchman defeats The Kraken in battle and collects loot
+00:00 +156: test/session\full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +157: test/session\home_merchant_test.dart: stronghold trading remains available and returns to the same berth
+00:00 +158: test/session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Standard voyage: create captain, sail, win battle, loot, rest, return to port
+00:00 +159: test/session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Standard voyage: create captain, sail, win battle, loot, rest, return to port
+00:00 +160: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +161: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +162: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +163: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +164: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +165: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +166: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +167: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +168: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +169: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +170: test/session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:00 +171: test/session\full_trait_roster_test.dart: Superstitious transfers precisely three combat outcomes to shrine
+00:00 +172: test/session\full_trait_roster_test.dart: Superstitious transfers precisely three combat outcomes to shrine
+00:00 +173: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +174: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +175: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +176: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +177: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +178: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +179: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +180: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +181: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +182: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +183: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +184: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +185: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +186: test/session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +187: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +188: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +189: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +190: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +191: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +192: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +193: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +194: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +195: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +196: test/session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:00 +197: test/session\navigation_salvage_test.dart: course restriction agrees with engine and exempts guaranteed convergence
+00:00 +198: test/session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:00 +199: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +200: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +201: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +202: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +203: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +204: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +205: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +206: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +207: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +208: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +209: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +210: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +211: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +212: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +213: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +214: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +215: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +216: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +217: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +218: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +219: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +220: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +221: test/session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +222: test/session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:00 +223: test/session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:00 +224: test/session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:00 +225: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +226: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +227: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +228: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +229: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +230: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +231: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +232: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +233: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +234: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +235: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +236: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +237: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +238: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +239: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +240: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +241: test/session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:00 +242: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +243: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +244: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +245: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +246: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +247: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +248: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +249: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +250: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +251: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +252: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +253: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +254: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +255: test/session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:00 +256: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +257: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +258: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +259: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +260: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +261: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +262: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +263: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +264: test/session\playtest_nemesis_continuity_test.dart: two actual deaths record two captains, not six heir candidates
+00:00 +265: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +266: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +267: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +268: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +269: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +270: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +271: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +272: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +273: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +274: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +275: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +276: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +277: test/session\region_mechanics_and_apex_test.dart: Escalating Region Lengths & Waypoint Formulas Region 1 has 10 numbered slots, Haven @ 5 and Kraken @ 11
+00:00 +278: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +279: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +280: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +281: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +282: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +283: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +284: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +285: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +286: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +287: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +288: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +289: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +290: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +291: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +292: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +293: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +294: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +295: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +296: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +297: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +298: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +299: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +300: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +301: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +302: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +303: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +304: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +305: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +306: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +307: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +308: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +309: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:00 +310: test/session\ship_upgrade_test.dart: Ship Upgrade & Refit Tests calculateShipUpgradeCost returns expected tier prices
+00:00 +311: test/session\ship_upgrade_test.dart: Ship Upgrade & Refit Tests calculateShipUpgradeCost returns expected tier prices
+00:00 +312: test/session\ship_upgrade_test.dart: Ship Upgrade & Refit Tests calculateShipUpgradeCost returns expected tier prices
+00:00 +313: test/session\ship_upgrade_test.dart: Ship Upgrade & Refit Tests calculateShipUpgradeCost returns expected tier prices
+00:00 +314: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +315: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +316: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +317: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +318: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +319: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +320: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +321: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +322: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +323: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +324: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +325: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +326: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +327: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +328: test/session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:00 +329: test/session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:00 +330: test/session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:00 +331: test/session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:00 +332: test/session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:00 +333: test/session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:00 +334: test/session\shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +335: test/session\shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +336: test/session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:00 +337: test/session\shore_drill_duration_test.dart: drill lasts the whole Nemesis fight and expires at its victory
+00:00 +338: test/session\shrine_blessings_test.dart: A fatal monster hit ends the voyage even if storm retaliation kills it
+00:00 +339: test/session\shrine_blessings_test.dart: A fatal monster hit ends the voyage even if storm retaliation kills it
+00:00 +340: test/session\shrine_blessings_test.dart: A fatal monster hit ends the voyage even if storm retaliation kills it
+00:00 +341: test/session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Defeating monsters awards meta-currencies to ProfileData
+00:00 +342: test/session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Defeating monsters awards meta-currencies to ProfileData
+00:00 +343: test/session\shrine_blessings_test.dart: Shrine manifests two distinct powers, sampled deterministically
+00:00 +344: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +345: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +346: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +347: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +348: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +349: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +350: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +351: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +352: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +353: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +354: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +355: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +356: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +357: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:00 +358: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:01 +359: test/session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:01 +360: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +361: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +362: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +363: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +364: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +365: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +366: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +367: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +368: test/session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:01 +369: test/session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:01 +370: test/session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:01 +371: test/session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:01 +372: test/session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:01 +373: test/session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:01 +374: test/session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:01 +375: test/session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:01 +376: test/session\titan_nemesis_eligibility_test.dart: kraken rejects Nemesis creation
+00:01 +377: test/session\titan_nemesis_eligibility_test.dart: kraken rejects Nemesis creation
+00:01 +378: test/session\titan_nemesis_eligibility_test.dart: kraken rejects Nemesis creation
+00:01 +379: test/session\titan_nemesis_eligibility_test.dart: kraken rejects Nemesis creation
+00:01 +380: test/session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:01 +381: test/session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:01 +382: test/session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:01 +383: test/session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:01 +384: test/session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:01 +385: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +386: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +387: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +388: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +389: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +390: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +391: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +392: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +393: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +394: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +395: test/session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:01 +396: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +397: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +398: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +399: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +400: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +401: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +402: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +403: test/session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:01 +404: test/session\trait_rework_test.dart: Overzealous Gunner cannon dispatch gets exactly +20% damage and flat -10 accuracy
+00:01 +405: test/session\trait_rework_test.dart: Overzealous Gunner cannon dispatch gets exactly +20% damage and flat -10 accuracy
+00:01 +406: test/session\trait_rework_test.dart: Overzealous Gunner cannon dispatch gets exactly +20% damage and flat -10 accuracy
+00:01 +407: test/session\trait_rework_test.dart: Overzealous Gunner cannon dispatch gets exactly +20% damage and flat -10 accuracy
+00:01 +408: test/session\trait_rework_test.dart: Overzealous Gunner cannon dispatch gets exactly +20% damage and flat -10 accuracy
+00:01 +409: test/session\trait_rework_test.dart: Overzealous Gunner cannon dispatch gets exactly +20% damage and flat -10 accuracy
+00:01 +410: test/session\trait_rework_test.dart: Overzealous Gunner cannon dispatch gets exactly +20% damage and flat -10 accuracy
+00:01 +411: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +412: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +413: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +414: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +415: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +416: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +417: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +418: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +419: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +420: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +421: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +422: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +423: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +424: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +425: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +426: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +427: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +428: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +429: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +430: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +431: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +432: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +433: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +434: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +435: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:01 +436: test/session\titan_nemesis_eligibility_test.dart: helm reload removes only invalid Titan Nemesis courses: The Ancient Leviathan
+00:01 +437: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=true
+00:01 +438: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=true
+00:01 +439: test/session\wreck_lifecycle_test.dart: WreckCondition.pickedClean can pass empty, using one slot without a deduction
+00:01 +440: test/session\wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=false
+00:01 +441: test/session\wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=true
+00:01 +442: test/session\wreck_lifecycle_test.dart: WreckCondition.uncertain can pass empty, using one slot without a deduction
+00:01 +443: test/session\wreck_lifecycle_test.dart: WreckCondition.fresh approach ambush is normal, opens full cargo once, pact=false
+00:01 +444: test/session\wreck_lifecycle_test.dart: WreckCondition.fresh approach ambush is normal, opens full cargo once, pact=true
+00:01 +445: test/session\wreck_lifecycle_test.dart: WreckCondition.fresh can pass empty, using one slot without a deduction
+00:01 +446: test/session\wreck_lifecycle_test.dart: WreckCondition.uncertain committed fight may be Apex and keeps full kill loot plus cargo
+00:01 +447: test/session\wreck_lifecycle_test.dart: WreckCondition.uncertain quiet recovery has cargo and no creature loot or immediate healing
+00:01 +448: test/session\wreck_lifecycle_test.dart: WreckCondition.fresh committed fight may be Apex and keeps full kill loot plus cargo
+00:01 +449: test/session\wreck_lifecycle_test.dart: WreckCondition.fresh quiet recovery has cargo and no creature loot or immediate healing
+00:01 +450: test/session\wreck_lifecycle_test.dart: condition gates enforce quick/deep exclusivity and fresh has no quick haul
+00:01 +451: test/session\wreck_lifecycle_test.dart: full belt resolves creature spoils before the independent wreck supply
+00:01 +452: test/session\wreck_lifecycle_test.dart: death during recovery never banks unearned cargo
+00:01 +453: test/session\wreck_lifecycle_test.dart: supported reloads preserve assessment decisions and deterministic threat/cargo
+00:01 +454: test/session\wreck_lifecycle_test.dart: retired selectable rewards and stale wreck IDs cannot grant cargo
+00:01 +455: All tests passed!

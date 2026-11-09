@@ -1,3 +1,5 @@
+import 'package:monstrous_sea/src/widgets/mechanic_text.dart';
+
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -164,16 +166,16 @@ void main() {
         expect(
           find.byWidgetPredicate(
             (w) =>
-                w is Tooltip &&
-                w.message?.contains('Opening shot accuracy: 85%') == true,
+                w is MechanicTooltip &&
+                w.message.contains('Opening shot accuracy: 85%') == true,
           ),
           findsOneWidget,
         );
         expect(
           find.byWidgetPredicate(
             (w) =>
-                w is Tooltip &&
-                w.message?.contains('Opening shot accuracy: 95%') == true,
+                w is MechanicTooltip &&
+                w.message.contains('Opening shot accuracy: 95%') == true,
           ),
           findsOneWidget,
         );
@@ -183,16 +185,16 @@ void main() {
         expect(
           find.byWidgetPredicate(
             (w) =>
-                w is Tooltip &&
-                w.message?.contains('Opening shot accuracy: 75%') == true,
+                w is MechanicTooltip &&
+                w.message.contains('Opening shot accuracy: 75%') == true,
           ),
           findsOneWidget,
         );
         expect(
           find.byWidgetPredicate(
             (w) =>
-                w is Tooltip &&
-                w.message?.contains('Opening shot accuracy: 85%') == true,
+                w is MechanicTooltip &&
+                w.message.contains('Opening shot accuracy: 85%') == true,
           ),
           findsOneWidget,
         );

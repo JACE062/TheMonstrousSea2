@@ -5,6 +5,7 @@ import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/hull_gauge.dart';
 import '../widgets/ink_button.dart';
+import '../widgets/mechanic_text.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
 
@@ -34,7 +35,8 @@ class _ShrineScreenState extends State<ShrineScreen> {
       builder: (context, _) {
         final ship = controller.ship;
         final powers = controller.shrineManifestedPowers;
-        final selected = powers.contains(_selectedPower) &&
+        final selected =
+            powers.contains(_selectedPower) &&
                 _selectedPower != controller.forbiddenShrinePower
             ? _selectedPower
             : null;
@@ -237,21 +239,36 @@ class _ShrineScreenState extends State<ShrineScreen> {
           const SizedBox(height: 8),
           Text(power.domainLore, style: InkTheme.body),
           const SizedBox(height: 8),
-          Text(power.synergySummary, style: InkTheme.caption),
+          MechanicText(
+            power.synergySummary,
+            style: InkTheme.caption,
+            mechanics: MechanicContext(
+              ship: widget.controller.ship,
+              regionIndex: widget.controller.seaChart.currentRegionIndex,
+            ),
+          ),
           if (forbidden) ...[
             const SizedBox(height: 8),
-            Text('ILL OMEN - Superstition forbids this power.',
-                style: InkTheme.statLabel.copyWith(color: InkTheme.crimsonAccent)),
+            Text(
+              'ILL OMEN - Superstition forbids this power.',
+              style: InkTheme.statLabel.copyWith(color: InkTheme.crimsonAccent),
+            ),
           ],
           const SizedBox(height: 12),
           Semantics(
             selected: selected,
             child: InkButton(
               key: ValueKey('select-${power.name}'),
-              label: forbidden ? 'FORBIDDEN' : selected ? 'COMMUNING' : 'COMMUNE',
+              label: forbidden
+                  ? 'FORBIDDEN'
+                  : selected
+                  ? 'COMMUNING'
+                  : 'COMMUNE',
               semanticLabel: 'Commune with ${power.displayName}',
               isPrimary: selected,
-              onPressed: forbidden ? null : () => setState(() => _selectedPower = power),
+              onPressed: forbidden
+                  ? null
+                  : () => setState(() => _selectedPower = power),
             ),
           ),
         ],
@@ -288,7 +305,15 @@ class _ShrineScreenState extends State<ShrineScreen> {
             style: InkTheme.statValue.copyWith(color: InkTheme.goldAccent),
           ),
           const SizedBox(height: 8),
-          Text(preview.description, style: InkTheme.body),
+          MechanicText(
+            preview.description,
+            style: InkTheme.body,
+            mechanics: MechanicContext(
+              ship: ship,
+              blessing: preview,
+              regionIndex: widget.controller.seaChart.currentRegionIndex,
+            ),
+          ),
           if (!locked && current != null) ...[
             const SizedBox(height: 8),
             Text(
@@ -304,10 +329,18 @@ class _ShrineScreenState extends State<ShrineScreen> {
               ),
             if (preview.critChanceBonus != current.critChanceBonus)
               Text(
-                'Critical chance +${current.critChanceBonus}% → +${preview.critChanceBonus}%',
+                'Critical Hit chance +${current.critChanceBonus}% → +${preview.critChanceBonus}%',
                 style: InkTheme.body.copyWith(color: InkTheme.verdigrisGreen),
               ),
-            Text('Current: ${current.description}', style: InkTheme.caption),
+            MechanicText(
+              'Current: ${current.description}',
+              style: InkTheme.caption,
+              mechanics: MechanicContext(
+                ship: ship,
+                blessing: current,
+                regionIndex: widget.controller.seaChart.currentRegionIndex,
+              ),
+            ),
           ],
           const SizedBox(height: 12),
           if (locked) ...[

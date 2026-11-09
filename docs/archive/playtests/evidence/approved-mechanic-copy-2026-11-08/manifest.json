@@ -1,0 +1,1120 @@
+{
+  "date": "2026-11-08",
+  "baseCommit": "25bb641",
+  "coreCommit": "09fc78fcce6e60c32cf1f6c18fc1aa2cee58f4f1",
+  "scope": "Implement all approved D03-D44 selections, linked contextual help and explicitly authorized Blast retaliation; preserve D01-D02.",
+  "decisions": {
+    "implemented": [
+      "D01",
+      "D02",
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D07",
+      "D08",
+      "D09",
+      "D10",
+      "D11",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16",
+      "D17",
+      "D18",
+      "D19",
+      "D20",
+      "D21",
+      "D22",
+      "D23",
+      "D24",
+      "D25",
+      "D26",
+      "D27",
+      "D28",
+      "D29",
+      "D30",
+      "D31",
+      "D32",
+      "D33",
+      "D34",
+      "D35",
+      "D36",
+      "D37",
+      "D38",
+      "D39",
+      "D40",
+      "D41",
+      "D42",
+      "D43",
+      "D44"
+    ],
+    "pending": [],
+    "clarifications": {
+      "D03": "Retain full home blueprint stats; concise ordinary copy and linked Illuminated",
+      "D10": "Remove tentacle explanation",
+      "D14": "Burning",
+      "D17": "One in-combat timing reminder",
+      "D21": "Retaliating barrier alternative",
+      "D22": "Clean description; exact prospective keyword values",
+      "D26": "Critical Hits keyword",
+      "D29": "Damages flesh through Carapace while stripping it",
+      "D30": "Clears enemy Obscurity",
+      "D31": "Shaken",
+      "D33": "Actual Blast; Illuminated amplification explicitly accepted",
+      "D34": "Lasts until cleared"
+    },
+    "keywordHelp": "Implemented now by explicit user selection"
+  },
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/battle/battle_presentation.dart",
+      "sha256": "7883D54915CEF91B89368787AF9DB5C4295D14C1B4A92A24991E53AD6DD32AE9"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "ED06B829D96678A6CB92F583FF3A142A6304034FD9392F74DFCA0CD140584BBE"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/merchant_screen.dart",
+      "sha256": "49AA7571D1274DD0B7F154041BAA43743D491E7CCDD22BD04F372326C2B40432"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "16FD1D49B0E8420FC849CF8CAB813FA608582E06BDD49199DAECD5A14877E6F7"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+      "sha256": "4DAC11AC2C7ECDF7033D9A7DC2DD995B370A957BE924E3E7C21BD21E11F9EAEE"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+      "sha256": "0F97F18CDE9D33D12E19975DA4C4BC3AD357652D3EFE7577281C1D1D6165D2FC"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/battle_lookout.dart",
+      "sha256": "896DBDE353851FDFD9C1B1E6293C69017A645BDA0DA6DBBDF379D4421B728DEC"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/combat_stats.dart",
+      "sha256": "B636E34216721419BC781DDDC392B5300F94AE191ED547AFD426C02D352FD385"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/loot_supplies_view.dart",
+      "sha256": "504ABD45DD1716E89AE564C4A44F73A574ED3F1C324F1394B6EE0A546D2584A2"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "sha256": "7B1F527A847B93099B8635299AA0AC9D21E968D81905F86BB6F0C5D3D45882B7"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart",
+      "sha256": "EA53E4C55C8C513FC2EF45949261BC6C4858E730E9DFF8C1B9B41EB1D2AD5265"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/utility_description.dart",
+      "sha256": "44D9AD9DCCE2E4DB62C33E49014C5C4616BEDEAC03E4CEA83F7E69E4BB9514E4"
+    },
+    {
+      "path": "apps/monstrous_sea/test/battle_command_station_test.dart",
+      "sha256": "B752C5EFA2839B26FAC8FDB9FBAD300BFECAB27F064D8A1BFD982477B62BE4E3"
+    },
+    {
+      "path": "apps/monstrous_sea/test/battle_lookout_test.dart",
+      "sha256": "B8A3CF8DC6790E33203D282EA0F8F29767B9C8C75870A384B543243C19DF6DAB"
+    },
+    {
+      "path": "apps/monstrous_sea/test/belt_controls_test.dart",
+      "sha256": "2C78197F900A74C1C3C46863CDCA9DEA7C11992486562566BA77471697851FF8"
+    },
+    {
+      "path": "apps/monstrous_sea/test/evasion_readout_test.dart",
+      "sha256": "8040F4AC87BDCBC2B73DABC04F50094E661CDB3D334D3BF3BE6C1C068773803B"
+    },
+    {
+      "path": "apps/monstrous_sea/test/evasive_rigging_ui_test.dart",
+      "sha256": "B4FCDE9EF698CF722CF68AF9A531CF151E843D3E694168761D2F8851DCF93C08"
+    },
+    {
+      "path": "apps/monstrous_sea/test/expanded_roster_ui_test.dart",
+      "sha256": "4381E4956DD6DC65C60A04981CB3931D1C619997972FE9A6767B537572C76D33"
+    },
+    {
+      "path": "apps/monstrous_sea/test/ink_and_kraken_ui_test.dart",
+      "sha256": "5FAEAA747B888E6841195707CA654E21ACB46B61EB6765CF80F8F9AE947C09D3"
+    },
+    {
+      "path": "apps/monstrous_sea/test/mechanic_text_test.dart",
+      "sha256": "D8101D7A9946A67A46E84DEA57888D37082E86FDA2251C30FE53E03D1FBEE839"
+    },
+    {
+      "path": "apps/monstrous_sea/test/trait_rework_ui_test.dart",
+      "sha256": "D7F3DAF313EEE5AE5475CE5D0AFF65B62669CDF06C341DB1B38511C35944A499"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/consumables.dart",
+      "sha256": "1E546454DEE695C49B493080BA29EBA7400B4A974AA87B6E40D438FC9A6E2AA8"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/ship_weapons.dart",
+      "sha256": "EE0837EA071167963046B534D1B0E1688C03CA329C75F41CA9A2F842C0B8C870"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/eldritch_lore.dart",
+      "sha256": "A0F9E725F107862F2D1F3F85820E101B18387ABA21C369F308EC91A5652D43E1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/monster_intent_lore.dart",
+      "sha256": "E96CABF7365D9F396DF3886AB591617440BA305FD49AED53C30F222E7301B44B"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/trait_lore.dart",
+      "sha256": "6DD85D6B949BDEF81E711673852311596E691E0B97C1EBED3A652F717D0525EC"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/weapon_lore.dart",
+      "sha256": "E2F316993CB2F8DA503196BA80DADCF6FE1ADACECB205F21B330C90E3EE908EE"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/enums.dart",
+      "sha256": "5D10815383E85068FD754CFBE7BE1B342601A86EE4D608A731C690062A854E84"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/monster_intent.dart",
+      "sha256": "5A27CA38895BC054A37BD0D0C1CC811601E82D6F51C23DF954175120C3E4558B"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/ocean_power.dart",
+      "sha256": "491D9212BB9E54394DC84213F078A9F1C401AD3EE769EEF1652A3562E249B686"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/combat.dart",
+      "sha256": "FE551E9497F7208D42C8F9D9F2EF3EE57F8CA49EDAD4E2DDC63B1D2F1077B36D"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/monster_ai.dart",
+      "sha256": "13E153647BCA9CC9512A0C1E1718D91FD370D7F265B8C6CF973BBA494A2D7A4F"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "A300647BCB682BAF11A77E629E706541F2932149DB26CDE6B82A8486EFFC4FE7"
+    },
+    {
+      "path": "packages/monstrous_core/test/rules/blast_retaliation_test.dart",
+      "sha256": "44CB668E1FDDEBF7D348392C4AD1DC26CD2511BD9055FB1B9345966B03D09CC5"
+    },
+    {
+      "path": "packages/monstrous_core/test/rules/combat_test.dart",
+      "sha256": "DD2D3FC675C5779F688BFD079495A4240D8138D009B764C6D7B642DF3F82BB48"
+    }
+  ],
+  "sharedCoreInputs": [
+    {
+      "path": "packages/monstrous_core/lib/monstrous_core.dart",
+      "sha256": "E1A221CCF76A0C615D400D72B9BFBFD00DD84E99C6B8F7BDA0F670ED487248D4"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/balance_config.dart",
+      "sha256": "831E624D776604993E8E7D6E3E78C7DE2F47D58D60318D08C28EE15C6F4E5878"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/navigation_tuning.dart",
+      "sha256": "A4D45D7BEACA3894E7015FFC27A9C260A6F49DAE6C7DF2198D42AE12B1AE81DF"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/shore_service_tuning.dart",
+      "sha256": "67EAB102A68C01509EC90C9A1AC8A006D9A6E771CD15334CFAE00BCF65FB3390"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/voyage_economy_tuning.dart",
+      "sha256": "E61264F6793DEE8DB120BD0BA3750FF2286667807081FD8C001E550407609B05"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/wreck_tuning.dart",
+      "sha256": "35A478DAD17CB30665E10833C87AD56599DD0809CF059F9D6457B6199E93E0C8"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/consumables.dart",
+      "sha256": "1E546454DEE695C49B493080BA29EBA7400B4A974AA87B6E40D438FC9A6E2AA8"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/monster_weapons.dart",
+      "sha256": "BBB280BB6E76E51030E6A8F12BFF5144DAD42AB14133B4A254EBA6043FDA54F3"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/monsters.dart",
+      "sha256": "56659AFB86EF76407647F447E393A317F7CE4581A13FF35CDEA0DEC9353D6D8C"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/names/name_forge.dart",
+      "sha256": "FE5D8DBDC3B84DE26F8423B058C5CFECC1E1C23F29D52DFE32D801C122A15B4C"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/ship_weapons.dart",
+      "sha256": "EE0837EA071167963046B534D1B0E1688C03CA329C75F41CA9A2F842C0B8C870"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/ships.dart",
+      "sha256": "3FAD4932E145D1558A43B75E80452DCF0326707CB17A74DA641FE24AB74DED98"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/blueprint_lore.dart",
+      "sha256": "2DC432164DC436BC9F89B6775668FB93D47664290D4B68ECEE8E48DC570DC0F6"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/chronicle_strings.dart",
+      "sha256": "FEE7290225E15EA6F8B8EF4B2D3E75F33B74223117A3FD87E324DAA1FBAA75E1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/eldritch_lore.dart",
+      "sha256": "A0F9E725F107862F2D1F3F85820E101B18387ABA21C369F308EC91A5652D43E1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/lore.dart",
+      "sha256": "CF916D467D88A58B78E254E63C88EA07E6BCF8EFD65D238F537A2DE279491C16"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/monster_intent_lore.dart",
+      "sha256": "E96CABF7365D9F396DF3886AB591617440BA305FD49AED53C30F222E7301B44B"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/trait_lore.dart",
+      "sha256": "6DD85D6B949BDEF81E711673852311596E691E0B97C1EBED3A652F717D0525EC"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/weapon_lore.dart",
+      "sha256": "E2F316993CB2F8DA503196BA80DADCF6FE1ADACECB205F21B330C90E3EE908EE"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/attack_result.dart",
+      "sha256": "099040DA2A55B4AD0A0FE755EF7A21EADCF6ECAEBBB0C35E3FF726AB737F1BB0"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/bloodline_trait.dart",
+      "sha256": "154C0C66A3A1F68F354DFC2137CB0C31EF7A276A54DC9CFC787E85051B4F2A73"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/combat_presentation.dart",
+      "sha256": "4284DC7123EF474617A9022DB21E082CCD77CC5546DC1CDB80F4807782470083"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/combatant.dart",
+      "sha256": "4042EB175801C832BC400DCFA6A0C3E02D531B11AC3F4F2A691A6CC1063E8004"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/covenant_of_the_deep.dart",
+      "sha256": "7CC494F84BA16C590F9DAB30932E052FBD1914D8D064E1E43A593BAFE6B82F86"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/enums.dart",
+      "sha256": "5D10815383E85068FD754CFBE7BE1B342601A86EE4D608A731C690062A854E84"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/flagship_blueprint.dart",
+      "sha256": "3FB96EC6ACA125A27DF956E12EFE37D11BA9C04E70783C1ABBE0A6EFC99F1044"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/item.dart",
+      "sha256": "99DE9882BF86349406EA4BBA0EF4E7300EF769EB37CBA1ED444BB08F68C3A84C"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/material_shipment.dart",
+      "sha256": "049F24917F98F737244646D04C640F1DDA0EE55DB443768FE63A85E74350C116"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/meta_inventory.dart",
+      "sha256": "DB76A8129609377273F916B9C6EFE6535F4ABB5A06937BD165285B365D390FCF"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/monster_intent.dart",
+      "sha256": "5A27CA38895BC054A37BD0D0C1CC811601E82D6F51C23DF954175120C3E4558B"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/nemesis.dart",
+      "sha256": "B4B02F976C112C1DD364F0B0A11DF8F1338C2C4B5CF6A7A5E81123A91B5728F5"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/ocean_power.dart",
+      "sha256": "491D9212BB9E54394DC84213F078A9F1C401AD3EE769EEF1652A3562E249B686"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/wreck_encounter.dart",
+      "sha256": "9D04761A09C49B8973FA398BB83168112ABCE1D46D64BFBC208E9F324D9CA19A"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/monstrous_core_base.dart",
+      "sha256": "4DB736EC40C03C34CF179A91F4E23EA67FD08BE6CB06D8D7D5A74E0A5BC11B30"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/narration/narration_formatter.dart",
+      "sha256": "63DA21A6F723286010DF17C223729842085BAA216BF91B9A6E2AAC38C0D7D148"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/persistence/profile_data.dart",
+      "sha256": "FDC607C154B8FB0F8E2F05E9C00073197DD1C270495358FE8D372FCB2F5000D6"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/persistence/voyage_save_data.dart",
+      "sha256": "7114A5546BC56CDDE4FA9D884F41457D4BF109365EC305748D1088A044CBDA5E"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rng/game_rng.dart",
+      "sha256": "C541409ED044BE6CA2C994FA88E50CB4EA0B807663449E53ED2F01FBDB3EC371"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/combat.dart",
+      "sha256": "FE551E9497F7208D42C8F9D9F2EF3EE57F8CA49EDAD4E2DDC63B1D2F1077B36D"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/economy.dart",
+      "sha256": "841BCBBD8C64F94DCD1A8A7FDFBAA8CBD0B5BC0E7193603D23A07C95BF0DC3EA"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/lineage.dart",
+      "sha256": "0656610E6194251A613350591C54745EBAE48B716F9B6784B93373D9DD1010C1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/loot.dart",
+      "sha256": "C8AA509A517B7ADC18B43138BED91339EEBF462699EB4501DFCAA4FD2B59A50C"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/monster_ai.dart",
+      "sha256": "13E153647BCA9CC9512A0C1E1718D91FD370D7F265B8C6CF973BBA494A2D7A4F"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/paid_repairs.dart",
+      "sha256": "A107D10B336688A1B3D3E2A338E1A22188B9D9E594371B955E94996D8FA2BEFD"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/sea_chart.dart",
+      "sha256": "C6E2F16F997524DE1FD3681BF15181D0BC7119ECE7298AACA3DEDE301C9CE820"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/shrine.dart",
+      "sha256": "ED6EBCE7D6CDECB6D465EDFDD1948F9771CB28BFB6B5E2DE8049C91F044D0CEC"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/wrecks.dart",
+      "sha256": "7DF109918F6127DE6CF7071504CC7A38817E6025740BA7E0DA889E46FC2C70F7"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/commands.dart",
+      "sha256": "5FE2EA68805EE402659A6D537F8525B11D579C98F36889DE3E9A5E2F2CFF1D3D"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/events.dart",
+      "sha256": "EE50DC83D5F8D1AB8706057C8F7E2A7CC0C14EE9E2C65163CF8DFE7125C6D678"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "A300647BCB682BAF11A77E629E706541F2932149DB26CDE6B82A8486EFFC4FE7"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/session_phase.dart",
+      "sha256": "A0AAA0D1B4FE7EDDB0E31E0E22613E7831741DB8A70DB129EA1230FE296DD1FB"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/traits/trait.dart",
+      "sha256": "F69B1CF6ABA4598A0A0BE77941D08DD32ED6B719FF52AED0275D8A08AF9CB636"
+    }
+  ],
+  "checks": {
+    "fullApp": 472,
+    "fullCore": 934,
+    "simulator": 43,
+    "subsequentFontLoadedAffectedUi": 61,
+    "subsequentCombatSession": 455,
+    "lastGlossaryRelayoutCheck": 7,
+    "blastResponseMatrix": 24,
+    "analysis": "App/core/simulator clean",
+    "format": "Three new/shared UI files unchanged by formatter; existing files retain unrelated original formatting",
+    "fullSuitesBeforeFinalNarrowCorrections": true,
+    "finalNarrowCorrections": "Pitch narration, adjacent-parent relayout and mixed-blessing Shaken display verified by subsequent affected checks",
+    "livePlayerStorageUsed": false,
+    "previewLaunched": false,
+    "newDependencies": false,
+    "documentation": "passed",
+    "whitespace": "passed"
+  },
+  "blastComparison": {
+    "before": "Piercing with explicit 1.5x shell; no Flare bonus",
+    "after": "Blast with normal 1.5x shell; Flare adds 25/30/35% at actual utility marks",
+    "tierBase": [
+      12,
+      20,
+      30
+    ],
+    "flareFleshDamage": {
+      "none": [
+        12,
+        20,
+        30
+      ],
+      "MkI": [
+        15,
+        25,
+        38
+      ],
+      "MkII": [
+        16,
+        26,
+        39
+      ],
+      "MkIII": [
+        16,
+        27,
+        41
+      ]
+    },
+    "qualification": "Deterministic real retaliation response matrix; no claim of full-campaign balance replay"
+  },
+  "preview": {
+    "executable": ".dart_tool/approved-mechanic-copy-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+    "executableSha256": "375886FDBBD1200B15B523C36C43BB3A25F1C75B9D162E4A644BA22F58C94969",
+    "matchingAppSourceAssetCount": 99,
+    "matchingBundledAssetCount": 34,
+    "lockSha256": "D9A4E8C99522976F02E167273D2CF6B3736CC51C268E005C448758C4A8BD21D6",
+    "matchedAppInputs": [
+      {
+        "path": "apps/monstrous_sea/lib/main.dart",
+        "sha256": "D989DA093605FA447E74147A828209072E50F8AD5CDDEEB96B02116292ABF8C0"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/battle/battle_presentation.dart",
+        "sha256": "7883D54915CEF91B89368787AF9DB5C4295D14C1B4A92A24991E53AD6DD32AE9"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/battle/monstrous_sea_battle_game.dart",
+        "sha256": "9E76A403F9F1DC0AA060885B77C62F89EC38F7924E459E6D78B125716EF427DB"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/game_controller.dart",
+        "sha256": "7C89EAE05FAFECE7CC9B3D8F329D39DD465EDCFFE912DDA708DD8FFB0E27AB44"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/playtest/playtest_config.dart",
+        "sha256": "05237C8647E072EE15530C1A3588DF6B8E364C5890F899C881ECBBE7656544A2"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/playtest/playtest_host.dart",
+        "sha256": "7744543AB37574940CEAF873A91F801FDF6A1C3F8901E83108A0A711DD7CAFD8"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/playtest/playtest_screen.dart",
+        "sha256": "01320501845FF3FDEFE0CB84AFC0FC43DD45B243F0E5411060112D4F6BEACEC2"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+        "sha256": "ED06B829D96678A6CB92F583FF3A142A6304034FD9392F74DFCA0CD140584BBE"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/caldera_outcome_screen.dart",
+        "sha256": "D3BD038F12F655066865340B75BFDC8935E01276459F592567A5012C2F3C3A81"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/captain_screen.dart",
+        "sha256": "003A505D475DE5508BFED379984BFA021CAD3DE44A1BEBB441D0364C726335CA"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/death_screen.dart",
+        "sha256": "37A2A26138D8167B8C5C91F2C5AC288E32992EBD6DD115015160DCC48D6DDDEE"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/helm_screen.dart",
+        "sha256": "D3D8193CB895072D2FF2ABB6B74F4561E713C5C20CFC29004F4C5CBC0CF12386"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/intro_screen.dart",
+        "sha256": "1D79803862685EF12CAA30AB5C54A3EABD98039976EB7F863E50B75697F87427"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart",
+        "sha256": "A874AF5DEF4D7223B732DBEB1A187C5756D63D14627A690D0C13F8C025E626F0"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/loot_screen.dart",
+        "sha256": "C00794BC3C0BD00177DEE1ABBB75434ECA1D17DAF1184ED58A6E6634B2D68D17"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/merchant_screen.dart",
+        "sha256": "49AA7571D1274DD0B7F154041BAA43743D491E7CCDD22BD04F372326C2B40432"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+        "sha256": "16FD1D49B0E8420FC849CF8CAB813FA608582E06BDD49199DAECD5A14877E6F7"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/respite_island_screen.dart",
+        "sha256": "657C94C461E4304323C7B103018B8A9F1F0A00293BBC579C33D58618F1887FE3"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/rest_screen.dart",
+        "sha256": "F25BFD49CDD4A6A58B870F06BD9668062DD1DA6CF89E0ED1DCEEEBBF8E88533A"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/sea_chart_screen.dart",
+        "sha256": "1435BC438590BAD7A1A9B1D55EF12DFBDD6FC5014D485327209E4D0F0F1D26CC"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart",
+        "sha256": "092437EB0EDE8D291D9508E87CA0030D3CA42CC20C92138D391394A471531562"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+        "sha256": "4DAC11AC2C7ECDF7033D9A7DC2DD995B370A957BE924E3E7C21BD21E11F9EAEE"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/smuggler_screen.dart",
+        "sha256": "722ED16478F7976EA752980098CF00E257FC53450E2C0F1505741E837FBF882A"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/stronghold_screen.dart",
+        "sha256": "3C5306A4151B60F2B4B1EED598D52F698D80AB9376CD26F5B2581B61930F8DDE"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/screens/victory_screen.dart",
+        "sha256": "92C6500CC774D0CAF293357AFB5DDEE4DB2F7CFD5AEB358996FF278EB7ED4A95"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/services/caldera_snapshot.dart",
+        "sha256": "BDE2D8D27C858D20BB31B1A89AB081DB4E239325FB5919A804DF8DDC45851A17"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/services/lineage_store.dart",
+        "sha256": "E2266F07B7FC187EFA0E58A99994A261E4D06AB814204153D14B199418BCFD00"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/services/storage_service.dart",
+        "sha256": "213758FBD36471489BA9E24B305A8CA43F43506D2B34D5B9F17B5B7EA8C64063"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/settings/game_settings.dart",
+        "sha256": "C55F18314F94FAEA9795690FA4E92CA4D735F1E4D87C2AB0B4EB4BD0F2451BBE"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/theme/ink_theme.dart",
+        "sha256": "C1902FA843C712B0A7B2D06942BA8A9D8DB5045F6A9BAAF3689B68A08EE274FA"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+        "sha256": "0F97F18CDE9D33D12E19975DA4C4BC3AD357652D3EFE7577281C1D1D6165D2FC"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/battle_chronicle_dialog.dart",
+        "sha256": "E96D5D7FB63445DFE64937CC6C8044B3BA1698F62026D3172437838391B12862"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/battle_lookout.dart",
+        "sha256": "896DBDE353851FDFD9C1B1E6293C69017A645BDA0DA6DBBDF379D4421B728DEC"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/chart_camera.dart",
+        "sha256": "859DF73DFF3F9E04CDE3826F3E21D30A4307CFCBE19F59DDEF77D30C55DABBD6"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/chart_marginalia.dart",
+        "sha256": "FCA22516783992DF526BC78B4C32FD3CD8457EA720F3A4D556942D84983B1D71"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/combat_log_view.dart",
+        "sha256": "D0B83F141C02F7768A9CC07248E9D3D93450DF6349E20558686004AC35745360"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/combat_stats.dart",
+        "sha256": "B636E34216721419BC781DDDC392B5300F94AE191ED547AFD426C02D352FD385"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/hull_gauge.dart",
+        "sha256": "4CEF9F6105CD701F0987029F7DE3E3DDBB361D578B1A6AF89EBD9856271C1C7B"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/hull_patch_kit_button.dart",
+        "sha256": "DC14DDD25303DA3A3A0CC4CD0CAEC756514CE33FDE7E3AA0726AF287639EA0B3"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/ink_button.dart",
+        "sha256": "89FE3E5C871DEBFCC20CA3076763A23CF934D0F3AA7DC67E4F255D6C0477F835"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/loot_supplies_view.dart",
+        "sha256": "504ABD45DD1716E89AE564C4A44F73A574ED3F1C324F1394B6EE0A546D2584A2"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/material_trade_view.dart",
+        "sha256": "D95A5302DAC8C232BDC342A2C3E1FD5E91F44FBD1115C8DE2242DCB53C5F9882"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+        "sha256": "7B1F527A847B93099B8635299AA0AC9D21E968D81905F86BB6F0C5D3D45882B7"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+        "sha256": "095DD5C3FE12DDA4A0247D2F900BA0A5091C0EE7C620405E5237684DBB7CF98D"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart",
+        "sha256": "EA53E4C55C8C513FC2EF45949261BC6C4858E730E9DFF8C1B9B41EB1D2AD5265"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/paid_repair_view.dart",
+        "sha256": "E2703F2F8157067A49B13D715C747691FCA962FF0A5041A7FEB6A68CE7EFF602"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/painters/animated_wave_painter.dart",
+        "sha256": "E562703FC7B05D37165BDDF3AAB25FA618680702690FF36B7528633687765F1F"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/painters/cartouche_border_painter.dart",
+        "sha256": "76086579C22F630D812BBEF57F7DE8E6EBAEB519D8295B2F831A430EF5ADB05D"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/painters/compass_rose_painter.dart",
+        "sha256": "B4869888C3A0AD6283182358F11E2F6D0666824FB191CB635E733B54E729063D"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/painters/parchment_texture_painter.dart",
+        "sha256": "6121EE8E3978862003B422BC27291299DEC3EF7D56FE4807CE33FD30FDF2B50B"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/painters/sea_chart_paper_painter.dart",
+        "sha256": "F2312C35D81B0E1F0939AFBF1B8341716C391B1D53C7C16E7F9D696E57F98CE4"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/painters/sea_chart_water_painter.dart",
+        "sha256": "795EAB25CBD1D1B35250648847B3BDAC4186F986DD4E900783FF01CB289DEEFF"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/parchment_card.dart",
+        "sha256": "B3B200DDB42A2DB0D25AAC58B850BDCA8DCBA53A7A7710909B8FEFD83A3886EF"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/parchment_scaffold.dart",
+        "sha256": "74A816C11D46E69328A1472985B44839E6A6255EDB2AB469A058543E28E6AEEC"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/pause_menu.dart",
+        "sha256": "1379DFFE3D76ED36D0DC8C9891C391A19FFA5D20C798C75F8B6DAF80BAC461CD"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/pilot_art.dart",
+        "sha256": "30FA090AE6CC32782A2CA12C88ED486F9C9A45C58E9A0AF592B7A7CD2D25945E"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/settings_dialog.dart",
+        "sha256": "6CB54F62FDD8FEB329FB02E6736E4E4A56A6548853F29A0171F768B59C04BD8C"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/svg_asset_view.dart",
+        "sha256": "7C1AC747D5DA5039C646EEEC6FBAEC8FB718E960ED757257F00E287DAFBEA7C4"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/typewriter_text.dart",
+        "sha256": "A744369E9A789B42CF15EF70B9F1C2E8943D1AE723D7890E5B32AAD6AF38E5C9"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/utility_description.dart",
+        "sha256": "44D9AD9DCCE2E4DB62C33E49014C5C4616BEDEAC03E4CEA83F7E69E4BB9514E4"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/vessel_inspection.dart",
+        "sha256": "9C0CED49CAA2FC51F6558A7765C58AF562F5D2BBB72008B82DD75D97E9F35AF9"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/voyage_log_view.dart",
+        "sha256": "589342D463E43A52916AFE6D3D2E952B20053B6D9F4E36A74EB13BE93A9D90B2"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/voyage_shipwright_view.dart",
+        "sha256": "8160B107EAE246725F33368150CC3046134EF044D74887F8002B662D1300AF80"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/weapon_stats_view.dart",
+        "sha256": "0A9A4A5E23E2F6B1B18F9ED3D187C49B8BB69EF49975D989FC733F5D5386CD24"
+      },
+      {
+        "path": "apps/monstrous_sea/lib/src/widgets/wreck_supplies_view.dart",
+        "sha256": "F6324A5E8450EE7F009B0C1706AEF3F7B8C35A8E460A7B550B0710CE98A72124"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/chart_reach_caldera_map_v1.png",
+        "sha256": "5D8E96D7959250A86D6773DD64E0C39A534F24AE0295E121B9F87497EA3B63C5"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/chart_sargasso_kelp_map_v3.png",
+        "sha256": "F14477D8936985438A05166A7E5ADBAB9F5363262CA0BC8DC089C3CAEBDB30A9"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_alchemical_pitch_map_v1.png",
+        "sha256": "C6C3B2A58AF3B707A9C9B7FB007F9ECDEA6909496F0F09E993519BC2B9E60403"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_anchor_map.png",
+        "sha256": "54D79F5506E9ECEF5DF337A8D80C432BD1BD28F07F9895946AF63A4765CC07FB"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_blade_launcher_map.png",
+        "sha256": "2F313695A0FEFFF899C6271925B995F64F696EC6B22E75B7E0215E7D0F0A0FC6"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_blast_pack_map.png",
+        "sha256": "8EC092012E86D2B46E4A59DBC6E86D5568067C38812CF3621AADCF77A8F40B1A"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_cannon_map.png",
+        "sha256": "E63E8B906D8139AEDE3419B1B97405AF767E229D0BCDCE5B57391560B26B67C0"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_cannons_map.png",
+        "sha256": "88B8BEC167BCB22EEE8861142A979EEF9234498D35D4B51E704174C912E6B023"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_center_journey_map_v1.png",
+        "sha256": "A161E10291166E54B6ED6C86A4C5628DFB3D0A5ECFE56C4D5FE4C7AEE7681145"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_chakram_map.png",
+        "sha256": "89242C1A02E0E2AC58368C08D35CC1FF354F3EF9625EFFE6E39CC50F33C1BA63"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_chart_hull_map_v2.png",
+        "sha256": "EB927179722ABA094E3D3F8B9FDED3A441AF582E853FDADD4D2E028EF717C252"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_chart_purse_map_v1.png",
+        "sha256": "DB2B02145016C042555C04C8129CC0200336BEB518BE1353FCAB9FBEDD063D0E"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_flamethrower_map_v2.png",
+        "sha256": "B05A4E7C8477857156E694CF6FBF96660E74D5799BFEF559A526147712893711"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_fog_map.png",
+        "sha256": "8928AB59F1CB11D90E144B62CB17651D9FEE7F5551FF519AAEDA7384365588D6"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_helm_map.png",
+        "sha256": "4266AC3F619C4164746C3A558CE71507FA8BBF7A08601328F3CF4FD0C9C55379"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_hull_patch_kit_rope_from_leather_v1.png",
+        "sha256": "A58EDDD3D9ED2C92C86AB0F67EA60F1196D1691EE7FE1E4F772AF201A5FFBDFB"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_kraken_ink_map_v1.png",
+        "sha256": "C8491E565B5DF0DDC6256693F0624BD5970128289AC4BC397193ED631D4A1CB8"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_lightning_railgun_map.png",
+        "sha256": "EE12E52C66905E32512D7225DF2F27B0A01BDF86F752787ED02C4519EAD27D62"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_port_haven_map.png",
+        "sha256": "863442E887FB72E257C929D776AD35041BD820280F282E00E650EF879E29BC81"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_skull_map.png",
+        "sha256": "369D472CCB91B4BF29A2DCE8266DE03B11E147CECDB7A46427E13D1BC98C6555"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_torpedo_launcher_map_v2.png",
+        "sha256": "C82A9FB40F63FC64CCCDF2FC6AB7ACACA4CEEAB0C16EE717A4B524B2CA63D7E3"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "sha256": "CAC0DF49903C581F639237913BE5D59E5C516E130D56062AC6FAD935BF7F247F"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png",
+        "sha256": "D80A71A21D128F2B382170DE7F64D69D394B65B17BC42C7A2FDB25EF5DD67D9A"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_crustacean_map.png",
+        "sha256": "5A3247505C53F7A7D1E3F371B075AB56E050BBAFE3D34D9AB8827DCAABD76A01"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_jellyfish_map.png",
+        "sha256": "20D66D48E4CE5C8E3801043944AE248CDCFAC30CEA3430E15B973531DAAC125F"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_kraken_boss_v5.png",
+        "sha256": "6929D92DDBBFC049FE2393F8D4379946184310C649F770BE05C3DE4E0B8DF147"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_serpent_map.png",
+        "sha256": "6870DE7B735F62B228C1036C8F08C6485035607A5923DB91FEEC8B348A5629EA"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_shark_map.png",
+        "sha256": "E5A4F8C558ECB2D764B4C3EB9E22AD6DA51636BC390D926AE5BF2035271C0167"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_squid_map_v5.png",
+        "sha256": "DBC1E31434BA3A4C402A7DF0D2184B71EFF2094014F2D269BF1FA8621ED46161"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_corvette_map.png",
+        "sha256": "B5EDD7D4594AB2DA59D7351B6B4D343272CBA1A1728A5A449CAE72CAD72DA786"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_flying_dutchman_map.png",
+        "sha256": "9763B6234F08DD720CCA9E25BBCB4E337E033C1F634F59AC222050507BC2AB3B"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+        "sha256": "C0A86992A1A2647996F8F0504A20AF010B14D26657CACF4FB9BF889744BE36CA"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_ironclad_map_v2.png",
+        "sha256": "0D5FD76AAC5794703DBAB29F09CA6F3E5D52812E0089B543FE17775E52553DE6"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_standard_map.png",
+        "sha256": "AEB057AF7CB85F7FA7522A1B1996F3B532DB5521CB6AF0A29D53B325AEF6EB33"
+      }
+    ],
+    "matchedBundledAssets": [
+      {
+        "path": "apps/monstrous_sea/assets/art/chart_reach_caldera_map_v1.png",
+        "sha256": "5D8E96D7959250A86D6773DD64E0C39A534F24AE0295E121B9F87497EA3B63C5"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/chart_sargasso_kelp_map_v3.png",
+        "sha256": "F14477D8936985438A05166A7E5ADBAB9F5363262CA0BC8DC089C3CAEBDB30A9"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_alchemical_pitch_map_v1.png",
+        "sha256": "C6C3B2A58AF3B707A9C9B7FB007F9ECDEA6909496F0F09E993519BC2B9E60403"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_anchor_map.png",
+        "sha256": "54D79F5506E9ECEF5DF337A8D80C432BD1BD28F07F9895946AF63A4765CC07FB"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_blade_launcher_map.png",
+        "sha256": "2F313695A0FEFFF899C6271925B995F64F696EC6B22E75B7E0215E7D0F0A0FC6"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_blast_pack_map.png",
+        "sha256": "8EC092012E86D2B46E4A59DBC6E86D5568067C38812CF3621AADCF77A8F40B1A"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_cannon_map.png",
+        "sha256": "E63E8B906D8139AEDE3419B1B97405AF767E229D0BCDCE5B57391560B26B67C0"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_cannons_map.png",
+        "sha256": "88B8BEC167BCB22EEE8861142A979EEF9234498D35D4B51E704174C912E6B023"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_center_journey_map_v1.png",
+        "sha256": "A161E10291166E54B6ED6C86A4C5628DFB3D0A5ECFE56C4D5FE4C7AEE7681145"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_chakram_map.png",
+        "sha256": "89242C1A02E0E2AC58368C08D35CC1FF354F3EF9625EFFE6E39CC50F33C1BA63"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_chart_hull_map_v2.png",
+        "sha256": "EB927179722ABA094E3D3F8B9FDED3A441AF582E853FDADD4D2E028EF717C252"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_chart_purse_map_v1.png",
+        "sha256": "DB2B02145016C042555C04C8129CC0200336BEB518BE1353FCAB9FBEDD063D0E"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_flamethrower_map_v2.png",
+        "sha256": "B05A4E7C8477857156E694CF6FBF96660E74D5799BFEF559A526147712893711"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_fog_map.png",
+        "sha256": "8928AB59F1CB11D90E144B62CB17651D9FEE7F5551FF519AAEDA7384365588D6"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_helm_map.png",
+        "sha256": "4266AC3F619C4164746C3A558CE71507FA8BBF7A08601328F3CF4FD0C9C55379"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_hull_patch_kit_rope_from_leather_v1.png",
+        "sha256": "A58EDDD3D9ED2C92C86AB0F67EA60F1196D1691EE7FE1E4F772AF201A5FFBDFB"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_kraken_ink_map_v1.png",
+        "sha256": "C8491E565B5DF0DDC6256693F0624BD5970128289AC4BC397193ED631D4A1CB8"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_lightning_railgun_map.png",
+        "sha256": "EE12E52C66905E32512D7225DF2F27B0A01BDF86F752787ED02C4519EAD27D62"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_port_haven_map.png",
+        "sha256": "863442E887FB72E257C929D776AD35041BD820280F282E00E650EF879E29BC81"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_skull_map.png",
+        "sha256": "369D472CCB91B4BF29A2DCE8266DE03B11E147CECDB7A46427E13D1BC98C6555"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_torpedo_launcher_map_v2.png",
+        "sha256": "C82A9FB40F63FC64CCCDF2FC6AB7ACACA4CEEAB0C16EE717A4B524B2CA63D7E3"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_treasure_map.png",
+        "sha256": "CAC0DF49903C581F639237913BE5D59E5C516E130D56062AC6FAD935BF7F247F"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/icon_unstable_tincture_map_v4.png",
+        "sha256": "D80A71A21D128F2B382170DE7F64D69D394B65B17BC42C7A2FDB25EF5DD67D9A"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_crustacean_map.png",
+        "sha256": "5A3247505C53F7A7D1E3F371B075AB56E050BBAFE3D34D9AB8827DCAABD76A01"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_jellyfish_map.png",
+        "sha256": "20D66D48E4CE5C8E3801043944AE248CDCFAC30CEA3430E15B973531DAAC125F"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_kraken_boss_v5.png",
+        "sha256": "6929D92DDBBFC049FE2393F8D4379946184310C649F770BE05C3DE4E0B8DF147"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_serpent_map.png",
+        "sha256": "6870DE7B735F62B228C1036C8F08C6485035607A5923DB91FEEC8B348A5629EA"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_shark_map.png",
+        "sha256": "E5A4F8C558ECB2D764B4C3EB9E22AD6DA51636BC390D926AE5BF2035271C0167"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/monster_squid_map_v5.png",
+        "sha256": "DBC1E31434BA3A4C402A7DF0D2184B71EFF2094014F2D269BF1FA8621ED46161"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_corvette_map.png",
+        "sha256": "B5EDD7D4594AB2DA59D7351B6B4D343272CBA1A1728A5A449CAE72CAD72DA786"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_flying_dutchman_map.png",
+        "sha256": "9763B6234F08DD720CCA9E25BBCB4E337E033C1F634F59AC222050507BC2AB3B"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_freighter_pilot_v2.png",
+        "sha256": "C0A86992A1A2647996F8F0504A20AF010B14D26657CACF4FB9BF889744BE36CA"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_ironclad_map_v2.png",
+        "sha256": "0D5FD76AAC5794703DBAB29F09CA6F3E5D52812E0089B543FE17775E52553DE6"
+      },
+      {
+        "path": "apps/monstrous_sea/assets/art/ship_standard_map.png",
+        "sha256": "AEB057AF7CB85F7FA7522A1B1996F3B532DB5521CB6AF0A29D53B325AEF6EB33"
+      }
+    ],
+    "olderBuildsPreserved": true
+  },
+  "captures": [
+    {
+      "path": "visual/glossary-burning-1280.0.png",
+      "sha256": "1D6627884F09E30E30F0FA9DDCECFF90666CACAAA96C03F97A50A2133930F15D"
+    },
+    {
+      "path": "visual/glossary-burning-360.0.png",
+      "sha256": "A647961E2DF1E6AB8C45D2379B55B372804CBA204B18F2C779D8E51DF4C7F6F4"
+    },
+    {
+      "path": "visual/glossary-critical-360.png",
+      "sha256": "5FC22F4E75AB2802E0F8FEC4C5DE902A313754148A4560BD0EF4461403D8F65B"
+    },
+    {
+      "path": "visual/glossary-home-flare-stats.png",
+      "sha256": "13CE83BDF415C04A8A008F076AD58B2E316E751EDA38371C461079189F617725"
+    },
+    {
+      "path": "visual/glossary-illuminated-360.png",
+      "sha256": "1EAC7971CC9F70712747CC9B184DCF502F8A4AA3F50783CB5E5BFF9334BE131D"
+    },
+    {
+      "path": "visual/glossary-inspection-flare-scaled.png",
+      "sha256": "C93FF505F61349E5E6093C33FB52BEF7826DC312F0EE2B057F565986700A88E9"
+    },
+    {
+      "path": "visual/glossary-nested-1280.0.png",
+      "sha256": "FEC24F548F0D471C12D24BE8DFAE968C9D510892CCFE98DFFC9B08F340037A15"
+    },
+    {
+      "path": "visual/glossary-nested-360.0.png",
+      "sha256": "FE8E037B704D1263B86DF431DD96B6AA64BC07C648B45A1019E3A74F23ADDB43"
+    },
+    {
+      "path": "visual/glossary-shrine-comparison.png",
+      "sha256": "34B642E757A2FB8C2009C84E835A16F10486D565A874614CECBD3065350C4D2F"
+    }
+  ],
+  "logs": [
+    {
+      "path": "checks/approved-all-app-final.log",
+      "sha256": "B02456030C31C07F0A15BD6E9B26D1E914080DD2225FBA3D869DF2F8920532BC"
+    },
+    {
+      "path": "checks/approved-all-core-final.log",
+      "sha256": "436B6AFD4BF6B061B1DAA611EF6D683241277BA0F2CF58B7560FDC615EB39DA9"
+    },
+    {
+      "path": "checks/approved-app-analysis-final.log",
+      "sha256": "0D6B339FF85DE44AC38E81C49F322AE3B26DAC2FEC9FA140FCB84544B37B47C1"
+    },
+    {
+      "path": "checks/approved-core-analysis-final.log",
+      "sha256": "F9CDA8887B901C3A07B156C4EA82FFDADE9E1A1F7FD6ED390596A8B4FCB1A82D"
+    },
+    {
+      "path": "checks/approved-core-followup.log",
+      "sha256": "89B45BB39A9F58C4C3AF1C0A2F6F0B59F276D7B1A661E7E6D893A5D4A1D82BAA"
+    },
+    {
+      "path": "checks/approved-docs-check.log",
+      "sha256": "57A711F82FBB49173FAC8FE66DC56DE713A5B26C21D1B2E80247647A6CABBFE0"
+    },
+    {
+      "path": "checks/approved-format-check.log",
+      "sha256": "45677745DE22EDB703C8D6F33AA97667C853D61FD53A4D91027D6116D8B5D32F"
+    },
+    {
+      "path": "checks/approved-glossary-final-followup.log",
+      "sha256": "9C4FD66AC7C7E144CB7036ECFAC46131BD9A6B3DD20B97CFCC0E63245DBD8E76"
+    },
+    {
+      "path": "checks/approved-glossary-last-check.log",
+      "sha256": "5A19B22DE1921F5C4908E7085FD078C447F67561B9DD28D6318A705EF2C838CA"
+    },
+    {
+      "path": "checks/approved-sim-analysis.log",
+      "sha256": "FF459289058FE5B21E6BB34A98DF97BE9588AD195DED5C295C142CD4456E8F58"
+    },
+    {
+      "path": "checks/approved-sim-tests.log",
+      "sha256": "2258E6FC534953B2A8A89975B8C596423698179DE2D5EC281D0ADC8FCDD11778"
+    },
+    {
+      "path": "checks/approved-whitespace-check.log",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "checks/pub-get.log",
+      "sha256": "E3472F98B3AD0B1BEADBC19DCDC14958BAD9F58F6251045287ADFEDCD541EE53"
+    },
+    {
+      "path": "checks/windows-build.log",
+      "sha256": "2617E585020EA13D11C9BF8DF003D61E1F93B9E228DCE688A18639F3675D84BA"
+    }
+  ],
+  "preserved": [
+    "Player saves and stored item objects",
+    "Prior audit/capture/build evidence",
+    "Approved artwork",
+    "Provisional economy tuning",
+    "Enum JSON names and internal Tremor fields"
+  ],
+  "remaining": "Player evaluation of comprehension/help interaction; no unresolved wording choice."
+}

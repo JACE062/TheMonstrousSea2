@@ -169,7 +169,10 @@ void main() {
     await tester.tap(find.byTooltip('Inspect monster intent'));
     await tester.pumpAndSettle();
     expect(find.textContaining('8 x 7 base Blast (up to 56'), findsOneWidget);
-    expect(find.textContaining('Damage estimates precede'), findsOneWidget);
+    expect(
+      find.textContaining('Base damage before avoidance and defenses.'),
+      findsOneWidget,
+    );
     expect(find.textContaining('Ram closes'), findsNothing);
     expect(find.textContaining('Skirmisher helm'), findsNothing);
   });
@@ -191,7 +194,10 @@ void main() {
       expect(find.text(note), conditional ? findsOneWidget : findsNothing);
       expect(find.textContaining('Ram closes'), findsNothing);
       expect(find.textContaining('Evasive Rigging opens'), findsNothing);
-      expect(find.textContaining('Damage estimates precede'), findsOneWidget);
+      expect(
+        find.textContaining('Base damage before avoidance and defenses.'),
+        findsOneWidget,
+      );
       expect(find.textContaining('Sweep defenses'), findsNothing);
     });
   }
@@ -206,7 +212,10 @@ void main() {
       await _mount(tester, _monster(intent), range: CombatRange.long);
       await tester.tap(find.byTooltip('Inspect monster intent'));
       await tester.pumpAndSettle();
-      expect(find.textContaining('Damage estimates precede'), findsNothing);
+      expect(
+        find.textContaining('Base damage before avoidance and defenses.'),
+        findsNothing,
+      );
       expect(find.textContaining('Sweep defenses'), findsNothing);
       expect(find.text('Counterplay'), findsOneWidget);
     });

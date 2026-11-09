@@ -1,3 +1,5 @@
+import 'package:monstrous_sea/src/widgets/mechanic_text.dart';
+
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -88,10 +90,10 @@ InkButton _control(WidgetTester tester, String label) =>
     tester.widget<InkButton>(_button(label));
 
 String _tooltip(WidgetTester tester, String label) => tester
-    .widget<Tooltip>(
-      find.ancestor(of: _button(label), matching: find.byType(Tooltip)),
+    .widget<MechanicTooltip>(
+      find.ancestor(of: _button(label), matching: find.byType(MechanicTooltip)),
     )
-    .message!;
+    .message;
 
 Future<void> _finishPlayback(WidgetTester tester) async {
   // Flame's continuously animated sea prevents pumpAndSettle from settling.
@@ -199,7 +201,7 @@ void main() {
       expect(_tooltip(tester, pitch.name).toLowerCase(), contains('limit'));
       expect(
         _tooltip(tester, pitch.name),
-        contains('Boost the next volley damage by 25%; hits apply Burn.'),
+        contains('Your next volley deals +25% damage; hits apply Burning.'),
       );
       expect(_control(tester, pitch.name).semanticLabel, contains(pitch.name));
 

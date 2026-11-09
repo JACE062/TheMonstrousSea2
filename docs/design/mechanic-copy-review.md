@@ -1,10 +1,31 @@
 # Action and condition copy review — 8 November 2026
 
-**Status: D01–D02 implemented from the user's explicit request; D03–D44 await the user's decisions.** No other candidate below has been applied. These IDs are separate from the completed C01–C36 [earlier copy review](player-copy-review.md). Approving wording does not approve a gameplay change.
+**Status: D01–D44 selected and implemented.** D01–D02 shipped first; the subsequent approvals and five clarification answers complete D03–D44. The original review tables below retain the before/proposal comparison; the selection notes record amendments to those proposals. These IDs are separate from the completed C01–C36 [earlier copy review](player-copy-review.md). The sole approved combat change is D33: Tidal Shockwave now resolves as Blast, including its Illuminated interaction. Other changes are copy, help or corrections to displayed values.
 
-The [player report](../playtests/2026-11-08/mechanic-copy/01-player.png) asks descriptions to explain what their own action does, with condition definitions on the condition's tooltip. Keep actual bonuses, penalties, duration, cooldown, targeting, movement and prerequisites. Mentioning an applied condition such as Burn is appropriate; explaining that condition or listing other things that interact with it is a separate question. The review includes borderline **keep** recommendations so the user can decide rather than treating every mention of another mechanic as clutter.
+The [player report](../playtests/2026-11-08/mechanic-copy/01-player.png) asks descriptions to explain what their own action does, with condition definitions on the condition's tooltip. Keep actual bonuses, penalties, duration, cooldown, targeting, movement and prerequisites. Mentioning an applied condition such as Burning is appropriate; explaining that condition or listing other things that interact with it is a separate question. The review includes borderline **keep** recommendations so the user can decide rather than treating every mention of another mechanic as clutter.
 
-`N`, `A`, `B` and similar placeholders below mean the current displayed, fitting-derived value. They are not proposed tuning. Tier-dependent effects must remain tier-dependent. Candidate copy is a review draft, not new authority over the implemented rules.
+`N`, `A`, `B` and similar placeholders below mean the current displayed, fitting-derived value. They are not proposed tuning. Tier-dependent effects must remain tier-dependent. The tables preserve the review draft; selected changes and the current rules take precedence over its original alternatives.
+
+## Final selections and clarifications
+
+All D03–D44 proposals/retain recommendations are approved, with these selections:
+
+| IDs | Selected result |
+| --- | --- |
+| D03 | Concise normal Flare description; full base stats remain on the home blueprint page. Linked Illuminated help uses the displayed utility mark or captured active effect values. |
+| D10 | Remove the tentacle explanation and repeated prose range table. Keep +20% damage against Pinned; range stats remain available. |
+| D14, D20, D22–D24, D35 | The continuing fire condition is **Burning**. Ignite/Ignites are action verbs linked to Burning help. Timed Magma damage and duration are available before shrine dedication, including current/prospective tier and region. |
+| D17 | Keep the trait rule and one in-combat order-timing line. Remove the redundant contextual hint and Inspect note. |
+| D21 | Use “Crush Carapace, interrupt windups, and raise a retaliating barrier.” |
+| D26 | Keep critical chance; link **Critical Hit(s)** to its 1.5× damage explanation. |
+| D29 | “Damages flesh through Carapace while stripping it.” Keep stacks, duration and the Tier III unarmored bonus. |
+| D30 | “Clears enemy Obscurity,” followed by the existing melt/Corroded amounts. |
+| D31 | **Shaken** names the accuracy debuff; help shows the actual penalty or the relevant Broadside blessing tier's 10/15/20%. Tremor Volley remains the ability name. |
+| D33 | Tidal Shockwave becomes actual **Blast** damage, retaining 12/20/30 base retaliation and normal 1.5× shell damage. The user explicitly accepted that Illuminated now boosts it. |
+| D34 | “Reduces shot accuracy by N%. Successful hits have a 25% chance to clear it, lasts until cleared.” |
+| D36 | Keep the status badge's discharge consequences and add linked Arc Discharge help. Static Charge's own keyword card gives the three-stack trigger; the next card gives damage and outcomes. |
+
+The user explicitly requested linked keyword help now for Illuminated, Burning, Static Charge/Arc Discharge, Corroded, Pinned, Carapace and Critical Hits. Related named conditions in those chains also have help. No unresolved wording choice remains in this review. [Verification and evidence](../archive/README.md#approved-action-and-condition-copy-verification-2026-11-08) retain the delivered scope and checks.
 
 ## Explicitly requested changes
 
@@ -15,9 +36,9 @@ The [player report](../playtests/2026-11-08/mechanic-copy/01-player.png) asks de
 
 ## Fittings and tactical supplies
 
-All rows in the following tables are **pending**. “Keep” is a recommendation for approval, not a change already made.
+All following rows are approved, including the recommendations to retain direct effects. Headers describe the original review, not unresolved work. Apply the final selection notes above where they differ.
 
-| ID | Current text / location | Proposed decision | Why it needs your choice |
+| ID | Original text / location | Reviewed proposal | Original review rationale |
 | --- | --- | --- | --- |
 | D03 | **Spotter Flare** lists Illuminated, clearing Obscurity, suppressing evasion, accuracy and Blast vulnerability in [battle](../../apps/monstrous_sea/lib/src/screens/battle_screen.dart) and [inspection](../../apps/monstrous_sea/lib/src/widgets/armory_view.dart). | **Shorten:** “2-turn cooldown. Illuminates the beast for 2 turns.” Put the actual accuracy/Blast/dodge/Obscurity effects on Illuminated's tooltip. | Closest parallel to the requested Burn example, but choosing this fitting becomes less informed before first use. Alternative: retain its numeric bonuses, remove only the condition explanations. |
 | D04 | **Gun-Deck Bracing** explains setting built-in hull/gun-deck braces before listing reduction and volley benefits, in the same two files. | **Shorten:** “2-turn cooldown. Reduces incoming damage by N% this round. Your next volley gains +15% accuracy and +D% damage.” | All three bonuses are direct effects and should stay; the construction explanation can be flavor elsewhere. |
@@ -36,7 +57,7 @@ All rows in the following tables are **pending**. “Keep” is a recommendation
 
 Trait sources: [current trait lore](../../packages/monstrous_core/lib/src/lore/trait_lore.dart). Shrine introductions: [Ocean Power summaries](../../packages/monstrous_core/lib/src/model/ocean_power.dart), rendered by the [shrine](../../apps/monstrous_sea/lib/src/screens/shrine_screen.dart).
 
-| ID | Current text / location | Proposed decision | Why it needs your choice |
+| ID | Original text / location | Reviewed proposal | Original review rationale |
 | --- | --- | --- | --- |
 | D15 | **Skilled Carpenter:** “All healing is 20% better… Healing modifiers multiply together.” | **Cut the second sentence.** “Hull healing is 20% more effective.” | The stacking formula belongs in detailed healing help, rather than this captain's bonus description. |
 | D16 | **Impatient** explains Utility + weapon, then lists helm, belt and Wait & Reload as the next-turn options. | **Shorten:** “Use Utility and one weapon before the beast responds. Your fittings are unavailable next turn.” | The cost is essential; enumerating every unaffected control introduces other mechanics. |
@@ -50,7 +71,7 @@ Trait sources: [current trait lore](../../packages/monstrous_core/lib/src/lore/t
 
 All twelve descriptions come from [HardpointBlessing.description](../../packages/monstrous_core/lib/src/model/ocean_power.dart), shared by shrine choices, inspection and blessing tooltips. `+D%` below retains the current tier's weapon bonus. These are separate decisions from the shrine's introductory summary.
 
-| ID | Current extra detail | Proposed decision | Why it needs your choice |
+| ID | Original extra detail | Reviewed proposal | Original review rationale |
 | --- | --- | --- | --- |
 | D22 | **Magma Volley** explains Burn tick damage, highest-Magma-tier selection and +10% per later region. | **Shorten:** “+D% weapon damage. Ignites for 3 turns.” Move tick/scaling rules to Burn help. | The application and duration are intrinsic; shared Burn scaling is the detour. Exact tick values may matter when comparing shrine choices. |
 | D23 | **Caldera Eruption** lists Thermal Detonation's bonus, its 1.5× Carapace interaction, and “Burn is preserved.” | **Cut only the Carapace multiplier from prose.** Keep the burning-target prerequisite, detonation amount, Tier III Ignite-first behavior and “does not consume Burn.” | The prerequisite and non-consumption define the synergy; the ordinary Blast multiplier is separate damage-type knowledge. |
@@ -67,7 +88,7 @@ All twelve descriptions come from [HardpointBlessing.description](../../packages
 
 ## Conditions, forecasts and detailed help
 
-| ID | Current text / location | Proposed decision | Why it needs your choice |
+| ID | Original text / location | Reviewed proposal | Original review rationale |
 | --- | --- | --- | --- |
 | D34 | **Obscurity tooltip** explains accuracy vs dodge, 25% dispersion, Spotter Flare and no fixed duration. [Stat tooltips](../../apps/monstrous_sea/lib/src/widgets/combat_stats.dart). | **Shorten:** “Reduces shot accuracy by N%. Successful hits have a 25% chance to clear it.” | The condition owns its penalty and natural clearing rule. Naming a particular fitting and comparing another avoidance mechanic may be unnecessary; leaving duration implicit is less informative. |
 | D35 | **Ignited tooltip:** “…takes Fire damage… Enables Thermal Detonation.” [Status badges](../../apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart). | **Remove the detonation advertisement.** Explain only the condition's tick behavior here, using the name selected in D14. | A condition should not introduce a particular blessing the player may never obtain. |
@@ -89,18 +110,20 @@ All twelve descriptions come from [HardpointBlessing.description](../../packages
 - Current Dodge/Evade help is the appropriate place for avoidance rules and the 95% ship cap, as explicitly requested. Existing Burn/Poison/Stun, Anchored and Frenzy tooltips principally explain their own effects. Corroded's missing amplification amount is called out under D19.
 - Descriptive item flavor, the authored prologue/endings and blueprint identity prose remain outside this mechanics-copy sweep. Retired weapons and unreachable lore-table tactical tips are not promoted into live requirements.
 
-## Linked mechanic words — proposed UI direction
+## Linked mechanic words — implemented interface
 
-The user's Balatro comparison is retained as a **proposal, not an implemented interface**: bold/accent mechanic terms such as Burn, Pinned and Carapace could open adjacent condition/damage help. That would make short descriptions more informative before first application. A future implementation needs pointer, focus, touch/long-press and screen-reader access, readable placement at large text sizes, and a way to dismiss/navigate linked explanations. The exact colors, nested behavior and interaction pattern remain undecided. No new art or keyword framework is part of this copy review.
+Bold crimson mechanic words open parchment explanations on hover, activation or long press. Nested terms open their own card and keep the preceding card available; cards sit alongside when space permits and remain within the viewport at compact widths/large text. Keyboard focus, F1 for action details, Escape/close/outside dismissal and screen-reader activation are supported. Help on an action does not dispatch it. Combat help reads detached displayed actors; shrine comparison help reads the prospective dedication without changing the build.
 
-## Implementation findings kept separate from wording decisions
+This is linked contextual help, not a separate encyclopedia screen. Existing item flavor and story prose remain outside the sweep. No artwork or dependency was added.
 
-- The live Spotter Flare descriptions in inspection/battle hardcode base +15% accuracy/+25% Blast, while actual higher marks scale those bonuses. Any approved D03 wording that retains numbers must derive them from the actual fitting. This is a display-consistency finding, not permission to change the ability.
-- The trap damage expressions in battle and inspection have different multiplication grouping. Validate the actual utility amount before applying D06's `N`; do not alter balance to fit prose.
-- Prow Ram's current tooltip advertises 1.5× Carapace damage, while its ordinary Piercing resolution uses the shared point-for-point shell rule. Verify/correct the presentation rather than granting a new bonus. “Kinetic” also appears in descriptive copy despite not being a current `DamageType`; do not restore a retired damage category from wording.
-- `UtilityHardpointId.evasiveRigging.description` still contains the old “double” wording. Current battle/inspection use the shared function changed by D01; the stale fallback is not evidence for restoring multiplication.
-- Item descriptions can be persisted inside saves. This pass does not migrate or rewrite saved item prose. A later approved shared-description change must account for that without touching player saves unnecessarily.
+## Resolved implementation findings
+
+- Flare action copy is shared. Numeric home/keyword help derives bonuses from the actual fitting/effect: Mk I/II/III use the existing 1.0/1.2/1.4 multipliers, not new tuning.
+- Shared trap copy matches the resolver's `(16 + 5 × (level − 1)) × utility multiplier`; Short retains the instant-contact notice. Bracing help now correctly shows 20% incoming reduction at every mark, while the outgoing volley bonus scales. Neither ability was retuned.
+- Removed the unsupported ordinary Ram 1.5× shell claim. The retired descriptive Kinetic category was not restored; D33 explicitly changes only retaliation to Blast.
+- The unused Rigging fallback no longer says “double.” The approved additive +25/+40/+55 remains unchanged.
+- Existing saved Hull Patch Kit/Chain-Shot descriptions are presented using the current catalog. Their serialized data and player saves are not rewritten. Internal `burn` and Tremor field identifiers remain compatible while visible labels use Burning/Shaken.
 
 ## Review provenance and application boundary
 
-Reviewed current app action/help/status call sites (`battle_screen`, `armory_view`, `utility_description`, `combat_stats`, `ocean_power_badges`, `weapon_stats_view`, `battle_lookout`, shrine/shore/helm and port UI) and their live core catalogs (`ship_weapons`, `weapon_lore`, `trait_lore`, `ocean_power`, `eldritch_lore`, `monster_intent_lore`), checking behavior where wording raised a question. This is a source-based review of those player-facing surfaces; it is not an exhaustive audit of every generated Chronicle sentence. Gameplay rules, provisional tuning, historical approvals/evidence and player saves remain intact. D03–D44 await explicit decisions; D01–D02 are the only shipped copy changes in this pass.
+Reviewed current app action/help/status call sites (`battle_screen`, `armory_view`, `utility_description`, `combat_stats`, `ocean_power_badges`, `weapon_stats_view`, `battle_lookout`, shrine/shore/helm and port UI) and their live core catalogs (`ship_weapons`, `weapon_lore`, `trait_lore`, `ocean_power`, `eldritch_lore`, `monster_intent_lore`), checking behavior where wording raised a question. This is a source-based review of those player-facing surfaces; it is not an exhaustive audit of every generated Chronicle sentence. Provisional tuning, historical evidence and player saves remain intact. The explicit D33 Blast change is the only new combat behavior. D01–D44 are implemented; player replay should evaluate comprehension and help interactions.

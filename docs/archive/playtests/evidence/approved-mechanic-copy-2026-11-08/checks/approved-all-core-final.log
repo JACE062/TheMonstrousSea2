@@ -1,0 +1,938 @@
+00:00 +0: loading test\content\content_test.dart
+00:00 +0: test\content\content_test.dart: Ship Weapons Tests Cannon stats and formula scaling
+00:00 +1: test\content\content_test.dart: Ship Weapons Tests TorpedoLauncher stats and formula scaling
+00:00 +2: test\content\content_test.dart: Ship Weapons Tests BladeLauncher stats and formula scaling
+00:00 +3: test\content\content_test.dart: Ship Weapons Tests LightningRailgun stats, shock damage, and stun effect
+00:00 +4: test\content\content_test.dart: Ship Weapons Tests Flamethrower stats, fire damage, and burn effect
+00:00 +5: test\content\content_test.dart: Ship Weapons Tests randomShipWeapon generates valid weapons scaled to level
+00:00 +6: test\content\content_test.dart: Ship Weapons Tests rarityForLevel helper maps correctly
+00:00 +7: test\content\content_test.dart: Monster Weapons Tests Ram: charge 0, blast [8..12] + 4*(L-1), hitMod 80
+00:00 +8: test\content\content_test.dart: Monster Weapons Tests Tail: charge 1, blast [14..18] + 5*(L-1), hitMod 75
+00:00 +9: test\content\content_test.dart: Monster Weapons Tests Jaws: charge 1, piercing [18..22] + 6*(L-1), hitMod 75
+00:00 +10: test\content\single_use_consumables_test.dart: unstableTincture has one use and no rarity-based potency or price
+00:00 +11: test\content\single_use_consumables_test.dart: unstableTincture has one use and no rarity-based potency or price
+00:00 +12: test\content\single_use_consumables_test.dart: unstableTincture has one use and no rarity-based potency or price
+00:00 +13: test\content\single_use_consumables_test.dart: unstableTincture has one use and no rarity-based potency or price
+00:00 +14: test\content\single_use_consumables_test.dart: unstableTincture has one use and no rarity-based potency or price
+00:00 +15: test\content\single_use_consumables_test.dart: unstableTincture has one use and no rarity-based potency or price
+00:00 +16: test\content\content_test.dart: Consumables Tests Blast Pack: 75% hit rate and fixed 5 damage
+00:00 +17: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +18: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +19: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +20: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +21: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +22: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +23: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +24: test\content\single_use_consumables_test.dart: unstableTincture is removed after its single combat use
+00:00 +25: test\content\content_test.dart: Monsters Generation Tests Shark: HP 40*L, AC 6 + 2*L, weapons Ram and Jaws
+00:00 +26: test\content\single_use_consumables_test.dart: unstableTincture legacy charges migrate without preserving rarity
+00:00 +27: test\content\content_test.dart: Monsters Generation Tests Serpent: HP 40*L, AC 6 + 2*L, weapons Ram and Tail, evasion 20
+00:00 +28: test\content\single_use_consumables_test.dart: blastPack has one use and no rarity-based potency or price
+00:00 +29: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +30: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +31: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +32: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +33: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +34: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +35: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +36: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +37: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +38: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +39: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +40: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +41: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +42: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +43: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +44: test\model\fitting_display_name_test.dart: legacy Standard utility displays current label without rewriting save
+00:00 +45: test\content\single_use_consumables_test.dart: krakenInkBomb is removed after its single combat use
+00:00 +46: test\content\single_use_consumables_test.dart: krakenInkBomb is removed after its single combat use
+00:00 +47: test\model\fitting_display_name_test.dart: other saved fitting names remain intact
+00:00 +48: test\content\content_test.dart: NameForge Procedural Generation Tests Ship names match class adjective tables
+00:00 +49: test\content\single_use_consumables_test.dart: krakenInkBomb legacy charges migrate without preserving rarity
+00:00 +50: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +51: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +52: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +53: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +54: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +55: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +56: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +57: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +58: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +59: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +60: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +61: test\model\fitting_display_name_test.dart: Standard bracing narration retains its utility and volley effects
+00:00 +62: test\model\monster_intent_preview_test.dart: applied Advance at Medium collides when the charge reaches Short
+00:00 +63: test\model\monster_intent_preview_test.dart: Long Advance collision preview agrees with real response
+00:00 +64: test\model\monster_intent_preview_test.dart: Long Advance collision preview agrees with real response
+00:00 +65: test\model\ocean_power_test.dart: voyage serialization preserves dedications but excludes combat effects
+00:00 +66: test\model\monster_intent_preview_test.dart: applied Advance at Long still avoids a collision
+00:00 +67: test\model\ocean_power_test.dart: legacy saves default to no dedications and unknown powers are skipped
+00:00 +68: test\model\ocean_power_test.dart: legacy saves default to no dedications and unknown powers are skipped
+00:00 +69: test\model\monster_intent_preview_test.dart: applied Advance does not move Long Range a second time
+00:00 +70: test\model\ocean_power_test.dart: base ram and howitzer types are corrected in factories and old saves
+00:00 +71: test\model\ocean_power_test.dart: base ram and howitzer types are corrected in factories and old saves
+00:00 +72: test\model\ocean_power_test.dart: base ram and howitzer types are corrected in factories and old saves
+00:00 +73: test\monstrous_core_test.dart: SeededGameRng Tests deterministic values with identical seeds
+00:00 +74: test\monstrous_core_test.dart: SeededGameRng Tests deterministic values with identical seeds
+00:00 +75: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests (setUpAll)
+00:00 +76: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests (setUpAll)
+00:00 +77: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests (setUpAll)
+00:00 +77: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Ship attributes match Java oracle bounds across all levels
+00:00 +78: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +79: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +80: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +81: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +82: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +83: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +84: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +85: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +86: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +87: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +88: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +89: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +90: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +91: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +92: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +93: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +94: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +95: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +96: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +97: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +98: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +99: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +100: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +101: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +102: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +103: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests Loot drop category bounds align with Bug B4 intentional fix (60/20/20)
+00:00 +104: test\rules\captain_combat_traits_test.dart: healing combines multiplicatively, rounds once, and caps last
+00:00 +105: test\rules\blast_retaliation_test.dart: tier 3 shockwave is Blast with Flare 0.35 / shell 1000
+00:00 +106: test\parity\parity_test.dart: Java Oracle Statistical & Range Parity Tests (tearDownAll)
+00:00 +106: test\rules\captain_combat_traits_test.dart: Precise Commander adds accuracy before both bounds
+00:00 +107: test\rules\captain_combat_traits_test.dart: repair inverse always buys the minimum nominal healing needed
+00:00 +108: test\rules\captain_combat_traits_test.dart: Reckless evasion survives the first dodge and works against Titans
+00:00 +109: test\rules\captain_combat_traits_test.dart: Exacting carries fractional reduction after armor and before barrier
+00:00 +110: test\rules\combat_presentation_outcomes_test.dart: armor, barrier and reactive impact retain separate ordered facts
+00:00 +111: test\rules\combat_presentation_outcomes_test.dart: armor, barrier and reactive impact retain separate ordered facts
+00:00 +112: test\rules\combat_presentation_outcomes_test.dart: armor, barrier and reactive impact retain separate ordered facts
+00:00 +113: test\rules\combat_presentation_outcomes_test.dart: weapon status application precedes tick and exact expiration state
+00:00 +114: test\rules\combat_test.dart: calculateAttack Tests d100 roll > hitChance results in miss
+00:00 +115: test\rules\combat_test.dart: calculateAttack Tests d100 roll > hitChance results in miss
+00:00 +116: test\rules\combat_test.dart: calculateAttack Tests d100 roll > hitChance results in miss
+00:00 +117: test\rules\combat_test.dart: calculateAttack Tests d100 roll > hitChance results in miss
+00:00 +118: test\rules\combat_test.dart: calculateAttack Tests d100 roll > hitChance results in miss
+00:00 +119: test\rules\combat_test.dart: calculateAttack Tests d100 roll > hitChance results in miss
+00:00 +120: test\rules\combat_presentation_outcomes_test.dart: Wake and Thermal Detonation retain their distinct impact sources
+00:00 +121: test\rules\combat_test.dart: calculateAttack Tests d100 roll <= hitChance results in hit dealing damage
+00:00 +122: test\rules\combat_test.dart: calculateAttack Tests obscured monster reduces hitChance
+00:00 +123: test\rules\combat_test.dart: calculateAttack Tests applying status effects on hit
+00:00 +124: test\rules\combat_test.dart: calculateAttack Tests defeating combatant emits CombatantDefeated
+00:00 +125: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +126: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +127: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +128: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +129: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +130: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +131: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +132: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +133: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +134: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +135: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +136: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +137: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +138: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +139: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +140: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +141: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +142: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +143: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +144: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +145: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +146: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +147: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +148: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +149: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +150: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +151: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses SeaChart generates 3 distinct course options with bearings
+00:00 +152: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses SeaChart generates 3 distinct course options with bearings
+00:00 +153: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses SeaChart generates 3 distinct course options with bearings
+00:00 +154: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses SeaChart generates 3 distinct course options with bearings
+00:00 +155: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses SeaChart generates 3 distinct course options with bearings
+00:00 +156: test\rules\economy_test.dart: Merchant Stock Generation generates between 3 and 5 non-treasure items
+00:00 +157: test\rules\economy_test.dart: Merchant Stock Generation generates between 3 and 5 non-treasure items
+00:00 +158: test\rules\economy_test.dart: Merchant Stock Generation generates between 3 and 5 non-treasure items
+00:00 +159: test\rules\economy_test.dart: Merchant Stock Generation generates between 3 and 5 non-treasure items
+00:00 +160: test\rules\economy_test.dart: Merchant Stock Generation generates between 3 and 5 non-treasure items
+00:00 +161: test\rules\economy_test.dart: Merchant Stock Generation generates between 3 and 5 non-treasure items
+00:00 +162: test\rules\economy_test.dart: Merchant Stock Generation generates between 3 and 5 non-treasure items
+00:00 +163: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +164: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +165: test\rules\dead_reckoning_navigation_test.dart: Dead-Reckoning Navigation & Helm Courses GameSession workflow: Port -> Helm -> SteerCourse -> Encounter
+00:00 +166: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +167: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +168: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +169: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +170: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +171: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +172: test\rules\economy_test.dart: Sell All Treasure returns (0, 0) and changes nothing when cargo contains no treasures
+00:00 +173: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Chapter 1 Trophy Progression: Blueprint Signature Armament Tiers II & III and Auxiliary Expansion
+00:00 +174: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Chapter 1 Trophy Progression: Blueprint Signature Armament Tiers II & III and Auxiliary Expansion
+00:00 +175: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Chapter 1 Trophy Progression: Blueprint Signature Armament Tiers II & III and Auxiliary Expansion
+00:00 +176: test\rules\economy_test.dart: Ship Repairs at Port repairShip fails when ship has full health
+00:00 +177: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Chapter 2 & 3 Progression: Eldritch Relics and Cursed Harbor Monuments
+00:00 +178: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Chapter 2 & 3 Progression: Eldritch Relics and Cursed Harbor Monuments
+00:00 +179: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Chapter 2 & 3 Progression: Eldritch Relics and Cursed Harbor Monuments
+00:00 +180: test\rules\covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Chapter 2 & 3 Progression: Eldritch Relics and Cursed Harbor Monuments
+00:00 +181: test\rules\effective_evasion_test.dart: ship displayed threshold matches every d100 outcome and roll count
+00:00 +182: test\rules\evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +183: test\rules\evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +184: test\rules\evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +185: test\rules\evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +186: test\rules\heir_succession_test.dart: Heir Succession & Bloodline Traits Tests generateHeirCandidates produces 3 distinct candidates with boons and quirks
+00:00 +187: test\rules\heir_succession_test.dart: Heir Succession & Bloodline Traits Tests generateHeirCandidates produces 3 distinct candidates with boons and quirks
+00:00 +188: test\rules\heir_succession_test.dart: Heir Succession & Bloodline Traits Tests generateHeirCandidates produces 3 distinct candidates with boons and quirks
+00:00 +189: test\rules\heir_succession_test.dart: Heir Succession & Bloodline Traits Tests generateHeirCandidates produces 3 distinct candidates with boons and quirks
+00:00 +190: test\rules\heir_succession_test.dart: Heir Succession & Bloodline Traits Tests generateHeirCandidates produces 3 distinct candidates with boons and quirks
+00:00 +191: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Profile meta-currency unlocking rules and deductions
+00:00 +192: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Profile meta-currency unlocking rules and deductions
+00:00 +193: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Profile meta-currency unlocking rules and deductions
+00:00 +194: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Profile meta-currency unlocking rules and deductions
+00:00 +195: test\rules\evasive_rigging_progression_test.dart: Mk 1 movement/cooldown at Short Range grapple=false
+00:00 +196: test\rules\heir_succession_test.dart: Heir Succession & Bloodline Traits Tests BloodlineTrait and HeirCandidate serialize and deserialize cleanly
+00:00 +197: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Combat: Precision Culverin critical strikes bypass 50% of monster Carapace
+00:00 +198: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Combat: Precision Culverin critical strikes bypass 50% of monster Carapace
+00:00 +199: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Combat: Precision Culverin critical strikes bypass 50% of monster Carapace
+00:00 +200: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Combat: Precision Culverin critical strikes bypass 50% of monster Carapace
+00:00 +201: test\rules\evasive_rigging_progression_test.dart: Mk 2 utility applies 40 bonus until a successful dodge
+00:00 +202: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Combat: Heavy Mortar delivers 2.0x blast damage vs Carapace and disrupts shark frenzy
+00:00 +203: test\rules\evasive_rigging_progression_test.dart: Mk 2 repeat utility activation does not stack
+00:00 +204: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Combat: Harpoon Winch severs tentacles on Squids and Krakens
+00:00 +205: test\rules\evasive_rigging_progression_test.dart: Mk 2 movement/cooldown at Long Range grapple=false
+00:00 +206: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Session: UnlockBlueprint and CommissionBlueprint commands in GameSession
+00:00 +207: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Session: UnlockBlueprint and CommissionBlueprint commands in GameSession
+00:00 +208: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Session: UnlockBlueprint and CommissionBlueprint commands in GameSession
+00:00 +209: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Session: UnlockBlueprint and CommissionBlueprint commands in GameSession
+00:00 +210: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Session: UnlockBlueprint and CommissionBlueprint commands in GameSession
+00:00 +211: test\rules\flagship_blueprint_test.dart: Flagship Blueprints & Hardpoint Architecture Tests Session: UnlockBlueprint and CommissionBlueprint commands in GameSession
+00:00 +212: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +213: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +214: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +215: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +216: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +217: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +218: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +219: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +220: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +221: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +222: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +223: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +224: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +225: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +226: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 0
+00:00 +227: test\rules\ink_obscurity_test.dart: legacy ink deployment is suppressed while illuminated
+00:00 +228: test\rules\ink_obscurity_test.dart: legacy ink deployment is suppressed while illuminated
+00:00 +229: test\rules\ink_obscurity_test.dart: legacy ink deployment is suppressed while illuminated
+00:00 +230: test\rules\ink_obscurity_test.dart: legacy ink deployment is suppressed while illuminated
+00:00 +231: test\rules\ink_obscurity_test.dart: legacy ink deployment is suppressed while illuminated
+00:00 +232: test\rules\ink_obscurity_test.dart: legacy ink deployment is suppressed while illuminated
+00:00 +233: test\rules\hull_refit_test.dart: standard refits preserve 0 damage, captain 2
+00:00 +234: test\rules\ink_obscurity_test.dart: squid: obscurity changes accuracy, not dodge, and disperses on a hit
+00:00 +235: test\rules\ink_obscurity_test.dart: squid: obscurity changes accuracy, not dodge, and disperses on a hit
+00:00 +236: test\rules\ink_obscurity_test.dart: squid: obscurity changes accuracy, not dodge, and disperses on a hit
+00:00 +237: test\rules\hull_refit_test.dart: standard refits preserve 30 damage, captain 3
+00:00 +238: test\rules\ink_obscurity_test.dart: kraken: obscurity changes accuracy, not dodge, and disperses on a hit
+00:00 +239: test\rules\hull_refit_test.dart: freighter refits preserve 0 damage, captain 0
+00:00 +240: test\rules\ink_obscurity_test.dart: ink log briefly explains the penalty without naming a counter hardpoint
+00:00 +241: test\rules\ink_obscurity_test.dart: ink log briefly explains the penalty without naming a counter hardpoint
+00:00 +242: test\rules\hull_refit_test.dart: freighter refits preserve 0 damage, captain 1
+00:00 +243: test\rules\ink_obscurity_test.dart: Flare suppresses obscurity and dodge without mutating innate values
+00:00 +244: test\rules\hull_refit_test.dart: freighter refits preserve 30 damage, captain 1
+00:00 +245: test\rules\hull_refit_test.dart: freighter refits preserve 0 damage, captain 2
+00:00 +246: test\rules\hull_refit_test.dart: freighter refits preserve 30 damage, captain 2
+00:00 +247: test\rules\hull_refit_test.dart: freighter refits preserve 0 damage, captain 3
+00:00 +248: test\rules\hull_refit_test.dart: freighter refits preserve 30 damage, captain 3
+00:00 +249: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +250: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +251: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +252: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +253: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +254: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +255: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +256: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +257: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +258: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +259: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +260: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +261: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +262: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +263: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +264: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +265: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +266: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +267: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +268: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +269: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +270: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +271: test\rules\jellyfish_navigation_test.dart: missed charge keeps danger in preview but emits no collision outcome
+00:00 +272: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +273: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +274: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +275: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +276: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +277: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +278: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +279: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +280: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +281: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +282: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +283: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +284: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +285: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +286: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +287: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +288: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +289: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +290: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +291: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +292: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +293: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +294: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +295: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +296: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +297: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +298: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +299: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +300: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +301: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +302: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +303: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +304: test\rules\kraken_catastrophe_test.dart: standard at long: release cannot miss or be dodged
+00:00 +305: test\rules\lineage_test.dart: CaptainRecord & LineageTracker Aggregation tracks captain deaths, total monsters defeated, and highest difficulty
+00:00 +306: test\rules\lineage_test.dart: CaptainRecord & LineageTracker Aggregation tracks captain deaths, total monsters defeated, and highest difficulty
+00:00 +307: test\rules\lineage_test.dart: CaptainRecord & LineageTracker Aggregation tracks captain deaths, total monsters defeated, and highest difficulty
+00:00 +308: test\rules\lineage_test.dart: CaptainRecord & LineageTracker Aggregation tracks captain deaths, total monsters defeated, and highest difficulty
+00:00 +309: test\rules\lineage_test.dart: CaptainRecord & LineageTracker Aggregation tracks captain deaths, total monsters defeated, and highest difficulty
+00:00 +310: test\rules\kraken_catastrophe_test.dart: standard at short: release cannot miss or be dodged
+00:00 +311: test\rules\lineage_test.dart: CaptainRecord & LineageTracker Aggregation CaptainRecord.toString formats cleanly
+00:00 +312: test\rules\kraken_catastrophe_test.dart: ironclad at long: release cannot miss or be dodged
+00:00 +313: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +314: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +315: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +316: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +317: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +318: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +319: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +320: test\rules\lineage_test.dart: Heir Ship Succession non-Freighter previous ship grants standard 25 gold and empty cargo
+00:00 +321: test\rules\kraken_catastrophe_test.dart: bombardier at short: release cannot miss or be dodged
+00:00 +322: test\rules\lineage_test.dart: Heir Ship Succession Freighter previous ship carries over 5% gold and stashed cargo
+00:00 +323: test\rules\lineage_test.dart: Heir Ship Succession Freighter previous ship carries over 5% gold and stashed cargo
+00:00 +324: test\rules\kraken_catastrophe_test.dart: corsair at medium: release cannot miss or be dodged
+00:00 +325: test\rules\lineage_test.dart: Heir Ship Succession Freighter inheritance caps at heir ship max cargo capacity
+00:00 +326: test\rules\lineage_test.dart: Heir Ship Succession Freighter inheritance caps at heir ship max cargo capacity
+00:00 +327: test\rules\kraken_catastrophe_test.dart: dedicated profile works without normal weapons or tentacles
+00:00 +328: test\rules\lineage_test.dart: Bug B5 Fix (Freighter Heir String Formatting) formatFreighterCargoOverflowMessage prints clean ship display name
+00:00 +329: test\rules\kraken_catastrophe_test.dart: mitigation: brace=true barrier=0 corrosion=0 jolt=false
+00:00 +330: test\rules\kraken_catastrophe_test.dart: mitigation: brace=false barrier=20 corrosion=0 jolt=false
+00:00 +331: test\rules\kraken_catastrophe_test.dart: mitigation: brace=true barrier=20 corrosion=0 jolt=false
+00:00 +332: test\rules\loot_test.dart: Loot Drops Bug B1 Fix (Drop Count Range) victory drop count is always in [minItemsDropped..maxItemsDropped]
+00:00 +333: test\rules\loot_test.dart: Loot Drops Bug B1 Fix (Drop Count Range) victory drop count is always in [minItemsDropped..maxItemsDropped]
+00:00 +334: test\rules\loot_test.dart: Loot Drops Bug B1 Fix (Drop Count Range) victory drop count is always in [minItemsDropped..maxItemsDropped]
+00:00 +335: test\rules\loot_test.dart: Loot Drops Bug B1 Fix (Drop Count Range) victory drop count is always in [minItemsDropped..maxItemsDropped]
+00:00 +336: test\rules\loot_test.dart: Loot Drops Bug B1 Fix (Drop Count Range) victory drop count is always in [minItemsDropped..maxItemsDropped]
+00:00 +337: test\rules\loot_test.dart: Loot Drops Bug B1 Fix (Drop Count Range) victory drop count is always in [minItemsDropped..maxItemsDropped]
+00:00 +338: test\rules\kraken_catastrophe_test.dart: Harpoon disrupts the imminent release
+00:00 +339: test\rules\loot_test.dart: Loot Drops Bug B1 Fix (Drop Count Range) respects custom BalanceConfig drop count bounds
+00:01 +340: test\rules\kraken_catastrophe_test.dart: Fault-Line Shatter still breaks the imminent release
+00:01 +341: test\rules\kraken_catastrophe_test.dart: Fault-Line Shatter still breaks the imminent release
+00:01 +342: test\rules\loot_test.dart: Loot Drops Bug B4 Fix (Item Category Distribution) Monte Carlo simulation confirms 60% treasure, 20% consumable, 20% weapon
+00:01 +343: test\rules\loot_test.dart: Loot Drops Bug B4 Fix (Item Category Distribution) Monte Carlo simulation confirms 60% treasure, 20% consumable, 20% weapon
+00:01 +344: test\rules\monster_ai_test.dart: Monster AI Bug B2 Regression Tests monster with all weapons on cooldown terminates cleanly without infinite loop
+00:01 +345: test\rules\monster_ai_test.dart: Monster AI Bug B2 Regression Tests monster with all weapons on cooldown terminates cleanly without infinite loop
+00:01 +346: test\rules\monster_ai_test.dart: Monster AI Bug B2 Regression Tests monster with all weapons on cooldown terminates cleanly without infinite loop
+00:01 +347: test\rules\monster_ai_test.dart: Monster AI Bug B2 Regression Tests monster with all weapons on cooldown terminates cleanly without infinite loop
+00:01 +348: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +349: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +350: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +351: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +352: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +353: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +354: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +355: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +356: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +357: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +358: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +359: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +360: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +361: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord.createFromDefeat generates valid infamy moniker and scaled bounties
+00:01 +362: test\rules\monster_ai_test.dart: Cooldown and Weapon Cycling Tests firing weapon puts it on cooldown and decrements other ready weapons
+00:01 +363: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests instantiateMonster creates empowered Apex beast matching moniker and boosted stats
+00:01 +364: test\rules\nemesis_test.dart: Nemesis Record & Beast Mutation Tests NemesisRecord JSON serialization preserves complete record
+00:01 +365: test\rules\ocean_power_combat_test.dart: Acid-Bore Mortar preserves its 2x shell crushing while bypassing armor
+00:01 +366: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +367: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +368: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +369: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +370: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +371: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +372: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +373: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +374: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +375: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +376: test\rules\regional_plan_test.dart: region 0 stages deterministic cadence, services and separate Titan
+00:01 +377: test\rules\ocean_power_combat_test.dart: Magma Vent-Lord Boiling Wake damages each traversed band and kills before a charge attack
+00:01 +378: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +379: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +380: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +381: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +382: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +383: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +384: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +385: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +386: test\rules\regional_plan_test.dart: region 0 commits offered difficulty for every bearing and reload
+00:01 +387: test\rules\sea_chart_test.dart: SeaChart Progression & Navigation initializes at [0][0] with timesCompleted 0
+00:01 +388: test\rules\sea_chart_test.dart: SeaChart Progression & Navigation initializes at [0][0] with timesCompleted 0
+00:01 +389: test\rules\regional_plan_test.dart: region 0 reserves sole Vendetta after midpoint, shrine elsewhere
+00:01 +390: test\rules\regional_plan_test.dart: region 0 reserves sole Vendetta after midpoint, shrine elsewhere
+00:01 +391: test\rules\sea_chart_test.dart: SeaChart Progression & Navigation advances across 4 rows and 5 columns sequentially to [3][4]
+00:01 +392: test\rules\ocean_power_combat_test.dart: Brinemother Tier 1 Broadside doubles shell damage and adds flat melt
+00:01 +393: test\rules\regional_plan_test.dart: region 1 stages deterministic cadence, services and separate Titan
+00:01 +394: test\rules\regional_plan_test.dart: region 1 stages deterministic cadence, services and separate Titan
+00:01 +395: test\rules\sea_chart_test.dart: The Kraken Boss Encounter identifies Kraken boss at [3][4] on loop 0 with difficulty 5
+00:01 +396: test\rules\sea_chart_test.dart: The Kraken Boss Encounter identifies Kraken boss at [3][4] on loop 0 with difficulty 5
+00:01 +397: test\rules\sea_chart_test.dart: The Kraken Boss Encounter identifies Kraken boss at [3][4] on loop 0 with difficulty 5
+00:01 +398: test\rules\sea_chart_test.dart: The Kraken Boss Encounter identifies Kraken boss at [3][4] on loop 0 with difficulty 5
+00:01 +399: test\rules\sea_chart_test.dart: The Kraken Boss Encounter identifies Kraken boss at [3][4] on loop 0 with difficulty 5
+00:01 +400: test\rules\sea_chart_test.dart: The Kraken Boss Encounter identifies Kraken boss at [3][4] on loop 0 with difficulty 5
+00:01 +401: test\rules\regional_plan_test.dart: region 1 commits offered difficulty for every bearing and reload
+00:01 +402: test\rules\regional_plan_test.dart: region 1 commits offered difficulty for every bearing and reload
+00:01 +403: test\rules\regional_plan_test.dart: region 1 commits offered difficulty for every bearing and reload
+00:01 +404: test\rules\sea_chart_test.dart: The Kraken Boss Encounter ordinary encounter difficulty follows the leg independently of grid row
+00:01 +405: test\rules\sea_chart_test.dart: The Kraken Boss Encounter ordinary encounter difficulty follows the leg independently of grid row
+00:01 +406: test\rules\regional_plan_test.dart: region 1 reserves sole Vendetta after midpoint, shrine elsewhere
+00:01 +407: test\rules\ocean_power_combat_test.dart: Brinemother Corroded amplifies Burn, typed riders, and traps once; expires after 3 actions
+00:01 +408: test\rules\sea_chart_test.dart: Map Loop Scaling advancing past [3][4] increments timesCompleted and scales cell difficulties
+00:01 +409: test\rules\regional_plan_test.dart: region 2 stages deterministic cadence, services and separate Titan
+00:01 +410: test\rules\regional_plan_test.dart: region 2 stages deterministic cadence, services and separate Titan
+00:01 +411: test\rules\regional_plan_test.dart: region 2 stages deterministic cadence, services and separate Titan
+00:01 +412: test\rules\regional_plan_test.dart: region 2 stages deterministic cadence, services and separate Titan
+00:01 +413: test\rules\regional_plan_test.dart: region 2 stages deterministic cadence, services and separate Titan
+00:01 +414: test\rules\ocean_power_combat_test.dart: Earthshaker Titan Tier 1 Basalt absorbs hit, grants evasion, and retaliates once when broken
+00:01 +415: test\rules\ocean_power_combat_test.dart: Earthshaker Titan Tier 1 Basalt absorbs hit, grants evasion, and retaliates once when broken
+00:01 +416: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +417: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +418: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +419: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +420: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +421: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +422: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +423: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +424: test\rules\regional_plan_test.dart: region 2 commits offered difficulty for every bearing and reload
+00:01 +425: test\rules\ocean_power_combat_test.dart: Earthshaker Titan Tier 3 Fault-Line breaks windup into a real normal strike
+00:01 +426: test\rules\sea_chart_test.dart: Three Regions Campaign Structure & Regional Bosses canonical region titles and atmospheric subtitles
+00:01 +427: test\rules\regional_plan_test.dart: region 2 reserves sole Vendetta after midpoint, shrine elsewhere
+00:01 +428: test\rules\regional_plan_test.dart: region 2 reserves sole Vendetta after midpoint, shrine elsewhere
+00:01 +429: test\rules\regional_plan_test.dart: region 2 reserves sole Vendetta after midpoint, shrine elsewhere
+00:01 +430: test\rules\ocean_power_combat_test.dart: Earthshaker Titan Aegis expires after two monster actions without altering base evasion
+00:01 +431: test\rules\sea_chart_test.dart: Three Regions Campaign Structure & Regional Bosses boss spawning progression across the 3 regions at [3][4]
+00:01 +432: test\rules\sea_chart_test.dart: Three Regions Campaign Structure & Regional Bosses boss spawning progression across the 3 regions at [3][4]
+00:01 +433: test\rules\regional_plan_test.dart: missing-only shrine correction varies by leg and retains all-hunt groups
+00:01 +434: test\rules\regional_plan_test.dart: missing-only shrine correction varies by leg and retains all-hunt groups
+00:01 +435: test\rules\regional_plan_test.dart: missing-only shrine correction varies by leg and retains all-hunt groups
+00:01 +436: test\rules\regional_plan_test.dart: missing-only shrine correction varies by leg and retains all-hunt groups
+00:01 +437: test\rules\regional_plan_test.dart: missing-only shrine correction varies by leg and retains all-hunt groups
+00:01 +438: test\rules\regional_plan_test.dart: missing-only shrine correction varies by leg and retains all-hunt groups
+00:01 +439: test\rules\serpent_evasion_test.dart: serpent, apex=false repeated recoils preserve innate dodge and retreat
+00:01 +440: test\rules\serpent_evasion_test.dart: serpent, apex=false repeated recoils preserve innate dodge and retreat
+00:01 +441: test\rules\serpent_evasion_test.dart: serpent, apex=false repeated recoils preserve innate dodge and retreat
+00:01 +442: test\rules\serpent_evasion_test.dart: serpent, apex=false repeated recoils preserve innate dodge and retreat
+00:01 +443: test\rules\serpent_evasion_test.dart: serpent, apex=false repeated recoils preserve innate dodge and retreat
+00:01 +444: test\rules\serpent_evasion_test.dart: serpent, apex=false repeated recoils preserve innate dodge and retreat
+00:01 +445: test\rules\serpent_evasion_test.dart: serpent, apex=false repeated recoils preserve innate dodge and retreat
+00:01 +446: test\rules\ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:01 +447: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +448: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +449: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +450: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +451: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +452: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +453: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +454: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +455: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +456: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +457: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +458: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +459: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +460: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +461: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +462: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +463: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +464: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +465: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +466: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +467: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +468: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +469: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +470: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +471: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +472: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +473: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +474: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +475: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +476: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +477: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +478: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +479: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +480: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +481: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +482: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +483: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +484: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +485: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +486: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +487: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +488: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=false flare=false
+00:01 +489: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +490: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +491: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +492: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +493: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +494: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +495: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +496: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +497: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +498: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +499: test\rules\voyage_outcomes_test.dart: arrival is not victory; explicit outcomes and earlier regions round-trip
+00:01 +500: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=true flare=false
+00:01 +501: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=true flare=false
+00:01 +502: test\rules\serpent_evasion_test.dart: serpent, apex=false actual connection odds: pin=true flare=false
+00:01 +503: test\session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:01 +504: test\session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:01 +505: test\session\caldera_outcome_test.dart: CalderaClimaxChoice.shatterCore uses canonical prose and acknowledgement never reapplies it
+00:01 +506: test\rules\voyage_outcomes_test.dart: actual battle and separate wreck cargo settle independent history facts
+00:01 +507: test\rules\voyage_outcomes_test.dart: actual battle and separate wreck cargo settle independent history facts
+00:01 +508: test\rules\tentacle_balance_test.dart: standard: helm avoids a sweep without needing severing or armor
+00:01 +509: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +510: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +511: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +512: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +513: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +514: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +515: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +516: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +517: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +518: test\session\captain_roster_catalog_test.dart: eight Boons and eight Quirks have distinct current catalog IDs
+00:01 +519: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +520: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +521: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +522: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +523: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +524: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +525: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +526: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +527: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +528: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +529: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +530: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +531: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +532: test\rules\serpent_evasion_test.dart: serpent, apex=true actual connection odds: pin=false flare=false
+00:01 +533: test\session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:01 +534: test\session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:01 +535: test\session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:01 +536: test\session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:01 +537: test\session\captain_roster_catalog_test.dart: seeded heir offers vary across pool, are unique within set, and obey Vendetta eligibility
+00:01 +538: test\session\combat_presentation_replay_test.dart: effects snapshots cannot secretly repair HP, shell or limb playback
+00:01 +539: test\session\combat_presentation_replay_test.dart: effects snapshots cannot secretly repair HP, shell or limb playback
+00:01 +540: test\session\combat_presentation_replay_test.dart: effects snapshots cannot secretly repair HP, shell or limb playback
+00:01 +541: test\session\combat_presentation_replay_test.dart: effects snapshots cannot secretly repair HP, shell or limb playback
+00:01 +542: test\session\combat_presentation_replay_test.dart: effects snapshots cannot secretly repair HP, shell or limb playback
+00:01 +543: test\session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:01 +544: test\session\captain_roster_catalog_test.dart: Quartermaster capacity and derived healing survive repeated checkpoints without stacking
+00:01 +545: test\session\combat_presentation_replay_test.dart: standard/shark: utility, statuses and both hardpoints replay
+00:01 +546: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +547: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +548: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +549: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +550: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +551: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +552: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +553: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +554: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +555: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +556: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +557: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +558: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +559: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +560: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +561: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +562: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +563: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +564: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +565: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +566: test\session\combat_range_attribution_test.dart: Ram closes before its attempt and hit, retaining Medium charge damage
+00:01 +567: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +568: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +569: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +570: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +571: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +572: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +573: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +574: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +575: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +576: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +577: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:01 +578: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +579: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +580: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +581: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +582: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +583: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +584: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +585: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +586: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +587: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +588: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +589: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +590: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +591: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +592: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +593: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +594: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +595: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +596: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +597: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +598: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +599: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +600: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +601: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +602: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +603: test\session\combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:01 +604: test\session\combat_presentation_replay_test.dart: victory holds the final Ram impact range through engine cleanup
+00:01 +605: test\session\combat_presentation_replay_test.dart: victory holds the final Ram impact range through engine cleanup
+00:01 +606: test\session\combat_presentation_replay_test.dart: victory holds the final Ram impact range through engine cleanup
+00:01 +607: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Corvette Evasive Maneuvers opens range by 1 band away from danger
+00:01 +608: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Corvette Evasive Maneuvers opens range by 1 band away from danger
+00:01 +609: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Corvette Evasive Maneuvers opens range by 1 band away from danger
+00:01 +610: test\session\combat_status_boundaries_test.dart: failed recovery allows repeated Poison ticks within the same fight
+00:01 +611: test\session\combat_presentation_replay_test.dart: Harpoon, Wake and trap retain shell, tentacle and health endpoints
+00:01 +612: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Defeating beast resets combatRange back to baseline medium
+00:01 +613: test\session\combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Defeating beast resets combatRange back to baseline medium
+00:01 +614: test\session\combat_status_boundaries_test.dart: combat reset clears all statuses without healing or changing build
+00:01 +615: test\session\combat_status_boundaries_test.dart: World Serpent victory clears Poison before Region 3 crab without healing
+00:01 +616: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +617: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +618: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +619: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +620: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +621: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +622: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +623: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +624: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +625: test\session\encounter_variety_test.dart: Encounter Variety: Smuggler's Ketch & Ancient Sea Shrine Smuggler Ketch: trade contraband, repair with oak planks, and depart
+00:01 +626: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Davy Jones easter egg initiates Kraken encounter with Flying Dutchman
+00:01 +627: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Davy Jones easter egg initiates Kraken encounter with Flying Dutchman
+00:01 +628: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Davy Jones easter egg initiates Kraken encounter with Flying Dutchman
+00:01 +629: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Davy Jones easter egg initiates Kraken encounter with Flying Dutchman
+00:01 +630: test\session\home_merchant_test.dart: home has no merchant or direct trading backdoor
+00:01 +631: test\session\home_merchant_test.dart: home has no merchant or direct trading backdoor
+00:01 +632: test\session\home_merchant_test.dart: home has no merchant or direct trading backdoor
+00:01 +633: test\session\home_merchant_test.dart: home has no merchant or direct trading backdoor
+00:01 +634: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Flying Dutchman defeats The Kraken in battle and collects loot
+00:01 +635: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Flying Dutchman defeats The Kraken in battle and collects loot
+00:01 +636: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Flying Dutchman defeats The Kraken in battle and collects loot
+00:01 +637: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Flying Dutchman defeats The Kraken in battle and collects loot
+00:01 +638: test\session\home_merchant_test.dart: stronghold trading remains available and returns to the same berth
+00:01 +639: test\session\home_merchant_test.dart: stronghold trading remains available and returns to the same berth
+00:01 +640: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Standard voyage: create captain, sail, win battle, loot, rest, return to port
+00:01 +641: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Standard voyage: create captain, sail, win battle, loot, rest, return to port
+00:01 +642: test\session\full_voyage_test.dart: Full Voyage End-to-End Headless Tests Standard voyage: create captain, sail, win battle, loot, rest, return to port
+00:01 +643: test\session\full_trait_roster_test.dart: Impatient stages reset on victory, death, and real departure
+00:01 +644: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +645: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +646: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +647: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +648: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +649: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +650: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +651: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +652: test\session\material_trade_test.dart: materials do not consume consumable rolls or belt slots, persist and deplete once
+00:01 +653: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +654: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +655: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +656: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +657: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +658: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +659: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +660: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +661: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +662: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +663: test\session\monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:01 +664: test\session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:01 +665: test\session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:01 +666: test\session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:01 +667: test\session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:01 +668: test\session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:01 +669: test\session\navigation_salvage_test.dart: Blood Oath locks alternatives but keeps the Nemesis course available
+00:01 +670: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +671: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +672: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +673: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +674: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +675: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +676: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +677: test\session\outside_patch_kit_test.dart: captain 0 carried/pending kits heal once with exact fractional modifiers
+00:01 +678: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +679: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +680: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +681: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +682: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +683: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +684: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +685: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +686: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +687: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +688: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +689: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +690: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +691: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +692: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +693: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +694: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +695: test\session\paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:02 +696: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +697: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +698: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +699: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +700: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +701: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +702: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +703: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +704: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +705: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +706: test\session\playtest_nemesis_continuity_test.dart: region 0 guarantees optional Nemesis courses only after Haven
+00:02 +707: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +708: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +709: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +710: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +711: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +712: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +713: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +714: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +715: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +716: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +717: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +718: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +719: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +720: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +721: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +722: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +723: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +724: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +725: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +726: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +727: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +728: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +729: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +730: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +731: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +732: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +733: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +734: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +735: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +736: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +737: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +738: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +739: test\session\playtest_progression_test.dart: restoring a defeated titan checkpoint advances regions without repeating the boss
+00:02 +740: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +741: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +742: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +743: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +744: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +745: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +746: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +747: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +748: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +749: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +750: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +751: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +752: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +753: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +754: test\session\regional_flow_test.dart: Region 2 leg-4 preview, actual level, poison and victory bounty agree
+00:02 +755: test\session\playtest_progression_test.dart: an heir starts a fresh voyage with permanent upgrades and no previous voyage refits
+00:02 +756: test\session\region_mechanics_and_apex_test.dart: Grand Haven vs. Secluded Cove Careening & Rest Actions Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit
+00:02 +757: test\session\region_mechanics_and_apex_test.dart: Grand Haven vs. Secluded Cove Careening & Rest Actions Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit
+00:02 +758: test\session\region_mechanics_and_apex_test.dart: Grand Haven vs. Secluded Cove Careening & Rest Actions Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit
+00:02 +759: test\session\region_mechanics_and_apex_test.dart: Grand Haven vs. Secluded Cove Careening & Rest Actions Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit
+00:02 +760: test\session\region_mechanics_and_apex_test.dart: Grand Haven vs. Secluded Cove Careening & Rest Actions Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit
+00:02 +761: test\session\region_mechanics_and_apex_test.dart: Grand Haven vs. Secluded Cove Careening & Rest Actions Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit
+00:02 +762: test\session\region_mechanics_and_apex_test.dart: Grand Haven vs. Secluded Cove Careening & Rest Actions Grand Midpoint Haven careen restores 30% max HP and allows Shipwright refit
+00:02 +763: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +764: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +765: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +766: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +767: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +768: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +769: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +770: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +771: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +772: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +773: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +774: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +775: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +776: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +777: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +778: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +779: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +780: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +781: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +782: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +783: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +784: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +785: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +786: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +787: test\session\sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:02 +788: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +789: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +790: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +791: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +792: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +793: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +794: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +795: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +796: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +797: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +798: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +799: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +800: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +801: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +802: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +803: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.repairRefit preserves cadence and checkpoints
+00:02 +804: test\session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:02 +805: test\session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:02 +806: test\session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:02 +807: test\session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:02 +808: test\session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:02 +809: test\session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:02 +810: test\session\shore_drill_duration_test.dart: drill survives peaceful encounters/reload, refreshes and benefits every volley
+00:02 +811: test\session\shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:02 +812: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:02 +813: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:02 +814: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:02 +815: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:02 +816: test\session\regional_flow_test.dart: full three-region voyage through CourseDestination.specialistMerchant preserves cadence and checkpoints
+00:02 +817: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +818: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +819: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +820: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +821: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +822: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +823: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +824: test\session\stage1_roguelite_flow_test.dart: Stage 1 Roguelite Flow: Profile, Succession & Nemesis Captain demise creates Nemesis and generates 3 Heir candidates
+00:02 +825: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +826: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +827: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +828: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +829: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +830: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +831: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +832: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +833: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +834: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +835: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +836: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +837: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +838: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +839: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +840: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +841: test\session\stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:02 +842: test\session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:02 +843: test\session\stun_pin_separation_test.dart: quick Stun preserves normal dodge and denies movement and attack once
+00:02 +844: test\session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:02 +845: test\session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:02 +846: test\session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:02 +847: test\session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:02 +848: test\session\titan_approach_identity_test.dart: The Kraken approach agrees with battle identity
+00:02 +849: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +850: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +851: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +852: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +853: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +854: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +855: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +856: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +857: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +858: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +859: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +860: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +861: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +862: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +863: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +864: test\session\titan_nemesis_eligibility_test.dart: kraken death clears old vengeance and records one captain
+00:02 +865: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +866: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +867: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +868: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +869: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +870: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +871: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +872: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +873: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +874: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +875: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +876: test\session\trait_rework_test.dart: Storm-Seer redraw redraw replaces ordinary offers without advancing or awarding anything
+00:02 +877: test\session\wait_reload_test.dart: repeated waiting preserves 0 evasion without stacking
+00:02 +878: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +879: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +880: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +881: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +882: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +883: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +884: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +885: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +886: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +887: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +888: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +889: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +890: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +891: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +892: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +893: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +894: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +895: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +896: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +897: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +898: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +899: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +900: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +901: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +902: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +903: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +904: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +905: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +906: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +907: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +908: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +909: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +910: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +911: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +912: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +913: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +914: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +915: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:02 +916: test\session\trait_rework_test.dart: Overzealous Gunner active and pending saved traits use current catalog descriptions and stable IDs
+00:02 +917: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=true
+00:02 +918: test\session\wreck_lifecycle_test.dart: WreckCondition.pickedClean can pass empty, using one slot without a deduction
+00:02 +919: test\session\wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=false
+00:02 +920: test\session\wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=true
+00:02 +921: test\session\wreck_lifecycle_test.dart: WreckCondition.uncertain can pass empty, using one slot without a deduction
+00:02 +922: test\session\wreck_lifecycle_test.dart: WreckCondition.fresh approach ambush is normal, opens full cargo once, pact=false
+00:02 +923: test\session\wreck_lifecycle_test.dart: WreckCondition.fresh approach ambush is normal, opens full cargo once, pact=true
+00:02 +924: test\session\wreck_lifecycle_test.dart: WreckCondition.fresh can pass empty, using one slot without a deduction
+00:02 +925: test\session\wreck_lifecycle_test.dart: WreckCondition.uncertain committed fight may be Apex and keeps full kill loot plus cargo
+00:02 +926: test\session\wreck_lifecycle_test.dart: WreckCondition.uncertain quiet recovery has cargo and no creature loot or immediate healing
+00:02 +927: test\session\wreck_lifecycle_test.dart: WreckCondition.fresh committed fight may be Apex and keeps full kill loot plus cargo
+00:02 +928: test\session\wreck_lifecycle_test.dart: WreckCondition.fresh quiet recovery has cargo and no creature loot or immediate healing
+00:02 +929: test\session\wreck_lifecycle_test.dart: condition gates enforce quick/deep exclusivity and fresh has no quick haul
+00:02 +930: test\session\wreck_lifecycle_test.dart: full belt resolves creature spoils before the independent wreck supply
+00:02 +931: test\session\wreck_lifecycle_test.dart: death during recovery never banks unearned cargo
+00:02 +932: test\session\wreck_lifecycle_test.dart: supported reloads preserve assessment decisions and deterministic threat/cargo
+00:02 +933: test\session\wreck_lifecycle_test.dart: retired selectable rewards and stale wreck IDs cannot grant cargo
+00:02 +934: All tests passed!

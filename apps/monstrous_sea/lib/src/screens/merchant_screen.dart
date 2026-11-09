@@ -4,6 +4,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 import '../game_controller.dart';
 import '../theme/ink_theme.dart';
 import '../widgets/ink_button.dart';
+import '../widgets/mechanic_text.dart';
 import '../widgets/hull_patch_kit_button.dart';
 import '../widgets/material_trade_view.dart';
 import '../widgets/parchment_card.dart';
@@ -185,10 +186,7 @@ class _MerchantScreenState extends State<MerchantScreen> {
                     MaterialTradeView(controller: controller),
                   if (_activeTab == 2) belt,
                   const SizedBox(height: 20),
-                  InkButton(
-                    label: returnLabel,
-                    onPressed: _leave,
-                  ),
+                  InkButton(label: returnLabel, onPressed: _leave),
                 ],
               ),
             ),
@@ -217,7 +215,7 @@ class _TradeItemCard extends StatelessWidget {
   Widget _details() => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(item.description, style: InkTheme.caption),
+      MechanicText(currentItemDescription(item), style: InkTheme.caption),
       const SizedBox(height: 8),
       WeaponStatsView(item: item, compact: true),
       const SizedBox(height: 6),

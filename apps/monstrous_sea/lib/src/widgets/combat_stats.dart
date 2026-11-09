@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 
 import '../theme/ink_theme.dart';
+import 'mechanic_text.dart';
 
 /// Read only the detached actors supplied by combat presentation. Each effect
 /// owns its hover/long-press target instead of inheriting the dodge explanation.
@@ -45,9 +46,9 @@ class ShipCombatStats extends StatelessWidget {
           ),
         if (ship.pitchCoatingActive)
           const _Stat(
-            '• Pitch Coated (+25% Fire/Burn)',
+            '• Pitch Coated · +25% volley damage',
             key: ValueKey('ship-stat-pitch'),
-            explanation: 'The next volley gains +25% damage; connecting hits apply Burn.',
+            explanation: 'The next volley gains +25% damage; connecting hits apply Burning.',
           ),
       ],
     );
@@ -87,13 +88,13 @@ class MonsterCombatStats extends StatelessWidget {
           '• Obscurity: -${monster.obscurityAccuracyPenalty}% shot accuracy',
           key: const ValueKey('monster-stat-obscurity'),
           explanation:
-              'Obscurity lowers shot accuracy by ${monster.obscurityAccuracyPenalty}%, separately from dodge. Successful hits have a 25% chance to disperse it; Spotter Flare clears it. There is no fixed turn duration.',
+              'Reduces shot accuracy by ${monster.obscurityAccuracyPenalty}%. Successful hits have a 25% chance to clear it, lasts until cleared.',
         ),
       if (monster.isPinnedThisTurn)
         const _Stat(
           '• Pinned',
           key: ValueKey('monster-stat-pinned'),
-          explanation: 'Pin halves the monster’s dodge chance.',
+          explanation: 'Prevents movement and halves dodge this turn.',
         ),
       if (monster.spotterFlareTurns > 0)
         _Stat(
@@ -123,6 +124,6 @@ class _Stat extends StatelessWidget {
     final text = Text(label, style: InkTheme.caption);
     return explanation == null
         ? text
-        : Tooltip(message: explanation!, child: text);
+        : MechanicTooltip(message: explanation!, child: text);
   }
 }

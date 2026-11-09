@@ -1,3 +1,5 @@
+import 'package:monstrous_sea/src/widgets/mechanic_text.dart';
+
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -153,6 +155,9 @@ String _stats(WidgetTester tester, String side) => tester
     .map((text) => text.data!)
     .join(' ');
 
+Finder helpText(String text) =>
+    find.byWidgetPredicate((w) => w is MechanicText && w.text == text);
+
 void main() {
   setUpAll(() async {
     InkTheme.disableGoogleFonts = _gameFontCache.isEmpty;
@@ -194,10 +199,19 @@ void main() {
           'Reduces each incoming hit by 6 damage. '
           'Fortification lasts for the rest of this battle.';
       Future<void> hover(String target, String help, String proof) async {
+        final previous = find.byKey(const ValueKey('mechanic-help-action'));
+        if (previous.evaluate().isNotEmpty) {
+          await tester.tap(
+            find
+                .descendant(of: previous, matching: find.byType(IconButton))
+                .first,
+          );
+          await tester.pumpAndSettle();
+        }
         await mouse.moveTo(tester.getCenter(find.byKey(ValueKey(target))));
         await tester.pump(const Duration(milliseconds: 500));
         await tester.pumpAndSettle();
-        expect(find.text(help), findsOneWidget);
+        expect(helpText(help), findsOneWidget, reason: 'Hover on $target');
         const prefix = String.fromEnvironment('statusTooltipProofPath');
         if (prefix.isNotEmpty) {
           await tester.runAsync(() async {
@@ -219,16 +233,26 @@ void main() {
       }
 
       await hover('monster-stat-illuminated', flareHelp, 'illuminated');
-      expect(find.textContaining('Current dodge chance'), findsNothing);
+      expect(
+        find.byWidgetPredicate(
+          (w) => w is MechanicText && w.text.contains('Current dodge chance'),
+        ),
+        findsNothing,
+      );
       await hover('ship-stat-fortified', armorHelp, 'fortified');
-      expect(find.text(flareHelp), findsNothing);
-      expect(find.textContaining('Current dodge chance'), findsNothing);
+      expect(helpText(flareHelp), findsNothing);
+      expect(
+        find.byWidgetPredicate(
+          (w) => w is MechanicText && w.text.contains('Current dodge chance'),
+        ),
+        findsNothing,
+      );
       await hover(
         'monster-stat-dodge',
         'Current dodge chance after Pin and Spotter Flare. Attack accuracy is a separate roll.',
         'dodge',
       );
-      expect(find.text(armorHelp), findsNothing);
+      expect(helpText(armorHelp), findsNothing);
       await hover(
         'ship-stat-evasion',
         'Current dodge chance after captain, regional and active-effect modifiers, capped at 95%. Unavoidable attacks bypass dodge.',
@@ -240,7 +264,7 @@ void main() {
         find.byKey(const ValueKey('monster-stat-illuminated')),
       );
       await tester.pump(const Duration(milliseconds: 200));
-      expect(find.text(flareHelp), findsOneWidget);
+      expect(helpText(flareHelp), findsOneWidget);
       expect(controller.ship!.currentHp, hp);
       expect(controller.phase, SessionPhase.battle);
       expect(tester.takeException(), isNull);
@@ -324,11 +348,10 @@ void main() {
       expect(
         find.byWidgetPredicate(
           (w) =>
-              w is Tooltip &&
-              (w.message?.contains(
-                    'Opening shot accuracy: 85% before 0% target dodge.',
-                  ) ??
-                  false),
+              w is MechanicTooltip &&
+              w.message.contains(
+                'Opening shot accuracy: 85%. Target dodge: 0%.',
+              ),
         ),
         findsOneWidget,
       );
@@ -431,19 +454,19 @@ void main() {
       game.presentation.apply(activated);
       await tester.pump();
       expect(_stats(tester, 'ship'), contains('Evade: 55%'));
-      final armorTip = tester.widget<Tooltip>(
+      final armorTip = tester.widget<MechanicTooltip>(
         find.descendant(
           of: find.byKey(const ValueKey('ship-stat-fortified')),
-          matching: find.byType(Tooltip),
+          matching: find.byType(MechanicTooltip),
         ),
       );
       expect(armorTip.message, contains('6 damage'));
       game.presentation.apply(flared);
       await tester.pump();
-      final flareTip = tester.widget<Tooltip>(
+      final flareTip = tester.widget<MechanicTooltip>(
         find.descendant(
           of: find.byKey(const ValueKey('monster-stat-illuminated')),
-          matching: find.byType(Tooltip),
+          matching: find.byType(MechanicTooltip),
         ),
       );
       expect(flareTip.message, contains('+30% accuracy'));

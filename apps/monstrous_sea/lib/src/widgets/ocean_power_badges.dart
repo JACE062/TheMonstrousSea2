@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 
 import '../theme/ink_theme.dart';
+import 'mechanic_text.dart';
 
 /// Ordinary effects share the same row as power effects, without duplicate Burn.
 List<Widget> _combatStatusBadges(Combatant combatant) => [
@@ -41,10 +42,13 @@ class BlessingBadge extends StatelessWidget {
   final HardpointBlessing blessing;
 
   @override
-  Widget build(BuildContext context) => _PowerBadge(
-    label: '${blessing.tierLabel} · ${blessing.title}',
-    explanation:
-        '${blessing.power.displayName}: ${blessing.subtitle}. ${blessing.description}',
+  Widget build(BuildContext context) => MechanicScope(
+    data: MechanicScope.of(context).withBlessing(blessing),
+    child: _PowerBadge(
+      label: '${blessing.tierLabel} · ${blessing.title}',
+      explanation:
+          '${blessing.power.displayName}: ${blessing.subtitle}. ${blessing.description}',
+    ),
   );
 }
 
@@ -97,67 +101,84 @@ class MonsterPowerStatusBadges extends StatelessWidget {
   final MonsterState monster;
 
   @override
-  Widget build(BuildContext context) => _StatusRow(
-    children: [
-      if (monster.staticStacks > 0)
-        _PowerBadge(
-          label: 'Static Charge (${monster.staticStacks}/3)',
-          explanation: 'At 3 stacks, Arc Discharge purges Frenzy and shatters a lethal windup or applies Electro-Jolt.',
-        ),
-      if (monster.corrodedStacks > 0)
-        _PowerBadge(
-          label:
-              'Corroded (${monster.corrodedStacks}/3) · ${monster.corrodedTurns}T',
-          explanation:
-              'Amplifies all incoming damage and reduces monster attack damage by ${monster.corrodedStacks * 5}%.',
-        ),
-      if (monster.isElectroJolted)
-        const _PowerBadge(
-          label: 'Electro-Jolt (1T)',
-          explanation:
-              'Monster accuracy -30%; attack damage -25% for its next action.',
-        ),
-      if (monster.tremorAccPenalty > 0)
-        _PowerBadge(
-          label: 'Tremor -${monster.tremorAccPenalty}%',
-          explanation: 'Monster accuracy reduced for its next action.',
-        ),
-      if (monster.burnTurns > 0)
-        _PowerBadge(
-          label: 'Ignited (${monster.burnTurns}T)',
-          explanation: 'Burning: takes Fire damage at the start of its turn. Enables Thermal Detonation.',
-        ),
-      ..._combatStatusBadges(monster),
-    ],
+  Widget build(BuildContext context) => MechanicScope(
+    data: MechanicScope.of(context).withMonster(monster),
+    child: _StatusRow(
+      children: [
+        if (monster.staticStacks > 0)
+          _PowerBadge(
+            label: 'Static Charge (${monster.staticStacks}/3)',
+            explanation: 'At 3 stacks, Arc Discharge purges Frenzy and shatters a lethal windup or applies Electro-Jolt.',
+          ),
+        if (monster.corrodedStacks > 0)
+          _PowerBadge(
+            label:
+                'Corroded (${monster.corrodedStacks}/3) · ${monster.corrodedTurns}T',
+            condition: 'Corroded',
+            explanation:
+                'Amplifies all incoming damage and reduces monster attack damage by ${monster.corrodedStacks * 5}%.',
+          ),
+        if (monster.isElectroJolted)
+          const _PowerBadge(
+            label: 'Electro-Jolt (1T)',
+            explanation: 'Monster accuracy -30%; attack damage -25% for its next action.',
+          ),
+        if (monster.tremorAccPenalty > 0)
+          _PowerBadge(
+            label: 'Shaken -${monster.tremorAccPenalty}%',
+            condition: 'Shaken',
+            explanation: 'Monster accuracy reduced for its next action.',
+          ),
+        if (monster.burnTurns > 0)
+          _PowerBadge(
+            label: 'Burning (${monster.burnTurns}T)',
+            condition: 'Burning',
+            explanation: 'Takes Fire damage at the start of its turn.',
+          ),
+        ..._combatStatusBadges(monster),
+      ],
+    ),
   );
 }
 
 class _PowerBadge extends StatelessWidget {
-  const _PowerBadge({required this.label, required this.explanation});
+  const _PowerBadge({
+    required this.label,
+    required this.explanation,
+    this.condition,
+  });
+  final String? condition;
   final String label;
   final String explanation;
 
   @override
-  Widget build(BuildContext context) => Tooltip(
-    message: explanation,
-    child: Semantics(
-      label: '$label. $explanation',
-      excludeSemantics: true,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-        decoration: BoxDecoration(
-          color: InkTheme.goldAccent.withValues(alpha: 0.10),
-          border: Border.all(color: InkTheme.goldAccent.withValues(alpha: 0.7)),
-          borderRadius: BorderRadius.circular(3),
-        ),
-        child: Text(
-          label,
-          style: InkTheme.caption.copyWith(
-            fontSize: 10,
-            fontWeight: FontWeight.bold,
+  Widget build(BuildContext context) {
+    final message = condition == null
+        ? explanation
+        : MechanicScope.of(context).explanation(condition!);
+    return MechanicTooltip(
+      message: message,
+      child: Semantics(
+        label: '$label. $message',
+        excludeSemantics: true,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+          decoration: BoxDecoration(
+            color: InkTheme.goldAccent.withValues(alpha: 0.10),
+            border: Border.all(
+              color: InkTheme.goldAccent.withValues(alpha: 0.7),
+            ),
+            borderRadius: BorderRadius.circular(3),
+          ),
+          child: Text(
+            label,
+            style: InkTheme.caption.copyWith(
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

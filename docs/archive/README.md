@@ -172,3 +172,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Action and condition copy verification 2026-11-08
 
 [The D01–D02 receipt](playtests/MECHANIC_COPY_2026_11_08.md) records concise Rigging wording, Grappled condition help, existing UI checks, font-loaded captures and a separate Windows build. [Evidence](playtests/evidence/mechanic-copy-2026-11-08/manifest.json) distinguishes those delivered fixes from the 42 pending D03–D44 decisions in the current review.
+
+## Approved action and condition copy verification 2026-11-08
+
+[The approved D03–D44 receipt](playtests/APPROVED_MECHANIC_COPY_2026_11_08.md) records all remaining selections, Burning/Shaken names, concise effects and linked contextual help, plus the explicitly authorized Blast retaliation. [Evidence](playtests/evidence/approved-mechanic-copy-2026-11-08/manifest.json) retains full/focused checks, compact/desktop font-loaded captures and correspondence with a fresh Windows preview. D01–D02 and earlier evidence retain their original status snapshots; saves, prior bundles and provisional economy tuning are preserved.
