@@ -168,3 +168,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Inspection button sizing verification 2026-11-08
 
 [The sizing receipt](playtests/INSPECT_SIZING_2026_11_08.md) records regular shore inspection buttons, the explicitly compact helm variant, existing UI checks and a separate Windows preview. [Evidence](playtests/evidence/inspect-sizing-2026-11-08/manifest.json) retains the player image, selected captures and build correspondence.
+
+## Action and condition copy verification 2026-11-08
+
+[The D01–D02 receipt](playtests/MECHANIC_COPY_2026_11_08.md) records concise Rigging wording, Grappled condition help, existing UI checks, font-loaded captures and a separate Windows build. [Evidence](playtests/evidence/mechanic-copy-2026-11-08/manifest.json) distinguishes those delivered fixes from the 42 pending D03–D44 decisions in the current review.

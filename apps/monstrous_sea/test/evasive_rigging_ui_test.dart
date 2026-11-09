@@ -38,7 +38,7 @@ void main() {
           ),
         ),
       );
-      final numericCopy = 'Sets evasion to $total% (+$bonus% above base)';
+      final numericCopy = 'Adds +$bonus% evasion';
       expect(find.textContaining(numericCopy), findsOneWidget);
       expect(find.textContaining('Doubles evasion'), findsNothing);
 

@@ -55,6 +55,11 @@ class ShipPowerStatusBadges extends StatelessWidget {
   @override
   Widget build(BuildContext context) => _StatusRow(
     children: [
+      if (ship.isGrappled)
+        const _PowerBadge(
+          label: 'Grappled',
+          explanation: 'The ship cannot move this round.',
+        ),
       if (ship.tempAccuracyPenalty > 0)
         _PowerBadge(
           label: 'Accuracy −${ship.tempAccuracyPenalty}%',

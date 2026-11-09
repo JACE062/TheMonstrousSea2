@@ -952,7 +952,7 @@ class _BattleScreenState extends State<BattleScreen> {
       if (ship.equippedWeaponTypes.contains(ShipWeaponType.harpoonWinch)) 'Harpoon Winch attacks at its launch range, then pulls one band closer. Pin requires a hit.',
       if (ship.resolvedBlueprintId.utilityHardpoint ==
           UtilityHardpointId.evasiveRigging)
-        'Evasive Rigging opens range by up to one band unless grappled.',
+        'Evasive Rigging moves one range band away.',
       if (widget.controller.usesLateHelm) 'Skirmisher applies your helm order after the main action and its movement.',
     ],
     isResolving: _isActionLocked,

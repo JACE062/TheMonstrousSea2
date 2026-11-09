@@ -92,6 +92,8 @@ Source for cooldowns, scaling, and trap timing: [GameSession utility handler](..
 
 **Evasive Rigging progression, approved and implemented 29 October 2026:** The utility uses an additive +25/+40/+55 percentage points over the current hull's base evasion. A fresh Clipper's base 25 gives 50/65/80%; a tier IV Clipper's base 40 gives 65/80/95% before captain/blessing bonuses and the final cap. Inspection and battle tooltips share numeric copy derived from the same core getters as activation. The two-turn cooldown, successful-dodge consumption, one-band movement and grapple limits are retained. See [PT2-30](BACKLOG.md#pt2-30--clipper-utility-tempering-has-no-visible-or-implemented-mk-progression).
 
+**Description follow-up, 8 November 2026:** Evasive Rigging states its mark's evasion bonus, successful-dodge duration, range movement and cooldown. Total-evasion arithmetic, other bonuses, the cap and grapple caveat are omitted from that action description. The Evade tooltip retains the ship cap; an active Grappled badge explains that the ship cannot move this round. The [separate D03–D44 review](design/mechanic-copy-review.md) remains pending and does not change the mechanics above.
+
 ## Combat resolution and monster behavior
 
 Titan approach calls and Chronicle encounter openings use The Kraken, The World Serpent and The Ancient Leviathan, matching their battle identities. The Chronicle's boss opening derives its name from the actual battle event; intent narration avoids repeating an existing leading “The.” Restored pending Titan offers receive the approach correction; ordinary generated names, Nemesis identities and completed voyage history retain their own text.

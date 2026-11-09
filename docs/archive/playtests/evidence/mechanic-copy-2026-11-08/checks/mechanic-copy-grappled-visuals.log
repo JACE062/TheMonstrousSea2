@@ -1,0 +1,6 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: status hover targets are independent at 360.0
+00:01 +1: status hover targets are independent at 1280.0
+00:01 +2: (tearDownAll)
+00:01 +2: All tests passed!

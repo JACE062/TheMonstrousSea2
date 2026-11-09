@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-08",
+  "baseCommit": "9176e198a64e94651a142213bde882dbcd076290",
+  "scope": "Implement only explicit D01/D02; prepare D03-D44 for user review",
+  "input": {
+    "path": "docs/playtests/2026-11-08/mechanic-copy/01-player.png",
+    "sha256": "B160424343DBD4FCBBCA424E06590BF8EEE112417094586863978968CE6D403C"
+  },
+  "review": {
+    "path": "docs/design/mechanic-copy-review.md",
+    "sha256": "C06522F44E6BDECC672F7126DBCB1ADE1547A27B3546C3AFD9F50AC0A75C83D3",
+    "implemented": [
+      "D01",
+      "D02"
+    ],
+    "pendingCount": 42,
+    "pendingRange": "D03-D44",
+    "keywordTooltipFramework": "proposal only"
+  },
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/utility_description.dart",
+      "sha256": "CFAE754B051582AA50F9CDE7D2C998FD7F5B1557EC4D943284446C283278A8EF"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart",
+      "sha256": "32F00300F79491D9E1486023CCB2B4EE21825C8E4D554FF47CCC71001434DF07"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "C0C8B0692954C81DD4518B0DB93C4D85AA9A1F04D9F9E8544C991E970EFA223E"
+    }
+  ],
+  "checks": {
+    "existingUiCases": 36,
+    "additionalFontLoadedRiggingCases": 3,
+    "additionalFontLoadedGrappledHoverCases": 2,
+    "appAnalysis": "passed",
+    "dartFormat": "unchanged",
+    "temporaryCaptureHooksRestored": true,
+    "nativeWindowsDebug": "passed",
+    "previewLaunched": false,
+    "livePlayerStorageUsed": false
+  },
+  "preview": {
+    "executable": ".dart_tool/mechanic-copy-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+    "executableSha256": "4E4337B9C42E2A3961718DCCB8E9BE12CA3E5C69B39BF53E2AC658E22F63C229",
+    "matchingSourceAssetCount": 98,
+    "dependencyLockSha256": "D9A4E8C99522976F02E167273D2CF6B3736CC51C268E005C448758C4A8BD21D6"
+  },
+  "captures": [
+    {
+      "path": "visual/grappled-1280.png",
+      "sha256": "C1DAAB58D5E31A462F4042A69C63395C16C84549FDE1DBA4CE3C025404431C88"
+    },
+    {
+      "path": "visual/grappled-360.png",
+      "sha256": "9A7C169081A39C44F27F5C6F13AA26F5E6B7B6120A2BB685B12F4BABE30E7106"
+    },
+    {
+      "path": "visual/rigging-mk1.png",
+      "sha256": "E91A4FFACD38729B2BEFC0ACE689E77B4B0DFCA38A4D5589910EB7C640BFE83A"
+    },
+    {
+      "path": "visual/rigging-mk2.png",
+      "sha256": "91DBD51C7782731D3B71039825032C4814A5B87C7F5544C36DBF3A0DB035CA72"
+    },
+    {
+      "path": "visual/rigging-mk3.png",
+      "sha256": "19FC6DA0A17702C98372F5CA553F3A51CF924424E7FE6D4DD1FA86E9CA8D9D1B"
+    }
+  ]
+}
