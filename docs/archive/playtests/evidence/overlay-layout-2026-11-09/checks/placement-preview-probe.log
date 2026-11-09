@@ -1,0 +1,5 @@
+Building Windows application...                                 
+lib/src/widgets/mechanic_text.dart(551,39): error GC2F972A8: The argument type 'num' can't be assigned to the parameter type 'double'. [C:\Workspace\PersonalProjects\TheMonstrousSeaV2\.dart_tool\overlay-layout-preview\build\windows\x64\flutter\flutter_assemble.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(254,5): error MSB8066: Custom build for 'C:\Workspace\PersonalProjects\TheMonstrousSeaV2\.dart_tool\overlay-layout-preview\build\windows\x64\CMakeFiles\4fddd1e3faca3e810e40861261b175da\flutter_windows.dll.rule;C:\Workspace\PersonalProjects\TheMonstrousSeaV2\.dart_tool\overlay-layout-preview\build\windows\x64\CMakeFiles\7057eb493bd0c74d370414461bbf7a92\flutter_assemble.rule' exited with code 1. [C:\Workspace\PersonalProjects\TheMonstrousSeaV2\.dart_tool\overlay-layout-preview\build\windows\x64\flutter\flutter_assemble.vcxproj]
+Building Windows application...                                     9.3s
+Build process failed.

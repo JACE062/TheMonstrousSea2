@@ -1,0 +1,236 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% pauseSaved Size(360.0, 900.0)
+00:01 +1: 115% pauseSaved Size(800.0, 480.0)
+00:01 +2: 115% pauseSaved Size(1280.0, 850.0)
+00:01 +3: 115% pauseUnsaved Size(360.0, 900.0)
+00:01 +4: 115% pauseUnsaved Size(800.0, 480.0)
+00:01 +5: 115% pauseUnsaved Size(1280.0, 850.0)
+00:01 +6: 115% pauseBlocked Size(360.0, 900.0)
+00:01 +7: 115% pauseBlocked Size(800.0, 480.0)
+00:01 +8: 115% pauseBlocked Size(1280.0, 850.0)
+00:01 +9: 115% pausePlaying Size(360.0, 900.0)
+00:01 +10: 115% pausePlaying Size(800.0, 480.0)
+00:02 +11: 115% pausePlaying Size(1280.0, 850.0)
+00:02 +12: 115% pauseNoTitle Size(360.0, 900.0)
+00:02 +13: 115% pauseNoTitle Size(800.0, 480.0)
+00:02 +14: 115% pauseNoTitle Size(1280.0, 850.0)
+00:02 +15: 115% pauseSaveError Size(360.0, 900.0)
+00:02 +16: 115% pauseSaveError Size(800.0, 480.0)
+00:02 +17: 115% pauseSaveError Size(1280.0, 850.0)
+00:02 +18: 115% pauseSaving Size(360.0, 900.0)
+00:02 +19: 115% pauseSaving Size(800.0, 480.0)
+00:02 +20: 115% pauseSaving Size(1280.0, 850.0)
+00:02 +21: 115% pauseExitError Size(360.0, 900.0)
+00:03 +22: 115% pauseExitError Size(800.0, 480.0)
+00:03 +23: 115% pauseExitError Size(1280.0, 850.0)
+00:03 +24: 115% settings Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped dialog text: SETTINGS & ACCESSIBILITY
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:202:7)
+<asynchronous suspension>
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:422:5)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 202
+The test description was:
+  115% settings Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +24 -1: 115% settings Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% settings Size(360.0, 900.0)
+  
+00:03 +24 -1: 115% settings Size(800.0, 480.0)
+00:03 +25 -1: 115% settings Size(1280.0, 850.0)
+00:03 +26 -1: 115% settingsInPause Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped dialog text: SETTINGS & ACCESSIBILITY
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:202:7)
+<asynchronous suspension>
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:403:7)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 202
+The test description was:
+  115% settingsInPause Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +26 -2: 115% settingsInPause Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% settingsInPause Size(360.0, 900.0)
+  
+00:03 +26 -2: 115% settingsInPause Size(800.0, 480.0)
+00:04 +27 -2: 115% settingsInPause Size(1280.0, 850.0)
+00:04 +28 -2: 115% settingsLive Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped dialog text: SETTINGS & ACCESSIBILITY
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:202:7)
+<asynchronous suspension>
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:422:5)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 202
+The test description was:
+  115% settingsLive Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +28 -3: 115% settingsLive Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% settingsLive Size(360.0, 900.0)
+  
+00:04 +28 -3: 115% settingsLive Size(800.0, 480.0)
+00:04 +29 -3: 115% settingsLive Size(1280.0, 850.0)
+00:05 +30 -3: 115% inspection Size(360.0, 900.0)
+00:05 +31 -3: 115% inspection Size(800.0, 480.0)
+00:05 +32 -3: 115% inspection Size(1280.0, 850.0)
+00:05 +33 -3: 115% keyword Size(360.0, 900.0)
+00:05 +34 -3: 115% keyword Size(800.0, 480.0)
+00:05 +35 -3: 115% keyword Size(1280.0, 850.0)
+00:05 +36 -3: 115% nested Size(360.0, 900.0)
+00:06 +37 -3: 115% nested Size(800.0, 480.0)
+00:06 +38 -3: 115% nested Size(1280.0, 850.0)
+00:06 +39 -3: 115% pointerNested Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _KeyWidgetFinder:<Found 1 widget with key [<'mechanic-help-Arc Discharge'>]: [
+            SingleChildScrollView-[<'mechanic-help-Arc Discharge'>](dependencies:
+[InheritedCupertinoTheme, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#0a619]]),
+          ]>
+   Which: means one was found but none were expected
+Escape must close the front help before opening Pause.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:524:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 524
+The test description was:
+  115% pointerNested Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +39 -4: 115% pointerNested Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pointerNested Size(360.0, 900.0)
+  
+00:06 +39 -4: 115% pointerNested Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _KeyWidgetFinder:<Found 1 widget with key [<'mechanic-help-Arc Discharge'>]: [
+            SingleChildScrollView-[<'mechanic-help-Arc Discharge'>](dependencies:
+[InheritedCupertinoTheme, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#d8ec7]]),
+          ]>
+   Which: means one was found but none were expected
+Escape must close the front help before opening Pause.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:524:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 524
+The test description was:
+  115% pointerNested Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +39 -5: 115% pointerNested Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pointerNested Size(800.0, 480.0)
+  
+00:06 +39 -5: 115% pointerNested Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _KeyWidgetFinder:<Found 1 widget with key [<'mechanic-help-Arc Discharge'>]: [
+            SingleChildScrollView-[<'mechanic-help-Arc Discharge'>](dependencies:
+[InheritedCupertinoTheme, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#83b3b]]),
+          ]>
+   Which: means one was found but none were expected
+Escape must close the front help before opening Pause.
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:524:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 524
+The test description was:
+  115% pointerNested Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +39 -6: 115% pointerNested Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pointerNested Size(1280.0, 850.0)
+  
+00:06 +39 -6: 115% actionNested Size(360.0, 900.0)
+00:06 +40 -6: 115% actionNested Size(800.0, 480.0)
+00:07 +41 -6: 115% actionNested Size(1280.0, 850.0)
+00:07 +42 -6: 115% nativeTooltip Size(360.0, 900.0)
+00:07 +43 -6: 115% nativeTooltip Size(800.0, 480.0)
+00:07 +44 -6: 115% nativeTooltip Size(1280.0, 850.0)
+00:07 +45 -6: 115% resizeHelp Size(360.0, 900.0)
+00:07 +46 -6: 115% resizeHelp Size(800.0, 480.0)
+00:07 +47 -6: 115% resizeHelp Size(1280.0, 850.0)
+00:07 +48 -6: (tearDownAll)
+00:07 +48 -6: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pointerNested Size(1280.0, 850.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pointerNested Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pointerNested Size(800.0, 480.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settings Size(360.0, 900.0)
+  ... and 2 more

@@ -1,0 +1,333 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:01 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:01 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+00:01 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseUnsaved Size(360.0, 900.0)
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: every unsupported encounter and playback disables both departures
+00:01 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: every unsupported encounter and playback disables both departures
+00:01 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseUnsaved Size(1280.0, 850.0)
+00:01 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: return drains queued snapshots and ignores dismissal while saving
+00:01 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseBlocked Size(360.0, 900.0)
+00:01 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:01 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:01 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:01 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:02 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:02 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:02 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:02 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+00:02 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseNoTitle Size(1280.0, 850.0)
+00:02 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: return retries failed saves before leaving
+00:02 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaveError Size(360.0, 900.0)
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: exit retries failed saves before leaving
+00:02 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaveError Size(800.0, 480.0)
+00:02 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: exit waits for saving and prevents duplicate exit requests
+00:02 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaveError Size(1280.0, 850.0)
+00:02 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: platform exit failure is retryable and unsaved sessions never write
+00:02 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaving Size(360.0, 900.0)
+00:02 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaving Size(360.0, 900.0)
+00:02 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: pause fits 360.0 at 1.3 text
+00:02 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaving Size(800.0, 480.0)
+00:02 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaving Size(800.0, 480.0)
+00:03 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: pause fits 1280.0 at 1.3 text
+00:03 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaving Size(1280.0, 850.0)
+00:03 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseExitError Size(360.0, 900.0)
+00:03 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseExitError Size(800.0, 480.0)
+00:03 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseExitError Size(1280.0, 850.0)
+00:03 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settings Size(360.0, 900.0)
+00:03 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settings Size(800.0, 480.0)
+00:03 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/settings_and_chart_update_test.dart: (setUpAll)
+00:03 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settings Size(1280.0, 850.0)
+00:03 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/settings_and_chart_update_test.dart: GameSettings & SettingsDialog Toggling font scale updates GameSettings and scales UI
+00:03 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/settings_and_chart_update_test.dart: GameSettings & SettingsDialog Toggling font scale updates GameSettings and scales UI
+00:04 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/settings_and_chart_update_test.dart: GameSettings & SettingsDialog Toggling font scale updates GameSettings and scales UI
+00:04 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/settings_and_chart_update_test.dart: GameSettings & SettingsDialog Toggling font scale updates GameSettings and scales UI
+00:04 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/settings_and_chart_update_test.dart: GameSettings & SettingsDialog Toggling font scale updates GameSettings and scales UI
+00:04 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settingsLive Size(800.0, 480.0)
+00:04 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/settings_and_chart_update_test.dart: SeaChartScreen recorded outcomes arrival and actual victory remain distinct: won=false
+00:04 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settingsLive Size(1280.0, 850.0)
+00:05 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settingsLive Size(1280.0, 850.0)
+00:05 +48: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart
+00:05 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspection Size(360.0, 900.0)
+00:05 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspection Size(800.0, 480.0)
+00:05 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspection Size(1280.0, 850.0)
+00:05 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspectionNested Size(360.0, 900.0)
+00:05 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: prospective Burning values and nested help at 360.0
+00:06 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: prospective Burning values and nested help at 360.0
+00:06 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: prospective Burning values and nested help at 360.0
+00:06 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: prospective Burning values and nested help at 360.0
+00:06 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% keyword Size(800.0, 480.0)
+00:06 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: prospective Burning values and nested help at 1280.0
+00:06 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% keyword Size(1280.0, 850.0)
+00:06 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: keywords support keyboard, Escape and touch dismissal
+00:06 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% nested Size(360.0, 900.0)
+00:06 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: action help opens by long press without dispatching its action
+00:06 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% nested Size(800.0, 480.0)
+00:06 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% nested Size(800.0, 480.0)
+00:06 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: home retains Flare stats and inspection links scaled Illuminated
+00:07 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: home retains Flare stats and inspection links scaled Illuminated
+00:07 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: home retains Flare stats and inspection links scaled Illuminated
+00:07 +67: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: home retains Flare stats and inspection links scaled Illuminated
+00:07 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: home retains Flare stats and inspection links scaled Illuminated
+00:07 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% actionNested Size(360.0, 900.0)
+00:07 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: shrine comparison exposes exact Burning damage before choosing
+00:07 +71: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% actionNested Size(800.0, 480.0)
+00:07 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% actionNested Size(1280.0, 850.0)
+00:08 +73: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% nativeTooltip Size(360.0, 900.0)
+00:08 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% nativeTooltip Size(800.0, 480.0)
+00:08 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% nativeTooltip Size(1280.0, 850.0)
+00:08 +76: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% resizeHelp Size(360.0, 900.0)
+00:08 +77: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% resizeHelp Size(800.0, 480.0)
+00:08 +78: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% resizeHelp Size(1280.0, 850.0)
+00:08 +79: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:08 +80: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:08 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +82: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +83: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +84: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +86: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +87: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +88: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +90: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +91: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +92: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +93: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +94: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:09 +95: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint loot Size(360.0, 900.0)
+00:09 +96: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint loot Size(1280.0, 850.0)
+00:09 +97: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+00:10 +98: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+00:10 +99: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+00:10 +100: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+00:10 +101: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+00:10 +102: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+00:10 +103: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint shipwreck Size(1280.0, 850.0)
+00:10 +104: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:10 +105: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:10 +106: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:10 +107: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:10 +108: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:10 +109: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint expeditionVictory Size(360.0, 900.0)
+00:10 +110: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 2 and history stays immutable
+00:10 +111: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 2 and history stays immutable
+00:10 +112: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 2 and history stays immutable
+00:10 +113: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 2 and history stays immutable
+00:11 +114: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint ended Size(360.0, 900.0)
+00:11 +115: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: stronghold uses the shared inspection action
+00:11 +116: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: stronghold uses the shared inspection action
+00:11 +117: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: stronghold uses the shared inspection action
+00:11 +118: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection standard magmaVentLord Size(360.0, 900.0)
+00:11 +119: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection standard tempestSovereign Size(360.0, 900.0)
+00:11 +120: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection standard brinemother Size(360.0, 900.0)
+00:11 +121: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection standard earthshakerTitan Size(360.0, 900.0)
+00:11 +122: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Fresh inspection standard Size(800.0, 480.0)
+00:11 +123: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection standard magmaVentLord Size(800.0, 480.0)
+00:11 +124: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection standard tempestSovereign Size(800.0, 480.0)
+00:12 +125: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +126: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +127: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +128: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +129: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +130: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +131: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +132: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:12 +133: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:13 +134: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:13 +135: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:13 +136: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:13 +137: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:13 +138: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:13 +139: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection ironclad magmaVentLord Size(800.0, 480.0)
+00:13 +140: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 1280.0
+00:13 +141: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 1280.0
+00:13 +142: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 1280.0
+00:13 +143: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection ironclad earthshakerTitan Size(800.0, 480.0)
+00:13 +144: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:13 +145: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:14 +146: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:14 +147: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection ironclad tempestSovereign Size(1280.0, 850.0)
+00:14 +148: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / true
+00:14 +149: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / true
+00:14 +150: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection ironclad earthshakerTitan Size(1280.0, 850.0)
+00:14 +151: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / true / false
+00:14 +152: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / true / false
+00:14 +153: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection clipper magmaVentLord Size(360.0, 900.0)
+00:14 +154: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / true / true
+00:14 +155: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / true / true
+00:14 +156: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection clipper brinemother Size(360.0, 900.0)
+00:14 +157: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / false / false
+00:14 +158: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / false / false
+00:14 +159: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Fresh inspection clipper Size(800.0, 480.0)
+00:14 +160: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / false / true
+00:14 +161: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / false / true
+00:14 +162: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection clipper tempestSovereign Size(800.0, 480.0)
+00:15 +163: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / true / false
+00:15 +164: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection clipper brinemother Size(800.0, 480.0)
+00:15 +165: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / true / true
+00:15 +166: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / true / true
+00:15 +167: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Fresh inspection clipper Size(1280.0, 850.0)
+00:15 +168: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso Apex shark accuracy and dodge at 360.0
+00:15 +169: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso Apex shark accuracy and dodge at 360.0
+00:15 +170: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection clipper tempestSovereign Size(1280.0, 850.0)
+00:15 +171: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso Apex shark accuracy and dodge at 1280.0
+00:15 +172: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso Apex shark accuracy and dodge at 1280.0
+00:15 +173: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection clipper earthshakerTitan Size(1280.0, 850.0)
+00:15 +174: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: HUD applies cap, Pin and real Flare zero rather than hiding it
+00:15 +175: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: HUD applies cap, Pin and real Flare zero rather than hiding it
+00:15 +176: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: HUD applies cap, Pin and real Flare zero rather than hiding it
+00:15 +177: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier tempestSovereign Size(360.0, 900.0)
+00:15 +178: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: captured dodge updates at effects and barrier depletion, not future live state
+00:16 +179: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: captured dodge updates at effects and barrier depletion, not future live state
+00:16 +180: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: captured dodge updates at effects and barrier depletion, not future live state
+00:16 +181: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: captured dodge updates at effects and barrier depletion, not future live state
+00:16 +182: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier magmaVentLord Size(800.0, 480.0)
+00:16 +183: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier tempestSovereign Size(800.0, 480.0)
+00:16 +184: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier brinemother Size(800.0, 480.0)
+00:16 +185: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier earthshakerTitan Size(800.0, 480.0)
+00:16 +186: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Fresh inspection bombardier Size(1280.0, 850.0)
+00:16 +187: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier magmaVentLord Size(1280.0, 850.0)
+00:16 +188: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier tempestSovereign Size(1280.0, 850.0)
+00:16 +189: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier brinemother Size(1280.0, 850.0)
+00:17 +190: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +191: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +192: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +193: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +194: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +195: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +196: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +197: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +198: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +199: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Inspect and Chronicle consume Esc before the Pause host
+00:17 +200: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection corsair brinemother Size(800.0, 480.0)
+00:17 +201: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:18 +202: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:18 +203: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:18 +204: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:18 +205: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:18 +206: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:18 +207: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection corsair earthshakerTitan Size(1280.0, 850.0)
+00:18 +208: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Esc closes the modal and restores prior focus
+00:18 +209: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Esc closes the modal and restores prior focus
+00:18 +210: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Esc closes the modal and restores prior focus
+00:18 +211: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Burning Size(1280.0, 850.0)
+00:18 +212: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: modal fits Size(360.0, 600.0) at large text
+00:18 +213: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: modal fits Size(360.0, 600.0) at large text
+00:18 +214: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Illuminated Size(800.0, 480.0)
+00:18 +215: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: modal fits Size(1280.0, 720.0) at large text
+00:18 +216: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: modal fits Size(1280.0, 720.0) at large text
+00:19 +217: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: modal fits Size(1280.0, 720.0) at large text
+00:19 +218: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Static Charge Size(800.0, 480.0)
+00:19 +219: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Static Charge Size(1280.0, 850.0)
+00:19 +220: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Arc Discharge Size(360.0, 900.0)
+00:19 +221: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Arc Discharge Size(800.0, 480.0)
+00:19 +222: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Arc Discharge Size(1280.0, 850.0)
+00:19 +223: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Corroded Size(360.0, 900.0)
+00:19 +224: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Corroded Size(800.0, 480.0)
+00:19 +225: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Corroded Size(1280.0, 850.0)
+00:19 +226: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Pinned Size(360.0, 900.0)
+00:19 +227: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Pinned Size(800.0, 480.0)
+00:19 +228: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:19 +229: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:19 +230: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +231: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +232: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +233: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +234: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +235: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +236: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +237: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +238: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +239: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +240: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +241: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +242: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +243: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +244: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:20 +245: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:21 +246: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:21 +247: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:21 +248: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:21 +249: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:21 +250: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Stun Size(1280.0, 850.0)
+00:21 +251: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +252: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +253: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +254: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +255: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +256: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +257: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +258: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +259: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +260: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +261: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:21 +262: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Thermal Detonation Size(800.0, 480.0)
+00:22 +263: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.15
+00:22 +264: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.15
+00:22 +265: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.15
+00:22 +266: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.15 settingsInPause Size(360.0, 900.0)
+00:22 +267: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.3
+00:22 +268: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.3
+00:22 +269: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.15 nested Size(360.0, 900.0)
+00:22 +270: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.15
+00:22 +271: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.15
+00:22 +272: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.15 settingsInPause Size(800.0, 480.0)
+00:22 +273: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.3
+00:22 +274: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.15 inspectionNested Size(800.0, 480.0)
+00:22 +275: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:23 +276: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:23 +277: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:23 +278: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:23 +279: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:23 +280: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:23 +281: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.15 Alignment.topLeft nested
+00:23 +282: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.15 Alignment.topLeft actionNested
+00:23 +283: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: completed lineage can return to menu without erasing its ending
+00:23 +284: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: completed lineage can return to menu without erasing its ending
+00:23 +285: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: completed lineage can return to menu without erasing its ending
+00:23 +286: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.15 Alignment.topRight actionNested
+00:23 +287: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:24 +288: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:24 +289: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:24 +290: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:24 +291: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:24 +292: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.15 Alignment.bottomRight nested
+00:24 +293: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:24 +294: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:24 +295: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:24 +296: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:24 +297: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 settingsInPause Size(360.0, 900.0)
+00:24 +298: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: title-menu exit retries platform failures
+00:24 +299: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 inspectionNested Size(360.0, 900.0)
+00:24 +300: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:24 +301: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:25 +302: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:25 +303: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 settingsInPause Size(800.0, 480.0)
+00:25 +304: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: an unreadable selected slot can retry without blocking another save
+00:25 +305: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: an unreadable selected slot can retry without blocking another save
+00:25 +306: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 nested Size(800.0, 480.0)
+00:25 +307: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 360.0 / 1.15
+00:25 +308: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 settingsLive Size(1280.0, 850.0)
+00:25 +309: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 360.0 / 1.3
+00:25 +310: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 settingsInPause Size(1280.0, 850.0)
+00:25 +311: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 1280.0 / 1.15
+00:25 +312: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 inspectionNested Size(1280.0, 850.0)
+00:25 +313: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 1280.0 / 1.3
+00:25 +314: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 nested Size(1280.0, 850.0)
+00:25 +315: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.topLeft nested
+00:25 +316: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.topLeft actionNested
+00:26 +317: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.topLeft nativeTooltip
+00:26 +318: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.topRight nested
+00:26 +319: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.topRight actionNested
+00:26 +320: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.topRight nativeTooltip
+00:26 +321: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.bottomLeft nested
+00:26 +322: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.bottomLeft actionNested
+00:26 +323: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.bottomLeft nativeTooltip
+00:26 +324: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.bottomRight nested
+00:26 +325: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.bottomRight actionNested
+00:26 +326: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.bottomRight nativeTooltip
+00:26 +327: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: (tearDownAll)
+00:26 +327: All tests passed!

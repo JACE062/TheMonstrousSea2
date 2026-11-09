@@ -1,0 +1,40 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart
+test/overlay_layout_matrix_test.dart:154:31: Error: Member not found: 'instance'.
+  final exitsBefore=(_Binding.instance as _Binding).exits;
+                              ^^^^^^^^
+test/overlay_layout_matrix_test.dart:182:11: Error: Expected ';' after this.
+      ))))));
+          ^
+test/overlay_layout_matrix_test.dart:182:12: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+      ))))));
+           ^
+test/overlay_layout_matrix_test.dart:182:12: Error: Unexpected token ';'.
+      ))))));
+           ^
+test/overlay_layout_matrix_test.dart:285:20: Error: Member not found: 'instance'.
+  expect((_Binding.instance as _Binding).exits,exitsBefore+(pane==Pane.pauseExitError?1:0));
+                   ^^^^^^^^
+00:00 +0 -1: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: test/overlay_layout_matrix_test.dart:154:31: Error: Member not found: 'instance'.
+    final exitsBefore=(_Binding.instance as _Binding).exits;
+                                ^^^^^^^^
+  test/overlay_layout_matrix_test.dart:182:11: Error: Expected ';' after this.
+        ))))));
+            ^
+  test/overlay_layout_matrix_test.dart:182:12: Error: Expected an identifier, but got ')'.
+  Try inserting an identifier before ')'.
+        ))))));
+             ^
+  test/overlay_layout_matrix_test.dart:182:12: Error: Unexpected token ';'.
+        ))))));
+             ^
+  test/overlay_layout_matrix_test.dart:285:20: Error: Member not found: 'instance'.
+    expect((_Binding.instance as _Binding).exits,exitsBefore+(pane==Pane.pauseExitError?1:0));
+                     ^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart

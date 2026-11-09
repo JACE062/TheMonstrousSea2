@@ -1,0 +1,861 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% pauseSaved Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseSaved-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pauseSaved Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: 115% pauseSaved Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pauseSaved Size(360.0, 900.0)
+  
+00:01 +0 -1: 115% pauseSaved Size(800.0, 480.0)
+00:01 +1 -1: 115% pauseSaved Size(1280.0, 850.0)
+00:01 +2 -1: 115% pauseUnsaved Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseUnsaved-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pauseUnsaved Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +2 -2: 115% pauseUnsaved Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pauseUnsaved Size(360.0, 900.0)
+  
+00:02 +2 -2: 115% pauseUnsaved Size(800.0, 480.0)
+00:02 +3 -2: 115% pauseUnsaved Size(1280.0, 850.0)
+00:02 +4 -2: 115% pauseBlocked Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseBlocked-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pauseBlocked Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +4 -3: 115% pauseBlocked Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pauseBlocked Size(360.0, 900.0)
+  
+00:02 +4 -3: 115% pauseBlocked Size(800.0, 480.0)
+00:02 +5 -3: 115% pauseBlocked Size(1280.0, 850.0)
+00:02 +6 -3: 115% pausePlaying Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pausePlaying-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pausePlaying Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +6 -4: 115% pausePlaying Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pausePlaying Size(360.0, 900.0)
+  
+00:03 +6 -4: 115% pausePlaying Size(800.0, 480.0)
+00:03 +7 -4: 115% pausePlaying Size(1280.0, 850.0)
+00:03 +8 -4: 115% pauseNoTitle Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseNoTitle-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pauseNoTitle Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +8 -5: 115% pauseNoTitle Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pauseNoTitle Size(360.0, 900.0)
+  
+00:03 +8 -5: 115% pauseNoTitle Size(800.0, 480.0)
+00:03 +9 -5: 115% pauseNoTitle Size(1280.0, 850.0)
+00:03 +10 -5: 115% pauseSaveError Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseSaveError-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pauseSaveError Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +10 -6: 115% pauseSaveError Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pauseSaveError Size(360.0, 900.0)
+  
+00:03 +10 -6: 115% pauseSaveError Size(800.0, 480.0)
+00:04 +11 -6: 115% pauseSaveError Size(1280.0, 850.0)
+00:04 +12 -6: 115% pauseSaving Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseSaving-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pauseSaving Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +12 -7: 115% pauseSaving Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pauseSaving Size(360.0, 900.0)
+  
+00:04 +12 -7: 115% pauseSaving Size(800.0, 480.0)
+00:04 +13 -7: 115% pauseSaving Size(1280.0, 850.0)
+00:04 +14 -7: 115% pauseExitError Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseExitError-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% pauseExitError Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +14 -8: 115% pauseExitError Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pauseExitError Size(360.0, 900.0)
+  
+00:04 +14 -8: 115% pauseExitError Size(800.0, 480.0)
+00:05 +15 -8: 115% pauseExitError Size(1280.0, 850.0)
+00:05 +16 -8: 115% settings Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settings-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:450:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% settings Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +16 -9: 115% settings Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% settings Size(360.0, 900.0)
+  
+00:05 +16 -9: 115% settings Size(800.0, 480.0)
+00:05 +17 -9: 115% settings Size(1280.0, 850.0)
+00:05 +18 -9: 115% settingsInPause Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsInPause-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:428:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% settingsInPause Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +18 -10: 115% settingsInPause Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% settingsInPause Size(360.0, 900.0)
+  
+00:05 +18 -10: 115% settingsInPause Size(800.0, 480.0)
+00:06 +19 -10: 115% settingsInPause Size(1280.0, 850.0)
+00:06 +20 -10: 115% settingsLive Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsLive-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:450:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% settingsLive Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +20 -11: 115% settingsLive Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% settingsLive Size(360.0, 900.0)
+  
+00:06 +20 -11: 115% settingsLive Size(800.0, 480.0)
+00:06 +21 -11: 115% settingsLive Size(1280.0, 850.0)
+00:07 +22 -11: 115% inspection Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspection-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:478:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% inspection Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +22 -12: 115% inspection Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% inspection Size(360.0, 900.0)
+  
+00:07 +22 -12: 115% inspection Size(800.0, 480.0)
+00:07 +23 -12: 115% inspection Size(1280.0, 850.0)
+00:08 +24 -12: 115% inspectionNested Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      checkControls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:171:3)
+#5      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:478:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 171
+The test description was:
+  115% inspectionNested Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +24 -13: 115% inspectionNested Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% inspectionNested Size(360.0, 900.0)
+  
+00:08 +24 -13: 115% inspectionNested Size(800.0, 480.0)
+00:08 +25 -13: 115% inspectionNested Size(1280.0, 850.0)
+00:09 +26 -13: 115% keyword Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-keyword-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:605:3)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 605
+The test description was:
+  115% keyword Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +26 -14: 115% keyword Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% keyword Size(360.0, 900.0)
+  
+00:09 +26 -14: 115% keyword Size(800.0, 480.0)
+00:09 +27 -14: 115% keyword Size(1280.0, 850.0)
+00:09 +28 -14: 115% nested Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:605:3)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 605
+The test description was:
+  115% nested Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +28 -15: 115% nested Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% nested Size(360.0, 900.0)
+  
+00:09 +28 -15: 115% nested Size(800.0, 480.0)
+00:09 +29 -15: 115% nested Size(1280.0, 850.0)
+00:10 +30 -15: 115% pointerNested Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following PathNotFoundException was thrown while running async test code:
+Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pointerNested-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)
+
+When the exception was thrown, this was the stack:
+#0      _checkForErrorResponse (dart:io/common.dart:58:9)
+#1      _File.open.<anonymous closure> (dart:io/file_impl.dart:438:7)
+<asynchronous suspension>
+#7      _File.writeAsBytes.<anonymous closure> (dart:io/file_impl.dart:728:34)
+<asynchronous suspension>
+#8      captureChartFocusProof.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart:86:7)
+<asynchronous suspension>
+<asynchronous suspension>
+#10     captureChartFocusProof (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_focus_ui_test.dart:80:3)
+<asynchronous suspension>
+#11     review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:575:16)
+<asynchronous suspension>
+#12     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#13     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PAUSED": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:595:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 595
+The test description was:
+  115% pointerNested Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +30 -16: 115% pointerNested Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pointerNested Size(360.0, 900.0)
+  
+00:10 +30 -16: 115% pointerNested Size(800.0, 480.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PAUSED": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:595:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 595
+The test description was:
+  115% pointerNested Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +30 -17: 115% pointerNested Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pointerNested Size(800.0, 480.0)
+  
+00:10 +30 -17: 115% pointerNested Size(1280.0, 850.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PAUSED": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:595:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 595
+The test description was:
+  115% pointerNested Size(1280.0, 850.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +30 -18: 115% pointerNested Size(1280.0, 850.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% pointerNested Size(1280.0, 850.0)
+  
+00:10 +30 -18: 115% actionNested Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-actionNested-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:605:3)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 605
+The test description was:
+  115% actionNested Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +30 -19: 115% actionNested Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% actionNested Size(360.0, 900.0)
+  
+00:10 +30 -19: 115% actionNested Size(800.0, 480.0)
+00:10 +31 -19: 115% actionNested Size(1280.0, 850.0)
+00:11 +32 -19: 115% nativeTooltip Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nativeTooltip-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:605:3)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 605
+The test description was:
+  115% nativeTooltip Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +32 -20: 115% nativeTooltip Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% nativeTooltip Size(360.0, 900.0)
+  
+00:11 +32 -20: 115% nativeTooltip Size(800.0, 480.0)
+00:11 +33 -20: 115% nativeTooltip Size(1280.0, 850.0)
+00:11 +34 -20: 115% resizeHelp Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: PathNotFoundException:<PathNotFoundException: Cannot open file, path =
+'C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-resizeHelp-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png'
+(OS Error: The system cannot find the path specified, errno = 3)>
+
+When the exception was thrown, this was the stack:
+#4      review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart:605:3)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart line 605
+The test description was:
+  115% resizeHelp Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +34 -21: 115% resizeHelp Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% resizeHelp Size(360.0, 900.0)
+  
+00:11 +34 -21: 115% resizeHelp Size(800.0, 480.0)
+00:11 +35 -21: 115% resizeHelp Size(1280.0, 850.0)
+00:11 +36 -21: Pause checkpoint captainCreation Size(360.0, 900.0)
+00:11 +37 -21: Pause checkpoint captainCreation Size(1280.0, 850.0)
+00:12 +38 -21: Pause checkpoint port Size(360.0, 900.0)
+00:12 +39 -21: Pause checkpoint port Size(1280.0, 850.0)
+00:12 +40 -21: Pause checkpoint stronghold Size(360.0, 900.0)
+00:12 +41 -21: Pause checkpoint stronghold Size(1280.0, 850.0)
+00:12 +42 -21: Pause checkpoint merchant Size(360.0, 900.0)
+00:12 +43 -21: Pause checkpoint merchant Size(1280.0, 850.0)
+00:12 +44 -21: Pause checkpoint helm Size(360.0, 900.0)
+00:12 +45 -21: Pause checkpoint helm Size(1280.0, 850.0)
+00:12 +46 -21: Pause checkpoint battle Size(360.0, 900.0)
+00:12 +47 -21: Pause checkpoint battle Size(1280.0, 850.0)
+00:12 +48 -21: Pause checkpoint loot Size(360.0, 900.0)
+00:12 +49 -21: Pause checkpoint loot Size(1280.0, 850.0)
+00:13 +50 -21: Pause checkpoint restArea Size(360.0, 900.0)
+00:13 +51 -21: Pause checkpoint restArea Size(1280.0, 850.0)
+00:13 +52 -21: Pause checkpoint respiteIsland Size(360.0, 900.0)
+00:13 +53 -21: Pause checkpoint respiteIsland Size(1280.0, 850.0)
+00:13 +54 -21: Pause checkpoint shipwreck Size(360.0, 900.0)
+00:13 +55 -21: Pause checkpoint shipwreck Size(1280.0, 850.0)
+00:13 +56 -21: Pause checkpoint smuggler Size(360.0, 900.0)
+00:13 +57 -21: Pause checkpoint smuggler Size(1280.0, 850.0)
+00:13 +58 -21: Pause checkpoint shrine Size(360.0, 900.0)
+00:13 +59 -21: Pause checkpoint shrine Size(1280.0, 850.0)
+00:13 +60 -21: Pause checkpoint expeditionVictory Size(360.0, 900.0)
+00:13 +61 -21: Pause checkpoint expeditionVictory Size(1280.0, 850.0)
+00:13 +62 -21: Pause checkpoint death Size(360.0, 900.0)
+00:14 +63 -21: Pause checkpoint death Size(1280.0, 850.0)
+00:14 +64 -21: Pause checkpoint ended Size(360.0, 900.0)
+00:14 +65 -21: Pause checkpoint ended Size(1280.0, 850.0)
+00:14 +66 -21: Fresh inspection standard Size(360.0, 900.0)
+00:14 +67 -21: Full inspection standard magmaVentLord Size(360.0, 900.0)
+00:14 +68 -21: Full inspection standard tempestSovereign Size(360.0, 900.0)
+00:14 +69 -21: Full inspection standard brinemother Size(360.0, 900.0)
+00:14 +70 -21: Full inspection standard earthshakerTitan Size(360.0, 900.0)
+00:14 +71 -21: Fresh inspection standard Size(800.0, 480.0)
+00:14 +72 -21: Full inspection standard magmaVentLord Size(800.0, 480.0)
+00:15 +73 -21: Full inspection standard tempestSovereign Size(800.0, 480.0)
+00:15 +74 -21: Full inspection standard brinemother Size(800.0, 480.0)
+00:15 +75 -21: Full inspection standard earthshakerTitan Size(800.0, 480.0)
+00:15 +76 -21: Fresh inspection standard Size(1280.0, 850.0)
+00:15 +77 -21: Full inspection standard magmaVentLord Size(1280.0, 850.0)
+00:15 +78 -21: Full inspection standard tempestSovereign Size(1280.0, 850.0)
+00:15 +79 -21: Full inspection standard brinemother Size(1280.0, 850.0)
+00:16 +80 -21: Full inspection standard earthshakerTitan Size(1280.0, 850.0)
+00:16 +81 -21: Fresh inspection ironclad Size(360.0, 900.0)
+00:16 +82 -21: Full inspection ironclad magmaVentLord Size(360.0, 900.0)
+00:16 +83 -21: Full inspection ironclad tempestSovereign Size(360.0, 900.0)
+00:16 +84 -21: Full inspection ironclad brinemother Size(360.0, 900.0)
+00:16 +85 -21: Full inspection ironclad earthshakerTitan Size(360.0, 900.0)
+00:16 +86 -21: Fresh inspection ironclad Size(800.0, 480.0)
+00:16 +87 -21: Full inspection ironclad magmaVentLord Size(800.0, 480.0)
+00:16 +88 -21: Full inspection ironclad tempestSovereign Size(800.0, 480.0)
+00:17 +89 -21: Full inspection ironclad brinemother Size(800.0, 480.0)
+00:17 +90 -21: Full inspection ironclad earthshakerTitan Size(800.0, 480.0)
+00:17 +91 -21: Fresh inspection ironclad Size(1280.0, 850.0)
+00:17 +92 -21: Full inspection ironclad magmaVentLord Size(1280.0, 850.0)
+00:17 +93 -21: Full inspection ironclad tempestSovereign Size(1280.0, 850.0)
+00:17 +94 -21: Full inspection ironclad brinemother Size(1280.0, 850.0)
+00:17 +95 -21: Full inspection ironclad earthshakerTitan Size(1280.0, 850.0)
+00:18 +96 -21: Fresh inspection clipper Size(360.0, 900.0)
+00:18 +97 -21: Full inspection clipper magmaVentLord Size(360.0, 900.0)
+00:18 +98 -21: Full inspection clipper tempestSovereign Size(360.0, 900.0)
+00:18 +99 -21: Full inspection clipper brinemother Size(360.0, 900.0)
+00:18 +100 -21: Full inspection clipper earthshakerTitan Size(360.0, 900.0)
+00:18 +101 -21: Fresh inspection clipper Size(800.0, 480.0)
+00:18 +102 -21: Full inspection clipper magmaVentLord Size(800.0, 480.0)
+00:18 +103 -21: Full inspection clipper tempestSovereign Size(800.0, 480.0)
+00:18 +104 -21: Full inspection clipper brinemother Size(800.0, 480.0)
+00:19 +105 -21: Full inspection clipper earthshakerTitan Size(800.0, 480.0)
+00:19 +106 -21: Fresh inspection clipper Size(1280.0, 850.0)
+00:19 +107 -21: Full inspection clipper magmaVentLord Size(1280.0, 850.0)
+00:19 +108 -21: Full inspection clipper tempestSovereign Size(1280.0, 850.0)
+00:19 +109 -21: Full inspection clipper brinemother Size(1280.0, 850.0)
+00:19 +110 -21: Full inspection clipper earthshakerTitan Size(1280.0, 850.0)
+00:19 +111 -21: Fresh inspection bombardier Size(360.0, 900.0)
+00:20 +112 -21: Full inspection bombardier magmaVentLord Size(360.0, 900.0)
+00:20 +113 -21: Full inspection bombardier tempestSovereign Size(360.0, 900.0)
+00:20 +114 -21: Full inspection bombardier brinemother Size(360.0, 900.0)
+00:20 +115 -21: Full inspection bombardier earthshakerTitan Size(360.0, 900.0)
+00:20 +116 -21: Fresh inspection bombardier Size(800.0, 480.0)
+00:20 +117 -21: Full inspection bombardier magmaVentLord Size(800.0, 480.0)
+00:20 +118 -21: Full inspection bombardier tempestSovereign Size(800.0, 480.0)
+00:21 +119 -21: Full inspection bombardier brinemother Size(800.0, 480.0)
+00:21 +120 -21: Full inspection bombardier earthshakerTitan Size(800.0, 480.0)
+00:21 +121 -21: Fresh inspection bombardier Size(1280.0, 850.0)
+00:21 +122 -21: Full inspection bombardier magmaVentLord Size(1280.0, 850.0)
+00:21 +123 -21: Full inspection bombardier tempestSovereign Size(1280.0, 850.0)
+00:21 +124 -21: Full inspection bombardier brinemother Size(1280.0, 850.0)
+00:21 +125 -21: Full inspection bombardier earthshakerTitan Size(1280.0, 850.0)
+00:21 +126 -21: Fresh inspection corsair Size(360.0, 900.0)
+00:22 +127 -21: Full inspection corsair magmaVentLord Size(360.0, 900.0)
+00:22 +128 -21: Full inspection corsair tempestSovereign Size(360.0, 900.0)
+00:22 +129 -21: Full inspection corsair brinemother Size(360.0, 900.0)
+00:22 +130 -21: Full inspection corsair earthshakerTitan Size(360.0, 900.0)
+00:22 +131 -21: Fresh inspection corsair Size(800.0, 480.0)
+00:22 +132 -21: Full inspection corsair magmaVentLord Size(800.0, 480.0)
+00:22 +133 -21: Full inspection corsair tempestSovereign Size(800.0, 480.0)
+00:23 +134 -21: Full inspection corsair brinemother Size(800.0, 480.0)
+00:23 +135 -21: Full inspection corsair earthshakerTitan Size(800.0, 480.0)
+00:23 +136 -21: Fresh inspection corsair Size(1280.0, 850.0)
+00:23 +137 -21: Full inspection corsair magmaVentLord Size(1280.0, 850.0)
+00:23 +138 -21: Full inspection corsair tempestSovereign Size(1280.0, 850.0)
+00:23 +139 -21: Full inspection corsair brinemother Size(1280.0, 850.0)
+00:23 +140 -21: Full inspection corsair earthshakerTitan Size(1280.0, 850.0)
+00:23 +141 -21: Keyword Burning Size(360.0, 900.0)
+00:24 +142 -21: Keyword Burning Size(800.0, 480.0)
+00:24 +143 -21: Keyword Burning Size(1280.0, 850.0)
+00:24 +144 -21: Keyword Illuminated Size(360.0, 900.0)
+00:24 +145 -21: Keyword Illuminated Size(800.0, 480.0)
+00:24 +146 -21: Keyword Illuminated Size(1280.0, 850.0)
+00:24 +147 -21: Keyword Static Charge Size(360.0, 900.0)
+00:24 +148 -21: Keyword Static Charge Size(800.0, 480.0)
+00:24 +149 -21: Keyword Static Charge Size(1280.0, 850.0)
+00:24 +150 -21: Keyword Arc Discharge Size(360.0, 900.0)
+00:24 +151 -21: Keyword Arc Discharge Size(800.0, 480.0)
+00:24 +152 -21: Keyword Arc Discharge Size(1280.0, 850.0)
+00:25 +153 -21: Keyword Corroded Size(360.0, 900.0)
+00:25 +154 -21: Keyword Corroded Size(800.0, 480.0)
+00:25 +155 -21: Keyword Corroded Size(1280.0, 850.0)
+00:25 +156 -21: Keyword Pinned Size(360.0, 900.0)
+00:25 +157 -21: Keyword Pinned Size(800.0, 480.0)
+00:25 +158 -21: Keyword Pinned Size(1280.0, 850.0)
+00:25 +159 -21: Keyword Carapace Size(360.0, 900.0)
+00:25 +160 -21: Keyword Carapace Size(800.0, 480.0)
+00:25 +161 -21: Keyword Carapace Size(1280.0, 850.0)
+00:25 +162 -21: Keyword Critical Hits Size(360.0, 900.0)
+00:25 +163 -21: Keyword Critical Hits Size(800.0, 480.0)
+00:26 +164 -21: Keyword Critical Hits Size(1280.0, 850.0)
+00:26 +165 -21: Keyword Shaken Size(360.0, 900.0)
+00:26 +166 -21: Keyword Shaken Size(800.0, 480.0)
+00:26 +167 -21: Keyword Shaken Size(1280.0, 850.0)
+00:26 +168 -21: Keyword Obscurity Size(360.0, 900.0)
+00:26 +169 -21: Keyword Obscurity Size(800.0, 480.0)
+00:26 +170 -21: Keyword Obscurity Size(1280.0, 850.0)
+00:26 +171 -21: Keyword Anchored Size(360.0, 900.0)
+00:26 +172 -21: Keyword Anchored Size(800.0, 480.0)
+00:26 +173 -21: Keyword Anchored Size(1280.0, 850.0)
+00:26 +174 -21: Keyword Grappled Size(360.0, 900.0)
+00:26 +175 -21: Keyword Grappled Size(800.0, 480.0)
+00:26 +176 -21: Keyword Grappled Size(1280.0, 850.0)
+00:27 +177 -21: Keyword Stun Size(360.0, 900.0)
+00:27 +178 -21: Keyword Stun Size(800.0, 480.0)
+00:27 +179 -21: Keyword Stun Size(1280.0, 850.0)
+00:27 +180 -21: Keyword Poison Size(360.0, 900.0)
+00:27 +181 -21: Keyword Poison Size(800.0, 480.0)
+00:27 +182 -21: Keyword Poison Size(1280.0, 850.0)
+00:27 +183 -21: Keyword Frenzy Size(360.0, 900.0)
+00:27 +184 -21: Keyword Frenzy Size(800.0, 480.0)
+00:27 +185 -21: Keyword Frenzy Size(1280.0, 850.0)
+00:27 +186 -21: Keyword Electro-Jolt Size(360.0, 900.0)
+00:27 +187 -21: Keyword Electro-Jolt Size(800.0, 480.0)
+00:28 +188 -21: Keyword Electro-Jolt Size(1280.0, 850.0)
+00:28 +189 -21: Keyword Thermal Detonation Size(360.0, 900.0)
+00:28 +190 -21: Keyword Thermal Detonation Size(800.0, 480.0)
+00:28 +191 -21: Keyword Thermal Detonation Size(1280.0, 850.0)
+00:28 +192 -21: Plain 1.15 settingsLive Size(360.0, 900.0)
+00:28 +193 -21: Plain 1.15 settingsInPause Size(360.0, 900.0)
+00:28 +194 -21: Plain 1.15 inspectionNested Size(360.0, 900.0)
+00:28 +195 -21: Plain 1.15 nested Size(360.0, 900.0)
+00:29 +196 -21: Plain 1.15 settingsLive Size(800.0, 480.0)
+00:29 +197 -21: Plain 1.15 settingsInPause Size(800.0, 480.0)
+00:29 +198 -21: Plain 1.15 inspectionNested Size(800.0, 480.0)
+00:29 +199 -21: Plain 1.15 nested Size(800.0, 480.0)
+00:29 +200 -21: Plain 1.15 settingsLive Size(1280.0, 850.0)
+00:29 +201 -21: Plain 1.15 settingsInPause Size(1280.0, 850.0)
+00:30 +202 -21: Plain 1.15 inspectionNested Size(1280.0, 850.0)
+00:30 +203 -21: Plain 1.15 nested Size(1280.0, 850.0)
+00:30 +204 -21: Corner 1.15 Alignment.topLeft nested
+00:30 +205 -21: Corner 1.15 Alignment.topLeft actionNested
+00:30 +206 -21: Corner 1.15 Alignment.topLeft nativeTooltip
+00:30 +207 -21: Corner 1.15 Alignment.topRight nested
+00:30 +208 -21: Corner 1.15 Alignment.topRight actionNested
+00:30 +209 -21: Corner 1.15 Alignment.topRight nativeTooltip
+00:30 +210 -21: Corner 1.15 Alignment.bottomLeft nested
+00:31 +211 -21: Corner 1.15 Alignment.bottomLeft actionNested
+00:31 +212 -21: Corner 1.15 Alignment.bottomLeft nativeTooltip
+00:31 +213 -21: Corner 1.15 Alignment.bottomRight nested
+00:31 +214 -21: Corner 1.15 Alignment.bottomRight actionNested
+00:31 +215 -21: Corner 1.15 Alignment.bottomRight nativeTooltip
+00:32 +216 -21: Plain 1.3 settingsLive Size(360.0, 900.0)
+00:32 +217 -21: Plain 1.3 settingsInPause Size(360.0, 900.0)
+00:32 +218 -21: Plain 1.3 inspectionNested Size(360.0, 900.0)
+00:32 +219 -21: Plain 1.3 nested Size(360.0, 900.0)
+00:32 +220 -21: Plain 1.3 settingsLive Size(800.0, 480.0)
+00:32 +221 -21: Plain 1.3 settingsInPause Size(800.0, 480.0)
+00:33 +222 -21: Plain 1.3 inspectionNested Size(800.0, 480.0)
+00:33 +223 -21: Plain 1.3 nested Size(800.0, 480.0)
+00:33 +224 -21: Plain 1.3 settingsLive Size(1280.0, 850.0)
+00:33 +225 -21: Plain 1.3 settingsInPause Size(1280.0, 850.0)
+00:33 +226 -21: Plain 1.3 inspectionNested Size(1280.0, 850.0)
+00:33 +227 -21: Plain 1.3 nested Size(1280.0, 850.0)
+00:33 +228 -21: Corner 1.3 Alignment.topLeft nested
+00:34 +229 -21: Corner 1.3 Alignment.topLeft actionNested
+00:34 +230 -21: Corner 1.3 Alignment.topLeft nativeTooltip
+00:34 +231 -21: Corner 1.3 Alignment.topRight nested
+00:34 +232 -21: Corner 1.3 Alignment.topRight actionNested
+00:34 +233 -21: Corner 1.3 Alignment.topRight nativeTooltip
+00:34 +234 -21: Corner 1.3 Alignment.bottomLeft nested
+00:34 +235 -21: Corner 1.3 Alignment.bottomLeft actionNested
+00:34 +236 -21: Corner 1.3 Alignment.bottomLeft nativeTooltip
+00:34 +237 -21: Corner 1.3 Alignment.bottomRight nested
+00:34 +238 -21: Corner 1.3 Alignment.bottomRight actionNested
+00:35 +239 -21: Corner 1.3 Alignment.bottomRight nativeTooltip
+00:35 +240 -21: (tearDownAll)
+00:35 +240 -21: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% actionNested Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspection Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspectionNested Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% keyword Size(360.0, 900.0)
+  ... and 17 more

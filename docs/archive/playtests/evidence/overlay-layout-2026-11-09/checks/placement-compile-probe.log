@@ -1,0 +1,14 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart
+lib/src/widgets/mechanic_text.dart:551:39: Error: The argument type 'num' can't be assigned to the parameter type 'double'.
+          final candidate = Offset(x, y) & childSize;
+                                      ^
+00:00 +0 -1: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: lib/src/widgets/mechanic_text.dart:551:39: Error: The argument type 'num' can't be assigned to the parameter type 'double'.
+            final candidate = Offset(x, y) & childSize;
+                                        ^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart

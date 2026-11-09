@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:monstrous_core/monstrous_core.dart';
@@ -273,12 +274,39 @@ class _HelpAnchor extends StatefulWidget {
 }
 
 class _HelpAnchorState extends State<_HelpAnchor> {
+  // Hover does not move keyboard focus into the card. Route Escape before
+  // gameplay shortcuts, closing only the front help on the current route.
+  static final _visibleHelp = <_HelpAnchorState>[];
+  static KeyEventResult _escapeHelp(KeyEvent event) {
+    if ((event is! KeyDownEvent && event is! KeyRepeatEvent) ||
+        event.logicalKey != LogicalKeyboardKey.escape) {
+      return KeyEventResult.ignored;
+    }
+    for (final help in _visibleHelp.reversed) {
+      if (help.mounted &&
+          help._portal.isShowing &&
+          help._route?.isCurrent != false) {
+        help._close();
+        return KeyEventResult.handled;
+      }
+    }
+    return KeyEventResult.ignored;
+  }
+
+  void _unregisterHelp() {
+    _visibleHelp.remove(this);
+    if (_visibleHelp.isEmpty) {
+      FocusManager.instance.removeEarlyKeyEventHandler(_escapeHelp);
+    }
+  }
+
   final _portal = OverlayPortalController();
   final _key = GlobalKey();
   final _helpKey = GlobalKey();
   final _focus = FocusNode();
   Timer? _closing;
   _HelpAnchorState? _parent;
+  ModalRoute<dynamic>? _route;
   bool _overAnchor = false, _overHelp = false, _helpFocused = false;
   bool _keyboard = false;
   int _children = 0;
@@ -288,6 +316,7 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _parent = _HelpOwner.maybeOf(context)?.owner;
+    _route = ModalRoute.of(context);
   }
 
   void _open({bool keyboard = false}) {
@@ -295,6 +324,10 @@ class _HelpAnchorState extends State<_HelpAnchor> {
     if (_portal.isShowing) return;
     _keyboard = keyboard;
     _parent?._childOpened();
+    if (_visibleHelp.isEmpty) {
+      FocusManager.instance.addEarlyKeyEventHandler(_escapeHelp);
+    }
+    _visibleHelp.add(this);
     _portal.show();
   }
 
@@ -312,6 +345,7 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   void _close({bool restoreFocus = true}) {
     _closing?.cancel();
     if (!_portal.isShowing) return;
+    _unregisterHelp();
     _portal.hide();
     _parent?._childClosed();
     if (restoreFocus && _keyboard && mounted && widget.isWord) {
@@ -336,6 +370,7 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   @override
   void dispose() {
     _disposed = true;
+    _unregisterHelp();
     _closing?.cancel();
     if (_portal.isShowing) _parent?._childClosed();
     _focus.dispose();
@@ -368,13 +403,17 @@ class _HelpAnchorState extends State<_HelpAnchor> {
             Overlay.of(context).context.findRenderObject()! as RenderBox;
         final rect =
             box.localToGlobal(Offset.zero, ancestor: overlay) & box.size;
-        final parentBox = _parent?._helpKey.currentContext?.findRenderObject();
-        final parentRect = parentBox is RenderBox
-            ? parentBox.localToGlobal(Offset.zero, ancestor: overlay) &
-                  parentBox.size
-            : null;
+        final parents = <Rect>[];
+        for (var owner = _parent; owner != null; owner = owner._parent) {
+          final box = owner._helpKey.currentContext?.findRenderObject();
+          if (box is RenderBox) {
+            parents.add(
+              box.localToGlobal(Offset.zero, ancestor: overlay) & box.size,
+            );
+          }
+        }
         return CustomSingleChildLayout(
-          delegate: _HelpPosition(rect, parentRect: parentRect),
+          delegate: _HelpPosition(rect, parents: parents),
           child: _HelpOwner(
             owner: this,
             terms: {...inherited, if (widget.term != null) widget.term!},
@@ -490,9 +529,9 @@ class _HelpAnchorState extends State<_HelpAnchor> {
 }
 
 class _HelpPosition extends SingleChildLayoutDelegate {
-  _HelpPosition(this.anchor, {this.parentRect});
+  _HelpPosition(this.anchor, {this.parents = const []});
   final Rect anchor;
-  final Rect? parentRect;
+  final List<Rect> parents;
   @override
   BoxConstraints getConstraintsForChild(BoxConstraints constraints) =>
       BoxConstraints(
@@ -501,8 +540,26 @@ class _HelpPosition extends SingleChildLayoutDelegate {
       );
   @override
   Offset getPositionForChild(Size size, Size childSize) {
-    // Keep the previous explanation readable when a nested card fits beside it.
-    final parent = parentRect;
+    // A third card must also avoid earlier ancestors, not just its parent.
+    if (parents.isNotEmpty) {
+      final y = parents.first.top
+          .clamp(12.0, math.max(12.0, size.height - childSize.height - 12))
+          .toDouble();
+      for (final parent in parents) {
+        for (final x in <double>[
+          parent.right + 8,
+          parent.left - childSize.width - 8,
+        ]) {
+          final candidate = Offset(x, y) & childSize;
+          if (candidate.left >= 12 &&
+              candidate.right <= size.width - 12 &&
+              !parents.any(candidate.overlaps)) {
+            return candidate.topLeft;
+          }
+        }
+      }
+    }
+    final parent = parents.firstOrNull;
     final besideParent =
         parent != null &&
         (parent.right + 8 + childSize.width <= size.width - 12 ||
@@ -527,5 +584,5 @@ class _HelpPosition extends SingleChildLayoutDelegate {
 
   @override
   bool shouldRelayout(_HelpPosition old) =>
-      old.anchor != anchor || old.parentRect != parentRect;
+      old.anchor != anchor || !listEquals(old.parents, parents);
 }

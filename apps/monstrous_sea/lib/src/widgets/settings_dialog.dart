@@ -74,7 +74,6 @@ class _SettingsDialogState extends State<SettingsDialog> {
                                   style: InkTheme.titleMedium.copyWith(
                                     fontSize: 20,
                                   ),
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],

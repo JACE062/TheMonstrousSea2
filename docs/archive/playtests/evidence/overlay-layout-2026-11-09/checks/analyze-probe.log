@@ -1,0 +1,9 @@
+Analyzing monstrous_sea...                                      
+
+  error - The argument type 'num' can't be assigned to the parameter type 'double'.  - lib\src\widgets\mechanic_text.dart:546:39 - argument_type_not_assignable
+  error - The argument type 'num' can't be assigned to the parameter type 'double'.  - lib\src\widgets\mechanic_text.dart:551:39 - argument_type_not_assignable
+   info - Invalid use of a private type in a public API. Try making the private type public, or making the API that uses the private type also be private - test\overlay_layout_matrix_test.dart:84:3 - library_private_types_in_public_api
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\overlay_layout_matrix_test.dart:416:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\overlay_layout_matrix_test.dart:636:7 - curly_braces_in_flow_control_structures
+
+5 issues found. (ran in 48.1s)

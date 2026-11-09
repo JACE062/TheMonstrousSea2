@@ -99,6 +99,8 @@ Battle playback owns a detached `BattlePresentation`, shared by the Flutter HUD 
 
 Keyword anchors use overlay portals, semantic activation, hover, keyboard and long press. F1 opens action help without dispatching the action; keyword activation opens its explanation. Parent ownership keeps linked cards open, suppresses cyclic ancestor links and cancels close timers on disposal. Cards prefer space beside the parent, clamp to the viewport and scroll if needed; Escape/close/outside interaction dismisses them. Keep those pointer/focus/touch lifecycle checks when extending terms. Definitions belong in contextual help rather than repeating interaction manuals in every action description.
 
+Open help anchors share one early key handler so hover-opened explanations consume Escape before gameplay shortcuts without stealing focus. It closes the most recently opened help on the current modal route, including key repeats; newer dialogs retain priority. Closing/disposal unregisters anchors and removes the handler when none remain. Placement checks all ancestor card rectangles before choosing available side space, then uses the bounded compact fallback. The [overlay audit](docs/archive/README.md#overlay-layout-audit-2026-11-09) covers this lifecycle together with Pause save gates, wrapping Settings headings, live font changes and all hull inspections at larger text sizes.
+
 ## Tooling on Windows
 
 Dart/Flutter analysis and test workers can stall in restricted Windows sandboxes because they use child processes and local IPC/loopback. Use the execution tool's supported permission override when needed; the available API here is `sandbox_permissions: "require_escalated"`, not the historical `BypassSandbox` / `manage_task` arguments.

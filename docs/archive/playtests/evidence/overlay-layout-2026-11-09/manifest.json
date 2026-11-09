@@ -1,0 +1,773 @@
+{
+  "date": "2026-11-09",
+  "baseCommit": "247c6270b206037cc228a1b5b81d0f81c6774932",
+  "request": "Review Pause, Settings, vessel inspection and tooltips, including nested keyword help, at 115% text.",
+  "scope": "Wrapping Settings heading, route-aware Escape for hover help and non-overlapping ancestor help placement where space permits. Saves, approved copy/art and gameplay rules unchanged.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/settings_dialog.dart",
+      "sha256": "f2e984ef12664cdfe24320611ab91b2f21223702d27ca9bb28aab1adc6da17f4"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "sha256": "7a7ed014a8811fe6ccbc7a40d81bf4e558a14b4a69633346c8e4de68923fa66b"
+    },
+    {
+      "path": "apps/monstrous_sea/test/overlay_layout_matrix_test.dart",
+      "sha256": "ea3187ab994f2cd6f8159427f8254d2bf2149dd94e806741ed551e5754bdd43f"
+    }
+  ],
+  "unchangedOverlayInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/pause_menu.dart",
+      "sha256": "1379dffe3d76ed36d0dc8c9891c391a19ffa5d20c798c75f8b6daf80bac461cd"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/vessel_inspection.dart",
+      "sha256": "9c0ced49caa2fc51f6558a7765c58af562f5d2bbb72008b82dd75d97e9f35af9"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/voyage_log_view.dart",
+      "sha256": "589342d463e43a52916afe6d3d2e952b20053b6d9f4e36a74eb13be93a9d90b2"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+      "sha256": "0f97f18cde9d33d12e19975da4c4bc3ad357652d3efe7577281c1d1d6165d2fc"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/settings/game_settings.dart",
+      "sha256": "c55f18314f94faea9795690fa4e92ca4d735f1e4d87c2ab0b4eb4bd0f2451bbe"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/theme/ink_theme.dart",
+      "sha256": "c1902fa843c712b0a7b2d06942ba8a9d8db5045f6a9baaf3689b68a08ee274fa"
+    }
+  ],
+  "baseline": {
+    "cases": 54,
+    "passed": 48,
+    "failed": 6,
+    "findings": [
+      "Compact Settings heading ellipsis in three states.",
+      "Hover-opened help did not consume Escape in three sizes."
+    ]
+  },
+  "visualFinding": "Third-level desktop help overlapped an earlier ancestor despite available space. Final source checks all ancestors and tests three-card separation.",
+  "matrix": {
+    "gameFonts": 264,
+    "offlineWithRelatedRegressions": 327,
+    "relatedExistingCases": 63,
+    "sizes": [
+      [
+        360,
+        900
+      ],
+      [
+        800,
+        480
+      ],
+      [
+        1280,
+        850
+      ]
+    ],
+    "primaryTextScale": 1.15,
+    "stressTextScale": 1.3,
+    "hulls": 5,
+    "powers": 4,
+    "keywordDefinitions": 17,
+    "sessionPhases": 15
+  },
+  "isolation": {
+    "storage": "In-memory test substitute; no live profile path is used.",
+    "nativeExit": "Cancelled by test binding.",
+    "gameplay": "Profile/ship/chart/phase/playing/monster-HP snapshots unchanged; no gameplay action callbacks dispatched.",
+    "fonts": "Cached Pirata One/IM Fell English for visual run; bundled Roboto/Material Icons for offline/plain mode."
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/analyze-probe.log",
+      "sha256": "181a487b14a1e38a431d9b95c729e680c18e83eb5debc41863b6f565dcfb95f9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/analyze.log",
+      "sha256": "7252e655c77240aaea5687eedfaf24d339d6ad846198812a1e46f39c560c1e82"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/baseline.log",
+      "sha256": "063fbb31c2025517e0b26bff735b06d899938c4d0d2869bb3b3c404b867599ff"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/diff-check.log",
+      "sha256": "0b5b281423110df094d0f94e9b20d1c3c2042011e9b05f332ccafbc2d139c73d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/docs.log",
+      "sha256": "ec8107e3eac02b21aa3478c5aec3172443ed2279ff329ef38fac618eb97847d3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/expanded-fixture-probe.log",
+      "sha256": "1c97f2bf22f70899f9b7622f9b66bcf25ae72d46d8c4f8e98d0fff58e97c65c5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/fixture-compile-probe.log",
+      "sha256": "eaaeb5280e1a4da4e19463834c2a9b43a9c040c70d579ff54686e2c85ad5cd47"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/format.log",
+      "sha256": "c359f9d4895e1f2fd67354fa174c1c86651cb97ca2eab14a615137600d9e80a8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/matrix-and-regressions-offline.log",
+      "sha256": "6f547e39d7b83a17dc7992b2e00767e9c9fdc1df1efd34efb99ca68ceca030b1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/matrix-final-game-fonts.log",
+      "sha256": "9cf51a922331d18f5a5df827cf254444f64bdd80f86b2c24b67b79f95d04a349"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/matrix-game-fonts.log",
+      "sha256": "773a595cba6d898e0bede3887551c77e954eb4f78ef6e95930afda971ab0f316"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/placement-compile-probe.log",
+      "sha256": "0f662e5ca6f83cb323a5892de98fdb5569c012556b4247812ee625169e140197"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/placement-preview-probe.log",
+      "sha256": "e91600455a8c23805c758c6fe756d7da23547064fc51c80514d88ed5b89d1263"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/preview-build.log",
+      "sha256": "44a6c5e94d4af737b7321cc0a12d4aab6d8b07d79a661548a0afd8d6d7e31d1f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/checks/preview-pub.log",
+      "sha256": "973060bb6f7b5dac0714256cdc8d758cd1a855330d5cbd6aed3c0d116577dd4e"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-actionNested-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "71eb16d12dc395294d2387a39e3f4d33beade6d3bdc854c069a312d080acb442",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-inspection-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge-controls.png",
+      "sha256": "045f9ace545d67877634e4c0237e7269ec781cd72822dcd269ad9cd5a4dcbb11",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-inspection-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "d3b6e64329099dcb8dec89714008c15b859095d9060110dd7c52abea43efdb04",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-keyword-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "35b5b62cb2fa6117573e8ac694f91ad53e394d85402cea6cd0d039328c41eabe",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-nativeTooltip-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "dde5e4bc4013bce69cdfa61316b094a140a10bee925750fbb1d4644f23ff040a",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-nested-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "743fd7e31999384d4a3e50464217ff2b7b7552650d64ee628384bbaff8fbe054",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pauseBlocked-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "1d56c5ae754bcf8b1072933aa08d132a4b32ea021fc53648981ea8c7bdc0d375",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pauseExitError-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "81c070dda02ad4e5921fa25b26604a9e3f6f9f24eede526da1fb8d97186e4f00",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pauseNoTitle-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "7587e19f9b904c330e38b714a494ebb8c15e62a0805d6248884de88881f9a960",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pausePlaying-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "e606073d9a61905a4d80cd84235c90027c14b5dc5f0193dd7186b8cceb42cdfa",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pauseSaved-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "00910b3226b5ebf5173b7d79f774c27ba45d7af5a3a14413382af9f18db14384",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pauseSaveError-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "211da978852ddf269ea5c37b8bb384d8a4d80ac3452b10e1c827993eeb56e577",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pauseSaving-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "afa1764763df7d77eb384507a6a332c9d6adc6ec0de3c8efdc1adcbeab9c44fd",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pauseUnsaved-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-pointerNested-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "f2829473031c8e50ccb34bfec1303c730b795b89411e3c0d478a7e90aad95a22",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-resizeHelp-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "35b5b62cb2fa6117573e8ac694f91ad53e394d85402cea6cd0d039328c41eabe",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-settings-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "bb3ab35c6624e4a6e7b834f7fa76777e8f4d0c02f434ed4232ad9baea58c3ec5",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-settingsInPause-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/before/overlay-settingsLive-bombardier-tempestSovereign-full-360-1.15-ink--1.0--1.0-Static_Charge.png",
+      "sha256": "bb3ab35c6624e4a6e7b834f7fa76777e8f4d0c02f434ed4232ad9baea58c3ec5",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-actionNested-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "1eca9db115eccc5aa24452fa9c97a703a99fc9d32ce92013505a20247ee71738",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-actionNested-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "b4b56b895037d6fa71b165d8aa9b62a539d637faebaace29c877b019053514ed",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-actionNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "71eb16d12dc395294d2387a39e3f4d33beade6d3bdc854c069a312d080acb442",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-helpSettings-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "6c51b085b4db9e43c8f77d22b6376d2b02b17923cd6af1db0390c401903e58dc",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspection-360-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "045f9ace545d67877634e4c0237e7269ec781cd72822dcd269ad9cd5a4dcbb11",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspection-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d3b6e64329099dcb8dec89714008c15b859095d9060110dd7c52abea43efdb04",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspection-800-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "e023ef907d964e305cfbcb7e61c1962885c697751d53189731f00f8fbe238ad3",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspection-800-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "1ab500dd976e579acf267bb73570ea3671a55658be1c67ae40a2fa3a73be5a7d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "045f9ace545d67877634e4c0237e7269ec781cd72822dcd269ad9cd5a4dcbb11",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge-help.png",
+      "sha256": "5b9599b1663a9d99e2c3b2ffb246640991e8609771f3062e36261d1b12475c08",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d3b6e64329099dcb8dec89714008c15b859095d9060110dd7c52abea43efdb04",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge-controls.png",
+      "sha256": "023177821536ead1ba4fe4e1f0673cb5ce4abd656e90a14db429abfe1c3e353f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge-help.png",
+      "sha256": "04e5100165ed0655b09d9ac9b0de249352341f3e80d6a8852eb75da2fe14423c",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "cdec3758ffb293b7b7d0f5344d1954ef7720cd2daa58199da0064cdd168c1549",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge-controls.png",
+      "sha256": "89a07e4f0c5a8c6abd746bbd533b0323b7ee84d0f33d5d7246b416b0ef4e9ff2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge-help.png",
+      "sha256": "3cdd11482d11c7f61bc726be4c46f7df81e722c3d62f08f2b098d47f0fbcf739",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "3f65a0a67789e8b5efdca2c2389301876c3d40ab62186fb0c22b6dab5212433f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-keyword-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "35b5b62cb2fa6117573e8ac694f91ad53e394d85402cea6cd0d039328c41eabe",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nativeTooltip-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "3eafe16878dcd8b15b3763853802147a9769fdc9fee14d232c56d461dfc70f67",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nativeTooltip-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "eb2b089940b6b71eb86695fb10b41cd16df55b2a668bb229c718323bebc4ee76",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nativeTooltip-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "dde5e4bc4013bce69cdfa61316b094a140a10bee925750fbb1d4644f23ff040a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nested-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "5db69ca5d34e4b0771159b0aad4557b358b50de9b5f65f3cc548658723292959",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nested-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "d6dca72b1059e014e8231e3f14911f0fc6959d4f1ef07c8960447e7f8c1855da",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "743fd7e31999384d4a3e50464217ff2b7b7552650d64ee628384bbaff8fbe054",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nested-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "6a636cee0d88759f33df9f7cbd86564099bfad98af921af41060740e8303fc75",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-nested-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "51a7531ce2e3a5d0a7ec04a6a6ea567dbb98a0c7bb6dfe9fbe6db162bdbb0e80",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseBlocked-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "1d56c5ae754bcf8b1072933aa08d132a4b32ea021fc53648981ea8c7bdc0d375",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseExitError-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "81c070dda02ad4e5921fa25b26604a9e3f6f9f24eede526da1fb8d97186e4f00",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseNoTitle-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "7587e19f9b904c330e38b714a494ebb8c15e62a0805d6248884de88881f9a960",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pausePlaying-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "e606073d9a61905a4d80cd84235c90027c14b5dc5f0193dd7186b8cceb42cdfa",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseSaved-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "00910b3226b5ebf5173b7d79f774c27ba45d7af5a3a14413382af9f18db14384",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseSaveError-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "211da978852ddf269ea5c37b8bb384d8a4d80ac3452b10e1c827993eeb56e577",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseSaving-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "afa1764763df7d77eb384507a6a332c9d6adc6ec0de3c8efdc1adcbeab9c44fd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseSaving-800-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "bdbf140a9ee310783da4f6819bc47912bbf30329f698fda84ce94c2f4a496764",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pauseUnsaved-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-pointerNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "f2829473031c8e50ccb34bfec1303c730b795b89411e3c0d478a7e90aad95a22",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-resizeHelp-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "35b5b62cb2fa6117573e8ac694f91ad53e394d85402cea6cd0d039328c41eabe",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settings-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "3e45d240e1303bc001d48b51f15f05859d5853c34b607f1da8b68bc0386f024a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settings-800-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d16b9a3f7de80b8b6417f9240d5d1240a430ae079803f4e496d375f7a9677dba",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settingsInPause-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settingsInPause-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "ef7165da5f44fe4b3583263fab0d4fa0079a63b57d6d49852b2ee7b20188cdd4",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settingsInPause-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "9ec7ae4df04259151ca52e89da435eb69d42bc4a7c1170655f2f16a0b96c1b07",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settingsLive-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "3e45d240e1303bc001d48b51f15f05859d5853c34b607f1da8b68bc0386f024a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settingsLive-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "087186d26c707c9d0305af046f0999e7bca54c39dc575c2106c4ad207a7959c7",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/final/overlay-settingsLive-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "d9b21e3c890810f58baa8771482afd30f3c341f0124a5f0112976e27ae14ccc5",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-actionNested-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "c66cfe09a4fdcf4f8ebe5a98e015311b36912037e750a97511f0e0d9f763140e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-actionNested-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "7b69604c8a891bc4707acb627388b0c8d499c0feaf51774c5010b457d7fa19db",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-actionNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "71eb16d12dc395294d2387a39e3f4d33beade6d3bdc854c069a312d080acb442",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-actionNested-bombardier-tempestSovereign-full-1280-1.15-ink-1.0-1.0-Static_Charge.png",
+      "sha256": "c66cfe09a4fdcf4f8ebe5a98e015311b36912037e750a97511f0e0d9f763140e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-actionNested-bombardier-tempestSovereign-full-1280-1.3-ink-1.0-1.0-Static_Charge.png",
+      "sha256": "7b69604c8a891bc4707acb627388b0c8d499c0feaf51774c5010b457d7fa19db",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-helpSettings-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "6c51b085b4db9e43c8f77d22b6376d2b02b17923cd6af1db0390c401903e58dc",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspection-360-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "045f9ace545d67877634e4c0237e7269ec781cd72822dcd269ad9cd5a4dcbb11",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspection-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d3b6e64329099dcb8dec89714008c15b859095d9060110dd7c52abea43efdb04",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "045f9ace545d67877634e4c0237e7269ec781cd72822dcd269ad9cd5a4dcbb11",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge-help.png",
+      "sha256": "5b9599b1663a9d99e2c3b2ffb246640991e8609771f3062e36261d1b12475c08",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d3b6e64329099dcb8dec89714008c15b859095d9060110dd7c52abea43efdb04",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge-controls.png",
+      "sha256": "023177821536ead1ba4fe4e1f0673cb5ce4abd656e90a14db429abfe1c3e353f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge-help.png",
+      "sha256": "04e5100165ed0655b09d9ac9b0de249352341f3e80d6a8852eb75da2fe14423c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "cdec3758ffb293b7b7d0f5344d1954ef7720cd2daa58199da0064cdd168c1549",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge-controls.png",
+      "sha256": "89a07e4f0c5a8c6abd746bbd533b0323b7ee84d0f33d5d7246b416b0ef4e9ff2",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge-help.png",
+      "sha256": "3cdd11482d11c7f61bc726be4c46f7df81e722c3d62f08f2b098d47f0fbcf739",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "3f65a0a67789e8b5efdca2c2389301876c3d40ab62186fb0c22b6dab5212433f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-bombardier-tempestSovereign-full-360-1.15-plain--1.0--1.0-Static_Charge-controls.png",
+      "sha256": "023177821536ead1ba4fe4e1f0673cb5ce4abd656e90a14db429abfe1c3e353f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-bombardier-tempestSovereign-full-360-1.15-plain--1.0--1.0-Static_Charge-help.png",
+      "sha256": "04e5100165ed0655b09d9ac9b0de249352341f3e80d6a8852eb75da2fe14423c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-bombardier-tempestSovereign-full-360-1.15-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "cdec3758ffb293b7b7d0f5344d1954ef7720cd2daa58199da0064cdd168c1549",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-bombardier-tempestSovereign-full-360-1.3-plain--1.0--1.0-Static_Charge-controls.png",
+      "sha256": "89a07e4f0c5a8c6abd746bbd533b0323b7ee84d0f33d5d7246b416b0ef4e9ff2",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-bombardier-tempestSovereign-full-360-1.3-plain--1.0--1.0-Static_Charge-help.png",
+      "sha256": "3cdd11482d11c7f61bc726be4c46f7df81e722c3d62f08f2b098d47f0fbcf739",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-inspectionNested-bombardier-tempestSovereign-full-360-1.3-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "3f65a0a67789e8b5efdca2c2389301876c3d40ab62186fb0c22b6dab5212433f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-keyword-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "35b5b62cb2fa6117573e8ac694f91ad53e394d85402cea6cd0d039328c41eabe",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nativeTooltip-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "3eafe16878dcd8b15b3763853802147a9769fdc9fee14d232c56d461dfc70f67",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nativeTooltip-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "eb2b089940b6b71eb86695fb10b41cd16df55b2a668bb229c718323bebc4ee76",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nativeTooltip-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "dde5e4bc4013bce69cdfa61316b094a140a10bee925750fbb1d4644f23ff040a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nativeTooltip-bombardier-tempestSovereign-full-1280-1.15-ink-1.0-1.0-Static_Charge.png",
+      "sha256": "3eafe16878dcd8b15b3763853802147a9769fdc9fee14d232c56d461dfc70f67",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nativeTooltip-bombardier-tempestSovereign-full-1280-1.3-ink-1.0-1.0-Static_Charge.png",
+      "sha256": "eb2b089940b6b71eb86695fb10b41cd16df55b2a668bb229c718323bebc4ee76",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "af097c57c597a8241ee70962ddd1dd9df0dfee84b97602e0366e8db1ff6c3adc",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "390edc5322f03a3a2eee56e7c2c24ef770356f60fb71a175d0e265c5ab07c289",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "743fd7e31999384d4a3e50464217ff2b7b7552650d64ee628384bbaff8fbe054",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "6a636cee0d88759f33df9f7cbd86564099bfad98af921af41060740e8303fc75",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "51a7531ce2e3a5d0a7ec04a6a6ea567dbb98a0c7bb6dfe9fbe6db162bdbb0e80",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-bombardier-tempestSovereign-full-1280-1.15-ink-1.0-1.0-Static_Charge.png",
+      "sha256": "af097c57c597a8241ee70962ddd1dd9df0dfee84b97602e0366e8db1ff6c3adc",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-bombardier-tempestSovereign-full-1280-1.3-ink-1.0-1.0-Static_Charge.png",
+      "sha256": "390edc5322f03a3a2eee56e7c2c24ef770356f60fb71a175d0e265c5ab07c289",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-bombardier-tempestSovereign-full-360-1.15-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "6a636cee0d88759f33df9f7cbd86564099bfad98af921af41060740e8303fc75",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-nested-bombardier-tempestSovereign-full-360-1.3-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "51a7531ce2e3a5d0a7ec04a6a6ea567dbb98a0c7bb6dfe9fbe6db162bdbb0e80",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseBlocked-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "1d56c5ae754bcf8b1072933aa08d132a4b32ea021fc53648981ea8c7bdc0d375",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseExitError-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "81c070dda02ad4e5921fa25b26604a9e3f6f9f24eede526da1fb8d97186e4f00",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseNoTitle-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "7587e19f9b904c330e38b714a494ebb8c15e62a0805d6248884de88881f9a960",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pausePlaying-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "e606073d9a61905a4d80cd84235c90027c14b5dc5f0193dd7186b8cceb42cdfa",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseSaved-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "00910b3226b5ebf5173b7d79f774c27ba45d7af5a3a14413382af9f18db14384",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseSaveError-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "211da978852ddf269ea5c37b8bb384d8a4d80ac3452b10e1c827993eeb56e577",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseSaving-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "afa1764763df7d77eb384507a6a332c9d6adc6ec0de3c8efdc1adcbeab9c44fd",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pauseUnsaved-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-pointerNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "f2829473031c8e50ccb34bfec1303c730b795b89411e3c0d478a7e90aad95a22",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-resizeHelp-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "35b5b62cb2fa6117573e8ac694f91ad53e394d85402cea6cd0d039328c41eabe",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settings-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "3e45d240e1303bc001d48b51f15f05859d5853c34b607f1da8b68bc0386f024a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsInPause-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsInPause-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "ef7165da5f44fe4b3583263fab0d4fa0079a63b57d6d49852b2ee7b20188cdd4",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsInPause-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "9ec7ae4df04259151ca52e89da435eb69d42bc4a7c1170655f2f16a0b96c1b07",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsInPause-bombardier-tempestSovereign-full-360-1.15-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "ef7165da5f44fe4b3583263fab0d4fa0079a63b57d6d49852b2ee7b20188cdd4",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsInPause-bombardier-tempestSovereign-full-360-1.3-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "9ec7ae4df04259151ca52e89da435eb69d42bc4a7c1170655f2f16a0b96c1b07",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsLive-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "3e45d240e1303bc001d48b51f15f05859d5853c34b607f1da8b68bc0386f024a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsLive-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "087186d26c707c9d0305af046f0999e7bca54c39dc575c2106c4ad207a7959c7",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsLive-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "d9b21e3c890810f58baa8771482afd30f3c341f0124a5f0112976e27ae14ccc5",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsLive-bombardier-tempestSovereign-full-360-1.15-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "087186d26c707c9d0305af046f0999e7bca54c39dc575c2106c4ad207a7959c7",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/overlay-layout-2026-11-09/visual/reviewed/overlay-settingsLive-bombardier-tempestSovereign-full-360-1.3-plain--1.0--1.0-Static_Charge.png",
+      "sha256": "d9b21e3c890810f58baa8771482afd30f3c341f0124a5f0112976e27ae14ccc5",
+      "stage": "reviewed"
+    }
+  ],
+  "stages": {
+    "before": "Baseline before production fixes.",
+    "reviewed": "Intermediate pass before three-level placement fix.",
+    "final": "Final fixed source."
+  },
+  "probeNotes": "Compile/capture/focus probes are retained separately from application findings. Expanded captures needed an output folder and shorter Windows filenames; hover tests needed focus inside the game shortcut subtree.",
+  "previewCorrespondence": "preview-correspondence.json"
+}
