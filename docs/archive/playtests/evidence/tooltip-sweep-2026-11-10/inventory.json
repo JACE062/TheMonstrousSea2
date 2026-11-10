@@ -1,0 +1,253 @@
+{
+  "scope": "Explicit Tooltip/MechanicTooltip/MechanicText sites and tooltip properties under app lib; constructor definitions excluded.",
+  "sites": [
+    {
+      "path": "apps/monstrous_sea/lib/src/playtest/playtest_screen.dart",
+      "line": 93,
+      "kind": "Tooltip",
+      "source": "child: Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 210,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 561,
+      "kind": "Tooltip",
+      "source": "child: Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 977,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Chronicle Log',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 1231,
+      "kind": "Tooltip",
+      "source": "Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 1259,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Belt help',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 1363,
+      "kind": "MechanicTooltip",
+      "source": "child: MechanicTooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 1413,
+      "kind": "MechanicTooltip",
+      "source": "MechanicTooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 1450,
+      "kind": "MechanicTooltip",
+      "source": "return MechanicTooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 1591,
+      "kind": "Tooltip",
+      "source": "return Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/helm_screen.dart",
+      "line": 580,
+      "kind": "Tooltip",
+      "source": "Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/merchant_screen.dart",
+      "line": 218,
+      "kind": "MechanicText",
+      "source": "MechanicText(currentItemDescription(item), style: InkTheme.caption),"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "line": 174,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+      "line": 242,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+      "line": 308,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+      "line": 335,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+      "line": 49,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+      "line": 104,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+      "line": 119,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+      "line": 143,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/armory_view.dart",
+      "line": 187,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/battle_lookout.dart",
+      "line": 114,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Inspect monster intent',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/battle_lookout.dart",
+      "line": 161,
+      "kind": "Tooltip",
+      "source": "Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/battle_lookout.dart",
+      "line": 294,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/combat_stats.dart",
+      "line": 128,
+      "kind": "MechanicTooltip",
+      "source": ": MechanicTooltip(message: explanation!, child: text);"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/hull_patch_kit_button.dart",
+      "line": 38,
+      "kind": "Tooltip",
+      "source": "return Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/loot_supplies_view.dart",
+      "line": 138,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "line": 629,
+      "kind": "MechanicText",
+      "source": "MechanicText("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+      "line": 339,
+      "kind": "Tooltip",
+      "source": "child: Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+      "line": 380,
+      "kind": "Tooltip",
+      "source": "child: Tooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+      "line": 533,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Zoom out',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+      "line": 545,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Zoom in',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+      "line": 557,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Center journey',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+      "line": 567,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Find vessel',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart",
+      "line": 159,
+      "kind": "MechanicTooltip",
+      "source": "return MechanicTooltip("
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/pause_menu.dart",
+      "line": 61,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: menu == null ? 'Settings & Accessibility' : 'Pause menu (Esc)',"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/settings_dialog.dart",
+      "line": 87,
+      "kind": "implicit control tooltip",
+      "source": "tooltip: 'Close settings',"
+    }
+  ],
+  "coverage": {
+    "screenWalk": [
+      "merchant",
+      "loot",
+      "wreck",
+      "haven",
+      "stronghold",
+      "shrine",
+      "blueprints",
+      "inspection",
+      "chart",
+      "badges",
+      "battle",
+      "battleReload",
+      "intent",
+      "playtest"
+    ],
+    "supplements": [
+      "All five hull fitting help",
+      "Every blessing power/slot/tier",
+      "All keyword definitions",
+      "Pause/Settings/corners/resize/help route precedence",
+      "Chart pointer latency"
+    ],
+    "limits": "Native hints opened for current-route hit-testable targets; selected debug dropdown entries and visible chart targets only. Not every possible live build/window combination."
+  }
+}

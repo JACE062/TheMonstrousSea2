@@ -1,0 +1,319 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: merchant tooltip targets Size(360.0, 900.0)/1.15
+merchant-360-1.15: 1 linked cards, 2 native targets
+00:01 +1: merchant tooltip targets Size(1280.0, 850.0)/1.15
+merchant-1280-1.15: 1 linked cards, 2 native targets
+00:02 +2: loot tooltip targets Size(360.0, 900.0)/1.15
+loot-360-1.15: 1 linked cards, 3 native targets
+00:03 +3: loot tooltip targets Size(1280.0, 850.0)/1.15
+loot-1280-1.15: 1 linked cards, 3 native targets
+00:04 +4: wreck tooltip targets Size(360.0, 900.0)/1.15
+wreck-360-1.15: 1 linked cards, 3 native targets
+00:05 +5: wreck tooltip targets Size(1280.0, 850.0)/1.15
+wreck-1280-1.15: 1 linked cards, 3 native targets
+00:06 +6: haven tooltip targets Size(360.0, 900.0)/1.15
+haven-360-1.15: 0 linked cards, 1 native targets
+00:06 +7: haven tooltip targets Size(1280.0, 850.0)/1.15
+haven-1280-1.15: 0 linked cards, 1 native targets
+00:06 +8: stronghold tooltip targets Size(360.0, 900.0)/1.15
+stronghold-360-1.15: 0 linked cards, 1 native targets
+00:06 +9: stronghold tooltip targets Size(1280.0, 850.0)/1.15
+stronghold-1280-1.15: 0 linked cards, 1 native targets
+00:07 +10: shrine tooltip targets Size(360.0, 900.0)/1.15
+shrine-360-1.15: 21 linked cards, 1 native targets
+00:08 +11: shrine tooltip targets Size(1280.0, 850.0)/1.15
+shrine-1280-1.15: 21 linked cards, 1 native targets
+00:10 +12: blueprints tooltip targets Size(360.0, 900.0)/1.15
+
+Warning: A call to tap() with finder "Found 1 widget with element matching predicate: [
+  InkWell(dependencies: [_ScrollableScope]),
+]" derived an Offset (Offset(181.7, 75.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#e2e16 relayoutBoundary=up30
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#e9805(TextSpan(debugLabel: ((englishLike headlineSmall 2021).merge(((blackMountainView headlineSmall).apply).merge(unknown))).merge(unknown), inherit: false, color: Color(alpha: 1.0000, red: 0.1059, green: 0.0863, blue: 0.0706, colorSpace: ColorSpace.sRGB), family: PirataOne_regular, familyFallback: [PirataOne], size: 25.0, weight: 400, letterSpacing: 1.0, baseline: alphabetic, height: 1.3x, leadingDistribution: even, decoration: Color(alpha: 1.0000, red: 0.1059, green: 0.0863, blue: 0.0706, colorSpace: ColorSpace.sRGB) TextDecoration.none, "SHIPWRIGHT'S DRAFTING TABLE")), RenderParagraph#0a511@Offset(120.1, 29.9), RenderFlex#e7252@Offset(120.1, 29.9), RenderSemanticsAnnotations#a88bf@Offset(120.1, 29.9), RenderPadding#5ca61@Offset(141.7, 51.5), RenderFlex#3589a@Offset(141.7, 51.5), RenderIntrinsicWidth#82429@Offset(141.7, 51.5), RenderSemanticsAnnotations#bd7de@Offset(141.7, 51.5), _RenderInkFeatures#661d3@Offset(141.7, 51.5), RenderCustomPaint#ba69c@Offset(141.7, 51.5), RenderPhysicalShape#7dcc0@Offset(141.7, 51.5), RenderConstrainedBox#13445@Offset(141.7, 51.5), RenderPositionedBox#b23df@Offset(141.7, 51.5), RenderPadding#8151f@Offset(181.7, 75.5), RenderSemanticsAnnotations#dd15e@Offset(181.7, 75.5), RenderPadding#e41f5@Offset(181.7, 75.5), RenderSemanticsAnnotations#5d5e3@Offset(181.7, 75.5), RenderPadding#93c0b@Offset(181.7, 75.5), RenderSemanticsAnnotations#e276b@Offset(181.7, 75.5), RenderRepaintBoundary#c0025@Offset(181.7, 75.5), RenderIgnorePointer#fd3f0@Offset(181.7, 75.5), RenderAnimatedOpacity#45834@Offset(181.7, 75.5), RenderRepaintBoundary#4cb0c@Offset(181.7, 75.5), RenderSemanticsAnnotations#dc5a8@Offset(181.7, 75.5), RenderOffstage#1a484@Offset(181.7, 75.5), RenderSemanticsAnnotations#01a65@Offset(181.7, 75.5), _RenderTheater#d7c8b@Offset(181.7, 75.5), RenderAbsorbPointer#0944e@Offset(181.7, 75.5), RenderPointerListener#5022a@Offset(181.7, 75.5), RenderSemanticsAnnotations#8ad91@Offset(181.7, 75.5), RenderCustomPaint#0dbeb@Offset(181.7, 75.5), RenderSemanticsAnnotations#ffae8@Offset(181.7, 75.5), RenderSemanticsAnnotations#b0927@Offset(181.7, 75.5), RenderSemanticsAnnotations#9013e@Offset(181.7, 75.5), RenderTapRegionSurface#6ad4c@Offset(181.7, 75.5), RenderSemanticsAnnotations#9153a@Offset(181.7, 75.5), RenderSemanticsAnnotations#03e68@Offset(181.7, 75.5), RenderRepaintBoundary#435e6@Offset(181.7, 75.5), HitTestEntry<HitTestTarget>#9dd00(_ReusableRenderView#83aad), HitTestEntry<HitTestTarget>#d40b2(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:109:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:11)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _WidgetPredicateWidgetFinder:<Found 0 widgets with widget matching predicate: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:111:5)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart line 111
+The test description was:
+  blueprints tooltip targets Size(360.0, 900.0)/1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +12 -1: blueprints tooltip targets Size(360.0, 900.0)/1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: blueprints tooltip targets Size(360.0, 900.0)/1.15
+  
+00:11 +12 -1: blueprints tooltip targets Size(1280.0, 850.0)/1.15
+
+Warning: A call to tap() with finder "Found 1 widget with element matching predicate: [
+  InkWell(dependencies: [_ScrollableScope]),
+]" derived an Offset (Offset(395.7, 75.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#78305 relayoutBoundary=up30
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#d47a4(TextSpan(debugLabel: ((englishLike headlineSmall 2021).merge(((blackMountainView headlineSmall).apply).merge(unknown))).merge(unknown), inherit: false, color: Color(alpha: 1.0000, red: 0.1059, green: 0.0863, blue: 0.0706, colorSpace: ColorSpace.sRGB), family: PirataOne_regular, familyFallback: [PirataOne], size: 25.0, weight: 400, letterSpacing: 1.0, baseline: alphabetic, height: 1.3x, leadingDistribution: even, decoration: Color(alpha: 1.0000, red: 0.1059, green: 0.0863, blue: 0.0706, colorSpace: ColorSpace.sRGB) TextDecoration.none, "SHIPWRIGHT'S DRAFTING TABLE")), RenderParagraph#252d9@Offset(105.7, 29.9), RenderFlex#6c93f@Offset(105.7, 29.9), RenderSemanticsAnnotations#472a4@Offset(105.7, 29.9), RenderPadding#138c9@Offset(127.3, 51.5), RenderFlex#be796@Offset(127.3, 51.5), RenderIntrinsicWidth#ebf3f@Offset(127.3, 51.5), RenderSemanticsAnnotations#8e07a@Offset(127.3, 51.5), _RenderInkFeatures#3e50d@Offset(127.3, 51.5), RenderCustomPaint#ad3fc@Offset(127.3, 51.5), RenderPhysicalShape#27597@Offset(127.3, 51.5), RenderConstrainedBox#23940@Offset(127.3, 51.5), RenderPositionedBox#6b37d@Offset(355.7, 51.5), RenderPadding#acdb7@Offset(395.7, 75.5), RenderSemanticsAnnotations#8082b@Offset(395.7, 75.5), RenderPadding#c39b0@Offset(395.7, 75.5), RenderSemanticsAnnotations#5f2f7@Offset(395.7, 75.5), RenderPadding#5e3ef@Offset(395.7, 75.5), RenderSemanticsAnnotations#57e0c@Offset(395.7, 75.5), RenderRepaintBoundary#077fe@Offset(395.7, 75.5), RenderIgnorePointer#937e1@Offset(395.7, 75.5), RenderAnimatedOpacity#f6e40@Offset(395.7, 75.5), RenderRepaintBoundary#2a730@Offset(395.7, 75.5), RenderSemanticsAnnotations#d9430@Offset(395.7, 75.5), RenderOffstage#6a753@Offset(395.7, 75.5), RenderSemanticsAnnotations#072d1@Offset(395.7, 75.5), _RenderTheater#211ea@Offset(395.7, 75.5), RenderAbsorbPointer#52749@Offset(395.7, 75.5), RenderPointerListener#f1b95@Offset(395.7, 75.5), RenderSemanticsAnnotations#fed6f@Offset(395.7, 75.5), RenderCustomPaint#e5047@Offset(395.7, 75.5), RenderSemanticsAnnotations#3eeba@Offset(395.7, 75.5), RenderSemanticsAnnotations#ac6cc@Offset(395.7, 75.5), RenderSemanticsAnnotations#2aeaf@Offset(395.7, 75.5), RenderTapRegionSurface#5a51b@Offset(395.7, 75.5), RenderSemanticsAnnotations#f5a7f@Offset(395.7, 75.5), RenderSemanticsAnnotations#1c298@Offset(395.7, 75.5), RenderRepaintBoundary#113ea@Offset(395.7, 75.5), HitTestEntry<HitTestTarget>#3d58b(_ReusableRenderView#83aad), HitTestEntry<HitTestTarget>#e7572(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:109:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:11)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _WidgetPredicateWidgetFinder:<Found 0 widgets with widget matching predicate: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:111:5)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart line 111
+The test description was:
+  blueprints tooltip targets Size(1280.0, 850.0)/1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +12 -2: blueprints tooltip targets Size(1280.0, 850.0)/1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: blueprints tooltip targets Size(1280.0, 850.0)/1.15
+  
+00:11 +12 -2: inspection tooltip targets Size(360.0, 900.0)/1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      ExpandIterator.moveNext (dart:_internal/iterable.dart:507:21)
+#4      SetBase.addAll (dart:collection/set.dart:58:23)
+#5      _Set.addAll (dart:_compact_hash:1162:11)
+#6      new LinkedHashSet.of (dart:collection/linked_hash_set.dart:193:27)
+#7      Iterable.toSet (dart:core/iterable.dart:532:21)
+#8      _DescendantFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1782:10)
+#9      FinderBase.evaluate (package:flutter_test/src/finders.dart:1030:76)
+#10     audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:103:52)
+#11     main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:17)
+<asynchronous suspension>
+#12     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#13     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  inspection tooltip targets Size(360.0, 900.0)/1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +12 -3: inspection tooltip targets Size(360.0, 900.0)/1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: inspection tooltip targets Size(360.0, 900.0)/1.15
+  
+00:12 +12 -3: inspection tooltip targets Size(360.0, 900.0)/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      ExpandIterator.moveNext (dart:_internal/iterable.dart:507:21)
+#4      SetBase.addAll (dart:collection/set.dart:58:23)
+#5      _Set.addAll (dart:_compact_hash:1162:11)
+#6      new LinkedHashSet.of (dart:collection/linked_hash_set.dart:193:27)
+#7      Iterable.toSet (dart:core/iterable.dart:532:21)
+#8      _DescendantFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1782:10)
+#9      FinderBase.evaluate (package:flutter_test/src/finders.dart:1030:76)
+#10     audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:103:52)
+#11     main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:17)
+<asynchronous suspension>
+#12     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#13     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  inspection tooltip targets Size(360.0, 900.0)/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +12 -4: inspection tooltip targets Size(360.0, 900.0)/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: inspection tooltip targets Size(360.0, 900.0)/1.3
+  
+00:12 +12 -4: inspection tooltip targets Size(1280.0, 850.0)/1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      ExpandIterator.moveNext (dart:_internal/iterable.dart:507:21)
+#4      SetBase.addAll (dart:collection/set.dart:58:23)
+#5      _Set.addAll (dart:_compact_hash:1162:11)
+#6      new LinkedHashSet.of (dart:collection/linked_hash_set.dart:193:27)
+#7      Iterable.toSet (dart:core/iterable.dart:532:21)
+#8      _DescendantFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1782:10)
+#9      FinderBase.evaluate (package:flutter_test/src/finders.dart:1030:76)
+#10     audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:103:52)
+#11     main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:17)
+<asynchronous suspension>
+#12     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#13     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  inspection tooltip targets Size(1280.0, 850.0)/1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +12 -5: inspection tooltip targets Size(1280.0, 850.0)/1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: inspection tooltip targets Size(1280.0, 850.0)/1.15
+  
+00:12 +12 -5: inspection tooltip targets Size(1280.0, 850.0)/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      ExpandIterator.moveNext (dart:_internal/iterable.dart:507:21)
+#4      SetBase.addAll (dart:collection/set.dart:58:23)
+#5      _Set.addAll (dart:_compact_hash:1162:11)
+#6      new LinkedHashSet.of (dart:collection/linked_hash_set.dart:193:27)
+#7      Iterable.toSet (dart:core/iterable.dart:532:21)
+#8      _DescendantFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1782:10)
+#9      FinderBase.evaluate (package:flutter_test/src/finders.dart:1030:76)
+#10     audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:103:52)
+#11     main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:17)
+<asynchronous suspension>
+#12     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#13     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  inspection tooltip targets Size(1280.0, 850.0)/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:13 +12 -6: inspection tooltip targets Size(1280.0, 850.0)/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: inspection tooltip targets Size(1280.0, 850.0)/1.3
+  
+00:13 +12 -6: chart tooltip targets Size(360.0, 900.0)/1.15
+chart-360-1.15: 0 linked cards, 10 native targets
+00:13 +13 -6: chart tooltip targets Size(360.0, 900.0)/1.3
+chart-360-1.3: 0 linked cards, 10 native targets
+00:14 +14 -6: chart tooltip targets Size(1280.0, 850.0)/1.15
+chart-1280-1.15: 0 linked cards, 20 native targets
+00:15 +15 -6: chart tooltip targets Size(1280.0, 850.0)/1.3
+chart-1280-1.3: 0 linked cards, 20 native targets
+00:16 +16 -6: badges tooltip targets Size(360.0, 900.0)/1.15
+badges-360-1.15: 91 linked cards, 1 native targets
+00:19 +17 -6: badges tooltip targets Size(360.0, 900.0)/1.3
+badges-360-1.3: 91 linked cards, 1 native targets
+00:22 +18 -6: badges tooltip targets Size(1280.0, 850.0)/1.15
+badges-1280-1.15: 91 linked cards, 1 native targets
+00:24 +19 -6: badges tooltip targets Size(1280.0, 850.0)/1.3
+badges-1280-1.3: 91 linked cards, 1 native targets
+00:27 +20 -6: battle tooltip targets Size(360.0, 900.0)/1.15
+battle-360-1.15: 39 linked cards, 8 native targets
+00:30 +21 -6: battle tooltip targets Size(360.0, 900.0)/1.3
+battle-360-1.3: 39 linked cards, 8 native targets
+00:32 +22 -6: battle tooltip targets Size(1280.0, 850.0)/1.15
+battle-1280-1.15: 39 linked cards, 8 native targets
+00:34 +23 -6: battle tooltip targets Size(1280.0, 850.0)/1.3
+battle-1280-1.3: 39 linked cards, 8 native targets
+00:35 +24 -6: playtest tooltip targets Size(360.0, 900.0)/1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <900.0>
+  Actual: <914.0>
+   Which: is not a value less than or equal to <900.0>
+
+When the exception was thrown, this was the stack:
+#4      audit (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:147:5)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart:306:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart line 147
+The test description was:
+  playtest tooltip targets Size(360.0, 900.0)/1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:36 +24 -7: playtest tooltip targets Size(360.0, 900.0)/1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: playtest tooltip targets Size(360.0, 900.0)/1.15
+  
+00:36 +24 -7: playtest tooltip targets Size(1280.0, 850.0)/1.15
+playtest-1280-1.15: 0 linked cards, 15 native targets
+00:37 +25 -7: (tearDownAll)
+00:37 +25 -7: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: blueprints tooltip targets Size(1280.0, 850.0)/1.15
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: blueprints tooltip targets Size(360.0, 900.0)/1.15
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.3
+  ... and 3 more

@@ -1,0 +1,237 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: scaled keyword help clears its painted anchor 1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <226.4432373046875>
+  Actual: <204.03759765625>
+   Which: is not a value greater than or equal to <226.4432373046875>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:53:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 53
+The test description was:
+  scaled keyword help clears its painted anchor 1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: scaled keyword help clears its painted anchor 1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: scaled keyword help clears its painted anchor 1.15
+  
+00:01 +0 -1: open keyword help follows scrolling content 1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.1> of <226.39999961853027>
+  Actual: <286.3999996185303>
+   Which:  differs by <60.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:69:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 69
+The test description was:
+  open keyword help follows scrolling content 1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: open keyword help follows scrolling content 1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: open keyword help follows scrolling content 1.15
+  
+00:01 +0 -2: nested help uses free vertical space at tablet width 1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+There is room to stack these cards without overlap.
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:85:11)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 85
+The test description was:
+  nested help uses free vertical space at tablet width 1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -3: nested help uses free vertical space at tablet width 1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: nested help uses free vertical space at tablet width 1.15
+  
+00:02 +0 -3: dense label gap preserves help and underlying clicks 1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "Neighbor help.": [
+            Text(null,
+            ╞═╦══ textSpan ═══
+              ║ TextSpan:
+              ║   TextSpan:
+              ║     "Neighbor help."
+            , inherit: true, color: Color(alpha: 1.0000, red: 0.1059, green: 0.0863, blue: 0.0706,
+colorSpace: ColorSpace.sRGB), family: IMFellEnglish_regular, familyFallback: [IMFellEnglish], size:
+17.0, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:112:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 112
+The test description was:
+  dense label gap preserves help and underlying clicks 1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -4: dense label gap preserves help and underlying clicks 1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: dense label gap preserves help and underlying clicks 1.15
+  
+00:02 +0 -4: scaled keyword help clears its painted anchor 1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <248.94887695312502>
+  Actual: <204.03759765625>
+   Which: is not a value greater than or equal to <248.94887695312502>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:53:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 53
+The test description was:
+  scaled keyword help clears its painted anchor 1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -5: scaled keyword help clears its painted anchor 1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: scaled keyword help clears its painted anchor 1.3
+  
+00:02 +0 -5: open keyword help follows scrolling content 1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.1> of <226.79999923706055>
+  Actual: <286.79999923706055>
+   Which:  differs by <60.0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:69:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 69
+The test description was:
+  open keyword help follows scrolling content 1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -6: open keyword help follows scrolling content 1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: open keyword help follows scrolling content 1.3
+  
+00:02 +0 -6: nested help uses free vertical space at tablet width 1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+There is room to stack these cards without overlap.
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:85:11)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 85
+The test description was:
+  nested help uses free vertical space at tablet width 1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -7: nested help uses free vertical space at tablet width 1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: nested help uses free vertical space at tablet width 1.3
+  
+00:02 +0 -7: dense label gap preserves help and underlying clicks 1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _TextWidgetFinder:<Found 1 widget with text "Neighbor help.": [
+            Text(null,
+            ╞═╦══ textSpan ═══
+              ║ TextSpan:
+              ║   TextSpan:
+              ║     "Neighbor help."
+            , inherit: true, color: Color(alpha: 1.0000, red: 0.1059, green: 0.0863, blue: 0.0706,
+colorSpace: ColorSpace.sRGB), family: IMFellEnglish_regular, familyFallback: [IMFellEnglish], size:
+17.0, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart:112:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart line 112
+The test description was:
+  dense label gap preserves help and underlying clicks 1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -8: dense label gap preserves help and underlying clicks 1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: dense label gap preserves help and underlying clicks 1.3
+  
+00:03 +0 -8: (tearDownAll)
+00:03 +0 -8: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: dense label gap preserves help and underlying clicks 1.15
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: dense label gap preserves help and underlying clicks 1.3
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: nested help uses free vertical space at tablet width 1.15
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: nested help uses free vertical space at tablet width 1.3
+  ... and 4 more

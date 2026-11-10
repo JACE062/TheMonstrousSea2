@@ -1,0 +1,461 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: help closes when its source leaves an inner viewport 1.15
+00:01 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:01 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:01 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:01 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:02 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:02 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:02 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:02 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:02 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:02 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+00:02 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(360.0, 900.0)/1.15
+merchant-360-1.15: 1 linked cards, 2 native targets
+00:02 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: merchant tooltip targets Size(1280.0, 850.0)/1.15
+merchant-1280-1.15: 1 linked cards, 2 native targets
+00:02 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseSaved Size(360.0, 900.0)
+00:02 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: loot tooltip targets Size(360.0, 900.0)/1.15
+loot-360-1.15: 1 linked cards, 3 native targets
+00:03 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: loot tooltip targets Size(1280.0, 850.0)/1.15
+loot-1280-1.15: 1 linked cards, 3 native targets
+00:03 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:03 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:03 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:03 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:03 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:03 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:03 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:04 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:04 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+00:04 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: wreck tooltip targets Size(360.0, 900.0)/1.15
+wreck-360-1.15: 1 linked cards, 3 native targets
+00:04 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +67: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: wreck tooltip targets Size(1280.0, 850.0)/1.15
+wreck-1280-1.15: 1 linked cards, 3 native targets
+00:04 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +71: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +73: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: latest follows live updates; history survives updates and reopen
+00:04 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+00:04 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: haven tooltip targets Size(360.0, 900.0)/1.15
+haven-360-1.15: 0 linked cards, 1 native targets
+00:04 +76: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: shrine comparison exposes exact Burning damage before choosing
+00:04 +77: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: shrine comparison exposes exact Burning damage before choosing
+00:04 +78: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: shrine comparison exposes exact Burning damage before choosing
+00:05 +79: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: shrine comparison exposes exact Burning damage before choosing
+00:05 +80: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:05 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:05 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: haven tooltip targets Size(1280.0, 850.0)/1.15
+haven-1280-1.15: 0 linked cards, 1 native targets
+00:05 +82: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:05 +83: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:05 +84: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:05 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:05 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: stronghold tooltip targets Size(360.0, 900.0)/1.15
+stronghold-360-1.15: 0 linked cards, 1 native targets
+00:05 +86: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:05 +87: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_chronicle_dialog_test.dart: Esc closes the modal and restores prior focus
+00:05 +88: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:05 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:05 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: stronghold tooltip targets Size(1280.0, 850.0)/1.15
+stronghold-1280-1.15: 0 linked cards, 1 native targets
+00:05 +90: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:05 +91: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+00:05 +92: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: long horizontal route retains legible markers at maximum zoom-out
+00:05 +93: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: long horizontal route retains legible markers at maximum zoom-out
+00:05 +94: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: long horizontal route retains legible markers at maximum zoom-out
+00:05 +95: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: long horizontal route retains legible markers at maximum zoom-out
+00:05 +96: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/chart_refinement_ui_test.dart: long horizontal route retains legible markers at maximum zoom-out
+00:05 +97: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+00:05 +98: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+00:05 +99: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+00:05 +100: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:05 +101: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:05 +102: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:05 +103: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:05 +104: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:05 +105: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +106: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +107: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +108: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +109: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +110: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +111: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +112: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +113: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +114: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +115: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +116: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +117: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +118: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +119: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +120: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +121: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +122: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +123: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +124: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:06 +125: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:07 +126: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:07 +127: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+00:07 +128: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(360.0, 900.0)/1.15
+shrine-360-1.15: 21 linked cards, 1 native targets
+00:07 +129: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% pauseExitError Size(800.0, 480.0)
+00:07 +130: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso Apex shark accuracy and dodge at 1280.0
+00:07 +131: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3
+00:07 +132: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3
+00:07 +133: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +134: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +135: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +136: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +137: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +138: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +139: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +140: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:07 +141: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+00:08 +142: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: shrine tooltip targets Size(1280.0, 850.0)/1.15
+shrine-1280-1.15: 21 linked cards, 1 native targets
+00:08 +143: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settingsInPause Size(1280.0, 850.0)
+00:08 +144: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: blueprints tooltip targets Size(360.0, 900.0)/1.15
+00:08 +145: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: blueprints tooltip targets Size(360.0, 900.0)/1.15
+blueprints-360-1.15: 3 linked cards, 0 native targets
+00:08 +146: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settingsLive Size(800.0, 480.0)
+00:08 +147: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: blueprints tooltip targets Size(800.0, 480.0)/1.15
+blueprints-800-1.15: 3 linked cards, 0 native targets
+00:08 +148: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% settingsLive Size(1280.0, 850.0)
+00:08 +149: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: blueprints tooltip targets Size(1280.0, 850.0)/1.15
+blueprints-1280-1.15: 3 linked cards, 0 native targets
+00:09 +150: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspection Size(360.0, 900.0)
+00:09 +151: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(360.0, 900.0)/1.15
+00:09 +152: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(360.0, 900.0)/1.15
+00:09 +153: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(360.0, 900.0)/1.15
+inspection-360-1.15: 18 linked cards, 0 native targets
+00:09 +154: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% inspectionNested Size(360.0, 900.0)
+00:09 +155: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(360.0, 900.0)/1.3
+00:10 +156: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(360.0, 900.0)/1.3
+00:10 +157: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(360.0, 900.0)/1.3
+00:10 +158: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(360.0, 900.0)/1.3
+inspection-360-1.3: 18 linked cards, 0 native targets
+00:10 +159: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% keyword Size(800.0, 480.0)
+00:10 +160: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.15
+00:10 +161: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.15
+00:10 +162: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.15
+00:10 +163: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.15
+inspection-800-1.15: 18 linked cards, 0 native targets
+00:11 +164: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% nested Size(1280.0, 850.0)
+00:11 +165: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.3
+00:11 +166: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.3
+00:11 +167: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.3
+00:11 +168: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.3
+00:11 +169: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(800.0, 480.0)/1.3
+inspection-800-1.3: 18 linked cards, 0 native targets
+00:11 +170: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% actionNested Size(800.0, 480.0)
+00:11 +171: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+00:11 +172: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+00:11 +173: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+00:12 +174: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+00:12 +175: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+00:12 +176: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+00:12 +177: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.15
+inspection-1280-1.15: 18 linked cards, 0 native targets
+00:12 +178: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: 115% resizeHelp Size(1280.0, 850.0)
+00:12 +179: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.3
+00:12 +180: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.3
+00:12 +181: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.3
+00:12 +182: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.3
+00:12 +183: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: inspection tooltip targets Size(1280.0, 850.0)/1.3
+inspection-1280-1.3: 18 linked cards, 0 native targets
+00:12 +184: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint captainCreation Size(1280.0, 850.0)
+00:12 +185: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.15
+00:12 +186: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.15
+00:13 +187: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.15
+00:13 +188: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.15
+00:13 +189: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.15
+00:13 +190: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.15
+chart-360-1.15: 0 linked cards, 10 native targets
+00:13 +191: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint merchant Size(1280.0, 850.0)
+00:13 +192: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.3
+00:13 +193: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.3
+00:13 +194: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.3
+00:13 +195: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(360.0, 900.0)/1.3
+chart-360-1.3: 0 linked cards, 10 native targets
+00:13 +196: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint battle Size(1280.0, 850.0)
+00:13 +197: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.15
+00:13 +198: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.15
+00:13 +199: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.15
+00:13 +200: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.15
+00:13 +201: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.15
+chart-1280-1.15: 0 linked cards, 20 native targets
+00:14 +202: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint respiteIsland Size(360.0, 900.0)
+00:14 +203: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.3
+00:14 +204: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.3
+00:14 +205: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.3
+00:14 +206: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.3
+00:14 +207: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: chart tooltip targets Size(1280.0, 850.0)/1.3
+chart-1280-1.3: 0 linked cards, 20 native targets
+00:14 +208: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Pause checkpoint smuggler Size(1280.0, 850.0)
+00:14 +209: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:14 +210: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:14 +211: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:14 +212: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:14 +213: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:14 +214: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:14 +215: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:14 +216: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +217: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +218: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +219: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +220: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +221: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +222: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +223: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +224: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +225: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:15 +226: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +227: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +228: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +229: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +230: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +231: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +232: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +233: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+00:16 +234: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.15
+badges-360-1.15: 91 linked cards, 1 native targets
+00:16 +235: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection ironclad tempestSovereign Size(360.0, 900.0)
+00:16 +236: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +237: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +238: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +239: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +240: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +241: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +242: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +243: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +244: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:17 +245: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +246: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +247: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +248: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +249: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +250: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +251: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +252: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +253: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +254: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:18 +255: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+00:19 +256: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(360.0, 900.0)/1.3
+badges-360-1.3: 91 linked cards, 1 native targets
+00:19 +257: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection clipper brinemother Size(800.0, 480.0)
+00:19 +258: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:19 +259: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:19 +260: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:19 +261: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:19 +262: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:19 +263: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:19 +264: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:19 +265: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +266: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +267: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +268: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +269: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +270: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +271: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +272: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +273: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +274: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +275: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:20 +276: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+00:21 +277: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.15
+badges-800-1.15: 91 linked cards, 1 native targets
+00:21 +278: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Full inspection bombardier brinemother Size(1280.0, 850.0)
+00:21 +279: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:21 +280: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:21 +281: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:21 +282: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:21 +283: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:21 +284: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:21 +285: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:21 +286: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +287: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +288: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +289: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +290: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +291: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +292: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +293: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +294: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +295: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +296: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:22 +297: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+00:23 +298: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(800.0, 480.0)/1.3
+badges-800-1.3: 91 linked cards, 1 native targets
+00:23 +299: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Illuminated Size(360.0, 900.0)
+00:23 +300: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +301: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +302: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +303: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +304: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +305: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +306: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +307: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +308: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +309: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +310: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +311: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +312: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +313: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:23 +314: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +315: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +316: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +317: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +318: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +319: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +320: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +321: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +322: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +323: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +324: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +325: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +326: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+00:24 +327: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.15
+badges-1280-1.15: 91 linked cards, 1 native targets
+00:24 +328: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Keyword Anchored Size(800.0, 480.0)
+00:24 +329: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:24 +330: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:24 +331: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +332: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +333: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +334: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +335: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +336: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +337: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +338: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +339: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +340: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +341: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +342: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +343: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +344: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +345: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +346: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:25 +347: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:26 +348: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:26 +349: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:26 +350: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+00:26 +351: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: badges tooltip targets Size(1280.0, 850.0)/1.3
+badges-1280-1.3: 91 linked cards, 1 native targets
+00:26 +352: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.15 nested Size(360.0, 900.0)
+00:26 +353: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:26 +354: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:26 +355: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:26 +356: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +357: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +358: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +359: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +360: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +361: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +362: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +363: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +364: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +365: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:27 +366: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+00:28 +367: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.15
+battle-360-1.15: 39 linked cards, 8 native targets
+00:28 +368: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.15 Alignment.bottomLeft nested
+00:28 +369: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +370: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +371: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +372: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +373: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +374: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +375: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +376: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +377: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:28 +378: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:29 +379: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:29 +380: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+00:29 +381: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(360.0, 900.0)/1.3
+battle-360-1.3: 39 linked cards, 8 native targets
+00:29 +382: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Plain 1.3 nested Size(800.0, 480.0)
+00:29 +383: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:29 +384: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:29 +385: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:29 +386: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:29 +387: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:29 +388: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +389: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +390: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +391: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +392: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +393: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +394: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +395: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+00:30 +396: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.15
+battle-1280-1.15: 39 linked cards, 8 native targets
+00:30 +397: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/overlay_layout_matrix_test.dart: Corner 1.3 Alignment.bottomRight nested
+00:30 +398: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.3
+00:30 +399: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.3
+00:30 +400: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battle tooltip targets Size(1280.0, 850.0)/1.3
+battle-1280-1.3: 39 linked cards, 8 native targets
+00:31 +401: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battleReload tooltip targets Size(360.0, 900.0)/1.15
+battleReload-360-1.15: 22 linked cards, 9 native targets
+00:32 +402: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: battleReload tooltip targets Size(1280.0, 850.0)/1.15
+battleReload-1280-1.15: 22 linked cards, 9 native targets
+00:32 +403: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: intent tooltip targets Size(360.0, 900.0)/1.15
+intent-360-1.15: 2 linked cards, 0 native targets
+00:33 +404: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: intent tooltip targets Size(1280.0, 850.0)/1.15
+intent-1280-1.15: 2 linked cards, 0 native targets
+00:33 +405: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: playtest tooltip targets Size(360.0, 900.0)/1.15
+playtest-360-1.15: 0 linked cards, 15 native targets
+00:33 +406: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: playtest tooltip targets Size(1280.0, 850.0)/1.15
+playtest-1280-1.15: 0 linked cards, 15 native targets
+00:33 +407: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: (tearDownAll)
+00:33 +407: All tests passed!

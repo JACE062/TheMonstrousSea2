@@ -1,0 +1,51 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart
+lib/src/widgets/mechanic_text.dart:522:36: Error: The getter 'size' isn't defined for the type 'RenderAbstractViewport'.
+ - 'RenderAbstractViewport' is from 'package:flutter/src/rendering/viewport.dart' ('/C:/flutter/packages/flutter/lib/src/rendering/viewport.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'size'.
+                Offset.zero & node.size,
+                                   ^^^^
+00:00 +0 -1: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: lib/src/widgets/mechanic_text.dart:522:36: Error: The getter 'size' isn't defined for the type 'RenderAbstractViewport'.
+   - 'RenderAbstractViewport' is from 'package:flutter/src/rendering/viewport.dart' ('/C:/flutter/packages/flutter/lib/src/rendering/viewport.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'size'.
+                  Offset.zero & node.size,
+                                     ^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1021:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/src/widgets/mechanic_text.dart:522:36: Error: The getter 'size' isn't defined for the type 'RenderAbstractViewport'.
+ - 'RenderAbstractViewport' is from 'package:flutter/src/rendering/viewport.dart' ('/C:/flutter/packages/flutter/lib/src/rendering/viewport.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'size'.
+                Offset.zero & node.size,
+                                   ^^^^
+00:00 +0 -2: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: lib/src/widgets/mechanic_text.dart:522:36: Error: The getter 'size' isn't defined for the type 'RenderAbstractViewport'.
+   - 'RenderAbstractViewport' is from 'package:flutter/src/rendering/viewport.dart' ('/C:/flutter/packages/flutter/lib/src/rendering/viewport.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'size'.
+                  Offset.zero & node.size,
+                                     ^^^^
+  .
+00:00 +0 -2: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_sweep_test.dart

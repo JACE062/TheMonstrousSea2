@@ -179,6 +179,8 @@ void main() {
             final label = find
                 .descendant(of: target, matching: find.byType(Text))
                 .first;
+            await tester.ensureVisible(label);
+            await tester.pumpAndSettle();
             Focus.of(tester.element(label)).requestFocus();
             await tester.pump();
             await tester.sendKeyEvent(LogicalKeyboardKey.f1);

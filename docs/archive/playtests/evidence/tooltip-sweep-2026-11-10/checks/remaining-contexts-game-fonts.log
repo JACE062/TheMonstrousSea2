@@ -1,0 +1,12 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_screen_sweep_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: battleReload tooltip targets Size(360.0, 900.0)/1.15
+battleReload-360-1.15: 22 linked cards, 9 native targets
+00:02 +1: battleReload tooltip targets Size(1280.0, 850.0)/1.15
+battleReload-1280-1.15: 22 linked cards, 9 native targets
+00:04 +2: intent tooltip targets Size(360.0, 900.0)/1.15
+intent-360-1.15: 2 linked cards, 0 native targets
+00:04 +3: intent tooltip targets Size(1280.0, 850.0)/1.15
+intent-1280-1.15: 2 linked cards, 0 native targets
+00:04 +4: (tearDownAll)
+00:04 +4: All tests passed!

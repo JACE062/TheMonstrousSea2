@@ -1,0 +1,1089 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "81b20fd5f6c185874e85dff027a49c7df44d3bc0",
+  "request": "Repass all tooltip producers for overlap and related interaction/layout errors.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "sha256": "f04aebeccc1a21d3243f3a2f9745b96909537c9039773b583bc047f9ea57d79d"
+    },
+    {
+      "path": "apps/monstrous_sea/test/tooltip_sweep_test.dart",
+      "sha256": "37bb24a79c060e4ce05a19a3dbc73f4def955290ef057bcc7a6c5eec7db88fd7"
+    },
+    {
+      "path": "apps/monstrous_sea/test/tooltip_screen_sweep_test.dart",
+      "sha256": "cb2cfdbfd10a2959967e8f0f50d2b4be7b5330988a983427bd2810439b4e85bd"
+    },
+    {
+      "path": "apps/monstrous_sea/test/tooltip_presentation_test.dart",
+      "sha256": "06e3b3275cba8b1239bbdfe8465ca5a05b6373dbc59f1a1f98299ce46312fcbc"
+    }
+  ],
+  "inventory": {
+    "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/inventory.json",
+    "sha256": "3f2d46917e8500ba0b83e9a92b58691789a1ee34aab6fe600808303f179a17a5"
+  },
+  "baseline": {
+    "cases": 8,
+    "passed": 0,
+    "failed": 8,
+    "sourceCommit": "81b20fd5f6c185874e85dff027a49c7df44d3bc0",
+    "failures": [
+      "Unscaled anchor bounds",
+      "Stale scrolling source",
+      "Unnecessary nested overlap",
+      "Dense-label hover takeover"
+    ]
+  },
+  "verification": {
+    "gameFontCases": 367,
+    "offlineCases": 407,
+    "newReproductionCases": 10,
+    "realScreenCases": 41,
+    "existingFocusedCases": 52,
+    "existingOverlayCases": 264,
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "sizes": [
+      "360x900",
+      "800x480",
+      "1280x850",
+      "1280x900",
+      "800x900",
+      "existing larger chart cases"
+    ],
+    "screenReadCounts": [
+      {
+        "context": "merchant-360-1.15",
+        "linkedCardsRead": 1,
+        "nativeTargetsRead": 2
+      },
+      {
+        "context": "merchant-1280-1.15",
+        "linkedCardsRead": 1,
+        "nativeTargetsRead": 2
+      },
+      {
+        "context": "loot-360-1.15",
+        "linkedCardsRead": 1,
+        "nativeTargetsRead": 3
+      },
+      {
+        "context": "loot-1280-1.15",
+        "linkedCardsRead": 1,
+        "nativeTargetsRead": 3
+      },
+      {
+        "context": "wreck-360-1.15",
+        "linkedCardsRead": 1,
+        "nativeTargetsRead": 3
+      },
+      {
+        "context": "wreck-1280-1.15",
+        "linkedCardsRead": 1,
+        "nativeTargetsRead": 3
+      },
+      {
+        "context": "haven-360-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "haven-1280-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "stronghold-360-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "stronghold-1280-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "shrine-360-1.15",
+        "linkedCardsRead": 21,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "shrine-1280-1.15",
+        "linkedCardsRead": 21,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "blueprints-360-1.15",
+        "linkedCardsRead": 3,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "blueprints-800-1.15",
+        "linkedCardsRead": 3,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "blueprints-1280-1.15",
+        "linkedCardsRead": 3,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "inspection-360-1.15",
+        "linkedCardsRead": 18,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "inspection-360-1.3",
+        "linkedCardsRead": 18,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "inspection-800-1.15",
+        "linkedCardsRead": 18,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "inspection-800-1.3",
+        "linkedCardsRead": 18,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "inspection-1280-1.15",
+        "linkedCardsRead": 18,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "inspection-1280-1.3",
+        "linkedCardsRead": 18,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "chart-360-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 10
+      },
+      {
+        "context": "chart-360-1.3",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 10
+      },
+      {
+        "context": "chart-1280-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 20
+      },
+      {
+        "context": "chart-1280-1.3",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 20
+      },
+      {
+        "context": "badges-360-1.15",
+        "linkedCardsRead": 91,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "badges-360-1.3",
+        "linkedCardsRead": 91,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "badges-800-1.15",
+        "linkedCardsRead": 91,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "badges-800-1.3",
+        "linkedCardsRead": 91,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "badges-1280-1.15",
+        "linkedCardsRead": 91,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "badges-1280-1.3",
+        "linkedCardsRead": 91,
+        "nativeTargetsRead": 1
+      },
+      {
+        "context": "battle-360-1.15",
+        "linkedCardsRead": 39,
+        "nativeTargetsRead": 8
+      },
+      {
+        "context": "battle-360-1.3",
+        "linkedCardsRead": 39,
+        "nativeTargetsRead": 8
+      },
+      {
+        "context": "battle-1280-1.15",
+        "linkedCardsRead": 39,
+        "nativeTargetsRead": 8
+      },
+      {
+        "context": "battle-1280-1.3",
+        "linkedCardsRead": 39,
+        "nativeTargetsRead": 8
+      },
+      {
+        "context": "battleReload-360-1.15",
+        "linkedCardsRead": 22,
+        "nativeTargetsRead": 9
+      },
+      {
+        "context": "battleReload-1280-1.15",
+        "linkedCardsRead": 22,
+        "nativeTargetsRead": 9
+      },
+      {
+        "context": "intent-360-1.15",
+        "linkedCardsRead": 2,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "intent-1280-1.15",
+        "linkedCardsRead": 2,
+        "nativeTargetsRead": 0
+      },
+      {
+        "context": "playtest-360-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 15
+      },
+      {
+        "context": "playtest-1280-1.15",
+        "linkedCardsRead": 0,
+        "nativeTargetsRead": 15
+      }
+    ],
+    "linkedCardsRead": 915,
+    "nativeTargetsRead": 168,
+    "fontModes": "Cached atmospheric fonts and Roboto high-legibility; offline fallback matrix separately."
+  },
+  "behavior": {
+    "bounds": "Layout-time transformed source/ancestor bounds; scroll tracking and offscreen viewport dismissal.",
+    "nesting": "Exclude all ancestor cards when choosing free reading rectangles; adapt card width/scroll height, not font size.",
+    "hover": "Short gap remains active; mechanic anchors on the same route suppress hover starts there, while clicks pass through.",
+    "retained": "Gold weight-600/no-underline keywords, fitting hover inset, explicit help inputs, contextual values and action semantics."
+  },
+  "isolation": {
+    "fixtures": "Fresh autosave-disabled profiles; browsing snapshots unchanged. Fixture construction is separate from help actions.",
+    "gameplay": "No shared-core, gameplay value, save-schema, progression, tuning or asset changes.",
+    "preview": "Separate bundle, not launched; running shared build untouched."
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/all-tooltip-game-fonts.log",
+      "sha256": "f9d9ccf1786d709255291f1ed5eaf3087b4026fc964b7b158d486c5a541655f8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/analyze.log",
+      "sha256": "9eaab0270d83ddf10fcb109ab16ab5f06a5b56db063a2d9b83e04ff200a40f9e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/baseline.log",
+      "sha256": "2088f2b4a6b9d5a2812213d1782658253d8b68006ab82cb576d48c1085e7a475"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/compact-fix.log",
+      "sha256": "2072c9fa4619a2f9aab61a1176d56e3df7bc87fdd54c22645e524a54c4a398d4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/compact-packing-probe.log",
+      "sha256": "442cff0d7b8519bcc1ee8ecb8c3bf442263019e9fcf453497fb79683d59e7f51"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/diff-check.log",
+      "sha256": "e5c417a18385232fee7e748d1fef25144f1053624539771a94f76c8adcdc7f20"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/docs.log",
+      "sha256": "5d7fbe5f228bd080bd6ad5c1aa53679d1b4ea02864347361775e1b607a771eb7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/focused-game-fonts.log",
+      "sha256": "1ba97f6971a753bcfe10226f08b313480f1925e4842f126f6750c43d6e525ff9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/format-final.log",
+      "sha256": "9b90530081c1b8fd0b03cf0e5bb91ba1eafd01ddebf0309e02880d7a8ad1c56f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/format.log",
+      "sha256": "2658ce54e0ce6789ce7982bd3ac11369516e1ed24ce8a49c8997489a15ebd5e5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/hover-propagation-probe.log",
+      "sha256": "1ba97f6971a753bcfe10226f08b313480f1925e4842f126f6750c43d6e525ff9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/plain-detail-final.log",
+      "sha256": "ee59a5a90e9a9ad37423658ec4a1787c625e708a2e4d70c9a7a954ead1ccb81f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/plain-detail.log",
+      "sha256": "be425ef46648bec71d0c99f87f059c0edcd09a151fe1ef571c65c4618fe2e0b4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/plain-packing-probe.log",
+      "sha256": "7bd8205aa9ad1a29c5ae07a4d2383d8a0983126ea3102593ca6392aaa7563a77"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/preview-build.log",
+      "sha256": "7531ead4a934927cca5066921de8662326667b81321ed20a614583389f2394e5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/preview-pub-get.log",
+      "sha256": "973060bb6f7b5dac0714256cdc8d758cd1a855330d5cbd6aed3c0d116577dd4e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/remaining-contexts-game-fonts.log",
+      "sha256": "b95911597b8f47963221b5d45504ae19acb8009b8a3f70f17b20b9dad6401f08"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/reproductions-final.log",
+      "sha256": "fb9084f12e580067526cf2e60b7944d20a33300b1a076ad66cdfffa5850a6ce2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/screen-route-scope-probe.log",
+      "sha256": "9de9c740e76a52c6e4cb203ddeaa3a623ae521b668c10869d88d34c92e4f789f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/screen-sweep-game-fonts.log",
+      "sha256": "dce06b7a8e5629ba678aa42b34848ac3bb5a19e726015a0531c43630cfe1e042"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/tooltip-regressions.log",
+      "sha256": "6f9c13b6984668c1cc94c914461781753920e61d0a7bdc0bc4d3862a5b4a141f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/translucent-hover-probe.log",
+      "sha256": "2d4b685f8f11fe12aa6f19b6befcce2aee607c66157c3fd0fb92290aadf5c6b9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/checks/viewport-cast-probe.log",
+      "sha256": "c39c1e7e2cfda0635b19001f9aa5909416d12025152afd8941fe6f2dacd3ac9b"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/plain-failure-inspection-800-1.3.png",
+      "sha256": "7e05955f90d76c18153737e340f009b4385c472ac48072bd26e8668198b3da73",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/plain-inspection-800-1.3-keyword.png",
+      "sha256": "b6c4b7617d818368c43c6a600bb9d9698feca41ff11c92b7d64ff92c8264c7ed",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/tip-scaled-anchor-1.15.png",
+      "sha256": "de70354f8e1960a99e8ac955eaecfb95e816d0be925607a348a44c06a619dc87",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/tip-scaled-anchor-1.3.png",
+      "sha256": "84284236cc4bbb9f0f8ec2b1467c32689dfb6c52a2328f574026ff1c86b2137f",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/tip-scroll-1.15.png",
+      "sha256": "637f4837dd2e4f698d79d290e1dd390caf2bf2db8d2e6b0e174d79c5f99f5314",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/tip-scroll-1.3.png",
+      "sha256": "816d68a7999874ca4d8b49fe51d80b6b298f1a9cac78709e2c10770baece1651",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/tip-vertical-chain-1.15.png",
+      "sha256": "693a0a09f8fed1b7818fc043975ea4b923f8376efc28bf2f8c92522072827020",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/before/tip-vertical-chain-1.3.png",
+      "sha256": "220f7f69b3f69bbec9a5a8d504e709cb1f79da0b45994f1cf8d59e44755b86f7",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-actionNested-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "8dcd7045b38fc086176a0b71cbe36bd0fbd18329181c0c0ce717b31c17ed3efe",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-actionNested-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "58535876409e6b40e51a21331a35131f5b806b9253189d0e3c5bb8f67f99ee79",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-actionNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "2512bff070297d327f0062c2c32cf194fb134215d5246b2874b0d85be1fc229c",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-1280-1.15-action.png",
+      "sha256": "4e47fb561c3a0cb039b669dc22f57f8b884747a2ca8953b7da648dccc59ea8f6",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-1280-1.15-native.png",
+      "sha256": "f46436e79bbd53d38015e7220ecee3909868f6af519e77f37ea3c323b6449aa8",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-1280-1.3-action.png",
+      "sha256": "2a5a294d44f7e79b82c2711d9c782c3f5f064a696fdb16cc07d683193b0ab305",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-1280-1.3-native.png",
+      "sha256": "0bd8ecaf455d133844fe51c6251fd0f0174d26b1b8891b936b183866de35b3fe",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-360-1.15-action.png",
+      "sha256": "ea6fd203d05765f6b3503e69082a31fc99a4bc5f51126c77abee8ba3c921eab0",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-360-1.15-native.png",
+      "sha256": "725dc445e44298156c63f5b39f2869fa849d883cafad0302c6f0a5d213e06ef0",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-360-1.3-action.png",
+      "sha256": "a69aa6288662e290372c07b2cf9e8bdafaed107961bf5f85b198eacd665357ea",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-360-1.3-native.png",
+      "sha256": "9c3797d9ab218b72b12ca27fc36cecc8af8772f9f189967bed93789a7f78cd4c",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-800-1.15-action.png",
+      "sha256": "7fc66c029262bf3d0859269bbe6425c1be72d06b2907ed9fc2cdf8b81ca501c4",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-800-1.15-native.png",
+      "sha256": "8610f27f20869041dc8f87f729c676c3a43620787c16cda7f1b9f5f3bfc734f5",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-800-1.3-action.png",
+      "sha256": "0cf8ac3d2dc3999b80fc35dbe7602b820418f5d28a5de453434c3c7fed82a011",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-badges-800-1.3-native.png",
+      "sha256": "f661b428fe98f7ecfde2d5647f9423b2c42581ec2a06a05ad86e7d150240c3f1",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-1280-1.15-action.png",
+      "sha256": "6561cdc6de47a0190bcc57b47a0dcd1a76770acf2c63b1781a1aa3faf4132e1b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-1280-1.15-native.png",
+      "sha256": "bfd41a8a2a45ce1936d19ae8f9ce99d707b923a621d4cba8b3db4973c3490a0d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-1280-1.3-action.png",
+      "sha256": "5b4a0939a0c325c37c442fd865ded8607aa9b12bc68ebdd8884c23cd9a003d18",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-1280-1.3-native.png",
+      "sha256": "07e1a55bd94b6f9384efbf0f268b70304edeae7df38d433943e03ec2fc05fa01",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-360-1.15-action.png",
+      "sha256": "34f137be01dbd51bad1108c48599cfca18f62ae7f32952d2a5a52f4718db1ed8",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-360-1.15-native.png",
+      "sha256": "2e4beb73e530b8dfdac561a3ea2890716f62966032df610aa1b8b03cef84cf97",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-360-1.3-action.png",
+      "sha256": "ecf34a359cb428ae91c7effeca6a1e0c35c5c2bb0854f2b34e23cfcc1f388bc7",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battle-360-1.3-native.png",
+      "sha256": "b740f6abd85791c3f1beecac1bc3fafa1e927d63dd8d126bdfed2cb7f24eb9da",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battleReload-1280-1.15-action.png",
+      "sha256": "e4e79259acaef5c65f3dcdf4562c1b163e303c260e1c5554311548a7bde32699",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battleReload-1280-1.15-native.png",
+      "sha256": "5745d94804928ffc048180035155ed213586ac8542b5bf8c8eb9d965941cac50",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battleReload-360-1.15-action.png",
+      "sha256": "cc29a5b2c4b426bdc2db696287047b6a1aba4cc0ea0e30eb3f0e9048d5410b23",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-battleReload-360-1.15-native.png",
+      "sha256": "81f41f8204d9d6bb53b38c569480bcf417e3dd56065f6cd21d37ed4a95062fa3",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-blueprints-1280-1.15-keyword.png",
+      "sha256": "821711bc9aeff4ed20f2cbad5c2b1aabb3e81c60a8ab9ad8e55ebd486d6cb522",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-blueprints-360-1.15-keyword.png",
+      "sha256": "511d9af2d59bb9effd642474955adf721bb03ae4a9bfe232d118240a326285bd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-blueprints-800-1.15-keyword.png",
+      "sha256": "6dfaf83c3cdeeccebe964d3fa059ff76052d1d984adc744b4891553625785375",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-carapace-1280-1.15.png",
+      "sha256": "00ff509928f80b9cb8ba656972ed605af6aa7c5e4a5281fcf31c82f8d4c39b72",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-carapace-1280-1.3.png",
+      "sha256": "4c056117658b1c5cc456c936d61b2429df10f2132cf441d841fb13ad65088136",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-carapace-800-1.15.png",
+      "sha256": "378933d96b04b27d0ee3fb2c06be2f58f3002abb6a6878968520ee6058a134aa",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-carapace-800-1.3.png",
+      "sha256": "1b74b7a497d6d9741b8d34cf5b97888d7d0c9f89419da16d2efdb2db311ff8a1",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-chart-1280-1.15-native.png",
+      "sha256": "273cbce9fe72ab7082442e6991fc4bb1df3f3e54cc5688dfcbd77d698fb577ec",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-chart-1280-1.3-native.png",
+      "sha256": "d2868e4024a67b4202e28140709587d442bda4ab07675ae5609996bcdd753c4d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-chart-360-1.15-native.png",
+      "sha256": "709ed428c5ed97531fe1649e3145432dfc70b7eda0f4533f420104256c498013",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-chart-360-1.3-native.png",
+      "sha256": "827bd083fd89986029646d339118bb0c6ef03d378df4e0a4038c30719dc2047e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-clipper-broadside-1.15.png",
+      "sha256": "900bdf93a2e8c9c89e2cd291296bf8f81373537f860cd49ca8463d648814d553",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-clipper-broadside-1.3.png",
+      "sha256": "ee52b9ba3b3ce16d64fecfa45c8c87775f138c3d13e1bb9e9b92e76869fd4ac3",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-clipper-signature-1.15.png",
+      "sha256": "25e284a6c61c797c8082959e76203b3f0cc999530bc751a290d3732a108f6a6e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-clipper-signature-1.3.png",
+      "sha256": "86820d4ff7d98c5855132e5253321423dc8dc1b82c56dcb04fa2ee8adafa8298",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-dense-handoff-1.15.png",
+      "sha256": "518b6a8dfcd7709cc15840b2da298a34b0c603646e968e8d3c5b283a9327f0d5",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-dense-handoff-1.3.png",
+      "sha256": "c63712abcbe5b9f0c0f840e1343b225030715838d8ceabb82332400a569200e7",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-haven-1280-1.15-native.png",
+      "sha256": "0de88c48b117be515398d6ad17516ab2fc3a160ff42d11582cd8919470838217",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-haven-360-1.15-native.png",
+      "sha256": "9a70fef6494b692b5a720ad91365895607f17001e0f229118c0f23a5dc9f2c6a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-helpSettings-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "5a94b4fcf8a6a2900dde339ff3ca6ea6a847c2fdb0056b68ce76d7645ff81142",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-1280-1.15-keyword.png",
+      "sha256": "60111fefcaf92a97b9af54751a0093feabbca1f26bd1e777e187164e3894d985",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-1280-1.3-keyword.png",
+      "sha256": "ed08e026d870420cafef6c502cc73245832b502e17a2e029b8cfa993bbdd0197",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-360-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "045f9ace545d67877634e4c0237e7269ec781cd72822dcd269ad9cd5a4dcbb11",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d3b6e64329099dcb8dec89714008c15b859095d9060110dd7c52abea43efdb04",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-360-1.15-keyword.png",
+      "sha256": "1a3d8fd00ad40123f62c6f1d59eb8266917edc7c75e0d5f1ee9f2480c0d47989",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-360-1.3-keyword.png",
+      "sha256": "8d04774be04e4aacdab9886fa8dcfea23241569ab523d9d647afeed982f655f0",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-800-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "e023ef907d964e305cfbcb7e61c1962885c697751d53189731f00f8fbe238ad3",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-800-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "1ab500dd976e579acf267bb73570ea3671a55658be1c67ae40a2fa3a73be5a7d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-800-1.15-keyword.png",
+      "sha256": "d230679e5c653d647d7e8b11c39bd126532578e188f784f83c3cd065e11e5c80",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspection-800-1.3-keyword.png",
+      "sha256": "4f88003236eb7f7b40c12efe83fd89540704aa4efc4e554bef4cf905e36687a8",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge-controls.png",
+      "sha256": "045f9ace545d67877634e4c0237e7269ec781cd72822dcd269ad9cd5a4dcbb11",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge-help.png",
+      "sha256": "3959e30f8158e0fbabf5e8bc81e05ce7d4184b513a4f996e8f95ba2f850b63cd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d3b6e64329099dcb8dec89714008c15b859095d9060110dd7c52abea43efdb04",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge-controls.png",
+      "sha256": "023177821536ead1ba4fe4e1f0673cb5ce4abd656e90a14db429abfe1c3e353f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge-help.png",
+      "sha256": "2af80d863e7492603a95f9a21632621135d415a88f323532a568e3b0a779e9f2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "cdec3758ffb293b7b7d0f5344d1954ef7720cd2daa58199da0064cdd168c1549",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge-controls.png",
+      "sha256": "89a07e4f0c5a8c6abd746bbd533b0323b7ee84d0f33d5d7246b416b0ef4e9ff2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge-help.png",
+      "sha256": "ff2c0b0c1cf893d39a881e3030ff182fb19b1f5986017ada82f592a4aa278f0c",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-inspectionNested-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "3f65a0a67789e8b5efdca2c2389301876c3d40ab62186fb0c22b6dab5212433f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-intent-1280-1.15-keyword.png",
+      "sha256": "7cf75cc1668cb0be5e9cc02713c8f78d5e4651e4cb68240a6a167a1d8885c273",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-intent-360-1.15-keyword.png",
+      "sha256": "9e2b3cec5d29286a7063c078b29527c86f5e54c83561d439fb480b7a384e2a79",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-keyword-1280.0.png",
+      "sha256": "78de714b834c82d5fbf3fbb3cf345b97219ce1024fe6e2608ba3d9af5f5392ae",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-keyword-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "5a94b4fcf8a6a2900dde339ff3ca6ea6a847c2fdb0056b68ce76d7645ff81142",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-keyword-360.0.png",
+      "sha256": "14a031b29a168fea6043e7eed99d3f13f295c3ae538fbedceda3451809f0d889",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-loot-1280-1.15-keyword.png",
+      "sha256": "45a81a980483c222b5c889b8eef66a97852496958b567f78d66c45b1b1e15a59",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-loot-1280-1.15-native.png",
+      "sha256": "2d6d32bc8914d561fe8b56dcab5d26054b0f773674d2efd030603a21ec9c45d9",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-loot-360-1.15-keyword.png",
+      "sha256": "5579e3e4f7bb7647ba11a06c9e038f807d1fea2b956fc78492bd1bf79a2c18a5",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-loot-360-1.15-native.png",
+      "sha256": "3d2562ba4b82fac85eb4a900b86f98fa1d9fb59d1c25c78a949c2563236d5c96",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-merchant-1280-1.15-keyword.png",
+      "sha256": "cdd2b995b830b7f87421e2ff32ff98782eefd86faf030b5c4bf86bb60efeec97",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-merchant-1280-1.15-native.png",
+      "sha256": "74df08a0bc5981cc335e75ea21f1e2cc75cdd56869d4aecd2bbf75f72bf5c080",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-merchant-360-1.15-keyword.png",
+      "sha256": "b8a7db5598aa832c82efba09f719d4cf0ab2a5cca29257028b688bb9f8dea3f4",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-merchant-360-1.15-native.png",
+      "sha256": "7163b03435130a975cc4a77465a018eef03aed5ee34ec9233426aaa56ecd7193",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-mouse-link-1280.0.png",
+      "sha256": "f301327c89a3d87bc8b3c2fff4c75e4d5dbae8e4bda1ae71de19180a4c852d52",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-mouse-link-360.0.png",
+      "sha256": "b10e40b03a92077cfc72f2bb2569a9e0f0792ac3744debb49de2928a63e0c05a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nativeTooltip-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "3eafe16878dcd8b15b3763853802147a9769fdc9fee14d232c56d461dfc70f67",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nativeTooltip-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "eb2b089940b6b71eb86695fb10b41cd16df55b2a668bb229c718323bebc4ee76",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nativeTooltip-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "dde5e4bc4013bce69cdfa61316b094a140a10bee925750fbb1d4644f23ff040a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nested-1280-1.15-ink-31m-11-Static_Charge.png",
+      "sha256": "4d195fad6f0c1783d1dcac160eac1715713cb881bd4b4ae51ac0d2fc115d704b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nested-1280-1.3-ink-31m-11-Static_Charge.png",
+      "sha256": "9c8a8f067c9849b5c606bcea76aa7047b715d1e503fd2eb2a4ce9f229fe9125e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "b705bcdbfb58910cfeeb28c379cac89729ecc9bb1931b871c86a7422abed1255",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nested-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "7534c92e46523839679784c2a02b0896589f4f88ae75ca5070060e79f1657c30",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-nested-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "ab9da276d1707a35e600a04f017b8289f30efec00f7bcfea28f513f03cda4167",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseBlocked-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "1d56c5ae754bcf8b1072933aa08d132a4b32ea021fc53648981ea8c7bdc0d375",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseExitError-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "81c070dda02ad4e5921fa25b26604a9e3f6f9f24eede526da1fb8d97186e4f00",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseNoTitle-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "7587e19f9b904c330e38b714a494ebb8c15e62a0805d6248884de88881f9a960",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pausePlaying-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "e606073d9a61905a4d80cd84235c90027c14b5dc5f0193dd7186b8cceb42cdfa",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseSaved-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "00910b3226b5ebf5173b7d79f774c27ba45d7af5a3a14413382af9f18db14384",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseSaveError-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "211da978852ddf269ea5c37b8bb384d8a4d80ac3452b10e1c827993eeb56e577",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseSaving-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "afa1764763df7d77eb384507a6a332c9d6adc6ec0de3c8efdc1adcbeab9c44fd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseSaving-800-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "bdbf140a9ee310783da4f6819bc47912bbf30329f698fda84ce94c2f4a496764",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pauseUnsaved-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-playtest-1280-1.15-native.png",
+      "sha256": "713b799f1df156bf0ed57ecb0d3d1d2e714031fbb2b5b26ed424252eba3769e0",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-playtest-360-1.15-native.png",
+      "sha256": "9f5a630992010776647a5355e68eca59dd770bc23d00ed34f6ce096fb7a8e4a2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-pointerNested-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "e0f9e526d806da6a8aa0fc309c6c8fdad494ed316f215cf781716834878458d8",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-resizeHelp-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "5a94b4fcf8a6a2900dde339ff3ca6ea6a847c2fdb0056b68ce76d7645ff81142",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-scaled-anchor-1.15.png",
+      "sha256": "d2152ad0048e6616deca1631d03729769428662dcabbf0f3717fb097ea7d2ad5",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-scaled-anchor-1.3.png",
+      "sha256": "8eeaf85a7e5bb29ab1d33b0fe58b3219824085afd5df006b8f7d5236a074ccb6",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-scroll-1.15.png",
+      "sha256": "76392f0eb07b2b4275480251b9e15a1595ce521b78905a630aa1e6a2561d7e75",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-scroll-1.3.png",
+      "sha256": "609c8fb3c7fc4aa938b1c2ad314a96a56296dc053eab453b5908a47f6517f537",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settings-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "3e45d240e1303bc001d48b51f15f05859d5853c34b607f1da8b68bc0386f024a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settings-800-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "d16b9a3f7de80b8b6417f9240d5d1240a430ae079803f4e496d375f7a9677dba",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settingsInPause-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "094dbeb7bb8d0c78e0dbfce813568cdab431bf07af61c799f7a19f037272905e",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settingsInPause-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "ef7165da5f44fe4b3583263fab0d4fa0079a63b57d6d49852b2ee7b20188cdd4",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settingsInPause-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "9ec7ae4df04259151ca52e89da435eb69d42bc4a7c1170655f2f16a0b96c1b07",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settingsLive-360-1.15-ink-31m--1-1-Static_Charge.png",
+      "sha256": "3e45d240e1303bc001d48b51f15f05859d5853c34b607f1da8b68bc0386f024a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settingsLive-360-1.15-plain-31m--1-1-Static_Charge.png",
+      "sha256": "087186d26c707c9d0305af046f0999e7bca54c39dc575c2106c4ad207a7959c7",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-settingsLive-360-1.3-plain-31m--1-1-Static_Charge.png",
+      "sha256": "d9b21e3c890810f58baa8771482afd30f3c341f0124a5f0112976e27ae14ccc5",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-shrine-1280-1.15-keyword.png",
+      "sha256": "e9849dc1b6329611b2690e07575ebae930ea4f5b48da59f67f71509f62ba2781",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-shrine-1280-1.15-native.png",
+      "sha256": "741e3fd9fc779abfee691cbcfa7ecb6ce7ef4700c29e9ea1e001aa4f66e8d46a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-shrine-360-1.15-keyword.png",
+      "sha256": "182213c7bad61647e3bb289f4673068a9cf8eadb6ed00819e8ae2f49995bfc83",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-shrine-360-1.15-native.png",
+      "sha256": "7b29e0d92949cb2f96d4f52d3541c0ca96a2b2dccf02047909304d0c9e533b89",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-signature-1280-1.15.png",
+      "sha256": "c8cd2ca2a3b3cb1219f9fe81ef2022b02a235c1086a662a17236bb7720e33000",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-signature-1280-1.3.png",
+      "sha256": "38793c538ce09fc21a1db2d38c9b3d4a58c6469a656b0edd3ac1d45456b2b5df",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-signature-800-1.15.png",
+      "sha256": "bbbdc39c8069bd60c8ae1f885ade17cb9991dc046b1aaebf5392928afdd9f885",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-signature-800-1.3.png",
+      "sha256": "49660052e44e68f7eacbd4ad5891fb76247aa8607d58b527598f6251c2262995",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-stronghold-1280-1.15-native.png",
+      "sha256": "c9ed5ee9d6031b0987a182058d6fc483e290887e96c041a28606c58f1cf965b6",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-stronghold-360-1.15-native.png",
+      "sha256": "2a62fb1ea538a5f3b38d524400b6d95bf8b4faa95372209d855ebf1bf761e2bf",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-type-false-1.15.png",
+      "sha256": "1e837fca468c581f40de9683dee173c471e511772416579a9e6e1ba00c77209a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-type-false-1.3.png",
+      "sha256": "7478bb2592529a4f368deb5c04c9e705f4c142d9c4115a6295cd23b93848337a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-type-true-1.15.png",
+      "sha256": "c0b5f0741866eac6c3ae4298310fbee073cd4347059606e403ce5a3b9c907644",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-type-true-1.3.png",
+      "sha256": "62cdebb751940ecbcb9cdea99dc353c4d978f2ebff56a76661efc94c1a29d4fb",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-vertical-chain-1.15.png",
+      "sha256": "a0a93c6595306444f15fc2469db759e98456e492f3aa785798d39b3d931ae002",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-vertical-chain-1.3.png",
+      "sha256": "d0cec60548df652f9139ef50d9831091e414ec1ac9bea563ebde254472edb951",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-wreck-1280-1.15-keyword.png",
+      "sha256": "38eec5ee0cbe9493125ec6d3539064ec1abb076a51f5f7baf828d79d6a5452aa",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-wreck-1280-1.15-native.png",
+      "sha256": "c56223f5f0fdcddbf0b538fe471fefea2283e2f88c0fb869631c051eede4ce2f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-wreck-360-1.15-keyword.png",
+      "sha256": "8f003e2411d039d71d9de5015aca7c7cdb8b0cbdee9fab7a52e95e29e797615c",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-sweep-2026-11-10/visual/final/tip-wreck-360-1.15-native.png",
+      "sha256": "3d2562ba4b82fac85eb4a900b86f98fa1d9fb59d1c25c78a949c2563236d5c96",
+      "stage": "final"
+    }
+  ],
+  "probeNotes": "Initial hover propagation, route/overlay-text fixture scope, viewport cast, offscreen focused fixture and compact atmospheric/plain packing probes retained separately from final checks.",
+  "limits": "Native hints opened for current-route hit-testable targets; selected debug dropdown entries and visible chart targets only. Not every possible live build/window combination.",
+  "previewCorrespondence": "preview-correspondence.json"
+}

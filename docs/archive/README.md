@@ -224,3 +224,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Tooltip typography follow-up 2026-11-10
 
 [The keyword/spacing follow-up](playtests/TOOLTIP_TYPOGRAPHY_2026_11_10.md) records gold keywords with moderate emphasis, corrected inline text scaling and fitting help without empty forecast lines. [Evidence](playtests/evidence/tooltip-type-2026-11-10/manifest.json) retains the player screenshot, baseline failures, font-loaded proofs, regression checks and fresh preview correspondence. Existing help interaction, movement forecasts, gameplay, saves and earlier evidence remain intact.
+
+## Tooltip sweep 2026-11-10
+
+[The complete tooltip producer review](playtests/TOOLTIP_SWEEP_2026_11_10.md) records the source inventory, real screen/keyword walks and corrections for painted bounds, scrolling, dense-label hover gaps and compact nested-card placement. [Evidence](playtests/evidence/tooltip-sweep-2026-11-10/manifest.json) retains baseline failures, intermediate probes, game-font/offline checks, captures and separate Windows preview correspondence. Existing inputs, text size, gold styling, mechanics, player saves and earlier evidence are preserved.

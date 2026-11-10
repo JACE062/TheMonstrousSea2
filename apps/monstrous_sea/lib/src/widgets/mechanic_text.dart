@@ -4,6 +4,8 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart'
+    show MatrixUtils, RenderAbstractViewport;
 import 'package:flutter/services.dart';
 import 'package:monstrous_core/monstrous_core.dart';
 
@@ -315,11 +317,15 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   final _portal = OverlayPortalController();
   final _key = GlobalKey();
   final _helpKey = GlobalKey();
+  final _bridgeKey = GlobalKey();
   final _focus = FocusNode();
   Timer? _closing;
   _HelpAnchorState? _parent;
   ModalRoute<dynamic>? _route;
-  bool _overAnchor = false, _overHelp = false, _helpFocused = false;
+  bool _overAnchor = false,
+      _overHelp = false,
+      _overBridge = false,
+      _helpFocused = false;
   bool _persistent = false;
   PointerDeviceKind? _pointerKind;
   FocusNode? _previousFocus;
@@ -334,7 +340,8 @@ class _HelpAnchorState extends State<_HelpAnchor> {
     return false;
   }
 
-  bool get _active => _overAnchor || _overHelp || (_persistent && _helpFocused);
+  bool get _active =>
+      _overAnchor || _overHelp || _overBridge || (_persistent && _helpFocused);
   bool get _branchActive =>
       _active ||
       _visibleHelp.any((help) => help._descendsFrom(this) && help._active);
@@ -352,6 +359,14 @@ class _HelpAnchorState extends State<_HelpAnchor> {
       box.size.height - dy,
     ).contains(position);
   }
+
+  bool _isHelpGap(Offset globalPosition) => _visibleHelp.any((help) {
+    if (identical(help, this) || help._route != _route) return false;
+    final box = help._bridgeKey.currentContext?.findRenderObject();
+    return box is RenderBox &&
+        box.hasSize &&
+        (Offset.zero & box.size).contains(box.globalToLocal(globalPosition));
+  });
 
   @override
   void didChangeDependencies() {
@@ -384,7 +399,7 @@ class _HelpAnchorState extends State<_HelpAnchor> {
       }
     }
     _persistent = persistent;
-    _helpFocused = _overHelp = false;
+    _helpFocused = _overHelp = _overBridge = false;
     _previousFocus = persistent ? FocusManager.instance.primaryFocus : null;
     _parent?._childOpened();
     if (_visibleHelp.isEmpty) {
@@ -411,7 +426,7 @@ class _HelpAnchorState extends State<_HelpAnchor> {
     }
     final restore = _persistent;
     final previous = _previousFocus;
-    _persistent = _helpFocused = _overHelp = false;
+    _persistent = _helpFocused = _overHelp = _overBridge = false;
     _previousFocus = null;
     _unregisterHelp();
     _portal.hide();
@@ -485,86 +500,139 @@ class _HelpAnchorState extends State<_HelpAnchor> {
         ),
       );
     }
-    return OverlayPortal(
+    return OverlayPortal.overlayChildLayoutBuilder(
       controller: _portal,
-      overlayChildBuilder: (context) {
-        final box = _key.currentContext!.findRenderObject()! as RenderBox;
+      overlayChildBuilder: (context, info) {
         final overlay =
             Overlay.of(context).context.findRenderObject()! as RenderBox;
-        final rect =
-            box.localToGlobal(Offset.zero, ancestor: overlay) & box.size;
+        final rect = MatrixUtils.transformRect(
+          info.childPaintTransform,
+          Offset.zero & info.childSize,
+        );
+        var visible = Offset.zero & info.overlaySize;
+        for (
+          RenderObject? node = _key.currentContext?.findRenderObject();
+          node != null && node != overlay;
+          node = node.parent
+        ) {
+          if (node is RenderAbstractViewport && node is RenderBox) {
+            visible = visible.intersect(
+              MatrixUtils.transformRect(
+                node.getTransformTo(overlay),
+                Offset.zero & (node as RenderBox).size,
+              ),
+            );
+          }
+        }
+        if (!rect.overlaps(visible)) {
+          // An explanation must not float over unrelated content after its
+          // source scrolls away. Defer mutation until this layout finishes.
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted && !_disposed) _close(restoreFocus: false);
+          });
+          return const SizedBox.shrink();
+        }
         final parents = <Rect>[];
         for (var owner = _parent; owner != null; owner = owner._parent) {
           final box = owner._helpKey.currentContext?.findRenderObject();
           if (box is RenderBox) {
             parents.add(
-              box.localToGlobal(Offset.zero, ancestor: overlay) & box.size,
+              MatrixUtils.transformRect(
+                box.getTransformTo(overlay),
+                Offset.zero & box.size,
+              ),
             );
           }
         }
-        return CustomSingleChildLayout(
+        return CustomMultiChildLayout(
           delegate: _HelpPosition(rect, parents: parents),
-          child: _HelpOwner(
-            owner: this,
-            terms: {...inherited, if (widget.term != null) widget.term!},
-            child: TapRegion(
-              groupId: _root,
-              onTapOutside: (_) => _root._close(restoreFocus: false),
+          children: [
+            LayoutId(
+              id: _HelpPart.bridge,
               child: MouseRegion(
+                key: _bridgeKey,
+                // Keep the small gap active without consuming clicks beneath
+                // it. Other anchors consult this region before opening help.
+                hitTestBehavior: HitTestBehavior.translucent,
                 onEnter: (_) {
-                  _overHelp = true;
+                  _overBridge = true;
                   _closing?.cancel();
                 },
                 onExit: (_) {
-                  _overHelp = false;
+                  _overBridge = false;
                   _scheduleBranchClose();
                 },
-                child: FocusScope(
-                  autofocus: _persistent,
-                  onFocusChange: (v) {
-                    _helpFocused = v;
-                    if (!v) _scheduleBranchClose();
-                  },
-                  child: CallbackShortcuts(
-                    bindings: {
-                      const SingleActivator(LogicalKeyboardKey.escape): _close,
+                child: const SizedBox.expand(),
+              ),
+            ),
+            LayoutId(
+              id: _HelpPart.card,
+              child: _HelpOwner(
+                owner: this,
+                terms: {...inherited, if (widget.term != null) widget.term!},
+                child: TapRegion(
+                  groupId: _root,
+                  onTapOutside: (_) => _root._close(restoreFocus: false),
+                  child: MouseRegion(
+                    onEnter: (_) {
+                      _overHelp = true;
+                      _closing?.cancel();
                     },
-                    child: Semantics(
-                      key: ValueKey(
-                        'mechanic-dismiss-${widget.term ?? 'action'}',
-                      ),
-                      container: true,
-                      onDismiss: _close,
-                      child: Container(
-                        key: _helpKey,
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: InkTheme.parchmentSurface,
-                          border: Border.all(color: InkTheme.inkMuted),
-                          borderRadius: BorderRadius.circular(4),
-                          boxShadow: [
-                            BoxShadow(
-                              color: InkTheme.inkPrimary.withValues(alpha: .2),
-                              blurRadius: 5,
-                              offset: const Offset(2, 3),
-                            ),
-                          ],
-                        ),
-                        child: SingleChildScrollView(
+                    onExit: (_) {
+                      _overHelp = false;
+                      _scheduleBranchClose();
+                    },
+                    child: FocusScope(
+                      autofocus: _persistent,
+                      onFocusChange: (v) {
+                        _helpFocused = v;
+                        if (!v) _scheduleBranchClose();
+                      },
+                      child: CallbackShortcuts(
+                        bindings: {
+                          const SingleActivator(LogicalKeyboardKey.escape):
+                              _close,
+                        },
+                        child: Semantics(
                           key: ValueKey(
-                            'mechanic-help-${widget.term ?? 'action'}',
+                            'mechanic-dismiss-${widget.term ?? 'action'}',
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(widget.title, style: InkTheme.statLabel),
-                              const SizedBox(height: 6),
-                              MechanicText(
-                                widget.help(),
-                                mechanics: widget.mechanics,
+                          container: true,
+                          onDismiss: _close,
+                          child: Container(
+                            key: _helpKey,
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: InkTheme.parchmentSurface,
+                              border: Border.all(color: InkTheme.inkMuted),
+                              borderRadius: BorderRadius.circular(4),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: InkTheme.inkPrimary.withValues(
+                                    alpha: .2,
+                                  ),
+                                  blurRadius: 5,
+                                  offset: const Offset(2, 3),
+                                ),
+                              ],
+                            ),
+                            child: SingleChildScrollView(
+                              key: ValueKey(
+                                'mechanic-help-${widget.term ?? 'action'}',
                               ),
-                            ],
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(widget.title, style: InkTheme.statLabel),
+                                  const SizedBox(height: 6),
+                                  MechanicText(
+                                    widget.help(),
+                                    mechanics: widget.mechanics,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -573,7 +641,7 @@ class _HelpAnchorState extends State<_HelpAnchor> {
                 ),
               ),
             ),
-          ),
+          ],
         );
       },
       child: TapRegion(
@@ -583,12 +651,16 @@ class _HelpAnchorState extends State<_HelpAnchor> {
           cursor: widget.isWord ? SystemMouseCursors.help : MouseCursor.defer,
           onEnter: (event) {
             _overAnchor = true;
-            if (_portal.isShowing || _canStartHover(event.localPosition)) {
+            if (!_isHelpGap(event.position) &&
+                (_portal.isShowing || _canStartHover(event.localPosition))) {
               _open();
             }
           },
           onHover: (event) {
-            if (!_portal.isShowing && _canStartHover(event.localPosition)) {
+            if (_overAnchor &&
+                !_portal.isShowing &&
+                !_isHelpGap(event.position) &&
+                _canStartHover(event.localPosition)) {
               _open();
             }
           },
@@ -624,18 +696,123 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   }
 }
 
-class _HelpPosition extends SingleChildLayoutDelegate {
+enum _HelpPart { bridge, card }
+
+class _HelpPosition extends MultiChildLayoutDelegate {
   _HelpPosition(this.anchor, {this.parents = const []});
   final Rect anchor;
   final List<Rect> parents;
+
+  Rect? _freeRegion(Size size) {
+    if (parents.isEmpty) return null;
+    var regions = [
+      Rect.fromLTWH(
+        12,
+        12,
+        math.max(0, size.width - 24),
+        math.max(0, size.height - 24),
+      ),
+    ];
+    for (final parent in parents) {
+      final obstacle = parent.inflate(8);
+      regions = [
+        for (final region in regions)
+          if (!region.overlaps(obstacle))
+            region
+          else ...[
+            if (obstacle.left > region.left)
+              Rect.fromLTRB(
+                region.left,
+                region.top,
+                obstacle.left,
+                region.bottom,
+              ),
+            if (obstacle.right < region.right)
+              Rect.fromLTRB(
+                obstacle.right,
+                region.top,
+                region.right,
+                region.bottom,
+              ),
+            if (obstacle.top > region.top)
+              Rect.fromLTRB(
+                region.left,
+                region.top,
+                region.right,
+                obstacle.top,
+              ),
+            if (obstacle.bottom < region.bottom)
+              Rect.fromLTRB(
+                region.left,
+                obstacle.bottom,
+                region.right,
+                region.bottom,
+              ),
+          ],
+      ];
+    }
+    final usable = regions
+        .where(
+          (r) => r.width >= math.min(180, size.width - 24) && r.height >= 80,
+        )
+        .toList();
+    if (usable.isEmpty) return null;
+    // Prefer useful reading area over a very wide, shallow strip. Extra height
+    // beyond most of the viewport should not outweigh comfortable line width.
+    double score(Rect r) =>
+        math.min(340, r.width) * math.min(size.height * .75, r.height);
+    usable.sort((a, b) => score(b).compareTo(score(a)));
+    return usable.first;
+  }
+
   @override
-  BoxConstraints getConstraintsForChild(BoxConstraints constraints) =>
+  void performLayout(Size size) {
+    final region = _freeRegion(size);
+    final childSize = layoutChild(
+      _HelpPart.card,
       BoxConstraints(
-        maxWidth: math.min(340, math.max(0, constraints.maxWidth - 24)),
-        maxHeight: math.max(0, constraints.maxHeight - 24),
+        maxWidth: math.min(340, region?.width ?? math.max(0, size.width - 24)),
+        maxHeight: region?.height ?? math.max(0, size.height - 24),
+      ),
+    );
+    var position = _position(size, childSize);
+    if (region != null) {
+      position = Offset(
+        position.dx.clamp(region.left, region.right - childSize.width),
+        position.dy.clamp(region.top, region.bottom - childSize.height),
       );
-  @override
-  Offset getPositionForChild(Size size, Size childSize) {
+    }
+    positionChild(_HelpPart.card, position);
+    final bridge = _bridge(parents.firstOrNull ?? anchor, position & childSize);
+    layoutChild(_HelpPart.bridge, BoxConstraints.tight(bridge.size));
+    positionChild(_HelpPart.bridge, bridge.topLeft);
+  }
+
+  Rect _bridge(Rect from, Rect to) {
+    final top = math.max(from.top, to.top),
+        bottom = math.min(from.bottom, to.bottom);
+    final left = math.max(from.left, to.left),
+        right = math.min(from.right, to.right);
+    if (bottom > top) {
+      if (to.left >= from.right && to.left - from.right <= 12) {
+        return Rect.fromLTRB(from.right, top, to.left, bottom);
+      }
+      if (from.left >= to.right && from.left - to.right <= 12) {
+        return Rect.fromLTRB(to.right, top, from.left, bottom);
+      }
+    }
+    if (right > left) {
+      if (to.top >= from.bottom && to.top - from.bottom <= 12) {
+        return Rect.fromLTRB(left, from.bottom, right, to.top);
+      }
+      if (from.top >= to.bottom && from.top - to.bottom <= 12) {
+        return Rect.fromLTRB(left, to.bottom, right, from.top);
+      }
+    }
+    return Rect.zero;
+  }
+
+  Offset _position(Size size, Size childSize) {
     // A third card must also avoid earlier ancestors, not just its parent.
     if (parents.isNotEmpty) {
       final y = parents.first.top
@@ -651,6 +828,35 @@ class _HelpPosition extends SingleChildLayoutDelegate {
               candidate.right <= size.width - 12 &&
               !parents.any(candidate.overlaps)) {
             return candidate.topLeft;
+          }
+        }
+      }
+      // Rows of cards may not fit even though there is ample room above/below.
+      for (final parent in parents) {
+        for (final y in [
+          parent.bottom + 8,
+          parent.top - childSize.height - 8,
+        ]) {
+          for (final x in [
+            parent.left,
+            parent.right - childSize.width,
+            12.0,
+            size.width - childSize.width - 12,
+          ]) {
+            final candidate =
+                Offset(
+                  x.clamp(
+                    12.0,
+                    math.max(12.0, size.width - childSize.width - 12),
+                  ),
+                  y,
+                ) &
+                childSize;
+            if (candidate.top >= 12 &&
+                candidate.bottom <= size.height - 12 &&
+                !parents.any(candidate.overlaps)) {
+              return candidate.topLeft;
+            }
           }
         }
       }
