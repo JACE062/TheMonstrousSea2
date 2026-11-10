@@ -1,0 +1,1123 @@
+{
+  "date": "2026-11-09",
+  "baseCommit": "c474b655bf8916efda11a7aba946852b3ae6b188",
+  "request": "Final 115% layout sweep of remaining screens, confirmation dialogs, empty states and errors.",
+  "scope": "Wrapping rest/gauge/fitting/validation text, full-name help and short-dock scrolling; gameplay, approved copy/art and saves unchanged.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "f60c1de75eadc5028b0fd46d7008fa21a8e1ae483991f96902dbdcdf8349d2fa"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/rest_screen.dart",
+      "sha256": "c7d3d5c68a747ba0d6724586da8dde94bb3b2ecc7b2cefe9aaef6d56356363b4"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/hull_gauge.dart",
+      "sha256": "b2bee501bf58575d9aa289e17be15e40f40e7cbb825f49295bf335c180102193"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ink_button.dart",
+      "sha256": "e7d76e9109a775df6a7daf1c13ae028c76ef37d68342b109fdc2f75c5528087a"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/playtest/playtest_screen.dart",
+      "sha256": "9e2ff241da3deb03361a57ab9ceab2714a7612bafa97602ee44d02e75f806c6e"
+    },
+    {
+      "path": "apps/monstrous_sea/test/final_layout_sweep_test.dart",
+      "sha256": "84bc8ccfcb32f9dcf443ee5e6e8ff6553ca36dfb8fc0839b004c48a903a75e45"
+    }
+  ],
+  "inventory": "coverage-inventory.json",
+  "baseline": {
+    "cases": 69,
+    "passed": 60,
+    "failed": 9,
+    "findings": [
+      "Rest stats/critical header overflow at compact width.",
+      "Integrity labels clipped and short command column overflowed in artwork failures/retries.",
+      "Playtest numeric errors clipped."
+    ]
+  },
+  "expandedProbe": {
+    "cases": 204,
+    "passed": 200,
+    "failed": 4,
+    "finding": "Plain-font Naval Cannon Battery name exceeded two lines in compact art-failure/retry states at 115/130%."
+  },
+  "matrix": {
+    "gameFonts": 204,
+    "offlineWithRelatedRegressions": 933,
+    "relatedExistingCases": 729,
+    "focusedKeyboardClearance": 12,
+    "focusedCountedAgain": false,
+    "sizes": [
+      [
+        360,
+        900
+      ],
+      [
+        800,
+        480
+      ],
+      [
+        1280,
+        850
+      ]
+    ],
+    "keyboardInset": 240,
+    "primaryScale": 1.15,
+    "stressScale": 1.3,
+    "states": 23,
+    "coverage": {
+      "atmospheric115": 69,
+      "plain115": 69,
+      "stress130BothFonts": 66
+    }
+  },
+  "isolation": {
+    "storage": "Memory-only lineage store and overridden startup loader; generated controllers autosave-disabled.",
+    "exit": "Cancelled by test binding.",
+    "operations": "Pending mock operations cancelled/completed after unmount; no real lineage/branch is created.",
+    "playtest": "Existing isolated, unsaved scenario adapter only.",
+    "snapshots": "Profile/ship/chart/phase/monster-HP and memory save snapshots unchanged.",
+    "fonts": "Cached Pirata One/IM Fell English plus bundled Roboto/Material Icons for plain/offline modes."
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/analyze-probe.log",
+      "sha256": "848d8b4149614568f1fb200293a02c1d7c12180b2fa23d34a8ca414eaa207c95"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/analyze.log",
+      "sha256": "7c9784c729b8d38a90df1bbac9fdeefa84f32eb38a2d8524ef714801591fa294"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/art-layout-detail.log",
+      "sha256": "f7ffe7beeadce4d0c4f79f646da73d47b0d2f388d438ccb04301b528682ea52e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/art-layout-probe.log",
+      "sha256": "5d03bdd0aca73121417d7995d75b3d5e4aed769ad611f9dbf4808991305604d8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/baseline.log",
+      "sha256": "b8b9d68752956cfd7d1574c6ed51e84ebc04151c96bbe670a079123ddfb18f48"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/diff-check.log",
+      "sha256": "18910e4c7c8170c2711af4c57964100395339209cf27b3159293e40f4392852b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/docs.log",
+      "sha256": "852c632df4809d35c025c45f7fd1407aa3b6d0869686c798d465c1f392ed636f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/first-fix.log",
+      "sha256": "ff07dd6b417d87fbacbd281d99b389e5456fc9648824f62d6120013ecf2efcb4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/format.log",
+      "sha256": "21c438d7e54f938a398d9ce78ed91bd357fabad32ff3a50f0d45c383154cf679"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/keyboard-clearance.log",
+      "sha256": "0d1ec8c47d5ee1ccf416255b76f0a2364be7d77da6d6124b3d732286b7e20e6d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/matrix-and-regressions-offline.log",
+      "sha256": "5b08b9cd5af02642bbe926ceeb7fc55ff8ca29aca72a505e7178520f87137bce"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/matrix-game-fonts.log",
+      "sha256": "ad032650ae27bc2d05658defe88d974e226b5da9c06985a11afaff5ad38d7335"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/plain-fitting-label-probe.log",
+      "sha256": "3a1c07b0627d6b9f2a558c4406b0abf97cfe8a6fd89b129c908b8401827cb522"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/preview-build.log",
+      "sha256": "f1660e7540aeb5e3bc1c44553e79571160fd3f17961ce5d726faf21e895409a7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/checks/preview-pub.log",
+      "sha256": "973060bb6f7b5dac0714256cdc8d758cd1a855330d5cbd6aed3c0d116577dd4e"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-artFailed-360x900-1.15-ink.png",
+      "sha256": "3504e1647ab92e449a2bbb81be1505482f241c4504014d5c547e8ebfc060b3df",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-artRetrying-360x900-1.15-ink.png",
+      "sha256": "3504e1647ab92e449a2bbb81be1505482f241c4504014d5c547e8ebfc060b3df",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-battleWaiting-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-battleWaiting-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-cancelLineage-360x900-1.15-ink-controls.png",
+      "sha256": "a2a1a3e0ce385d85188f0b488b767c65d08adb8189356fe9737ca479b804e23b",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-cancelLineage-360x900-1.15-ink.png",
+      "sha256": "e5797f85ca1fd1444199afededd78abf47bb15b599ca57dfbc227aa0542f4757",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageBranchError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageBranchError-360x900-1.15-ink.png",
+      "sha256": "719ae2da8326374752c55e62d2fdb222426379d150a3297486d17c79b5421481",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageBranching-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageBranching-360x900-1.15-ink.png",
+      "sha256": "9d799c56daecea0d82c6253dd378d89dd54c26bd5d3440aafe008c7f243f431f",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageExitError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageExitError-360x900-1.15-ink.png",
+      "sha256": "033d0fe824cf8419f58d2a0a6c492aa79472fba869505bb43e547304aaf2d122",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageLoading-360x900-1.15-ink-controls.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageLoading-360x900-1.15-ink.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageOpening-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageOpening-360x900-1.15-ink.png",
+      "sha256": "d2f30d9c75a68e18bd48e0257adaeeef062458064d790fed63b9e5ff568f0a45",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageSummaryError-360x900-1.15-ink-controls.png",
+      "sha256": "6fed8b4eb083ba8301000daa9c163e5e0f14c3de06cc7ca76df2bee2265e62bb",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lineageSummaryError-360x900-1.15-ink.png",
+      "sha256": "9997597bf9f881698e135097e5b7b52b08f0c68f6b4debf4264d26b6720dac8a",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lootEmpty-360x900-1.15-ink-controls.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-lootEmpty-360x900-1.15-ink.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-materialsSoldOut-360x900-1.15-ink-controls.png",
+      "sha256": "5120c24eca5f14b91e0bebf159de092136b8db901c29a8b097b40fe0344107de",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-materialsSoldOut-360x900-1.15-ink.png",
+      "sha256": "964d4b6417e2e7ccfa5a7c04b3cfc2adeeaad5173764fc16445adfb049872b26",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-playtest-360x900-1.15-ink-controls.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-playtest-360x900-1.15-ink.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-playtestActive-360x900-1.15-ink-controls.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-playtestActive-360x900-1.15-ink.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-playtestChoices-360x900-1.15-ink.png",
+      "sha256": "7dd1e68f2eeb530ba3cbd3c0eb00ae4edae8dc0bbaf357f3c5ab28e59c61e2a2",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-playtestInvalid-360x900-1.15-ink.png",
+      "sha256": "8dd0a0d4d3f1b93b4a093b64267b310cb3340be604a28d1e5667a958de198080",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-playtestKeyboard-360x900-1.15-ink.png",
+      "sha256": "e124b78706396993f01573c68c47178d59dd40309eec53b61304a22bef270c3c",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-rest-360x900-1.15-ink.png",
+      "sha256": "ad20816b3b2dbe23513daeb19f161a8b55a06941dca6bd8fe9d70207c747278f",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-restCritical-360x900-1.15-ink.png",
+      "sha256": "f2201a9cb4cb3cdb0afe240b0f6ea797dea1bf075b4e6b0f7f02e9751adf2106",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-restNoShip-360x900-1.15-ink-controls.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-restNoShip-360x900-1.15-ink.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-startupError-360x900-1.15-ink-controls.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-startupError-360x900-1.15-ink.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-startupLoading-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-startupLoading-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-wreckUnavailable-360x900-1.15-ink-controls.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/before/sweep-wreckUnavailable-360x900-1.15-ink.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artFailed-360x900-1.15-ink-controls.png",
+      "sha256": "34abd124a399669835632a6d8f1110e95f2c68f37b22ae0ed6f767a84c9d37be",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artFailed-360x900-1.15-ink.png",
+      "sha256": "84fce0b40a7182cedf67f86fca2bbfa9e903f9c2ee711200909269c1e2caf5e7",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artFailed-800x480-1.3-ink-controls.png",
+      "sha256": "13c8d47283de065eadceb805e0e457fb5690da4e27a97bfdafd786d72086b41a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artFailed-800x480-1.3-ink.png",
+      "sha256": "cf45832260ff4d6c8b55b9f32885cbd9fc561bd082962164396484607488dfe9",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artFailed-800x480-1.3-plain-controls.png",
+      "sha256": "07a02cea01831e403d736ebfa9b55029509de857297f377c6f1cc052f14f2cf6",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artFailed-800x480-1.3-plain.png",
+      "sha256": "d9b3ad6a12c066da133beeec791cf433b90e5b38d7f0f363597f76cef5ce9bc2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artRetrying-360x900-1.15-ink-controls.png",
+      "sha256": "02296e417ae7392b433c5273198a93c771fa2a6e1ce4eb3648fe13e7ec101b79",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-artRetrying-360x900-1.15-ink.png",
+      "sha256": "84fce0b40a7182cedf67f86fca2bbfa9e903f9c2ee711200909269c1e2caf5e7",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-battleWaiting-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-battleWaiting-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-cancelLineage-360x900-1.15-ink-controls.png",
+      "sha256": "a2a1a3e0ce385d85188f0b488b767c65d08adb8189356fe9737ca479b804e23b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-cancelLineage-360x900-1.15-ink.png",
+      "sha256": "e5797f85ca1fd1444199afededd78abf47bb15b599ca57dfbc227aa0542f4757",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageBranchError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageBranchError-360x900-1.15-ink.png",
+      "sha256": "719ae2da8326374752c55e62d2fdb222426379d150a3297486d17c79b5421481",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageBranching-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageBranching-360x900-1.15-ink.png",
+      "sha256": "9d799c56daecea0d82c6253dd378d89dd54c26bd5d3440aafe008c7f243f431f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageExitError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageExitError-360x900-1.15-ink.png",
+      "sha256": "033d0fe824cf8419f58d2a0a6c492aa79472fba869505bb43e547304aaf2d122",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageLoading-360x900-1.15-ink-controls.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageLoading-360x900-1.15-ink.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageOpening-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageOpening-360x900-1.15-ink.png",
+      "sha256": "d2f30d9c75a68e18bd48e0257adaeeef062458064d790fed63b9e5ff568f0a45",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageSummaryError-360x900-1.15-ink-controls.png",
+      "sha256": "6fed8b4eb083ba8301000daa9c163e5e0f14c3de06cc7ca76df2bee2265e62bb",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lineageSummaryError-360x900-1.15-ink.png",
+      "sha256": "9997597bf9f881698e135097e5b7b52b08f0c68f6b4debf4264d26b6720dac8a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lootEmpty-360x900-1.15-ink-controls.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-lootEmpty-360x900-1.15-ink.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-materialsSoldOut-360x900-1.15-ink-controls.png",
+      "sha256": "5120c24eca5f14b91e0bebf159de092136b8db901c29a8b097b40fe0344107de",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-materialsSoldOut-360x900-1.15-ink.png",
+      "sha256": "964d4b6417e2e7ccfa5a7c04b3cfc2adeeaad5173764fc16445adfb049872b26",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtest-360x900-1.15-ink-controls.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtest-360x900-1.15-ink.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestActive-360x900-1.15-ink-controls.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestActive-360x900-1.15-ink.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestChoices-360x900-1.15-ink-controls.png",
+      "sha256": "7dd1e68f2eeb530ba3cbd3c0eb00ae4edae8dc0bbaf357f3c5ab28e59c61e2a2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestChoices-360x900-1.15-ink.png",
+      "sha256": "7dd1e68f2eeb530ba3cbd3c0eb00ae4edae8dc0bbaf357f3c5ab28e59c61e2a2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestInvalid-360x900-1.15-ink-controls.png",
+      "sha256": "65a787c53d821edd84c1c34cd64a11f0bb402bc3394f6498d8c8a5586838f803",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestInvalid-360x900-1.15-ink.png",
+      "sha256": "65a787c53d821edd84c1c34cd64a11f0bb402bc3394f6498d8c8a5586838f803",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestInvalid-800x480-1.3-ink-controls.png",
+      "sha256": "8e15c4cff56f6ef0534eb7b16439b6d41e4cd412ec7b4eece3d8600e567ca470",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestInvalid-800x480-1.3-ink.png",
+      "sha256": "8e15c4cff56f6ef0534eb7b16439b6d41e4cd412ec7b4eece3d8600e567ca470",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestInvalid-800x480-1.3-plain-controls.png",
+      "sha256": "313f1dec8f9dab2d53e7fd3b146eaf08c5a998ac549675bdb128a62f823bba88",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestInvalid-800x480-1.3-plain.png",
+      "sha256": "313f1dec8f9dab2d53e7fd3b146eaf08c5a998ac549675bdb128a62f823bba88",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestKeyboard-360x900-1.15-ink-controls.png",
+      "sha256": "7a7fb8c7e5332397ed8846fe09587c04db9f6e32e4a83e16b3bb8e0ff6ae7307",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-playtestKeyboard-360x900-1.15-ink.png",
+      "sha256": "7a7fb8c7e5332397ed8846fe09587c04db9f6e32e4a83e16b3bb8e0ff6ae7307",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-rest-360x900-1.15-ink-controls.png",
+      "sha256": "114a3539d2f4e1bab00037df70d51c1c1700a34f87c7ccc711d2560480080e97",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-rest-360x900-1.15-ink.png",
+      "sha256": "416d75b6018ab32bd82fc9bbc2aa264ab2ef155af2d0cb641261424e63e5f78d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-restCritical-360x900-1.15-ink-controls.png",
+      "sha256": "d77083f328d9f2a0752d3036180321a24af25b9dc777fa8910631c7bfcc59c94",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-restCritical-360x900-1.15-ink.png",
+      "sha256": "10328371503023dc179e92282346e4f858286666515d181594c3730a6a025705",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-restNoShip-360x900-1.15-ink-controls.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-restNoShip-360x900-1.15-ink.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-startupError-360x900-1.15-ink-controls.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-startupError-360x900-1.15-ink.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-startupLoading-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-startupLoading-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-wreckUnavailable-360x900-1.15-ink-controls.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/final/sweep-wreckUnavailable-360x900-1.15-ink.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-artFailed-360x900-1.15-ink-controls.png",
+      "sha256": "34abd124a399669835632a6d8f1110e95f2c68f37b22ae0ed6f767a84c9d37be",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-artFailed-360x900-1.15-ink.png",
+      "sha256": "84fce0b40a7182cedf67f86fca2bbfa9e903f9c2ee711200909269c1e2caf5e7",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-artRetrying-360x900-1.15-ink-controls.png",
+      "sha256": "02296e417ae7392b433c5273198a93c771fa2a6e1ce4eb3648fe13e7ec101b79",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-artRetrying-360x900-1.15-ink.png",
+      "sha256": "84fce0b40a7182cedf67f86fca2bbfa9e903f9c2ee711200909269c1e2caf5e7",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-battleWaiting-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-battleWaiting-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-cancelLineage-360x900-1.15-ink-controls.png",
+      "sha256": "a2a1a3e0ce385d85188f0b488b767c65d08adb8189356fe9737ca479b804e23b",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-cancelLineage-360x900-1.15-ink.png",
+      "sha256": "e5797f85ca1fd1444199afededd78abf47bb15b599ca57dfbc227aa0542f4757",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageBranchError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageBranchError-360x900-1.15-ink.png",
+      "sha256": "719ae2da8326374752c55e62d2fdb222426379d150a3297486d17c79b5421481",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageBranching-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageBranching-360x900-1.15-ink.png",
+      "sha256": "9d799c56daecea0d82c6253dd378d89dd54c26bd5d3440aafe008c7f243f431f",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageExitError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageExitError-360x900-1.15-ink.png",
+      "sha256": "033d0fe824cf8419f58d2a0a6c492aa79472fba869505bb43e547304aaf2d122",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageLoading-360x900-1.15-ink-controls.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageLoading-360x900-1.15-ink.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageOpening-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageOpening-360x900-1.15-ink.png",
+      "sha256": "d2f30d9c75a68e18bd48e0257adaeeef062458064d790fed63b9e5ff568f0a45",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageSummaryError-360x900-1.15-ink-controls.png",
+      "sha256": "6fed8b4eb083ba8301000daa9c163e5e0f14c3de06cc7ca76df2bee2265e62bb",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lineageSummaryError-360x900-1.15-ink.png",
+      "sha256": "9997597bf9f881698e135097e5b7b52b08f0c68f6b4debf4264d26b6720dac8a",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lootEmpty-360x900-1.15-ink-controls.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-lootEmpty-360x900-1.15-ink.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-materialsSoldOut-360x900-1.15-ink-controls.png",
+      "sha256": "5120c24eca5f14b91e0bebf159de092136b8db901c29a8b097b40fe0344107de",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-materialsSoldOut-360x900-1.15-ink.png",
+      "sha256": "964d4b6417e2e7ccfa5a7c04b3cfc2adeeaad5173764fc16445adfb049872b26",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtest-360x900-1.15-ink-controls.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtest-360x900-1.15-ink.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestActive-360x900-1.15-ink-controls.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestActive-360x900-1.15-ink.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestChoices-360x900-1.15-ink-controls.png",
+      "sha256": "7dd1e68f2eeb530ba3cbd3c0eb00ae4edae8dc0bbaf357f3c5ab28e59c61e2a2",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestChoices-360x900-1.15-ink.png",
+      "sha256": "7dd1e68f2eeb530ba3cbd3c0eb00ae4edae8dc0bbaf357f3c5ab28e59c61e2a2",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestInvalid-360x900-1.15-ink-controls.png",
+      "sha256": "65a787c53d821edd84c1c34cd64a11f0bb402bc3394f6498d8c8a5586838f803",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestInvalid-360x900-1.15-ink.png",
+      "sha256": "65a787c53d821edd84c1c34cd64a11f0bb402bc3394f6498d8c8a5586838f803",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestKeyboard-360x900-1.15-ink-controls.png",
+      "sha256": "7a7fb8c7e5332397ed8846fe09587c04db9f6e32e4a83e16b3bb8e0ff6ae7307",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-playtestKeyboard-360x900-1.15-ink.png",
+      "sha256": "7a7fb8c7e5332397ed8846fe09587c04db9f6e32e4a83e16b3bb8e0ff6ae7307",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-rest-360x900-1.15-ink-controls.png",
+      "sha256": "114a3539d2f4e1bab00037df70d51c1c1700a34f87c7ccc711d2560480080e97",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-rest-360x900-1.15-ink.png",
+      "sha256": "416d75b6018ab32bd82fc9bbc2aa264ab2ef155af2d0cb641261424e63e5f78d",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-restCritical-360x900-1.15-ink-controls.png",
+      "sha256": "d77083f328d9f2a0752d3036180321a24af25b9dc777fa8910631c7bfcc59c94",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-restCritical-360x900-1.15-ink.png",
+      "sha256": "10328371503023dc179e92282346e4f858286666515d181594c3730a6a025705",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-restNoShip-360x900-1.15-ink-controls.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-restNoShip-360x900-1.15-ink.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-startupError-360x900-1.15-ink-controls.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-startupError-360x900-1.15-ink.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-startupLoading-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-startupLoading-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-wreckUnavailable-360x900-1.15-ink-controls.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/first-fix/sweep-wreckUnavailable-360x900-1.15-ink.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "first-fix"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artFailed-360x900-1.15-ink-controls.png",
+      "sha256": "34abd124a399669835632a6d8f1110e95f2c68f37b22ae0ed6f767a84c9d37be",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artFailed-360x900-1.15-ink.png",
+      "sha256": "84fce0b40a7182cedf67f86fca2bbfa9e903f9c2ee711200909269c1e2caf5e7",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artFailed-800x480-1.3-ink-controls.png",
+      "sha256": "13c8d47283de065eadceb805e0e457fb5690da4e27a97bfdafd786d72086b41a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artFailed-800x480-1.3-ink.png",
+      "sha256": "cf45832260ff4d6c8b55b9f32885cbd9fc561bd082962164396484607488dfe9",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artFailed-800x480-1.3-plain-controls.png",
+      "sha256": "07a02cea01831e403d736ebfa9b55029509de857297f377c6f1cc052f14f2cf6",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artFailed-800x480-1.3-plain.png",
+      "sha256": "d9b3ad6a12c066da133beeec791cf433b90e5b38d7f0f363597f76cef5ce9bc2",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artRetrying-360x900-1.15-ink-controls.png",
+      "sha256": "02296e417ae7392b433c5273198a93c771fa2a6e1ce4eb3648fe13e7ec101b79",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-artRetrying-360x900-1.15-ink.png",
+      "sha256": "84fce0b40a7182cedf67f86fca2bbfa9e903f9c2ee711200909269c1e2caf5e7",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-battleWaiting-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-battleWaiting-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-cancelLineage-360x900-1.15-ink-controls.png",
+      "sha256": "a2a1a3e0ce385d85188f0b488b767c65d08adb8189356fe9737ca479b804e23b",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-cancelLineage-360x900-1.15-ink.png",
+      "sha256": "e5797f85ca1fd1444199afededd78abf47bb15b599ca57dfbc227aa0542f4757",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageBranchError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageBranchError-360x900-1.15-ink.png",
+      "sha256": "719ae2da8326374752c55e62d2fdb222426379d150a3297486d17c79b5421481",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageBranching-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageBranching-360x900-1.15-ink.png",
+      "sha256": "9d799c56daecea0d82c6253dd378d89dd54c26bd5d3440aafe008c7f243f431f",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageExitError-360x900-1.15-ink-controls.png",
+      "sha256": "9cfafbed9ead3c8e3af66f817a0517d56cb5356aa952cf5f06f916f0bd68ab88",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageExitError-360x900-1.15-ink.png",
+      "sha256": "033d0fe824cf8419f58d2a0a6c492aa79472fba869505bb43e547304aaf2d122",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageLoading-360x900-1.15-ink-controls.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageLoading-360x900-1.15-ink.png",
+      "sha256": "fcc0fb63ed53f1c7844d5badca0d14b46aba2a29a9156632ce71c06af1c840fd",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageOpening-360x900-1.15-ink-controls.png",
+      "sha256": "514172b1c1068e9a7a7bc5087606a23197a8ff287146fca75afa20ff19cbe1ca",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageOpening-360x900-1.15-ink.png",
+      "sha256": "d2f30d9c75a68e18bd48e0257adaeeef062458064d790fed63b9e5ff568f0a45",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageSummaryError-360x900-1.15-ink-controls.png",
+      "sha256": "6fed8b4eb083ba8301000daa9c163e5e0f14c3de06cc7ca76df2bee2265e62bb",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lineageSummaryError-360x900-1.15-ink.png",
+      "sha256": "9997597bf9f881698e135097e5b7b52b08f0c68f6b4debf4264d26b6720dac8a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lootEmpty-360x900-1.15-ink-controls.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-lootEmpty-360x900-1.15-ink.png",
+      "sha256": "37a6c246777b65810ec9cefc1cd02b943989e5dfa7802d61c01d1a8ad588845b",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-materialsSoldOut-360x900-1.15-ink-controls.png",
+      "sha256": "5120c24eca5f14b91e0bebf159de092136b8db901c29a8b097b40fe0344107de",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-materialsSoldOut-360x900-1.15-ink.png",
+      "sha256": "964d4b6417e2e7ccfa5a7c04b3cfc2adeeaad5173764fc16445adfb049872b26",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtest-360x900-1.15-ink-controls.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtest-360x900-1.15-ink.png",
+      "sha256": "b4a8aa8837b7f3920d9234df890499c6aade8e52ec761f386b353e4037f7ceea",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestActive-360x900-1.15-ink-controls.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestActive-360x900-1.15-ink.png",
+      "sha256": "c5d04bce3a7d3e14ba7a3ddf3bc442a5d7c8f8ceac092af5b24a1926d7b59f1a",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestChoices-360x900-1.15-ink-controls.png",
+      "sha256": "7dd1e68f2eeb530ba3cbd3c0eb00ae4edae8dc0bbaf357f3c5ab28e59c61e2a2",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestChoices-360x900-1.15-ink.png",
+      "sha256": "7dd1e68f2eeb530ba3cbd3c0eb00ae4edae8dc0bbaf357f3c5ab28e59c61e2a2",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestInvalid-360x900-1.15-ink-controls.png",
+      "sha256": "65a787c53d821edd84c1c34cd64a11f0bb402bc3394f6498d8c8a5586838f803",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestInvalid-360x900-1.15-ink.png",
+      "sha256": "65a787c53d821edd84c1c34cd64a11f0bb402bc3394f6498d8c8a5586838f803",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestInvalid-800x480-1.3-ink-controls.png",
+      "sha256": "8e15c4cff56f6ef0534eb7b16439b6d41e4cd412ec7b4eece3d8600e567ca470",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestInvalid-800x480-1.3-ink.png",
+      "sha256": "8e15c4cff56f6ef0534eb7b16439b6d41e4cd412ec7b4eece3d8600e567ca470",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestInvalid-800x480-1.3-plain-controls.png",
+      "sha256": "313f1dec8f9dab2d53e7fd3b146eaf08c5a998ac549675bdb128a62f823bba88",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestInvalid-800x480-1.3-plain.png",
+      "sha256": "313f1dec8f9dab2d53e7fd3b146eaf08c5a998ac549675bdb128a62f823bba88",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestKeyboard-360x900-1.15-ink-controls.png",
+      "sha256": "7a7fb8c7e5332397ed8846fe09587c04db9f6e32e4a83e16b3bb8e0ff6ae7307",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-playtestKeyboard-360x900-1.15-ink.png",
+      "sha256": "7a7fb8c7e5332397ed8846fe09587c04db9f6e32e4a83e16b3bb8e0ff6ae7307",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-rest-360x900-1.15-ink-controls.png",
+      "sha256": "114a3539d2f4e1bab00037df70d51c1c1700a34f87c7ccc711d2560480080e97",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-rest-360x900-1.15-ink.png",
+      "sha256": "416d75b6018ab32bd82fc9bbc2aa264ab2ef155af2d0cb641261424e63e5f78d",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-restCritical-360x900-1.15-ink-controls.png",
+      "sha256": "d77083f328d9f2a0752d3036180321a24af25b9dc777fa8910631c7bfcc59c94",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-restCritical-360x900-1.15-ink.png",
+      "sha256": "10328371503023dc179e92282346e4f858286666515d181594c3730a6a025705",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-restNoShip-360x900-1.15-ink-controls.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-restNoShip-360x900-1.15-ink.png",
+      "sha256": "a6aa76c601d6373e40544454638e88b1a1e3ec15d613e108cc8941837cfffcd3",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-startupError-360x900-1.15-ink-controls.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-startupError-360x900-1.15-ink.png",
+      "sha256": "cf3d91ebb79e85375f6029f4dea8378a6dd757a17944a9c1f29975e1f1a8b238",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-startupLoading-360x900-1.15-ink-controls.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-startupLoading-360x900-1.15-ink.png",
+      "sha256": "68e0811ab91e0f6c33cdb7e622fc1572f77a4f2b1e5d78184d2ba765b3c98a60",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-wreckUnavailable-360x900-1.15-ink-controls.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/final-layout-2026-11-09/visual/reviewed/sweep-wreckUnavailable-360x900-1.15-ink.png",
+      "sha256": "463b752836be6293026377f8da8802fe3d3e99f3f161965a8012a3fcb2239b89",
+      "stage": "reviewed"
+    }
+  ],
+  "stages": {
+    "before": "69-case baseline.",
+    "first-fix": "Rest/integrity/validation/short-dock fixes.",
+    "final": "Expanded run before plain-font fitting wrapping.",
+    "reviewed": "Complete final game-font matrix."
+  },
+  "previewCorrespondence": "preview-correspondence.json"
+}

@@ -70,36 +70,52 @@ class RestScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            SvgAssetView(
+                        LayoutBuilder(
+                          builder: (context, bounds) {
+                            final art = SvgAssetView(
                               assetPath: PilotArt.forShip(ship),
                               width: 80,
                               height: 80,
-                            ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Column(
+                            );
+                            final details = Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(ship.name, style: InkTheme.titleMedium),
+                                Text(
+                                  'Leg ${seaChart.currentLeg} of ${seaChart.totalLegs} • ${seaChart.currentRegionName}',
+                                  style: InkTheme.caption,
+                                ),
+                                const SizedBox(height: 8),
+                                HullGauge(
+                                  currentHp: ship.currentHp,
+                                  maxHp: ship.maxHp,
+                                ),
+                              ],
+                            );
+                            if (bounds.maxWidth < 480) {
+                              return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(ship.name, style: InkTheme.titleMedium),
-                                  Text(
-                                    'Leg ${seaChart.currentLeg} of ${seaChart.totalLegs} • ${seaChart.currentRegionName}',
-                                    style: InkTheme.caption,
-                                  ),
+                                  art,
                                   const SizedBox(height: 8),
-                                  HullGauge(
-                                    currentHp: ship.currentHp,
-                                    maxHp: ship.maxHp,
-                                  ),
+                                  details,
                                 ],
-                              ),
-                            ),
-                          ],
+                              );
+                            }
+                            return Row(
+                              children: [
+                                art,
+                                const SizedBox(width: 16),
+                                Expanded(child: details),
+                              ],
+                            );
+                          },
                         ),
                         const Divider(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        Wrap(
+                          alignment: WrapAlignment.spaceAround,
+                          spacing: 16,
+                          runSpacing: 12,
                           children: [
                             _statColumn('GOLD CARRIED', '${ship.gold}g'),
                             _statColumn(
@@ -128,8 +144,10 @@ class RestScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Wrap(
+                          alignment: WrapAlignment.spaceBetween,
+                          spacing: 12,
+                          runSpacing: 6,
                           children: [
                             Text(
                               "CARPENTER'S WORKBENCH",

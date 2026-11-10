@@ -1,0 +1,1020 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% startupLoading Size(360.0, 900.0)
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/bloodOath
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/bloodOath
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/bloodOath
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/bloodOath
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:00 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/bloodOath
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:01 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/bloodOath
+00:01 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/bloodOath
+00:01 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% lineageLoading Size(800.0, 480.0)
+00:01 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/recklessHelmsman
+00:01 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/recklessHelmsman
+00:01 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/recklessHelmsman
+00:01 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% lineageOpening Size(800.0, 480.0)
+00:01 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/superstitious
+00:01 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/superstitious
+00:01 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% lineageBranching Size(360.0, 900.0)
+00:01 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/exactingShipwright
+00:01 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/exactingShipwright
+00:01 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/exactingShipwright
+00:01 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% lineageBranchError Size(360.0, 900.0)
+00:01 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/overzealousGunner
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/overzealousGunner
+00:02 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% lineageBranchError Size(1280.0, 850.0)
+00:02 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/daredevil
+00:02 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/daredevil
+00:02 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/daredevil
+00:02 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/daredevil
+00:02 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% lineageExitError Size(360.0, 900.0)
+00:02 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/impatient
+00:02 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/impatient
+00:02 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% lineageExitError Size(1280.0, 850.0)
+00:02 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard veteranCannoneer/skirmisher
+00:02 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% cancelLineage Size(360.0, 900.0)
+00:02 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/bloodOath
+00:03 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% cancelLineage Size(800.0, 480.0)
+00:03 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/recklessHelmsman
+00:03 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% cancelLineage Size(1280.0, 850.0)
+00:03 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/superstitious
+00:03 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/superstitious
+00:03 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% rest Size(800.0, 480.0)
+00:03 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/exactingShipwright
+00:03 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/exactingShipwright
+00:03 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/exactingShipwright
+00:03 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% restCritical Size(800.0, 480.0)
+00:03 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/overzealousGunner
+00:03 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/overzealousGunner
+00:03 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/overzealousGunner
+00:03 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% restNoShip Size(800.0, 480.0)
+00:03 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/daredevil
+00:03 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/daredevil
+00:03 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/daredevil
+00:03 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/daredevil
+00:04 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% wreckUnavailable Size(1280.0, 850.0)
+00:04 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/impatient
+00:04 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/impatient
+00:04 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/impatient
+00:04 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/impatient
+00:04 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% materialsSoldOut Size(360.0, 900.0)
+00:04 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/skirmisher
+00:04 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/skirmisher
+00:04 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/skirmisher
+00:04 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard stormSeer/skirmisher
+00:04 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% battleWaiting Size(800.0, 480.0)
+00:04 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/bloodOath
+00:04 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/bloodOath
+00:04 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:04 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(360.0, 900.0)
+00:04 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/recklessHelmsman
+00:04 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:04 +67: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(800.0, 480.0)
+00:04 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/superstitious
+00:04 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:04 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(1280.0, 850.0)
+00:04 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/exactingShipwright
+00:05 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:05 +71: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(360.0, 900.0)
+00:05 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/overzealousGunner
+00:05 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:05 +73: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(800.0, 480.0)
+00:05 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/daredevil
+00:05 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:05 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(1280.0, 850.0)
+00:05 +76: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/impatient
+00:05 +77: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtest Size(360.0, 900.0)
+00:05 +78: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ironConstitution/skirmisher
+00:05 +79: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtest Size(800.0, 480.0)
+00:05 +80: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard smugglersKin/bloodOath
+00:06 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtest Size(1280.0, 850.0)
+00:06 +82: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard smugglersKin/recklessHelmsman
+00:06 +83: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestInvalid Size(360.0, 900.0)
+00:06 +84: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard smugglersKin/superstitious
+00:06 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestInvalid Size(800.0, 480.0)
+00:06 +86: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard smugglersKin/exactingShipwright
+00:06 +87: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestInvalid Size(1280.0, 850.0)
+00:06 +88: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard smugglersKin/overzealousGunner
+00:06 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestKeyboard Size(360.0, 900.0)
+00:07 +90: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestKeyboard Size(360.0, 900.0)
+00:07 +91: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard smugglersKin/impatient
+00:07 +92: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestKeyboard Size(800.0, 480.0)
+00:07 +93: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard smugglersKin/skirmisher
+00:07 +94: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestKeyboard Size(1280.0, 850.0)
+00:07 +95: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard drillmaster/bloodOath
+00:07 +96: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestChoices Size(360.0, 900.0)
+00:07 +97: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestChoices Size(360.0, 900.0)
+00:08 +98: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard drillmaster/superstitious
+00:08 +99: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestChoices Size(800.0, 480.0)
+00:08 +100: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestChoices Size(800.0, 480.0)
+00:08 +101: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard drillmaster/overzealousGunner
+00:08 +102: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestChoices Size(1280.0, 850.0)
+00:08 +103: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestChoices Size(1280.0, 850.0)
+00:08 +104: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard drillmaster/impatient
+00:09 +105: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestActive Size(360.0, 900.0)
+00:09 +106: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard drillmaster/skirmisher
+00:09 +107: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard drillmaster/skirmisher
+00:09 +108: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% playtestActive Size(1280.0, 850.0)
+00:09 +109: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/bloodOath
+00:09 +110: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/bloodOath
+00:09 +111: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/bloodOath
+00:09 +112: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% startupLoading Size(1280.0, 850.0)
+00:09 +113: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/recklessHelmsman
+00:09 +113: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:09 +114: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/recklessHelmsman
+00:09 +114: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:09 +115: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/recklessHelmsman
+00:09 +115: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:09 +116: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/recklessHelmsman
+00:09 +117: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% lineageLoading Size(360.0, 900.0)
+00:09 +118: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/superstitious
+00:09 +119: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/superstitious
+00:09 +120: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/superstitious
+00:09 +121: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% lineageOpening Size(360.0, 900.0)
+00:09 +122: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/exactingShipwright
+00:09 +123: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/exactingShipwright
+00:09 +124: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/exactingShipwright
+00:09 +125: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% lineageBranching Size(360.0, 900.0)
+00:10 +126: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/overzealousGunner
+00:10 +127: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/overzealousGunner
+00:10 +128: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% lineageBranching Size(1280.0, 850.0)
+00:10 +129: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/daredevil
+00:10 +130: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/daredevil
+00:10 +131: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% lineageBranchError Size(800.0, 480.0)
+00:10 +132: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/impatient
+00:10 +133: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/impatient
+00:10 +134: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/impatient
+00:10 +135: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% lineageSummaryError Size(800.0, 480.0)
+00:10 +136: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/skirmisher
+00:10 +137: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/skirmisher
+00:10 +138: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard preciseCommander/skirmisher
+00:10 +139: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% lineageExitError Size(800.0, 480.0)
+00:10 +140: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/bloodOath
+00:10 +141: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/bloodOath
+00:10 +142: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% cancelLineage Size(360.0, 900.0)
+00:11 +143: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/recklessHelmsman
+00:11 +144: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/recklessHelmsman
+00:11 +145: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% cancelLineage Size(1280.0, 850.0)
+00:11 +146: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/superstitious
+00:11 +147: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/superstitious
+00:11 +148: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% rest Size(800.0, 480.0)
+00:11 +149: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/exactingShipwright
+00:11 +150: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/exactingShipwright
+00:11 +151: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/exactingShipwright
+00:11 +152: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% restCritical Size(800.0, 480.0)
+00:11 +153: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/overzealousGunner
+00:11 +154: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/overzealousGunner
+00:11 +155: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/overzealousGunner
+00:11 +156: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/overzealousGunner
+00:11 +157: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/overzealousGunner
+00:11 +158: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% wreckUnavailable Size(360.0, 900.0)
+00:11 +159: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/daredevil
+00:11 +160: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/daredevil
+00:11 +161: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/daredevil
+00:11 +162: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/daredevil
+00:11 +163: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/daredevil
+00:12 +164: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/daredevil
+00:12 +165: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% materialsSoldOut Size(360.0, 900.0)
+00:12 +166: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/impatient
+00:12 +167: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/impatient
+00:12 +168: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/impatient
+00:12 +169: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/impatient
+00:12 +170: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/impatient
+00:12 +171: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/impatient
+00:12 +172: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:12 +173: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard skilledCarpenter/skirmisher
+00:12 +173: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:12 +174: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artFailed Size(800.0, 480.0)
+00:12 +175: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/bloodOath
+00:12 +175: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:12 +176: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artFailed Size(1280.0, 850.0)
+00:12 +177: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/recklessHelmsman
+00:12 +177: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:12 +178: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/recklessHelmsman
+00:12 +178: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:12 +179: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artRetrying Size(800.0, 480.0)
+00:12 +180: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/superstitious
+00:12 +180: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:12 +181: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artRetrying Size(1280.0, 850.0)
+00:13 +182: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/exactingShipwright
+00:13 +183: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtest Size(360.0, 900.0)
+00:13 +184: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/overzealousGunner
+00:13 +185: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtest Size(800.0, 480.0)
+00:13 +186: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/daredevil
+00:13 +187: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/daredevil
+00:13 +188: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestInvalid Size(360.0, 900.0)
+00:13 +189: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/impatient
+00:13 +190: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestInvalid Size(800.0, 480.0)
+00:13 +191: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard quartermaster/skirmisher
+00:13 +192: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestInvalid Size(1280.0, 850.0)
+00:13 +193: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard dense status at Size(360.0, 900.0)
+00:14 +194: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard dense status at Size(360.0, 900.0)
+00:14 +195: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestKeyboard Size(800.0, 480.0)
+00:14 +196: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard dense status at Size(800.0, 600.0)
+00:14 +197: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestKeyboard Size(1280.0, 850.0)
+00:14 +198: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard dense status at Size(1280.0, 900.0)
+00:14 +199: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestChoices Size(360.0, 900.0)
+00:14 +200: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard ready at compact width
+00:14 +201: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestChoices Size(800.0, 480.0)
+00:14 +202: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestChoices Size(800.0, 480.0)
+00:15 +203: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard cooldowns at Size(800.0, 600.0)
+00:15 +204: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestChoices Size(1280.0, 850.0)
+00:15 +205: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard cooldowns at Size(1672.0, 952.0)
+00:15 +206: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard cooldowns at Size(1672.0, 952.0)
+00:15 +207: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% playtestActive Size(800.0, 480.0)
+00:15 +208: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard combination at Size(360.0, 900.0)
+00:15 +209: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard combination at Size(360.0, 900.0)
+00:15 +210: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:15 +211: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard combination at Size(800.0, 600.0)
+00:15 +211: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:15 +212: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard combination at Size(800.0, 600.0)
+00:15 +212: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:15 +213: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard combination at Size(800.0, 600.0)
+00:15 +214: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false lineageBranchError Size(360.0, 900.0)
+00:15 +215: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard combination at Size(1672.0, 952.0)
+00:15 +216: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard combination at Size(1672.0, 952.0)
+00:15 +217: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false lineageBranchError Size(1280.0, 850.0)
+00:15 +218: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard recovery at Size(360.0, 900.0)
+00:15 +219: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard recovery at Size(360.0, 900.0)
+00:16 +220: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard recovery at Size(360.0, 900.0)
+00:16 +221: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false lineageSummaryError Size(1280.0, 850.0)
+00:16 +222: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard recovery at Size(800.0, 600.0)
+00:16 +223: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard recovery at Size(800.0, 600.0)
+00:16 +224: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false cancelLineage Size(800.0, 480.0)
+00:16 +225: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard recovery at Size(1672.0, 952.0)
+00:16 +226: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false cancelLineage Size(1280.0, 850.0)
+00:16 +227: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard beltSpent at Size(360.0, 900.0)
+00:16 +228: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard beltSpent at Size(360.0, 900.0)
+00:16 +229: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard beltSpent at Size(360.0, 900.0)
+00:16 +230: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false rest Size(1280.0, 850.0)
+00:16 +231: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard beltSpent at Size(800.0, 600.0)
+00:16 +232: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard beltSpent at Size(800.0, 600.0)
+00:16 +233: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard beltSpent at Size(800.0, 600.0)
+00:16 +234: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false restCritical Size(1280.0, 850.0)
+00:16 +235: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard beltSpent at Size(1672.0, 952.0)
+00:16 +235: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:16 +236: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artFailed Size(360.0, 900.0)
+00:16 +237: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard emptyBelt at Size(360.0, 900.0)
+00:16 +237: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:17 +238: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artFailed Size(800.0, 480.0)
+00:17 +239: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard emptyBelt at Size(800.0, 600.0)
+00:17 +239: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:17 +240: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard emptyBelt at Size(800.0, 600.0)
+00:17 +241: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:17 +242: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artRetrying Size(360.0, 900.0)
+00:17 +243: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard windup at Size(360.0, 900.0)
+00:17 +243: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:17 +244: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artRetrying Size(800.0, 480.0)
+00:17 +245: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard windup at Size(800.0, 600.0)
+00:17 +245: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:17 +246: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false artRetrying Size(1280.0, 850.0)
+00:17 +247: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard windup at Size(1672.0, 952.0)
+00:17 +248: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestInvalid Size(360.0, 900.0)
+00:17 +249: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard release at Size(360.0, 900.0)
+00:18 +250: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestInvalid Size(800.0, 480.0)
+00:18 +251: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard release at Size(800.0, 600.0)
+00:18 +252: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard release at Size(800.0, 600.0)
+00:18 +253: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestKeyboard Size(360.0, 900.0)
+00:18 +254: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestKeyboard Size(360.0, 900.0)
+00:18 +255: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard longRange at Size(360.0, 900.0)
+00:18 +256: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard longRange at Size(360.0, 900.0)
+00:18 +257: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestKeyboard Size(1280.0, 850.0)
+00:18 +258: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard longRange at Size(800.0, 600.0)
+00:18 +259: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestChoices Size(360.0, 900.0)
+00:19 +260: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestChoices Size(360.0, 900.0)
+00:19 +261: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard storm at Size(360.0, 900.0)
+00:19 +262: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestChoices Size(800.0, 480.0)
+00:19 +263: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard storm at Size(800.0, 600.0)
+00:19 +264: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestChoices Size(1280.0, 850.0)
+00:19 +265: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% false playtestChoices Size(1280.0, 850.0)
+00:19 +266: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(360.0, 900.0)
+00:19 +266: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:19 +267: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(360.0, 900.0)
+00:19 +267: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:19 +268: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(360.0, 900.0)
+00:19 +269: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:19 +270: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(800.0, 600.0)
+00:19 +271: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(800.0, 600.0)
+00:19 +272: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true lineageBranchError Size(800.0, 480.0)
+00:19 +273: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(1672.0, 952.0)
+00:20 +274: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(1672.0, 952.0)
+00:20 +275: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% standard wake at Size(1672.0, 952.0)
+00:20 +276: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true lineageSummaryError Size(800.0, 480.0)
+00:20 +277: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +278: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +279: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +280: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +281: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +282: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +283: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +284: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +285: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +286: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +287: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(360.0, 900.0)
+00:20 +287: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:21 +288: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artFailed Size(360.0, 900.0)
+00:21 +289: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(800.0, 600.0)
+00:21 +289: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:21 +290: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(800.0, 600.0)
+00:21 +290: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:21 +291: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(800.0, 600.0)
+00:21 +291: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:21 +292: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(800.0, 600.0)
+00:21 +292: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:21 +293: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artRetrying Size(800.0, 480.0)
+00:21 +294: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(1672.0, 952.0)
+00:21 +294: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:22 +295: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(1672.0, 952.0)
+00:22 +296: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% standard dense and dialogs at Size(1672.0, 952.0)
+00:22 +297: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true playtestInvalid Size(800.0, 480.0)
+00:22 +298: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/bloodOath
+00:22 +299: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true playtestInvalid Size(1280.0, 850.0)
+00:22 +300: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/recklessHelmsman
+00:23 +301: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true playtestKeyboard Size(360.0, 900.0)
+00:23 +302: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/superstitious
+00:23 +303: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/superstitious
+00:23 +304: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true playtestKeyboard Size(1280.0, 850.0)
+00:23 +305: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/exactingShipwright
+00:23 +306: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true playtestChoices Size(360.0, 900.0)
+00:23 +307: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/overzealousGunner
+00:23 +308: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true playtestChoices Size(800.0, 480.0)
+00:24 +309: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/daredevil
+00:24 +310: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true playtestChoices Size(1280.0, 850.0)
+00:24 +311: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/impatient
+00:24 +312: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad veteranCannoneer/skirmisher
+00:24 +313: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/bloodOath
+00:25 +314: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/recklessHelmsman
+00:25 +315: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview poor Size(360.0, 900.0)
+00:25 +316: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview poor Size(360.0, 900.0)
+00:25 +317: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview poor Size(360.0, 900.0)
+00:26 +318: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/overzealousGunner
+00:26 +319: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview poor Size(800.0, 480.0)
+00:26 +320: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/daredevil
+00:26 +321: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/daredevil
+00:26 +322: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview rich Size(360.0, 900.0)
+00:26 +323: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/impatient
+00:26 +324: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/impatient
+00:26 +325: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/impatient
+00:26 +326: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview owned Size(360.0, 900.0)
+00:26 +327: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad stormSeer/skirmisher
+00:27 +328: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview owned Size(800.0, 480.0)
+00:27 +329: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/bloodOath
+00:27 +330: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/bloodOath
+00:27 +331: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/bloodOath
+00:27 +332: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% overview maxed Size(800.0, 480.0)
+00:27 +333: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/recklessHelmsman
+00:27 +334: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/recklessHelmsman
+00:27 +335: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints poor Size(360.0, 900.0)
+00:27 +336: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/superstitious
+00:27 +337: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints poor Size(800.0, 480.0)
+00:28 +338: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/exactingShipwright
+00:28 +339: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints poor Size(1280.0, 850.0)
+00:28 +340: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/overzealousGunner
+00:28 +341: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints rich Size(360.0, 900.0)
+00:28 +342: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/daredevil
+00:28 +343: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints rich Size(800.0, 480.0)
+00:28 +344: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints rich Size(800.0, 480.0)
+00:28 +345: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ironConstitution/skirmisher
+00:28 +346: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints rich Size(1280.0, 850.0)
+00:28 +347: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/bloodOath
+00:29 +348: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints owned Size(360.0, 900.0)
+00:29 +349: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/recklessHelmsman
+00:29 +350: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/recklessHelmsman
+00:29 +351: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints owned Size(1280.0, 850.0)
+00:29 +352: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/superstitious
+00:29 +353: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints maxed Size(360.0, 900.0)
+00:29 +354: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/exactingShipwright
+00:29 +355: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints maxed Size(800.0, 480.0)
+00:29 +356: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/overzealousGunner
+00:29 +357: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% blueprints maxed Size(1280.0, 850.0)
+00:30 +358: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/daredevil
+00:30 +359: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts poor Size(360.0, 900.0)
+00:30 +360: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts poor Size(360.0, 900.0)
+00:30 +361: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad smugglersKin/skirmisher
+00:30 +362: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts poor Size(800.0, 480.0)
+00:30 +363: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/bloodOath
+00:30 +364: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts poor Size(1280.0, 850.0)
+00:30 +365: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/recklessHelmsman
+00:30 +366: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts rich Size(360.0, 900.0)
+00:31 +367: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/superstitious
+00:31 +368: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts rich Size(800.0, 480.0)
+00:31 +369: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/exactingShipwright
+00:31 +370: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts rich Size(1280.0, 850.0)
+00:31 +371: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/overzealousGunner
+00:31 +372: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts owned Size(360.0, 900.0)
+00:31 +373: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts owned Size(360.0, 900.0)
+00:31 +374: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/impatient
+00:31 +375: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/impatient
+00:31 +376: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts owned Size(1280.0, 850.0)
+00:32 +377: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad drillmaster/skirmisher
+00:32 +378: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts maxed Size(360.0, 900.0)
+00:32 +379: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/bloodOath
+00:32 +380: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts maxed Size(800.0, 480.0)
+00:32 +381: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts maxed Size(800.0, 480.0)
+00:32 +382: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/superstitious
+00:32 +383: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% pacts maxed Size(1280.0, 850.0)
+00:32 +384: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/exactingShipwright
+00:32 +385: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics poor Size(360.0, 900.0)
+00:32 +386: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/overzealousGunner
+00:32 +387: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/overzealousGunner
+00:32 +388: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics poor Size(1280.0, 850.0)
+00:32 +389: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/daredevil
+00:33 +390: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics rich Size(360.0, 900.0)
+00:33 +391: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/impatient
+00:33 +392: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics rich Size(800.0, 480.0)
+00:33 +393: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad preciseCommander/skirmisher
+00:33 +394: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics rich Size(1280.0, 850.0)
+00:33 +395: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/bloodOath
+00:33 +396: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics owned Size(360.0, 900.0)
+00:33 +397: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/recklessHelmsman
+00:33 +398: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics owned Size(800.0, 480.0)
+00:33 +399: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/superstitious
+00:33 +400: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/superstitious
+00:33 +401: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics maxed Size(360.0, 900.0)
+00:34 +402: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/exactingShipwright
+00:34 +403: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics maxed Size(800.0, 480.0)
+00:34 +404: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/overzealousGunner
+00:34 +405: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% relics maxed Size(1280.0, 850.0)
+00:34 +406: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/daredevil
+00:34 +407: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments poor Size(360.0, 900.0)
+00:34 +408: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/impatient
+00:34 +409: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments poor Size(800.0, 480.0)
+00:34 +410: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/skirmisher
+00:34 +411: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad skilledCarpenter/skirmisher
+00:34 +412: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments rich Size(360.0, 900.0)
+00:34 +413: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/bloodOath
+00:34 +414: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments rich Size(800.0, 480.0)
+00:35 +415: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/recklessHelmsman
+00:35 +416: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments rich Size(1280.0, 850.0)
+00:35 +417: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/superstitious
+00:35 +418: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments owned Size(360.0, 900.0)
+00:35 +419: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/exactingShipwright
+00:35 +420: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments owned Size(800.0, 480.0)
+00:35 +421: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/overzealousGunner
+00:35 +422: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/overzealousGunner
+00:35 +423: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments maxed Size(360.0, 900.0)
+00:36 +424: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/daredevil
+00:36 +425: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments maxed Size(800.0, 480.0)
+00:36 +426: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/impatient
+00:36 +427: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% monuments maxed Size(1280.0, 850.0)
+00:36 +428: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/skirmisher
+00:36 +429: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/skirmisher
+00:36 +430: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad quartermaster/skirmisher
+00:36 +431: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage empty Size(1280.0, 850.0)
+00:36 +432: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(360.0, 900.0)
+00:36 +433: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(360.0, 900.0)
+00:36 +434: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage many Size(800.0, 480.0)
+00:36 +435: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(800.0, 600.0)
+00:36 +436: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(800.0, 600.0)
+00:36 +437: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage unreadable Size(360.0, 900.0)
+00:36 +438: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(1280.0, 900.0)
+00:37 +439: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(1280.0, 900.0)
+00:37 +440: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(1280.0, 900.0)
+00:37 +441: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad dense status at Size(1280.0, 900.0)
+00:37 +442: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage catalogError Size(800.0, 480.0)
+00:37 +443: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ready at compact width
+00:37 +444: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ready at compact width
+00:37 +445: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad ready at compact width
+00:37 +446: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage openError Size(800.0, 480.0)
+00:37 +447: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(360.0, 900.0)
+00:37 +448: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(360.0, 900.0)
+00:37 +449: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(360.0, 900.0)
+00:37 +450: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage ending Size(800.0, 480.0)
+00:37 +451: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(800.0, 600.0)
+00:37 +452: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(800.0, 600.0)
+00:37 +453: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(800.0, 600.0)
+00:37 +454: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(800.0, 600.0)
+00:37 +455: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage noSnapshot Size(1280.0, 850.0)
+00:37 +456: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(1672.0, 952.0)
+00:37 +457: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(1672.0, 952.0)
+00:37 +458: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(1672.0, 952.0)
+00:37 +459: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad cooldowns at Size(1672.0, 952.0)
+00:37 +460: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% lineage wideLabel Size(360.0, 900.0)
+00:37 +461: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad combination at Size(360.0, 900.0)
+00:38 +462: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad combination at Size(360.0, 900.0)
+00:38 +463: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad combination at Size(360.0, 900.0)
+00:38 +464: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage empty Size(360.0, 900.0)
+00:38 +465: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage empty Size(360.0, 900.0)
+00:38 +466: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad combination at Size(1672.0, 952.0)
+00:38 +467: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad combination at Size(1672.0, 952.0)
+00:38 +468: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage empty Size(1280.0, 850.0)
+00:38 +469: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad recovery at Size(360.0, 900.0)
+00:38 +470: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage longLabel Size(360.0, 900.0)
+00:38 +471: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad recovery at Size(800.0, 600.0)
+00:38 +472: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage longLabel Size(800.0, 480.0)
+00:38 +473: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad recovery at Size(1672.0, 952.0)
+00:38 +474: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad recovery at Size(1672.0, 952.0)
+00:38 +475: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage invalid Size(360.0, 900.0)
+00:39 +476: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad beltSpent at Size(360.0, 900.0)
+00:39 +477: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage invalid Size(800.0, 480.0)
+00:39 +478: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad beltSpent at Size(800.0, 600.0)
+00:39 +479: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage invalid Size(1280.0, 850.0)
+00:39 +480: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad beltSpent at Size(1672.0, 952.0)
+00:39 +481: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage keyboard Size(360.0, 900.0)
+00:39 +482: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad emptyBelt at Size(360.0, 900.0)
+00:39 +483: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage keyboard Size(800.0, 480.0)
+00:39 +484: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad emptyBelt at Size(800.0, 600.0)
+00:39 +485: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage keyboard Size(1280.0, 850.0)
+00:39 +486: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad emptyBelt at Size(1672.0, 952.0)
+00:39 +487: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage createError Size(360.0, 900.0)
+00:39 +488: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad windup at Size(360.0, 900.0)
+00:39 +489: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad windup at Size(360.0, 900.0)
+00:39 +490: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% new lineage createError Size(1280.0, 850.0)
+00:40 +491: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad windup at Size(800.0, 600.0)
+00:40 +492: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% ironclad overview owned Size(360.0, 900.0)
+00:40 +493: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad windup at Size(1672.0, 952.0)
+00:40 +494: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad windup at Size(1672.0, 952.0)
+00:40 +495: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% ironclad overview maxed Size(360.0, 900.0)
+00:40 +496: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad release at Size(360.0, 900.0)
+00:40 +497: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad release at Size(360.0, 900.0)
+00:40 +498: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% ironclad blueprints owned Size(360.0, 900.0)
+00:40 +499: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad release at Size(800.0, 600.0)
+00:40 +500: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% ironclad blueprints owned Size(1280.0, 850.0)
+00:40 +501: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad release at Size(1672.0, 952.0)
+00:40 +502: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% ironclad blueprints maxed Size(360.0, 900.0)
+00:40 +503: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad longRange at Size(360.0, 900.0)
+00:40 +504: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% ironclad blueprints maxed Size(1280.0, 850.0)
+00:40 +505: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad longRange at Size(800.0, 600.0)
+00:41 +506: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad longRange at Size(800.0, 600.0)
+00:41 +507: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% clipper overview owned Size(1280.0, 850.0)
+00:41 +508: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad longRange at Size(1672.0, 952.0)
+00:41 +509: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad longRange at Size(1672.0, 952.0)
+00:41 +510: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% clipper overview maxed Size(1280.0, 850.0)
+00:41 +511: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad storm at Size(360.0, 900.0)
+00:41 +512: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% clipper blueprints owned Size(360.0, 900.0)
+00:41 +513: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad storm at Size(800.0, 600.0)
+00:41 +514: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% clipper blueprints owned Size(1280.0, 850.0)
+00:41 +515: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad storm at Size(1672.0, 952.0)
+00:41 +516: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% clipper blueprints maxed Size(360.0, 900.0)
+00:41 +517: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad wake at Size(360.0, 900.0)
+00:41 +518: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad wake at Size(360.0, 900.0)
+00:41 +519: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% bombardier overview owned Size(360.0, 900.0)
+00:41 +520: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad wake at Size(800.0, 600.0)
+00:42 +521: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad wake at Size(800.0, 600.0)
+00:42 +522: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% bombardier overview maxed Size(360.0, 900.0)
+00:42 +523: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad wake at Size(1672.0, 952.0)
+00:42 +524: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% ironclad wake at Size(1672.0, 952.0)
+00:42 +525: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% bombardier blueprints owned Size(360.0, 900.0)
+00:42 +526: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(360.0, 900.0)
+00:42 +527: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(360.0, 900.0)
+00:42 +528: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% bombardier blueprints maxed Size(360.0, 900.0)
+00:42 +529: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(800.0, 600.0)
+00:42 +530: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(800.0, 600.0)
+00:42 +531: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(800.0, 600.0)
+00:42 +532: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% corsair overview owned Size(1280.0, 850.0)
+00:42 +533: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(1672.0, 952.0)
+00:42 +534: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(1672.0, 952.0)
+00:43 +535: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(1672.0, 952.0)
+00:43 +536: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% ironclad dense and dialogs at Size(1672.0, 952.0)
+00:43 +537: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% corsair blueprints owned Size(1280.0, 850.0)
+00:43 +538: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/bloodOath
+00:43 +539: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% corsair blueprints maxed Size(360.0, 900.0)
+00:43 +540: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/recklessHelmsman
+00:43 +541: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% corsair blueprints maxed Size(1280.0, 850.0)
+00:43 +542: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/superstitious
+00:43 +543: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/superstitious
+00:43 +544: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% home trait descriptions 0 Size(1280.0, 850.0)
+00:43 +545: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/exactingShipwright
+00:43 +546: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/exactingShipwright
+00:43 +547: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% home trait descriptions 1 Size(1280.0, 850.0)
+00:43 +548: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/overzealousGunner
+00:43 +549: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/overzealousGunner
+00:43 +550: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% home trait descriptions 2 Size(1280.0, 850.0)
+00:43 +551: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/daredevil
+00:44 +552: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/daredevil
+00:44 +553: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/daredevil
+00:44 +554: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% home trait descriptions 4 Size(360.0, 900.0)
+00:44 +555: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/impatient
+00:44 +556: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/impatient
+00:44 +557: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/impatient
+00:44 +558: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% home trait descriptions 5 Size(1280.0, 850.0)
+00:44 +559: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/skirmisher
+00:44 +560: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/skirmisher
+00:44 +561: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper veteranCannoneer/skirmisher
+00:44 +562: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 115% home trait descriptions 7 Size(360.0, 900.0)
+00:44 +563: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/bloodOath
+00:44 +564: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/bloodOath
+00:44 +565: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% overview upgrades Size(360.0, 900.0)
+00:44 +566: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/recklessHelmsman
+00:44 +567: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/recklessHelmsman
+00:44 +568: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/recklessHelmsman
+00:44 +569: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% blueprints upgrades Size(360.0, 900.0)
+00:45 +570: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/superstitious
+00:45 +571: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% blueprints upgrades Size(800.0, 480.0)
+00:45 +572: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/exactingShipwright
+00:45 +573: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% blueprints upgrades Size(1280.0, 850.0)
+00:45 +574: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/overzealousGunner
+00:45 +575: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/overzealousGunner
+00:45 +576: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% pacts upgrades Size(800.0, 480.0)
+00:45 +577: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/daredevil
+00:45 +578: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% pacts upgrades Size(1280.0, 850.0)
+00:45 +579: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/impatient
+00:45 +580: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/impatient
+00:45 +581: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% relics upgrades Size(800.0, 480.0)
+00:46 +582: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper stormSeer/skirmisher
+00:46 +583: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% relics upgrades Size(1280.0, 850.0)
+00:46 +584: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/bloodOath
+00:46 +585: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% monuments upgrades Size(360.0, 900.0)
+00:46 +586: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/recklessHelmsman
+00:46 +587: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% monuments upgrades Size(800.0, 480.0)
+00:46 +588: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/superstitious
+00:46 +589: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% monuments upgrades Size(1280.0, 850.0)
+00:46 +590: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/exactingShipwright
+00:46 +591: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/exactingShipwright
+00:46 +592: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% new lineage invalid Size(360.0, 900.0)
+00:46 +593: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/overzealousGunner
+00:46 +594: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% new lineage keyboard Size(360.0, 900.0)
+00:46 +595: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/daredevil
+00:46 +596: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/daredevil
+00:47 +597: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% new lineage invalid Size(800.0, 480.0)
+00:47 +598: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/impatient
+00:47 +599: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/impatient
+00:47 +600: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% lineage list Size(1280.0, 850.0)
+00:47 +601: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/skirmisher
+00:47 +602: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ironConstitution/skirmisher
+00:47 +603: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/home_layout_matrix_test.dart: 130% new lineage keyboard Size(1280.0, 850.0)
+00:47 +604: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper smugglersKin/bloodOath
+00:47 +605: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper smugglersKin/recklessHelmsman
+00:47 +606: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper smugglersKin/superstitious
+00:47 +607: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper smugglersKin/exactingShipwright
+00:47 +608: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper smugglersKin/overzealousGunner
+00:47 +609: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper smugglersKin/overzealousGunner
+00:48 +610: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_ui_test.dart: Fresh captain names and sails Standard directly into combat without class picker
+00:48 +611: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_ui_test.dart: Fresh captain names and sails Standard directly into combat without class picker
+00:48 +612: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_ui_test.dart: Fresh captain names and sails Standard directly into combat without class picker
+00:48 +613: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_ui_test.dart: Fresh captain names and sails Standard directly into combat without class picker
+00:48 +614: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/bloodOath
+00:48 +615: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_ui_test.dart: Returning bloodline takes command at port with unlocked blueprint
+00:48 +616: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/recklessHelmsman
+00:48 +617: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/recklessHelmsman
+00:49 +618: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/recklessHelmsman
+00:49 +619: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_ui_test.dart: Home port has no drydock and remains readable at360px with130percent text
+00:49 +620: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/playtest_ui_test.dart: Home port has no drydock and remains readable at360px with130percent text
+00:49 +621: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/exactingShipwright
+00:49 +622: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/exactingShipwright
+00:49 +623: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/overzealousGunner
+00:49 +624: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/daredevil
+00:49 +625: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper drillmaster/impatient
+00:49 +626: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:50 +627: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:50 +628: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:50 +629: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:50 +630: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:50 +631: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:51 +632: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: real app starts at menu; settings and new lineage lead to the introduction
+00:51 +633: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper preciseCommander/daredevil
+00:51 +634: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:51 +635: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:51 +636: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: other fate opens a branch, retries failure, then resumes the same changed save
+00:51 +637: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper skilledCarpenter/bloodOath
+00:51 +638: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.15
+00:52 +639: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper skilledCarpenter/recklessHelmsman
+00:52 +640: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(360.0, 900.0) / 1.3
+00:52 +641: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper skilledCarpenter/superstitious
+00:52 +642: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.15
+00:52 +643: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper skilledCarpenter/exactingShipwright
+00:52 +644: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: prologue controls share its frame at Size(1600.0, 1000.0) / 1.3
+00:52 +645: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper skilledCarpenter/overzealousGunner
+00:52 +646: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:53 +647: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:53 +648: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: switching lineages saves home preparation and resumes the correct captain
+00:53 +649: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper skilledCarpenter/skirmisher
+00:53 +650: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: completed lineage can return to menu without erasing its ending
+00:53 +651: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: completed lineage can return to menu without erasing its ending
+00:53 +652: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper quartermaster/recklessHelmsman
+00:53 +653: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:53 +654: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: encounters block menu departure; failed and delayed saves protect the active game
+00:53 +655: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper quartermaster/exactingShipwright
+00:54 +656: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:54 +657: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: catalog, create and open failures are retryable and never start fresh gameplay
+00:54 +658: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper quartermaster/daredevil
+00:54 +659: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper quartermaster/daredevil
+00:54 +660: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:54 +661: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:54 +662: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: F10 remains reachable inside a slotted game and resumes the same captain
+00:54 +663: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper dense status at Size(360.0, 900.0)
+00:54 +664: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: an unreadable selected slot can retry without blocking another save
+00:54 +665: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: an unreadable selected slot can retry without blocking another save
+00:54 +666: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper dense status at Size(1280.0, 900.0)
+00:55 +667: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 360.0 / 1.15
+00:55 +668: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ready at compact width
+00:55 +669: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper ready at compact width
+00:55 +670: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 1280.0 / 1.15
+00:55 +671: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper cooldowns at Size(360.0, 900.0)
+00:55 +672: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/lineage_menu_test.dart: menu and new-lineage dialog fit at 1280.0 / 1.3
+00:55 +673: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper cooldowns at Size(800.0, 600.0)
+00:55 +674: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper cooldowns at Size(1672.0, 952.0)
+00:55 +675: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper combination at Size(360.0, 900.0)
+00:55 +676: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper combination at Size(800.0, 600.0)
+00:56 +677: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:56 +678: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:56 +679: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:56 +680: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:56 +681: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:56 +682: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:57 +683: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: successive cold scenes load full bundled paths with no prewarming
+00:57 +684: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper beltSpent at Size(1672.0, 952.0)
+00:57 +684: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.15
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:57 +685: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.15
+00:57 +686: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.15
+00:57 +687: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.15
+00:57 +688: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper emptyBelt at Size(1672.0, 952.0)
+00:57 +688: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.3
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:57 +689: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 360.0 / 1.3
+00:57 +690: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper windup at Size(360.0, 900.0)
+00:57 +691: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 1280.0 / 1.15
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:58 +692: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 1280.0 / 1.15
+00:58 +693: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper windup at Size(1672.0, 952.0)
+00:58 +693: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 1280.0 / 1.3
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:58 +694: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: missing ship art stays playable and retries at 1280.0 / 1.3
+00:58 +695: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper release at Size(360.0, 900.0)
+00:58 +695: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: an undecodable PNG does not poison the image cache
+Battle illustration unavailable (assets/art/ship_standard_map.png): Exception: Invalid image data
+00:58 +696: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: an undecodable PNG does not poison the image cache
+00:58 +697: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: an undecodable PNG does not poison the image cache
+00:58 +698: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper release at Size(1672.0, 952.0)
+00:58 +699: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: both missing illustrations remain recoverable after a failed retry
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+Battle illustration unavailable (assets/art/monster_shark_map.png): Unable to load asset: "assets/art/monster_shark_map.png"
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+Battle illustration unavailable (assets/art/monster_shark_map.png): Unable to load asset: "assets/art/monster_shark_map.png"
+00:58 +700: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: both missing illustrations remain recoverable after a failed retry
+00:58 +701: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper longRange at Size(800.0, 600.0)
+00:58 +701: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: a pending retry can finish after the scene is removed
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:58 +702: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: a pending retry can finish after the scene is removed
+00:59 +703: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% clipper longRange at Size(1672.0, 952.0)
+00:59 +704: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:59 +705: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:59 +706: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:59 +707: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:59 +708: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:59 +709: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+00:59 +710: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_art_recovery_test.dart: battle entry, action playback and reopening respect the Chronicle
+01:00 +711: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% clipper dense and dialogs at Size(360.0, 900.0)
+01:00 +712: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% clipper dense and dialogs at Size(800.0, 600.0)
+01:00 +713: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% clipper dense and dialogs at Size(1672.0, 952.0)
+01:00 +714: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+01:01 +715: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+01:01 +716: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+01:01 +717: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+01:01 +718: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 360.0
+01:01 +719: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier veteranCannoneer/overzealousGunner
+01:01 +720: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+01:02 +721: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: merchant tabs trade and inspect without losing stock at 1920.0
+01:02 +722: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier veteranCannoneer/impatient
+01:02 +723: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 1 and history stays immutable
+01:02 +724: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier veteranCannoneer/skirmisher
+01:02 +725: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 2 and history stays immutable
+01:02 +726: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: vessel berths at stronghold 2 and history stays immutable
+01:02 +727: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier stormSeer/recklessHelmsman
+01:02 +728: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shore_ui_test.dart: stronghold uses the shared inspection action
+01:02 +729: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier stormSeer/superstitious
+01:02 +730: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier stormSeer/exactingShipwright
+01:03 +731: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier stormSeer/overzealousGunner
+01:03 +732: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier stormSeer/daredevil
+01:03 +733: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier stormSeer/impatient
+01:03 +734: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+01:03 +735: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+01:03 +736: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+01:04 +737: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: Esc nests settings, blocks gameplay, resumes and restores focus
+01:04 +738: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier ironConstitution/superstitious
+01:04 +739: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: every unsupported encounter and playback disables both departures
+01:04 +740: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier ironConstitution/exactingShipwright
+01:04 +741: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: return drains queued snapshots and ignores dismissal while saving
+01:04 +742: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier ironConstitution/overzealousGunner
+01:04 +743: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+01:04 +744: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+01:05 +745: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+01:05 +746: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: fatal volley survives Pause and parent rebuild without replay
+01:05 +747: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/bloodOath
+01:05 +748: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: return retries failed saves before leaving
+01:05 +749: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/recklessHelmsman
+01:05 +750: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/recklessHelmsman
+01:05 +751: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: exit waits for saving and prevents duplicate exit requests
+01:05 +752: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/superstitious
+01:05 +753: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/superstitious
+01:05 +754: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: pause fits 360.0 at 1.15 text
+01:05 +755: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/exactingShipwright
+01:05 +756: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/exactingShipwright
+01:05 +757: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/exactingShipwright
+01:05 +758: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/pause_menu_test.dart: pause fits 1280.0 at 1.3 text
+01:05 +759: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/overzealousGunner
+01:05 +760: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/daredevil
+01:06 +761: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/impatient
+01:06 +762: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier smugglersKin/skirmisher
+01:06 +763: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/bloodOath
+01:06 +764: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/recklessHelmsman
+01:06 +765: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/superstitious
+01:06 +766: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/exactingShipwright
+01:06 +767: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/overzealousGunner
+01:07 +768: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/daredevil
+01:07 +769: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/impatient
+01:07 +770: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier drillmaster/skirmisher
+01:07 +771: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/bloodOath
+01:07 +772: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/recklessHelmsman
+01:07 +773: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/superstitious
+01:07 +774: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/exactingShipwright
+01:08 +775: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/overzealousGunner
+01:08 +776: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/daredevil
+01:08 +777: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/impatient
+01:08 +778: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier preciseCommander/skirmisher
+01:08 +779: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/bloodOath
+01:08 +780: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/recklessHelmsman
+01:09 +781: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/superstitious
+01:09 +782: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/exactingShipwright
+01:09 +783: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/overzealousGunner
+01:09 +784: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/daredevil
+01:09 +785: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/impatient
+01:09 +786: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier skilledCarpenter/skirmisher
+01:09 +787: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/bloodOath
+01:10 +788: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/recklessHelmsman
+01:10 +789: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/superstitious
+01:10 +790: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/exactingShipwright
+01:10 +791: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/overzealousGunner
+01:10 +792: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/daredevil
+01:10 +793: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/impatient
+01:10 +794: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier quartermaster/skirmisher
+01:10 +795: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier dense status at Size(360.0, 900.0)
+01:11 +796: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier dense status at Size(800.0, 600.0)
+01:11 +797: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier dense status at Size(1280.0, 900.0)
+01:11 +798: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier ready at compact width
+01:11 +799: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier cooldowns at Size(360.0, 900.0)
+01:11 +800: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier cooldowns at Size(800.0, 600.0)
+01:11 +801: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier cooldowns at Size(1672.0, 952.0)
+01:11 +802: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier combination at Size(360.0, 900.0)
+01:12 +803: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier combination at Size(800.0, 600.0)
+01:12 +804: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier combination at Size(1672.0, 952.0)
+01:12 +805: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier recovery at Size(360.0, 900.0)
+01:12 +806: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier recovery at Size(800.0, 600.0)
+01:12 +807: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier recovery at Size(1672.0, 952.0)
+01:12 +808: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier beltSpent at Size(360.0, 900.0)
+01:12 +809: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier beltSpent at Size(800.0, 600.0)
+01:12 +810: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier beltSpent at Size(1672.0, 952.0)
+01:12 +811: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier emptyBelt at Size(360.0, 900.0)
+01:13 +812: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier emptyBelt at Size(800.0, 600.0)
+01:13 +813: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier emptyBelt at Size(1672.0, 952.0)
+01:13 +814: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier windup at Size(360.0, 900.0)
+01:13 +815: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier windup at Size(800.0, 600.0)
+01:13 +816: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier windup at Size(1672.0, 952.0)
+01:13 +817: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier release at Size(360.0, 900.0)
+01:13 +818: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier release at Size(800.0, 600.0)
+01:13 +819: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier release at Size(1672.0, 952.0)
+01:14 +820: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier longRange at Size(360.0, 900.0)
+01:14 +821: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier longRange at Size(800.0, 600.0)
+01:14 +822: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier longRange at Size(1672.0, 952.0)
+01:14 +823: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier storm at Size(360.0, 900.0)
+01:14 +824: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier storm at Size(800.0, 600.0)
+01:14 +825: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier storm at Size(1672.0, 952.0)
+01:15 +826: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier wake at Size(360.0, 900.0)
+01:15 +827: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier wake at Size(800.0, 600.0)
+01:15 +828: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% bombardier wake at Size(1672.0, 952.0)
+01:15 +829: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% bombardier dense and dialogs at Size(360.0, 900.0)
+01:15 +830: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% bombardier dense and dialogs at Size(800.0, 600.0)
+01:15 +831: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% bombardier dense and dialogs at Size(1672.0, 952.0)
+01:16 +832: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/bloodOath
+01:16 +833: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/recklessHelmsman
+01:16 +834: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/superstitious
+01:16 +835: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/exactingShipwright
+01:16 +836: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/overzealousGunner
+01:16 +837: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/daredevil
+01:17 +838: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/impatient
+01:17 +839: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair veteranCannoneer/skirmisher
+01:17 +840: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/bloodOath
+01:17 +841: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/recklessHelmsman
+01:17 +842: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/superstitious
+01:17 +843: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/exactingShipwright
+01:17 +844: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/overzealousGunner
+01:18 +845: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/daredevil
+01:18 +846: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/impatient
+01:18 +847: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair stormSeer/skirmisher
+01:18 +848: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/bloodOath
+01:18 +849: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/recklessHelmsman
+01:18 +850: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/superstitious
+01:18 +851: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/exactingShipwright
+01:19 +852: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/overzealousGunner
+01:19 +853: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/daredevil
+01:19 +854: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/impatient
+01:19 +855: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ironConstitution/skirmisher
+01:19 +856: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/bloodOath
+01:19 +857: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/recklessHelmsman
+01:19 +858: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/superstitious
+01:20 +859: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/exactingShipwright
+01:20 +860: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/overzealousGunner
+01:20 +861: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/daredevil
+01:20 +862: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/impatient
+01:20 +863: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair smugglersKin/skirmisher
+01:20 +864: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/bloodOath
+01:21 +865: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/recklessHelmsman
+01:21 +866: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/superstitious
+01:21 +867: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/exactingShipwright
+01:21 +868: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/overzealousGunner
+01:21 +869: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/daredevil
+01:21 +870: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/impatient
+01:21 +871: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair drillmaster/skirmisher
+01:22 +872: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/bloodOath
+01:22 +873: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/recklessHelmsman
+01:22 +874: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/superstitious
+01:22 +875: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/exactingShipwright
+01:22 +876: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/overzealousGunner
+01:22 +877: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/daredevil
+01:23 +878: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/impatient
+01:23 +879: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair preciseCommander/skirmisher
+01:23 +880: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/bloodOath
+01:23 +881: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/recklessHelmsman
+01:23 +882: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/superstitious
+01:23 +883: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/exactingShipwright
+01:23 +884: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/overzealousGunner
+01:24 +885: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/daredevil
+01:24 +886: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/impatient
+01:24 +887: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair skilledCarpenter/skirmisher
+01:24 +888: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/bloodOath
+01:24 +889: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/recklessHelmsman
+01:24 +890: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/superstitious
+01:24 +891: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/exactingShipwright
+01:25 +892: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/overzealousGunner
+01:25 +893: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/daredevil
+01:25 +894: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/impatient
+01:25 +895: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair quartermaster/skirmisher
+01:25 +896: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair dense status at Size(360.0, 900.0)
+01:25 +897: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair dense status at Size(800.0, 600.0)
+01:25 +898: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair dense status at Size(1280.0, 900.0)
+01:26 +899: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair ready at compact width
+01:26 +900: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair cooldowns at Size(360.0, 900.0)
+01:26 +901: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair cooldowns at Size(800.0, 600.0)
+01:26 +902: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair cooldowns at Size(1672.0, 952.0)
+01:26 +903: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair combination at Size(360.0, 900.0)
+01:26 +904: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair combination at Size(800.0, 600.0)
+01:26 +905: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair combination at Size(1672.0, 952.0)
+01:26 +906: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair recovery at Size(360.0, 900.0)
+01:26 +907: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair recovery at Size(800.0, 600.0)
+01:27 +908: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair recovery at Size(1672.0, 952.0)
+01:27 +909: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair beltSpent at Size(360.0, 900.0)
+01:27 +910: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair beltSpent at Size(800.0, 600.0)
+01:27 +911: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair beltSpent at Size(1672.0, 952.0)
+01:27 +912: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair emptyBelt at Size(360.0, 900.0)
+01:27 +913: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair emptyBelt at Size(800.0, 600.0)
+01:27 +914: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair emptyBelt at Size(1672.0, 952.0)
+01:27 +915: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair windup at Size(360.0, 900.0)
+01:28 +916: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair windup at Size(800.0, 600.0)
+01:28 +917: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair windup at Size(1672.0, 952.0)
+01:28 +918: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair release at Size(360.0, 900.0)
+01:28 +919: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair release at Size(800.0, 600.0)
+01:28 +920: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair release at Size(1672.0, 952.0)
+01:28 +921: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair longRange at Size(360.0, 900.0)
+01:28 +922: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair longRange at Size(800.0, 600.0)
+01:29 +923: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair longRange at Size(1672.0, 952.0)
+01:29 +924: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair storm at Size(360.0, 900.0)
+01:29 +925: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair storm at Size(800.0, 600.0)
+01:29 +926: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair storm at Size(1672.0, 952.0)
+01:29 +927: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair wake at Size(360.0, 900.0)
+01:29 +928: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair wake at Size(800.0, 600.0)
+01:29 +929: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 115% corsair wake at Size(1672.0, 952.0)
+01:30 +930: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% corsair dense and dialogs at Size(360.0, 900.0)
+01:30 +931: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% corsair dense and dialogs at Size(800.0, 600.0)
+01:30 +932: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: 130% corsair dense and dialogs at Size(1672.0, 952.0)
+01:31 +933: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/combat_layout_matrix_test.dart: (tearDownAll)
+01:31 +933: All tests passed!

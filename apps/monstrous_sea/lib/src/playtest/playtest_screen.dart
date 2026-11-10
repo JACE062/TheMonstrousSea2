@@ -310,6 +310,7 @@ class _PlaytestScreenState extends State<PlaytestScreen> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: 'Starting gold',
+                        errorMaxLines: 3,
                         border: OutlineInputBorder(),
                       ),
                       validator: (text) => _validateNumber(text, 999999),
@@ -320,6 +321,7 @@ class _PlaytestScreenState extends State<PlaytestScreen> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: 'Random seed',
+                        errorMaxLines: 3,
                         border: OutlineInputBorder(),
                       ),
                       validator: (text) => _validateNumber(text, 2147483647),

@@ -1,0 +1,358 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% startupLoading Size(360.0, 900.0)
+00:00 +1: 115% startupLoading Size(800.0, 480.0)
+00:00 +2: 115% startupLoading Size(1280.0, 850.0)
+00:00 +3: 115% startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:01 +4: 115% startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:01 +5: 115% startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:01 +6: 115% lineageLoading Size(360.0, 900.0)
+00:01 +7: 115% lineageLoading Size(800.0, 480.0)
+00:01 +8: 115% lineageLoading Size(1280.0, 850.0)
+00:01 +9: 115% lineageOpening Size(360.0, 900.0)
+00:01 +10: 115% lineageOpening Size(800.0, 480.0)
+00:01 +11: 115% lineageOpening Size(1280.0, 850.0)
+00:02 +12: 115% lineageBranching Size(360.0, 900.0)
+00:02 +13: 115% lineageBranching Size(800.0, 480.0)
+00:02 +14: 115% lineageBranching Size(1280.0, 850.0)
+00:02 +15: 115% lineageBranchError Size(360.0, 900.0)
+00:02 +16: 115% lineageBranchError Size(800.0, 480.0)
+00:02 +17: 115% lineageBranchError Size(1280.0, 850.0)
+00:02 +18: 115% lineageSummaryError Size(360.0, 900.0)
+00:02 +19: 115% lineageSummaryError Size(800.0, 480.0)
+00:02 +20: 115% lineageSummaryError Size(1280.0, 850.0)
+00:03 +21: 115% lineageExitError Size(360.0, 900.0)
+00:03 +22: 115% lineageExitError Size(800.0, 480.0)
+00:03 +23: 115% lineageExitError Size(1280.0, 850.0)
+00:03 +24: 115% cancelLineage Size(360.0, 900.0)
+00:03 +25: 115% cancelLineage Size(800.0, 480.0)
+00:03 +26: 115% cancelLineage Size(1280.0, 850.0)
+00:04 +27: 115% rest Size(360.0, 900.0)
+00:04 +28: 115% rest Size(800.0, 480.0)
+00:04 +29: 115% rest Size(1280.0, 850.0)
+00:04 +30: 115% restCritical Size(360.0, 900.0)
+00:04 +31: 115% restCritical Size(800.0, 480.0)
+00:04 +32: 115% restCritical Size(1280.0, 850.0)
+00:04 +33: 115% restNoShip Size(360.0, 900.0)
+00:05 +34: 115% restNoShip Size(800.0, 480.0)
+00:05 +35: 115% restNoShip Size(1280.0, 850.0)
+00:05 +36: 115% wreckUnavailable Size(360.0, 900.0)
+00:05 +37: 115% wreckUnavailable Size(800.0, 480.0)
+00:05 +38: 115% wreckUnavailable Size(1280.0, 850.0)
+00:05 +39: 115% lootEmpty Size(360.0, 900.0)
+00:05 +40: 115% lootEmpty Size(800.0, 480.0)
+00:05 +41: 115% lootEmpty Size(1280.0, 850.0)
+00:05 +42: 115% materialsSoldOut Size(360.0, 900.0)
+00:05 +43: 115% materialsSoldOut Size(800.0, 480.0)
+00:05 +44: 115% materialsSoldOut Size(1280.0, 850.0)
+00:05 +45: 115% battleWaiting Size(360.0, 900.0)
+00:05 +46: 115% battleWaiting Size(800.0, 480.0)
+00:05 +47: 115% battleWaiting Size(1280.0, 850.0)
+00:05 +48: 115% artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:06 +49: 115% artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:06 +50: 115% artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:06 +51: 115% artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:06 +52: 115% artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:06 +53: 115% artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:07 +54: 115% playtest Size(360.0, 900.0)
+00:07 +55: 115% playtest Size(800.0, 480.0)
+00:07 +56: 115% playtest Size(1280.0, 850.0)
+00:07 +57: 115% playtestInvalid Size(360.0, 900.0)
+00:07 +58: 115% playtestInvalid Size(800.0, 480.0)
+00:08 +59: 115% playtestInvalid Size(1280.0, 850.0)
+00:08 +60: 115% playtestKeyboard Size(360.0, 900.0)
+00:08 +61: 115% playtestKeyboard Size(800.0, 480.0)
+00:08 +62: 115% playtestKeyboard Size(1280.0, 850.0)
+00:09 +63: 115% playtestChoices Size(360.0, 900.0)
+00:09 +64: 115% playtestChoices Size(800.0, 480.0)
+00:09 +65: 115% playtestChoices Size(1280.0, 850.0)
+00:10 +66: 115% playtestActive Size(360.0, 900.0)
+00:10 +67: 115% playtestActive Size(800.0, 480.0)
+00:10 +68: 115% playtestActive Size(1280.0, 850.0)
+00:10 +69: Plain 115% startupLoading Size(360.0, 900.0)
+00:10 +70: Plain 115% startupLoading Size(800.0, 480.0)
+00:10 +71: Plain 115% startupLoading Size(1280.0, 850.0)
+00:10 +72: Plain 115% startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:10 +73: Plain 115% startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:10 +74: Plain 115% startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:10 +75: Plain 115% lineageLoading Size(360.0, 900.0)
+00:10 +76: Plain 115% lineageLoading Size(800.0, 480.0)
+00:10 +77: Plain 115% lineageLoading Size(1280.0, 850.0)
+00:10 +78: Plain 115% lineageOpening Size(360.0, 900.0)
+00:10 +79: Plain 115% lineageOpening Size(800.0, 480.0)
+00:11 +80: Plain 115% lineageOpening Size(1280.0, 850.0)
+00:11 +81: Plain 115% lineageBranching Size(360.0, 900.0)
+00:11 +82: Plain 115% lineageBranching Size(800.0, 480.0)
+00:11 +83: Plain 115% lineageBranching Size(1280.0, 850.0)
+00:11 +84: Plain 115% lineageBranchError Size(360.0, 900.0)
+00:11 +85: Plain 115% lineageBranchError Size(800.0, 480.0)
+00:11 +86: Plain 115% lineageBranchError Size(1280.0, 850.0)
+00:11 +87: Plain 115% lineageSummaryError Size(360.0, 900.0)
+00:11 +88: Plain 115% lineageSummaryError Size(800.0, 480.0)
+00:11 +89: Plain 115% lineageSummaryError Size(1280.0, 850.0)
+00:11 +90: Plain 115% lineageExitError Size(360.0, 900.0)
+00:11 +91: Plain 115% lineageExitError Size(800.0, 480.0)
+00:11 +92: Plain 115% lineageExitError Size(1280.0, 850.0)
+00:12 +93: Plain 115% cancelLineage Size(360.0, 900.0)
+00:12 +94: Plain 115% cancelLineage Size(800.0, 480.0)
+00:12 +95: Plain 115% cancelLineage Size(1280.0, 850.0)
+00:12 +96: Plain 115% rest Size(360.0, 900.0)
+00:12 +97: Plain 115% rest Size(800.0, 480.0)
+00:12 +98: Plain 115% rest Size(1280.0, 850.0)
+00:12 +99: Plain 115% restCritical Size(360.0, 900.0)
+00:12 +100: Plain 115% restCritical Size(800.0, 480.0)
+00:12 +101: Plain 115% restCritical Size(1280.0, 850.0)
+00:12 +102: Plain 115% restNoShip Size(360.0, 900.0)
+00:12 +103: Plain 115% restNoShip Size(800.0, 480.0)
+00:12 +104: Plain 115% restNoShip Size(1280.0, 850.0)
+00:12 +105: Plain 115% wreckUnavailable Size(360.0, 900.0)
+00:12 +106: Plain 115% wreckUnavailable Size(800.0, 480.0)
+00:13 +107: Plain 115% wreckUnavailable Size(1280.0, 850.0)
+00:13 +108: Plain 115% lootEmpty Size(360.0, 900.0)
+00:13 +109: Plain 115% lootEmpty Size(800.0, 480.0)
+00:13 +110: Plain 115% lootEmpty Size(1280.0, 850.0)
+00:13 +111: Plain 115% materialsSoldOut Size(360.0, 900.0)
+00:13 +112: Plain 115% materialsSoldOut Size(800.0, 480.0)
+00:13 +113: Plain 115% materialsSoldOut Size(1280.0, 850.0)
+00:13 +114: Plain 115% battleWaiting Size(360.0, 900.0)
+00:13 +115: Plain 115% battleWaiting Size(800.0, 480.0)
+00:13 +116: Plain 115% battleWaiting Size(1280.0, 850.0)
+00:13 +117: Plain 115% artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: Naval Cannon Battery
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:179:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:400:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 179
+The test description was:
+  Plain 115% artFailed Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:13 +117 -1: Plain 115% artFailed Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: Plain 115% artFailed Size(360.0, 900.0)
+  
+00:13 +117 -1: Plain 115% artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:14 +118 -1: Plain 115% artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:14 +119 -1: Plain 115% artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: Naval Cannon Battery
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:179:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:400:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 179
+The test description was:
+  Plain 115% artRetrying Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:14 +119 -2: Plain 115% artRetrying Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: Plain 115% artRetrying Size(360.0, 900.0)
+  
+00:14 +119 -2: Plain 115% artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:14 +120 -2: Plain 115% artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:14 +121 -2: Plain 115% playtest Size(360.0, 900.0)
+00:14 +122 -2: Plain 115% playtest Size(800.0, 480.0)
+00:14 +123 -2: Plain 115% playtest Size(1280.0, 850.0)
+00:15 +124 -2: Plain 115% playtestInvalid Size(360.0, 900.0)
+00:15 +125 -2: Plain 115% playtestInvalid Size(800.0, 480.0)
+00:15 +126 -2: Plain 115% playtestInvalid Size(1280.0, 850.0)
+00:15 +127 -2: Plain 115% playtestKeyboard Size(360.0, 900.0)
+00:15 +128 -2: Plain 115% playtestKeyboard Size(800.0, 480.0)
+00:15 +129 -2: Plain 115% playtestKeyboard Size(1280.0, 850.0)
+00:15 +130 -2: Plain 115% playtestChoices Size(360.0, 900.0)
+00:16 +131 -2: Plain 115% playtestChoices Size(800.0, 480.0)
+00:16 +132 -2: Plain 115% playtestChoices Size(1280.0, 850.0)
+00:16 +133 -2: Plain 115% playtestActive Size(360.0, 900.0)
+00:16 +134 -2: Plain 115% playtestActive Size(800.0, 480.0)
+00:16 +135 -2: Plain 115% playtestActive Size(1280.0, 850.0)
+00:17 +136 -2: 130% false startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:17 +137 -2: 130% false startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:17 +138 -2: 130% false startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:17 +139 -2: 130% false lineageBranchError Size(360.0, 900.0)
+00:17 +140 -2: 130% false lineageBranchError Size(800.0, 480.0)
+00:17 +141 -2: 130% false lineageBranchError Size(1280.0, 850.0)
+00:17 +142 -2: 130% false lineageSummaryError Size(360.0, 900.0)
+00:17 +143 -2: 130% false lineageSummaryError Size(800.0, 480.0)
+00:17 +144 -2: 130% false lineageSummaryError Size(1280.0, 850.0)
+00:17 +145 -2: 130% false cancelLineage Size(360.0, 900.0)
+00:17 +146 -2: 130% false cancelLineage Size(800.0, 480.0)
+00:17 +147 -2: 130% false cancelLineage Size(1280.0, 850.0)
+00:18 +148 -2: 130% false rest Size(360.0, 900.0)
+00:18 +149 -2: 130% false rest Size(800.0, 480.0)
+00:18 +150 -2: 130% false rest Size(1280.0, 850.0)
+00:18 +151 -2: 130% false restCritical Size(360.0, 900.0)
+00:18 +152 -2: 130% false restCritical Size(800.0, 480.0)
+00:18 +153 -2: 130% false restCritical Size(1280.0, 850.0)
+00:18 +154 -2: 130% false artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:18 +155 -2: 130% false artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:18 +156 -2: 130% false artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:18 +157 -2: 130% false artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:18 +158 -2: 130% false artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:19 +159 -2: 130% false artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:19 +160 -2: 130% false playtestInvalid Size(360.0, 900.0)
+00:19 +161 -2: 130% false playtestInvalid Size(800.0, 480.0)
+00:19 +162 -2: 130% false playtestInvalid Size(1280.0, 850.0)
+00:20 +163 -2: 130% false playtestKeyboard Size(360.0, 900.0)
+00:20 +164 -2: 130% false playtestKeyboard Size(800.0, 480.0)
+00:20 +165 -2: 130% false playtestKeyboard Size(1280.0, 850.0)
+00:20 +166 -2: 130% false playtestChoices Size(360.0, 900.0)
+00:20 +167 -2: 130% false playtestChoices Size(800.0, 480.0)
+00:20 +168 -2: 130% false playtestChoices Size(1280.0, 850.0)
+00:21 +169 -2: 130% true startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:21 +170 -2: 130% true startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:21 +171 -2: 130% true startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:21 +172 -2: 130% true lineageBranchError Size(360.0, 900.0)
+00:21 +173 -2: 130% true lineageBranchError Size(800.0, 480.0)
+00:21 +174 -2: 130% true lineageBranchError Size(1280.0, 850.0)
+00:21 +175 -2: 130% true lineageSummaryError Size(360.0, 900.0)
+00:21 +176 -2: 130% true lineageSummaryError Size(800.0, 480.0)
+00:21 +177 -2: 130% true lineageSummaryError Size(1280.0, 850.0)
+00:21 +178 -2: 130% true cancelLineage Size(360.0, 900.0)
+00:21 +179 -2: 130% true cancelLineage Size(800.0, 480.0)
+00:21 +180 -2: 130% true cancelLineage Size(1280.0, 850.0)
+00:22 +181 -2: 130% true rest Size(360.0, 900.0)
+00:22 +182 -2: 130% true rest Size(800.0, 480.0)
+00:22 +183 -2: 130% true rest Size(1280.0, 850.0)
+00:22 +184 -2: 130% true restCritical Size(360.0, 900.0)
+00:22 +185 -2: 130% true restCritical Size(800.0, 480.0)
+00:22 +186 -2: 130% true restCritical Size(1280.0, 850.0)
+00:22 +187 -2: 130% true artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: Naval Cannon Battery
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:179:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:400:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 179
+The test description was:
+  130% true artFailed Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:22 +187 -3: 130% true artFailed Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 130% true artFailed Size(360.0, 900.0)
+  
+00:22 +187 -3: 130% true artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:22 +188 -3: 130% true artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:23 +189 -3: 130% true artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: Naval Cannon Battery
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:179:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:400:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 179
+The test description was:
+  130% true artRetrying Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:23 +189 -4: 130% true artRetrying Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 130% true artRetrying Size(360.0, 900.0)
+  
+00:23 +189 -4: 130% true artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:23 +190 -4: 130% true artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:23 +191 -4: 130% true playtestInvalid Size(360.0, 900.0)
+00:24 +192 -4: 130% true playtestInvalid Size(800.0, 480.0)
+00:24 +193 -4: 130% true playtestInvalid Size(1280.0, 850.0)
+00:24 +194 -4: 130% true playtestKeyboard Size(360.0, 900.0)
+00:24 +195 -4: 130% true playtestKeyboard Size(800.0, 480.0)
+00:24 +196 -4: 130% true playtestKeyboard Size(1280.0, 850.0)
+00:24 +197 -4: 130% true playtestChoices Size(360.0, 900.0)
+00:25 +198 -4: 130% true playtestChoices Size(800.0, 480.0)
+00:25 +199 -4: 130% true playtestChoices Size(1280.0, 850.0)
+00:25 +200 -4: (tearDownAll)
+00:25 +200 -4: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artFailed Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 130% true artRetrying Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artFailed Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: Plain 115% artRetrying Size(360.0, 900.0)

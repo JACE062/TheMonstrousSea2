@@ -1,0 +1,281 @@
+{
+  "screenFiles": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "f60c1de75eadc5028b0fd46d7008fa21a8e1ae483991f96902dbdcdf8349d2fa",
+      "screenClasses": [
+        "BattleScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/combat_layout_matrix_test.dart",
+        "apps/monstrous_sea/test/final_layout_sweep_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/caldera_outcome_screen.dart",
+      "sha256": "d3bd038f12f655066865340b75bfdc8935e01276459f592567a5012c2f3c3a81",
+      "screenClasses": [
+        "CalderaOutcomeScreen",
+        "HuntEndedScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/captain_screen.dart",
+      "sha256": "601294df93be6ca187868b87902f347851fb6f08a3a34e434405e06df9db3108",
+      "screenClasses": [
+        "CaptainScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/death_screen.dart",
+      "sha256": "cb08106545f4055aadba3575dde91bf7273ece6b71c328f6306f7f7130a5cde0",
+      "screenClasses": [
+        "DeathScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/helm_screen.dart",
+      "sha256": "c86395ceed6e69a306d990636c7d8d82e3e1dfbe16c3ab4bba4578565feef0a5",
+      "screenClasses": [
+        "HelmScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/navigation_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/intro_screen.dart",
+      "sha256": "1d79803862685ef12caa30ab5c54a3eabd98039976eb7f863e50b75697f87427",
+      "screenClasses": [
+        "IntroScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart",
+      "sha256": "b588f38b0b82e6cc8c7cb2924aa6566b7328dc6caa09ff6f497a0429d2b11270",
+      "screenClasses": [
+        "LineageMenuScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/home_layout_matrix_test.dart",
+        "apps/monstrous_sea/test/final_layout_sweep_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/loot_screen.dart",
+      "sha256": "c00794bc3c0bd00177dee1abbb75434eca1d17daf1184ed58a6e6634b2d68d17",
+      "screenClasses": [
+        "LootScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/encounter_layout_matrix_test.dart",
+        "apps/monstrous_sea/test/final_layout_sweep_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/merchant_screen.dart",
+      "sha256": "49aa7571d1274dd0b7f154041baa43743d491e7ccdd22bd04f372326c2b40432",
+      "screenClasses": [
+        "MerchantScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/encounter_layout_matrix_test.dart",
+        "apps/monstrous_sea/test/final_layout_sweep_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "20290dc57cd1fefdcb072bf2f0583d09006ef31268a2eea4be87f26e02db39d0",
+      "screenClasses": [
+        "PortScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/home_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/respite_island_screen.dart",
+      "sha256": "657c94c461e4304323c7b103018b8a9f1f0a00293bbc579c33d58618f1887fe3",
+      "screenClasses": [
+        "RespiteIslandScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/encounter_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/rest_screen.dart",
+      "sha256": "c7d3d5c68a747ba0d6724586da8dde94bb3b2ecc7b2cefe9aaef6d56356363b4",
+      "screenClasses": [
+        "RestScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/final_layout_sweep_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/sea_chart_screen.dart",
+      "sha256": "1435bc438590bad7a1a9b1d55ef12dfbdd6fc5014d485327209e4d0f0f1d26cc",
+      "screenClasses": [
+        "SeaChartScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/navigation_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shipwreck_screen.dart",
+      "sha256": "092437eb0ede8d291d9508e87ca0030d3ca42cc20c92138d391394a471531562",
+      "screenClasses": [
+        "ShipwreckScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/encounter_layout_matrix_test.dart",
+        "apps/monstrous_sea/test/final_layout_sweep_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+      "sha256": "4dac11ac2c7ecdf7033d9a7dc2dd995b370a957be924e3e7c21bd21e11f9eaee",
+      "screenClasses": [
+        "ShrineScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/encounter_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/smuggler_screen.dart",
+      "sha256": "722ed16478f7976ea752980098cf00e257fc53450e2c0f1505741e837fbf882a",
+      "screenClasses": [
+        "SmugglerScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/encounter_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/stronghold_screen.dart",
+      "sha256": "3c5306a4151b60f2b4b1eed598d52f698d80ab9376cd26f5b2581b61930f8dde",
+      "screenClasses": [
+        "StrongholdScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/encounter_layout_matrix_test.dart"
+      ]
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/victory_screen.dart",
+      "sha256": "92c6500cc774d0caf293357afb5ddee4db2f7cfd5aeb358996ff278eb7ed4a95",
+      "screenClasses": [
+        "VictoryScreen"
+      ],
+      "coverageTests": [
+        "apps/monstrous_sea/test/lifecycle_layout_matrix_test.dart"
+      ]
+    }
+  ],
+  "additionalRoutes": [
+    {
+      "path": "apps/monstrous_sea/lib/main.dart",
+      "states": [
+        "startup loading",
+        "load failure/retry"
+      ],
+      "coverage": "final_layout_sweep_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/playtest/playtest_screen.dart",
+      "states": [
+        "menu",
+        "validation",
+        "keyboard",
+        "dropdowns",
+        "active session"
+      ],
+      "coverage": "final_layout_sweep_test.dart"
+    }
+  ],
+  "dialogAndPopupCallsites": [
+    {
+      "path": "apps/monstrous_sea/lib/src/playtest/playtest_screen.dart",
+      "line": 85,
+      "call": "child: DropdownButton<T>(",
+      "coverage": "final_layout_sweep_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "line": 165,
+      "call": "showDialog<void>(",
+      "coverage": "combat_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/lineage_menu_screen.dart",
+      "line": 102,
+      "call": "final label = await showDialog<String>(",
+      "coverage": "home_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "line": 39,
+      "call": "showDialog(",
+      "coverage": "home_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "line": 340,
+      "call": "showDialog(",
+      "coverage": "home_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/battle_chronicle_dialog.dart",
+      "line": 21,
+      "call": "final route = DialogRoute<void>(",
+      "coverage": "logbook_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/battle_lookout.dart",
+      "line": 231,
+      "call": "showDialog<void>(",
+      "coverage": "combat_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "line": 398,
+      "call": "return OverlayPortal(",
+      "coverage": "overlay_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/pause_menu.dart",
+      "line": 112,
+      "call": "final route = DialogRoute<void>(",
+      "coverage": "overlay_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/settings_dialog.dart",
+      "line": 12,
+      "call": "return showDialog<void>(",
+      "coverage": "overlay_layout_matrix_test.dart"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/voyage_log_view.dart",
+      "line": 58,
+      "call": "}) => showDialog<void>(",
+      "coverage": "logbook_layout_matrix_test.dart; overlay_layout_matrix_test.dart"
+    }
+  ],
+  "decisionPolicy": "Existing New Lineage create/cancel, home progression and Caldera choices retained. No new confirmation/deletion flow.",
+  "limits": "Inventory of current source and tested branches; not every hypothetical string/window/future state."
+}

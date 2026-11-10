@@ -441,6 +441,8 @@ class _BattleScreenState extends State<BattleScreen> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           _viewport = constraints.biggest;
+          // Keep a useful command viewport on very short windows.
+          final inlineLookout = !_sideLookout && _commandHeightBudget < 200;
           return Stack(
             children: [
               Semantics(
@@ -556,19 +558,23 @@ class _BattleScreenState extends State<BattleScreen> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
-                                        child: Text(
-                                          monster.name,
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: InkTheme.titleMedium.copyWith(
-                                            fontSize: 20,
-                                            color:
-                                                (monster.isApex ||
-                                                    monster.name.contains(
-                                                      'Kraken',
-                                                    ))
-                                                ? InkTheme.crimsonAccent
-                                                : InkTheme.inkPrimary,
+                                        child: Tooltip(
+                                          message: monster.name,
+                                          child: Text(
+                                            monster.name,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: InkTheme.titleMedium
+                                                .copyWith(
+                                                  fontSize: 20,
+                                                  color:
+                                                      (monster.isApex ||
+                                                          monster.name.contains(
+                                                            'Kraken',
+                                                          ))
+                                                      ? InkTheme.crimsonAccent
+                                                      : InkTheme.inkPrimary,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -846,7 +852,7 @@ class _BattleScreenState extends State<BattleScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (!_sideLookout) ...[
+                        if (!_sideLookout && !inlineLookout) ...[
                           ConstrainedBox(
                             constraints: BoxConstraints(
                               maxHeight:
@@ -894,8 +900,9 @@ class _BattleScreenState extends State<BattleScreen> {
                                     activeHelmOrder,
                                     needsEmergencyPass,
                                   );
+                                  final Widget commands;
                                   if (constraints.maxWidth < 640) {
-                                    return Column(
+                                    commands = Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.stretch,
                                       children: [
@@ -904,16 +911,33 @@ class _BattleScreenState extends State<BattleScreen> {
                                         actions,
                                       ],
                                     );
+                                  } else {
+                                    commands = Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(flex: 4, child: helm),
+                                        const SizedBox(width: 16),
+                                        Expanded(flex: 6, child: actions),
+                                      ],
+                                    );
                                   }
-                                  return Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(flex: 4, child: helm),
-                                      const SizedBox(width: 16),
-                                      Expanded(flex: 6, child: actions),
-                                    ],
-                                  );
+                                  return inlineLookout
+                                      ? Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            _lookout(
+                                              currentRange,
+                                              activeHelmOrder,
+                                              ship,
+                                              monster,
+                                            ),
+                                            const SizedBox(height: 8),
+                                            commands,
+                                          ],
+                                        )
+                                      : commands;
                                 },
                               ),
                             ),
@@ -1342,6 +1366,8 @@ class _BattleScreenState extends State<BattleScreen> {
             child: InkButton(
               key: ValueKey('hardpoint-${slot.name}'),
               label: name,
+              labelMaxLines: null,
+              subtitleMaxLines: null,
               subtitle: !isReady
                   ? 'RELOADING (${cooldown}T)'
                   : !usable

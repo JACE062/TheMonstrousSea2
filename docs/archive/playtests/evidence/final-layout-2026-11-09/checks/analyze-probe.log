@@ -1,0 +1,8 @@
+Analyzing monstrous_sea...                                      
+
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\final_layout_sweep_test.dart:242:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\final_layout_sweep_test.dart:349:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\final_layout_sweep_test.dart:352:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\final_layout_sweep_test.dart:354:5 - curly_braces_in_flow_control_structures
+
+4 issues found. (ran in 46.6s)

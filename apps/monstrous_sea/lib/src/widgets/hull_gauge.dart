@@ -41,12 +41,7 @@ class HullGauge extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      label,
-                      style: InkTheme.statLabel,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    Text(label, style: InkTheme.statLabel),
                     FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
@@ -64,13 +59,7 @@ class HullGauge extends StatelessWidget {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(
-                    child: Text(
-                      label,
-                      style: InkTheme.statLabel,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
+                  Flexible(child: Text(label, style: InkTheme.statLabel)),
                   const SizedBox(width: 8),
                   Text(
                     '$currentHp / $maxHp HP',

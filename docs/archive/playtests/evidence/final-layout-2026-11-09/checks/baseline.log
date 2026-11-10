@@ -1,0 +1,395 @@
+
+┌─────────────────────────────────────────────────────────┐
+│ A new version of Flutter is available!                  │
+│                                                         │
+│ To update to the latest version, run "flutter upgrade". │
+└─────────────────────────────────────────────────────────┘
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% startupLoading Size(360.0, 900.0)
+00:00 +1: 115% startupLoading Size(800.0, 480.0)
+00:00 +2: 115% startupLoading Size(1280.0, 850.0)
+00:01 +3: 115% startupError Size(360.0, 900.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:01 +4: 115% startupError Size(800.0, 480.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:01 +5: 115% startupError Size(1280.0, 850.0)
+Unable to initialize saved progress: FileSystemException: Fixture unavailable storage, path = ''
+00:01 +6: 115% lineageLoading Size(360.0, 900.0)
+00:01 +7: 115% lineageLoading Size(800.0, 480.0)
+00:01 +8: 115% lineageLoading Size(1280.0, 850.0)
+00:01 +9: 115% lineageOpening Size(360.0, 900.0)
+00:02 +10: 115% lineageOpening Size(800.0, 480.0)
+00:02 +11: 115% lineageOpening Size(1280.0, 850.0)
+00:02 +12: 115% lineageBranching Size(360.0, 900.0)
+00:02 +13: 115% lineageBranching Size(800.0, 480.0)
+00:02 +14: 115% lineageBranching Size(1280.0, 850.0)
+00:02 +15: 115% lineageBranchError Size(360.0, 900.0)
+00:02 +16: 115% lineageBranchError Size(800.0, 480.0)
+00:02 +17: 115% lineageBranchError Size(1280.0, 850.0)
+00:02 +18: 115% lineageSummaryError Size(360.0, 900.0)
+00:03 +19: 115% lineageSummaryError Size(800.0, 480.0)
+00:03 +20: 115% lineageSummaryError Size(1280.0, 850.0)
+00:03 +21: 115% lineageExitError Size(360.0, 900.0)
+00:03 +22: 115% lineageExitError Size(800.0, 480.0)
+00:03 +23: 115% lineageExitError Size(1280.0, 850.0)
+00:03 +24: 115% cancelLineage Size(360.0, 900.0)
+00:04 +25: 115% cancelLineage Size(800.0, 480.0)
+00:04 +26: 115% cancelLineage Size(1280.0, 850.0)
+00:04 +27: 115% rest Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: FlutterError:<A RenderFlex overflowed by 112 pixels on the right.>
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:152:3)
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 152
+The test description was:
+  115% rest Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +27 -1: 115% rest Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% rest Size(360.0, 900.0)
+  
+00:04 +27 -1: 115% rest Size(800.0, 480.0)
+00:04 +28 -1: 115% rest Size(1280.0, 850.0)
+00:05 +29 -1: 115% restCritical Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 112 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/lib/src/screens/rest_screen.dart:101:25
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#adb85 relayoutBoundary=up21 OVERFLOWING:
+  creator: Row ← Column ← Padding ← DecoratedBox ← Container ← ParchmentCard ← Column ← Padding ←
+    _SingleChildViewport ← IgnorePointer-[GlobalKey#0b2ed] ← Semantics ← Listener ← ⋯
+  parentData: offset=Offset(0.0, 386.0); flex=null; fit=null (can use size)
+  constraints: BoxConstraints(0.0<=w<=261.0, 0.0<=h<=Infinity)
+  size: Size(261.0, 48.0)
+  direction: horizontal
+  mainAxisAlignment: spaceAround
+  mainAxisSize: max
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 179 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/lib/src/screens/rest_screen.dart:131:25
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#93af6 relayoutBoundary=up21 OVERFLOWING:
+  creator: Row ← Column ← Padding ← DecoratedBox ← Container ← ParchmentCard ← Column ← Padding ←
+    _SingleChildViewport ← IgnorePointer-[GlobalKey#0b2ed] ← Semantics ← Listener ← ⋯
+  parentData: offset=Offset(0.0, 0.0); flex=null; fit=null (can use size)
+  constraints: BoxConstraints(0.0<=w<=265.0, 0.0<=h<=Infinity)
+  size: Size(265.0, 23.0)
+  direction: horizontal
+  mainAxisAlignment: spaceBetween
+  mainAxisSize: max
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: 'Multiple exceptions (2) were detected during the running of the current test, and at
+least one was unexpected.'
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:152:3)
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 152
+The test description was:
+  115% restCritical Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +29 -2: 115% restCritical Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% restCritical Size(360.0, 900.0)
+  
+00:05 +29 -2: 115% restCritical Size(800.0, 480.0)
+00:05 +30 -2: 115% restCritical Size(1280.0, 850.0)
+00:05 +31 -2: 115% restNoShip Size(360.0, 900.0)
+00:05 +32 -2: 115% restNoShip Size(800.0, 480.0)
+00:05 +33 -2: 115% restNoShip Size(1280.0, 850.0)
+00:05 +34 -2: 115% wreckUnavailable Size(360.0, 900.0)
+00:05 +35 -2: 115% wreckUnavailable Size(800.0, 480.0)
+00:05 +36 -2: 115% wreckUnavailable Size(1280.0, 850.0)
+00:05 +37 -2: 115% lootEmpty Size(360.0, 900.0)
+00:06 +38 -2: 115% lootEmpty Size(800.0, 480.0)
+00:06 +39 -2: 115% lootEmpty Size(1280.0, 850.0)
+00:06 +40 -2: 115% materialsSoldOut Size(360.0, 900.0)
+00:06 +41 -2: 115% materialsSoldOut Size(800.0, 480.0)
+00:06 +42 -2: 115% materialsSoldOut Size(1280.0, 850.0)
+00:06 +43 -2: 115% battleWaiting Size(360.0, 900.0)
+00:06 +44 -2: 115% battleWaiting Size(800.0, 480.0)
+00:06 +45 -2: 115% battleWaiting Size(1280.0, 850.0)
+00:06 +46 -2: 115% artFailed Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: HULL INTEGRITY
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:167:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 167
+The test description was:
+  115% artFailed Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +46 -3: 115% artFailed Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% artFailed Size(360.0, 900.0)
+  
+00:07 +46 -3: 115% artFailed Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: FlutterError:<A RenderFlex overflowed by 1.00 pixels on the bottom.>
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:152:3)
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 152
+The test description was:
+  115% artFailed Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +46 -4: 115% artFailed Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% artFailed Size(800.0, 480.0)
+  
+00:07 +46 -4: 115% artFailed Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:07 +47 -4: 115% artRetrying Size(360.0, 900.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: HULL INTEGRITY
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:167:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 167
+The test description was:
+  115% artRetrying Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +47 -5: 115% artRetrying Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% artRetrying Size(360.0, 900.0)
+  
+00:08 +47 -5: 115% artRetrying Size(800.0, 480.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: FlutterError:<A RenderFlex overflowed by 1.00 pixels on the bottom.>
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:152:3)
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 152
+The test description was:
+  115% artRetrying Size(800.0, 480.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +47 -6: 115% artRetrying Size(800.0, 480.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% artRetrying Size(800.0, 480.0)
+  
+00:08 +47 -6: 115% artRetrying Size(1280.0, 850.0)
+Battle illustration unavailable (assets/art/ship_standard_map.png): Unable to load asset: "assets/art/ship_standard_map.png"
+00:08 +48 -6: 115% playtest Size(360.0, 900.0)
+00:09 +49 -6: 115% playtest Size(800.0, 480.0)
+00:09 +50 -6: 115% playtest Size(1280.0, 850.0)
+00:09 +51 -6: 115% playtestInvalid Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: Enter a whole number from 0 to 999999.
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:167:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 167
+The test description was:
+  115% playtestInvalid Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +51 -7: 115% playtestInvalid Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% playtestInvalid Size(360.0, 900.0)
+  
+00:09 +51 -7: 115% playtestInvalid Size(800.0, 480.0)
+00:10 +52 -7: 115% playtestInvalid Size(1280.0, 850.0)
+00:10 +53 -7: 115% playtestKeyboard Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: Enter a whole number from 0 to 999999.
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:167:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 167
+The test description was:
+  115% playtestKeyboard Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +53 -8: 115% playtestKeyboard Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% playtestKeyboard Size(360.0, 900.0)
+  
+00:10 +53 -8: 115% playtestKeyboard Size(800.0, 480.0)
+00:11 +54 -8: 115% playtestKeyboard Size(1280.0, 850.0)
+00:11 +55 -8: 115% playtestChoices Size(360.0, 900.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+Clipped: The Tempest Sovereign
+
+When the exception was thrown, this was the stack:
+#4      _controls (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:167:5)
+<asynchronous suspension>
+#5      _review (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart:388:3)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart line 167
+The test description was:
+  115% playtestChoices Size(360.0, 900.0)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +55 -9: 115% playtestChoices Size(360.0, 900.0) [E]
+  Test failed. See exception logs above.
+  The test description was: 115% playtestChoices Size(360.0, 900.0)
+  
+00:12 +55 -9: 115% playtestChoices Size(800.0, 480.0)
+00:12 +56 -9: 115% playtestChoices Size(1280.0, 850.0)
+00:12 +57 -9: 115% playtestActive Size(360.0, 900.0)
+00:12 +58 -9: 115% playtestActive Size(800.0, 480.0)
+00:13 +59 -9: 115% playtestActive Size(1280.0, 850.0)
+00:13 +60 -9: (tearDownAll)
+00:13 +60 -9: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artFailed Size(800.0, 480.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(360.0, 900.0)
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/final_layout_sweep_test.dart: 115% artRetrying Size(800.0, 480.0)
+  ... and 5 more

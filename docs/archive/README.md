@@ -208,3 +208,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Logbook layout audit 2026-11-09
 
 [The voyage log/Chronicle audit](playtests/LOGBOOK_LAYOUT_2026_11_09.md) records a separate return-to-latest footer and working desktop keyboard paging for both log panels. [Evidence](playtests/evidence/logbook-layout-2026-11-09/manifest.json) retains baseline/probe results, 159 layout cases, related regressions, font-loaded proofs and a separate Windows preview. Full entry text, live-follow/manual-reading behavior, voyage boundaries, player saves and earlier evidence are preserved.
+
+## Final layout sweep 2026-11-09
+
+[The final sweep](playtests/FINAL_LAYOUT_SWEEP_2026_11_09.md) reconciles the screen/dialog inventory with the previous audits and covers the remaining pending, error, loading, empty and debug states at 115–130%. [Evidence](playtests/evidence/final-layout-2026-11-09/manifest.json) retains the baseline, 204 layout cases, broader regressions, focused keyboard-clearance checks, font-loaded proofs and a separate preview. Rest rows, integrity/fitting text and playtest validation wrap; short combat docks retain command access. Existing confirmations, callbacks, gameplay, player saves and earlier evidence remain intact.
