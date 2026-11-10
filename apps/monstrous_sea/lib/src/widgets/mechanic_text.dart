@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart' show listEquals;
+import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:monstrous_core/monstrous_core.dart';
@@ -205,8 +206,12 @@ class MechanicText extends StatelessWidget {
               child: Text(
                 label,
                 style: resolved.copyWith(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w800,
                   color: InkTheme.crimsonAccent,
+                  decoration: TextDecoration.underline,
+                  decorationStyle: TextDecorationStyle.dotted,
+                  decorationColor: InkTheme.crimsonAccent,
+                  decorationThickness: 1.6,
                 ),
               ),
             ),
@@ -308,9 +313,24 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   _HelpAnchorState? _parent;
   ModalRoute<dynamic>? _route;
   bool _overAnchor = false, _overHelp = false, _helpFocused = false;
-  bool _keyboard = false;
-  int _children = 0;
+  bool _persistent = false;
+  PointerDeviceKind? _pointerKind;
+  FocusNode? _previousFocus;
   bool _disposed = false;
+
+  _HelpAnchorState get _root => _parent?._root ?? this;
+
+  bool _descendsFrom(_HelpAnchorState owner) {
+    for (var parent = _parent; parent != null; parent = parent._parent) {
+      if (identical(parent, owner)) return true;
+    }
+    return false;
+  }
+
+  bool get _active => _overAnchor || _overHelp || (_persistent && _helpFocused);
+  bool get _branchActive =>
+      _active ||
+      _visibleHelp.any((help) => help._descendsFrom(this) && help._active);
 
   @override
   void didChangeDependencies() {
@@ -319,10 +339,32 @@ class _HelpAnchorState extends State<_HelpAnchor> {
     _route = ModalRoute.of(context);
   }
 
-  void _open({bool keyboard = false}) {
+  void _open({bool persistent = false}) {
+    if (_disposed ||
+        !mounted ||
+        (_parent != null && !_parent!._portal.isShowing)) {
+      return;
+    }
     _closing?.cancel();
-    if (_portal.isShowing) return;
-    _keyboard = keyboard;
+    if (_portal.isShowing) {
+      if (persistent && !_persistent) {
+        _persistent = true;
+        _previousFocus = FocusManager.instance.primaryFocus;
+        final help = _helpKey.currentContext;
+        if (help != null) FocusScope.of(help).requestFocus();
+      }
+      return;
+    }
+    // One branch per owner: switching a fitting or a linked term replaces the
+    // previous sibling immediately, including any open descendants.
+    for (final help in List<_HelpAnchorState>.of(_visibleHelp)) {
+      if (help._parent == _parent && help._route == _route) {
+        help._close(restoreFocus: false);
+      }
+    }
+    _persistent = persistent;
+    _helpFocused = _overHelp = false;
+    _previousFocus = persistent ? FocusManager.instance.primaryFocus : null;
     _parent?._childOpened();
     if (_visibleHelp.isEmpty) {
       FocusManager.instance.addEarlyKeyEventHandler(_escapeHelp);
@@ -332,39 +374,64 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   }
 
   void _childOpened() {
-    _children++;
     _closing?.cancel();
   }
 
   void _childClosed() {
     if (_disposed) return;
-    _children--;
-    _scheduleClose();
+    _scheduleBranchClose();
   }
 
   void _close({bool restoreFocus = true}) {
     _closing?.cancel();
     if (!_portal.isShowing) return;
+    for (final child in List<_HelpAnchorState>.of(_visibleHelp.reversed)) {
+      if (child._descendsFrom(this)) child._close(restoreFocus: false);
+    }
+    final restore = _persistent;
+    final previous = _previousFocus;
+    _persistent = _helpFocused = _overHelp = false;
+    _previousFocus = null;
     _unregisterHelp();
     _portal.hide();
     _parent?._childClosed();
-    if (restoreFocus && _keyboard && mounted && widget.isWord) {
-      _focus.requestFocus();
+    if (restoreFocus && restore && mounted) {
+      if (widget.isWord) {
+        _focus.requestFocus();
+      } else if (previous?.context != null && previous!.canRequestFocus) {
+        previous.requestFocus();
+      }
+    }
+  }
+
+  void _scheduleBranchClose() {
+    for (_HelpAnchorState? owner = this; owner != null; owner = owner._parent) {
+      owner._scheduleClose();
     }
   }
 
   void _scheduleClose() {
     if (_disposed) return;
-    _closing?.cancel();
+    // Child teardown must not postpone an ancestor's pending hover exit.
+    if (_closing?.isActive == true) return;
     _closing = Timer(const Duration(milliseconds: 250), () {
-      if (mounted &&
-          !_overAnchor &&
-          !_overHelp &&
-          !_helpFocused &&
-          _children == 0) {
+      _closing = null;
+      if (_persistent && _route?.isCurrent == false) return;
+      if (mounted && !_branchActive) {
         _close(restoreFocus: false);
       }
     });
+  }
+
+  void _activate() {
+    final persistent = _pointerKind != PointerDeviceKind.mouse;
+    _pointerKind = null;
+    if (_portal.isShowing && persistent) {
+      _close();
+    } else {
+      if (!persistent) _persistent = false;
+      _open(persistent: persistent);
+    }
   }
 
   @override
@@ -386,11 +453,12 @@ class _HelpAnchorState extends State<_HelpAnchor> {
         label: '${widget.title}. Show explanation',
         button: true,
         excludeSemantics: true,
-        onTap: () => _portal.isShowing ? _close() : _open(keyboard: true),
+        onTap: () => _portal.isShowing ? _close() : _open(persistent: true),
         child: InkWell(
           excludeFromSemantics: true,
           focusNode: _focus,
-          onTap: () => _portal.isShowing ? _close() : _open(keyboard: true),
+          onTapDown: (details) => _pointerKind = details.kind,
+          onTap: _activate,
           child: widget.child,
         ),
       );
@@ -418,10 +486,8 @@ class _HelpAnchorState extends State<_HelpAnchor> {
             owner: this,
             terms: {...inherited, if (widget.term != null) widget.term!},
             child: TapRegion(
-              groupId: this,
-              onTapOutside: (_) {
-                if (_children == 0) _close(restoreFocus: false);
-              },
+              groupId: _root,
+              onTapOutside: (_) => _root._close(restoreFocus: false),
               child: MouseRegion(
                 onEnter: (_) {
                   _overHelp = true;
@@ -429,62 +495,55 @@ class _HelpAnchorState extends State<_HelpAnchor> {
                 },
                 onExit: (_) {
                   _overHelp = false;
-                  _scheduleClose();
+                  _scheduleBranchClose();
                 },
                 child: FocusScope(
+                  autofocus: _persistent,
                   onFocusChange: (v) {
                     _helpFocused = v;
-                    if (!v) _scheduleClose();
+                    if (!v) _scheduleBranchClose();
                   },
                   child: CallbackShortcuts(
                     bindings: {
                       const SingleActivator(LogicalKeyboardKey.escape): _close,
                     },
-                    child: Container(
-                      key: _helpKey,
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: InkTheme.parchmentSurface,
-                        border: Border.all(color: InkTheme.inkMuted),
-                        borderRadius: BorderRadius.circular(4),
-                        boxShadow: [
-                          BoxShadow(
-                            color: InkTheme.inkPrimary.withValues(alpha: .2),
-                            blurRadius: 5,
-                            offset: const Offset(2, 3),
-                          ),
-                        ],
+                    child: Semantics(
+                      key: ValueKey(
+                        'mechanic-dismiss-${widget.term ?? 'action'}',
                       ),
-                      child: SingleChildScrollView(
-                        key: ValueKey(
-                          'mechanic-help-${widget.term ?? 'action'}',
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    widget.title,
-                                    style: InkTheme.statLabel,
-                                  ),
-                                ),
-                                IconButton(
-                                  autofocus: _keyboard,
-                                  tooltip: 'Close explanation',
-                                  onPressed: _close,
-                                  icon: const Icon(Icons.close, size: 18),
-                                  visualDensity: VisualDensity.compact,
-                                ),
-                              ],
-                            ),
-                            MechanicText(
-                              widget.help(),
-                              mechanics: widget.mechanics,
+                      container: true,
+                      onDismiss: _close,
+                      child: Container(
+                        key: _helpKey,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: InkTheme.parchmentSurface,
+                          border: Border.all(color: InkTheme.inkMuted),
+                          borderRadius: BorderRadius.circular(4),
+                          boxShadow: [
+                            BoxShadow(
+                              color: InkTheme.inkPrimary.withValues(alpha: .2),
+                              blurRadius: 5,
+                              offset: const Offset(2, 3),
                             ),
                           ],
+                        ),
+                        child: SingleChildScrollView(
+                          key: ValueKey(
+                            'mechanic-help-${widget.term ?? 'action'}',
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(widget.title, style: InkTheme.statLabel),
+                              const SizedBox(height: 6),
+                              MechanicText(
+                                widget.help(),
+                                mechanics: widget.mechanics,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -496,29 +555,37 @@ class _HelpAnchorState extends State<_HelpAnchor> {
         );
       },
       child: TapRegion(
-        groupId: this,
+        groupId: _root,
         child: MouseRegion(
           key: _key,
+          cursor: widget.isWord ? SystemMouseCursors.help : MouseCursor.defer,
           onEnter: (_) {
             _overAnchor = true;
             _open();
           },
           onExit: (_) {
             _overAnchor = false;
-            _scheduleClose();
+            _scheduleBranchClose();
           },
           child: Focus(
             canRequestFocus: false,
             onKeyEvent: (_, event) {
-              if (event is KeyDownEvent &&
-                  event.logicalKey == LogicalKeyboardKey.f1) {
-                _open(keyboard: true);
-                return KeyEventResult.handled;
+              if (event is KeyDownEvent) {
+                _pointerKind = null;
+                if (event.logicalKey == LogicalKeyboardKey.f1) {
+                  _open(persistent: true);
+                  return KeyEventResult.handled;
+                }
               }
               return KeyEventResult.ignored;
             },
             child: GestureDetector(
-              onLongPress: () => _open(keyboard: true),
+              onLongPressDown: (details) => _pointerKind = details.kind,
+              onLongPress: () {
+                final persistent = _pointerKind != PointerDeviceKind.mouse;
+                _pointerKind = null;
+                _open(persistent: persistent);
+              },
               child: target,
             ),
           ),

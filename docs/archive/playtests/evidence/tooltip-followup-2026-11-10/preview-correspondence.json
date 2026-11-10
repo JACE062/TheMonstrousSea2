@@ -1,0 +1,841 @@
+{
+  "path": ".dart_tool/tooltip-followup-preview/build/windows/x64/runner/Debug/monstrous_sea.exe",
+  "launched": false,
+  "sha256": "8fd8c2ee2953a2281b5904e93425ebf03e82e8b0323450e5a2d2684134ef83cd",
+  "kernelBlobSha256": "4a6471ca494b2e6ca957cf47a7a782a0b41586ed9dfb4c3dfdee1bf2a562f023",
+  "matchedAppFiles": [
+    {
+      "path": "lib/main.dart",
+      "sha256": "d989da093605fa447e74147a828209072e50f8ad5cddeeb96b02116292abf8c0"
+    },
+    {
+      "path": "lib/src/battle/battle_presentation.dart",
+      "sha256": "7883d54915cef91b89368787af9db5c4295d14c1b4a92a24991e53ad6dd32ae9"
+    },
+    {
+      "path": "lib/src/battle/monstrous_sea_battle_game.dart",
+      "sha256": "9e76a403f9f1dc0aa060885b77c62f89ec38f7924e459e6d78b125716ef427db"
+    },
+    {
+      "path": "lib/src/game_controller.dart",
+      "sha256": "7c89eae05fafece7cc9b3d8f329d39dd465edcffe912dda708dd8ffb0e27ab44"
+    },
+    {
+      "path": "lib/src/playtest/playtest_config.dart",
+      "sha256": "05237c8647e072ee15530c1a3588df6b8e364c5890f899c881ecbbe7656544a2"
+    },
+    {
+      "path": "lib/src/playtest/playtest_host.dart",
+      "sha256": "7744543ab37574940ceaf873a91f801fdf6a1c3f8901e83108a0a711dd7cafd8"
+    },
+    {
+      "path": "lib/src/playtest/playtest_screen.dart",
+      "sha256": "9e2ff241da3deb03361a57ab9ceab2714a7612bafa97602ee44d02e75f806c6e"
+    },
+    {
+      "path": "lib/src/screens/battle_screen.dart",
+      "sha256": "f60c1de75eadc5028b0fd46d7008fa21a8e1ae483991f96902dbdcdf8349d2fa"
+    },
+    {
+      "path": "lib/src/screens/caldera_outcome_screen.dart",
+      "sha256": "d3bd038f12f655066865340b75bfdc8935e01276459f592567a5012c2f3c3a81"
+    },
+    {
+      "path": "lib/src/screens/captain_screen.dart",
+      "sha256": "601294df93be6ca187868b87902f347851fb6f08a3a34e434405e06df9db3108"
+    },
+    {
+      "path": "lib/src/screens/death_screen.dart",
+      "sha256": "cb08106545f4055aadba3575dde91bf7273ece6b71c328f6306f7f7130a5cde0"
+    },
+    {
+      "path": "lib/src/screens/helm_screen.dart",
+      "sha256": "c86395ceed6e69a306d990636c7d8d82e3e1dfbe16c3ab4bba4578565feef0a5"
+    },
+    {
+      "path": "lib/src/screens/intro_screen.dart",
+      "sha256": "1d79803862685ef12caa30ab5c54a3eabd98039976eb7f863e50b75697f87427"
+    },
+    {
+      "path": "lib/src/screens/lineage_menu_screen.dart",
+      "sha256": "b588f38b0b82e6cc8c7cb2924aa6566b7328dc6caa09ff6f497a0429d2b11270"
+    },
+    {
+      "path": "lib/src/screens/loot_screen.dart",
+      "sha256": "c00794bc3c0bd00177dee1abbb75434eca1d17daf1184ed58a6e6634b2d68d17"
+    },
+    {
+      "path": "lib/src/screens/merchant_screen.dart",
+      "sha256": "49aa7571d1274dd0b7f154041baa43743d491e7ccdd22bd04f372326c2b40432"
+    },
+    {
+      "path": "lib/src/screens/port_screen.dart",
+      "sha256": "20290dc57cd1fefdcb072bf2f0583d09006ef31268a2eea4be87f26e02db39d0"
+    },
+    {
+      "path": "lib/src/screens/respite_island_screen.dart",
+      "sha256": "657c94c461e4304323c7b103018b8a9f1f0a00293bbc579c33d58618f1887fe3"
+    },
+    {
+      "path": "lib/src/screens/rest_screen.dart",
+      "sha256": "c7d3d5c68a747ba0d6724586da8dde94bb3b2ecc7b2cefe9aaef6d56356363b4"
+    },
+    {
+      "path": "lib/src/screens/sea_chart_screen.dart",
+      "sha256": "1435bc438590bad7a1a9b1d55ef12dfbdd6fc5014d485327209e4d0f0f1d26cc"
+    },
+    {
+      "path": "lib/src/screens/shipwreck_screen.dart",
+      "sha256": "092437eb0ede8d291d9508e87ca0030d3ca42cc20c92138d391394a471531562"
+    },
+    {
+      "path": "lib/src/screens/shrine_screen.dart",
+      "sha256": "4dac11ac2c7ecdf7033d9a7dc2dd995b370a957be924e3e7c21bd21e11f9eaee"
+    },
+    {
+      "path": "lib/src/screens/smuggler_screen.dart",
+      "sha256": "722ed16478f7976ea752980098cf00e257fc53450e2c0f1505741e837fbf882a"
+    },
+    {
+      "path": "lib/src/screens/stronghold_screen.dart",
+      "sha256": "3c5306a4151b60f2b4b1eed598d52f698d80ab9376cd26f5b2581b61930f8dde"
+    },
+    {
+      "path": "lib/src/screens/victory_screen.dart",
+      "sha256": "92c6500cc774d0caf293357afb5ddee4db2f7cfd5aeb358996ff278eb7ed4a95"
+    },
+    {
+      "path": "lib/src/services/caldera_snapshot.dart",
+      "sha256": "bde2d8d27c858d20bb31b1a89ab081db4e239325fb5919a804df8ddc45851a17"
+    },
+    {
+      "path": "lib/src/services/lineage_store.dart",
+      "sha256": "e2266f07b7fc187efa0e58a99994a261e4d06ab814204153d14b199418bcfd00"
+    },
+    {
+      "path": "lib/src/services/storage_service.dart",
+      "sha256": "213758fbd36471489ba9e24b305a8ca43f43506d2b34d5b9f17b5b7ea8c64063"
+    },
+    {
+      "path": "lib/src/settings/game_settings.dart",
+      "sha256": "c55f18314f94faea9795690fa4e92ca4d735f1e4d87c2ab0b4eb4bd0f2451bbe"
+    },
+    {
+      "path": "lib/src/theme/ink_theme.dart",
+      "sha256": "c1902fa843c712b0a7b2d06942ba8a9d8db5045f6a9baaf3689b68a08ee274fa"
+    },
+    {
+      "path": "lib/src/widgets/armory_view.dart",
+      "sha256": "0f97f18cde9d33d12e19975da4c4bc3ad357652d3efe7577281c1d1d6165d2fc"
+    },
+    {
+      "path": "lib/src/widgets/battle_chronicle_dialog.dart",
+      "sha256": "71764176be7b1a446784c1a9faed8bd7118e40bece49abf6a8d9ac85168b67f9"
+    },
+    {
+      "path": "lib/src/widgets/battle_lookout.dart",
+      "sha256": "896dbde353851fdfd9c1b1e6293c69017a645bda0da6dbbdf379d4421b728dec"
+    },
+    {
+      "path": "lib/src/widgets/chart_camera.dart",
+      "sha256": "859df73dff3f9e04cde3826f3e21d30a4307cfcbe19f59ddef77d30c55dabbd6"
+    },
+    {
+      "path": "lib/src/widgets/chart_marginalia.dart",
+      "sha256": "fca22516783992df526bc78b4c32fd3cd8457ea720f3a4d556942d84983b1d71"
+    },
+    {
+      "path": "lib/src/widgets/combat_log_view.dart",
+      "sha256": "b6870ee52ee853d6d5577c53d0d7964914d1572d0c727e165c76be4b4c3f6f79"
+    },
+    {
+      "path": "lib/src/widgets/combat_stats.dart",
+      "sha256": "d1b3fa7c5a23b526b4697731bb7e575d6fb58ba1f21c1b1e2116d0a05577de82"
+    },
+    {
+      "path": "lib/src/widgets/hull_gauge.dart",
+      "sha256": "b2bee501bf58575d9aa289e17be15e40f40e7cbb825f49295bf335c180102193"
+    },
+    {
+      "path": "lib/src/widgets/hull_patch_kit_button.dart",
+      "sha256": "dc14ddd25303da3a3a0cc4cd0caec756514ce33fde7e3aa0726af287639ea0b3"
+    },
+    {
+      "path": "lib/src/widgets/ink_button.dart",
+      "sha256": "e7d76e9109a775df6a7daf1c13ae028c76ef37d68342b109fdc2f75c5528087a"
+    },
+    {
+      "path": "lib/src/widgets/loot_supplies_view.dart",
+      "sha256": "b41f54548246427abe0be476310b3df3de3ac2cebfcd7ee975374be219d5e30a"
+    },
+    {
+      "path": "lib/src/widgets/material_trade_view.dart",
+      "sha256": "d95a5302dac8c232bdc342a2c3e1fd5e91f44fbd1115c8de2242dcb53c5f9882"
+    },
+    {
+      "path": "lib/src/widgets/mechanic_text.dart",
+      "sha256": "fbba8de5d6972545b7707783681ce29d2e7a20c675d9011811847d3b5e0f7b37"
+    },
+    {
+      "path": "lib/src/widgets/nautical_chart.dart",
+      "sha256": "0953ad9f49dd233f931a98fb06becf72fbf8a7dc76a4541d5b52f585114ef55a"
+    },
+    {
+      "path": "lib/src/widgets/ocean_power_badges.dart",
+      "sha256": "ea53e4c55c8c513fc2ef45949261bc6c4858e730e9dff8c1b9b41eb1d2ad5265"
+    },
+    {
+      "path": "lib/src/widgets/paid_repair_view.dart",
+      "sha256": "e2703f2f8157067a49b13d715c747691fca962ff0a5041a7feb6a68ce7eff602"
+    },
+    {
+      "path": "lib/src/widgets/painters/animated_wave_painter.dart",
+      "sha256": "e562703fc7b05d37165bddf3aab25fa618680702690ff36b7528633687765f1f"
+    },
+    {
+      "path": "lib/src/widgets/painters/cartouche_border_painter.dart",
+      "sha256": "76086579c22f630d812bbef57f7de8e6ebaeb519d8295b2f831a430ef5adb05d"
+    },
+    {
+      "path": "lib/src/widgets/painters/compass_rose_painter.dart",
+      "sha256": "b4869888c3a0ad6283182358f11e2f6d0666824fb191cb635e733b54e729063d"
+    },
+    {
+      "path": "lib/src/widgets/painters/parchment_texture_painter.dart",
+      "sha256": "6121ee8e3978862003b422bc27291299dec3ef7d56fe4807ce33fd30fdf2b50b"
+    },
+    {
+      "path": "lib/src/widgets/painters/sea_chart_paper_painter.dart",
+      "sha256": "f2312c35d81b0e1f0939afbf1b8341716c391b1d53c7c16e7f9d696e57f98ce4"
+    },
+    {
+      "path": "lib/src/widgets/painters/sea_chart_water_painter.dart",
+      "sha256": "795eab25cbd1d1b35250648847b3bdac4186f986dd4e900783ff01cb289deeff"
+    },
+    {
+      "path": "lib/src/widgets/parchment_card.dart",
+      "sha256": "b3b200ddb42a2db0d25aac58b850bdca8dcba53a7a7710909b8fefd83a3886ef"
+    },
+    {
+      "path": "lib/src/widgets/parchment_scaffold.dart",
+      "sha256": "74a816c11d46e69328a1472985b44839e6a6255edb2ab469a058543e28e6aeec"
+    },
+    {
+      "path": "lib/src/widgets/pause_menu.dart",
+      "sha256": "1379dffe3d76ed36d0dc8c9891c391a19ffa5d20c798c75f8b6daf80bac461cd"
+    },
+    {
+      "path": "lib/src/widgets/pilot_art.dart",
+      "sha256": "30fa090ae6cc32782a2ca12c88ed486f9c9a45c58e9a0af592b7a7cd2d25945e"
+    },
+    {
+      "path": "lib/src/widgets/settings_dialog.dart",
+      "sha256": "f2e984ef12664cdfe24320611ab91b2f21223702d27ca9bb28aab1adc6da17f4"
+    },
+    {
+      "path": "lib/src/widgets/svg_asset_view.dart",
+      "sha256": "7c1ac747d5da5039c646eeec6fbaec8fb718e960ed757257f00e287dafbea7c4"
+    },
+    {
+      "path": "lib/src/widgets/typewriter_text.dart",
+      "sha256": "a744369e9a789b42cf15ef70b9f1c2e8943d1ae723d7890e5b32aad6af38e5c9"
+    },
+    {
+      "path": "lib/src/widgets/utility_description.dart",
+      "sha256": "44d9ad9dcce2e4db62c33e49014c5c4616bedeac03e4cea83f7e69e4bb9514e4"
+    },
+    {
+      "path": "lib/src/widgets/vessel_inspection.dart",
+      "sha256": "9c0ced49caa2fc51f6558a7765c58af562f5d2bbb72008b82dd75d97e9f35af9"
+    },
+    {
+      "path": "lib/src/widgets/voyage_log_view.dart",
+      "sha256": "1376b2ac68827aef89cf4ed6942447229a7fcd37ce6212fd519261c166060bba"
+    },
+    {
+      "path": "lib/src/widgets/voyage_shipwright_view.dart",
+      "sha256": "8160b107eae246725f33368150cc3046134ef044d74887f8002b662d1300af80"
+    },
+    {
+      "path": "lib/src/widgets/weapon_stats_view.dart",
+      "sha256": "0a9a4a5e23e2f6b1b18f9ed3d187c49b8bb69ef49975d989fc733f5d5386cd24"
+    },
+    {
+      "path": "lib/src/widgets/wreck_supplies_view.dart",
+      "sha256": "f6324a5e8450ee7f009b0c1706aef3f7b8c35a8e460a7b550b0710ce98a72124"
+    },
+    {
+      "path": "assets/art/chart_reach_caldera_map_v1.png",
+      "sha256": "5d8e96d7959250a86d6773dd64e0c39a534f24ae0295e121b9f87497ea3b63c5"
+    },
+    {
+      "path": "assets/art/chart_sargasso_kelp_map_v3.png",
+      "sha256": "f14477d8936985438a05166a7e5adbab9f5363262ca0bc8dc089c3caebdb30a9"
+    },
+    {
+      "path": "assets/art/icon_alchemical_pitch_map_v1.png",
+      "sha256": "c6c3b2a58af3b707a9c9b7fb007f9ecdea6909496f0f09e993519bc2b9e60403"
+    },
+    {
+      "path": "assets/art/icon_anchor_map.png",
+      "sha256": "54d79f5506e9ecef5df337a8d80c432bd1bd28f07f9895946af63a4765cc07fb"
+    },
+    {
+      "path": "assets/art/icon_blade_launcher_map.png",
+      "sha256": "2f313695a0fefff899c6271925b995f64f696ec6b22e75b7e0215e7d0f0a0fc6"
+    },
+    {
+      "path": "assets/art/icon_blast_pack_map.png",
+      "sha256": "8ec092012e86d2b46e4a59dbc6e86d5568067c38812cf3621aadcf77a8f40b1a"
+    },
+    {
+      "path": "assets/art/icon_cannon_map.png",
+      "sha256": "e63e8b906d8139aede3419b1b97405af767e229d0bcdce5b57391560b26b67c0"
+    },
+    {
+      "path": "assets/art/icon_cannons_map.png",
+      "sha256": "88b8bec167bcb22eee8861142a979eef9234498d35d4b51e704174c912e6b023"
+    },
+    {
+      "path": "assets/art/icon_center_journey_map_v1.png",
+      "sha256": "a161e10291166e54b6ed6c86a4c5628dfb3d0a5ecfe56c4d5fe4c7aee7681145"
+    },
+    {
+      "path": "assets/art/icon_chakram_map.png",
+      "sha256": "89242c1a02e0e2ac58368c08d35cc1ff354f3ef9625effe6e39cc50f33c1ba63"
+    },
+    {
+      "path": "assets/art/icon_chart_hull_map_v2.png",
+      "sha256": "eb927179722aba094e3d3f8b9fded3a441af582e853fdadd4d2e028ef717c252"
+    },
+    {
+      "path": "assets/art/icon_chart_purse_map_v1.png",
+      "sha256": "db2b02145016c042555c04c8129cc0200336beb518be1353fcab9fbedd063d0e"
+    },
+    {
+      "path": "assets/art/icon_flamethrower_map_v2.png",
+      "sha256": "b05a4e7c8477857156e694cf6fbf96660e74d5799bfef559a526147712893711"
+    },
+    {
+      "path": "assets/art/icon_fog_map.png",
+      "sha256": "8928ab59f1cb11d90e144b62cb17651d9fee7f5551ff519aaeda7384365588d6"
+    },
+    {
+      "path": "assets/art/icon_helm_map.png",
+      "sha256": "4266ac3f619c4164746c3a558ce71507fa8bbf7a08601328f3cf4fd0c9c55379"
+    },
+    {
+      "path": "assets/art/icon_hull_patch_kit_rope_from_leather_v1.png",
+      "sha256": "a58eddd3d9ed2c92c86ab0f67ea60f1196d1691ee7fe1e4f772af201a5ffbdfb"
+    },
+    {
+      "path": "assets/art/icon_kraken_ink_map_v1.png",
+      "sha256": "c8491e565b5df0ddc6256693f0624bd5970128289ac4bc397193ed631d4a1cb8"
+    },
+    {
+      "path": "assets/art/icon_lightning_railgun_map.png",
+      "sha256": "ee12e52c66905e32512d7225df2f27b0a01bdf86f752787ed02c4519ead27d62"
+    },
+    {
+      "path": "assets/art/icon_port_haven_map.png",
+      "sha256": "863442e887fb72e257c929d776ad35041bd820280f282e00e650ef879e29bc81"
+    },
+    {
+      "path": "assets/art/icon_skull_map.png",
+      "sha256": "369d472ccb91b4bf29a2dce8266de03b11e147cecdb7a46427e13d1bc98c6555"
+    },
+    {
+      "path": "assets/art/icon_torpedo_launcher_map_v2.png",
+      "sha256": "c82a9fb40f63fc64cccdf2fc6ab7acaca4ceeab0c16ee717a4b524b2ca63d7e3"
+    },
+    {
+      "path": "assets/art/icon_treasure_map.png",
+      "sha256": "cac0df49903c581f639237913be5d59e5c516e130d56062ac6fad935bf7f247f"
+    },
+    {
+      "path": "assets/art/icon_unstable_tincture_map_v4.png",
+      "sha256": "d80a71a21d128f2b382170de7f64d69d394b65b17bc42c7a2fdb25ef5dd67d9a"
+    },
+    {
+      "path": "assets/art/monster_crustacean_map.png",
+      "sha256": "5a3247505c53f7a7d1e3f371b075ab56e050bbafe3d34d9ab8827dcaabd76a01"
+    },
+    {
+      "path": "assets/art/monster_jellyfish_map.png",
+      "sha256": "20d66d48e4ce5c8e3801043944ae248cdcfac30cea3430e15b973531daac125f"
+    },
+    {
+      "path": "assets/art/monster_kraken_boss_v5.png",
+      "sha256": "6929d92ddbbfc049fe2393f8d4379946184310c649f770be05c3de4e0b8df147"
+    },
+    {
+      "path": "assets/art/monster_serpent_map.png",
+      "sha256": "6870de7b735f62b228c1036c8f08c6485035607a5923db91feec8b348a5629ea"
+    },
+    {
+      "path": "assets/art/monster_shark_map.png",
+      "sha256": "e5a4f8c558ecb2d764b4c3eb9e22ad6da51636bc390d926ae5bf2035271c0167"
+    },
+    {
+      "path": "assets/art/monster_squid_map_v5.png",
+      "sha256": "dbc1e31434ba3a4c402a7df0d2184b71eff2094014f2d269bf1fa8621ed46161"
+    },
+    {
+      "path": "assets/art/ship_corvette_map.png",
+      "sha256": "b5edd7d4594ab2da59d7351b6b4d343272cba1a1728a5a449cae72cad72da786"
+    },
+    {
+      "path": "assets/art/ship_flying_dutchman_map.png",
+      "sha256": "9763b6234f08dd720cca9e25bbcb4e337e033c1f634f59ac222050507bc2ab3b"
+    },
+    {
+      "path": "assets/art/ship_freighter_pilot_v2.png",
+      "sha256": "c0a86992a1a2647996f8f0504a20af010b14d26657cacf4fb9bf889744be36ca"
+    },
+    {
+      "path": "assets/art/ship_ironclad_map_v2.png",
+      "sha256": "0d5fd76aac5794703dbab29f09ca6f3e5d52812e0089b543fe17775e52553de6"
+    },
+    {
+      "path": "assets/art/ship_standard_map.png",
+      "sha256": "aeb057af7cb85f7fa7522a1b1996f3b532db5521cb6af0a29d53b325aef6eb33"
+    },
+    {
+      "path": "analysis_options.yaml",
+      "sha256": "98d70dd5a9033911f40e2e7f3ff9d74618e2aa13652990efe860ed0fe1cedfa9"
+    },
+    {
+      "path": "pubspec.yaml",
+      "sha256": "4adf87394d7241eb4b6f37ab819b9aa2aabc9d802ba45a5096e902887649d6a9"
+    },
+    {
+      "path": "pubspec.lock",
+      "sha256": "d9a4e8c99522976f02e167273d2cf6b3736cc51c268e005c448758c4a8bd21d6"
+    },
+    {
+      "path": "windows/.gitignore",
+      "sha256": "955e3110cb16494ee76e1cd5df47e2c212309eb94a49a123fe87f718de413cb8"
+    },
+    {
+      "path": "windows/CMakeLists.txt",
+      "sha256": "cb93c7d207dbd9658c79d9e8244b308dde737efc8392314acc371dcb3a0bf9ca"
+    },
+    {
+      "path": "windows/flutter/CMakeLists.txt",
+      "sha256": "bd05e3268b2f246bcbafdb778165fe67a7bafdba04eb73599502563a67b8ae7e"
+    },
+    {
+      "path": "windows/flutter/generated_plugin_registrant.cc",
+      "sha256": "82e02567f2faf5e732dc92a2fb0d01104f7ba8c48973f8cfd41a860b4fac3f3b"
+    },
+    {
+      "path": "windows/flutter/generated_plugin_registrant.h",
+      "sha256": "dbc11635d7b1ba1887adf40df5b83d634e9c3ab0bee34510c71528bb4d73602a"
+    },
+    {
+      "path": "windows/flutter/generated_plugins.cmake",
+      "sha256": "3f02c11f2d7c72d742dd5b3871def3dc815f3ab70615d4a3293e15e7b45eb0e7"
+    },
+    {
+      "path": "windows/runner/CMakeLists.txt",
+      "sha256": "d765fdd05f63ad099e585a2cced0cbff13ec3229b7de68c8681b2107db850089"
+    },
+    {
+      "path": "windows/runner/Runner.rc",
+      "sha256": "74c57cc8f90beeb0424d9302686c343806b34c9a9afec5f12fe2d5f8f5acb23c"
+    },
+    {
+      "path": "windows/runner/flutter_window.cpp",
+      "sha256": "d615eedc06ae37321e59c2c00c7687d1887dcd97904eb7225fafd8dcb5b83da6"
+    },
+    {
+      "path": "windows/runner/flutter_window.h",
+      "sha256": "0252b804f5da380c7709cbe1daff2b8d18daf6c49d7e6dd43e5af3c99c19f56c"
+    },
+    {
+      "path": "windows/runner/main.cpp",
+      "sha256": "a68915d5767e18363843de977b5aeb2dd8df1464322fd5f9423ef1ace1add41c"
+    },
+    {
+      "path": "windows/runner/resource.h",
+      "sha256": "d0e8bf7835468b4b6b1f8f0747f2e8f25c19841f2df2ac60aaa584ddae3aa7c6"
+    },
+    {
+      "path": "windows/runner/resources/app_icon.ico",
+      "sha256": "c098d3fc85cacff98b8e69811b48e9f0d852fcee278132d794411d978869cbf8"
+    },
+    {
+      "path": "windows/runner/runner.exe.manifest",
+      "sha256": "639a56233fcd8cbcb8bbefcd93e4680ec2664f32d9acfb3d2ec1d8726a96e090"
+    },
+    {
+      "path": "windows/runner/utils.cpp",
+      "sha256": "a128b67b9f3c2579e2ecef5b0dde2c33f222a097cdfe5da2a3067c73d1485b39"
+    },
+    {
+      "path": "windows/runner/utils.h",
+      "sha256": "832e246b6758253f89016fb0374b30791242e97ad950d27fc678b3d9feacfdc4"
+    },
+    {
+      "path": "windows/runner/win32_window.cpp",
+      "sha256": "f1dbe56e0393e138c27663a4e1aa209a0ffc1def454e4e077913e1c9286ea932"
+    },
+    {
+      "path": "windows/runner/win32_window.h",
+      "sha256": "d154cf89ba85f820631a9b5bedacbe64fc5815e428fe6bc5da579ce649f69841"
+    }
+  ],
+  "matchedBundledAssets": [
+    {
+      "path": "assets/art/chart_reach_caldera_map_v1.png",
+      "sha256": "5d8e96d7959250a86d6773dd64e0c39a534f24ae0295e121b9f87497ea3b63c5"
+    },
+    {
+      "path": "assets/art/chart_sargasso_kelp_map_v3.png",
+      "sha256": "f14477d8936985438a05166a7e5adbab9f5363262ca0bc8dc089c3caebdb30a9"
+    },
+    {
+      "path": "assets/art/icon_alchemical_pitch_map_v1.png",
+      "sha256": "c6c3b2a58af3b707a9c9b7fb007f9ecdea6909496f0f09e993519bc2b9e60403"
+    },
+    {
+      "path": "assets/art/icon_anchor_map.png",
+      "sha256": "54d79f5506e9ecef5df337a8d80c432bd1bd28f07f9895946af63a4765cc07fb"
+    },
+    {
+      "path": "assets/art/icon_blade_launcher_map.png",
+      "sha256": "2f313695a0fefff899c6271925b995f64f696ec6b22e75b7e0215e7d0f0a0fc6"
+    },
+    {
+      "path": "assets/art/icon_blast_pack_map.png",
+      "sha256": "8ec092012e86d2b46e4a59dbc6e86d5568067c38812cf3621aadcf77a8f40b1a"
+    },
+    {
+      "path": "assets/art/icon_cannon_map.png",
+      "sha256": "e63e8b906d8139aede3419b1b97405af767e229d0bcdce5b57391560b26b67c0"
+    },
+    {
+      "path": "assets/art/icon_cannons_map.png",
+      "sha256": "88b8bec167bcb22eee8861142a979eef9234498d35d4b51e704174c912e6b023"
+    },
+    {
+      "path": "assets/art/icon_center_journey_map_v1.png",
+      "sha256": "a161e10291166e54b6ed6c86a4c5628dfb3d0a5ecfe56c4d5fe4c7aee7681145"
+    },
+    {
+      "path": "assets/art/icon_chakram_map.png",
+      "sha256": "89242c1a02e0e2ac58368c08d35cc1ff354f3ef9625effe6e39cc50f33c1ba63"
+    },
+    {
+      "path": "assets/art/icon_chart_hull_map_v2.png",
+      "sha256": "eb927179722aba094e3d3f8b9fded3a441af582e853fdadd4d2e028ef717c252"
+    },
+    {
+      "path": "assets/art/icon_chart_purse_map_v1.png",
+      "sha256": "db2b02145016c042555c04c8129cc0200336beb518be1353fcab9fbedd063d0e"
+    },
+    {
+      "path": "assets/art/icon_flamethrower_map_v2.png",
+      "sha256": "b05a4e7c8477857156e694cf6fbf96660e74d5799bfef559a526147712893711"
+    },
+    {
+      "path": "assets/art/icon_fog_map.png",
+      "sha256": "8928ab59f1cb11d90e144b62cb17651d9fee7f5551ff519aaeda7384365588d6"
+    },
+    {
+      "path": "assets/art/icon_helm_map.png",
+      "sha256": "4266ac3f619c4164746c3a558ce71507fa8bbf7a08601328f3cf4fd0c9c55379"
+    },
+    {
+      "path": "assets/art/icon_hull_patch_kit_rope_from_leather_v1.png",
+      "sha256": "a58eddd3d9ed2c92c86ab0f67ea60f1196d1691ee7fe1e4f772af201a5ffbdfb"
+    },
+    {
+      "path": "assets/art/icon_kraken_ink_map_v1.png",
+      "sha256": "c8491e565b5df0ddc6256693f0624bd5970128289ac4bc397193ed631d4a1cb8"
+    },
+    {
+      "path": "assets/art/icon_lightning_railgun_map.png",
+      "sha256": "ee12e52c66905e32512d7225df2f27b0a01bdf86f752787ed02c4519ead27d62"
+    },
+    {
+      "path": "assets/art/icon_port_haven_map.png",
+      "sha256": "863442e887fb72e257c929d776ad35041bd820280f282e00e650ef879e29bc81"
+    },
+    {
+      "path": "assets/art/icon_skull_map.png",
+      "sha256": "369d472ccb91b4bf29a2dce8266de03b11e147cecdb7a46427e13d1bc98c6555"
+    },
+    {
+      "path": "assets/art/icon_torpedo_launcher_map_v2.png",
+      "sha256": "c82a9fb40f63fc64cccdf2fc6ab7acaca4ceeab0c16ee717a4b524b2ca63d7e3"
+    },
+    {
+      "path": "assets/art/icon_treasure_map.png",
+      "sha256": "cac0df49903c581f639237913be5d59e5c516e130d56062ac6fad935bf7f247f"
+    },
+    {
+      "path": "assets/art/icon_unstable_tincture_map_v4.png",
+      "sha256": "d80a71a21d128f2b382170de7f64d69d394b65b17bc42c7a2fdb25ef5dd67d9a"
+    },
+    {
+      "path": "assets/art/monster_crustacean_map.png",
+      "sha256": "5a3247505c53f7a7d1e3f371b075ab56e050bbafe3d34d9ab8827dcaabd76a01"
+    },
+    {
+      "path": "assets/art/monster_jellyfish_map.png",
+      "sha256": "20d66d48e4ce5c8e3801043944ae248cdcfac30cea3430e15b973531daac125f"
+    },
+    {
+      "path": "assets/art/monster_kraken_boss_v5.png",
+      "sha256": "6929d92ddbbfc049fe2393f8d4379946184310c649f770be05c3de4e0b8df147"
+    },
+    {
+      "path": "assets/art/monster_serpent_map.png",
+      "sha256": "6870de7b735f62b228c1036c8f08c6485035607a5923db91feec8b348a5629ea"
+    },
+    {
+      "path": "assets/art/monster_shark_map.png",
+      "sha256": "e5a4f8c558ecb2d764b4c3eb9e22ad6da51636bc390d926ae5bf2035271c0167"
+    },
+    {
+      "path": "assets/art/monster_squid_map_v5.png",
+      "sha256": "dbc1e31434ba3a4c402a7df0d2184b71eff2094014f2d269bf1fa8621ed46161"
+    },
+    {
+      "path": "assets/art/ship_corvette_map.png",
+      "sha256": "b5edd7d4594ab2da59d7351b6b4d343272cba1a1728a5a449cae72cad72da786"
+    },
+    {
+      "path": "assets/art/ship_flying_dutchman_map.png",
+      "sha256": "9763b6234f08dd720cca9e25bbcb4e337e033c1f634f59ac222050507bc2ab3b"
+    },
+    {
+      "path": "assets/art/ship_freighter_pilot_v2.png",
+      "sha256": "c0a86992a1a2647996f8f0504a20af010b14d26657cacf4fb9bf889744be36ca"
+    },
+    {
+      "path": "assets/art/ship_ironclad_map_v2.png",
+      "sha256": "0d5fd76aac5794703dbab29f09ca6f3e5d52812e0089b543fe17775e52553de6"
+    },
+    {
+      "path": "assets/art/ship_standard_map.png",
+      "sha256": "aeb057af7cb85f7fa7522a1b1996f3b532db5521cb6af0a29d53b325aef6eb33"
+    }
+  ],
+  "unchangedCoreInputs": [
+    {
+      "path": "packages/monstrous_core/lib/monstrous_core.dart",
+      "sha256": "e1a221ccf76a0c615d400d72b9bfbfd00dd84e99c6b8f7bda0f670ed487248d4"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/balance_config.dart",
+      "sha256": "831e624d776604993e8e7d6e3e78c7de2f47d58d60318d08c28ee15c6f4e5878"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/navigation_tuning.dart",
+      "sha256": "a4d45d7beaca3894e7015ffc27a9c260a6f49dae6c7df2198d42ae12b1ae81df"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/shore_service_tuning.dart",
+      "sha256": "67eab102a68c01509ec90c9a1ac8a006d9a6e771cd15334cfae00bcf65fb3390"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/voyage_economy_tuning.dart",
+      "sha256": "e61264f6793dee8db120bd0ba3750ff2286667807081fd8c001e550407609b05"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/config/wreck_tuning.dart",
+      "sha256": "35a478dad17cb30665e10833c87ad56599dd0809cf059f9d6457b6199e93e0c8"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/consumables.dart",
+      "sha256": "1e546454dee695c49b493080ba29eba7400b4a974aa87b6e40d438fc9a6e2aa8"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/monster_weapons.dart",
+      "sha256": "bbb280bb6e76e51030e6a8f12bff5144dad42ab14133b4a254eba6043fda54f3"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/monsters.dart",
+      "sha256": "56659afb86ef76407647f447e393a317f7ce4581a13ff35cdea0dec9353d6d8c"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/names/name_forge.dart",
+      "sha256": "fe5d8dbdc3b84de26f8423b058c5cfecc1e1c23f29d52dfe32d801c122a15b4c"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/ship_weapons.dart",
+      "sha256": "ee0837ea071167963046b534d1b0e1688c03ca329c75f41ca9a2f842c0b8c870"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/content/ships.dart",
+      "sha256": "3fad4932e145d1558a43b75e80452dcf0326707cb17a74da641fe24ab74ded98"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/blueprint_lore.dart",
+      "sha256": "2dc432164dc436bc9f89b6775668fb93d47664290d4b68ecee8e48dc570dc0f6"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/chronicle_strings.dart",
+      "sha256": "fee7290225e15ea6f8b8ef4b2d3e75f33b74223117a3fd87e324daa1fbaa75e1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/eldritch_lore.dart",
+      "sha256": "a0f9e725f107862f2d1f3f85820e101b18387aba21c369f308ec91a5652d43e1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/lore.dart",
+      "sha256": "cf916d467d88a58b78e254e63c88ea07e6bcf8efd65d238f537a2de279491c16"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/monster_intent_lore.dart",
+      "sha256": "e96cabf7365d9f396df3886ab591617440ba305fd49aed53c30f222e7301b44b"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/trait_lore.dart",
+      "sha256": "6dd85d6b949bdef81e711673852311596e691e0b97c1ebed3a652f717d0525ec"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/weapon_lore.dart",
+      "sha256": "e2f316993cb2f8da503196ba80dadcf6fe1adacecb205f21b330c90e3ee908ee"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/attack_result.dart",
+      "sha256": "099040da2a55b4ad0a0fe755ef7a21eadcf6ecaebbb0c35e3ff726ab737f1bb0"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/bloodline_trait.dart",
+      "sha256": "154c0c66a3a1f68f354dfc2137cb0c31ef7a276a54dc9cfc787e85051b4f2a73"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/combat_presentation.dart",
+      "sha256": "4284dc7123ef474617a9022db21e082ccd77cc5546dc1cdb80f4807782470083"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/combatant.dart",
+      "sha256": "4042eb175801c832bc400dcfa6a0c3e02d531b11ac3f4f2a691a6cc1063e8004"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/covenant_of_the_deep.dart",
+      "sha256": "7cc494f84ba16c590f9dab30932e052fbd1914d8d064e1e43a593bafe6b82f86"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/enums.dart",
+      "sha256": "5d10815383e85068fd754cfbe7be1b342601a86ee4d608a731c690062a854e84"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/flagship_blueprint.dart",
+      "sha256": "3fb96ec6aca125a27df956e12efe37d11ba9c04e70783c1abbe0a6efc99f1044"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/item.dart",
+      "sha256": "99de9882bf86349406ea4bba0ef4e7300ef769eb37cba1ed444bb08f68c3a84c"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/material_shipment.dart",
+      "sha256": "049f24917f98f737244646d04c640f1dda0ee55db443768fe63a85e74350c116"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/meta_inventory.dart",
+      "sha256": "db76a8129609377273f916b9c6efe6535f4abb5a06937bd165285b365d390fcf"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/monster_intent.dart",
+      "sha256": "5a27ca38895bc054a37bd0d0c1cc811601e82d6f51c23df954175120c3e4558b"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/nemesis.dart",
+      "sha256": "b4b02f976c112c1dd364f0b0a11df8f1338c2c4b5cf6a7a5e81123a91b5728f5"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/ocean_power.dart",
+      "sha256": "491d9212bb9e54394dc84213f078a9f1c401ad3ee769eef1652a3562e249b686"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/wreck_encounter.dart",
+      "sha256": "9d04761a09c49b8973fa398bb83168112abce1d46d64bfbc208e9f324d9ca19a"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/monstrous_core_base.dart",
+      "sha256": "4db736ec40c03c34cf179a91f4e23ea67fd08be6cb06d8d7d5a74e0a5bc11b30"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/narration/narration_formatter.dart",
+      "sha256": "63da21a6f723286010df17c223729842085baa216bf91b9a6e2aac38c0d7d148"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/persistence/profile_data.dart",
+      "sha256": "fdc607c154b8fb0f8e2f05e9c00073197dd1c270495358fe8d372fcb2f5000d6"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/persistence/voyage_save_data.dart",
+      "sha256": "7114a5546bc56cdde4fa9d884f41457d4bf109365ec305748d1088a044cbda5e"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rng/game_rng.dart",
+      "sha256": "c541409ed044be6ca2c994fa88e50cb4ea0b807663449e53ed2f01fbdb3ec371"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/combat.dart",
+      "sha256": "fe551e9497f7208d42c8f9d9f2ef3ee57f8ca49edad4e2ddc63b1d2f1077b36d"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/economy.dart",
+      "sha256": "841bcbbd8c64f94dcd1a8a7fdfbaa8cbd0b5bc0e7193603d23a07c95bf0dc3ea"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/lineage.dart",
+      "sha256": "0656610e6194251a613350591c54745ebae48b716f9b6784b93373d9dd1010c1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/loot.dart",
+      "sha256": "c8aa509a517b7adc18b43138bed91339eebf462699eb4501dfcaa4fd2b59a50c"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/monster_ai.dart",
+      "sha256": "13e153647bca9cc9512a0c1e1718d91fd370d7f265b8c6cf973bba494a2d7a4f"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/paid_repairs.dart",
+      "sha256": "a107d10b336688a1b3d3e2a338e1a22188b9d9e594371b955e94996d8fa2befd"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/sea_chart.dart",
+      "sha256": "c6e2f16f997524de1fd3681bf15181d0bc7119ece7298aaca3dede301c9ce820"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/shrine.dart",
+      "sha256": "ed6ebce7d6cdecb6d465edfdd1948f9771cb28bfb6b5e2de8049c91f044d0cec"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/wrecks.dart",
+      "sha256": "7df109918f6127de6cf7071504cc7a38817e6025740ba7e0da889e46fc2c70f7"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/commands.dart",
+      "sha256": "5fe2ea68805ee402659a6d537f8525b11d579c98f36889de3e9a5e2f2cff1d3d"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/events.dart",
+      "sha256": "ee50dc83d5f8d1ab8706057c8f7e2a7cc0c14ee9e2c65163cf8dfe7125c6d678"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "a300647bcb682baf11a77e629e706541f2932149db26cde6b82a8486effc4fe7"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/session_phase.dart",
+      "sha256": "a0aaa0d1b4fe7eddb0e31e0e22613e7831741db8a70db129ea1230fe296dd1fb"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/traits/trait.dart",
+      "sha256": "f69b1cf6aba4598a0a0be77941d08dd32ed6b719ff52aed0275d8a08af9cb636"
+    },
+    {
+      "path": "packages/monstrous_core/pubspec.yaml",
+      "sha256": "3856fe0cb146f39bedac5d6d2d21b0d2e15054eb0c2d0817fa5621658c97b490"
+    }
+  ],
+  "coreComparison": "Compared to base Git blobs with CRLF/LF normalized; hashes record working-tree bytes."
+}

@@ -1,0 +1,26 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart
+test/tooltip_interaction_test.dart:183:33: Error: Required named parameter 'ship' must be provided.
+        body: MonsterCombatStats(
+                                ^
+lib/src/widgets/combat_stats.dart:59:9: Context: Found this candidate, but the arguments don't match.
+  const MonsterCombatStats({
+        ^^^^^^^^^^^^^^^^^^
+test/tooltip_interaction_test.dart:129:23: Error: Too few positional arguments: 1 required, 0 given.
+      await mouse.down();
+                      ^
+00:00 +0 -1: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart [E]
+  Failed to load "C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart":
+  Compilation failed for testPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart: test/tooltip_interaction_test.dart:183:33: Error: Required named parameter 'ship' must be provided.
+          body: MonsterCombatStats(
+                                  ^
+  lib/src/widgets/combat_stats.dart:59:9: Context: Found this candidate, but the arguments don't match.
+    const MonsterCombatStats({
+          ^^^^^^^^^^^^^^^^^^
+  test/tooltip_interaction_test.dart:129:23: Error: Too few positional arguments: 1 required, 0 given.
+        await mouse.down();
+                        ^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart

@@ -1,0 +1,2 @@
+checks/*.log -diff -text
+baseline-fixture.dart.txt -text

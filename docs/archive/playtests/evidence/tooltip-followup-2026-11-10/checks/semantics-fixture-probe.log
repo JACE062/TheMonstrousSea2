@@ -1,0 +1,69 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: mouse-clicked linked help closes on leaving at 360.0
+00:01 +1: switching fittings replaces the previous help at 360.0
+00:01 +2: help has no close icon and keywords look linked at 360.0
+00:01 +3: hover gap, card reading and exit remain stable at 360.0
+00:01 +4: rapid fitting switches leave one branch at 360.0
+00:01 +5: touch help stays readable and outside tap closes its family at 360.0
+00:02 +6: F1 and nested keyboard help restore fitting focus at 360.0
+00:02 +7: help retains an accessible dismiss action at 360.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  help retains an accessible dismiss action at 360.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +7 -1: help retains an accessible dismiss action at 360.0 [E]
+  Test failed. See exception logs above.
+  The test description was: help retains an accessible dismiss action at 360.0
+  
+00:02 +7 -1: mouse long press does not latch help at 360.0
+00:02 +8 -1: hover help preserves the fitting click at 360.0
+00:02 +9 -1: mouse-clicked linked help closes on leaving at 1280.0
+00:02 +10 -1: switching fittings replaces the previous help at 1280.0
+00:02 +11 -1: help has no close icon and keywords look linked at 1280.0
+00:03 +12 -1: hover gap, card reading and exit remain stable at 1280.0
+00:03 +13 -1: rapid fitting switches leave one branch at 1280.0
+00:03 +14 -1: touch help stays readable and outside tap closes its family at 1280.0
+00:03 +15 -1: F1 and nested keyboard help restore fitting focus at 1280.0
+00:03 +16 -1: help retains an accessible dismiss action at 1280.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  help retains an accessible dismiss action at 1280.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +16 -2: help retains an accessible dismiss action at 1280.0 [E]
+  Test failed. See exception logs above.
+  The test description was: help retains an accessible dismiss action at 1280.0
+  
+00:03 +16 -2: mouse long press does not latch help at 1280.0
+00:03 +17 -2: hover help preserves the fitting click at 1280.0
+00:04 +18 -2: dodge help describes dodge without unrelated fittings
+00:04 +19 -2: (tearDownAll)
+00:04 +19 -2: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart: help retains an accessible dismiss action at 1280.0
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart: help retains an accessible dismiss action at 360.0

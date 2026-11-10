@@ -220,11 +220,8 @@ void checkHelp(WidgetTester tester, String term, Size size) {
   expect(rect.right, lessThanOrEqualTo(size.width));
   expect(rect.top, greaterThanOrEqualTo(0));
   expect(rect.bottom, lessThanOrEqualTo(size.height));
-  final close = find.descendant(
-    of: help,
-    matching: find.byTooltip('Close explanation'),
-  );
-  expect(close.hitTestable(), findsOneWidget, reason: 'Close $term');
+  expect(find.byTooltip('Close explanation'), findsNothing);
+  expect(find.byKey(ValueKey('mechanic-dismiss-$term')), findsOneWidget);
   for (final text
       in find
           .descendant(of: help, matching: find.byType(RichText))

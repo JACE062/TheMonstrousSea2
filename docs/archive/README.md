@@ -212,3 +212,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Final layout sweep 2026-11-09
 
 [The final sweep](playtests/FINAL_LAYOUT_SWEEP_2026_11_09.md) reconciles the screen/dialog inventory with the previous audits and covers the remaining pending, error, loading, empty and debug states at 115–130%. [Evidence](playtests/evidence/final-layout-2026-11-09/manifest.json) retains the baseline, 204 layout cases, broader regressions, focused keyboard-clearance checks, font-loaded proofs and a separate preview. Rest rows, integrity/fitting text and playtest validation wrap; short combat docks retain command access. Existing confirmations, callbacks, gameplay, player saves and earlier evidence remain intact.
+
+## Tooltip hover follow-up 2026-11-10
+
+[The player tooltip follow-up](playtests/TOOLTIP_HOVER_2026_11_10.md) records icon-free cards, stronger linked keywords, concise Dodge help and fixes for lingering/switching hover branches. [Evidence](playtests/evidence/tooltip-followup-2026-11-10/manifest.json) retains both player screenshots, the isolated pre-change baseline, focused input/layout regressions, final proofs and a separate Windows preview. Keyboard/touch/assistive dismissal, fitting actions, displayed values, earlier evidence and player saves remain preserved.

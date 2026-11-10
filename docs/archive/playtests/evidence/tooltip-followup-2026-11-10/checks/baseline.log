@@ -1,0 +1,228 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: mouse-clicked linked help closes on leaving at 360.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _KeyWidgetFinder:<Found 1 widget with key [<'mechanic-help-action'>]: [
+            SingleChildScrollView-[<'mechanic-help-action'>](dependencies: [InheritedCupertinoTheme,
+PrimaryScrollController, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#ac10d]]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart:140:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart line 140
+The test description was:
+  mouse-clicked linked help closes on leaving at 360.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: mouse-clicked linked help closes on leaving at 360.0 [E]
+  Test failed. See exception logs above.
+  The test description was: mouse-clicked linked help closes on leaving at 360.0
+  
+00:01 +0 -1: switching fittings replaces the previous help at 360.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 2 widgets with key [<'mechanic-help-action'>]: [
+            SingleChildScrollView-[<'mechanic-help-action'>](dependencies: [InheritedCupertinoTheme,
+PrimaryScrollController, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#d3a1e]]),
+            SingleChildScrollView-[<'mechanic-help-action'>](dependencies: [InheritedCupertinoTheme,
+PrimaryScrollController, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#d3a1e]]),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart:152:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart line 152
+The test description was:
+  switching fittings replaces the previous help at 360.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: switching fittings replaces the previous help at 360.0 [E]
+  Test failed. See exception logs above.
+  The test description was: switching fittings replaces the previous help at 360.0
+  
+00:01 +0 -2: help has no close icon and keywords look linked at 360.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _WidgetPredicateWidgetFinder:<Found 1 widget with widget matching predicate: [
+            RawTooltip-[LabeledGlobalKey<RawTooltipState>#b2206]("Close explanation", hover delay:
+0:00:00.000000, touch delay: 0:00:01.500000, dismiss delay: 0:00:00.100000, triggerMode:
+TooltipTriggerMode.longPress, enableFeedback: true, positionDelegate: Closure:
+(TooltipPositionContext) => Offset from Function '_getDefaultPositionDelegate@1034220820':., state:
+RawTooltipState#00235),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart:168:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart line 168
+The test description was:
+  help has no close icon and keywords look linked at 360.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -3: help has no close icon and keywords look linked at 360.0 [E]
+  Test failed. See exception logs above.
+  The test description was: help has no close icon and keywords look linked at 360.0
+  
+00:02 +0 -3: mouse-clicked linked help closes on leaving at 1280.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _KeyWidgetFinder:<Found 1 widget with key [<'mechanic-help-action'>]: [
+            SingleChildScrollView-[<'mechanic-help-action'>](dependencies: [InheritedCupertinoTheme,
+PrimaryScrollController, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#31c42]]),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart:140:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart line 140
+The test description was:
+  mouse-clicked linked help closes on leaving at 1280.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -4: mouse-clicked linked help closes on leaving at 1280.0 [E]
+  Test failed. See exception logs above.
+  The test description was: mouse-clicked linked help closes on leaving at 1280.0
+  
+00:02 +0 -4: switching fittings replaces the previous help at 1280.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 2 widgets with key [<'mechanic-help-action'>]: [
+            SingleChildScrollView-[<'mechanic-help-action'>](dependencies: [InheritedCupertinoTheme,
+PrimaryScrollController, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#afceb]]),
+            SingleChildScrollView-[<'mechanic-help-action'>](dependencies: [InheritedCupertinoTheme,
+PrimaryScrollController, ScrollConfiguration, _InheritedTheme,
+_LocalizationsScope-[GlobalKey#afceb]]),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart:152:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart line 152
+The test description was:
+  switching fittings replaces the previous help at 1280.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -5: switching fittings replaces the previous help at 1280.0 [E]
+  Test failed. See exception logs above.
+  The test description was: switching fittings replaces the previous help at 1280.0
+  
+00:02 +0 -5: help has no close icon and keywords look linked at 1280.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: no matching candidates
+  Actual: _WidgetPredicateWidgetFinder:<Found 1 widget with widget matching predicate: [
+            RawTooltip-[LabeledGlobalKey<RawTooltipState>#1878a]("Close explanation", hover delay:
+0:00:00.000000, touch delay: 0:00:01.500000, dismiss delay: 0:00:00.100000, triggerMode:
+TooltipTriggerMode.longPress, enableFeedback: true, positionDelegate: Closure:
+(TooltipPositionContext) => Offset from Function '_getDefaultPositionDelegate@1034220820':., state:
+RawTooltipState#3b01a),
+          ]>
+   Which: means one was found but none were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart:168:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart line 168
+The test description was:
+  help has no close icon and keywords look linked at 1280.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -6: help has no close icon and keywords look linked at 1280.0 [E]
+  Test failed. See exception logs above.
+  The test description was: help has no close icon and keywords look linked at 1280.0
+  
+00:02 +0 -6: dodge help describes dodge without unrelated fittings
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing Current dodge chance.:
+[]>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart:203:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart line 203
+The test description was:
+  dodge help describes dodge without unrelated fittings
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -7: dodge help describes dodge without unrelated fittings [E]
+  Test failed. See exception logs above.
+  The test description was: dodge help describes dodge without unrelated fittings
+  
+00:03 +0 -7: (tearDownAll)
+00:03 +0 -7: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart: dodge help describes dodge without unrelated fittings
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart: help has no close icon and keywords look linked at 1280.0
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart: help has no close icon and keywords look linked at 360.0
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/tooltip-hover-baseline/test/tooltip_interaction_test.dart: mouse-clicked linked help closes on leaving at 1280.0
+  ... and 3 more

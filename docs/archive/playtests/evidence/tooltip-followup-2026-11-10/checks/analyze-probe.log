@@ -1,0 +1,5 @@
+Analyzing monstrous_sea...                                      
+
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\src\widgets\mechanic_text.dart:346:7 - curly_braces_in_flow_control_structures
+
+1 issue found. (ran in 36.8s)

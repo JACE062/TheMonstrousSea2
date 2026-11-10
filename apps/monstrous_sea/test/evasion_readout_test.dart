@@ -199,16 +199,13 @@ void main() {
           'Reduces each incoming hit by 6 damage. '
           'Fortification lasts for the rest of this battle.';
       Future<void> hover(String target, String help, String proof) async {
-        final previous = find.byKey(const ValueKey('mechanic-help-action'));
-        if (previous.evaluate().isNotEmpty) {
-          await tester.tap(
-            find
-                .descendant(of: previous, matching: find.byType(IconButton))
-                .first,
-          );
-          await tester.pumpAndSettle();
-        }
         await mouse.moveTo(Offset.zero);
+        await tester.pump(const Duration(milliseconds: 350));
+        await tester.pumpAndSettle();
+        expect(
+          find.byKey(const ValueKey('mechanic-help-action')),
+          findsNothing,
+        );
         await tester.ensureVisible(find.byKey(ValueKey(target)));
         await tester.pumpAndSettle();
         await mouse.moveTo(tester.getCenter(find.byKey(ValueKey(target))));
@@ -252,7 +249,7 @@ void main() {
       );
       await hover(
         'monster-stat-dodge',
-        'Current dodge chance after Pin and Spotter Flare. Attack accuracy is a separate roll.',
+        'Current dodge chance. Attack accuracy is a separate roll.',
         'dodge',
       );
       expect(helpText(armorHelp), findsNothing);

@@ -81,7 +81,8 @@ class MonsterCombatStats extends StatelessWidget {
       _Stat(
         '• Dodge: ${monster.effectiveEvasion}%',
         key: const ValueKey('monster-stat-dodge'),
-        explanation: 'Current dodge chance after Pin and Spotter Flare. Attack accuracy is a separate roll.',
+        explanation:
+            'Current dodge chance. Attack accuracy is a separate roll.',
       ),
       if (monster.obscurityAccuracyPenalty > 0)
         _Stat(

@@ -1,0 +1,28 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_interaction_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: mouse-clicked linked help closes on leaving at 360.0
+00:01 +1: switching fittings replaces the previous help at 360.0
+00:01 +2: help has no close icon and keywords look linked at 360.0
+00:01 +3: hover gap, card reading and exit remain stable at 360.0
+00:01 +4: rapid fitting switches leave one branch at 360.0
+00:01 +5: touch help stays readable and outside tap closes its family at 360.0
+00:01 +6: F1 and nested keyboard help restore fitting focus at 360.0
+00:02 +7: help retains an accessible dismiss action at 360.0
+00:02 +8: mouse long press does not latch help at 360.0
+00:02 +9: hover help preserves the fitting click at 360.0
+00:02 +10: F1 can take over an already hovered fitting at 360.0
+00:02 +11: mouse-clicked linked help closes on leaving at 1280.0
+00:02 +12: switching fittings replaces the previous help at 1280.0
+00:02 +13: help has no close icon and keywords look linked at 1280.0
+00:03 +14: hover gap, card reading and exit remain stable at 1280.0
+00:03 +15: rapid fitting switches leave one branch at 1280.0
+00:03 +16: touch help stays readable and outside tap closes its family at 1280.0
+00:03 +17: F1 and nested keyboard help restore fitting focus at 1280.0
+00:03 +18: help retains an accessible dismiss action at 1280.0
+00:03 +19: mouse long press does not latch help at 1280.0
+00:03 +20: hover help preserves the fitting click at 1280.0
+00:03 +21: F1 can take over an already hovered fitting at 1280.0
+00:03 +22: linked siblings replace each other and the whole chain clears
+00:04 +23: dodge help describes dodge without unrelated fittings
+00:04 +24: (tearDownAll)
+00:04 +24: All tests passed!
