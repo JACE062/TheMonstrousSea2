@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "7843730984b979e02076fa85b6ad81d2206082d5",
+  "request": "Remove keyword underlines and prevent exposed adjacent fitting edges from stealing help during pointer travel.",
+  "changedSources": [
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "sha256": "820f8c2fe7769fdff0d318e29f6e68fd404c142cd55fe71f8527346547bd0b86"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "a4e0bba09ca2cde68c92244c7fa7e104842b06bc536393ed0eb0ef2a3c07da26"
+    },
+    {
+      "path": "apps/monstrous_sea/test/tooltip_handoff_test.dart",
+      "sha256": "747e6b75abcab0a42560cd9492c4534a96d45ce0d89d1fd4a9e3875176e170f5"
+    },
+    {
+      "path": "apps/monstrous_sea/test/tooltip_interaction_test.dart",
+      "sha256": "11ed08fcdb7f007240333c26bcb0596210e63522741896b58b3c1cbcd1c3cb00"
+    }
+  ],
+  "playerScreenshots": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/player/01-signature-handoff.png",
+      "sha256": "8040c299187d74804ac2c5e309cf9cad590d4a7e3afa36e990f3895fd34983df"
+    }
+  ],
+  "baseline": {
+    "sourceCommit": "7843730984b979e02076fa85b6ad81d2206082d5",
+    "cases": 9,
+    "passed": 0,
+    "failed": 9,
+    "method": "Initial nine-case fixture ran against unchanged production sources before implementation.",
+    "failures": "Four direct paths switched to Broadside, four edge hovers opened help, and the style case found an underline."
+  },
+  "verification": {
+    "focusedGameFontCases": 14,
+    "offlineRegressionCases": 333,
+    "sizes": [
+      "800x480",
+      "1280x900"
+    ],
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "inputCoverage": [
+      "Direct Signature-to-Carapace traversal",
+      "Deliberate fitting replacement",
+      "Full-area clicks",
+      "F1 and touch long press at the edge",
+      "Full keyword/stat hover areas"
+    ],
+    "limits": "Widget fixtures recreate fitting geometry and pointer paths; not a native replay of every combat configuration."
+  },
+  "behavior": {
+    "keywordStyle": "Heavy crimson text, help cursor, no underline.",
+    "hoverInset": "Battle weapon/utility fittings opt into 12 logical pixels, capped at a quarter of each dimension; default zero elsewhere.",
+    "retained": "Open-help anchor areas, placement, grace timing, button clicks, F1, long press and keyword/stat hover areas."
+  },
+  "isolation": {
+    "storage": "Widget-only synthetic counters; no player profile access.",
+    "gameplay": "No shared-core, value, progression, save-schema or asset changes.",
+    "nativePreview": "Built separately and not launched."
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/analyze.log",
+      "sha256": "f2f4e89e7a6f2b3e028cfb3b3f5b0c4f23ec3a7663444aaa6eb1b5d1dfac4ccd"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/baseline.log",
+      "sha256": "71dd3c4cbea561b0376298b18ff3f974479e79581a37695a770a3963fc096472"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/diff-check.log",
+      "sha256": "ca889b0ad42cdeb28b668abd169b50563b2a87ad0bddffdd23cf208d2b97d8b3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/docs.log",
+      "sha256": "32713f69d135b4055b54370f8a54932f567c8d89d09401ac2decd1c1251edfb4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/first-fix.log",
+      "sha256": "9ab0b5811f0887185a479a6971ff57f5f6c129bf3f4152deee6bb68a4ace6fb6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/fixture-switch-point-probe.log",
+      "sha256": "9ab0b5811f0887185a479a6971ff57f5f6c129bf3f4152deee6bb68a4ace6fb6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/format.log",
+      "sha256": "9cd49628a4b737a2eee3485452a0da0f83b9636efc97b7a7458658351fdc6653"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/handoff-game-fonts.log",
+      "sha256": "1242bb1577ef81aba7d29670081735287de2de9f88526935e6d0902f27a071a6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/preview-build.log",
+      "sha256": "7c0ec62bc236196e6e31c4b60bc9fd16cfc43027dc0a39ded101e2fd3efdaa96"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/preview-pub-get.log",
+      "sha256": "973060bb6f7b5dac0714256cdc8d758cd1a855330d5cbd6aed3c0d116577dd4e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/checks/tooltip-regressions.log",
+      "sha256": "e1171dd5334de7e089c091eac034d3f51a8f9f3801509700c666134be1b968e6"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/before/tip-signature-1280-1.15.png",
+      "sha256": "19dd20156f1a1d12eac0a772a5df52616498c6a67237e744dc5ed05250690885",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/before/tip-signature-1280-1.3.png",
+      "sha256": "47be560a65b24e8e8a71b205cd86923d0e95b0cded301fe6173eb21fba399a14",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/before/tip-signature-800-1.15.png",
+      "sha256": "c656697d941715ee68fd5b97838d916e0a205d84d5007afbb1392f8454a1cc2b",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/before/tip-signature-800-1.3.png",
+      "sha256": "69de5566a8b40f1fe5b49728f6253bb22a6a32fe01759b8b95c0ec49b3264484",
+      "stage": "before"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-carapace-1280-1.15.png",
+      "sha256": "4387f8eeafc0dbe83fb18520c1ed9b11491ea15b83b6b345f0c683f3bb89b282",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-carapace-1280-1.3.png",
+      "sha256": "f6c52c31cbf76812078a16da16571d093232a5dc61877d2f61196bfadfa5385d",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-carapace-800-1.15.png",
+      "sha256": "9fc1a2a3604c614c9efabe4d04f02c943865a5bd970df51a55dcd788754461b2",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-carapace-800-1.3.png",
+      "sha256": "00891e545811844c566bb536a274cfa9277fe01e5aade4f4ff11d6e176d9c408",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-signature-1280-1.15.png",
+      "sha256": "303da29992088cb2dec8e2b44ecda0ff5f40b86c8f6569a0c4e21040d7bed9c1",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-signature-1280-1.3.png",
+      "sha256": "46995d73b1369699496e4f4b2b3135ac3b8d0480d4f10fc3fa5d5ed293748a6f",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-signature-800-1.15.png",
+      "sha256": "b11a6831457120d9571620372afa1fe8c45f502c75792fc3e9892b4996bb9ac1",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/final/tip-signature-800-1.3.png",
+      "sha256": "be82e0dfad549054174bcd1231578904cd5f89d39a16fdafc78dcda5cb2fa834",
+      "stage": "final"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-carapace-1280-1.15.png",
+      "sha256": "77757afdbc7e221665ef352bcc43b57f9a67190b1fd0dd8a1e661c004380587e",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-carapace-1280-1.3.png",
+      "sha256": "c6244a92c0bc3e8b6f2e5d29dffae0dcf2b80af416f28a3f7df128433d29ac89",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-carapace-800-1.15.png",
+      "sha256": "9ee082f3ddcde0a66d577402ba60750c2e53bc8c167c15e76281688b2d5cee7c",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-carapace-800-1.3.png",
+      "sha256": "9059c5b7511b912e4f7dffbe0711164c4dbbf50a4d361e2ed3c422c05cca5cef",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-signature-1280-1.15.png",
+      "sha256": "963da7644f50cda978367505fae613d03de6e9560e716c764772299950370250",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-signature-1280-1.3.png",
+      "sha256": "78b37fd6a4ebb3268ed300b1a4e2063aec89eb9efacc0aa213017ecdf2ba5859",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-signature-800-1.15.png",
+      "sha256": "fe919f1cd2482c86a0a8c0404226ecc5fd352efbb54885e0b248cb549f0eceae",
+      "stage": "reviewed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-handoff-2026-11-10/visual/reviewed/tip-signature-800-1.3.png",
+      "sha256": "3f6244a3685ade221cb21882989856ca0cca69df2a3f5f3f1f56afc2c3d18409",
+      "stage": "reviewed"
+    }
+  ],
+  "probeNotes": "First-fix and fixture-switch-point-probe logs retain the same intermediate run: direct paths passed, but a deliberate-switch test point hit the popup boundary. The final fixture moves it into exposed Broadside interior.",
+  "previewCorrespondence": "preview-correspondence.json"
+}

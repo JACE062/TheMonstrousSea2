@@ -168,7 +168,7 @@ void main() {
       expect(card('Burning'), findsOneWidget);
       expect(find.byTooltip('Close explanation'), findsNothing);
       final label = tester.widget<Text>(find.text('Burning').first);
-      expect(label.style!.decoration, TextDecoration.underline);
+      expect(label.style!.decoration, TextDecoration.none);
       await captureChartFocusProof(tester, fixture.key, 'keyword-$width');
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();

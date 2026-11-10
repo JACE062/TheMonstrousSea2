@@ -1,0 +1,18 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: Signature to Carapace crosses the Broadside sliver Size(800.0, 480.0)/1.15
+00:01 +1: fitting hover starts inside its edge but clicks stay full size Size(800.0, 480.0)/1.15
+00:01 +2: explicit fitting help still works outside the hover inset Size(800.0, 480.0)/1.15
+00:01 +3: Signature to Carapace crosses the Broadside sliver Size(800.0, 480.0)/1.3
+00:01 +4: fitting hover starts inside its edge but clicks stay full size Size(800.0, 480.0)/1.3
+00:01 +5: explicit fitting help still works outside the hover inset Size(800.0, 480.0)/1.3
+00:01 +6: Signature to Carapace crosses the Broadside sliver Size(1280.0, 900.0)/1.15
+00:02 +7: fitting hover starts inside its edge but clicks stay full size Size(1280.0, 900.0)/1.15
+00:02 +8: explicit fitting help still works outside the hover inset Size(1280.0, 900.0)/1.15
+00:02 +9: Signature to Carapace crosses the Broadside sliver Size(1280.0, 900.0)/1.3
+00:02 +10: fitting hover starts inside its edge but clicks stay full size Size(1280.0, 900.0)/1.3
+00:02 +11: explicit fitting help still works outside the hover inset Size(1280.0, 900.0)/1.3
+00:02 +12: keywords keep their weight, crimson and help cursor without underline
+00:02 +13: ordinary stat help retains its full hover target
+00:02 +14: (tearDownAll)
+00:02 +14: All tests passed!

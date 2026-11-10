@@ -208,10 +208,7 @@ class MechanicText extends StatelessWidget {
                 style: resolved.copyWith(
                   fontWeight: FontWeight.w800,
                   color: InkTheme.crimsonAccent,
-                  decoration: TextDecoration.underline,
-                  decorationStyle: TextDecorationStyle.dotted,
-                  decorationColor: InkTheme.crimsonAccent,
-                  decorationThickness: 1.6,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
@@ -232,15 +229,20 @@ class MechanicTooltip extends StatelessWidget {
     required this.message,
     required this.child,
     this.mechanics,
+    this.hoverInset = 0,
   });
   final String message;
   final Widget child;
   final MechanicContext? mechanics;
+
+  /// Activation margin for adjacent controls; clicks and open help stay full-size.
+  final double hoverInset;
   @override
   Widget build(BuildContext context) => _HelpAnchor(
     title: 'Action details',
     help: () => message,
     mechanics: mechanics ?? MechanicScope.of(context),
+    hoverInset: hoverInset,
     child: child,
   );
 }
@@ -267,6 +269,7 @@ class _HelpAnchor extends StatefulWidget {
     required this.mechanics,
     this.term,
     this.isWord = false,
+    this.hoverInset = 0,
   });
   final String title;
   final String Function() help;
@@ -274,6 +277,7 @@ class _HelpAnchor extends StatefulWidget {
   final MechanicContext mechanics;
   final String? term;
   final bool isWord;
+  final double hoverInset;
   @override
   State<_HelpAnchor> createState() => _HelpAnchorState();
 }
@@ -331,6 +335,20 @@ class _HelpAnchorState extends State<_HelpAnchor> {
   bool get _branchActive =>
       _active ||
       _visibleHelp.any((help) => help._descendsFrom(this) && help._active);
+
+  bool _canStartHover(Offset position) {
+    if (widget.isWord || widget.hoverInset <= 0) return true;
+    final box = _key.currentContext?.findRenderObject();
+    if (box is! RenderBox || !box.hasSize) return false;
+    final dx = math.min(widget.hoverInset, box.size.width / 4);
+    final dy = math.min(widget.hoverInset, box.size.height / 4);
+    return Rect.fromLTRB(
+      dx,
+      dy,
+      box.size.width - dx,
+      box.size.height - dy,
+    ).contains(position);
+  }
 
   @override
   void didChangeDependencies() {
@@ -457,6 +475,7 @@ class _HelpAnchorState extends State<_HelpAnchor> {
         child: InkWell(
           excludeFromSemantics: true,
           focusNode: _focus,
+          mouseCursor: SystemMouseCursors.help,
           onTapDown: (details) => _pointerKind = details.kind,
           onTap: _activate,
           child: widget.child,
@@ -559,9 +578,16 @@ class _HelpAnchorState extends State<_HelpAnchor> {
         child: MouseRegion(
           key: _key,
           cursor: widget.isWord ? SystemMouseCursors.help : MouseCursor.defer,
-          onEnter: (_) {
+          onEnter: (event) {
             _overAnchor = true;
-            _open();
+            if (_portal.isShowing || _canStartHover(event.localPosition)) {
+              _open();
+            }
+          },
+          onHover: (event) {
+            if (!_portal.isShowing && _canStartHover(event.localPosition)) {
+              _open();
+            }
           },
           onExit: (_) {
             _overAnchor = false;

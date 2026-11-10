@@ -1361,6 +1361,7 @@ class _BattleScreenState extends State<BattleScreen> {
         ),
         Expanded(
           child: MechanicTooltip(
+            hoverInset: 12,
             message:
                 '${badge?.tip ?? ''} $accuracyTip\n${_responseForecast(order, weaponType: type)}',
             child: InkButton(
@@ -1408,6 +1409,7 @@ class _BattleScreenState extends State<BattleScreen> {
       children: [
         Text('UTILITY', style: InkTheme.caption),
         MechanicTooltip(
+          hoverInset: 12,
           message:
               '${_utilityTooltip(ship, range)}\n${_responseForecast(order, utility: true)}',
           child: InkButton(
