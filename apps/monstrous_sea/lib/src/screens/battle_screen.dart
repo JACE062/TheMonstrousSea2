@@ -1362,8 +1362,10 @@ class _BattleScreenState extends State<BattleScreen> {
         Expanded(
           child: MechanicTooltip(
             hoverInset: 12,
-            message:
-                '${badge?.tip ?? ''} $accuracyTip\n${_responseForecast(order, weaponType: type)}',
+            message: [
+              '${badge?.tip ?? ''} $accuracyTip'.trim(),
+              _responseForecast(order, weaponType: type),
+            ].where((line) => line.isNotEmpty).join('\n'),
             child: InkButton(
               key: ValueKey('hardpoint-${slot.name}'),
               label: name,
@@ -1410,8 +1412,10 @@ class _BattleScreenState extends State<BattleScreen> {
         Text('UTILITY', style: InkTheme.caption),
         MechanicTooltip(
           hoverInset: 12,
-          message:
-              '${_utilityTooltip(ship, range)}\n${_responseForecast(order, utility: true)}',
+          message: [
+            _utilityTooltip(ship, range),
+            _responseForecast(order, utility: true),
+          ].where((line) => line.isNotEmpty).join('\n'),
           child: InkButton(
             key: const ValueKey('hardpoint-utility'),
             label: name,

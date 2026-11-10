@@ -220,3 +220,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Tooltip handoff follow-up 2026-11-10
 
 [The Signature-to-keyword follow-up](playtests/TOOLTIP_HANDOFF_2026_11_10.md) records removal of the keyword underline and inset mouse activation on battle fittings. [Evidence](playtests/evidence/tooltip-handoff-2026-11-10/manifest.json) retains the player screenshot, failing baseline, direct-path proofs at 115–130%, input/layout regressions and separate Windows preview correspondence. Existing click areas, explicit help inputs, keyword/stat targets, mechanics, player saves and earlier evidence are preserved.
+
+## Tooltip typography follow-up 2026-11-10
+
+[The keyword/spacing follow-up](playtests/TOOLTIP_TYPOGRAPHY_2026_11_10.md) records gold keywords with moderate emphasis, corrected inline text scaling and fitting help without empty forecast lines. [Evidence](playtests/evidence/tooltip-type-2026-11-10/manifest.json) retains the player screenshot, baseline failures, font-loaded proofs, regression checks and fresh preview correspondence. Existing help interaction, movement forecasts, gameplay, saves and earlier evidence remain intact.

@@ -227,12 +227,12 @@ void main() {
     }
   }
   testWidgets(
-    'keywords keep their weight, crimson and help cursor without underline',
+    'keywords use moderate weight, accuracy gold and a help cursor without underline',
     (tester) async {
       await fixture(tester, const Size(1280, 900), 1.15);
       final text = tester.widget<Text>(find.text('Carapace'));
-      expect(text.style!.fontWeight, FontWeight.w800);
-      expect(text.style!.color, InkTheme.crimsonAccent);
+      expect(text.style!.fontWeight, FontWeight.w600);
+      expect(text.style!.color, InkTheme.goldAccent);
       expect(text.style!.decoration, TextDecoration.none);
       final link = find
           .ancestor(of: find.text('Carapace'), matching: find.byType(InkWell))

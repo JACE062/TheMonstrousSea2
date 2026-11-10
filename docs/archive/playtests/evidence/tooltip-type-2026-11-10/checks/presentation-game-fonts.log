@@ -1,0 +1,32 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale false/1.15
+00:01 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: Signature to Carapace crosses the Broadside sliver Size(800.0, 480.0)/1.15
+00:01 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: Signature to Carapace crosses the Broadside sliver Size(800.0, 480.0)/1.15
+00:01 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.15
+00:01 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.15
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: explicit fitting help still works outside the hover inset Size(800.0, 480.0)/1.15
+00:01 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.3
+00:01 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: Signature to Carapace crosses the Broadside sliver Size(800.0, 480.0)/1.3
+00:01 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:01 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:01 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:02 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:02 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:02 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:02 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: Signature to Carapace crosses the Broadside sliver Size(1280.0, 900.0)/1.3
+00:02 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+00:03 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+00:03 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: explicit fitting help still works outside the hover inset Size(1280.0, 900.0)/1.3
+00:03 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:03 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:03 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:03 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+00:03 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.15
+00:04 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.3
+00:04 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.15
+00:05 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3
+00:05 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.corsair/1.15
+00:05 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.corsair/1.3
+00:06 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: (tearDownAll)
+00:06 +28: All tests passed!

@@ -205,9 +205,12 @@ class MechanicText extends StatelessWidget {
               isWord: true,
               child: Text(
                 label,
+                // WidgetSpan scales its child with the surrounding paragraph.
+                // Scaling this Text too would enlarge keywords a second time.
+                textScaler: TextScaler.noScaling,
                 style: resolved.copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: InkTheme.crimsonAccent,
+                  fontWeight: FontWeight.w600,
+                  color: InkTheme.goldAccent,
                   decoration: TextDecoration.none,
                 ),
               ),

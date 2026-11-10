@@ -1,0 +1,243 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale false/1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.1> of <76.45799255371094>
+  Actual: <76.75800781250001>
+   Which:  differs by <0.30001525878907387>
+Carapace must scale exactly once.
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:113:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 113
+The test description was:
+  keywords match surrounding text scale false/1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: Signature to Carapace crosses the Broadside sliver Size(800.0, 480.0)/1.15
+00:01 +0 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale false/1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: keywords match surrounding text scale false/1.15
+  
+00:01 +1 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale false/1.3
+00:01 +2 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale false/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.1> of <86.169921875>
+  Actual: <86.76992187500002>
+   Which:  differs by <0.6000000000000227>
+Carapace must scale exactly once.
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:113:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 113
+The test description was:
+  keywords match surrounding text scale false/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +2 -2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: explicit fitting help still works outside the hover inset Size(800.0, 480.0)/1.15
+00:01 +2 -2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale false/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: keywords match surrounding text scale false/1.3
+  
+00:01 +3 -2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.15
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.1> of <84.84886169433594>
+  Actual: <85.14885253906249>
+   Which:  differs by <0.29999084472655113>
+Carapace must scale exactly once.
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:113:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 113
+The test description was:
+  keywords match surrounding text scale true/1.15
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +3 -3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: Signature to Carapace crosses the Broadside sliver Size(800.0, 480.0)/1.3
+00:01 +3 -3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.15 [E]
+  Test failed. See exception logs above.
+  The test description was: keywords match surrounding text scale true/1.15
+  
+00:01 +4 -3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.3
+00:02 +5 -3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.3
+00:02 +6 -3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.1> of <95.65524291992188>
+  Actual: <96.255224609375>
+   Which:  differs by <0.5999816894531307>
+Carapace must scale exactly once.
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:113:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 113
+The test description was:
+  keywords match surrounding text scale true/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +6 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: Signature to Carapace crosses the Broadside sliver Size(1280.0, 900.0)/1.15
+00:02 +6 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: keywords match surrounding text scale true/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: keywords match surrounding text scale true/1.3
+  
+00:02 +7 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:02 +8 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:02 +9 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:03 +10 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.15
+00:03 +11 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_handoff_test.dart: fitting hover starts inside its edge but clicks stay full size Size(1280.0, 900.0)/1.3
+00:03 +12 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+00:03 +13 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+00:03 +14 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+00:03 +15 -4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 0 widgets with key [<'mechanic-help-action'>]: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:207:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 207
+The test description was:
+  fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +15 -5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+  
+00:03 +15 -5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.15
+00:04 +16 -5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 0 widgets with key [<'mechanic-help-action'>]: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:207:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 207
+The test description was:
+  fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +16 -6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+  
+00:04 +16 -6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.15
+00:05 +17 -6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 0 widgets with key [<'mechanic-help-action'>]: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:207:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 207
+The test description was:
+  fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +17 -7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.3
+  
+00:05 +17 -7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.15
+00:06 +18 -7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 0 widgets with key [<'mechanic-help-action'>]: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart:207:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart line 207
+The test description was:
+  fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +18 -8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3 [E]
+  Test failed. See exception logs above.
+  The test description was: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3
+  
+00:06 +18 -8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.corsair/1.15
+00:07 +19 -8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.corsair/1.3
+00:07 +20 -8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: (tearDownAll)
+00:07 +20 -8: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.bombardier/1.3
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.clipper/1.3
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.ironclad/1.3
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/tooltip_presentation_test.dart: fitting help has no blank footer and retains forecasts BlueprintId.standard/1.3
+  ... and 4 more
