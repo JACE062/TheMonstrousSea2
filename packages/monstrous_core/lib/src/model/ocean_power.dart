@@ -125,7 +125,7 @@ class HardpointBlessing {
       (OceanPower.magmaVentLord, HardpointType.broadside) =>
         '$bonus. Ignites for 3 turns.',
       (OceanPower.magmaVentLord, HardpointType.signature) =>
-        '$bonus. ${tier == 3 ? 'Ignites, then triggers' : 'Against Burning targets, triggers'} Thermal Detonation for +${[25, 40, 60][tier - 1]}% Blast damage without consuming Burning.',
+        '$bonus. ${tier == 3 ? 'Ignites, then triggers' : 'Against Burning targets, triggers'} Thermal Detonation for +${[25, 40, 60][tier - 1]}% Blast damage.',
       (OceanPower.magmaVentLord, _) =>
         'Ignites for 3 turns. For ${tier == 3 ? 3 : 2} turns, monster movement deals ${[12, 20, 30][tier - 1]} Fire damage.${tier == 3 ? ' Burning deals +50% damage while the wake lasts.' : ''}',
       (OceanPower.tempestSovereign, HardpointType.broadside) =>
@@ -145,7 +145,7 @@ class HardpointBlessing {
       (OceanPower.earthshakerTitan, HardpointType.signature) =>
         '$bonus. Deals 1.5× damage to Carapace. Breaking a lethal windup deals +${tier == 3 ? 35 : 25}% damage${tier == 3 ? ' and Stuns for 1 action' : '; the beast makes a normal attack instead'}.',
       (OceanPower.earthshakerTitan, _) =>
-        'Creates a ${[15, 25, 35][tier - 1]} HP barrier for 2 turns. Grants +${tier == 3 ? 20 : 15}% evasion while intact. Hits retaliate for ${[12, 20, 30][tier - 1]} Blast damage (1.5× against Carapace).',
+        'Creates a ${[15, 25, 35][tier - 1]} HP barrier for 2 turns. Grants +${tier == 3 ? 20 : 15}% evasion while intact. Hits retaliate for ${[12, 20, 30][tier - 1]} Blast damage.',
     };
   }
 

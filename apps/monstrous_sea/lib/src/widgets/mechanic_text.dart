@@ -94,30 +94,31 @@ class MechanicContext {
     'Burning' =>
       blessing?.power == OceanPower.magmaVentLord ||
               (monster?.burnTurns ?? 0) > 0
-          ? 'Takes $_burningDamage Fire damage per turn. Magma ignition lasts 3 turns.'
-          : 'Takes Fire damage when its status effects resolve. Non-Magma fire has a 25% chance to clear after each surviving tick.',
+          ? 'Takes $_burningDamage Fire damage per turn for 3 turns.'
+          : 'Takes Fire damage each turn. 25% chance to go out afterward.',
     'Illuminated' =>
       'Clears enemy Obscurity and prevents dodge. Grants +${monster?.isIlluminatedByFlare == true ? monster!.spotterFlareAccuracyBonus : (15 * _flareMultiplier).round()}% shot accuracy and +${monster?.isIlluminatedByFlare == true ? (monster!.spotterFlareBlastBonus * 100).round() : (25 * _flareMultiplier).round()}% Blast damage taken. Lasts 2 turns.',
     'Static Charge' =>
       'At 3 stacks, triggers Arc Discharge and consumes the stacks.',
     'Arc Discharge' =>
-      'Deals ${arcDischargeDamage(tier(OceanPower.tempestSovereign))} Shock damage before damage modifiers and clears Frenzy. Interrupts a lethal windup with Stun; otherwise applies Electro-Jolt.',
+      'Deals ${arcDischargeDamage(tier(OceanPower.tempestSovereign))} base Shock damage and clears Frenzy. Applies Stun against a lethal windup; otherwise Electro-Jolt.',
     'Corroded' =>
-      'Each stack increases incoming damage by ${tier(OceanPower.brinemother) == 3 ? 12 : 8}% and reduces attack damage by 5%. Up to 3 stacks; lasts 3 turns and refreshes when reapplied.',
+      'Per stack: +${tier(OceanPower.brinemother) == 3 ? 12 : 8}% damage taken, −5% attack damage. Maximum 3 stacks. Lasts 3 turns; reapplying refreshes the duration.',
     'Pinned' => 'Prevents movement and halves dodge this turn.',
     'Carapace' => 'Absorbs damage before flesh. Blast deals 1.5× damage to Carapace; Fire bypasses it. Other damage is absorbed point for point unless an attack specifies otherwise.',
-    'Critical Hits' => 'Deal 1.5× damage. The listed Critical Hit chance is the chance for an eligible hit to become critical.',
+    'Critical Hits' => 'Deal 1.5× damage.',
     'Shaken' =>
       'Reduces enemy shot accuracy by $_shakenPenalty% for its next action.',
     'Obscurity' =>
-      'Reduces shot accuracy${(monster?.obscurityAccuracyPenalty ?? 0) > 0 ? ' by ${monster!.obscurityAccuracyPenalty}%' : ''}. Successful hits have a 25% chance to clear it, lasts until cleared.',
+      'Reduces incoming shot accuracy${(monster?.obscurityAccuracyPenalty ?? 0) > 0 ? ' by ${monster!.obscurityAccuracyPenalty}%' : ''}. Hits have a 25% chance to clear it. Lasts until cleared.',
     'Anchored' => 'Prevents forced movement this round.',
     'Grappled' => 'The ship cannot move this round.',
     'Stun' => 'Prevents the next action and its movement, then clears.',
-    'Poison' => 'Deals venom damage when status effects resolve, with a 25% chance to clear after each surviving tick.',
+    'Poison' => 'Takes venom damage each turn. 25% chance to clear afterward.',
     'Frenzy' => 'Each stack increases the beast’s attack damage by 25%.',
-    'Electro-Jolt' => 'Reduces enemy accuracy by 30% and attack damage by 25% for its next action.',
-    'Thermal Detonation' => 'An extra Blast hit triggered by the named blessing against Burning targets. It does not consume Burning.',
+    'Electro-Jolt' => 'Next enemy action: −30% accuracy, −25% attack damage.',
+    'Thermal Detonation' =>
+      'An extra Blast hit against Burning targets. Burning remains.',
     _ => '',
   };
 
@@ -624,8 +625,13 @@ class _HelpAnchorState extends State<_HelpAnchor> {
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(widget.title, style: InkTheme.statLabel),
-                                  const SizedBox(height: 6),
+                                  if (widget.term != null) ...[
+                                    Text(
+                                      widget.title,
+                                      style: InkTheme.statLabel,
+                                    ),
+                                    const SizedBox(height: 6),
+                                  ],
                                   MechanicText(
                                     widget.help(),
                                     mechanics: widget.mechanics,

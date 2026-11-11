@@ -58,7 +58,7 @@ class PauseMenuButton extends StatelessWidget {
         menu == null ? Icons.settings : Icons.pause,
         color: InkTheme.inkSecondary,
       ),
-      tooltip: menu == null ? 'Settings & Accessibility' : 'Pause menu (Esc)',
+      tooltip: menu == null ? 'Settings & Accessibility' : 'Pause menu',
       onPressed: menu?.openMenu ?? () => SettingsDialog.show(context),
     );
   }

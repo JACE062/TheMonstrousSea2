@@ -301,7 +301,7 @@ void main() {
           find.byKey(const ValueKey('belt-help')).hitTestable(),
           findsOneWidget,
         );
-        await tester.tap(find.byTooltip('Chronicle Log'));
+        await tester.tap(find.byTooltip('Combat Chronicle'));
         await tester.pumpAndSettle();
         expect(find.byType(CombatLogView), findsOneWidget);
         expect(find.byType(Dialog), findsOneWidget);

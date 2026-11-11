@@ -339,7 +339,7 @@ class _NauticalChartState extends State<NauticalChart>
             child: Tooltip(
               key: ValueKey('voyage-marker-$i'),
               message:
-                  'Region ${route.history[i].regionIndex + 1} · Leg ${route.history[i].leg}: ${voyageDestinationLabel(route.history[i])} · ${voyageOutcomeLabel(route.history[i])}',
+                  '${voyageDestinationLabel(route.history[i])} · ${voyageOutcomeLabel(route.history[i])}',
               child: Semantics(
                 label:
                     'Leg ${route.history[i].leg}, ${voyageOutcomeLabel(route.history[i])}',

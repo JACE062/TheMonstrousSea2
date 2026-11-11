@@ -35,24 +35,19 @@ class HullPatchKitButton extends StatelessWidget {
         return const SizedBox.shrink();
       }
       final hp = session.hullPatchHealingHp;
-      return Tooltip(
-        message: hp > 0
-            ? 'Use this Hull Patch Kit now to restore $hp hull HP.'
-            : 'Hull already full; this kit remains available to keep or stow.',
-        child: InkButton(
-          key: ValueKey(
-            'hull-patch-${fromPendingLoot ? 'pending' : 'carried'}-$itemId',
-          ),
-          label: hp > 0 ? 'PATCH +$hp HP' : 'HULL FULL · KEEP KIT',
-          semanticLabel: fromPendingLoot
-              ? 'Use found Hull Patch Kit without stowing it, restoring $hp HP'
-              : 'Use carried Hull Patch Kit, restoring $hp HP',
-          onPressed: hp > 0 && !controller.isPlayingEvents
-              ? () => controller.dispatch(
-                  UseHullPatchKit(itemId, fromPendingLoot: fromPendingLoot),
-                )
-              : null,
+      return InkButton(
+        key: ValueKey(
+          'hull-patch-${fromPendingLoot ? 'pending' : 'carried'}-$itemId',
         ),
+        label: hp > 0 ? 'PATCH +$hp HP' : 'HULL FULL · KEEP KIT',
+        semanticLabel: fromPendingLoot
+            ? 'Use found Hull Patch Kit without stowing it, restoring $hp HP'
+            : 'Use carried Hull Patch Kit, restoring $hp HP',
+        onPressed: hp > 0 && !controller.isPlayingEvents
+            ? () => controller.dispatch(
+                UseHullPatchKit(itemId, fromPendingLoot: fromPendingLoot),
+              )
+            : null,
       );
     },
   );

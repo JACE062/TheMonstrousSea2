@@ -1,0 +1,48 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:01 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: status hover targets are independent at 360.0
+00:01 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:01 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 1280.0
+00:02 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / false
+00:02 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: shell damage stays numeric with 10 starting plates
+00:02 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: bombardier command layout and modal bounds at 1440.0
+00:02 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 360.0 / false / true
+00:02 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: shell damage stays numeric with 100 starting plates
+00:02 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: corsair command layout and modal bounds at 600.0
+00:02 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: corsair command layout and modal bounds at 600.0
+00:02 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Long helm then Ram impacts in 900 ms with overlapping movement labels
+00:02 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Long helm then Ram impacts in 900 ms with overlapping movement labels
+00:03 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Long helm then Ram impacts in 900 ms with overlapping movement labels
+00:03 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: ironclad command layout and modal bounds at 1920.0
+00:03 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: actual Sargasso/Quirk dodge at 1280.0 / false / true
+00:03 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=false)
+00:03 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=false)
+00:03 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=false)
+00:03 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=false)
+00:03 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: clipper command layout and modal bounds at 1024.0
+00:04 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: clipper command layout and modal bounds at 1024.0
+00:04 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=true)
+00:04 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: feedback stack caps, expires and reflows independently (reduced=true)
+00:04 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_command_station_test.dart: standard command layout and modal bounds at 800.0
+00:04 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: HUD applies cap, Pin and real Flare zero rather than hiding it
+00:04 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: quick actions retain labels and same-frame overflow never resurrects evicted cues
+00:04 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: captured dodge updates at effects and barrier depletion, not future live state
+00:04 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/evasion_readout_test.dart: captured dodge updates at effects and barrier depletion, not future live state
+00:05 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Stun tincture displays Stun without Pinned or a dodge reduction
+00:05 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: range feedback distinguishes movers from pull instigators
+00:05 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Prow Ram displays movement and impact in causal order
+00:05 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Harpoon Winch displays movement and impact in causal order
+00:05 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: Kraken retreat is attributed to the beast at Medium range
+00:05 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: effect snapshots cannot advance HP, shell or limbs; identity is explicit
+00:05 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: HUD stays at each impact through rebuilds (reduced=false)
+00:06 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: HUD stays at each impact through rebuilds (reduced=true)
+00:06 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: twelve-hit sweep preserves each impact with bounded playback
+00:07 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: ordinary labels remain readable while playback completes before their fade
+00:07 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: barrier then hull then status has readable state at 1280.0 / 130%
+00:07 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: barrier then hull then status has readable state at 600.0 / 130%
+00:07 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: removing a scene cancels remaining impacts and completion
+00:07 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/battle_presentation_test.dart: (tearDownAll)
+00:07 +44: All tests passed!

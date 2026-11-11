@@ -193,8 +193,8 @@ void main() {
       await mouse.addPointer(location: Offset.zero);
       addTearDown(mouse.removePointer);
       const flareHelp =
-          'Suppresses Obscurity and dodge. Shots gain +23% accuracy; '
-          'Blast damage taken increases by 40%.';
+          'Suppresses Obscurity and dodge. +23% shot accuracy; '
+          '+40% Blast damage taken.';
       const armorHelp =
           'Reduces each incoming hit by 6 damage. '
           'Fortification lasts for the rest of this battle.';
@@ -235,7 +235,7 @@ void main() {
       await hover('monster-stat-illuminated', flareHelp, 'illuminated');
       expect(
         find.byWidgetPredicate(
-          (w) => w is MechanicText && w.text.contains('Current dodge chance'),
+          (w) => w is MechanicText && w.text.startsWith('Chance to dodge'),
         ),
         findsNothing,
       );
@@ -243,19 +243,19 @@ void main() {
       expect(helpText(flareHelp), findsNothing);
       expect(
         find.byWidgetPredicate(
-          (w) => w is MechanicText && w.text.contains('Current dodge chance'),
+          (w) => w is MechanicText && w.text.startsWith('Chance to dodge'),
         ),
         findsNothing,
       );
       await hover(
         'monster-stat-dodge',
-        'Current dodge chance. Attack accuracy is a separate roll.',
+        'Chance to dodge an incoming hit.',
         'dodge',
       );
       expect(helpText(armorHelp), findsNothing);
       await hover(
         'ship-stat-evasion',
-        'Current dodge chance after captain, regional and active-effect modifiers, capped at 95%. Unavoidable attacks bypass dodge.',
+        'Chance to dodge an incoming attack. Maximum 95%.',
         'evade',
       );
       await mouse.moveTo(Offset.zero);
@@ -471,7 +471,7 @@ void main() {
           matching: find.byType(MechanicTooltip),
         ),
       );
-      expect(flareTip.message, contains('+30% accuracy'));
+      expect(flareTip.message, contains('+30% shot accuracy'));
       expect(flareTip.message, contains('50%'));
       expect(flareTip.message, isNot(contains('99%')));
       game.presentation.apply(unlit);

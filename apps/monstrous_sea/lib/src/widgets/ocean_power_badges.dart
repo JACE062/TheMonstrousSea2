@@ -14,9 +14,9 @@ List<Widget> _combatStatusBadges(Combatant combatant) => [
         label: effect.displayName,
         explanation: switch (effect) {
           StatusEffect.burn =>
-            'Fire damage when this combatant’s status effects resolve.',
+            'Takes Fire damage each turn. 25% chance to go out afterward.',
           StatusEffect.poison =>
-            'Poison damage when this combatant’s status effects resolve.',
+            'Takes venom damage each turn. 25% chance to clear afterward.',
           StatusEffect.stun => 'Loses its next action, then clears.',
         },
       ),
@@ -46,8 +46,7 @@ class BlessingBadge extends StatelessWidget {
     data: MechanicScope.of(context).withBlessing(blessing),
     child: _PowerBadge(
       label: '${blessing.tierLabel} · ${blessing.title}',
-      explanation:
-          '${blessing.power.displayName}: ${blessing.subtitle}. ${blessing.description}',
+      explanation: '${blessing.power.displayName}. ${blessing.description}',
     ),
   );
 }
@@ -67,19 +66,18 @@ class ShipPowerStatusBadges extends StatelessWidget {
       if (ship.tempAccuracyPenalty > 0)
         _PowerBadge(
           label: 'Accuracy −${ship.tempAccuracyPenalty}%',
-          explanation: 'Temporary shot accuracy penalty for this round.',
+          explanation: 'Shot accuracy penalty for this round.',
         ),
       if (ship.isBracedByDrill)
         const _PowerBadge(
           label: 'Braced · −20% incoming',
-          explanation:
-              'Gun-Deck Bracing reduces incoming attack damage this round.',
+          explanation: 'Reduces incoming attack damage this round.',
         ),
       if (ship.basaltBarrierHp > 0)
         _PowerBadge(
           label: 'Basalt Barrier: ${ship.basaltBarrierHp} HP',
           explanation:
-              'Basalt Aegis (${ship.basaltAegisTurns}T): absorbs incoming damage and returns a Tidal Shockwave when struck.',
+              'Absorbs damage. Retaliates with Tidal Shockwave when hit. ${ship.basaltAegisTurns} turn${ship.basaltAegisTurns == 1 ? '' : 's'} remaining.',
         ),
       if (ship.stormRiggingTurns > 0)
         _PowerBadge(
@@ -108,7 +106,8 @@ class MonsterPowerStatusBadges extends StatelessWidget {
         if (monster.staticStacks > 0)
           _PowerBadge(
             label: 'Static Charge (${monster.staticStacks}/3)',
-            explanation: 'At 3 stacks, Arc Discharge purges Frenzy and shatters a lethal windup or applies Electro-Jolt.',
+            explanation:
+                'At 3 stacks, triggers Arc Discharge and consumes the stacks.',
           ),
         if (monster.corrodedStacks > 0)
           _PowerBadge(
@@ -121,7 +120,8 @@ class MonsterPowerStatusBadges extends StatelessWidget {
         if (monster.isElectroJolted)
           const _PowerBadge(
             label: 'Electro-Jolt (1T)',
-            explanation: 'Monster accuracy -30%; attack damage -25% for its next action.',
+            explanation:
+                'Next enemy action: −30% accuracy, −25% attack damage.',
           ),
         if (monster.tremorAccPenalty > 0)
           _PowerBadge(

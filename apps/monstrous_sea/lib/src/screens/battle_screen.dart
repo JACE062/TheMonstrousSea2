@@ -973,7 +973,7 @@ class _BattleScreenState extends State<BattleScreen> {
                                     Icons.menu_book_outlined,
                                     color: InkTheme.inkPrimary,
                                   ),
-                                  tooltip: 'Chronicle Log',
+                                  tooltip: 'Combat Chronicle',
                                   onPressed: () => showBattleChronicle(
                                     context,
                                     widget.controller,
@@ -1509,16 +1509,13 @@ class _BattleScreenState extends State<BattleScreen> {
     final tooltip = switch (order) {
       _ when isGrappled && order != HelmOrder.holdLine =>
         'Ship is grappled! Helm is locked to Hold Line this round.',
-      HelmOrder.fallBack when !isAvailable =>
-        'Cannot fall back beyond Long Range',
+      HelmOrder.fallBack when !isAvailable => 'Already at Long Range',
       HelmOrder.fallBack =>
-        'Order helm to fall back to ${currentRange.rangeAfterHelmOrder(order).displayName}',
-      HelmOrder.holdLine =>
-        'Hold current station at ${currentRange.displayName}',
-      HelmOrder.advance when !isAvailable =>
-        'Cannot advance closer than Short Range',
+        'Fall back to ${currentRange.rangeAfterHelmOrder(order).displayName}',
+      HelmOrder.holdLine => 'Hold at ${currentRange.displayName}',
+      HelmOrder.advance when !isAvailable => 'Already at Short Range',
       HelmOrder.advance =>
-        'Order helm to advance to ${currentRange.rangeAfterHelmOrder(order).displayName}',
+        'Advance to ${currentRange.rangeAfterHelmOrder(order).displayName}',
     };
 
     final Color bgColor = isSelected

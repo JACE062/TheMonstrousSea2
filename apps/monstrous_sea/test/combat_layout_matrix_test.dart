@@ -426,7 +426,7 @@ Future<void> review(
     for (final target in [
       find.byKey(const ValueKey('belt-help')),
       find.byTooltip('Inspect monster intent'),
-      find.byTooltip('Chronicle Log'),
+      find.byTooltip('Combat Chronicle'),
     ]) {
       await tester.ensureVisible(target);
       await tester.tap(target);

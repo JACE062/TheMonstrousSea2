@@ -335,7 +335,7 @@ void main() {
             (component) => (component.position.clone(), component.size.clone()),
           )
           .toList();
-      await tester.tap(find.byTooltip('Chronicle Log'));
+      await tester.tap(find.byTooltip('Combat Chronicle'));
       await tester.pump(const Duration(milliseconds: 300));
       await tester.tap(find.byKey(const ValueKey('chronicle-close')));
       game.resumeEngine();

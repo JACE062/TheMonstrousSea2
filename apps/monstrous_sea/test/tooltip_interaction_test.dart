@@ -394,7 +394,7 @@ void main() {
       mouse,
       find.byKey(const ValueKey('monster-stat-dodge')),
     );
-    expect(find.textContaining('Current dodge chance.'), findsOneWidget);
+    expect(find.textContaining('Chance to dodge an incoming hit.'), findsOneWidget);
     expect(find.textContaining('Spotter Flare'), findsNothing);
     expect(find.text('Pin'), findsNothing);
   });

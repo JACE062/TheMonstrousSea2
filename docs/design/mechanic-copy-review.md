@@ -131,7 +131,11 @@ Reviewed current app action/help/status call sites (`battle_screen`, `armory_vie
 
 ## Pending tooltip copy review
 
-**E01–E33 — proposed 10 November 2026; no selections or implementation yet.** The user requested the complete current/proposed list in chat. These IDs preserve that review for later approval. They are separate from the implemented D selections. N/A/B are live amounts, T is remaining turns and Range is the displayed range; quoted tier examples are illustrative current values, not tuning proposals. Repeating essential effects in a keyword definition is appropriate. Optional rows identify cuts that could lose useful context or a help entry point.
+**E01–E33 — reviewed 10 November 2026; partial approval.** The user approved E01–E02, E06–E15, E17–E18, E20–E24 and E26–E33, including the optional cuts in those rows. Those 27 selections are implemented. E03–E05, E16, E19 and E25 remain unchanged pending answers through the questions feature. The table retains the original before/proposal comparison rather than replacing review evidence with the resulting text. These IDs are separate from the implemented D selections. N/A/B are live amounts, T is remaining turns and Range is the displayed range; quoted tier examples are illustrative current values, not tuning proposals. Repeating essential effects in a keyword definition is appropriate. Optional rows identify cuts that could lose useful context or a help entry point.
+
+The approved presentation changes remove generic Action details headings while retaining named keyword headings, remove the redundant outside-battle Patch Kit button hints, shorten blessing hover prefixes without changing visible tier badges, and omit region/leg counters from chart waypoint hints while keeping the full voyage log. E33's proposed removal is approved even though its review note leaned toward keeping it; no Blast keyword was added. Gameplay, numeric values, durations and save formats are unchanged. Fitting tempering previews remain the next task under PT2-20.
+
+[Verification](../archive/README.md#tooltip-copy-selections-2026-11-10) retains cached-font screen/interaction checks, the corrected stale assertion, analysis and captures; no native preview was rebuilt or launched.
 
 | ID / surface | Current wording | Proposed change | Review note |
 | --- | --- | --- | --- |

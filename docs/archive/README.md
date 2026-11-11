@@ -232,3 +232,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Concise fitting help 2026-11-10
 
 [The fitting copy follow-up](playtests/FITTING_COPY_2026_11_10.md) records removal of duplicate enemy dodge and secondary response forecasts from fitting tooltips. [Evidence](playtests/evidence/fitting-copy-2026-11-10/manifest.json) preserves both player screenshots, focused checks, font-loaded proofs and a separate preview. The existing lookout, action effects, movement ordering, saves and earlier audit records remain intact.
+
+## Tooltip copy selections 2026-11-10
+
+[The E copy selections](playtests/TOOLTIP_COPY_2026_11_10.md) record the 27 approved tooltip edits, shorter generic cards and retained named keyword help. [Evidence](playtests/evidence/tooltip-copy-2026-11-10/manifest.json) preserves the initial stale assertion and corrected follow-up, cached-font screen walks, analysis and captures. The six pending copy choices, fitting tempering previews and deferred Master Refits remain distinct. Existing mechanics, values, player saves, native previews and earlier audit records are preserved.

@@ -1,0 +1,557 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "99d225324306aed7fc76a5ce707d92490968227f",
+  "scope": "27 approved E tooltip copy/presentation edits; no gameplay or tuning changes.",
+  "implementedIds": [
+    "E01",
+    "E02",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E17",
+    "E18",
+    "E20",
+    "E21",
+    "E22",
+    "E23",
+    "E24",
+    "E26",
+    "E27",
+    "E28",
+    "E29",
+    "E30",
+    "E31",
+    "E32",
+    "E33"
+  ],
+  "pendingIds": [
+    "E03",
+    "E04",
+    "E05",
+    "E16",
+    "E19",
+    "E25"
+  ],
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "abbe03955f0bb63f7fbcb392cc6345a68eccb3edbf78347b6affb3fcd03a420c"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/combat_stats.dart",
+      "sha256": "4c71b52a8d942777da7ec5fd139bbf71f5b5affe4397c519d967908268f72eaa"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/hull_patch_kit_button.dart",
+      "sha256": "db35d5f58a9242fe3460a42f12dc43573bff15bd4725d83d8b298985f94f4bfb"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "sha256": "d388699d42c1a1bf3a918c43f7e7b7942e336281344ce74d40ace9214e187bdd"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/nautical_chart.dart",
+      "sha256": "e41814f985a22f693d524754334cacf112fc7cae9f8eb325b16f4c2cb4457771"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart",
+      "sha256": "c5a02222c1d42e85238f4b8f0d8c315427c6247d5b520a5fbce738617d1ba386"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/pause_menu.dart",
+      "sha256": "f2598310d79bcd4442a786ab228922f31f5a730512f2c9151537126cb059ab7b"
+    },
+    {
+      "path": "apps/monstrous_sea/test/battle_art_recovery_test.dart",
+      "sha256": "bdc837f4444eafe201ea5c440fe328160effa633a8796df5a0748d9891532739"
+    },
+    {
+      "path": "apps/monstrous_sea/test/battle_command_station_test.dart",
+      "sha256": "67b9ab5549ba157e7bf5876935f97dfacd996fb7f6331ce2eb8492cdc5d1acb7"
+    },
+    {
+      "path": "apps/monstrous_sea/test/battle_presentation_test.dart",
+      "sha256": "295836134ee422256a0570bc0ec4072c7ecd01298fe34022c27eb735b1feff40"
+    },
+    {
+      "path": "apps/monstrous_sea/test/combat_layout_matrix_test.dart",
+      "sha256": "78c2379872d8e17405adf08df3c197750848f1712b5bc50d7f4042c2c5ea9106"
+    },
+    {
+      "path": "apps/monstrous_sea/test/evasion_readout_test.dart",
+      "sha256": "d685ccebddbee6fb35a1007c291c269bc0fbd93d71bf3e2cfff0fceb75f8fb72"
+    },
+    {
+      "path": "apps/monstrous_sea/test/raster_art_test.dart",
+      "sha256": "07e6567e515ab74523f2892cc12211fa502bd5f9ad4b1585399b3e29e14c5020"
+    },
+    {
+      "path": "apps/monstrous_sea/test/tooltip_interaction_test.dart",
+      "sha256": "ab74999c2ea0aa29a8ad12827f6a567093395a00903ca7bbc792f88c32d8afa9"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/ocean_power.dart",
+      "sha256": "c9659f367876ff225091f7a25e896828e7dbee8f49dbe74db8fa15b8953b7638"
+    }
+  ],
+  "verification": {
+    "initialCachedFontCases": 121,
+    "initialPassed": 120,
+    "initialFailure": "One stale expected accuracy string; updated to approved shot accuracy wording.",
+    "correctedAffectedCasesPassed": 44,
+    "countNote": "The 44-case follow-up overlaps the initial run; these are not additive totals.",
+    "blessingModelCasesPassed": 4,
+    "analysis": "Flutter app and Dart core reported no issues.",
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "visuallyInspected": [
+      "review-carapace-1280-1.15.png",
+      "review-clipper-utility-1.3.png",
+      "review-badges-360-1.15-action.png"
+    ]
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/checks/affected-regressions.log",
+      "sha256": "2b68f041f3668dad84089be8d6d59d6cda362ff03f56bb593f4be9265f1d7098"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/checks/app-analyze.log",
+      "sha256": "7a5649639a85aae2b448bff3b6905d260c23bf99b9d94b778d3d69c0ef2d1066"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/checks/blessing-model.log",
+      "sha256": "40680be59603fa55b7014b3de30b22537e5ee5c82dfe0acd3b576ae345fd12eb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/checks/core-analyze.log",
+      "sha256": "33d5c77eebf4d6e86163d697a6f890c7383b7075174f12b322c114f029f7527a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/checks/tooltip-game-fonts.log",
+      "sha256": "da4c6e684abbd948cefd7a516d30b0e84668a672613b15b4dd9331ab39520fb7"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-1280-1.15-action.png",
+      "sha256": "1efc4ee3aa954b5328743a96e0b4cf0eea41b7c00fdcbbb90a74b87a79f3e9ce"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-1280-1.15-native.png",
+      "sha256": "f558083962efcefd39b4d69cf14d4ff27e5e1005eabdb8a359259f4ded31279d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-1280-1.3-action.png",
+      "sha256": "d61cc000497d23b3722763fbd62edde3b2bdff08803ea77710da8583b61a99c5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-1280-1.3-native.png",
+      "sha256": "595fd48e1ebc3190e85dbbe903bc246221d4abe19081e734d2c21d0d8ca44214"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-360-1.15-action.png",
+      "sha256": "2859e05f5b81207f2d89f67dca4be32e54b657dfdc8138e6ec41cdcf13addcf0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-360-1.15-native.png",
+      "sha256": "50a68df81207bf29ecaeb34ad77692b8615d5edc60d8a2fe3beedfbedca7ca07"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-360-1.3-action.png",
+      "sha256": "7300ea95bf560e5a7980a7afc2f02794b65c059497d7bb64784523d23c5ec94b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-360-1.3-native.png",
+      "sha256": "adba7129188098090f04c5015c575af791ae7b72462520dec6eb83c7b75f2a6b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-800-1.15-action.png",
+      "sha256": "689fa2bf682bd47ef3cf902309f155504d578ef3380d0d4f7c5c31f6a16157e7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-800-1.15-native.png",
+      "sha256": "2a901311bc7181b2e53b79b52816649f16f3545d27dde7eb86882c5e63fc7997"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-800-1.3-action.png",
+      "sha256": "20362f99d9483cb0ca1163d12a5efb554f8bb659b6cb1a7c65921c7e101d6e68"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-badges-800-1.3-native.png",
+      "sha256": "4664c17a31034b286960022a9593c77c63fe6e7675152df944702f2a63027806"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-1280-1.15-action.png",
+      "sha256": "4164117d585be3a06e85de648b48a233a4b38b9094d6e51b9411f501ffff49fd"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-1280-1.15-native.png",
+      "sha256": "bfd41a8a2a45ce1936d19ae8f9ce99d707b923a621d4cba8b3db4973c3490a0d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-1280-1.3-action.png",
+      "sha256": "4db4461423bcbee2a0b1dd62c43361d70a38cf238895c3104fcd0e4a67ab0cf6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-1280-1.3-native.png",
+      "sha256": "07e1a55bd94b6f9384efbf0f268b70304edeae7df38d433943e03ec2fc05fa01"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-360-1.15-action.png",
+      "sha256": "54b7c628da41c3daf857b627550e4d2d872dcbe03f9d324e690993fb786af1f0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-360-1.15-native.png",
+      "sha256": "2e4beb73e530b8dfdac561a3ea2890716f62966032df610aa1b8b03cef84cf97"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-360-1.3-action.png",
+      "sha256": "e0f284075ce5e04de21d80fbbf77ce87e68d4c1fb877aa1df135134303bbcce0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battle-360-1.3-native.png",
+      "sha256": "b740f6abd85791c3f1beecac1bc3fafa1e927d63dd8d126bdfed2cb7f24eb9da"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battleReload-1280-1.15-action.png",
+      "sha256": "77ce68b7cbd00e1fc3da851f1031a661c56b0d94ff0955fc4a2418a884950e92"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battleReload-1280-1.15-native.png",
+      "sha256": "5745d94804928ffc048180035155ed213586ac8542b5bf8c8eb9d965941cac50"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battleReload-360-1.15-action.png",
+      "sha256": "18c00333aee8a8baff0430e410ab6965975537729b16569b654df94988695a72"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-battleReload-360-1.15-native.png",
+      "sha256": "81f41f8204d9d6bb53b38c569480bcf417e3dd56065f6cd21d37ed4a95062fa3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-blueprints-1280-1.15-keyword.png",
+      "sha256": "821711bc9aeff4ed20f2cbad5c2b1aabb3e81c60a8ab9ad8e55ebd486d6cb522"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-blueprints-360-1.15-keyword.png",
+      "sha256": "511d9af2d59bb9effd642474955adf721bb03ae4a9bfe232d118240a326285bd"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-blueprints-800-1.15-keyword.png",
+      "sha256": "6dfaf83c3cdeeccebe964d3fa059ff76052d1d984adc744b4891553625785375"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-burning-1280.0.png",
+      "sha256": "b57dc53b66f71e8d36387651535c3929662ba8ccd7f634f59895292292b94485"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-burning-360.0.png",
+      "sha256": "3255f75cf4f9d307be21f9aaf6533d4ab8c2ed3077f6eada8bcb1776f2d1ed7b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-carapace-1280-1.15.png",
+      "sha256": "c5e13db4e9a599035381589e2c8643a4c2dd45ec61ff5a10ac9041d7aeb70f77"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-carapace-1280-1.3.png",
+      "sha256": "e46543725a5c3a3f2df172b49f2c4047092cb1437262c87b4a889ec881f7b4a4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-carapace-800-1.15.png",
+      "sha256": "d563dfc446b4333cdba90ff68f90fb3141a8c635c496e8a0413735b61a90355a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-carapace-800-1.3.png",
+      "sha256": "1dfddb9ce12d7665189552a6c23e2f23a9dbb4d009234b726378f5abad32b125"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-chart-1280-1.15-native.png",
+      "sha256": "83f643c5025a10e4597f742df21c604282040f21f61570f08354bc0840d10421"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-chart-1280-1.3-native.png",
+      "sha256": "a436408734c3dffeccfd3b17724711a0f7f97aeb3116c0c810664cea85075460"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-chart-360-1.15-native.png",
+      "sha256": "f0f9fd0bbb78e56a474c8550bee569965404589e101bf8e9be6d115c7bca7857"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-chart-360-1.3-native.png",
+      "sha256": "8012dcc0489b209d04597d6307c8b6f19de953e01b0398087fb0cd681033c77a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-clipper-broadside-1.15.png",
+      "sha256": "445a3e9cb45fe2952eeb54cd81f7b2e60713b469ad8df8ac66cd9a4aca17088e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-clipper-broadside-1.3.png",
+      "sha256": "6898cd24a8f910b83163c9acbd6d0964725775a921c7d5bc9d98bfb3b017bba3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-clipper-signature-1.15.png",
+      "sha256": "683bd67d807097cd572e4db0d50bed10a45a79840ec4e51ec3e23517731d783e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-clipper-signature-1.3.png",
+      "sha256": "f004698fb9020fab51f841e88baeffcb8ef712ecc2ad15877be0b7ce061c712a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-clipper-utility-1.15.png",
+      "sha256": "b92120c25033699d85d4ed2913f695e7c2236aec31c94a066e15a1c008d2c401"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-clipper-utility-1.3.png",
+      "sha256": "dd3bc830af4fce0dd7d7dc2964c1705859e10010c28f914bc7e2e2a1653435e0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-critical-360.png",
+      "sha256": "959a78e139e02284e35389a7185235d109c092dd6d64a6ec7e9f8bb7f2b75e77"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-haven-1280-1.15-native.png",
+      "sha256": "805dd14a655a1d00ee288f35d0ab7f8545fd44bde9a15633a5015b287fa857ee"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-haven-360-1.15-native.png",
+      "sha256": "79225902a48b3780797ea03cb590147e775eac0fa4b030584c6304b2e0b89d1c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-helm-1280x850.png",
+      "sha256": "dd2e39da7e286d0d7aab585b0c9284187690ad6587c2692f2a874b9502d8672f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-helm-1600x1000.png",
+      "sha256": "3ff2afb6c695fe5928df51cfdf4dc5441c651306fee2a64e120b6672b09a07ed"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-helm-360x900.png",
+      "sha256": "eb9844584c21bbe68e6a15ea77c1eda4343d35d82cb7742d37c831694d286609"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-helm-800x480.png",
+      "sha256": "507b821e05c019b54155d9be9189eaffa5d06dccd86f38bc4b89dd9bccc368c3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-home-flare-stats.png",
+      "sha256": "e4cc10081baea87ec9edc0ddcbf9e1bab6d0449b9f2f41e95df57e833aa57e3b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-illuminated-360.png",
+      "sha256": "e025b03bbaa8c088c665a7a9b939cb5a2907d67b15fdf11f8036ca3c4684b8cb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-inspection-1280-1.15-keyword.png",
+      "sha256": "60111fefcaf92a97b9af54751a0093feabbca1f26bd1e777e187164e3894d985"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-inspection-1280-1.3-keyword.png",
+      "sha256": "ed08e026d870420cafef6c502cc73245832b502e17a2e029b8cfa993bbdd0197"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-inspection-360-1.15-keyword.png",
+      "sha256": "1a3d8fd00ad40123f62c6f1d59eb8266917edc7c75e0d5f1ee9f2480c0d47989"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-inspection-360-1.3-keyword.png",
+      "sha256": "8d04774be04e4aacdab9886fa8dcfea23241569ab523d9d647afeed982f655f0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-inspection-800-1.15-keyword.png",
+      "sha256": "d230679e5c653d647d7e8b11c39bd126532578e188f784f83c3cd065e11e5c80"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-inspection-800-1.3-keyword.png",
+      "sha256": "4f88003236eb7f7b40c12efe83fd89540704aa4efc4e554bef4cf905e36687a8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-inspection-flare-scaled.png",
+      "sha256": "40a120784ffb9d6d9319c316eef628cb6681497f4d96b0bc0ee445c863da4b32"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-intent-1280-1.15-keyword.png",
+      "sha256": "7cf75cc1668cb0be5e9cc02713c8f78d5e4651e4cb68240a6a167a1d8885c273"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-intent-360-1.15-keyword.png",
+      "sha256": "9e2b3cec5d29286a7063c078b29527c86f5e54c83561d439fb480b7a384e2a79"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-keyword-1280.0.png",
+      "sha256": "46cedae3b75ca1c2b115fa5cdb59f647653b64dc2f689e885788982240c54d37"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-keyword-360.0.png",
+      "sha256": "d02a056eb5459cca1a565aae74439e837747ad6f9d62d18f9aa469991224f7ff"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-log-1280x850.png",
+      "sha256": "2436ef82fd5cf8519bd14827fc577f933416d0734bf4372587d3f413a63a0616"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-log-1600x1000.png",
+      "sha256": "28740c7f48d65759e14c75532ca1f0a17080547ff3e9570e9d4871669f8f0bc1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-log-360x900.png",
+      "sha256": "5e5a60bcbcc5709487b0f7de218efbf03b36bbf14057ad46dd50ccf4bcf40995"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-log-800x480.png",
+      "sha256": "fe88820398572974c7d0620c780ee17fe144e7491488ffc73f4a1c3997e4a422"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-loot-1280-1.15-keyword.png",
+      "sha256": "c447bda327eafbecd8967afb9ed574f9d4e5839c38128b77f06e954bbdd3d4bc"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-loot-1280-1.15-native.png",
+      "sha256": "7a9dac502c54940d131674d5f4c79dfd238cfb3002d85f4bc990508c8f893cd9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-loot-360-1.15-keyword.png",
+      "sha256": "27be0561c3384c547c3d3f543211552e84b9baf7ae41c45e2e2ba8498193dbb4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-loot-360-1.15-native.png",
+      "sha256": "5b0a052b6e4b6c140842421ab42b915d468a73f732b27d9c3a44b9f60d36441b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-merchant-1280-1.15-keyword.png",
+      "sha256": "becc62bed35f99bcb274874cfbb91392513a7d7db21352f2101bba4763a62888"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-merchant-1280-1.15-native.png",
+      "sha256": "173cb98300b65c4c2bfe03a1d11a53c8fcfb5bcffa26988df5e0c3131c0bc759"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-merchant-360-1.15-keyword.png",
+      "sha256": "aa21ece0f45b3ca26d78fcc6e03df8fc86aa1ff3f04ff81b734023dd1f60caa5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-merchant-360-1.15-native.png",
+      "sha256": "5e1dda55b5aef2a30ed76149214453dd2ab99ee7cc637992707caba8304d7623"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-mouse-link-1280.0.png",
+      "sha256": "098a1e5ccdec0cf4f4dfc02e9e72567e9613fe8bcf71e21d71d7a896edcfced3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-mouse-link-360.0.png",
+      "sha256": "fc3c357be6819236a3c4d8e54fb386d501cb5836d0996c63eb97d7c0620a30a7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-nested-1280.0.png",
+      "sha256": "e9913340b91636aa7ed09d243d6c981c552e29539059eb8bdea8d88bd102be49"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-nested-360.0.png",
+      "sha256": "6e1f988226dca50d6f2c22d13444fa0e3e967cb1e57bb90e8eb4b04c92c88e05"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-playtest-1280-1.15-native.png",
+      "sha256": "f6d6437bed128382329e36d7143ce1365002746cd859666b746feb87d1dfeaf2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-playtest-360-1.15-native.png",
+      "sha256": "d8513c5947f79fe364a4377e391a47832c2beeb9a9b8a6f1bf4f5e1f41d8711a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-shrine-1280-1.15-keyword.png",
+      "sha256": "8c00c859b012377c15be17b8a598dc47e4c9e759492ba20c3ff442cd8d177057"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-shrine-1280-1.15-native.png",
+      "sha256": "df22caf52a365c8fd47a84c926292d74368bdabff63c61f94d5051eeaf271bfe"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-shrine-360-1.15-keyword.png",
+      "sha256": "182213c7bad61647e3bb289f4673068a9cf8eadb6ed00819e8ae2f49995bfc83"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-shrine-360-1.15-native.png",
+      "sha256": "cc044e7606e3ebdbc8cd4be9e05790d92fa2cf5093983b2fe18560f24ac03614"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-shrine-comparison.png",
+      "sha256": "7f96b0d7aae5b70d997cdd77d9b691b9f9a4993c6416d8fb342ed3e0ca6808d0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-signature-1280-1.15.png",
+      "sha256": "cc47e3bc2d0cbe2243a6389ab00d81961cc4b65e5bc9046629fbede0e342a085"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-signature-1280-1.3.png",
+      "sha256": "dd1c4f76bb45f19d096d188c86234f585f5cf4c4bf04ab892b6c96ea03b52fd4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-signature-800-1.15.png",
+      "sha256": "216d56225ddf55c0bdf3598db5d0bbeadcab1b8809bfdd291b159452ab40e4c7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-signature-800-1.3.png",
+      "sha256": "725843860a8d25270f44ffaf011260c61582763d829d9d327010742efd33b897"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-stronghold-1280-1.15-native.png",
+      "sha256": "b2b7a36774b5702e601b8018bc39a70dde07aa41e8eb039afba3c5d9df70596e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-stronghold-360-1.15-native.png",
+      "sha256": "aab1ac45676468a41ee370ab968495fe04afa0075321e5a1b60476d01235ad4e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-tooltip-360.png",
+      "sha256": "2c1d386fc5a7ca56c46d620a6c7b2883c9b7ebd0d9328c5e2dd013430e48d473"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-type-false-1.15.png",
+      "sha256": "1e837fca468c581f40de9683dee173c471e511772416579a9e6e1ba00c77209a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-type-false-1.3.png",
+      "sha256": "7478bb2592529a4f368deb5c04c9e705f4c142d9c4115a6295cd23b93848337a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-type-true-1.15.png",
+      "sha256": "c0b5f0741866eac6c3ae4298310fbee073cd4347059606e403ce5a3b9c907644"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-type-true-1.3.png",
+      "sha256": "62cdebb751940ecbcb9cdea99dc353c4d978f2ebff56a76661efc94c1a29d4fb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-wreck-1280-1.15-keyword.png",
+      "sha256": "798be81d0c60818f34d188988151965f7f79dae5a5322ea18b173b317f9dc907"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-wreck-1280-1.15-native.png",
+      "sha256": "8d9eca4daa0b1ffe6e77793ec0701b03906c47999feea9deae02266890ad2411"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-wreck-360-1.15-keyword.png",
+      "sha256": "e3d28ac6b451b107e67b9addf25b102793541013775d8e11eca4e6d77336977d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-copy-2026-11-10/visual/review-wreck-360-1.15-native.png",
+      "sha256": "5b0a052b6e4b6c140842421ab42b915d468a73f732b27d9c3a44b9f60d36441b"
+    }
+  ],
+  "isolation": {
+    "playerSavesTouched": false,
+    "nativePreviewRebuiltOrLaunched": false,
+    "mechanicsOrNumericTuningChanged": false,
+    "previousEvidencePreserved": true
+  },
+  "nextTask": "PT2-20 pre-purchase fitting tempering previews; not implemented in this pass."
+}

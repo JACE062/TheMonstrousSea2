@@ -1,0 +1,6 @@
+00:00 +0: loading test/model/ocean_power_test.dart
+00:00 +0: all 36 blessing previews expose their power, tier and mechanics
+00:00 +1: voyage serialization preserves dedications but excludes combat effects
+00:00 +2: legacy saves default to no dedications and unknown powers are skipped
+00:00 +3: base ram and howitzer types are corrected in factories and old saves
+00:00 +4: All tests passed!

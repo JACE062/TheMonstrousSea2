@@ -297,7 +297,7 @@ void main() {
       await _mount(tester, controller, game, scale: 1.3, captureKey: key);
       await tester.tap(
         find.byTooltip(
-          'Order helm to advance to ${CombatRange.medium.displayName}',
+          'Advance to ${CombatRange.medium.displayName}',
         ),
       );
       await tester.pump();
@@ -719,7 +719,7 @@ void main() {
     );
     final key = GlobalKey();
     await _mount(tester, controller, game, captureKey: key);
-    await tester.tap(find.byTooltip('Chronicle Log'));
+    await tester.tap(find.byTooltip('Combat Chronicle'));
     await tester.pump();
     controller.setIsPlayingEvents(true);
     final playback = game.playEvents([

@@ -350,7 +350,7 @@ void main() {
       game.pauseEngine();
       await tester.pumpAndSettle();
       expect(find.byType(CombatLogView), findsNothing);
-      await tester.tap(find.byTooltip('Chronicle Log'));
+      await tester.tap(find.byTooltip('Combat Chronicle'));
       await tester.pumpAndSettle();
       final scrollable = find.descendant(
         of: find.byType(CombatLogView),
@@ -372,7 +372,7 @@ void main() {
       await tester.tap(find.text('Naval Cannon Battery'));
       await tester.pump(const Duration(milliseconds: 100));
       expect(controller.isPlayingEvents, isTrue);
-      await tester.tap(find.byTooltip('Chronicle Log'));
+      await tester.tap(find.byTooltip('Combat Chronicle'));
       await tester.pump(const Duration(milliseconds: 200));
       expect(find.byType(CombatLogView), findsOneWidget);
       expect(
@@ -404,7 +404,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(CombatLogView), findsNothing);
       final priorFocus = FocusManager.instance.primaryFocus;
-      await tester.tap(find.byTooltip('Chronicle Log'));
+      await tester.tap(find.byTooltip('Combat Chronicle'));
       await tester.pumpAndSettle();
       position = tester.state<ScrollableState>(scrollable).position;
       expect(position.pixels, closeTo(readingOffset, 0.01));

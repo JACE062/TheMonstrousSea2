@@ -29,7 +29,7 @@ class ShipCombatStats extends StatelessWidget {
         _Stat(
           '• Evade: ${ship.effectiveEvasion}%',
           key: const ValueKey('ship-stat-evasion'),
-          explanation: 'Current dodge chance after captain, regional and active-effect modifiers, capped at 95%. Unavoidable attacks bypass dodge.',
+          explanation: 'Chance to dodge an incoming attack. Maximum 95%.',
         ),
         if (ship.isAnchoredThisTurn)
           const _Stat(
@@ -75,21 +75,19 @@ class MonsterCombatStats extends StatelessWidget {
         _Stat(
           '• Frenzy: +${monster.frenzyStacks * 25}%',
           key: const ValueKey('monster-stat-frenzy'),
-          explanation:
-              'Frenzy increases attack damage by ${monster.frenzyStacks * 25}%.',
+          explanation: 'Each stack adds 25% attack damage.',
         ),
       _Stat(
         '• Dodge: ${monster.effectiveEvasion}%',
         key: const ValueKey('monster-stat-dodge'),
-        explanation:
-            'Current dodge chance. Attack accuracy is a separate roll.',
+        explanation: 'Chance to dodge an incoming hit.',
       ),
       if (monster.obscurityAccuracyPenalty > 0)
         _Stat(
           '• Obscurity: -${monster.obscurityAccuracyPenalty}% shot accuracy',
           key: const ValueKey('monster-stat-obscurity'),
           explanation:
-              'Reduces shot accuracy by ${monster.obscurityAccuracyPenalty}%. Successful hits have a 25% chance to clear it, lasts until cleared.',
+              'Reduces incoming shot accuracy by ${monster.obscurityAccuracyPenalty}%. Hits have a 25% chance to clear it. Lasts until cleared.',
         ),
       if (monster.isPinnedThisTurn)
         const _Stat(
@@ -102,14 +100,14 @@ class MonsterCombatStats extends StatelessWidget {
           '• ☀️ Illuminated (${monster.spotterFlareTurns}T)',
           key: const ValueKey('monster-stat-illuminated'),
           explanation:
-              'Suppresses Obscurity and dodge. Shots gain +${monster.spotterFlareAccuracyBonus}% accuracy; '
-              'Blast damage taken increases by ${(monster.spotterFlareBlastBonus * 100).round()}%.',
+              'Suppresses Obscurity and dodge. +${monster.spotterFlareAccuracyBonus}% shot accuracy; '
+              '+${(monster.spotterFlareBlastBonus * 100).round()}% Blast damage taken.',
         ),
       if (ship.activeTetherTrapDistance != null)
         _Stat(
           '• 🪤 Trap: ${ship.activeTetherTrapDistance} Band${ship.activeTetherTrapDistance == 1 ? '' : 's'}',
           key: const ValueKey('monster-stat-trap'),
-          explanation: 'The tether-trap drifts closer each round. Contact deals Slicing damage and Pins.',
+          explanation: 'Drifts closer each round. Contact deals Slicing damage and applies Pinned.',
         ),
     ],
   );
