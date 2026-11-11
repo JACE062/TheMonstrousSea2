@@ -52,6 +52,55 @@ void _expectMovement(
 }
 
 void main() {
+  for (final range in [CombatRange.short, CombatRange.medium]) {
+    test('Grappled blocks Ram movement at $range', () {
+      final session = _battle(hull: ShipClass.ironclad)..combatRange = range;
+      session.ship!.isGrappled = true;
+      final predicted = session.previewResponseRange(
+        helmOrder: HelmOrder.fallBack,
+        weaponType: ShipWeaponType.prowRam,
+      );
+      final events = session.dispatch(
+        const FireWeaponVolley(ShipWeaponType.prowRam),
+      );
+      expect(
+        events.whereType<CombatRangeChanged>().where(
+          (event) => event.mover == CombatSide.ship,
+        ),
+        isEmpty,
+      );
+      expect(session.combatRange, range);
+      expect(predicted, range);
+      expect(
+        events.whereType<AttackAttempted>().any(
+          (event) => event.attacker == CombatSide.ship,
+        ),
+        isTrue,
+      );
+      expect(session.ship!.isGrappled, isFalse);
+    });
+
+    test('Grappled blocks Evasive Rigging movement at $range', () {
+      final session = _battle(hull: ShipClass.clipper)..combatRange = range;
+      session.ship!.isGrappled = true;
+      final predicted = session.previewResponseRange(
+        helmOrder: HelmOrder.fallBack,
+        utility: true,
+      );
+      final events = session.dispatch(const ExecuteShipSpecialAction());
+      expect(
+        events.whereType<CombatRangeChanged>().where(
+          (event) => event.mover == CombatSide.ship,
+        ),
+        isEmpty,
+      );
+      expect(session.combatRange, range);
+      expect(predicted, range);
+      expect(session.ship!.utilityCooldown, greaterThan(0));
+      expect(session.ship!.isGrappled, isFalse);
+    });
+  }
+
   test(
     'Ram closes before its attempt and hit, retaining Medium charge damage',
     () {

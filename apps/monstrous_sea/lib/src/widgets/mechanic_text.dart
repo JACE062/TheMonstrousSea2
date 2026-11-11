@@ -97,7 +97,7 @@ class MechanicContext {
           ? 'Takes $_burningDamage Fire damage per turn for 3 turns.'
           : 'Takes Fire damage each turn. 25% chance to go out afterward.',
     'Illuminated' =>
-      'Clears enemy Obscurity and prevents dodge. Grants +${monster?.isIlluminatedByFlare == true ? monster!.spotterFlareAccuracyBonus : (15 * _flareMultiplier).round()}% shot accuracy and +${monster?.isIlluminatedByFlare == true ? (monster!.spotterFlareBlastBonus * 100).round() : (25 * _flareMultiplier).round()}% Blast damage taken. Lasts 2 turns.',
+      'Clears enemy Obscurity. For 2 turns: grants +${monster?.isIlluminatedByFlare == true ? monster!.spotterFlareAccuracyBonus : (15 * _flareMultiplier).round()}% shot accuracy and +${monster?.isIlluminatedByFlare == true ? (monster!.spotterFlareBlastBonus * 100).round() : (25 * _flareMultiplier).round()}% Blast damage dealt, and prevents enemy dodge.',
     'Static Charge' =>
       'At 3 stacks, triggers Arc Discharge and consumes the stacks.',
     'Arc Discharge' =>
@@ -105,14 +105,14 @@ class MechanicContext {
     'Corroded' =>
       'Per stack: +${tier(OceanPower.brinemother) == 3 ? 12 : 8}% damage taken, −5% attack damage. Maximum 3 stacks. Lasts 3 turns; reapplying refreshes the duration.',
     'Pinned' => 'Prevents movement and halves dodge this turn.',
-    'Carapace' => 'Absorbs damage before flesh. Blast deals 1.5× damage to Carapace; Fire bypasses it. Other damage is absorbed point for point unless an attack specifies otherwise.',
+    'Carapace' => 'Armor plating absorbs damage before flesh. Blast deals an extra +50% damage against Carapace, and Fire ignores it. Certain weapons specify different interactions.',
     'Critical Hits' => 'Deal 1.5× damage.',
     'Shaken' =>
       'Reduces enemy shot accuracy by $_shakenPenalty% for its next action.',
     'Obscurity' =>
       'Reduces incoming shot accuracy${(monster?.obscurityAccuracyPenalty ?? 0) > 0 ? ' by ${monster!.obscurityAccuracyPenalty}%' : ''}. Hits have a 25% chance to clear it. Lasts until cleared.',
     'Anchored' => 'Prevents forced movement this round.',
-    'Grappled' => 'The ship cannot move this round.',
+    'Grappled' => 'Prevents all ship movement this turn.',
     'Stun' => 'Prevents the next action and its movement, then clears.',
     'Poison' => 'Takes venom damage each turn. 25% chance to clear afterward.',
     'Frenzy' => 'Each stack increases the beast’s attack damage by 25%.',

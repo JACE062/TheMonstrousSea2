@@ -61,7 +61,7 @@ class ShipPowerStatusBadges extends StatelessWidget {
       if (ship.isGrappled)
         const _PowerBadge(
           label: 'Grappled',
-          explanation: 'The ship cannot move this round.',
+          explanation: 'Prevents all ship movement this turn.',
         ),
       if (ship.tempAccuracyPenalty > 0)
         _PowerBadge(

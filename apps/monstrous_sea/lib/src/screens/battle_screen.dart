@@ -1508,7 +1508,7 @@ class _BattleScreenState extends State<BattleScreen> {
 
     final tooltip = switch (order) {
       _ when isGrappled && order != HelmOrder.holdLine =>
-        'Ship is grappled! Helm is locked to Hold Line this round.',
+        'Grappled: prevents all ship movement this turn.',
       HelmOrder.fallBack when !isAvailable => 'Already at Long Range',
       HelmOrder.fallBack =>
         'Fall back to ${currentRange.rangeAfterHelmOrder(order).displayName}',

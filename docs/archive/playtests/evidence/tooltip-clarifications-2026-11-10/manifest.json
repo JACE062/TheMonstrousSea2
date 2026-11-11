@@ -1,0 +1,250 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "aad770acf2f0575c646f0990263fce01f5b60a3c",
+  "resolvedIds": [
+    "E03",
+    "E04",
+    "E05",
+    "E16",
+    "E19",
+    "E25"
+  ],
+  "retainedUnchanged": [
+    "E03"
+  ],
+  "pendingIds": [],
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "59275939e43ed2d0cff2a2a568faf0f8479b0cf5b822a3eec1876476cea12457"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/combat_stats.dart",
+      "sha256": "a09521b7b99fa894b685bd342c406fc7b6d849ad6c01ba79de48585ed550cab2"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "sha256": "d2147f255a65fca6b55201b293df4a43851e22f6b5ff491fc47ca6c5af892a8f"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ocean_power_badges.dart",
+      "sha256": "4ac18d81cb8ce9332a23cbec2bde49829d5a3b9335d127b81f52c5e63892d064"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "8b2aae1bfaff13eafe41d96a3e17f53bec6b1a22abd60bbfd246f77eef3e0541"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/combat_range_attribution_test.dart",
+      "sha256": "b442aef890c2db4c1792325988edd23b53221ab067c393e6860b3fb9f688d707"
+    }
+  ],
+  "baseline": {
+    "cases": 4,
+    "passed": 3,
+    "failed": 1,
+    "failure": "Prow Ram at Medium moved the Grappled ship."
+  },
+  "verification": {
+    "coreCasesPassed": 80,
+    "cachedFontAppCasesPassed": 83,
+    "newGrappledCases": 4,
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "analysis": "App/core: no issues found.",
+    "visuallyInspected": [
+      "review-carapace-800-1.3.png",
+      "review-illuminated-360.png"
+    ]
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/checks/app-analyze.log",
+      "sha256": "efe8500825976ba2adc182d43a1621ff8ff7a577cda7252163aa751424b06b4e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/checks/core-analyze.log",
+      "sha256": "33d5c77eebf4d6e86163d697a6f890c7383b7075174f12b322c114f029f7527a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/checks/core-movement.log",
+      "sha256": "83c5d31b49fb0147258052256122008b22973ff48bc933f3c5e504c3433443db"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/checks/grapple-baseline.log",
+      "sha256": "1ee8f5f9dc829f27633f0aadfd634bf533e8c13a462d7a9555479b9e66bfa50f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/checks/tooltip-game-fonts.log",
+      "sha256": "713602d316db1a739b0204f63cb89947d56c03036cc3ca93ee5dbebb8c6d35cc"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-burning-1280.0.png",
+      "sha256": "b57dc53b66f71e8d36387651535c3929662ba8ccd7f634f59895292292b94485"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-burning-360.0.png",
+      "sha256": "3255f75cf4f9d307be21f9aaf6533d4ab8c2ed3077f6eada8bcb1776f2d1ed7b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-carapace-1280-1.15.png",
+      "sha256": "253b9c40b2d1de848c14320917a7018db783824ce3615763acced5cb8428351e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-carapace-1280-1.3.png",
+      "sha256": "26b39abb08d8652c67fcd18aa27e844052a36c961d5d301e8cb6b227c4e993f7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-carapace-800-1.15.png",
+      "sha256": "fccd4df596b97d830268ead3d3b832d4284441fdb28db5452324fa895cbbfb7a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-carapace-800-1.3.png",
+      "sha256": "72f3c8909cda38fb307e856afe97a1a300db31161e8500a18b90f71cbe736d23"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-clipper-broadside-1.15.png",
+      "sha256": "445a3e9cb45fe2952eeb54cd81f7b2e60713b469ad8df8ac66cd9a4aca17088e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-clipper-broadside-1.3.png",
+      "sha256": "6898cd24a8f910b83163c9acbd6d0964725775a921c7d5bc9d98bfb3b017bba3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-clipper-signature-1.15.png",
+      "sha256": "683bd67d807097cd572e4db0d50bed10a45a79840ec4e51ec3e23517731d783e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-clipper-signature-1.3.png",
+      "sha256": "f004698fb9020fab51f841e88baeffcb8ef712ecc2ad15877be0b7ce061c712a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-clipper-utility-1.15.png",
+      "sha256": "b92120c25033699d85d4ed2913f695e7c2236aec31c94a066e15a1c008d2c401"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-clipper-utility-1.3.png",
+      "sha256": "dd3bc830af4fce0dd7d7dc2964c1705859e10010c28f914bc7e2e2a1653435e0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-critical-360.png",
+      "sha256": "959a78e139e02284e35389a7185235d109c092dd6d64a6ec7e9f8bb7f2b75e77"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-dense-handoff-1.15.png",
+      "sha256": "dd79a1a3da0ee734bd38af0a731d5ec87d4444ae714443597c4acd717cc8495d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-dense-handoff-1.3.png",
+      "sha256": "4d6c2996bd2cb0f221c6e9978574962c9524d261b820fbcc450b1a0a73430493"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-home-flare-stats.png",
+      "sha256": "e4cc10081baea87ec9edc0ddcbf9e1bab6d0449b9f2f41e95df57e833aa57e3b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-illuminated-360.png",
+      "sha256": "3527d649c167b735b7054457813ffe868f23cbf9a5bf737a622b7670226d2e84"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-inspection-flare-scaled.png",
+      "sha256": "e0093e0c8f17225c167071f036deeb5cd04d7ffd783537fb4f4dc4fb1ab9191f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-keyword-1280.0.png",
+      "sha256": "46cedae3b75ca1c2b115fa5cdb59f647653b64dc2f689e885788982240c54d37"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-keyword-360.0.png",
+      "sha256": "d02a056eb5459cca1a565aae74439e837747ad6f9d62d18f9aa469991224f7ff"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-mouse-link-1280.0.png",
+      "sha256": "098a1e5ccdec0cf4f4dfc02e9e72567e9613fe8bcf71e21d71d7a896edcfced3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-mouse-link-360.0.png",
+      "sha256": "fc3c357be6819236a3c4d8e54fb386d501cb5836d0996c63eb97d7c0620a30a7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-nested-1280.0.png",
+      "sha256": "e9913340b91636aa7ed09d243d6c981c552e29539059eb8bdea8d88bd102be49"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-nested-360.0.png",
+      "sha256": "6e1f988226dca50d6f2c22d13444fa0e3e967cb1e57bb90e8eb4b04c92c88e05"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-scaled-anchor-1.15.png",
+      "sha256": "1bbf1354ed0d8fbd2f91b7c26939fc4bb71143bcd679866e2636ed34ba479be1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-scaled-anchor-1.3.png",
+      "sha256": "40682e917665963175028e4fbd95d17553644c6677e8af749d7338e0333c2eb5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-scroll-1.15.png",
+      "sha256": "76392f0eb07b2b4275480251b9e15a1595ce521b78905a630aa1e6a2561d7e75"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-scroll-1.3.png",
+      "sha256": "609c8fb3c7fc4aa938b1c2ad314a96a56296dc053eab453b5908a47f6517f537"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-shrine-comparison.png",
+      "sha256": "7f96b0d7aae5b70d997cdd77d9b691b9f9a4993c6416d8fb342ed3e0ca6808d0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-signature-1280-1.15.png",
+      "sha256": "cc47e3bc2d0cbe2243a6389ab00d81961cc4b65e5bc9046629fbede0e342a085"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-signature-1280-1.3.png",
+      "sha256": "dd1c4f76bb45f19d096d188c86234f585f5cf4c4bf04ab892b6c96ea03b52fd4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-signature-800-1.15.png",
+      "sha256": "216d56225ddf55c0bdf3598db5d0bbeadcab1b8809bfdd291b159452ab40e4c7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-signature-800-1.3.png",
+      "sha256": "725843860a8d25270f44ffaf011260c61582763d829d9d327010742efd33b897"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-type-false-1.15.png",
+      "sha256": "1e837fca468c581f40de9683dee173c471e511772416579a9e6e1ba00c77209a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-type-false-1.3.png",
+      "sha256": "7478bb2592529a4f368deb5c04c9e705f4c142d9c4115a6295cd23b93848337a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-type-true-1.15.png",
+      "sha256": "c0b5f0741866eac6c3ae4298310fbee073cd4347059606e403ce5a3b9c907644"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-type-true-1.3.png",
+      "sha256": "62cdebb751940ecbcb9cdea99dc353c4d978f2ebff56a76661efc94c1a29d4fb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-vertical-chain-1.15.png",
+      "sha256": "51729468cf173f01b8b3b081129db085645798583ce762301480323f1c9240cd"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/tooltip-clarifications-2026-11-10/visual/review-vertical-chain-1.3.png",
+      "sha256": "495577a6ed25103f15555aae044045d2f346c8e9e5a72cc648a99e35220ab7fa"
+    }
+  ],
+  "scope": {
+    "movementFix": "Ram charge and response-range preview respect Grappled.",
+    "numericValuesChanged": false,
+    "playerSavesTouched": false,
+    "previewRebuiltOrLaunched": false,
+    "earlierEvidencePreserved": true
+  },
+  "nextTask": "PT2-20 fitting tempering previews, not implemented here."
+}

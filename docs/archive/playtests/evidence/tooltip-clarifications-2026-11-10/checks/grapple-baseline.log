@@ -1,0 +1,19 @@
+00:00 +0: loading test/session/combat_range_attribution_test.dart
+00:00 +0: Grappled blocks Ram movement at Short Range
+00:00 +1: Grappled blocks Evasive Rigging movement at Short Range
+00:00 +2: Grappled blocks Ram movement at Medium Range
+00:00 +2 -1: Grappled blocks Ram movement at Medium Range [E]
+  Expected: empty
+    Actual: WhereIterable<CombatRangeChanged>:[Instance of 'CombatRangeChanged']
+  
+  package:matcher                                       expect
+  test\session\combat_range_attribution_test.dart 66:7  main.<fn>
+  
+00:00 +2 -1: Grappled blocks Evasive Rigging movement at Medium Range
+00:00 +3 -1: Some tests failed.
+
+Failing tests:
+  test/session/combat_range_attribution_test.dart: Grappled blocks Ram movement at Medium Range
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.

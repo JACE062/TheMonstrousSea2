@@ -112,7 +112,9 @@ class GameSession {
     final order = ship?.isGrappled == true || isImpatientCombinationPending
         ? HelmOrder.holdLine : helmOrder;
     var range = usesLateHelm ? combatRange : combatRange.rangeAfterHelmOrder(order);
-    if (weaponType == ShipWeaponType.prowRam) range = CombatRange.short;
+    if (weaponType == ShipWeaponType.prowRam && ship?.isGrappled != true) {
+      range = CombatRange.short;
+    }
     if (weaponType == ShipWeaponType.harpoonWinch) range = range.closer;
     if (utility && ship != null && ship!.shipClass.blueprintId == BlueprintId.clipper &&
         !ship!.isGrappled) {
@@ -1463,7 +1465,7 @@ class GameSession {
     // calculations: the approved Medium charge bonus is momentum, not the
     // impact distance. Harpoon instead fires here and pulls after its attack.
     final launchRange = combatRange;
-    if (weaponType == ShipWeaponType.prowRam && ship!.isAlive &&
+    if (weaponType == ShipWeaponType.prowRam && ship!.isAlive && !ship!.isGrappled &&
         combatRange != CombatRange.short) {
       final previousRange = combatRange;
       combatRange = CombatRange.short;

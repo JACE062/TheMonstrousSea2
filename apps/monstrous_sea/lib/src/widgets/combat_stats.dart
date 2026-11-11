@@ -42,13 +42,13 @@ class ShipCombatStats extends StatelessWidget {
             '• Braced Volley (+15% Accuracy/+$volleyBonus% Damage)',
             key: const ValueKey('ship-stat-braced-volley'),
             explanation:
-                'The next volley gains +15% accuracy and +$volleyBonus% damage.',
+                'Your next volley gains +15% accuracy and +$volleyBonus% damage.',
           ),
         if (ship.pitchCoatingActive)
           const _Stat(
             '• Pitch Coated · +25% volley damage',
             key: ValueKey('ship-stat-pitch'),
-            explanation: 'The next volley gains +25% damage; connecting hits apply Burning.',
+            explanation: 'Your next volley gains +25% damage and applies Burning on hit.',
           ),
       ],
     );

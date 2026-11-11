@@ -1,0 +1,82 @@
+00:00 +0: loading test/session/combat_range_attribution_test.dart
+00:00 +0: test/session/combat_range_attribution_test.dart: Grappled blocks Ram movement at Short Range
+00:00 +1: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +2: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +3: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +4: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +5: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +6: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +7: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +8: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Battle begins at CombatRange.medium and ChangeCombatRange shifts helm stance
+00:00 +9: test/session/combat_range_attribution_test.dart: Harpoon hits from Long Range before pulling, with launch-range damage
+00:00 +10: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram surges ship into CombatRange.short on strike
+00:00 +11: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram surges ship into CombatRange.short on strike
+00:00 +12: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram surges ship into CombatRange.short on strike
+00:00 +13: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram surges ship into CombatRange.short on strike
+00:00 +14: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram surges ship into CombatRange.short on strike
+00:00 +15: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram surges ship into CombatRange.short on strike
+00:00 +16: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram surges ship into CombatRange.short on strike
+00:00 +17: test/session/combat_range_attribution_test.dart: Ram moves the ship itself
+00:00 +18: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration IssueHelmOrder repositions vessel and FireWeaponVolley resolves at new range
+00:00 +19: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration IssueHelmOrder repositions vessel and FireWeaponVolley resolves at new range
+00:00 +20: test/session/combat_range_attribution_test.dart: Evasive Rigging opens range before its damaging utility rider
+00:00 +21: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Bounded Helm Orders: cannot retreat beyond Long or sail into monster at Short
+00:00 +22: test/session/combat_range_attribution_test.dart: Skirmisher late helm moves the ship itself
+00:00 +23: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Prow Ram cannot fire from Long Range, but works at Medium and surges to Short
+00:00 +24: test/session/combat_range_attribution_test.dart: charge and both ambush steps belong to the monster
+00:00 +25: test/session/combat_range_session_test.dart: GameSession Combat Range & Mobility Integration Harpoon Winch reels quarry 1 band closer
+00:00 +26: test/session/monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +27: test/session/monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +28: test/session/monster_intent_session_test.dart: Combat Redesign Phase 2: Telegraphed Monster Intent & Spatial Dynamics Shark Frenzied Jaws adds +1 Frenzy stack BEFORE attempting to hit, even if dodged by range
+00:00 +29: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +30: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +31: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +32: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +33: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +34: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +35: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +36: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +37: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +38: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +39: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +40: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +41: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +42: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +43: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +44: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +45: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +46: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +47: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +48: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +49: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +50: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +51: test/rules/ship_evasion_range_test.dart: dodge retains its 95% ceiling at Long Range
+00:00 +52: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +53: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +54: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +55: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +56: test/rules/ship_evasion_range_test.dart: clipper uses base dodge at Medium Range in real attacks
+00:00 +57: test/session/full_trait_roster_test.dart: Smuggler chosen free stock gift cannot be consumed by full belt, persists
+00:00 +58: test/session/full_trait_roster_test.dart: Smuggler chosen free stock gift cannot be consumed by full belt, persists
+00:00 +59: test/session/full_trait_roster_test.dart: Smuggler chosen free stock gift cannot be consumed by full belt, persists
+00:00 +60: test/rules/ship_evasion_range_test.dart: captain and live Basalt dodge bonuses remain at Medium Range
+00:00 +61: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +62: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +63: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +64: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +65: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +66: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +67: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +68: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +69: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +70: test/rules/ship_evasion_range_test.dart: captain and live Basalt dodge bonuses remain at Short Range
+00:00 +71: test/session/full_trait_roster_test.dart: fractional percentage sources combine once before rounding
+00:00 +72: test/session/full_trait_roster_test.dart: fractional percentage sources combine once before rounding
+00:00 +73: test/rules/ship_evasion_range_test.dart: dodge retains its 95% ceiling at Short Range
+00:00 +74: test/session/full_trait_roster_test.dart: Daredevil grants weapon damage at exact half current maximum only
+00:00 +75: test/session/full_trait_roster_test.dart: Daredevil grants weapon damage at exact half current maximum only
+00:00 +76: test/session/full_trait_roster_test.dart: Impatient stages reset on victory, death, and real departure
+00:00 +77: test/session/full_trait_roster_test.dart: Superstitious transfers precisely three combat outcomes to shrine
+00:00 +78: test/session/full_trait_roster_test.dart: Smuggler kin repair discount applies to repair bill, never goods
+00:00 +79: test/session/full_trait_roster_test.dart: Quartermaster preserves custom capacity and modifies it by one only
+00:00 +80: All tests passed!

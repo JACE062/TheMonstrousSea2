@@ -236,3 +236,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Tooltip copy selections 2026-11-10
 
 [The E copy selections](playtests/TOOLTIP_COPY_2026_11_10.md) record the 27 approved tooltip edits, shorter generic cards and retained named keyword help. [Evidence](playtests/evidence/tooltip-copy-2026-11-10/manifest.json) preserves the initial stale assertion and corrected follow-up, cached-font screen walks, analysis and captures. The six pending copy choices, fitting tempering previews and deferred Master Refits remain distinct. Existing mechanics, values, player saves, native previews and earlier audit records are preserved.
+
+## Tooltip clarifications 2026-11-10
+
+[The six clarification answers](playtests/TOOLTIP_CLARIFICATIONS_2026_11_10.md) resolve the remaining E selections, retaining Fortified and exact volley bonuses, using the user's Illuminated/Carapace prose and covering all ship movement under Grappled. [Evidence](playtests/evidence/tooltip-clarifications-2026-11-10/manifest.json) retains the failing Ram reproduction, corrected charge/preview checks, cached-font tooltip regressions and captures. Fitting effects, values, saves, previews and earlier evidence remain preserved; fitting tempering previews are still next.
