@@ -124,7 +124,7 @@ class EldritchLore {
     CovenantPactId.feedingFrenzy: CovenantPactLoreEntry(
       name: 'Feeding Frenzy',
       flavor: 'The scent of ancestral blood drives the deep into a rabid fury.',
-      effectDescription: 'Monsters deal +15% attack damage; Shark frenzy triggers at 60% HP instead of 40%.',
+      effectDescription: 'Monsters deal +15% attack damage; Sharks automatically enter Frenzy at 60% HP or less.',
     ),
     CovenantPactId.chokingFog: CovenantPactLoreEntry(
       name: 'Choking Fog',
@@ -134,7 +134,7 @@ class EldritchLore {
     CovenantPactId.brittleOak: CovenantPactLoreEntry(
       name: 'Brittle Oak',
       flavor: 'Corrosive abyssal brine seeps into the flagship’s planking.',
-      effectDescription: 'Careening and resting restore 25% less HP; Port repairs cost +30% more gold.',
+      effectDescription: 'Careening and salvaged timbers restore 25% less hull; shipwright repairs cost 30% more gold.',
     ),
     CovenantPactId.volatileEnvirons: CovenantPactLoreEntry(
       name: 'Volatile Environs',

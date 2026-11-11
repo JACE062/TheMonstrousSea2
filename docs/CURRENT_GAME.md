@@ -288,6 +288,20 @@ Permanent signature tiers, blueprint-specific Eldritch Relics (Siphon Ram, Ghost
 
 **Eldritch Relic forge previews, implemented 10 November 2026:** Home-port relic cards compare the added signature effects before forging, alongside the associated hull/fitting and exact material cost. Siphon Ram adds hull restoration from 30% of flesh damage, subject to normal healing modifiers; Ghostwake ignores enemy Obscurity and adds 8 base Shock per flesh hit; Brimstone Mortar adds Burning on hit; Sinew Winch adds Poison on hit. The user explicitly selected preserving Ghostwake's existing ordinary-flesh-hit behavior rather than limiting it to critical hits. Existing fitting traits are separate from these added benefits; the shared inspection summaries now reflect that distinction. Forged cards show their effects and associated active hull without implying the currently commissioned vessel changed. Costs/previews remain visible for poor or blueprint-locked profiles, with the original forge gates enforced. Forging does not reroll damage, change base stats or replace a fitting. Combat effects, costs and saves are unchanged. [Verification](archive/README.md#eldritch-relic-previews-2026-11-10) includes real purchases, combat effects, keyword help and 115–130% layouts.
 
+**Covenant Pact previews, implemented 10 November 2026:** Home-port cards compare the selected pact's current and toggled effects, total Pact Burden and any changing Titan Cinder reward before activation or removal. Reward comparisons respect the other selected pacts and integer plateaus; unchanged rewards are omitted. Active cards show the reverse comparison for rescinding. The existing checkbox/header toggle remains, with keyword help outside its activation target. Previewing and toggling do not spend materials, change the vessel or reroll the chart. The original Covenant/home-port gates remain. [Verification](archive/README.md#covenant-pact-previews-2026-11-10) covers all pact combinations and 115–130% layouts.
+
+| Pact | Current implemented effect |
+| --- | --- |
+| Abyssal Vigor | Monster maximum HP ×1.25, rounded at spawn. |
+| Calcified Carapace | +10 maximum/current monster Carapace at spawn. |
+| Feeding Frenzy | Monster weapon damage ×1.15, rounded at spawn; an automatic Shark Frenzy trigger at 60% HP or less, subject to the existing purge guard. The old description's 40% baseline was absent from the resolver and is removed from copy. |
+| Choking Fog | Obscures unrevealed ordinary lookout calls. Existing revealed/special-course behavior remains. |
+| Brittle Oak | Careening and salvaged-timber healing ×0.75; shipwright paid-repair prices ×1.30. Ketch prices, repair healing/work and upgrades are separate and unchanged. |
+| Volatile Environs | Sargasso kelp subtracts 20 evasion instead of 10; Boiling Reach scald deals 15 HP every 2 turns instead of 10 every 3. |
+| Apex Emergence | Doubles eligible ordinary/wreck Apex chance. First-voyage opening protection and normal-only forced wreck approaches remain unchanged. |
+
+Pact Burden retains weights 1/1/1/1/1/2/2 in the table's order. At positive burden B, Kraken/World Serpent/Leviathan Cinder awards remain `1 + B ~/ 2`, `2 + B ~/ 2`, and `3 + B`; zero burden and non-Titans grant none. The preview shares these existing rules with activation and rewards rather than adding new tuning or save data.
+
 ## Persistence and presentation
 
 Encounter text actions use the shared boxed `InkButton`, including secondary shrine departures, combat artwork retry/Impatient combination, and home-port blueprint/Covenant dialog dismissal. Existing selected cards and icon controls retain their themed treatments. This presentation does not change action availability or effects.

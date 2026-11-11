@@ -19,6 +19,8 @@ import '../widgets/harbor_monument_preview.dart';
 import '../widgets/harbor_monument_offer.dart';
 import '../widgets/eldritch_relic_preview.dart';
 import '../widgets/eldritch_relic_offer.dart';
+import '../widgets/covenant_pact_preview.dart';
+import '../widgets/covenant_pact_offer.dart';
 
 /// Hub screen at Hunter's Respite Port for repairs, trade, and chart planning.
 class PortScreen extends StatefulWidget {
@@ -501,103 +503,15 @@ class _PortScreenState extends State<PortScreen> {
                       ),
                       const SizedBox(height: 12),
                       ...CovenantPactId.values.map((pactId) {
-                        final pact = CovenantPact.catalog[pactId]!;
-                        final isActive = profile.isPactActive(pactId);
-
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 8),
-                          decoration: BoxDecoration(
-                            color: isActive
-                                ? InkTheme.crimsonAccent.withValues(alpha: 0.08)
-                                : InkTheme.parchmentSurface,
-                            border: Border.all(
-                              color: isActive
-                                  ? InkTheme.crimsonAccent
-                                  : InkTheme.inkMuted,
-                              width: isActive ? 1.6 : 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: CheckboxListTile(
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 4,
-                              ),
-                              activeColor: InkTheme.crimsonAccent,
-                              checkColor: Colors.white,
-                              value: isActive,
-                              onChanged: (_) {
-                                controller.dispatch(ToggleCovenantPact(pactId));
-                                setDialogState(() {});
-                                setState(() {});
-                              },
-                              title: Wrap(
-                                spacing: 8,
-                                runSpacing: 4,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                children: [
-                                  Text(
-                                    pact.name.toUpperCase(),
-                                    style: InkTheme.statLabel.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                      color: isActive
-                                          ? InkTheme.crimsonAccent
-                                          : InkTheme.inkPrimary,
-                                    ),
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 6,
-                                      vertical: 2,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: isActive
-                                          ? InkTheme.crimsonAccent
-                                          : InkTheme.inkMuted,
-                                      borderRadius: BorderRadius.circular(3),
-                                    ),
-                                    child: Text(
-                                      '+${pact.burden} BURDEN',
-                                      style: InkTheme.caption.copyWith(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              subtitle: Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      pact.flavor,
-                                      style: InkTheme.caption.copyWith(
-                                        fontStyle: FontStyle.italic,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 2),
-                                    Text(
-                                      pact.effectDescription,
-                                      style: InkTheme.body.copyWith(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                        color: isActive
-                                            ? InkTheme.crimsonAccent
-                                            : InkTheme.inkPrimary,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                        final preview = CovenantPactPreview(profile, pactId);
+                        return CovenantPactOffer(
+                          key: ValueKey('pact-offer-${pactId.name}'),
+                          preview: preview,
+                          onToggle: () {
+                            controller.dispatch(ToggleCovenantPact(pactId));
+                            setDialogState(() {});
+                            setState(() {});
+                          },
                         );
                       }),
                     ] else if (_covenantTabIndex == 1) ...[

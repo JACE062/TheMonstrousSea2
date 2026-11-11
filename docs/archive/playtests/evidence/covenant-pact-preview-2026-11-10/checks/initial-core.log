@@ -1,0 +1,94 @@
+00:00 +0: loading test/session/pact_effects_test.dart
+00:00 +0 -1: loading test/session/pact_effects_test.dart [E]
+  Failed to load "test/session/pact_effects_test.dart":
+  lib/src/rules/covenant_pacts.dart:17:27: Error: Type 'MonsterSpecies' not found.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:17:27: Error: 'MonsterSpecies' isn't a type.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:19:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.kraken => 1 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:20:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.worldSerpent => 2 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:21:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.ancientLeviathan => 3 + burden,
+            ^^^^^^^^^^^^^^
+00:00 +0 -2: loading test/rules/covenant_and_trophies_test.dart [E]
+  Failed to load "test/rules/covenant_and_trophies_test.dart":
+  lib/src/rules/covenant_pacts.dart:17:27: Error: Type 'MonsterSpecies' not found.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:17:27: Error: 'MonsterSpecies' isn't a type.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:19:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.kraken => 1 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:20:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.worldSerpent => 2 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:21:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.ancientLeviathan => 3 + burden,
+            ^^^^^^^^^^^^^^
+00:00 +0 -3: loading test/session/paid_repair_lifecycle_test.dart [E]
+  Failed to load "test/session/paid_repair_lifecycle_test.dart":
+  lib/src/rules/covenant_pacts.dart:17:27: Error: Type 'MonsterSpecies' not found.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:17:27: Error: 'MonsterSpecies' isn't a type.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:19:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.kraken => 1 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:20:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.worldSerpent => 2 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:21:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.ancientLeviathan => 3 + burden,
+            ^^^^^^^^^^^^^^
+00:00 +0 -4: loading test/session/sargasso_obscurity_test.dart [E]
+  Failed to load "test/session/sargasso_obscurity_test.dart":
+  lib/src/rules/covenant_pacts.dart:17:27: Error: Type 'MonsterSpecies' not found.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:17:27: Error: 'MonsterSpecies' isn't a type.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:19:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.kraken => 1 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:20:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.worldSerpent => 2 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:21:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.ancientLeviathan => 3 + burden,
+            ^^^^^^^^^^^^^^
+00:00 +0 -5: loading test/session/wreck_lifecycle_test.dart [E]
+  Failed to load "test/session/wreck_lifecycle_test.dart":
+  lib/src/rules/covenant_pacts.dart:17:27: Error: Type 'MonsterSpecies' not found.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:17:27: Error: 'MonsterSpecies' isn't a type.
+    static int titanCinders(MonsterSpecies? species, int burden) => burden > 0
+                            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:19:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.kraken => 1 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:20:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.worldSerpent => 2 + (burden ~/ 2),
+            ^^^^^^^^^^^^^^
+  lib/src/rules/covenant_pacts.dart:21:11: Error: Undefined name 'MonsterSpecies'.
+            MonsterSpecies.ancientLeviathan => 3 + burden,
+            ^^^^^^^^^^^^^^
+00:00 +0 -5: Some tests failed.
+
+Failing tests:
+  test/rules/covenant_and_trophies_test.dart: loading test/rules/covenant_and_trophies_test.dart
+  test/session/pact_effects_test.dart: loading test/session/pact_effects_test.dart
+  test/session/paid_repair_lifecycle_test.dart: loading test/session/paid_repair_lifecycle_test.dart
+  test/session/sargasso_obscurity_test.dart: loading test/session/sargasso_obscurity_test.dart
+  test/session/wreck_lifecycle_test.dart: loading test/session/wreck_lifecycle_test.dart

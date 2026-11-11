@@ -313,6 +313,8 @@ void main() {
       // Toggle Apex Emergence (Burden +2)
       final apexSwitch = find.text('APEX EMERGENCE');
       expect(apexSwitch, findsOneWidget);
+      await tester.ensureVisible(apexSwitch);
+      await tester.pumpAndSettle();
       await tester.tap(apexSwitch);
       await tester.pumpAndSettle();
 
@@ -326,6 +328,8 @@ void main() {
       // Switch to TAB 2: ELDRITCH RELICS
       final relicsTab = find.text('ELDRITCH RELICS');
       expect(relicsTab, findsOneWidget);
+      await tester.ensureVisible(relicsTab);
+      await tester.pumpAndSettle();
       await tester.tap(relicsTab);
       await tester.pumpAndSettle();
 
@@ -338,6 +342,8 @@ void main() {
       controller.session.profile.unlockedBlueprints.add(
         BlueprintId.clipper.name,
       );
+      await tester.ensureVisible(relicsTab);
+      await tester.pumpAndSettle();
       await tester.tap(relicsTab);
       await tester.pumpAndSettle();
 
@@ -358,6 +364,8 @@ void main() {
       // Switch to TAB 3: CURSED MONUMENTS
       final monumentsTab = find.text('CURSED MONUMENTS');
       expect(monumentsTab, findsOneWidget);
+      await tester.ensureVisible(monumentsTab);
+      await tester.pumpAndSettle();
       await tester.tap(monumentsTab);
       await tester.pumpAndSettle();
 

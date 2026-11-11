@@ -6,6 +6,7 @@ import '../model/enums.dart';
 import '../model/item.dart';
 import '../model/wreck_encounter.dart';
 import '../rng/game_rng.dart';
+import 'covenant_pacts.dart';
 
 WreckSighting generateWreckSighting(GameRng rng, WreckTuning tuning) {
   final seed = rng.nextInt(1 << 30);
@@ -53,7 +54,7 @@ WreckThreat generateWreckThreat(
   // Eligibility comes first: forced approach fights can never become Apex.
   final isApex =
       !approach &&
-      rng.nextInt(100) < tuning.apexChanceForRegion(region) * (apexEmergence ? 2 : 1);
+      rng.nextInt(100) < tuning.apexChanceForRegion(region) * CovenantPactEffects.apexChanceMultiplier(apexEmergence);
   return WreckThreat(
     species: species,
     level: level,

@@ -1,0 +1,372 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "a54665daebd29c84aadefc17e7ca9ad8addafc3a",
+  "request": "Show exactly what each Covenant Pact changes before activating it at the home port.",
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "b9aacc691b8341d18cd4f0f5aaca400504922128e813d0e8f5de46038a64e642"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/covenant_pact_preview.dart",
+      "sha256": "8ae0e4f14ce2fbcdb6ad601a7c6bd264754f3f5864d54cb781bcbcb865f14c69"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/covenant_pact_offer.dart",
+      "sha256": "22ac1d7ef12a1fa1a1571ca4315a95fcc1d495329afe85af61c7347e1cf1bf22"
+    },
+    {
+      "path": "apps/monstrous_sea/test/covenant_pact_preview_test.dart",
+      "sha256": "5b592614f80e15f626eaea8988e0496408f8b6b0a62592dc8f1cb251625f5aec"
+    },
+    {
+      "path": "apps/monstrous_sea/test/covenant_pact_ui_test.dart",
+      "sha256": "5c1e4d2c9d92de75599529abc5b1e22d8b3bfcc12bfc8104da38fd7725d20047"
+    },
+    {
+      "path": "apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart",
+      "sha256": "58502d650e57a811196dccc2e70755b649ebd6cadd0f7a68f2ad596f747b0e52"
+    },
+    {
+      "path": "packages/monstrous_core/lib/monstrous_core.dart",
+      "sha256": "2af44f59a9b65c7e4042094b5a9f1b85f292e5e9158b800192398467daf53e6d"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/covenant_pacts.dart",
+      "sha256": "041a464020a859079ca8630d7718204000818cc364724b132a514867db9daec9"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/sea_chart.dart",
+      "sha256": "f280cf84e75e789da6e0ea285c858c5a2d9bada195d39065583d0c888831102c"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/wrecks.dart",
+      "sha256": "2340b4f58124a84c56c9002f8cda2aad54a493bb5ef69e245e28284b18397439"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "49bad0e794b7de24ce78e7823ceed8ac8029a82a61ee07dc296de859d88f8f7e"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/eldritch_lore.dart",
+      "sha256": "6b1f6cb60bcba588269886c5575b2fbb2a69ad225b9efc88347e595a84ee3983"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/persistence/profile_data.dart",
+      "sha256": "fdc607c154b8fb0f8e2f05e9c00073197dd1c270495358fe8d372fcb2f5000d6"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/pact_effects_test.dart",
+      "sha256": "a54464a47d68fc1f49269d41dd388c7b1f34623960486ce6bf1a8ae2c349db1d"
+    }
+  ],
+  "scope": {
+    "display": [
+      "current to toggled pact effects",
+      "total Pact Burden",
+      "changing Titan Cinder rewards only",
+      "reverse comparison before rescinding",
+      "Carapace and Frenzy help outside activation target"
+    ],
+    "derivation": "Shared existing CovenantPactEffects parameters. A detached ProfileData copy uses the real togglePact method so combinations and legacy burden resets follow the live command.",
+    "copyClarifications": [
+      "Feeding Frenzy has an existing automatic trigger at 60% HP or less; the old 40% baseline claim was absent from the resolver. No Shark behavior changes.",
+      "Brittle Oak names careening/salvaged timber healing and shipwright repair prices; ketch pricing and paid-repair healing/work remain separate."
+    ],
+    "unchanged": [
+      "pact weights and numeric effects",
+      "RNG order and Apex eligibility",
+      "Titan Cinder formula and integer plateaus",
+      "activation/home-only gates",
+      "resources/vessel/chart during preview and toggling",
+      "save formats/player saves",
+      "provisional tuning",
+      "art and deferred features"
+    ]
+  },
+  "verification": {
+    "initialCompileFinding": "The new helper imported the wrong model file for MonsterSpecies. Corrected to enums.dart; initial failing module logs retained.",
+    "correctedImportApp": {
+      "passed": 50,
+      "failed": 1,
+      "finding": "Existing full-altar test tapped an off-screen relic tab after scrolling to Apex Emergence. Updated to ensure headings/tabs are visible before tapping."
+    },
+    "finalCoreCasesPassed": 99,
+    "newCoreCases": 10,
+    "finalAppCasesPassed": 51,
+    "previewModelCases": 10,
+    "exhaustiveCombinationScenarios": 896,
+    "uiCases": 36,
+    "completePactDialogCasesPassed": 15,
+    "finalTargetedCasesPassed": 165,
+    "countNote": "99 core + final 51 app + separate 15 complete-dialog cases. Initial and intermediate reruns overlap and are not additive.",
+    "coreValidation": [
+      "hardcoded unchanged parameters",
+      "Shark 60/61% boundary",
+      "scald active/off at rounds 2/3",
+      "all Titan Cinder amounts at burden 0-9",
+      "existing Covenant/trophy, paid-repair, Sargasso/Obscurity and wreck regressions"
+    ],
+    "modelValidation": [
+      "seven pacts across all 128 combinations",
+      "real command and reverse comparisons",
+      "changed-reward omission at integer plateaus",
+      "legacy burden reset",
+      "locked-Covenant rejection",
+      "unchanged profile/chart snapshots and no spending"
+    ],
+    "uiMatrix": {
+      "pacts": [
+        "abyssalVigor",
+        "calcifiedCarapace",
+        "feedingFrenzy",
+        "chokingFog",
+        "brittleOak",
+        "volatileEnvirons",
+        "apexEmergence"
+      ],
+      "selectionStates": [
+        "none",
+        "one",
+        "mixed",
+        "all"
+      ],
+      "sizes": [
+        "360x900",
+        "800x480",
+        "1280x900"
+      ],
+      "textScales": [
+        1.15,
+        1.3
+      ]
+    },
+    "uiValidation": [
+      "every comparison and checkbox reachable without truncation",
+      "seven actual activation/removal flows",
+      "resources/vessel/chart snapshots preserved",
+      "four keyword popup cases within viewport and closing on exit without toggling",
+      "locked offer disabled"
+    ],
+    "completeDialogSizes": [
+      "360x900",
+      "800x480",
+      "1280x850"
+    ],
+    "analysis": "Core and final app: no issues. One initial test brace lint was corrected.",
+    "visuallyInspected": [
+      "visual/final-pact-volatileEnvirons-1280.png",
+      "visual/final-pact-feedingFrenzy-360.png"
+    ],
+    "captureNote": "14 final proofs plus 14 earlier proofs. Final labels clarify threshold, surcharge and Titan names."
+  },
+  "commands": [
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart test test/session/pact_effects_test.dart test/rules/covenant_and_trophies_test.dart test/session/paid_repair_lifecycle_test.dart test/session/sargasso_obscurity_test.dart test/session/wreck_lifecycle_test.dart --reporter expanded",
+      "log": "checks/core-corrected-import.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/covenant_pact_preview_test.dart test/covenant_pact_ui_test.dart test/covenant_and_trophies_ui_test.dart --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --dart-define=mapFocusProofPath=<evidence>/visual/final --reporter expanded",
+      "log": "checks/final-copy-app.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/home_layout_matrix_test.dart --name pacts --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "log": "checks/pact-layouts.log"
+    },
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart analyze",
+      "log": "checks/core-analyze.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter analyze",
+      "log": "checks/final-app-analyze.log"
+    },
+    {
+      "cwd": ".",
+      "command": "python tools/check_docs.py; git diff --cached --check",
+      "logs": [
+        "checks/docs-check.log",
+        "checks/whitespace.log"
+      ]
+    }
+  ],
+  "logNormalization": "Terminal trailing spaces and CRLF normalized in new logs only; test content and prior evidence retained.",
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/app-analyze.log",
+      "sha256": "81b7f53e0cc66b138d3dfec9ca7d86fb584ce5bc6167545e05e3b3f529d661b1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/app-corrected-import.log",
+      "sha256": "c94978cc10dfcbb09a1b60c7670ae5e1869fdb483c1ebc1fdab37be0bb4d853a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/core-analyze.log",
+      "sha256": "f9cda8887b901c3a07b156c4ea82ffdade9e1a1f7fd6ed390596a8b4fcb1a82d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/core-corrected-import.log",
+      "sha256": "9b8a77e0856025e20515af90cbcafac5c67ee9104e2bc32cb49f01ba16c60bec"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/docs-check.log",
+      "sha256": "d48f4f5f3fbac454eb7c40711a3074001cd11c66e811d5480b62ea8befffc28d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/final-app-analyze.log",
+      "sha256": "dd5edb7cb265c2e4860660bda86192046368afd5f847fb903fe3a33e2f979740"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/final-app.log",
+      "sha256": "01a68812ec258b7fc2d032d59302c33fb50e36bbfa8b41277cd72a2386a76cd0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/final-copy-app.log",
+      "sha256": "bddf624ddcd47d8ba802fb535bc4eb5cb72c89b2f54bbc27a767b41d82263cb0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/initial-app.log",
+      "sha256": "6f7e1f8b104908616f5d4406d767f2a8bbc3ad99f8842294fa8d5362af203443"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/initial-core.log",
+      "sha256": "33f31cb3a93178ba937e1ebcb4368ad36c678c73c787e5defe42f9dc083b30d2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/pact-layouts.log",
+      "sha256": "776e7066d65e296b8b3443ab23750d2d7e5799a12be66e7b3d4d4bc7d1cc3fb9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/checks/whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "captures": [
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-abyssalVigor-1280.png",
+      "sha256": "034a19d7b1fac53a87036fb9579450ee0f49bbbc3f3dc904508bddf4c2a33304"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-abyssalVigor-360.png",
+      "sha256": "299507e3169ea7f3256be6f718f7a563bc44892870dfd754aa24353111b29983"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-apexEmergence-1280.png",
+      "sha256": "92f4b19726d1d0308e62206e2ec0fcec2bc1b422bffc37a285815888b4733341"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-apexEmergence-360.png",
+      "sha256": "77092548b0be3ae29c198bfce3de86abd0462c8858efd32b11ebdd3087919cc1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-brittleOak-1280.png",
+      "sha256": "9ed0e74c52fe884ac99f85e763be90e3ec888c98fc84b7a02545216b4208bbec"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-brittleOak-360.png",
+      "sha256": "054658b10818bdf766e38a1902c518ba5d3db89aa312c45ef665a1c5cc2452f9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-calcifiedCarapace-1280.png",
+      "sha256": "5327c8ef32d25910fee89e22de290abfd38736fde242e5f2df0e53623482c7db"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-calcifiedCarapace-360.png",
+      "sha256": "eb46705ea2bc67de42e3b13e5b068a6b888d95fe424a33afc89010711e3f81ea"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-chokingFog-1280.png",
+      "sha256": "2b6772b5893496e27275c05a9adedadb28bf72c7bd7cdd1f7085a0f0b2a2ac03"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-chokingFog-360.png",
+      "sha256": "b07ccfd5f4de466ff9153c5e359e71ae3699938696874f84d1de4bc9ac6dee10"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-feedingFrenzy-1280.png",
+      "sha256": "e17cf6373e90c7d88205a91c1f73cd5ffc97eb597626a468bafaef7281d45472"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-feedingFrenzy-360.png",
+      "sha256": "dd7e7b9c0d067a14311d6e7064c6a97413a8e877d8545973eec40c824c73b021"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-volatileEnvirons-1280.png",
+      "sha256": "92f4b19726d1d0308e62206e2ec0fcec2bc1b422bffc37a285815888b4733341"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/final-pact-volatileEnvirons-360.png",
+      "sha256": "b44ad9c6f6a17b08a467757113583c5dee62408f1d316dea38f952c2fd5d0e9c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-abyssalVigor-1280.png",
+      "sha256": "f577ce843f0ab236662b04fbdaf6db6bf03157b5c7dc1f701d04ce2ff1a8cbcb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-abyssalVigor-360.png",
+      "sha256": "cfed2addd286711a6b54016553c623c443a1f7295f2d36633aef64d1fe5163d4"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-apexEmergence-1280.png",
+      "sha256": "5335b31d05661bf790dfe0b4b9c40cf23a8164b944bf1c35cfc31658538eb2c5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-apexEmergence-360.png",
+      "sha256": "fc8ffb7f8fa372db4d4409feb35c3c1d298888a77659155a49ed2caafd83393c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-brittleOak-1280.png",
+      "sha256": "27558f3a12b0f2da27d1ed52531a0d676ad5c5b6782eb4c81a54e498f22892bb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-brittleOak-360.png",
+      "sha256": "2e2949ae9872cabfbdd2092821261b9c4f4c892441909664ca47e6bb6dbbfe69"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-calcifiedCarapace-1280.png",
+      "sha256": "d997d26ee15e8e93435f4f60b7abf108d808922aa123de11ea0288b5d29f297d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-calcifiedCarapace-360.png",
+      "sha256": "9c40130ef148789c81a8dbbff0ff1f56e91fbe2c2956a9c6704b867d3d493096"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-chokingFog-1280.png",
+      "sha256": "aae9f6610683f4bd83f113d0ca0bc0945700603e59a79fea4c01b9a9ebef7955"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-chokingFog-360.png",
+      "sha256": "910af298453b8cb903ce22b78db6c15ac958cd0e20b3ba4dcc287d0f2980e2da"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-feedingFrenzy-1280.png",
+      "sha256": "5a7a8082b5555a3ca693e38b4b9320aaed592ee74ca553408f8304ad6f206718"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-feedingFrenzy-360.png",
+      "sha256": "8e794b25ca0e985005d44953b4a952763f2607ae4eca1df3df484227f050d34d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-volatileEnvirons-1280.png",
+      "sha256": "5335b31d05661bf790dfe0b4b9c40cf23a8164b944bf1c35cfc31658538eb2c5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/covenant-pact-preview-2026-11-10/visual/review-pact-volatileEnvirons-360.png",
+      "sha256": "837a1791d6b1491322ca28117f902d2adcfa1d8577fd3472804b3677d7887eaf"
+    }
+  ],
+  "isolation": {
+    "autosave": false,
+    "productionStorageOpened": false,
+    "playerSavesModified": false,
+    "nativeGameLaunched": false,
+    "sharedNativeBundleRebuilt": false,
+    "artChanged": false,
+    "existingEvidenceRetained": true
+  }
+}

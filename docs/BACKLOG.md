@@ -52,6 +52,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ## Inspection, art, and chart design
 
+**Covenant Pact activation previews, 10 November 2026 — implemented; player replay pending:** Each home-port pact compares its affected values, total Pact Burden and changing Titan Cinder rewards before ratifying or rescinding. Previews account for other active pacts, integer reward plateaus and legacy burden reset behavior. Carapace/Frenzy help does not activate a pact. The old Feeding Frenzy 40% baseline claim and Brittle Oak service wording are clarified to match the unchanged resolver. [Verification](archive/README.md#covenant-pact-previews-2026-11-10) covers all 128 combinations, actual toggles, hazards/repairs and 115–130% layouts. Effects, costs, saves and deferred features remain unchanged.
+
 **Eldritch Relic forge previews, 10 November 2026 — implemented; player replay pending:** Home-port cards now show the associated signature, added effects and exact price before forging, including poor/blueprint-locked states. Purchases refresh ownership/effects and preserve the current vessel. The user chose to retain Ghostwake's actual +8 base Shock on ordinary flesh hits; the old critical-only summary is corrected. Relic summaries distinguish additions from existing fitting traits, and linked keywords retain condition help. [Verification](archive/README.md#eldritch-relic-previews-2026-11-10) covers combat, purchases and 115–130% layouts. Costs, gameplay effects, saves and deferred Master Refits remain unchanged.
 
 ### PT2-03 — Signature armament has two unexplained tier labels

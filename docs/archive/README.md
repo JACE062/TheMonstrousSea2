@@ -264,3 +264,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Eldritch Relic previews 2026-11-10
 
 [The relic forge preview pass](playtests/ELDRITCH_RELIC_PREVIEWS_2026_11_10.md) shows each added signature effect and price before forging, with hull requirements, ownership refresh and linked condition help. [Evidence](playtests/evidence/eldritch-relic-preview-2026-11-10/manifest.json) retains the user's Ghostwake selection, combat/purchase comparisons, 115–130% layouts, shared comparison regressions, analysis and captures. Combat behavior, costs, saves, art and native bundles remain preserved.
+
+## Covenant Pact previews 2026-11-10
+
+[The pact activation preview pass](playtests/COVENANT_PACT_PREVIEWS_2026_11_10.md) compares current/toggled modifiers, total burden and changing Titan Cinders, including rescinding and existing combinations. [Evidence](playtests/evidence/covenant-pact-preview-2026-11-10/manifest.json) retains 128-combination checks, combat/service/navigation regressions, 115–130% altar layouts, analysis and captures. The old threshold/service wording is clarified; gameplay, tuning, save data, art, native bundles and previous evidence remain intact.

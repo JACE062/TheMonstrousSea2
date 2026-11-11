@@ -20,6 +20,7 @@ import '../model/wreck_encounter.dart';
 import '../persistence/profile_data.dart';
 import '../rng/game_rng.dart';
 import '../rules/combat.dart';
+import '../rules/covenant_pacts.dart';
 import '../rules/economy.dart';
 import '../rules/eldritch_relics.dart';
 import '../rules/lineage.dart';
@@ -224,7 +225,7 @@ class GameSession {
     final services = seaChart.tuning.services;
     final price = phase == SessionPhase.smuggler
         ? services.ketchGoldPerWork * (activeBoon?.id == BloodlineTraitId.smugglersKin ? 0.75 : 1)
-        : services.goldPerWork * (profile.isPactActive(CovenantPactId.brittleOak) ? 1.30 : 1);
+        : services.goldPerWork * (profile.isPactActive(CovenantPactId.brittleOak) ? CovenantPactEffects.shipwrightRepairPriceMultiplier : 1);
     return quotePaidRepair(ship!, paidRepairWork, percentage: percentage,
         allowanceFraction: paidRepairAllowanceFraction, goldPerWork: price, requestedWork: normalWork);
   }
@@ -357,7 +358,7 @@ class GameSession {
     if (ship == null) return 0;
     var nominal = (ship!.maxHp * fraction);
     if (profile.isPactActive(CovenantPactId.brittleOak)) {
-      nominal *= 0.75;
+      nominal *= CovenantPactEffects.shoreHealingMultiplier;
     }
     return ship!.previewHealing(nominal);
   }
@@ -1256,16 +1257,16 @@ class GameSession {
 
     // Apply Covenant of the Deep Pacts to the spawned monster:
     if (profile.isPactActive(CovenantPactId.abyssalVigor)) {
-      currentMonster!.maxHp = (currentMonster!.maxHp * 1.25).round();
+      currentMonster!.maxHp = (currentMonster!.maxHp * CovenantPactEffects.monsterHpMultiplier).round();
       currentMonster!.currentHp = currentMonster!.maxHp;
     }
     if (profile.isPactActive(CovenantPactId.calcifiedCarapace)) {
-      currentMonster!.maxCarapace += 10;
-      currentMonster!.carapacePlating += 10;
+      currentMonster!.maxCarapace += CovenantPactEffects.extraCarapace;
+      currentMonster!.carapacePlating += CovenantPactEffects.extraCarapace;
     }
     if (profile.isPactActive(CovenantPactId.feedingFrenzy)) {
       for (final mw in currentMonster!.usableWeapons) {
-        mw.damage = (mw.damage * 1.15).round();
+        mw.damage = (mw.damage * CovenantPactEffects.monsterAttackMultiplier).round();
       }
     }
 
@@ -1274,7 +1275,7 @@ class GameSession {
       // Region 2: The Sargasso Drift
       // Tangled Kelp slows ship maneuvering (-10% evasion, or -20% under Volatile Environs)
       final kelpPenalty =
-          profile.isPactActive(CovenantPactId.volatileEnvirons) ? 20 : 10;
+          CovenantPactEffects.kelpEvasionPenalty(profile.isPactActive(CovenantPactId.volatileEnvirons));
       ship!.currentEvasion = max(0, ship!.currentEvasion - kelpPenalty);
       // Haze supplies a minimum penalty without stacking onto stronger ink.
       currentMonster!.isObscured = true;
@@ -2094,12 +2095,12 @@ class GameSession {
       return events;
     }
 
-    // Feeding Frenzy Pact: Shark triggers frenzy at <= 60% HP instead of 40%
+    // Feeding Frenzy adds an automatic Shark trigger at <= 60% HP.
     if (profile.isPactActive(CovenantPactId.feedingFrenzy) &&
         !_purgedFrenzyThisTurn &&
         currentMonster!.species == MonsterSpecies.shark &&
         currentMonster!.frenzyStacks == 0 &&
-        currentMonster!.currentHp <= (currentMonster!.maxHp * 0.60).round()) {
+        currentMonster!.currentHp <= (currentMonster!.maxHp * CovenantPactEffects.automaticSharkFrenzyThreshold).round()) {
       currentMonster!.frenzyStacks = 1;
       events.add(SharkFrenzyRoared(
         monsterName: currentMonster!.name,
@@ -2179,9 +2180,9 @@ class GameSession {
     // Region 3 Hazard: Thermal Caldera Scald every 3 combat rounds (or every 2 rounds for 15 dmg under Volatile Environs)
     final volatileActive =
         profile.isPactActive(CovenantPactId.volatileEnvirons);
-    final scaldInterval = volatileActive ? 2 : 3;
+    final scaldInterval = CovenantPactEffects.scaldInterval(volatileActive);
     if (seaChart.currentRegionIndex == 2 && battleRound % scaldInterval == 0) {
-      final scaldDamage = volatileActive ? 15 : 10;
+      final scaldDamage = CovenantPactEffects.scaldDamage(volatileActive);
       ship!.applyDamage(scaldDamage);
       events.add(ThermalScaldOccurred(
         shipName: ship!.name,
@@ -2342,14 +2343,7 @@ class GameSession {
 
       // Primordial Cinders drop strictly from Region Titans defeated under active Pact Burden
       final burden = profile.totalPactBurden;
-      final cinderDrop = burden > 0
-          ? switch (currentMonster?.species) {
-              MonsterSpecies.kraken => 1 + (burden ~/ 2),
-              MonsterSpecies.worldSerpent => 2 + (burden ~/ 2),
-              MonsterSpecies.ancientLeviathan => 3 + burden,
-              _ => 0,
-            }
-          : 0;
+      final cinderDrop = CovenantPactEffects.titanCinders(currentMonster?.species, burden);
 
       profile.metaInventory.add(
         monsterBone: boneDrop,
@@ -2777,7 +2771,7 @@ class GameSession {
     final careenPct = isCurrentIslandHaven ? seaChart.tuning.services.havenCareenFraction : seaChart.tuning.services.coveCareenFraction;
     var nominal = (ship!.maxHp * careenPct);
     if (profile.isPactActive(CovenantPactId.brittleOak)) {
-      nominal *= 0.75;
+      nominal *= CovenantPactEffects.shoreHealingMultiplier;
     }
     final healAmount = ship!.previewHealing(nominal);
     if (healAmount <= 0) {

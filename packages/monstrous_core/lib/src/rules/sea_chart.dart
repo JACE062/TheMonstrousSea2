@@ -7,6 +7,7 @@ import '../model/enums.dart';
 import '../model/nemesis.dart';
 import '../model/wreck_encounter.dart';
 import '../rng/game_rng.dart';
+import 'covenant_pacts.dart';
 import 'wrecks.dart';
 
 /// Service identity is independent of the illustration/node category.
@@ -1218,7 +1219,7 @@ class SeaChart {
           .toList();
       species = pool[rng.nextInt(pool.length)];
       final threshold =
-          [20, 35, 50][currentRegionIndex] * (apexEmergence ? 2 : 1);
+          [20, 35, 50][currentRegionIndex] * CovenantPactEffects.apexChanceMultiplier(apexEmergence);
       isApex =
           !(currentRegionIndex == 0 && leg == 1) &&
           rng.nextInt(100) < threshold;

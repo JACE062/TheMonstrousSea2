@@ -1,0 +1,101 @@
+00:00 +0: loading test/session/pact_effects_test.dart
+00:00 +0: test/session/pact_effects_test.dart: pact parameters retain existing values
+00:00 +1: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +2: test/session/pact_effects_test.dart: automatic Shark Frenzy active=false HP=60
+00:00 +3: test/session/pact_effects_test.dart: automatic Shark Frenzy active=false HP=60
+00:00 +4: test/session/pact_effects_test.dart: automatic Shark Frenzy active=false HP=60
+00:00 +5: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Covenant Pacts: abyssalVigor (+25% HP) and calcifiedCarapace (+10 Carapace, no AC change)
+00:00 +6: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Covenant Pacts: abyssalVigor (+25% HP) and calcifiedCarapace (+10 Carapace, no AC change)
+00:00 +7: test/session/pact_effects_test.dart: Boiling Reach scald active=false round=2
+00:00 +8: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Covenant Pacts: chokingFog obscures helm lookoutCall while preserving RNG sequence
+00:00 +9: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Covenant Pacts: chokingFog obscures helm lookoutCall while preserving RNG sequence
+00:00 +10: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Covenant Pacts: chokingFog obscures helm lookoutCall while preserving RNG sequence
+00:00 +11: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Covenant Pacts: chokingFog obscures helm lookoutCall while preserving RNG sequence
+00:00 +12: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Covenant Pacts: chokingFog obscures helm lookoutCall while preserving RNG sequence
+00:00 +13: test/session/pact_effects_test.dart: Boiling Reach scald active=true round=3
+00:00 +14: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +15: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Primordial Cinders drop strictly from Region Titans under active Pact Burden
+00:00 +16: test/session/paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +17: test/session/paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +18: test/session/paid_repair_lifecycle_test.dart: captain 0 can buy within a small purse without split/reload gain
+00:00 +19: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +20: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +21: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +22: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +23: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +24: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +25: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +26: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +27: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +28: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +29: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +30: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +31: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +32: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +33: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +34: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +35: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +36: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +37: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +38: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +39: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +40: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +41: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +42: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +43: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +44: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +45: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +46: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +47: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +48: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +49: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +50: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +51: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +52: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +53: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +54: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +55: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +56: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +57: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +58: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +59: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +60: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +61: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +62: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +63: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +64: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +65: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +66: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +67: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=false
+00:00 +68: test/session/sargasso_obscurity_test.dart: haze uses actual 75/76 hit boundary, Long 60 and normal accuracy caps
+00:00 +69: test/session/paid_repair_lifecycle_test.dart: another actual service visit receives its own pool
+00:00 +70: test/session/wreck_lifecycle_test.dart: WreckCondition.pickedClean approach ambush is normal, opens full cargo once, pact=true
+00:00 +71: test/session/sargasso_obscurity_test.dart: successful haze hit disperses at 25, retains at 26: 25
+00:00 +72: test/session/paid_repair_lifecycle_test.dart: Naval Battle does not expose paid repair work
+00:00 +73: test/session/paid_repair_lifecycle_test.dart: Naval Battle does not expose paid repair work
+00:00 +74: test/session/sargasso_obscurity_test.dart: successful haze hit disperses at 25, retains at 26: 26
+00:00 +75: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=false
+00:00 +76: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=false
+00:00 +77: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=false
+00:00 +78: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=false
+00:00 +79: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=false
+00:00 +80: test/session/sargasso_obscurity_test.dart: actual Flare clears haze and expiry does not restore it
+00:00 +81: test/session/sargasso_obscurity_test.dart: actual Flare clears haze and expiry does not restore it
+00:00 +82: test/session/sargasso_obscurity_test.dart: actual Flare clears haze and expiry does not restore it
+00:00 +83: test/session/sargasso_obscurity_test.dart: actual Flare clears haze and expiry does not restore it
+00:00 +84: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain approach ambush is normal, opens full cargo once, pact=true
+00:00 +85: test/session/sargasso_obscurity_test.dart: actual Ghostwake bypasses haze while retaining its displayed state
+00:00 +86: test/session/sargasso_obscurity_test.dart: actual Ghostwake bypasses haze while retaining its displayed state
+00:00 +87: test/session/wreck_lifecycle_test.dart: WreckCondition.fresh approach ambush is normal, opens full cargo once, pact=false
+00:00 +88: test/session/wreck_lifecycle_test.dart: WreckCondition.fresh approach ambush is normal, opens full cargo once, pact=true
+00:00 +89: test/session/wreck_lifecycle_test.dart: WreckCondition.fresh can pass empty, using one slot without a deduction
+00:00 +90: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain committed fight may be Apex and keeps full kill loot plus cargo
+00:00 +91: test/session/wreck_lifecycle_test.dart: WreckCondition.uncertain quiet recovery has cargo and no creature loot or immediate healing
+00:00 +92: test/session/wreck_lifecycle_test.dart: WreckCondition.fresh committed fight may be Apex and keeps full kill loot plus cargo
+00:00 +93: test/session/wreck_lifecycle_test.dart: WreckCondition.fresh quiet recovery has cargo and no creature loot or immediate healing
+00:00 +94: test/session/wreck_lifecycle_test.dart: condition gates enforce quick/deep exclusivity and fresh has no quick haul
+00:00 +95: test/session/wreck_lifecycle_test.dart: full belt resolves creature spoils before the independent wreck supply
+00:00 +96: test/session/wreck_lifecycle_test.dart: death during recovery never banks unearned cargo
+00:00 +97: test/session/wreck_lifecycle_test.dart: supported reloads preserve assessment decisions and deterministic threat/cargo
+00:00 +98: test/session/wreck_lifecycle_test.dart: retired selectable rewards and stale wreck IDs cannot grant cargo
+00:00 +99: All tests passed!

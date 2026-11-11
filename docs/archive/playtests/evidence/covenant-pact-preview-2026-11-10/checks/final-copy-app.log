@@ -1,0 +1,57 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: CovenantPactId.abyssalVigor preview matches toggles across all 128 pact combinations
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: CovenantPactId.calcifiedCarapace preview matches toggles across all 128 pact combinations
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: CovenantPactId.feedingFrenzy preview matches toggles across all 128 pact combinations
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: CovenantPactId.chokingFog preview matches toggles across all 128 pact combinations
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: CovenantPactId.brittleOak preview matches toggles across all 128 pact combinations
+00:00 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: CovenantPactId.volatileEnvirons preview matches toggles across all 128 pact combinations
+00:00 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: CovenantPactId.apexEmergence preview matches toggles across all 128 pact combinations
+00:00 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: baseline comparisons show exact modifiers and only changing rewards
+00:00 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: preview follows the real legacy-burden reset without changing the source
+00:00 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: locked profile can read a preview but cannot activate a pact
+00:00 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_preview_test.dart: (tearDownAll)
+00:03 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: (setUpAll)
+00:03 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(360.0, 900.0)/1.15
+00:04 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(360.0, 900.0)/1.15
+00:04 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(360.0, 900.0)/1.15
+00:05 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(360.0, 900.0)/1.15
+00:06 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(360.0, 900.0)/1.15
+00:06 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart: PortScreen Covenant Altar: Pacts, Relics & Monuments Covenant banner appears and opens 3-tab Covenant dialog
+00:07 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(360.0, 900.0)/1.3
+00:07 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(800.0, 480.0)/1.15
+00:07 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(800.0, 480.0)/1.3
+00:08 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(1280.0, 900.0)/1.15
+00:10 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts none Size(1280.0, 900.0)/1.3
+00:10 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts one Size(360.0, 900.0)/1.15
+00:11 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts one Size(360.0, 900.0)/1.3
+00:12 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts one Size(800.0, 480.0)/1.15
+00:12 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts one Size(800.0, 480.0)/1.3
+00:13 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts one Size(1280.0, 900.0)/1.15
+00:14 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts one Size(1280.0, 900.0)/1.3
+00:14 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts mixed Size(360.0, 900.0)/1.15
+00:15 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts mixed Size(360.0, 900.0)/1.3
+00:15 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts mixed Size(800.0, 480.0)/1.15
+00:15 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts mixed Size(800.0, 480.0)/1.3
+00:16 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts mixed Size(1280.0, 900.0)/1.15
+00:16 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts mixed Size(1280.0, 900.0)/1.3
+00:16 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts all Size(360.0, 900.0)/1.15
+00:16 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts all Size(360.0, 900.0)/1.3
+00:17 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts all Size(800.0, 480.0)/1.15
+00:17 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts all Size(800.0, 480.0)/1.3
+00:17 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts all Size(1280.0, 900.0)/1.15
+00:18 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pacts all Size(1280.0, 900.0)/1.3
+00:18 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: CovenantPactId.abyssalVigor activation and removal refresh comparisons without spending or changing the vessel
+00:18 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: CovenantPactId.calcifiedCarapace activation and removal refresh comparisons without spending or changing the vessel
+00:19 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: CovenantPactId.feedingFrenzy activation and removal refresh comparisons without spending or changing the vessel
+00:19 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: CovenantPactId.chokingFog activation and removal refresh comparisons without spending or changing the vessel
+00:19 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: CovenantPactId.brittleOak activation and removal refresh comparisons without spending or changing the vessel
+00:19 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: CovenantPactId.volatileEnvirons activation and removal refresh comparisons without spending or changing the vessel
+00:20 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: CovenantPactId.apexEmergence activation and removal refresh comparisons without spending or changing the vessel
+00:20 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pact Carapace help at 360.0/130% does not toggle the pact
+00:20 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pact Carapace help at 1280.0/130% does not toggle the pact
+00:20 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pact Frenzy help at 360.0/130% does not toggle the pact
+00:20 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: pact Frenzy help at 1280.0/130% does not toggle the pact
+00:20 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: locked Covenant offer remains readable with a disabled toggle
+00:21 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_pact_ui_test.dart: (tearDownAll)
+00:21 +51: All tests passed!
