@@ -228,3 +228,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Tooltip sweep 2026-11-10
 
 [The complete tooltip producer review](playtests/TOOLTIP_SWEEP_2026_11_10.md) records the source inventory, real screen/keyword walks and corrections for painted bounds, scrolling, dense-label hover gaps and compact nested-card placement. [Evidence](playtests/evidence/tooltip-sweep-2026-11-10/manifest.json) retains baseline failures, intermediate probes, game-font/offline checks, captures and separate Windows preview correspondence. Existing inputs, text size, gold styling, mechanics, player saves and earlier evidence are preserved.
+
+## Concise fitting help 2026-11-10
+
+[The fitting copy follow-up](playtests/FITTING_COPY_2026_11_10.md) records removal of duplicate enemy dodge and secondary response forecasts from fitting tooltips. [Evidence](playtests/evidence/fitting-copy-2026-11-10/manifest.json) preserves both player screenshots, focused checks, font-loaded proofs and a separate preview. The existing lookout, action effects, movement ordering, saves and earlier audit records remain intact.

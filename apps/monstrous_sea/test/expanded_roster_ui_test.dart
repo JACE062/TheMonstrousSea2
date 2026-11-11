@@ -467,7 +467,7 @@ void main() {
   }
   for (final blueprint in [BlueprintId.ironclad, BlueprintId.corsair]) {
     testWidgets(
-      'late ${blueprint.name} action forecasts movement before Fall Back',
+      'late ${blueprint.name} movement keeps concise help and conditional lookout',
       (tester) async {
         tester.view.physicalSize = const Size(1280, 1100);
         tester.view.devicePixelRatio = 1;
@@ -527,8 +527,8 @@ void main() {
             matching: find.byType(MechanicTooltip),
           ),
         );
-        expect(tip.message, contains('After action: Medium Range'));
-        expect(tip.message, contains('IN THREAT ZONE'));
+        expect(tip.message, isNot(contains('After action:')));
+        expect(tip.message, isNot(contains('Target dodge:')));
         expect(
           find.byKey(const ValueKey('conditional-range-forecast')),
           findsOneWidget,
@@ -548,14 +548,20 @@ void main() {
         await tester.pump(const Duration(milliseconds: 300));
         if (reviewFont.isNotEmpty) {
           final tooltip = find.byWidgetPredicate((w) => identical(w, tip));
-          tester.state<TooltipState>(tooltip).ensureTooltipVisible();
+          await tester.ensureVisible(tooltip);
+          await tester.longPress(tooltip);
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 500));
-          expect(find.text(tip.message), findsOneWidget);
+          expect(
+            find.byKey(const ValueKey('mechanic-help-action')),
+            findsOneWidget,
+          );
           await capture(tester, 'forecast-${blueprint.name}');
+          await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+          await tester.pump();
         }
-        // The global helm-only outcome is explicitly conditional; the specific
-        // attack tooltip agrees with the real player-action movement order.
+        // Help stays concise while the conditional lookout and actual late
+        // helm ordering still agree with the unchanged response-range preview.
         controller.dispatch(const IssueHelmOrder(HelmOrder.fallBack));
         controller.dispatch(FireWeaponVolley(weaponType));
         expect(controller.combatRange, CombatRange.medium);

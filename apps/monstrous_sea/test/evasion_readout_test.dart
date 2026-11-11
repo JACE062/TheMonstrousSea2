@@ -353,9 +353,7 @@ void main() {
         find.byWidgetPredicate(
           (w) =>
               w is MechanicTooltip &&
-              w.message.contains(
-                'Opening shot accuracy: 85%. Target dodge: 0%.',
-              ),
+              w.message.contains('Opening shot accuracy: 85%.'),
         ),
         findsOneWidget,
       );

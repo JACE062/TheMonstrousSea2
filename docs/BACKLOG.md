@@ -192,6 +192,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-11 — Combat UI does not function as a readable command station
 
+- **Concise fitting help, 10 November 2026 — implemented; player replay pending:** The [receipt](archive/README.md#concise-fitting-help-2026-11-10) records removal of duplicate target dodge and secondary action-response predictions from fitting tooltips. Computed opening accuracy, direct movement/effect descriptions, enemy dodge HUD, lookout and Inspect remain. The obsolete tooltip-only forecast helper is removed; combat movement/order, values and saves are unchanged.
+
 - **Tooltip sweep, 10 November 2026 — implemented; player replay pending:** The [inventory and receipt](archive/README.md#tooltip-sweep-2026-11-10) review all tooltip producers and walk current screen targets at 115%, with selected 130%/short-window checks. Shared fixes use painted source bounds, track scrolling, dismiss offscreen sources, protect dense-label hover paths without consuming clicks, and fit linked cards into available space. Gold styling, inputs, displayed contextual values, gameplay, player saves and earlier evidence remain intact.
 
 - **Tooltip typography follow-up, 10 November 2026 — implemented; player replay pending:** The [receipt](archive/README.md#tooltip-typography-follow-up-2026-11-10) records the player's gold/moderate-emphasis selection, correction of double-scaled inline keywords and removal of empty fitting forecast lines. All five hulls retain applicable movement forecasts and the preceding fitting hover inset. No gameplay, save, artwork or tuning change.

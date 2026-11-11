@@ -897,7 +897,6 @@ class _BattleScreenState extends State<BattleScreen> {
                                     ship,
                                     monster,
                                     previewRange,
-                                    activeHelmOrder,
                                     needsEmergencyPass,
                                   );
                                   final Widget commands;
@@ -995,42 +994,6 @@ class _BattleScreenState extends State<BattleScreen> {
         },
       ),
     );
-  }
-
-  String _responseForecast(
-    HelmOrder order, {
-    ShipWeaponType? weaponType,
-    bool utility = false,
-  }) {
-    if (_isActionLocked) return '';
-    final movesRange =
-        weaponType == ShipWeaponType.prowRam ||
-        weaponType == ShipWeaponType.harpoonWinch ||
-        (utility &&
-            widget.controller.ship?.resolvedBlueprintId.utilityHardpoint ==
-                UtilityHardpointId.evasiveRigging);
-    if (!movesRange) return '';
-    final responseRange = widget.controller.previewResponseRange(
-      helmOrder: order,
-      weaponType: weaponType,
-      utility: utility,
-    );
-    final monster = widget.controller.currentMonster;
-    final outcome = monster?.currentIntent?.evaluatePreview(
-      currentRange: responseRange,
-      selectedHelmOrder: _decisions.combinationPending
-          ? widget.controller.session.lastHelmOrderThisTurn
-          : order,
-      helmAlreadyApplied: true,
-      isMonsterPinned: monster.isPinnedThisTurn,
-      tentacleCount: monster.numberOfTentacles,
-      damagePerTentacle: monster.usableWeapons
-          .where((w) => w.monsterWeaponType == MonsterWeaponType.tentacle)
-          .firstOrNull
-          ?.damage,
-    );
-    return 'After action: ${responseRange.displayName}'
-        '${outcome == null ? '' : ' · ${outcome.summaryBadge}'}';
   }
 
   Widget _lookout(
@@ -1158,7 +1121,6 @@ class _BattleScreenState extends State<BattleScreen> {
     ShipState ship,
     MonsterState monster,
     CombatRange range,
-    HelmOrder order,
     bool needsEmergencyPass,
   ) => Column(
     key: const ValueKey('hardpoint-panel'),
@@ -1176,7 +1138,7 @@ class _BattleScreenState extends State<BattleScreen> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 3),
-                  child: _buildWeaponCard(type, ship, monster, range, order),
+                  child: _buildWeaponCard(type, ship, monster, range),
                 ),
               ),
           ],
@@ -1201,7 +1163,7 @@ class _BattleScreenState extends State<BattleScreen> {
           ],
         ),
       const SizedBox(height: 8),
-      _buildUtilityRow(ship, range, order),
+      _buildUtilityRow(ship, range),
       if (_decisions.canStartCombination) ...[
         const SizedBox(height: 6),
         Align(
@@ -1316,7 +1278,6 @@ class _BattleScreenState extends State<BattleScreen> {
     ShipState ship,
     MonsterState monster,
     CombatRange range,
-    HelmOrder order,
   ) {
     final weapons = ship.equippedWeapons
         .where((weapon) => weapon.weaponType == type)
@@ -1347,8 +1308,7 @@ class _BattleScreenState extends State<BattleScreen> {
       range: range,
       ignoreObscurity: ignoresObscurity,
     );
-    final accuracyTip =
-        'Opening shot accuracy: $accuracy%. Target dodge: ${monster.effectiveEvasion}%.';
+    final accuracyTip = 'Opening shot accuracy: $accuracy%.';
     final name = weapons.length == 1
         ? type.displayName
         : '${type.displayName} ($readyCount/${weapons.length})';
@@ -1362,10 +1322,7 @@ class _BattleScreenState extends State<BattleScreen> {
         Expanded(
           child: MechanicTooltip(
             hoverInset: 12,
-            message: [
-              '${badge?.tip ?? ''} $accuracyTip'.trim(),
-              _responseForecast(order, weaponType: type),
-            ].where((line) => line.isNotEmpty).join('\n'),
+            message: '${badge?.tip ?? ''} $accuracyTip'.trim(),
             child: InkButton(
               key: ValueKey('hardpoint-${slot.name}'),
               label: name,
@@ -1395,7 +1352,7 @@ class _BattleScreenState extends State<BattleScreen> {
     );
   }
 
-  Widget _buildUtilityRow(ShipState ship, CombatRange range, HelmOrder order) {
+  Widget _buildUtilityRow(ShipState ship, CombatRange range) {
     final name = _utilityLabel(ship);
     final mark = ship.markLabelForHardpoint(HardpointType.utility);
     final ready = ship.isUtilityReady;
@@ -1412,10 +1369,7 @@ class _BattleScreenState extends State<BattleScreen> {
         Text('UTILITY', style: InkTheme.caption),
         MechanicTooltip(
           hoverInset: 12,
-          message: [
-            _utilityTooltip(ship, range),
-            _responseForecast(order, utility: true),
-          ].where((line) => line.isNotEmpty).join('\n'),
+          message: _utilityTooltip(ship, range),
           child: InkButton(
             key: const ValueKey('hardpoint-utility'),
             label: name,

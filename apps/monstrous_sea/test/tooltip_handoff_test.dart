@@ -12,8 +12,7 @@ import 'package:monstrous_sea/src/widgets/parchment_scaffold.dart';
 
 import 'chart_focus_ui_test.dart' show mountChartFocus, captureChartFocusProof;
 
-const signatureHelp =
-    'Pierces 50% of Carapace. Opening shot accuracy: 95%. Target dodge: 0%.';
+const signatureHelp = 'Pierces 50% of Carapace. Opening shot accuracy: 95%.';
 Finder get actionCard => find.byKey(const ValueKey('mechanic-help-action'));
 
 Future<({GlobalKey key, int Function() clicks})> fixture(

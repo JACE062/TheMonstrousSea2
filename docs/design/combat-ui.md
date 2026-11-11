@@ -100,7 +100,7 @@ Explore a small component on the right side of, or in the background area behind
 
 Keep critical intent information legible and visually separate from the monster art; "behind" does not mean obscured by the illustration. Determine placement with large Titans, changing combatant distance, compact windows and enlarged text before committing.
 
-The implemented hierarchy keeps the intended action, threatened ranges, movement/windup timing and a short helm forecast in the lookout. Inspect opens a scrollable modal containing the description, range stages, damage math, mitigation caveats and counterplay. Action-driven movement makes the helm-only forecast explicitly conditional; the relevant action tooltip provides its response forecast. Forecasts are withheld during playback. Inspection shows the live tentacle count and base sweep damage without filling the persistent strip with those calculations.
+The implemented hierarchy keeps the intended action, threatened ranges, movement/windup timing and a short helm forecast in the lookout. Inspect opens a scrollable modal containing the description, range stages, damage math, mitigation caveats and counterplay. Action-driven movement makes the helm-only forecast explicitly conditional. Following the 10 November copy feedback, fitting tooltips state their effects and opening accuracy without repeating target dodge or adding a secondary response forecast. Forecasts are withheld during playback. Inspection shows the live tentacle count and base sweep damage without filling the persistent strip with those calculations.
 
 Forecasts must respect current mechanics:
 

@@ -131,7 +131,7 @@ void main() {
   for (final hull in BlueprintId.values) {
     for (final scale in [1.15, 1.3]) {
       testWidgets(
-        'fitting help has no blank footer and retains forecasts $hull/$scale',
+        'fitting help keeps its effects without repeated dodge or forecasts $hull/$scale',
         (tester) async {
           final c = fighter(hull, BattleCase.ready);
           addTearDown(c.dispose);
@@ -185,7 +185,7 @@ void main() {
             await tester.pump();
             await tester.sendKeyEvent(LogicalKeyboardKey.f1);
             await tester.pumpAndSettle();
-            if (hull == BlueprintId.clipper && slot != 'utility') {
+            if (hull == BlueprintId.clipper) {
               await captureChartFocusProof(
                 tester,
                 key,
@@ -198,15 +198,17 @@ void main() {
               reason: '$hull $slot must not end in an empty forecast line.',
             );
             expect(tooltip.message, isNot(contains('\n\n')));
-            final moves = slot == 'signature'
-                ? [
-                    ShipWeaponType.prowRam,
-                    ShipWeaponType.harpoonWinch,
-                  ].contains(hull.signatureWeaponType)
-                : slot == 'utility' &&
-                      hull.utilityHardpoint ==
-                          UtilityHardpointId.evasiveRigging;
-            expect(tooltip.message.contains('After action:'), moves);
+            expect(tooltip.message, isNot(contains('Target dodge:')));
+            expect(tooltip.message, isNot(contains('After action:')));
+            if (slot != 'utility') {
+              expect(tooltip.message, contains('Opening shot accuracy:'));
+            } else if (hull == BlueprintId.clipper) {
+              expect(tooltip.message, contains('Moves one range band away.'));
+              expect(
+                tooltip.message,
+                contains('evasion until the next successful dodge.'),
+              );
+            }
             expect(
               find.byKey(const ValueKey('mechanic-help-action')),
               findsOneWidget,
@@ -214,6 +216,10 @@ void main() {
             await tester.sendKeyEvent(LogicalKeyboardKey.escape);
             await tester.pumpAndSettle();
           }
+          expect(
+            find.text('• Dodge: ${c.currentMonster!.effectiveEvasion}%'),
+            findsOneWidget,
+          );
           expect(snapshot(c), before);
           expect(tester.takeException(), isNull);
           await tester.pumpWidget(const SizedBox.shrink());

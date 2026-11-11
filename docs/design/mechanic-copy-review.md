@@ -24,6 +24,7 @@ All D03–D44 proposals/retain recommendations are approved, with these selectio
 | D33 | Tidal Shockwave becomes actual **Blast** damage, retaining 12/20/30 base retaliation and normal 1.5× shell damage. The user explicitly accepted that Illuminated now boosts it. |
 | D34 | “Reduces shot accuracy by N%. Successful hits have a 25% chance to clear it, lasts until cleared.” |
 | D36 | Keep the status badge's discharge consequences and add linked Arc Discharge help. Static Charge's own keyword card gives the three-stack trigger; the next card gives damage and outcomes. |
+| D41, 10 November follow-up | Keep computed opening-shot accuracy in weapon help; remove repeated target dodge. Remove secondary “After action” predictions from fitting tooltips, retaining their direct movement effects and the separate lookout/Inspect presentation. This supersedes the draft D41 proposal below. |
 
 The user explicitly requested linked keyword help now for Illuminated, Burning, Static Charge/Arc Discharge, Corroded, Pinned, Carapace and Critical Hits. Related named conditions in those chains also have help. No unresolved wording choice remains in this review. [Verification and evidence](../archive/README.md#approved-action-and-condition-copy-verification-2026-11-08) retain the delivered scope and checks.
 
