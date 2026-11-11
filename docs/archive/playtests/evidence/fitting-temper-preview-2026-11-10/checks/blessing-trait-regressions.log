@@ -1,0 +1,62 @@
+00:00 +0: loading test/rules/ocean_power_combat_test.dart
+00:00 +0: test/rules/ocean_power_combat_test.dart: Acid-Bore Mortar preserves its 2x shell crushing while bypassing armor
+00:00 +1: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +2: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +3: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +4: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +5: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +6: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +7: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +8: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +9: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +10: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +11: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +12: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +13: test/session/full_trait_roster_test.dart: Skirmisher commits helm once and resolves after weapon, before response
+00:00 +14: test/rules/ocean_power_combat_test.dart: Tempest Sovereign Broadside stacks discharge at three, purge Frenzy, and jolt normal actions
+00:00 +15: test/session/full_trait_roster_test.dart: late legacy helm follows intrinsic Ram movement; grapple locks commitment
+00:00 +16: test/rules/ocean_power_combat_test.dart: Tempest Sovereign Tier III Broadside extra-stack roll uses deterministic 35% threshold
+00:00 +17: test/session/full_trait_roster_test.dart: late helm cannot make an unusable weapon fire before its range shift
+00:00 +18: test/session/full_trait_roster_test.dart: late helm cannot make an unusable weapon fire before its range shift
+00:00 +19: test/rules/ocean_power_combat_test.dart: Tempest Sovereign Tier 2 Signature critical chance and static stacks
+00:00 +20: test/session/full_trait_roster_test.dart: Impatient combo gives one response, preserves both cooldowns, then belt/helm/Brace recovery
+00:00 +21: test/session/full_trait_roster_test.dart: Impatient combo gives one response, preserves both cooldowns, then belt/helm/Brace recovery
+00:00 +22: test/session/full_trait_roster_test.dart: Impatient combo gives one response, preserves both cooldowns, then belt/helm/Brace recovery
+00:00 +23: test/session/full_trait_roster_test.dart: Impatient combo gives one response, preserves both cooldowns, then belt/helm/Brace recovery
+00:00 +24: test/session/full_trait_roster_test.dart: Impatient combo gives one response, preserves both cooldowns, then belt/helm/Brace recovery
+00:00 +25: test/session/full_trait_roster_test.dart: Impatient combo gives one response, preserves both cooldowns, then belt/helm/Brace recovery
+00:00 +26: test/rules/ocean_power_combat_test.dart: Brinemother Tier 1 Broadside doubles shell damage and adds flat melt
+00:00 +27: test/session/full_trait_roster_test.dart: Impatient opt-in gates and normal utility remain intact
+00:00 +28: test/session/full_trait_roster_test.dart: Impatient opt-in gates and normal utility remain intact
+00:00 +29: test/rules/ocean_power_combat_test.dart: Brinemother Tier 1 Miasma clears obscurity, melts armor and applies corrosion
+00:00 +30: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +31: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +32: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +33: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +34: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +35: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +36: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +37: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +38: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +39: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +40: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +41: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +42: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +43: test/session/full_trait_roster_test.dart: Quartermaster never stacks across assignment, commission, checkpoint
+00:00 +44: test/rules/ocean_power_combat_test.dart: Earthshaker Titan Tier 2 Basalt absorbs hit, grants evasion, and retaliates once when broken
+00:00 +45: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +46: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +47: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +48: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +49: test/session/full_trait_roster_test.dart: healing modifies nominal before cap, repair quotes match paid result, triage reaches floor
+00:00 +50: test/rules/ocean_power_combat_test.dart: Evaded hits and misses never apply blessings or remove armor
+00:00 +51: test/session/full_trait_roster_test.dart: Smuggler chosen free stock gift cannot be consumed by full belt, persists
+00:00 +52: test/session/full_trait_roster_test.dart: Smuggler chosen free stock gift cannot be consumed by full belt, persists
+00:00 +53: test/session/full_trait_roster_test.dart: Superstitious lock is stable and sole eligible manifestation is allowed
+00:00 +54: test/session/full_trait_roster_test.dart: fractional percentage sources combine once before rounding
+00:00 +55: test/session/full_trait_roster_test.dart: Daredevil grants weapon damage at exact half current maximum only
+00:00 +56: test/session/full_trait_roster_test.dart: Impatient stages reset on victory, death, and real departure
+00:00 +57: test/session/full_trait_roster_test.dart: Superstitious transfers precisely three combat outcomes to shrine
+00:00 +58: test/session/full_trait_roster_test.dart: Smuggler kin repair discount applies to repair bill, never goods
+00:00 +59: test/session/full_trait_roster_test.dart: Quartermaster preserves custom capacity and modifies it by one only
+00:00 +60: All tests passed!

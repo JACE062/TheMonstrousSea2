@@ -1,0 +1,126 @@
+00:00 +0: loading test/session/utility_potency_test.dart
+00:00 +0: test/session/utility_potency_test.dart: standard utility potency matches activation at hull 1 Mk 1
+00:00 +1: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +2: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +3: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +4: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +5: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +6: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +7: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +8: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +9: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +10: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +11: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +12: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +13: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +14: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +15: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +16: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +17: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +18: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +19: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +20: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +21: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +22: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +23: test/rules/evasive_rigging_progression_test.dart: Mk 1 utility applies 25 bonus until a successful dodge
+00:00 +24: test/session/utility_potency_test.dart: ironclad utility potency matches activation at hull 4 Mk 3
+00:00 +25: test/rules/evasive_rigging_progression_test.dart: Mk 1 repeat utility activation does not stack
+00:00 +26: test/rules/evasive_rigging_progression_test.dart: Mk 1 repeat utility activation does not stack
+00:00 +27: test/session/utility_potency_test.dart: clipper utility potency matches activation at hull 1 Mk 2
+00:00 +28: test/rules/evasive_rigging_progression_test.dart: Mk 1 movement/cooldown at Long Range grapple=false
+00:00 +29: test/rules/evasive_rigging_progression_test.dart: Mk 1 movement/cooldown at Long Range grapple=false
+00:00 +30: test/session/utility_potency_test.dart: clipper utility potency matches activation at hull 2 Mk 1
+00:00 +31: test/rules/evasive_rigging_progression_test.dart: Mk 1 movement/cooldown at Long Range grapple=true
+00:00 +32: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +33: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +34: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +35: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +36: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +37: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +38: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +39: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +40: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +41: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +42: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +43: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +44: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +45: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +46: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +47: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +48: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +49: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +50: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +51: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +52: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +53: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +54: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +55: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +56: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +57: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +58: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +59: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +60: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +61: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +62: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +63: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +64: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +65: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +66: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +67: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +68: test/rules/ship_evasion_range_test.dart: standard uses base dodge at Long Range in real attacks
+00:00 +69: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +70: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +71: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +72: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +73: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +74: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +75: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +76: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +77: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +78: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +79: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +80: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +81: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +82: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +83: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +84: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +85: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +86: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +87: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +88: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +89: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +90: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +91: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +92: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +93: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +94: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +95: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +96: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +97: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +98: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +99: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +100: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +101: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +102: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +103: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +104: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +105: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +106: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +107: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +108: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +109: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +110: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +111: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +112: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +113: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +114: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +115: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +116: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +117: test/session/stronghold_continuity_test.dart: region 0 AdvanceToNextBattle preserves the build through stronghold and next combat
+00:00 +118: test/session/stronghold_continuity_test.dart: region 1 TakeHelm preserves the build through stronghold and next combat
+00:00 +119: test/session/stronghold_continuity_test.dart: region 1 AdvanceToNextBattle preserves the build through stronghold and next combat
+00:00 +120: test/session/stronghold_continuity_test.dart: strongholds and Havens charge the same gold and enforce identical caps
+00:00 +121: test/session/stronghold_continuity_test.dart: stronghold merchant returns to the same berth after reload
+00:00 +122: test/session/stronghold_continuity_test.dart: legacy stronghold and merchant checkpoints do not become home visits
+00:00 +123: test/session/stronghold_continuity_test.dart: permanent progression cannot be bought at sea or at a stronghold
+00:00 +124: All tests passed!

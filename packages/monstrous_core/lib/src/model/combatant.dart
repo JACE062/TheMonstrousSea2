@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'bloodline_trait.dart';
 import 'enums.dart';
 import 'flagship_blueprint.dart';
@@ -241,6 +243,27 @@ class ShipState extends Combatant {
   /// Raw Evasive Rigging boost; captain/Basalt bonuses and the dodge cap apply later.
   int get evasiveRiggingEvasion =>
       (baseEvasion + evasiveRiggingBonus).clamp(0, 100);
+
+  /// Intrinsic utility potency, shared by activation and purchase previews.
+  double get bracedVolleyDamageBonus =>
+      0.20 * multiplierForHardpointMark(HardpointType.utility);
+
+  int get fortifyDamageReductionGain => math.max(
+    1,
+    (dmgReductionMod * multiplierForHardpointMark(HardpointType.utility))
+        .round(),
+  );
+
+  int get tetherTrapDamage =>
+      ((16 + 5 * (level - 1)) *
+              multiplierForHardpointMark(HardpointType.utility))
+          .round();
+
+  int get spotterFlareAccuracyBonus =>
+      (15 * multiplierForHardpointMark(HardpointType.utility)).round();
+
+  double get spotterFlareBlastBonus =>
+      0.25 * multiplierForHardpointMark(HardpointType.utility);
 
   /// Returns the Roman numeral label (`Mk I`, `Mk II`, `Mk III`) for [slot]'s Tempering Mark.
   String markLabelForHardpoint(HardpointType slot) =>

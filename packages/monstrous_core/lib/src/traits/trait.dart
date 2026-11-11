@@ -52,8 +52,7 @@ class FortifyTrait extends CombatTrait {
   String executeSpecialAction(Combatant actor, Combatant target, GameRng rng) {
     if (actor is ShipState &&
         (actor.shipClass == ShipClass.ironclad || actor.dmgReductionMod > 0)) {
-      final utilMult = actor.multiplierForHardpointMark(HardpointType.utility);
-      final gain = max(1, (actor.dmgReductionMod * utilMult).round());
+      final gain = actor.fortifyDamageReductionGain;
       actor.currentDmgReduction += gain;
       actor.isAnchoredThisTurn = true;
       return '${actor.name} bolts down its iron plates (+$gain Damage Reduction) and anchors against monster push/pull!';

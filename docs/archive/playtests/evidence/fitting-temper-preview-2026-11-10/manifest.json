@@ -1,0 +1,239 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "23171efa032503e8f452fbfaa35bd5b59d107136",
+  "request": "Show what each fitting tempering purchase changes before buying at voyage shipwrights.",
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/fitting_temper_preview.dart",
+      "sha256": "fdab79967a090b6b5104e1423317ea4cc0286b083bc278346069437cc11d55ad"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/utility_description.dart",
+      "sha256": "158fd7a48929d2e8cffd7da21f7d63c8999a7146655d62d046e14f7974b09ff2"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/voyage_shipwright_view.dart",
+      "sha256": "a0a8dd010ca555118ade4b52141e815d78ca244e844cf54807a3b118c4f74dda"
+    },
+    {
+      "path": "apps/monstrous_sea/test/fitting_temper_preview_test.dart",
+      "sha256": "fd530b88c2a07ef52a6b6370bafe2fb5f33100c5c8515219a3298c6f7fc575af"
+    },
+    {
+      "path": "apps/monstrous_sea/test/shipwright_temper_ui_test.dart",
+      "sha256": "2690cee23630d8421cebcb0860e2ff581bcda4c5ef3e9989df9a49b32126d0e5"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/combatant.dart",
+      "sha256": "3b8a22bfd94b135fbbe71c36c1e9ccf0f5c816651bb8181e05c74c6e9dbd640c"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "7aa48a46d78670e3dafa7604524557266ce8b868c70f6b53d4e381445b86e000"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/traits/trait.dart",
+      "sha256": "7fc4b8b84fecf3294e539dc1dd3b0972bc0485d4e57bf339bb40666cb8a19f29"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/utility_potency_test.dart",
+      "sha256": "fb391826cc1dde6250884261372a189b9f7471e1f6dd7830f7ef7144b0c66378"
+    }
+  ],
+  "scope": {
+    "blueprints": 5,
+    "fittings": [
+      "Broadside",
+      "Signature",
+      "Utility"
+    ],
+    "previews": "Current-to-next marks and actual rounded intrinsic effects; current values only at maximum.",
+    "purchase": "Existing core commands, gold gates and caps; previews remain when unaffordable and update on notifications.",
+    "derivation": "Detached ship clone uses real temperShipHardpoint; utility getters also drive actual activation."
+  },
+  "verification": {
+    "previewModelCases": 181,
+    "initialAppCases": 226,
+    "intermediateShoreCases": 91,
+    "finalShoreCases": 95,
+    "coreActivationAndContinuityCases": 124,
+    "additionalBlessingTraitCases": 60,
+    "countNote": "App runs overlap; model cases are included in the initial 226. Do not add all run counts.",
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "widths": [
+      360,
+      1280,
+      "existing 800px short shore states"
+    ],
+    "purchaseStates": [
+      "both upgrades",
+      "live purse/affordability",
+      "maximum mark",
+      "insufficient gold",
+      "hull refit changes utility preview"
+    ],
+    "analysis": "App/core: no issues found.",
+    "visualFinding": "Initial comparison arrows were absent from atmospheric fonts despite passing layout checks; final cards use icons and grouped mark/value pairs.",
+    "visuallyInspected": [
+      "visual/final/review-shipwright-bombardier-1280.png",
+      "visual/final/review-shipwright-clipper-360.png"
+    ]
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/checks/app-analyze.log",
+      "sha256": "d805cf5b563c9b054fd454f7e7ac807073f0e4c8844b45926b67c60654ab363d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/checks/blessing-trait-regressions.log",
+      "sha256": "58b7c06be64296ab06dc231d4e17690045ffc5f4025fd16d86c0d597b6a2a05c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/checks/core-analyze.log",
+      "sha256": "33d5c77eebf4d6e86163d697a6f890c7383b7075174f12b322c114f029f7527a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/checks/core-effects.log",
+      "sha256": "43a1d2d64463fe0d9fe14cefe61019673a726591b7a784df58566f84756f26c6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/checks/final-shore-game-fonts.log",
+      "sha256": "d3cbdee6f0d7776c7b6ce3139541f3cbabd3c667cfa00521333f8bd35712593c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/checks/preview-game-fonts.log",
+      "sha256": "3b9d355104963117ce60939c7afea82ec8107c9d4f66de2536377250871f402b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/checks/shore-regressions.log",
+      "sha256": "4c2791ea5dd095fcf6895d97f5cf870992ae701da690d0c3b1a5cf85cd729bba"
+    }
+  ],
+  "intermediateVisualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-bombardier-1280.png",
+      "sha256": "623c19aec3148e1f314dde52d2799b001afeaa92f80115cb33381667eceb2914"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-bombardier-360.png",
+      "sha256": "a009b69d0abc99483c9d5631cbaf58e50e401ec634cd5641c2b32b901d797e68"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-clipper-1280.png",
+      "sha256": "d206a35792da5d873470d7345356cf6a30d415428959f3e151d877be53f9bf59"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-clipper-360.png",
+      "sha256": "1406d47e1d47ee4f8b313ea2335a6b884fa34503189468410ec1592efd7d452a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-corsair-1280.png",
+      "sha256": "c32f19196461700725dd56647cf8579d60b78ac1e6a9daefa56deb2cff609168"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-corsair-360.png",
+      "sha256": "8d91ffebe1d6a485d9e0fbc58b1aecbd40c6caf8593bea9058350b3bfd1ee8ee"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-ironclad-1280.png",
+      "sha256": "b6d74c235d2d5c7e4f6dda23646c0760cd518d8acf62da6366a61647b2e59b31"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-ironclad-360.png",
+      "sha256": "ff72c8b1909f283b99f40f244dc693c658e8dad5a9876ad3d7e6b85aeec75171"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-standard-1280.png",
+      "sha256": "951f8017dc5949e4be61f1e431af1fa49be53140bbc08e45846fe2af391a8705"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/review-shipwright-standard-360.png",
+      "sha256": "170b4bf87e84771229b9f124fbf64f1ce6221c4f482372003863ffa854408316"
+    }
+  ],
+  "finalVisualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-haven-1280-1.15-standard-content.png",
+      "sha256": "85cb03707a5183a2b007c9b5d0027b94f555a687333988d0d7beb7f7230956da"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-haven-1280-1.15-standard-controls.png",
+      "sha256": "d01206f1eef2a7b30004ff4054f410c95d3f3c4ef717f53942932dd24de51df9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-haven-360-1.15-standard-content.png",
+      "sha256": "5b3bd0adfce75a7856afd09bdeb7b91d1de11466180e062014553b9fb1368480"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-haven-360-1.15-standard-controls.png",
+      "sha256": "48413e51799c3283379645f112db8d2c079d5f3227a369ab37423c791c3a3460"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-bombardier-1280.png",
+      "sha256": "72914850b2569663f1a9cc72859863b32292e897f094f6378720f5813570d222"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-bombardier-360.png",
+      "sha256": "5574bbb14fa0f446336da43a99c680fa47da2b606b8bf0b1f7539b5f517cf791"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-clipper-1280.png",
+      "sha256": "31435d35b9e5170eb24b04ec0948d42b351f24c1e12372d01d1c6299ad6ce4f7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-clipper-360.png",
+      "sha256": "62fbf92d6e3431cd83c924a1fcd870cd0ef66965fe7a2d27887f7337903be543"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-corsair-1280.png",
+      "sha256": "0d710cf919e0a17142ae990956cb5ce61ac8c70e076e4ea7a0c9e107f82bf3a7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-corsair-360.png",
+      "sha256": "98c0b21946d62aa273c3824354b9f4c58ceda3b26a816639e9710f86dfa169cf"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-ironclad-1280.png",
+      "sha256": "24803aa5f66adcb7f1422c26f9a1f4e7139930040535aab4612232557a881f71"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-ironclad-360.png",
+      "sha256": "a68277bc5f4cd4ca97dd54c118bc0167b30cdec2764631403a1f62e2b4573a9e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-standard-1280.png",
+      "sha256": "ded7095589ba9cad8e6084a4c2dbe6c22555e91b1e041c72641b2b97f9456628"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-shipwright-standard-360.png",
+      "sha256": "7edb520763d443203aaf1515c0426191da75bb30c2161ee039c4fb878a2cff5a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-strongholdInspect-1280-1.15-standard-content.png",
+      "sha256": "fcdd29ab7dfe6da02d816eff6a8807301a0aff2dd371c2ad1edcff9bc7bc66ca"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-strongholdInspect-1280-1.15-standard-controls.png",
+      "sha256": "703a0b1557ea1276677907f2e29fc41f932f28ea9f4b38660334e1c6606e2c61"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-strongholdInspect-360-1.15-standard-content.png",
+      "sha256": "c5fb25c9dba01e5c028854f09ed72f567445a8acca617a003dde6eb9f3a8b40f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/fitting-temper-preview-2026-11-10/visual/final/review-strongholdInspect-360-1.15-standard-controls.png",
+      "sha256": "14dba88625dafb64461d5c28902dd308c047c679ada82ce2b027e9b096c44437"
+    }
+  ],
+  "isolation": {
+    "playerSavesTouched": false,
+    "numericTuningOrPricesChanged": false,
+    "livePreviewLaunchedOrNativeBundleRebuilt": false,
+    "previousEvidencePreserved": true,
+    "previewSnapshotChecks": "Model and UI browsing compare the original ship before/after; test controllers disable autosave."
+  },
+  "remaining": "Player replay; transformative Master Refits remain deferred and hull-tier previews are outside this fitting task."
+}

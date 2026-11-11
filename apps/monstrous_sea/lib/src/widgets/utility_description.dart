@@ -2,8 +2,7 @@ import 'package:monstrous_core/monstrous_core.dart';
 
 /// Shared battle/inspection wording; the amount still comes from the fitting.
 String ironPlatesDescription(ShipState ship) {
-  final mult = ship.multiplierForHardpointMark(HardpointType.utility);
-  return '2-turn cooldown. Adds +${(ship.dmgReductionMod * mult).round()} damage reduction '
+  return '2-turn cooldown. Adds +${ship.fortifyDamageReductionGain} damage reduction '
       'for this battle. Anchors the ship this round.';
 }
 
@@ -21,14 +20,13 @@ String spotterFlareDescription({
 
 /// Shared action copy; inspection and combat use the same displayed fitting.
 String utilityDescription(ShipState ship) {
-  final mult = ship.multiplierForHardpointMark(HardpointType.utility);
   return switch (ship.resolvedBlueprintId) {
     BlueprintId.ironclad => ironPlatesDescription(ship),
     BlueprintId.clipper => evasiveRiggingDescription(ship),
     BlueprintId.corsair =>
-      '2-turn cooldown. Launches a trap one band ahead. It drifts toward the beast and detonates for ${((16 + 5 * (ship.level - 1)) * mult).round()} Slicing damage, applying Pinned for 1 turn.',
+      '2-turn cooldown. Launches a trap one band ahead. It drifts toward the beast and detonates for ${ship.tetherTrapDamage} Slicing damage, applying Pinned for 1 turn.',
     BlueprintId.bombardier => spotterFlareDescription(),
     BlueprintId.standard =>
-      '2-turn cooldown. Reduces incoming damage by 20% this round. Your next volley gains +15% accuracy and +${(20 * mult).round()}% damage.',
+      '2-turn cooldown. Reduces incoming damage by 20% this round. Your next volley gains +15% accuracy and +${(ship.bracedVolleyDamageBonus * 100).round()}% damage.',
   };
 }

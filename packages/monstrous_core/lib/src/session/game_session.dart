@@ -1439,10 +1439,9 @@ class GameSession {
     // Consume Gun-Deck Bracing utility buff (+15% Accuracy, +20% * markMult Damage)
     if (ship!.gunneryDrillBuffActive) {
       ship!.gunneryDrillBuffActive = false;
-      final utilMult = ship!.hardpointMarkMultiplier(HardpointType.utility);
-      final drillBonusPct = (20 * utilMult).round();
+      final drillBonusPct = (ship!.bracedVolleyDamageBonus * 100).round();
       accuracyBoon += 15;
-      damageMultiplier *= (1.0 + 0.20 * utilMult);
+      damageMultiplier *= (1.0 + ship!.bracedVolleyDamageBonus);
       events.add(NarrationEvent(
         'Gun-Deck Bracing volley: +15% Accuracy and +$drillBonusPct% Damage!',
       ));
@@ -1908,14 +1907,13 @@ class GameSession {
       orElse: () => ship!.shipClass.blueprintId,
     );
     final utility = bpId.utilityHardpoint;
-    final markMult = ship!.hardpointMarkMultiplier(HardpointType.utility);
     ship!.utilityCooldown = 2;
 
     switch (utility) {
       case UtilityHardpointId.gunneryDrill:
         ship!.isBracedByDrill = true;
         ship!.gunneryDrillBuffActive = true;
-        final dmgBonusPct = (20 * markMult).round();
+        final dmgBonusPct = (ship!.bracedVolleyDamageBonus * 100).round();
         events.add(NarrationEvent(
           'Gun-Deck Bracing: ${ship!.name}\'s crew sets the hull and gun-deck braces to take the impact (-20% incoming damage this round) and steady the guns (+15% Accuracy & +$dmgBonusPct% Damage on next volley)!',
         ));
@@ -1950,7 +1948,7 @@ class GameSession {
           ));
         }
       case UtilityHardpointId.driftingTetherTrap:
-        final trapDamage = ((16 + 5 * (ship!.level - 1)) * markMult).round();
+        final trapDamage = ship!.tetherTrapDamage;
         ship!.activeTetherTrapDamage = trapDamage;
         switch (combatRange) {
           case CombatRange.short:
@@ -1980,8 +1978,8 @@ class GameSession {
         }
       case UtilityHardpointId.spotterFlare:
         currentMonster!.spotterFlareTurns = 2;
-        currentMonster!.spotterFlareAccuracyBonus = (15 * markMult).round();
-        currentMonster!.spotterFlareBlastBonus = 0.25 * markMult;
+        currentMonster!.spotterFlareAccuracyBonus = ship!.spotterFlareAccuracyBonus;
+        currentMonster!.spotterFlareBlastBonus = ship!.spotterFlareBlastBonus;
         currentMonster!.isObscured = false;
         currentMonster!.evasion = 0;
         events.add(NarrationEvent(

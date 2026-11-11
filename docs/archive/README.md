@@ -244,3 +244,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Grappled Ram reach 2026-11-10
 
 [The explicit reach follow-up](playtests/GRAPPLED_RAM_REACH_2026_11_10.md) makes Ram unavailable at Medium while Grappled and keeps it usable at Short, superseding the first movement-only implementation. [Evidence](playtests/evidence/grappled-ram-reach-2026-11-10/manifest.json) retains the rejection/Impatient baseline, core/UI/bot regressions, analysis and 115–130% captures. Rejected attempts preserve combat state; values, saves, art, previews and earlier evidence remain unchanged.
+
+## Fitting temper previews 2026-11-10
+
+[The shipwright preview pass](playtests/FITTING_TEMPER_PREVIEWS_2026_11_10.md) shows exact current/next mark effects before buying for every fitting and blueprint, with live affordability/max/refit refresh. [Evidence](playtests/evidence/fitting-temper-preview-2026-11-10/manifest.json) retains model/activation comparisons, 115–130% shore layouts, the font-glyph finding and corrected captures. Costs, tuning, save data, prior evidence and native previews remain intact; Master Refits stay deferred.
