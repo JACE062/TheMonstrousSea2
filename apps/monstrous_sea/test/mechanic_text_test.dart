@@ -375,8 +375,8 @@ void main() {
       await tester.pumpAndSettle();
       final keyword = find.descendant(
         of: find.byKey(const ValueKey('hardpoint-broadside')),
-        matching: find.text('Ignites'),
-      );
+        matching: find.text('Burning'),
+      ).first;
       await tester.ensureVisible(keyword);
       await tester.tap(keyword);
       await tester.pumpAndSettle();

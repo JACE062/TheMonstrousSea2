@@ -7,6 +7,7 @@ import 'package:monstrous_sea/src/widgets/ink_button.dart';
 import 'package:monstrous_sea/src/widgets/ocean_power_badges.dart';
 
 import 'combat_flow_test.dart' show mountBattle;
+import 'ancestral_armament_ui_test.dart' show values;
 
 GameController shrineController() {
   final controller = GameController(
@@ -109,7 +110,7 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.byKey(const ValueKey('hardpoint-broadside')), findsNothing);
         await selectPower(tester, OceanPower.magmaVentLord);
-        expect(find.text('Weapon damage +10% → +20%'), findsOneWidget);
+        expect(values(tester, 'shrine-broadside-damage'), '+10% → +20%');
         expect(find.text('Dedicated to The Tempest Sovereign'), findsOneWidget);
         expect(find.text('Max Sovereign Tier Reached'), findsOneWidget);
         expect(

@@ -6,6 +6,7 @@ import '../model/combatant.dart';
 import '../model/enums.dart';
 import '../model/flagship_blueprint.dart';
 import '../model/ocean_power.dart';
+import '../rules/blessing_effects.dart';
 import '../rng/game_rng.dart';
 
 /// Pluggable behavioral trait for combat mechanics and subclass actions.
@@ -186,12 +187,16 @@ class CarapaceTrait extends CombatTrait {
           : null;
       if (blessing?.power == OceanPower.brinemother) {
         final signature = slot == HardpointType.signature;
-        final intrinsicShellMultiplier =
-            result.shipWeaponType == ShipWeaponType.heavyMortar ? 2 : 1;
+        final intrinsicShellMultiplier = blessingCarapaceMultiplier(
+          result.shipWeaponType,
+          result.damageType,
+          blessing,
+        ).toInt();
         final shellDamage =
             (signature
                     ? result.damage * intrinsicShellMultiplier
-                    : result.damage * 2 + [4, 8, 12][blessing!.tier - 1])
+                    : result.damage * intrinsicShellMultiplier +
+                          blessing!.extraCarapaceMelt)
                 .clamp(0, defender.carapacePlating);
         defender.carapacePlating -= shellDamage;
         result.carapaceDamaged = shellDamage;
@@ -203,12 +208,18 @@ class CarapaceTrait extends CombatTrait {
       } else if (blessing?.power == OceanPower.earthshakerTitan &&
           result.damageType != DamageType.fire) {
         // Preserve the Culverin's penetration and Mortar's superior shell crush.
-        final bypass = result.shipWeaponType == ShipWeaponType.precisionCulverin
-            ? (result.damage * 0.5).round()
-            : 0;
-        final multiplier = result.shipWeaponType == ShipWeaponType.heavyMortar
-            ? 2.0
-            : 1.5;
+        final bypass = (result.damage *
+                blessingCarapaceBypass(
+                  result.shipWeaponType,
+                  result.damageType,
+                  blessing,
+                ))
+            .round();
+        final multiplier = blessingCarapaceMultiplier(
+          result.shipWeaponType,
+          result.damageType,
+          blessing,
+        );
         final shellDamage = ((result.damage - bypass) * multiplier)
             .round()
             .clamp(0, defender.carapacePlating);
@@ -219,7 +230,13 @@ class CarapaceTrait extends CombatTrait {
       } else if (result.shipWeaponType == ShipWeaponType.precisionCulverin) {
         // Precision Culverin critical strikes bypass 50% of monster Carapace plating!
         // 50% is absorbed by the carapace, while the other 50% penetrates directly to HP.
-        final halfDmg = (result.damage * 0.5).round();
+        final halfDmg = (result.damage *
+                blessingCarapaceBypass(
+                  result.shipWeaponType,
+                  result.damageType,
+                  null,
+                ))
+            .round();
         final absorbed = min(halfDmg, defender.carapacePlating);
         defender.carapacePlating -= absorbed;
         result.carapaceAbsorbed = absorbed;
@@ -229,9 +246,11 @@ class CarapaceTrait extends CombatTrait {
       } else if (result.damageType == DamageType.blast) {
         // Blast attacks deal devastating bonus damage directly to carapace!
         // Heavy Mortar delivers an additional +50% blast bonus (2.0x vs 1.5x)!
-        final multiplier = result.shipWeaponType == ShipWeaponType.heavyMortar
-            ? 2.0
-            : 1.5;
+        final multiplier = blessingCarapaceMultiplier(
+          result.shipWeaponType,
+          result.damageType,
+          null,
+        );
         final blastDmg = (result.damage * multiplier).round();
         final absorbedByCarapace = blastDmg.clamp(0, defender.carapacePlating);
         defender.carapacePlating -= absorbedByCarapace;

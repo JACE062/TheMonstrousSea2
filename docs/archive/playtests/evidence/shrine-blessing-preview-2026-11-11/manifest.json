@@ -1,0 +1,454 @@
+{
+  "date": "2026-11-11",
+  "baseCommit": "cc761a763ec66d9c024729157271ed51a5b90c73",
+  "request": "Show exactly what each shrine dedication or blessing upgrade changes before choosing it.",
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/shrine_screen.dart",
+      "sha256": "cf697835e83966879473d975e0fd3150b4dd0f833a2ac0b6e851d5fd619a79f6"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/mechanic_text.dart",
+      "sha256": "f4bb598629199fc5c4323dfd37ed1f71c722888df883eb42ccc13482e21cb677"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/shrine_blessing_offer.dart",
+      "sha256": "f37c13da89bd54f31c4689324936c25760b76a8ee0ad2af7d03883493cb630af"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/shrine_blessing_preview.dart",
+      "sha256": "6e27648d2d59c4d31a293b7575ad5cb17ae6ed8c35f81f787dd3824e1512236f"
+    },
+    {
+      "path": "apps/monstrous_sea/test/encounter_layout_matrix_test.dart",
+      "sha256": "93446c6b6fdf7ec2045440fa27680faaf8eb38646ca0e2d4326ec24f1b604f24"
+    },
+    {
+      "path": "apps/monstrous_sea/test/mechanic_text_test.dart",
+      "sha256": "83242825647b50aee6914a8585350cf1dfbf4e2cf7ed31cb03e728eb4212822b"
+    },
+    {
+      "path": "apps/monstrous_sea/test/ocean_powers_ui_test.dart",
+      "sha256": "fcda5fd015fcc9ffa280e165362f7a1e688a1ed867da086f62530ec5f6fe0e49"
+    },
+    {
+      "path": "apps/monstrous_sea/test/shrine_blessing_preview_test.dart",
+      "sha256": "aa9d79e55cc7332bd898cbe1842a977fac217344f208db552963758ae7e9afdc"
+    },
+    {
+      "path": "apps/monstrous_sea/test/shrine_blessing_ui_test.dart",
+      "sha256": "74999881a5c486a9a9a90ad6381b2acd03e81aa6118cb23c942b5f200f7c1165"
+    },
+    {
+      "path": "packages/monstrous_core/lib/monstrous_core.dart",
+      "sha256": "b8014e7f8cb052227170c61c8353359acbfab5f08527d27249e81cf33e1e0f5c"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/combatant.dart",
+      "sha256": "cc69050fbb466f9a240e60e2ddcd9d4d0f87d97fa4623a1698b6fe6d1d4aa35e"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/ocean_power.dart",
+      "sha256": "8ce0af87e854bf00648f50da294ee04b1c2e0da89607bab024d0bd696f9efc87"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/blessing_effects.dart",
+      "sha256": "b261091c75206cd066650b8e86679954185aa18eb90d91dce03942d97d4a7b1e"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/combat.dart",
+      "sha256": "b89706b3a8c3c7d0bfae322156664db78a056c6af7da546f76410f18a36673c1"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/traits/trait.dart",
+      "sha256": "270ef6b5e1b29b07c348a700763958b3abc222cb849d5e9a4cfd3112ef39bf56"
+    },
+    {
+      "path": "packages/monstrous_core/test/model/ocean_power_test.dart",
+      "sha256": "2e6ed09a6a21bb0b2a9a38b8528507582bd8b7f03c295b2fabc76e6e1d1c3457"
+    },
+    {
+      "path": "packages/monstrous_core/test/rules/ocean_power_combat_test.dart",
+      "sha256": "13c0734764c4eb1696ea1efb2d1637a1da4a16d3379078ad656aa6fe417df89b"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/combat_status_boundaries_test.dart",
+      "sha256": "917ab280ae6588f59df20f9a63452ff6d65adb899bcac6b731a098fdae96f86a"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/shrine_blessings_test.dart",
+      "sha256": "8c42e450e5e1f4f9fc455abeed13bc1081d2064ab27530338de947d6289328bf"
+    }
+  ],
+  "scope": {
+    "paths": 12,
+    "powers": 4,
+    "slots": [
+      "Broadside",
+      "Signature",
+      "Utility"
+    ],
+    "states": [
+      "undedicated",
+      "Tier I",
+      "Tier II",
+      "sovereign",
+      "other power locked"
+    ],
+    "sharedEffects": [
+      "regional Burning",
+      "wake amplification",
+      "Arc Discharge",
+      "Corroded"
+    ],
+    "retained": [
+      "native Mortar/Culverin interactions",
+      "RNG order",
+      "rounding",
+      "shrine gates and manifestations",
+      "rune fallback",
+      "one communion",
+      "save schema",
+      "provisional tuning"
+    ]
+  },
+  "finalChecks": [
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart test test/model/ocean_power_test.dart test/rules/ocean_power_combat_test.dart test/session/shrine_blessings_test.dart test/session/combat_status_boundaries_test.dart --reporter expanded",
+      "passed": 75,
+      "log": "checks/final-core-tests.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/shrine_blessing_preview_test.dart test/shrine_blessing_ui_test.dart test/ocean_powers_ui_test.dart test/mechanic_text_test.dart --dart-define=artFontCache=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "passed": 195,
+      "breakdown": {
+        "model": 53,
+        "newUI": 128,
+        "existingOceanPowerUI": 7,
+        "existingMechanicHelp": 7
+      },
+      "log": "checks/verified-app-tests.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/encounter_layout_matrix_test.dart --name shrine --dart-define=artFontCache=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "passed": 45,
+      "log": "checks/final-shrine-host-layouts.log"
+    },
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart analyze",
+      "result": "No issues found",
+      "log": "checks/post-review-core-analyze.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "dart analyze",
+      "result": "No issues found",
+      "log": "checks/post-review-app-analyze.log"
+    },
+    {
+      "cwd": ".",
+      "command": "python tools/check_docs.py",
+      "result": "Documentation OK",
+      "log": "checks/docs-check.log"
+    }
+  ],
+  "distinctFinalPassingTests": 315,
+  "matrix": {
+    "modelBuildScenarios": 720,
+    "modelSuccessfulChoices": 540,
+    "modelCappedStates": 180,
+    "blueprints": 5,
+    "regions": 3,
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "viewports": [
+      "360x900",
+      "1280x900",
+      "800x480 at 1.3"
+    ],
+    "newUIActualChoices": 36,
+    "newUIHelpPaths": 8
+  },
+  "retainedFindings": [
+    "Initial extraction analysis errors: nullable utility access and Brine integer typing; corrected before runtime checks.",
+    "Initial app unused import and later three brace lints corrected.",
+    "Initial app run: 182 passed, 6 failed; four noninteractive Wrap hit-test false negatives and two nested keyword text lookup failures.",
+    "Corrected UI run: 127 passed, 1 failed; compact nested keyword pointer transfer was not completed by the test.",
+    "Scoped Arc Discharge to the parent Static Charge popup and moved the pointer onto the nested popup; both focused cases pass.",
+    "First combined final-app-tests.log: 194 passed, 1 failed because an existing shrine test searched for the old Ignites label; corrected to linked Burning.",
+    "verified-app-tests.log: all 195 pass. Earlier runs overlap the final tests and are not additive counts.",
+    "Post-review source wrapping was analyzed cleanly in both packages.",
+    "Only newly created task logs had line endings/trailing terminal whitespace normalized before hashing; findings and earlier evidence retained."
+  ],
+  "captureCommands": [
+    "flutter test test/shrine_blessing_ui_test.dart --dart-define=artFontCache=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/patch-kit-art-fonts --dart-define=mapFocusProofPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final --reporter expanded",
+    "flutter test test/shrine_blessing_ui_test.dart --name Static --dart-define=artFontCache=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/.dart_tool/patch-kit-art-fonts --dart-define=mapFocusProofPath=C:/Workspace/PersonalProjects/TheMonstrousSeaV2/docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final --reporter expanded"
+  ],
+  "visuallyInspected": [
+    "visual/final-blessing-magmaVentLord-broadside-1280.png",
+    "visual/final-blessing-brinemother-signature-360.png",
+    "visual/final-nested-shrine-360.0.png"
+  ],
+  "files": [
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/core-shared-descriptions.log",
+      "sha256": "b1283a2c5df2bcbc94e6710ed319ad98d1582362482b445839eb4db82a356ccc"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/corrected-ui.log",
+      "sha256": "be3cb6767e95881b8c673486d1adebf9e7e772dd64f21781587b0f295bed9ebb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/docs-check.log",
+      "sha256": "f86b3a499289143025e2abca71c2ef2e7721c7fb1be0eb9ff6f349d8a938d15f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/final-app-analyze.log",
+      "sha256": "805cbd72ce89cad495da0e318a0fa16b98e5f41d140233a552837d8c6ad34184"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/final-app-tests.log",
+      "sha256": "5f976dfe2ecfd88d350c0b03211eb5304f253d116f9068acb12ce44ea52c66dc"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/final-core-analyze.log",
+      "sha256": "33d5c77eebf4d6e86163d697a6f890c7383b7075174f12b322c114f029f7527a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/final-core-tests.log",
+      "sha256": "e38acbb24ad420a3a65b1d73d78d494005080e9e2a89d862d6e5945df364e6af"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/final-shrine-host-layouts.log",
+      "sha256": "876a95b859e0a8ac5d29c549320fb3583d4589d178dcb98f7556cf46cd3554de"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/focused-nested-help.log",
+      "sha256": "2246c5f323cb05e0b27ccbfefd51133894840e37a6c9e0f18ad27d40218a37e0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/initial-app-analyze.log",
+      "sha256": "5bb9033dae6da0d6bd91ee62cf97f643fd8bcbda726f5f77b42e6dee457429d9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/initial-app-tests.log",
+      "sha256": "5b28e5d787fa41e74bf7e049fabfda50972d8d718e3f6e6de7f63533d41d312e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/initial-core-analyze.log",
+      "sha256": "ca858d475d1ee20ba24f954cd905cbe6e6bd75ee7ca35df6ef94a9095217f694"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/initial-core-tests.log",
+      "sha256": "3c46b937c3baf81515fdb7d35f84e9395358676b23b12dfa55450115f043b82c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/post-review-app-analyze.log",
+      "sha256": "0f9dfbd9196d602af49c96764e2c9b1b9437d2778e6c2a60135f208cb002a66e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/post-review-core-analyze.log",
+      "sha256": "33d5c77eebf4d6e86163d697a6f890c7383b7075174f12b322c114f029f7527a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/verified-app-analyze.log",
+      "sha256": "0f9dfbd9196d602af49c96764e2c9b1b9437d2778e6c2a60135f208cb002a66e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/checks/verified-app-tests.log",
+      "sha256": "60703e10af1aa95b42417d54bda5c3c1e069a18e9a971abeffcacd38516ab3a2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-brinemother-broadside-1280.png",
+      "sha256": "17cc14f39a4bb0098208895155198f2f342be270ecfd20465c0a9e76ca4e3c33"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-brinemother-broadside-360.png",
+      "sha256": "59e9188a956aaa7b62978b6465a3944ae81070f0c9a0a147bd85b8be12649a97"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-brinemother-signature-1280.png",
+      "sha256": "17cc14f39a4bb0098208895155198f2f342be270ecfd20465c0a9e76ca4e3c33"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-brinemother-signature-360.png",
+      "sha256": "1dd8c75bad2674f79a35dd9825df9f680074627c78435c954d0ffa69c74a1931"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-brinemother-utility-1280.png",
+      "sha256": "17cc14f39a4bb0098208895155198f2f342be270ecfd20465c0a9e76ca4e3c33"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-brinemother-utility-360.png",
+      "sha256": "fc31b8839e25fa395e633f22f336754d6a762fbc2a2ed5c985954ee9bfa3bf7a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-earthshakerTitan-broadside-1280.png",
+      "sha256": "25db99d0e8700b90caea912fde42221c7b72265ab17e2d93992fb6c105e1113c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-earthshakerTitan-broadside-360.png",
+      "sha256": "c48a02f7fafe19f00e73f234d3bdbd981014ae3e512f64658d99ea25d8976c8b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-earthshakerTitan-signature-1280.png",
+      "sha256": "25db99d0e8700b90caea912fde42221c7b72265ab17e2d93992fb6c105e1113c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-earthshakerTitan-signature-360.png",
+      "sha256": "cf31ac2af40e16d1f5f973bcda4ba63d51ac402baf7f6232ee5fa2b4c4f24497"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-earthshakerTitan-utility-1280.png",
+      "sha256": "25db99d0e8700b90caea912fde42221c7b72265ab17e2d93992fb6c105e1113c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-earthshakerTitan-utility-360.png",
+      "sha256": "129d41085d768762572cc5a7d31b74344361bb352bf16c42fea20001f94344c9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-magmaVentLord-broadside-1280.png",
+      "sha256": "64c6de1d6de5e890863c39aa193e9cb7fe44d7e62e81d968a4e5e93645cff12e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-magmaVentLord-broadside-360.png",
+      "sha256": "5cccd1a9c1a64f6cb1c2954d1f0dd18b6f643f83b799514b3b22b3deb0761fc2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-magmaVentLord-signature-1280.png",
+      "sha256": "64c6de1d6de5e890863c39aa193e9cb7fe44d7e62e81d968a4e5e93645cff12e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-magmaVentLord-signature-360.png",
+      "sha256": "fecea94ef0ba6808dcffac3631c0a283e71f514764369a65f00ba0678d8cee10"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-magmaVentLord-utility-1280.png",
+      "sha256": "64c6de1d6de5e890863c39aa193e9cb7fe44d7e62e81d968a4e5e93645cff12e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-magmaVentLord-utility-360.png",
+      "sha256": "3ecd495e16bbccc23f45d1df77658d93e2a35ad97c6655ab143d7f95c64aa089"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-tempestSovereign-broadside-1280.png",
+      "sha256": "b2e4a84eae31e673166ee6175b2ca283fffc4bb66493b5107c00581c8b1d4a21"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-tempestSovereign-broadside-360.png",
+      "sha256": "ad549d4152feece4b61aeafafb3a107aa92d8aefda8d320e4267ad8befc7a619"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-tempestSovereign-signature-1280.png",
+      "sha256": "b2e4a84eae31e673166ee6175b2ca283fffc4bb66493b5107c00581c8b1d4a21"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-tempestSovereign-signature-360.png",
+      "sha256": "f123f7f1fb6b5fb1f670eeaad33d2dc0ebf56ef5e8fb1d17c65d2da5c146c0f1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-tempestSovereign-utility-1280.png",
+      "sha256": "b2e4a84eae31e673166ee6175b2ca283fffc4bb66493b5107c00581c8b1d4a21"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-blessing-tempestSovereign-utility-360.png",
+      "sha256": "d164f4230141c017c838ab4978f2bcbe4d0cf2258e45367e25bd76b0904c3b2e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-nested-shrine-1280.0.png",
+      "sha256": "56a186bd5614bb89abf3849baa45b62beb2f788bafc6ad4cbcb087e1a8bb8715"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/final-nested-shrine-360.0.png",
+      "sha256": "392cd3d330272cb160f9ff049c187a09f9c06809203d156a1595312af90f0b11"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-brinemother-broadside-1280.png",
+      "sha256": "17cc14f39a4bb0098208895155198f2f342be270ecfd20465c0a9e76ca4e3c33"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-brinemother-broadside-360.png",
+      "sha256": "59e9188a956aaa7b62978b6465a3944ae81070f0c9a0a147bd85b8be12649a97"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-brinemother-signature-1280.png",
+      "sha256": "17cc14f39a4bb0098208895155198f2f342be270ecfd20465c0a9e76ca4e3c33"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-brinemother-signature-360.png",
+      "sha256": "1dd8c75bad2674f79a35dd9825df9f680074627c78435c954d0ffa69c74a1931"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-brinemother-utility-1280.png",
+      "sha256": "17cc14f39a4bb0098208895155198f2f342be270ecfd20465c0a9e76ca4e3c33"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-brinemother-utility-360.png",
+      "sha256": "fc31b8839e25fa395e633f22f336754d6a762fbc2a2ed5c985954ee9bfa3bf7a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-earthshakerTitan-broadside-1280.png",
+      "sha256": "25db99d0e8700b90caea912fde42221c7b72265ab17e2d93992fb6c105e1113c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-earthshakerTitan-broadside-360.png",
+      "sha256": "c48a02f7fafe19f00e73f234d3bdbd981014ae3e512f64658d99ea25d8976c8b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-earthshakerTitan-signature-1280.png",
+      "sha256": "25db99d0e8700b90caea912fde42221c7b72265ab17e2d93992fb6c105e1113c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-earthshakerTitan-signature-360.png",
+      "sha256": "cf31ac2af40e16d1f5f973bcda4ba63d51ac402baf7f6232ee5fa2b4c4f24497"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-earthshakerTitan-utility-1280.png",
+      "sha256": "25db99d0e8700b90caea912fde42221c7b72265ab17e2d93992fb6c105e1113c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-earthshakerTitan-utility-360.png",
+      "sha256": "129d41085d768762572cc5a7d31b74344361bb352bf16c42fea20001f94344c9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-magmaVentLord-broadside-1280.png",
+      "sha256": "64c6de1d6de5e890863c39aa193e9cb7fe44d7e62e81d968a4e5e93645cff12e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-magmaVentLord-broadside-360.png",
+      "sha256": "5cccd1a9c1a64f6cb1c2954d1f0dd18b6f643f83b799514b3b22b3deb0761fc2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-magmaVentLord-signature-1280.png",
+      "sha256": "64c6de1d6de5e890863c39aa193e9cb7fe44d7e62e81d968a4e5e93645cff12e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-magmaVentLord-signature-360.png",
+      "sha256": "fecea94ef0ba6808dcffac3631c0a283e71f514764369a65f00ba0678d8cee10"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-magmaVentLord-utility-1280.png",
+      "sha256": "64c6de1d6de5e890863c39aa193e9cb7fe44d7e62e81d968a4e5e93645cff12e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/shrine-blessing-preview-2026-11-11/visual/review-blessing-magmaVentLord-utility-360.png",
+      "sha256": "3ecd495e16bbccc23f45d1df77658d93e2a35ad97c6655ab143d7f95c64aa089"
+    }
+  ],
+  "isolation": {
+    "autosave": false,
+    "productionStorageOpened": false,
+    "playerSavesModified": false,
+    "nativeGameLaunched": false,
+    "sharedNativeBundleRebuilt": false,
+    "artChanged": false,
+    "existingEvidenceRetained": true
+  },
+  "remaining": "Player replay remains pending."
+}

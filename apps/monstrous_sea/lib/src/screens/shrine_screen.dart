@@ -8,6 +8,8 @@ import '../widgets/ink_button.dart';
 import '../widgets/mechanic_text.dart';
 import '../widgets/parchment_card.dart';
 import '../widgets/parchment_scaffold.dart';
+import '../widgets/shrine_blessing_preview.dart';
+import '../widgets/shrine_blessing_offer.dart';
 
 /// Screen rendered upon encountering an Ancient Sea Shrine rising from the depths,
 /// presenting the captain with atmospheric regional lore and interactive devotions.
@@ -277,95 +279,16 @@ class _ShrineScreenState extends State<ShrineScreen> {
   }
 
   Widget _hardpointCard(ShipState ship, OceanPower power, HardpointType slot) {
-    final current = ship.blessings[slot];
-    final otherPower = current != null && current.power != power;
-    final maxed = current != null && current.tier >= 3;
-    final locked = otherPower || maxed;
-    final preview = locked
-        ? current
-        : HardpointBlessing(
-            power: power,
-            slot: slot,
-            tier: (current?.tier ?? 0) + 1,
-          );
-    final reason = otherPower
-        ? 'Dedicated to ${current.power.displayName}'
-        : 'Max Sovereign Tier Reached';
-    return ParchmentCard(
+    return ShrineBlessingOffer(
       key: ValueKey('hardpoint-${slot.name}'),
-      borderColor: locked ? InkTheme.inkFaint : InkTheme.goldAccent,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(slot.displayName.toUpperCase(), style: InkTheme.statLabel),
-          const SizedBox(height: 8),
-          Text(preview.title, style: InkTheme.titleMedium),
-          Text(
-            preview.tierLabel,
-            style: InkTheme.statValue.copyWith(color: InkTheme.goldAccent),
-          ),
-          const SizedBox(height: 8),
-          MechanicText(
-            preview.description,
-            style: InkTheme.body,
-            mechanics: MechanicContext(
-              ship: ship,
-              blessing: preview,
-              regionIndex: widget.controller.seaChart.currentRegionIndex,
-            ),
-          ),
-          if (!locked && current != null) ...[
-            const SizedBox(height: 8),
-            Text(
-              '${current.tierLabel} → ${preview.tierLabel}',
-              style: InkTheme.statValue.copyWith(
-                color: InkTheme.verdigrisGreen,
-              ),
-            ),
-            if (preview.damageBonus != current.damageBonus)
-              Text(
-                'Weapon damage +${(current.damageBonus * 100).round()}% → +${(preview.damageBonus * 100).round()}%',
-                style: InkTheme.body.copyWith(color: InkTheme.verdigrisGreen),
-              ),
-            if (preview.critChanceBonus != current.critChanceBonus)
-              Text(
-                'Critical Hit chance +${current.critChanceBonus}% → +${preview.critChanceBonus}%',
-                style: InkTheme.body.copyWith(color: InkTheme.verdigrisGreen),
-              ),
-            MechanicText(
-              'Current: ${current.description}',
-              style: InkTheme.caption,
-              mechanics: MechanicContext(
-                ship: ship,
-                blessing: current,
-                regionIndex: widget.controller.seaChart.currentRegionIndex,
-              ),
-            ),
-          ],
-          const SizedBox(height: 12),
-          if (locked) ...[
-            Text(reason, style: InkTheme.statLabel),
-            const SizedBox(height: 8),
-          ],
-          InkButton(
-            key: ValueKey('bless-${slot.name}'),
-            label: locked
-                ? 'LOCKED'
-                : current == null
-                ? 'DEDICATE'
-                : 'UPGRADE',
-            semanticLabel: locked
-                ? '${slot.displayName}: $reason'
-                : '${current == null ? 'Dedicate' : 'Upgrade'} ${slot.displayName}: ${preview.title}, ${preview.tierLabel}',
-            isPrimary: !locked,
-            onPressed: locked
-                ? null
-                : () => widget.controller.dispatch(
-                    AcceptShrineBlessing(power, slot),
-                  ),
-          ),
-        ],
+      preview: ShrineBlessingPreview(
+        ship,
+        power,
+        slot,
+        regionIndex: widget.controller.seaChart.currentRegionIndex,
       ),
+      onAccept: () =>
+          widget.controller.dispatch(AcceptShrineBlessing(power, slot)),
     );
   }
 }

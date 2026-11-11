@@ -70,7 +70,7 @@ Trait sources: [current trait lore](../../packages/monstrous_core/lib/src/lore/t
 
 ## Individual blessings
 
-All twelve descriptions come from [HardpointBlessing.description](../../packages/monstrous_core/lib/src/model/ocean_power.dart), shared by shrine choices, inspection and blessing tooltips. `+D%` below retains the current tier's weapon bonus. These are separate decisions from the shrine's introductory summary.
+All twelve descriptions come from [HardpointBlessing.description](../../packages/monstrous_core/lib/src/model/ocean_power.dart), used by inspection and blessing tooltips. The 11 November shrine-choice pass uses short trigger summaries with current/next comparisons instead of repeating full descriptions for both tiers. Changed values and linked prospective keyword help retain the exact effects before communion. `+D%` below retains the current tier's weapon bonus. These are separate decisions from the shrine's introductory summary.
 
 | ID | Original extra detail | Reviewed proposal | Original review rationale |
 | --- | --- | --- | --- |

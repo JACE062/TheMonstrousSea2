@@ -1,0 +1,200 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.broadside tier 0 preview agrees with real dedication
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.broadside tier 1 preview agrees with real dedication
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.broadside tier 2 preview agrees with real dedication
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.broadside tier 3 preview agrees with real dedication
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.signature tier 0 preview agrees with real dedication
+00:00 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.signature tier 1 preview agrees with real dedication
+00:00 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.signature tier 2 preview agrees with real dedication
+00:00 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.signature tier 3 preview agrees with real dedication
+00:00 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.utility tier 0 preview agrees with real dedication
+00:00 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.utility tier 1 preview agrees with real dedication
+00:00 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.utility tier 2 preview agrees with real dedication
+00:00 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.magmaVentLord HardpointType.utility tier 3 preview agrees with real dedication
+00:00 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.broadside tier 0 preview agrees with real dedication
+00:00 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.broadside tier 1 preview agrees with real dedication
+00:00 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.broadside tier 2 preview agrees with real dedication
+00:00 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.broadside tier 3 preview agrees with real dedication
+00:00 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.signature tier 0 preview agrees with real dedication
+00:00 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.signature tier 1 preview agrees with real dedication
+00:00 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.signature tier 2 preview agrees with real dedication
+00:00 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.signature tier 3 preview agrees with real dedication
+00:00 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.utility tier 0 preview agrees with real dedication
+00:00 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.utility tier 1 preview agrees with real dedication
+00:00 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.tempestSovereign HardpointType.utility tier 2 preview agrees with real dedication
+00:00 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: (setUpAll)
+00:00 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: (setUpAll)
+00:00 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_preview_test.dart: OceanPower.brinemother HardpointType.broadside tier 0 preview agrees with real dedication
+00:00 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:00 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:01 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:01 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Battle exposes blessed hardpoints and status at width 360.0
+00:01 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: prospective Burning values and nested help at 1280.0
+00:01 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:01 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:01 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:01 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 360.0
+00:01 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 360.0
+00:01 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 360.0
+00:02 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 360.0
+00:02 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 360.0
+00:02 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: home retains Flare stats and inspection links scaled Illuminated
+00:02 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: home retains Flare stats and inspection links scaled Illuminated
+00:02 +67: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Shrine previews, switching, dedication locks and upgrade at width 1200.0
+00:02 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:02 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: shrine comparison exposes exact Burning damage before choosing
+00:02 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/mechanic_text_test.dart: shrine comparison exposes exact Burning damage before choosing
+00:02 +71: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:02 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:02 +73: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ocean_powers_ui_test.dart: Combat blessing and status badges wrap in compact panels
+00:02 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:03 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:03 +76: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:03 +77: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:03 +78: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:03 +79: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:03 +80: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:04 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:04 +82: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:04 +83: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:04 +84: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:04 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:04 +86: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:05 +87: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord blessing previews on a short window at 130%
+00:05 +88: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.broadside tier 0 actual shrine choice matches preview
+00:05 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.broadside tier 1 actual shrine choice matches preview
+00:05 +90: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.broadside tier 2 actual shrine choice matches preview
+00:05 +91: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.signature tier 0 actual shrine choice matches preview
+00:05 +92: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.signature tier 1 actual shrine choice matches preview
+00:05 +93: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.signature tier 2 actual shrine choice matches preview
+00:05 +94: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.utility tier 0 actual shrine choice matches preview
+00:06 +95: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.utility tier 1 actual shrine choice matches preview
+00:06 +96: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.magmaVentLord HardpointType.utility tier 2 actual shrine choice matches preview
+00:06 +97: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:06 +98: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:06 +99: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 0 blessing previews Size(1280.0, 900.0)/1.15
+00:06 +100: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 0 blessing previews Size(1280.0, 900.0)/1.3
+00:06 +101: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 1 blessing previews Size(360.0, 900.0)/1.15
+00:06 +102: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:07 +103: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:07 +104: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:07 +105: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:07 +106: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:07 +107: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:07 +108: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:07 +109: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:07 +110: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:07 +111: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:07 +112: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:08 +113: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:08 +114: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:08 +115: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:08 +116: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:08 +117: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign blessing previews on a short window at 130%
+00:08 +118: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.broadside tier 0 actual shrine choice matches preview
+00:08 +119: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.broadside tier 1 actual shrine choice matches preview
+00:08 +120: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.broadside tier 2 actual shrine choice matches preview
+00:08 +121: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.signature tier 0 actual shrine choice matches preview
+00:08 +122: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.signature tier 1 actual shrine choice matches preview
+00:09 +123: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.signature tier 2 actual shrine choice matches preview
+00:09 +124: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.utility tier 0 actual shrine choice matches preview
+00:09 +125: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.utility tier 1 actual shrine choice matches preview
+00:09 +126: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.tempestSovereign HardpointType.utility tier 2 actual shrine choice matches preview
+00:09 +127: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:09 +128: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:09 +129: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 0 blessing previews Size(1280.0, 900.0)/1.15
+00:09 +130: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 0 blessing previews Size(1280.0, 900.0)/1.3
+00:09 +131: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 1 blessing previews Size(360.0, 900.0)/1.15
+00:10 +132: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:10 +133: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:10 +134: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:10 +135: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:10 +136: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:10 +137: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:10 +138: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:10 +139: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:10 +140: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:11 +141: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:11 +142: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:11 +143: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:11 +144: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:11 +145: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:11 +146: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:11 +147: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother blessing previews on a short window at 130%
+00:11 +148: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.broadside tier 0 actual shrine choice matches preview
+00:12 +149: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.broadside tier 1 actual shrine choice matches preview
+00:12 +150: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.broadside tier 2 actual shrine choice matches preview
+00:12 +151: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.signature tier 0 actual shrine choice matches preview
+00:12 +152: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.signature tier 1 actual shrine choice matches preview
+00:12 +153: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.signature tier 2 actual shrine choice matches preview
+00:12 +154: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.utility tier 0 actual shrine choice matches preview
+00:12 +155: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.utility tier 1 actual shrine choice matches preview
+00:12 +156: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.brinemother HardpointType.utility tier 2 actual shrine choice matches preview
+00:12 +157: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:12 +158: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:12 +159: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 0 blessing previews Size(1280.0, 900.0)/1.15
+00:13 +160: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 0 blessing previews Size(1280.0, 900.0)/1.3
+00:13 +161: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 1 blessing previews Size(360.0, 900.0)/1.15
+00:13 +162: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:13 +163: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:13 +164: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:13 +165: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:13 +166: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:13 +167: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:13 +168: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:13 +169: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:13 +170: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:13 +171: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:13 +172: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:14 +173: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:14 +174: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:14 +175: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:14 +176: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:14 +177: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan blessing previews on a short window at 130%
+00:14 +178: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.broadside tier 0 actual shrine choice matches preview
+00:14 +179: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.broadside tier 1 actual shrine choice matches preview
+00:14 +180: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.broadside tier 2 actual shrine choice matches preview
+00:14 +181: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.signature tier 0 actual shrine choice matches preview
+00:14 +182: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.signature tier 1 actual shrine choice matches preview
+00:14 +183: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.signature tier 2 actual shrine choice matches preview
+00:15 +184: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.utility tier 0 actual shrine choice matches preview
+00:15 +185: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.utility tier 1 actual shrine choice matches preview
+00:15 +186: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: OceanPower.earthshakerTitan HardpointType.utility tier 2 actual shrine choice matches preview
+00:15 +187: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Burning shrine help uses the prospective build at 360.0/130%
+00:15 +188: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Burning shrine help uses the prospective build at 1280.0/130%
+00:15 +189: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Static Charge shrine help uses the prospective build at 360.0/130%
+00:15 +190: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Static Charge shrine help uses the prospective build at 1280.0/130%
+00:15 +191: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Corroded shrine help uses the prospective build at 360.0/130%
+00:15 +192: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Corroded shrine help uses the prospective build at 1280.0/130%
+00:16 +193: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Shaken shrine help uses the prospective build at 360.0/130%
+00:16 +194: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Shaken shrine help uses the prospective build at 1280.0/130%
+00:16 +195: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: (tearDownAll)
+00:16 +195: All tests passed!

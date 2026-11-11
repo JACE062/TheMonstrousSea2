@@ -137,7 +137,7 @@ class ShipState extends Combatant {
   int get effectiveEvasion {
     var evasion = currentEvasion + captainEvasionBonus;
     if (basaltBarrierHp > 0 && basaltAegisTurns > 0) {
-      evasion += blessings[HardpointType.utility]?.tier == 3 ? 20 : 15;
+      evasion += blessings[HardpointType.utility]?.barrierEvasionBonus ?? 15;
     }
     return evasion.clamp(0, 95);
   }

@@ -268,3 +268,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Covenant Pact previews 2026-11-10
 
 [The pact activation preview pass](playtests/COVENANT_PACT_PREVIEWS_2026_11_10.md) compares current/toggled modifiers, total burden and changing Titan Cinders, including rescinding and existing combinations. [Evidence](playtests/evidence/covenant-pact-preview-2026-11-10/manifest.json) retains 128-combination checks, combat/service/navigation regressions, 115–130% altar layouts, analysis and captures. The old threshold/service wording is clarified; gameplay, tuning, save data, art, native bundles and previous evidence remain intact.
+
+## Shrine blessing previews 2026-11-11
+
+[The shrine preview pass](playtests/SHRINE_BLESSING_PREVIEWS_2026_11_11.md) compares changing effects before dedication or upgrade for all twelve power/socket paths. [Evidence](playtests/evidence/shrine-blessing-preview-2026-11-11/manifest.json) retains build/communion comparisons, existing combat and shrine-state regressions, 115–130% layouts, linked-help checks, analysis and captures. Native weapon interactions, values, shrine gates, saves, art and earlier evidence remain preserved.

@@ -1,0 +1,77 @@
+00:00 +0: loading test/model/ocean_power_test.dart
+00:00 +0: test/model/ocean_power_test.dart: all 36 blessing previews expose their power, tier and mechanics
+00:00 +1: test/model/ocean_power_test.dart: voyage serialization preserves dedications but excludes combat effects
+00:00 +2: test/model/ocean_power_test.dart: legacy saves default to no dedications and unknown powers are skipped
+00:00 +3: test/model/ocean_power_test.dart: base ram and howitzer types are corrected in factories and old saves
+00:00 +4: test/rules/ocean_power_combat_test.dart: Acid-Bore Mortar preserves its 2x shell crushing while bypassing armor
+00:00 +5: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +6: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +7: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +8: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +9: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +10: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +11: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +12: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +13: test/session/shrine_blessings_test.dart: Arc purge is not immediately undone by the Feeding Frenzy pact
+00:00 +14: test/rules/ocean_power_combat_test.dart: Magma Vent-Lord Tier III Caldera ignites and detonates an unburned target; Blast crushes armor
+00:00 +15: test/session/shrine_blessings_test.dart: A fatal monster hit ends the voyage even if storm retaliation kills it
+00:00 +16: test/session/shrine_blessings_test.dart: A fatal monster hit ends the voyage even if storm retaliation kills it
+00:00 +17: test/session/shrine_blessings_test.dart: A fatal monster hit ends the voyage even if storm retaliation kills it
+00:00 +18: test/rules/ocean_power_combat_test.dart: Magma Vent-Lord Pinned monster does not move through Boiling Wake
+00:00 +19: test/session/shrine_blessings_test.dart: Shrine manifests two distinct powers, sampled deterministically
+00:00 +20: test/session/shrine_blessings_test.dart: Shrine manifests two distinct powers, sampled deterministically
+00:00 +21: test/session/shrine_blessings_test.dart: Shrine manifests two distinct powers, sampled deterministically
+00:00 +22: test/session/shrine_blessings_test.dart: Shrine manifests two distinct powers, sampled deterministically
+00:00 +23: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +24: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +25: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +26: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +27: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +28: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +29: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +30: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +31: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +32: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +33: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +34: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +35: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +36: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +37: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +38: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +39: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +40: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +41: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +42: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +43: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +44: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +45: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +46: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +47: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +48: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +49: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +50: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +51: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +52: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +53: test/session/combat_status_boundaries_test.dart: Poison keeps its existing 25% recovery boundary at roll 75
+00:00 +54: test/session/shrine_blessings_test.dart: Blessings and pending runic guidance survive voyage serialization
+00:00 +55: test/session/shrine_blessings_test.dart: Blessings and pending runic guidance survive voyage serialization
+00:00 +56: test/session/shrine_blessings_test.dart: Blessings and pending runic guidance survive voyage serialization
+00:00 +57: test/session/shrine_blessings_test.dart: Blessings and pending runic guidance survive voyage serialization
+00:00 +58: test/session/shrine_blessings_test.dart: Blessings and pending runic guidance survive voyage serialization
+00:00 +59: test/session/shrine_blessings_test.dart: Blessings and pending runic guidance survive voyage serialization
+00:00 +60: test/session/shrine_blessings_test.dart: Blessings and pending runic guidance survive voyage serialization
+00:00 +61: test/session/combat_status_boundaries_test.dart: failed recovery allows repeated Poison ticks within the same fight
+00:00 +62: test/session/shrine_blessings_test.dart: Consecutive shrines refresh guidance without stacking or erasing drills
+00:00 +63: test/session/combat_status_boundaries_test.dart: combat reset clears all statuses without healing or changing build
+00:00 +64: test/session/shrine_blessings_test.dart: Quick consumable victory clears temporary powers but retains dedications
+00:00 +65: test/session/combat_status_boundaries_test.dart: World Serpent victory clears Poison before Region 3 crab without healing
+00:00 +66: test/session/combat_status_boundaries_test.dart: World Serpent victory clears Poison before Region 3 crab without healing
+00:00 +67: test/session/combat_status_boundaries_test.dart: World Serpent victory clears Poison before Region 3 crab without healing
+00:00 +68: test/session/combat_status_boundaries_test.dart: World Serpent victory clears Poison before Region 3 crab without healing
+00:00 +69: test/session/combat_status_boundaries_test.dart: dirty in-memory loot checkpoint drops combat statuses only
+00:00 +70: test/session/combat_status_boundaries_test.dart: dirty in-memory restArea checkpoint drops combat statuses only
+00:00 +71: test/session/combat_status_boundaries_test.dart: dirty in-memory helm checkpoint drops combat statuses only
+00:00 +72: test/session/combat_status_boundaries_test.dart: dirty in-memory stronghold checkpoint drops combat statuses only
+00:00 +73: test/session/combat_status_boundaries_test.dart: serialized older status fields cannot reinstate Poison on reload
+00:00 +74: test/session/combat_status_boundaries_test.dart: encounter startup clears dirty in-memory statuses without a reload
+00:00 +75: All tests passed!

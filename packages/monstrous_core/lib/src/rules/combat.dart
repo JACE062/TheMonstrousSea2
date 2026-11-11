@@ -255,13 +255,13 @@ int calculateHitChance(
       if (blessing.power == OceanPower.earthshakerTitan &&
           blessing.slot == HardpointType.signature &&
           _isWindingUp(defender)) {
-        effectiveMultiplier *= blessing.tier == 3 ? 1.35 : 1.25;
+        effectiveMultiplier *= 1 + blessing.windupDamageBonus;
       }
       if (blessing.power == OceanPower.brinemother &&
           blessing.slot == HardpointType.signature &&
           blessing.tier == 3 &&
           defender.carapacePlating == 0) {
-        effectiveMultiplier *= 1.15;
+        effectiveMultiplier *= 1 + blessing.unarmoredDamageBonus;
       }
     }
     // Phase 3B introduces critical strikes: 1.5x damage, using only GameRng.
@@ -539,12 +539,11 @@ int calculateHitChance(
   }
   if (attacker is MonsterState && defender is ShipState) {
     if (barrierWasHit && attacker.isAlive) {
-      final tier = defender.blessings[HardpointType.utility]!.tier;
       events.addAll(
         dealBlessingDamage(
           defender,
           attacker,
-          [12, 20, 30][tier - 1],
+          defender.blessings[HardpointType.utility]!.tidalShockwaveDamage,
           DamageType.blast,
           source: 'Tidal Shockwave',
         ),
@@ -652,10 +651,11 @@ List<GameEvent> executeShipWeaponVolley(
     }
     if (combatant is MonsterState && blessingShip != null) {
       final utility = blessingShip.blessings[HardpointType.utility];
-      if (utility?.power == OceanPower.magmaVentLord &&
-          utility?.tier == 3 &&
+      if (utility != null &&
+          utility.power == OceanPower.magmaVentLord &&
+          utility.wakeBurnMultiplier > 1 &&
           blessingShip.boilingWakeTurns > 0) {
-        damage = (damage * 1.5).round();
+        damage = (damage * utility.wakeBurnMultiplier).round();
       }
       damage = amplifyMonsterDamage(blessingShip, combatant, damage);
     }
@@ -775,14 +775,16 @@ int magmaBurnDamage(int tier, int regionIndex) =>
 
 int arcDischargeDamage(int tier) => [12, 20, 28][(tier - 1).clamp(0, 2)];
 
+double corrodedDamageBonusPerStack(int tier) => tier == 3 ? 0.12 : 0.08;
+
 /// Applies Corroded once, before mitigation, for every incoming damage source.
 int amplifyMonsterDamage(ShipState ship, MonsterState monster, int damage) =>
     (damage *
             (1 +
                 monster.corrodedStacks *
-                    (ship.highestBlessingTier(OceanPower.brinemother) == 3
-                        ? 0.12
-                        : 0.08)))
+                    corrodedDamageBonusPerStack(
+                      ship.highestBlessingTier(OceanPower.brinemother),
+                    )))
         .round();
 
 bool _isWindingUp(MonsterState monster) =>
@@ -812,14 +814,14 @@ void _breakWindup(MonsterState monster) {
   monster.windupDamageTaken = 0;
 }
 
-void _ignite(MonsterState monster) {
+void _ignite(MonsterState monster, int turns) {
   monster.addStatus(StatusEffect.burn);
-  monster.burnTurns = 3;
+  monster.burnTurns = turns;
 }
 
-void _corrode(MonsterState monster, int stacks) {
+void _corrode(MonsterState monster, int stacks, int turns) {
   monster.corrodedStacks = (monster.corrodedStacks + stacks).clamp(0, 3);
-  monster.corrodedTurns = 3;
+  monster.corrodedTurns = turns;
 }
 
 /// Resolves a guaranteed elemental rider without reapplying weapon blessings.
@@ -934,8 +936,8 @@ List<GameEvent> _applyWeaponBlessing(
   switch (blessing.power) {
     case OceanPower.magmaVentLord:
       final effects = <GameEvent>[];
-      if (!signature || blessing.tier == 3) {
-        _ignite(monster);
+      if (blessing.appliesBurning) {
+        _ignite(monster, blessing.burningDuration);
         effects.add(CombatEffectsChanged.capture(monster));
       }
       if (signature && monster.hasStatus(StatusEffect.burn)) {
@@ -944,7 +946,7 @@ List<GameEvent> _applyWeaponBlessing(
           ...dealBlessingDamage(
             ship,
             monster,
-            (damage * [0.25, 0.40, 0.60][blessing.tier - 1]).round(),
+            (damage * blessing.thermalDetonationFraction).round(),
             DamageType.blast,
             source: 'Thermal Detonation',
           ),
@@ -952,28 +954,26 @@ List<GameEvent> _applyWeaponBlessing(
       }
       return effects;
     case OceanPower.tempestSovereign:
-      final stacks = signature
-          ? (blessing.tier == 3 ? 3 : 2)
-          : blessing.tier == 3 && rng.d100() <= 35
+      final stacks =
+          !signature &&
+              blessing.doubleStaticChargeChance > 0 &&
+              rng.d100() <= blessing.doubleStaticChargeChance
           ? 2
-          : 1;
+          : blessing.staticChargeOnHit;
       return _addStatic(ship, monster, stacks);
     case OceanPower.brinemother:
       _corrode(
         monster,
-        signature
-            ? (blessing.tier == 3 ? 3 : 2)
-            : blessing.tier == 3
-            ? 2
-            : 1,
+        blessing.corrodedStacksApplied,
+        blessing.corrodedDuration,
       );
     case OceanPower.earthshakerTitan:
       if (!signature) {
-        monster.tremorAccPenalty = [10, 15, 20][blessing.tier - 1];
+        monster.tremorAccPenalty = blessing.shakenAccuracyPenalty;
       } else if (_isWindingUp(monster)) {
         final disruptedIntent = monster.currentIntent!;
         _breakWindup(monster);
-        if (blessing.tier == 3) monster.addStatus(StatusEffect.stun);
+        if (blessing.windupStunActions > 0) monster.addStatus(StatusEffect.stun);
         return [
           NarrationEvent('Fault-Line Shatter breaks the lethal windup!'),
           MonsterIntentDisrupted(
@@ -992,22 +992,21 @@ List<GameEvent> _applyWeaponBlessing(
 List<GameEvent> activateUtilityBlessing(ShipState ship, MonsterState monster) {
   final blessing = ship.blessings[HardpointType.utility];
   if (blessing == null || !monster.isAlive) return [];
-  final tier = blessing.tier;
   switch (blessing.power) {
     case OceanPower.magmaVentLord:
-      _ignite(monster);
-      ship.boilingWakeTurns = tier == 3 ? 3 : 2;
+      _ignite(monster, blessing.burningDuration);
+      ship.boilingWakeTurns = blessing.utilityDuration;
     case OceanPower.tempestSovereign:
-      ship.stormRiggingTurns = 2;
+      ship.stormRiggingTurns = blessing.utilityDuration;
       return [
         CombatEffectsChanged.capture(ship),
-        ..._addStatic(ship, monster, tier == 3 ? 2 : 1),
+        ..._addStatic(ship, monster, blessing.staticChargeOnActivation),
       ];
     case OceanPower.brinemother:
       monster.isObscured = false;
-      final melt = [8, 14, 22][tier - 1].clamp(0, monster.carapacePlating);
+      final melt = blessing.extraCarapaceMelt.clamp(0, monster.carapacePlating);
       monster.carapacePlating -= melt;
-      _corrode(monster, tier);
+      _corrode(monster, blessing.corrodedStacksApplied, blessing.corrodedDuration);
       return [
         CarapaceDamaged(
           monsterName: monster.name,
@@ -1018,8 +1017,8 @@ List<GameEvent> activateUtilityBlessing(ShipState ship, MonsterState monster) {
         CombatEffectsChanged.capture(monster),
       ];
     case OceanPower.earthshakerTitan:
-      ship.basaltBarrierHp = [15, 25, 35][tier - 1];
-      ship.basaltAegisTurns = 2;
+      ship.basaltBarrierHp = blessing.barrierHp;
+      ship.basaltAegisTurns = blessing.utilityDuration;
   }
   return [
     NarrationEvent('${blessing.title} awakens!'),
@@ -1030,27 +1029,28 @@ List<GameEvent> activateUtilityBlessing(ShipState ship, MonsterState monster) {
 
 List<GameEvent> _stormRetaliation(ShipState ship, MonsterState monster) {
   if (ship.stormRiggingTurns <= 0 || !monster.isAlive) return [];
-  final tier = ship.blessings[HardpointType.utility]!.tier;
+  final blessing = ship.blessings[HardpointType.utility]!;
   return [
     ...dealBlessingDamage(
       ship,
       monster,
-      [10, 18, 26][tier - 1],
+      blessing.stormRetaliationDamage,
       DamageType.shock,
       source: 'Storm-Arc Rigging',
     ),
-    if (monster.isAlive) ..._addStatic(ship, monster, 1),
+    if (monster.isAlive)
+      ..._addStatic(ship, monster, blessing.staticChargeOnRetaliation),
   ];
 }
 
 /// Trigger once for each range band traversed by the monster itself.
 List<GameEvent> triggerBoilingWake(ShipState ship, MonsterState monster) {
   if (ship.boilingWakeTurns <= 0) return [];
-  final tier = ship.blessings[HardpointType.utility]!.tier;
+  final blessing = ship.blessings[HardpointType.utility]!;
   return dealBlessingDamage(
     ship,
     monster,
-    [12, 20, 30][tier - 1],
+    blessing.wakeMovementDamage,
     DamageType.fire,
     source: 'Boiling Wake',
   );

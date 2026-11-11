@@ -27,6 +27,7 @@ export 'src/persistence/profile_data.dart';
 export 'src/persistence/voyage_save_data.dart';
 export 'src/rng/game_rng.dart';
 export 'src/rules/combat.dart';
+export 'src/rules/blessing_effects.dart';
 export 'src/rules/covenant_pacts.dart';
 export 'src/rules/economy.dart';
 export 'src/rules/eldritch_relics.dart';

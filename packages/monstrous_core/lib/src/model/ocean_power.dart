@@ -119,33 +119,114 @@ class HardpointBlessing {
       ? (tier == 3 ? 20 : 15)
       : 0;
 
+  // Effect parameters are shared by resolution, descriptions and shrine previews.
+  bool get appliesBurning =>
+      power == OceanPower.magmaVentLord &&
+      (slot != HardpointType.signature || tier == 3);
+  int get burningDuration => power == OceanPower.magmaVentLord ? 3 : 0;
+  double get thermalDetonationFraction =>
+      power == OceanPower.magmaVentLord && slot == HardpointType.signature
+      ? [0.25, 0.40, 0.60][tier - 1]
+      : 0;
+  int get utilityDuration => slot != HardpointType.utility
+      ? 0
+      : switch (power) {
+          OceanPower.magmaVentLord => tier == 3 ? 3 : 2,
+          OceanPower.tempestSovereign || OceanPower.earthshakerTitan => 2,
+          OceanPower.brinemother => 0,
+        };
+  // Reactive state flags already determine which utility effect is active.
+  int get wakeMovementDamage => [12, 20, 30][tier - 1];
+  double get wakeBurnMultiplier =>
+      power == OceanPower.magmaVentLord &&
+          slot == HardpointType.utility &&
+          tier == 3
+      ? 1.5
+      : 1;
+  int get staticChargeOnHit =>
+      power != OceanPower.tempestSovereign || slot == HardpointType.utility
+      ? 0
+      : slot == HardpointType.signature
+      ? (tier == 3 ? 3 : 2)
+      : 1;
+  int get doubleStaticChargeChance =>
+      power == OceanPower.tempestSovereign &&
+          slot == HardpointType.broadside &&
+          tier == 3
+      ? 35
+      : 0;
+  int get staticChargeOnActivation =>
+      power == OceanPower.tempestSovereign && slot == HardpointType.utility
+      ? (tier == 3 ? 2 : 1)
+      : 0;
+  int get stormRetaliationDamage => [10, 18, 26][tier - 1];
+  int get staticChargeOnRetaliation => 1;
+  int get extraCarapaceMelt => power != OceanPower.brinemother
+      ? 0
+      : switch (slot) {
+          HardpointType.broadside => [4, 8, 12][tier - 1],
+          HardpointType.utility => [8, 14, 22][tier - 1],
+          _ => 0,
+        };
+  int get corrodedStacksApplied => power != OceanPower.brinemother
+      ? 0
+      : switch (slot) {
+          HardpointType.broadside => tier == 3 ? 2 : 1,
+          HardpointType.signature => tier == 3 ? 3 : 2,
+          _ => tier,
+        };
+  int get corrodedDuration => power == OceanPower.brinemother ? 3 : 0;
+  double get unarmoredDamageBonus =>
+      power == OceanPower.brinemother &&
+          slot == HardpointType.signature &&
+          tier == 3
+      ? 0.15
+      : 0;
+  int get shakenAccuracyPenalty =>
+      power == OceanPower.earthshakerTitan && slot == HardpointType.broadside
+      ? [10, 15, 20][tier - 1]
+      : 0;
+  double get windupDamageBonus =>
+      power == OceanPower.earthshakerTitan && slot == HardpointType.signature
+      ? (tier == 3 ? 0.35 : 0.25)
+      : 0;
+  bool get breaksWindup =>
+      power == OceanPower.earthshakerTitan && slot == HardpointType.signature;
+  int get windupStunActions => breaksWindup && tier == 3 ? 1 : 0;
+  int get barrierHp =>
+      power == OceanPower.earthshakerTitan && slot == HardpointType.utility
+      ? [15, 25, 35][tier - 1]
+      : 0;
+  int get barrierEvasionBonus => tier == 3 ? 20 : 15;
+  int get tidalShockwaveDamage => [12, 20, 30][tier - 1];
+
   String get description {
     final bonus = '+${(damageBonus * 100).round()}% weapon damage';
     return switch ((power, slot)) {
       (OceanPower.magmaVentLord, HardpointType.broadside) =>
-        '$bonus. Ignites for 3 turns.',
+        '$bonus. Ignites for $burningDuration turns.',
       (OceanPower.magmaVentLord, HardpointType.signature) =>
-        '$bonus. ${tier == 3 ? 'Ignites, then triggers' : 'Against Burning targets, triggers'} Thermal Detonation for +${[25, 40, 60][tier - 1]}% Blast damage.',
+        '$bonus. ${appliesBurning ? 'Ignites, then triggers' : 'Against Burning targets, triggers'} Thermal Detonation for +${(thermalDetonationFraction * 100).round()}% Blast damage.',
       (OceanPower.magmaVentLord, _) =>
-        'Ignites for 3 turns. For ${tier == 3 ? 3 : 2} turns, monster movement deals ${[12, 20, 30][tier - 1]} Fire damage.${tier == 3 ? ' Burning deals +50% damage while the wake lasts.' : ''}',
+        'Ignites for $burningDuration turns. For $utilityDuration turns, monster movement deals $wakeMovementDamage Fire damage.${wakeBurnMultiplier > 1 ? ' Burning deals +${((wakeBurnMultiplier - 1) * 100).round()}% damage while the wake lasts.' : ''}',
       (OceanPower.tempestSovereign, HardpointType.broadside) =>
-        '$bonus. Hits apply 1 Static Charge.${tier == 3 ? ' 35% chance to apply 2.' : ''}',
+        '$bonus. Hits apply $staticChargeOnHit Static Charge.${doubleStaticChargeChance > 0 ? ' $doubleStaticChargeChance% chance to apply 2.' : ''}',
       (OceanPower.tempestSovereign, HardpointType.signature) =>
-        '$bonus. +$critChanceBonus% Critical Hit chance. Hits apply ${tier == 3 ? 3 : 2} Static Charge.',
+        '$bonus. +$critChanceBonus% Critical Hit chance. Hits apply $staticChargeOnHit Static Charge.',
       (OceanPower.tempestSovereign, _) =>
-        'Applies ${tier == 3 ? 2 : 1} Static Charge. For 2 turns, enemy attacks trigger ${[10, 18, 26][tier - 1]} Shock damage and 1 Static Charge.',
+        'Applies $staticChargeOnActivation Static Charge. For $utilityDuration turns, enemy attacks trigger $stormRetaliationDamage Shock damage and $staticChargeOnRetaliation Static Charge.',
       (OceanPower.brinemother, HardpointType.broadside) =>
-        '$bonus. Deals 2× damage to Carapace, melts ${[4, 8, 12][tier - 1]} more, and applies ${tier == 3 ? 2 : 1} Corroded for 3 turns.',
+        '$bonus. Deals 2× damage to Carapace, melts $extraCarapaceMelt more, and applies $corrodedStacksApplied Corroded for $corrodedDuration turns.',
       (OceanPower.brinemother, HardpointType.signature) =>
-        '$bonus. Damages flesh through Carapace while stripping it. Applies ${tier == 3 ? 3 : 2} Corroded for 3 turns.${tier == 3 ? ' +15% damage against unarmored targets.' : ''}',
+        '$bonus. Damages flesh through Carapace while stripping it. Applies $corrodedStacksApplied Corroded for $corrodedDuration turns.${unarmoredDamageBonus > 0 ? ' +${(unarmoredDamageBonus * 100).round()}% damage against unarmored targets.' : ''}',
       (OceanPower.brinemother, _) =>
-        'Clears enemy Obscurity, melts ${[8, 14, 22][tier - 1]} Carapace, and applies $tier Corroded for 3 turns.',
+        'Clears enemy Obscurity, melts $extraCarapaceMelt Carapace, and applies $corrodedStacksApplied Corroded for $corrodedDuration turns.',
       (OceanPower.earthshakerTitan, HardpointType.broadside) =>
         '$bonus. Deals 1.5× damage to Carapace. Applies Shaken for 1 turn.',
       (OceanPower.earthshakerTitan, HardpointType.signature) =>
-        '$bonus. Deals 1.5× damage to Carapace. Breaking a lethal windup deals +${tier == 3 ? 35 : 25}% damage${tier == 3 ? ' and Stuns for 1 action' : '; the beast makes a normal attack instead'}.',
+        '$bonus. Deals 1.5× damage to Carapace. Breaking a lethal windup deals +${(windupDamageBonus * 100).round()}% damage${windupStunActions > 0 ? ' and Stuns for $windupStunActions action' : '; the beast makes a normal attack instead'}.',
       (OceanPower.earthshakerTitan, _) =>
-        'Creates a ${[15, 25, 35][tier - 1]} HP barrier for 2 turns. Grants +${tier == 3 ? 20 : 15}% evasion while intact. Hits retaliate for ${[12, 20, 30][tier - 1]} Blast damage.',
+        'Creates a $barrierHp HP barrier for $utilityDuration turns. Grants +$barrierEvasionBonus% evasion while intact. Hits retaliate for $tidalShockwaveDamage Blast damage.',
     };
   }
 

@@ -1,0 +1,160 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:01 +1: OceanPower.magmaVentLord tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:01 +2: OceanPower.magmaVentLord tier 0 blessing previews Size(1280.0, 900.0)/1.15
+00:01 +3: OceanPower.magmaVentLord tier 0 blessing previews Size(1280.0, 900.0)/1.3
+00:02 +4: OceanPower.magmaVentLord tier 1 blessing previews Size(360.0, 900.0)/1.15
+00:02 +5: OceanPower.magmaVentLord tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:02 +6: OceanPower.magmaVentLord tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:02 +7: OceanPower.magmaVentLord tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:02 +8: OceanPower.magmaVentLord tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:02 +9: OceanPower.magmaVentLord tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:03 +10: OceanPower.magmaVentLord tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:03 +11: OceanPower.magmaVentLord tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:03 +12: OceanPower.magmaVentLord tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:03 +13: OceanPower.magmaVentLord tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:03 +14: OceanPower.magmaVentLord tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:03 +15: OceanPower.magmaVentLord tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:04 +16: OceanPower.magmaVentLord tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:04 +17: OceanPower.magmaVentLord tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:04 +18: OceanPower.magmaVentLord tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:04 +19: OceanPower.magmaVentLord tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:04 +20: OceanPower.magmaVentLord blessing previews on a short window at 130%
+00:04 +21: OceanPower.magmaVentLord HardpointType.broadside tier 0 actual shrine choice matches preview
+00:05 +22: OceanPower.magmaVentLord HardpointType.broadside tier 1 actual shrine choice matches preview
+00:05 +23: OceanPower.magmaVentLord HardpointType.broadside tier 2 actual shrine choice matches preview
+00:05 +24: OceanPower.magmaVentLord HardpointType.signature tier 0 actual shrine choice matches preview
+00:05 +25: OceanPower.magmaVentLord HardpointType.signature tier 1 actual shrine choice matches preview
+00:05 +26: OceanPower.magmaVentLord HardpointType.signature tier 2 actual shrine choice matches preview
+00:05 +27: OceanPower.magmaVentLord HardpointType.utility tier 0 actual shrine choice matches preview
+00:05 +28: OceanPower.magmaVentLord HardpointType.utility tier 1 actual shrine choice matches preview
+00:05 +29: OceanPower.magmaVentLord HardpointType.utility tier 2 actual shrine choice matches preview
+00:05 +30: OceanPower.tempestSovereign tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:06 +31: OceanPower.tempestSovereign tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:06 +32: OceanPower.tempestSovereign tier 0 blessing previews Size(1280.0, 900.0)/1.15
+00:06 +33: OceanPower.tempestSovereign tier 0 blessing previews Size(1280.0, 900.0)/1.3
+00:06 +34: OceanPower.tempestSovereign tier 1 blessing previews Size(360.0, 900.0)/1.15
+00:06 +35: OceanPower.tempestSovereign tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:06 +36: OceanPower.tempestSovereign tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:07 +37: OceanPower.tempestSovereign tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:07 +38: OceanPower.tempestSovereign tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:07 +39: OceanPower.tempestSovereign tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:07 +40: OceanPower.tempestSovereign tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:07 +41: OceanPower.tempestSovereign tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:07 +42: OceanPower.tempestSovereign tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:07 +43: OceanPower.tempestSovereign tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:07 +44: OceanPower.tempestSovereign tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:07 +45: OceanPower.tempestSovereign tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:08 +46: OceanPower.tempestSovereign tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:08 +47: OceanPower.tempestSovereign tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:08 +48: OceanPower.tempestSovereign tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:08 +49: OceanPower.tempestSovereign tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:08 +50: OceanPower.tempestSovereign blessing previews on a short window at 130%
+00:08 +51: OceanPower.tempestSovereign HardpointType.broadside tier 0 actual shrine choice matches preview
+00:08 +52: OceanPower.tempestSovereign HardpointType.broadside tier 1 actual shrine choice matches preview
+00:08 +53: OceanPower.tempestSovereign HardpointType.broadside tier 2 actual shrine choice matches preview
+00:08 +54: OceanPower.tempestSovereign HardpointType.signature tier 0 actual shrine choice matches preview
+00:08 +55: OceanPower.tempestSovereign HardpointType.signature tier 1 actual shrine choice matches preview
+00:09 +56: OceanPower.tempestSovereign HardpointType.signature tier 2 actual shrine choice matches preview
+00:09 +57: OceanPower.tempestSovereign HardpointType.utility tier 0 actual shrine choice matches preview
+00:09 +58: OceanPower.tempestSovereign HardpointType.utility tier 1 actual shrine choice matches preview
+00:09 +59: OceanPower.tempestSovereign HardpointType.utility tier 2 actual shrine choice matches preview
+00:09 +60: OceanPower.brinemother tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:09 +61: OceanPower.brinemother tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:10 +62: OceanPower.brinemother tier 0 blessing previews Size(1280.0, 900.0)/1.15
+00:10 +63: OceanPower.brinemother tier 0 blessing previews Size(1280.0, 900.0)/1.3
+00:10 +64: OceanPower.brinemother tier 1 blessing previews Size(360.0, 900.0)/1.15
+00:10 +65: OceanPower.brinemother tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:10 +66: OceanPower.brinemother tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:10 +67: OceanPower.brinemother tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:11 +68: OceanPower.brinemother tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:11 +69: OceanPower.brinemother tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:11 +70: OceanPower.brinemother tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:11 +71: OceanPower.brinemother tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:11 +72: OceanPower.brinemother tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:11 +73: OceanPower.brinemother tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:11 +74: OceanPower.brinemother tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:11 +75: OceanPower.brinemother tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:12 +76: OceanPower.brinemother tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:12 +77: OceanPower.brinemother tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:12 +78: OceanPower.brinemother tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:12 +79: OceanPower.brinemother tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:12 +80: OceanPower.brinemother blessing previews on a short window at 130%
+00:12 +81: OceanPower.brinemother HardpointType.broadside tier 0 actual shrine choice matches preview
+00:12 +82: OceanPower.brinemother HardpointType.broadside tier 1 actual shrine choice matches preview
+00:12 +83: OceanPower.brinemother HardpointType.broadside tier 2 actual shrine choice matches preview
+00:12 +84: OceanPower.brinemother HardpointType.signature tier 0 actual shrine choice matches preview
+00:13 +85: OceanPower.brinemother HardpointType.signature tier 1 actual shrine choice matches preview
+00:13 +86: OceanPower.brinemother HardpointType.signature tier 2 actual shrine choice matches preview
+00:13 +87: OceanPower.brinemother HardpointType.utility tier 0 actual shrine choice matches preview
+00:13 +88: OceanPower.brinemother HardpointType.utility tier 1 actual shrine choice matches preview
+00:13 +89: OceanPower.brinemother HardpointType.utility tier 2 actual shrine choice matches preview
+00:13 +90: OceanPower.earthshakerTitan tier 0 blessing previews Size(360.0, 900.0)/1.15
+00:13 +91: OceanPower.earthshakerTitan tier 0 blessing previews Size(360.0, 900.0)/1.3
+00:14 +92: OceanPower.earthshakerTitan tier 0 blessing previews Size(1280.0, 900.0)/1.15
+00:14 +93: OceanPower.earthshakerTitan tier 0 blessing previews Size(1280.0, 900.0)/1.3
+00:14 +94: OceanPower.earthshakerTitan tier 1 blessing previews Size(360.0, 900.0)/1.15
+00:14 +95: OceanPower.earthshakerTitan tier 1 blessing previews Size(360.0, 900.0)/1.3
+00:14 +96: OceanPower.earthshakerTitan tier 1 blessing previews Size(1280.0, 900.0)/1.15
+00:14 +97: OceanPower.earthshakerTitan tier 1 blessing previews Size(1280.0, 900.0)/1.3
+00:14 +98: OceanPower.earthshakerTitan tier 2 blessing previews Size(360.0, 900.0)/1.15
+00:14 +99: OceanPower.earthshakerTitan tier 2 blessing previews Size(360.0, 900.0)/1.3
+00:14 +100: OceanPower.earthshakerTitan tier 2 blessing previews Size(1280.0, 900.0)/1.15
+00:15 +101: OceanPower.earthshakerTitan tier 2 blessing previews Size(1280.0, 900.0)/1.3
+00:15 +102: OceanPower.earthshakerTitan tier 3 blessing previews Size(360.0, 900.0)/1.15
+00:15 +103: OceanPower.earthshakerTitan tier 3 blessing previews Size(360.0, 900.0)/1.3
+00:15 +104: OceanPower.earthshakerTitan tier 3 blessing previews Size(1280.0, 900.0)/1.15
+00:15 +105: OceanPower.earthshakerTitan tier 3 blessing previews Size(1280.0, 900.0)/1.3
+00:15 +106: OceanPower.earthshakerTitan tier 4 blessing previews Size(360.0, 900.0)/1.15
+00:15 +107: OceanPower.earthshakerTitan tier 4 blessing previews Size(360.0, 900.0)/1.3
+00:15 +108: OceanPower.earthshakerTitan tier 4 blessing previews Size(1280.0, 900.0)/1.15
+00:15 +109: OceanPower.earthshakerTitan tier 4 blessing previews Size(1280.0, 900.0)/1.3
+00:15 +110: OceanPower.earthshakerTitan blessing previews on a short window at 130%
+00:15 +111: OceanPower.earthshakerTitan HardpointType.broadside tier 0 actual shrine choice matches preview
+00:16 +112: OceanPower.earthshakerTitan HardpointType.broadside tier 1 actual shrine choice matches preview
+00:16 +113: OceanPower.earthshakerTitan HardpointType.broadside tier 2 actual shrine choice matches preview
+00:16 +114: OceanPower.earthshakerTitan HardpointType.signature tier 0 actual shrine choice matches preview
+00:16 +115: OceanPower.earthshakerTitan HardpointType.signature tier 1 actual shrine choice matches preview
+00:16 +116: OceanPower.earthshakerTitan HardpointType.signature tier 2 actual shrine choice matches preview
+00:16 +117: OceanPower.earthshakerTitan HardpointType.utility tier 0 actual shrine choice matches preview
+00:16 +118: OceanPower.earthshakerTitan HardpointType.utility tier 1 actual shrine choice matches preview
+00:16 +119: OceanPower.earthshakerTitan HardpointType.utility tier 2 actual shrine choice matches preview
+00:16 +120: Burning shrine help uses the prospective build at 360.0/130%
+00:16 +121: Burning shrine help uses the prospective build at 1280.0/130%
+00:16 +122: Static Charge shrine help uses the prospective build at 360.0/130%
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextContainingWidgetFinder:<Found 0 widgets with text containing 28 base Shock: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart:285:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart line 285
+The test description was:
+  Static Charge shrine help uses the prospective build at 360.0/130%
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:17 +122 -1: Static Charge shrine help uses the prospective build at 360.0/130% [E]
+  Test failed. See exception logs above.
+  The test description was: Static Charge shrine help uses the prospective build at 360.0/130%
+
+00:17 +122 -1: Static Charge shrine help uses the prospective build at 1280.0/130%
+00:17 +123 -1: Corroded shrine help uses the prospective build at 360.0/130%
+00:17 +124 -1: Corroded shrine help uses the prospective build at 1280.0/130%
+00:17 +125 -1: Shaken shrine help uses the prospective build at 360.0/130%
+00:17 +126 -1: Shaken shrine help uses the prospective build at 1280.0/130%
+00:18 +127 -1: (tearDownAll)
+00:18 +127 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shrine_blessing_ui_test.dart: Static Charge shrine help uses the prospective build at 360.0/130%

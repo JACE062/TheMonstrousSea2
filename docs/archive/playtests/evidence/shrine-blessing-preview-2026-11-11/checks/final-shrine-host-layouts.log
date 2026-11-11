@@ -1,0 +1,49 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/encounter_layout_matrix_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 115% shrine at Size(360.0, 900.0)
+00:01 +1: 115% shrine at Size(800.0, 480.0)
+00:01 +2: 115% shrine at Size(1280.0, 850.0)
+00:01 +3: 115% shrineCompare at Size(360.0, 900.0)
+00:01 +4: 115% shrineCompare at Size(800.0, 480.0)
+00:02 +5: 115% shrineCompare at Size(1280.0, 850.0)
+00:02 +6: 115% shrineForbidden at Size(360.0, 900.0)
+00:02 +7: 115% shrineForbidden at Size(800.0, 480.0)
+00:02 +8: 115% shrineForbidden at Size(1280.0, 850.0)
+00:02 +9: 115% shrineSovereign at Size(360.0, 900.0)
+00:02 +10: 115% shrineSovereign at Size(800.0, 480.0)
+00:02 +11: 115% shrineSovereign at Size(1280.0, 850.0)
+00:03 +12: 115% shrineComplete at Size(360.0, 900.0)
+00:03 +13: 115% shrineComplete at Size(800.0, 480.0)
+00:03 +14: 115% shrineComplete at Size(1280.0, 850.0)
+00:03 +15: 115% standard shrineCompare at 360.0
+00:03 +16: 115% standard shrineCompare at 1280.0
+00:03 +17: 115% ironclad shrineCompare at 360.0
+00:03 +18: 115% ironclad shrineCompare at 1280.0
+00:03 +19: 115% clipper shrineCompare at 360.0
+00:03 +20: 115% clipper shrineCompare at 1280.0
+00:04 +21: 115% bombardier shrineCompare at 360.0
+00:04 +22: 115% bombardier shrineCompare at 1280.0
+00:04 +23: 115% corsair shrineCompare at 360.0
+00:04 +24: 115% corsair shrineCompare at 1280.0
+00:04 +25: 115% shrine magmaVentLord comparison at 360.0
+00:04 +26: 115% shrine magmaVentLord comparison at 800.0
+00:04 +27: 115% shrine magmaVentLord comparison at 1280.0
+00:04 +28: 115% shrine tempestSovereign comparison at 360.0
+00:05 +29: 115% shrine tempestSovereign comparison at 800.0
+00:05 +30: 115% shrine tempestSovereign comparison at 1280.0
+00:05 +31: 115% shrine brinemother comparison at 360.0
+00:05 +32: 115% shrine brinemother comparison at 800.0
+00:05 +33: 115% shrine brinemother comparison at 1280.0
+00:05 +34: 115% shrine earthshakerTitan comparison at 360.0
+00:05 +35: 115% shrine earthshakerTitan comparison at 800.0
+00:05 +36: 115% shrine earthshakerTitan comparison at 1280.0
+00:05 +37: 130% shrineCompare at 360.0
+00:06 +38: 130% shrineCompare at 1280.0
+00:06 +39: 130% shrineForbidden at 360.0
+00:06 +40: 130% shrineForbidden at 1280.0
+00:06 +41: 115% region 0 shrineForbidden at 360.0
+00:06 +42: 115% region 0 shrineForbidden at 1280.0
+00:06 +43: 115% region 2 shrineForbidden at 360.0
+00:06 +44: 115% region 2 shrineForbidden at 1280.0
+00:06 +45: (tearDownAll)
+00:07 +45: All tests passed!

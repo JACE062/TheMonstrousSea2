@@ -57,10 +57,11 @@ class MechanicContext {
     final utility = blessing?.slot == HardpointType.utility
         ? blessing
         : ship?.blessings[HardpointType.utility];
-    if (utility?.power == OceanPower.magmaVentLord &&
-        utility?.tier == 3 &&
+    if (utility != null &&
+        utility.power == OceanPower.magmaVentLord &&
+        utility.wakeBurnMultiplier > 1 &&
         (blessing == utility || (ship?.boilingWakeTurns ?? 0) > 0)) {
-      damage = (damage * 1.5).round();
+      damage = (damage * utility.wakeBurnMultiplier).round();
     }
     return ship != null && monster != null
         ? amplifyMonsterDamage(ship!, monster!, damage)
@@ -84,10 +85,9 @@ class MechanicContext {
     final broadside = prospective
         ? blessing
         : ship?.blessings[HardpointType.broadside];
-    final mark = broadside?.power == OceanPower.earthshakerTitan
-        ? broadside!.tier
-        : 1;
-    return [10, 15, 20][mark - 1];
+    return broadside?.power == OceanPower.earthshakerTitan
+        ? broadside!.shakenAccuracyPenalty
+        : 10;
   }
 
   String explanation(String term) => switch (term) {
@@ -103,7 +103,7 @@ class MechanicContext {
     'Arc Discharge' =>
       'Deals ${arcDischargeDamage(tier(OceanPower.tempestSovereign))} base Shock damage and clears Frenzy. Applies Stun against a lethal windup; otherwise Electro-Jolt.',
     'Corroded' =>
-      'Per stack: +${tier(OceanPower.brinemother) == 3 ? 12 : 8}% damage taken, −5% attack damage. Maximum 3 stacks. Lasts 3 turns; reapplying refreshes the duration.',
+      'Per stack: +${(corrodedDamageBonusPerStack(tier(OceanPower.brinemother)) * 100).round()}% damage taken, −5% attack damage. Maximum 3 stacks. Lasts 3 turns; reapplying refreshes the duration.',
     'Pinned' => 'Prevents movement and halves dodge this turn.',
     'Carapace' => 'Armor plating absorbs damage before flesh. Blast deals an extra +50% damage against Carapace, and Fire ignores it. Certain weapons specify different interactions.',
     'Critical Hits' => 'Deal 1.5× damage.',

@@ -1,0 +1,7 @@
+Analyzing monstrous_sea...
+
+   info - lib\src\widgets\shrine_blessing_preview.dart:247:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - test\shrine_blessing_preview_test.dart:29:17 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - test\shrine_blessing_ui_test.dart:25:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+3 issues found.

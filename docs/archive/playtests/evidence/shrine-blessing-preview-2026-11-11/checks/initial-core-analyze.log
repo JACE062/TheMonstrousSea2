@@ -1,0 +1,10 @@
+Analyzing monstrous_core...
+
+  error - lib\src\rules\combat.dart:655:19 - The property 'wakeBurnMultiplier' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!'). - unchecked_use_of_nullable_value
+  error - lib\src\rules\combat.dart:657:36 - The property 'wakeBurnMultiplier' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!'). - unchecked_use_of_nullable_value
+  error - lib\src\traits\trait.dart:197:37 - A value of type 'num' can't be assigned to a variable of type 'int'. Try changing the type of the variable, or casting the right-hand type to 'int'. - invalid_assignment
+  error - lib\src\traits\trait.dart:198:34 - A value of type 'num' can't be assigned to a variable of type 'int'. Try changing the type of the variable, or casting the right-hand type to 'int'. - invalid_assignment
+  error - lib\src\traits\trait.dart:201:55 - The argument type 'num' can't be assigned to the parameter type 'int'.  - argument_type_not_assignable
+   info - lib\src\rules\blessing_effects.dart:25:81 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+6 issues found.
