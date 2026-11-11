@@ -1,0 +1,32 @@
+00:00 +0: loading test/session/ancestral_armament_test.dart
+00:00 +0: test/session/ancestral_armament_test.dart: next-tier mounted damage preserves rounding and the tier cap
+00:00 +1: test/session/ancestral_armament_test.dart: BlueprintId.standard tier 1 ancestral purchase changes only the signature
+00:00 +2: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +3: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +4: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +5: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +6: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +7: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +8: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +9: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +10: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +11: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +12: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +13: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +14: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +15: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +16: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +17: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +18: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +19: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +20: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +21: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +22: test/session/stronghold_continuity_test.dart: region 0 TakeHelm preserves the build through stronghold and next combat
+00:00 +23: test/session/stronghold_continuity_test.dart: region 0 AdvanceToNextBattle preserves the build through stronghold and next combat
+00:00 +24: test/session/stronghold_continuity_test.dart: region 1 TakeHelm preserves the build through stronghold and next combat
+00:00 +25: test/session/stronghold_continuity_test.dart: region 1 AdvanceToNextBattle preserves the build through stronghold and next combat
+00:00 +26: test/session/stronghold_continuity_test.dart: strongholds and Havens charge the same gold and enforce identical caps
+00:00 +27: test/session/stronghold_continuity_test.dart: stronghold merchant returns to the same berth after reload
+00:00 +28: test/session/stronghold_continuity_test.dart: legacy stronghold and merchant checkpoints do not become home visits
+00:00 +29: test/session/stronghold_continuity_test.dart: permanent progression cannot be bought at sea or at a stronghold
+00:00 +30: All tests passed!

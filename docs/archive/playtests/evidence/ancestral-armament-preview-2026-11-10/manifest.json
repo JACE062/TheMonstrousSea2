@@ -1,0 +1,430 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "ccb154170baa373fecf3f23a3b5a84b06f148cf1",
+  "request": "Show exactly what the next ancestral armament tier changes before spending home-port materials.",
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "36d88639f647e81af70e2067f6dca8720620746f989061f379b00800097c26df"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ancestral_armament_preview.dart",
+      "sha256": "08c6bdf9ab54bfef07295d9f6ddc174bb0acf6d6f929b4336a75acd6ccebaffa"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/ancestral_armament_offer.dart",
+      "sha256": "27d182e9d0c3edb941c57c2acc17dc534c42a0b4918a77dc1616e4a578457d1e"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/upgrade_comparison.dart",
+      "sha256": "b97051a808d2b632584f18f87ce795d7b8de42277fa9865058db92df0e8a0978"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/voyage_shipwright_view.dart",
+      "sha256": "bc612745d4c567204fc2bdd8e10e208eafc30dd2b3a051e5388a1e6ce119463f"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/covenant_of_the_deep.dart",
+      "sha256": "8e1f40ddb59b60551196598e4a70bad14374c4ecc59a5d3036003d00fd3a997f"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "37a1e6299a25d98f0a7930a740527d525361e07f373bf4a08c696a994c8483bf"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/ancestral_armament_test.dart",
+      "sha256": "7da9cda6ae1e98f9aa021adc6c177bb0ae0d89ab5185a6246b5861c4c761fec3"
+    },
+    {
+      "path": "apps/monstrous_sea/test/ancestral_armament_preview_test.dart",
+      "sha256": "f6a8fa98ec822bfa94075aac46753268725d7ccf23e3edc8906e9233583a002e"
+    },
+    {
+      "path": "apps/monstrous_sea/test/ancestral_armament_ui_test.dart",
+      "sha256": "a5e84a8840291fd8069115f1ff3adb8a624e43f771d28cd50fa617908f6c1e59"
+    }
+  ],
+  "scope": {
+    "display": [
+      "current to next ancestral tier",
+      "signature multiplier",
+      "exact active mounted signature base damage",
+      "existing material cost",
+      "unaffordable and maximum states"
+    ],
+    "derivation": "Read-only profile and existing active signature; shared core damageAfterUpgrade keeps purchase rounding. Inactive blueprints show multipliers without generating a weapon or consuming RNG.",
+    "gameplayCorrection": "Future Standard ancestral purchases change signatures only, consistent with fresh commissions and documented progression. Existing broadside damage is never reduced or migrated.",
+    "roundingExample": {
+      "tier": 2,
+      "currentDamage": 23,
+      "nextDamage": 27
+    },
+    "unchanged": [
+      "multipliers 1.0/1.25/1.45",
+      "material prices",
+      "home-only and ownership gates",
+      "fitting marks",
+      "existing saved weapon values",
+      "provisional tuning",
+      "deferred Master Refits"
+    ]
+  },
+  "verification": {
+    "baselineCore": {
+      "cases": 13,
+      "passed": 10,
+      "failed": 3,
+      "finding": "Standard ancestral purchases incorrectly scale its broadside, including any previously enhanced damage."
+    },
+    "finalCoreCasesPassed": 30,
+    "initialApp": {
+      "cases": 99,
+      "passed": 97,
+      "failed": 2,
+      "finding": "Purchase fixture displayed PortScreen while session remained in captainCreation. Corrected fixtures enter port using ChooseShip and assert phase before purchase."
+    },
+    "focusedFixtureCorrectionPassed": 2,
+    "finalAppPreviewCasesPassed": 187,
+    "completeBlueprintDialogCasesPassed": 31,
+    "finalTargetedCasesPassed": 248,
+    "countNote": "Final core, preview and complete-dialog runs are separate; baseline, initial and focused reruns overlap those final cases and are not additive.",
+    "ancestralModelCases": 16,
+    "ancestralUiCases": 82,
+    "uiMatrix": {
+      "blueprints": [
+        "standard",
+        "ironclad",
+        "clipper",
+        "bombardier",
+        "corsair"
+      ],
+      "states": [
+        "poor",
+        "rich",
+        "owned",
+        "maxed"
+      ],
+      "widths": [
+        360,
+        1280
+      ],
+      "textScales": [
+        1.15,
+        1.3
+      ],
+      "realPurchaseFlows": [
+        "active Standard through Tier III",
+        "inactive Ironclad purchase leaves current vessel unchanged"
+      ]
+    },
+    "completeDialogSizes": [
+      "360x900",
+      "800x480",
+      "1280x850"
+    ],
+    "sharedRendererRegression": "Existing hull/fitting/purse tests (88 cases) and full blueprint drafting check included in final 187.",
+    "analysis": "App and core: no issues. Initial new public comparison widget key lint fixed.",
+    "visuallyInspected": [
+      "visual/final-ancestral-standard-1280.png",
+      "visual/final-ancestral-ironclad-360.png"
+    ],
+    "visualNote": "Initial review ancestral captures and corresponding final ancestral captures are byte-identical; final run also retains shared hull/fitting regression captures."
+  },
+  "commands": [
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart test test/session/ancestral_armament_test.dart test/session/covenant_and_trophies_test.dart test/session/stronghold_continuity_test.dart --reporter expanded",
+      "log": "checks/final-core-upgrades.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/ancestral_armament_preview_test.dart test/ancestral_armament_ui_test.dart test/blueprint_drafting_test.dart test/shipwright_hull_ui_test.dart test/shipwright_temper_ui_test.dart test/shipwright_purse_test.dart --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --dart-define=mapFocusProofPath=<evidence>/visual/final --reporter expanded",
+      "log": "checks/final-app-previews.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/home_layout_matrix_test.dart --name blueprints --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "log": "checks/home-blueprints.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter analyze",
+      "log": "checks/final-app-analyze.log"
+    },
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart analyze",
+      "log": "checks/core-analyze.log"
+    },
+    {
+      "cwd": ".",
+      "command": "python tools/check_docs.py; git diff --check",
+      "logs": [
+        "checks/docs-check.log",
+        "checks/whitespace.log"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/core-analyze.log",
+      "sha256": "f9cda8887b901c3a07b156c4ea82ffdade9e1a1f7fd6ed390596a8b4fcb1a82d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/core-upgrades.log",
+      "sha256": "28f37da5303736856d5aaf982ab02105c0b1251157a3ec63f17e4ddcebcdda1d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/docs-check.log",
+      "sha256": "8f5e07d3345120d48f8ab9156d5111cc957a290b214c534b98408ff9220fa622"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/final-app-analyze.log",
+      "sha256": "dd5edb7cb265c2e4860660bda86192046368afd5f847fb903fe3a33e2f979740"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/final-app-previews.log",
+      "sha256": "d1ed0315a363a0dd616a0b5dba487682bf6a0b2cc0360e6ef69b7a9a1c934812"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/final-core-upgrades.log",
+      "sha256": "2324d51e055069a88977cc735f6a71dadb235dfdaef7c173c2386932912fd53b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/home-blueprints.log",
+      "sha256": "15edeb1edf42888e864eac1b573e6393d8aeb88682af21428b29d8d057c0b4f1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/initial-app-analyze.log",
+      "sha256": "64cbd60f0bc4b4d5bc617a6a10339562016c3532c08add25e104f83d42d9d5b2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/preview-game-fonts.log",
+      "sha256": "30597ef0fa64c93959495a9d9cafeb51903db08db44d3184256a66a019fd713e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/purchases-corrected-fixture.log",
+      "sha256": "2a38c2e3f0693581246d29db6758357ced7ab81f006f85c01a2806985780af3f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/standard-baseline.log",
+      "sha256": "e92956268787ceb72695b7a03963b0a3ad16f71c0b670c8acdc1701494017901"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/checks/whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "captures": [
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-bombardier-1280.png",
+      "sha256": "a0c53ca6a9cff2e3983e64cb9389746498d4d8fea30b10d3f71e5ab7779972a5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-bombardier-360.png",
+      "sha256": "1295358381152a2855644e45b49fa9bc6a15e989f9fb7536a4e1b4266b1b4fe1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-clipper-1280.png",
+      "sha256": "db131398a5cf2d6301cb4bc401805bb6de9fbb0d8aa941b7557965bb973c7334"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-clipper-360.png",
+      "sha256": "79fe538583cb2ca12cb6b1ca8cc25661ee66b8ce959ddc7428be28815e5efdea"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-corsair-1280.png",
+      "sha256": "81eddb6a99705643fae8b731ef031b120af95c11ec8960ab386f8d60bc0b26fa"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-corsair-360.png",
+      "sha256": "38df3e86ca774692a9425a57426e816b622f1cecc91793147aae262fcb67071f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-ironclad-1280.png",
+      "sha256": "aa13786b1bb875952351682bf98c6abbbdffd321f3d998a05b36169f566112ec"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-ironclad-360.png",
+      "sha256": "0535a85560a53cbaf7182ffd9a0ce98b7e0ec24397c759a39c551d842ba5a406"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-standard-1280.png",
+      "sha256": "7fe23a7953c4d4e55f035f74fa86ea3722b4f9d1c2b12474239ecbc50dbf89a1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-ancestral-standard-360.png",
+      "sha256": "4fb35edbf2708401c126766194438448d4fc8e58b8863ed409caed12b4919213"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-bombardier-1280.png",
+      "sha256": "090d424d66989922c2e9e7cfba4b5ec9ec8213c96f2a27cf6d0b4e56a8ad770a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-bombardier-360.png",
+      "sha256": "7ac26ba983b99a699409cf8f2f8e98002788fc0dd0aa3b6e24fdbb3ba733aae6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-clipper-1280.png",
+      "sha256": "ab4a968e7c8c65e04b064ef5b0e73d5e7df6b92a9924870aba709f1eca9395ee"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-clipper-360.png",
+      "sha256": "3cfb92359d4301ff517ffa709ebf43c9e94853411e2fcaa390a1cff8a3cde91c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-corsair-1280.png",
+      "sha256": "073748c309554639b745f07282ba8f09f2d477326d2df6fba621f341e7116929"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-corsair-360.png",
+      "sha256": "a74547e09bfa80b3f5a401b9ad72e0a45971c3bcdea4e944f76e45879ada849b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-ironclad-1280.png",
+      "sha256": "b9e458384bdb6ca5953731d915a250fa7ea9a992edca6f84f8b45ac7253f3ae8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-ironclad-360.png",
+      "sha256": "989ae2a8022759fead94df27ade137f3172942214834618a60cc8c0bc511b7b1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-standard-1280.png",
+      "sha256": "fa0d5d7acaac5e3fc47bb29b7cd3fb0b497ae7005ff859e0ffe733303f46ed77"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-standard-360.png",
+      "sha256": "30f96b84796b7909d2adcbd69a6e75c5e8d5f8a9440e84ecc5af02e66a445867"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-bombardier-1280.png",
+      "sha256": "090d424d66989922c2e9e7cfba4b5ec9ec8213c96f2a27cf6d0b4e56a8ad770a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-bombardier-360.png",
+      "sha256": "fea44ac595d1591a9d3b6f0a74b3cd50b3ecd16a4cbaf6b7cb8ea2a1d531e370"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-clipper-1280.png",
+      "sha256": "ab4a968e7c8c65e04b064ef5b0e73d5e7df6b92a9924870aba709f1eca9395ee"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-clipper-360.png",
+      "sha256": "686c1e0b664e30775093cd48356f3974b7efc0a0e8c8e5d7a730f8af13dce7a7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-corsair-1280.png",
+      "sha256": "073748c309554639b745f07282ba8f09f2d477326d2df6fba621f341e7116929"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-corsair-360.png",
+      "sha256": "f6afdb6448fbb796b89e12e74568d098911947cf8cf5b5f8f1eea3f6ec765c57"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-ironclad-1280.png",
+      "sha256": "b9e458384bdb6ca5953731d915a250fa7ea9a992edca6f84f8b45ac7253f3ae8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-ironclad-360.png",
+      "sha256": "f1e455a4a1268043bd6d6f96c2cda6592204e695828c05c91f397b3f11fb9dcf"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-standard-1280.png",
+      "sha256": "fa0d5d7acaac5e3fc47bb29b7cd3fb0b497ae7005ff859e0ffe733303f46ed77"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-hull-summary-standard-360.png",
+      "sha256": "a8fcc674c92d06c08bf2217c24f18b2b2daf7aa33aec42f4c1578aec8d3bbbbb"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-bombardier-1280.png",
+      "sha256": "3e7842f4d4bc98bac196999b59ed145f105a1367c1106b7c604a47163089b5b6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-bombardier-360.png",
+      "sha256": "8b1a2ebecbf2e43a51482e08f92638b5c09628ccedb23212cc8782fbe39fb49c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-clipper-1280.png",
+      "sha256": "91543f1192122c0dcf702c9889bebb8c5e4785dbc0f6972382ffc09710b9427d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-clipper-360.png",
+      "sha256": "412affecc20533941df564ba0b67ffefa2382fb25bf0c585cda79c908e262248"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-corsair-1280.png",
+      "sha256": "49a9713535a818149c5cf3de0a7f50d49e4d30aec0ebedac5a3a63e06ad4361a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-corsair-360.png",
+      "sha256": "5ea7488b2168f4b4fe4f4315fde0798ffced8b6f239649b43f286060feff21e3"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-ironclad-1280.png",
+      "sha256": "ebd524250b6eff3f88cf6a89aedae0dde1d3eea9e259c9584f90e8f403fd9d6e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-ironclad-360.png",
+      "sha256": "989ae2a8022759fead94df27ade137f3172942214834618a60cc8c0bc511b7b1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-standard-1280.png",
+      "sha256": "7bea52e349ba5b52767b2db87f9dadc8a27a2729cee56b2e775a77fb76f6b412"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/final-shipwright-standard-360.png",
+      "sha256": "f04b28b2e3460ec7cd05ad1fe7c51e4f9dbe47cea65b7ea409c88c6c5a6e8888"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-bombardier-1280.png",
+      "sha256": "a0c53ca6a9cff2e3983e64cb9389746498d4d8fea30b10d3f71e5ab7779972a5"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-bombardier-360.png",
+      "sha256": "1295358381152a2855644e45b49fa9bc6a15e989f9fb7536a4e1b4266b1b4fe1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-clipper-1280.png",
+      "sha256": "db131398a5cf2d6301cb4bc401805bb6de9fbb0d8aa941b7557965bb973c7334"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-clipper-360.png",
+      "sha256": "79fe538583cb2ca12cb6b1ca8cc25661ee66b8ce959ddc7428be28815e5efdea"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-corsair-1280.png",
+      "sha256": "81eddb6a99705643fae8b731ef031b120af95c11ec8960ab386f8d60bc0b26fa"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-corsair-360.png",
+      "sha256": "38df3e86ca774692a9425a57426e816b622f1cecc91793147aae262fcb67071f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-ironclad-1280.png",
+      "sha256": "aa13786b1bb875952351682bf98c6abbbdffd321f3d998a05b36169f566112ec"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-ironclad-360.png",
+      "sha256": "0535a85560a53cbaf7182ffd9a0ce98b7e0ec24397c759a39c551d842ba5a406"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-standard-1280.png",
+      "sha256": "7fe23a7953c4d4e55f035f74fa86ea3722b4f9d1c2b12474239ecbc50dbf89a1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/ancestral-armament-preview-2026-11-10/visual/review-ancestral-standard-360.png",
+      "sha256": "4fb35edbf2708401c126766194438448d4fc8e58b8863ed409caed12b4919213"
+    }
+  ],
+  "isolation": {
+    "autosave": false,
+    "productionStorageOpened": false,
+    "playerSavesModified": false,
+    "nativeGameLaunched": false,
+    "sharedNativeBundleRebuilt": false,
+    "artChanged": false,
+    "existingEvidenceRetained": true
+  },
+  "logNormalization": "Terminal trailing spaces and CRLF normalized in this pass only; test output and prior evidence preserved."
+}

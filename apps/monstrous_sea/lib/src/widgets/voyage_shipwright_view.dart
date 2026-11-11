@@ -7,6 +7,7 @@ import 'ink_button.dart';
 import 'parchment_card.dart';
 import 'fitting_temper_preview.dart';
 import 'hull_upgrade_preview.dart';
+import 'upgrade_comparison.dart';
 
 /// The same paid voyage upgrades are offered at midpoint Havens and strongholds.
 class VoyageShipwrightView extends StatelessWidget {
@@ -100,7 +101,7 @@ class _HullOffer extends StatelessWidget {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Text('HULL TIER', style: InkTheme.statLabel),
-              _ValueComparison(
+              UpgradeValueComparison(
                 current: '${preview.currentTier}',
                 next: preview.nextTier?.toString(),
                 style: InkTheme.statLabel,
@@ -121,7 +122,7 @@ class _HullOffer extends StatelessWidget {
                 for (final stat in preview.stats)
                   SizedBox(
                     width: width,
-                    child: _StatComparison(
+                    child: UpgradeStatComparison(
                       valueKey: ValueKey('hull-upgrade-${stat.id}'),
                       label: stat.label,
                       current: stat.current,
@@ -176,7 +177,7 @@ class _FittingOffer extends StatelessWidget {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Text(preview.slot.displayName, style: InkTheme.statLabel),
-              _ValueComparison(
+              UpgradeValueComparison(
                 current: preview.currentMark,
                 next: preview.nextMark,
                 style: InkTheme.statLabel,
@@ -188,7 +189,7 @@ class _FittingOffer extends StatelessWidget {
         Text(preview.name, style: InkTheme.titleMedium),
         const SizedBox(height: 8),
         for (final (i, stat) in preview.stats.indexed)
-          _StatComparison(
+          UpgradeStatComparison(
             valueKey: ValueKey('fitting-temper-${preview.slot.name}-stat-$i'),
             label: stat.label,
             current: stat.currentText,
@@ -209,78 +210,5 @@ class _FittingOffer extends StatelessWidget {
         ),
       ],
     ),
-  );
-}
-
-class _StatComparison extends StatelessWidget {
-  const _StatComparison({
-    required this.valueKey,
-    required this.label,
-    required this.current,
-    required this.next,
-  });
-  final Key valueKey;
-  final String label;
-  final String current;
-  final String? next;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.only(bottom: 6),
-    child: Semantics(
-      label: '$label: $current${next == null ? '' : ' to $next'}',
-      excludeSemantics: true,
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 2,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          Text('$label:', style: InkTheme.body),
-          _ValueComparison(
-            key: valueKey,
-            current: current,
-            next: next,
-            style: InkTheme.bodyBold,
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-/// Draw arrows as icons: the atmospheric fonts do not contain that glyph.
-class _ValueComparison extends StatelessWidget {
-  const _ValueComparison({
-    super.key,
-    required this.current,
-    required this.next,
-    required this.style,
-  });
-  final String current;
-  final String? next;
-  final TextStyle style;
-
-  @override
-  Widget build(BuildContext context) => Wrap(
-    runSpacing: 2,
-    crossAxisAlignment: WrapCrossAlignment.center,
-    children: [
-      Text(current, style: style),
-      if (next != null)
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6),
-              child: Icon(
-                Icons.arrow_right_alt,
-                size: 20,
-                color: InkTheme.inkMuted,
-              ),
-            ),
-            Text(next!, style: style.copyWith(color: InkTheme.goldAccent)),
-          ],
-        ),
-    ],
   );
 }

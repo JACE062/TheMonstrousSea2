@@ -252,3 +252,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Hull upgrade previews 2026-11-10
 
 [The hull refit preview pass](playtests/HULL_UPGRADE_PREVIEWS_2026_11_10.md) shows exact current/next HP, weapon damage and changing defense/utility values before purchase. [Evidence](playtests/evidence/hull-upgrade-preview-2026-11-10/manifest.json) retains actual paid-refit comparisons, the compact overflow finding/fix, final 115–130% menus and analysis. Costs, mechanics, saves, art, earlier evidence and native previews remain preserved.
+
+## Ancestral armament previews 2026-11-10
+
+[The home-port preview pass](playtests/ANCESTRAL_ARMAMENT_PREVIEWS_2026_11_10.md) compares permanent tiers, signature multipliers and the active mount's exact damage before materials are spent. [Evidence](playtests/evidence/ancestral-armament-preview-2026-11-10/manifest.json) retains the Standard broadside bug reproduction/correction, paid-purchase checks, 115–130% blueprint and shared shipwright regressions, analysis and captures. Existing broadside stats, player saves, costs, art, native previews and prior evidence remain preserved; inspection terminology and Master Refits remain separate work.

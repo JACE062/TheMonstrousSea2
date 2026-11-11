@@ -149,6 +149,14 @@ class BlueprintArmamentProgression {
     if (tier == 2) return 1.25;
     return 1.45;
   }
+
+  /// Next-tier damage for an already-scaled mounted weapon, retaining rounding.
+  static int damageAfterUpgrade(int currentDamage, int currentTier) {
+    if (currentTier >= maxTier) return currentDamage;
+    return ((currentDamage / damageMultiplierForTier(currentTier)) *
+            damageMultiplierForTier(currentTier + 1))
+        .round();
+  }
 }
 
 /// Post-loop Chapter 2: Transformative Eldritch Relic Weapons unlocked using

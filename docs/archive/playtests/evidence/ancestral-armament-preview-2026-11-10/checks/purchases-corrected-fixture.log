@@ -1,0 +1,6 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: successive ancestral purchases refresh materials, damage and maximum state
+00:01 +1: inactive blueprint upgrades change its multiplier without commissioning a vessel
+00:01 +2: (tearDownAll)
+00:01 +2: All tests passed!

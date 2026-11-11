@@ -1,0 +1,5 @@
+Analyzing monstrous_sea...
+
+   info - Constructors for public widgets should have a named 'key' parameter. Try adding a named parameter to the constructor - lib\src\widgets\upgrade_comparison.dart:6:9 - use_key_in_widget_constructors
+
+1 issue found. (ran in 5.5s)

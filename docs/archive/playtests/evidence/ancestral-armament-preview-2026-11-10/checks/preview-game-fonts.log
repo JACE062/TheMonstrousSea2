@@ -1,0 +1,263 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.standard tier 1 preview matches active and inactive purchases
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.standard tier 2 preview matches active and inactive purchases
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.standard tier 3 preview matches active and inactive purchases
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.ironclad tier 1 preview matches active and inactive purchases
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.ironclad tier 2 preview matches active and inactive purchases
+00:00 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.ironclad tier 3 preview matches active and inactive purchases
+00:00 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.clipper tier 1 preview matches active and inactive purchases
+00:00 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.clipper tier 2 preview matches active and inactive purchases
+00:00 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.clipper tier 3 preview matches active and inactive purchases
+00:00 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.bombardier tier 1 preview matches active and inactive purchases
+00:00 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.bombardier tier 2 preview matches active and inactive purchases
+00:00 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.bombardier tier 3 preview matches active and inactive purchases
+00:00 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.corsair tier 1 preview matches active and inactive purchases
+00:00 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.corsair tier 2 preview matches active and inactive purchases
+00:00 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: BlueprintId.corsair tier 3 preview matches active and inactive purchases
+00:00 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: other blueprints never borrow the active ship damage or create a new roll
+00:00 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_preview_test.dart: (tearDownAll)
+00:02 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: (setUpAll)
+00:02 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.poor ancestral preview 360.0/1.15
+00:04 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/blueprint_drafting_test.dart: Shipwright Drafting Table & Blueprint Unlocks PortScreen opens Blueprints dialog, displays hardpoints, unlocks and commissions Ironclad
+00:04 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.poor ancestral preview 360.0/1.3
+00:04 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.poor ancestral preview 1280.0/1.15
+00:04 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.poor ancestral preview 1280.0/1.3
+00:04 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.rich ancestral preview 360.0/1.15
+00:05 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.rich ancestral preview 360.0/1.3
+00:05 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.rich ancestral preview 1280.0/1.15
+00:05 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.rich ancestral preview 1280.0/1.3
+00:05 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.owned ancestral preview 360.0/1.15
+00:06 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.owned ancestral preview 360.0/1.3
+00:06 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.owned ancestral preview 1280.0/1.15
+00:06 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.owned ancestral preview 1280.0/1.3
+00:06 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.maxed ancestral preview 360.0/1.15
+00:06 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.maxed ancestral preview 360.0/1.3
+00:06 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.maxed ancestral preview 1280.0/1.15
+00:06 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.standard Wealth.maxed ancestral preview 1280.0/1.3
+00:07 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.poor ancestral preview 360.0/1.15
+00:07 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.poor ancestral preview 360.0/1.3
+00:07 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.poor ancestral preview 1280.0/1.15
+00:07 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.poor ancestral preview 1280.0/1.3
+00:07 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.rich ancestral preview 360.0/1.15
+00:07 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.rich ancestral preview 360.0/1.3
+00:07 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.rich ancestral preview 1280.0/1.15
+00:08 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.rich ancestral preview 1280.0/1.3
+00:08 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.owned ancestral preview 360.0/1.15
+00:08 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.owned ancestral preview 360.0/1.3
+00:08 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.owned ancestral preview 1280.0/1.15
+00:08 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.owned ancestral preview 1280.0/1.3
+00:09 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.maxed ancestral preview 360.0/1.15
+00:09 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.maxed ancestral preview 360.0/1.3
+00:09 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.maxed ancestral preview 1280.0/1.15
+00:09 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.ironclad Wealth.maxed ancestral preview 1280.0/1.3
+00:09 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.poor ancestral preview 360.0/1.15
+00:09 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.poor ancestral preview 360.0/1.3
+00:09 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.poor ancestral preview 1280.0/1.15
+00:09 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.poor ancestral preview 1280.0/1.3
+00:10 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.rich ancestral preview 360.0/1.15
+00:10 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.rich ancestral preview 360.0/1.3
+00:10 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.rich ancestral preview 1280.0/1.15
+00:10 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.rich ancestral preview 1280.0/1.3
+00:10 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.owned ancestral preview 360.0/1.15
+00:10 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.owned ancestral preview 360.0/1.3
+00:10 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.owned ancestral preview 1280.0/1.15
+00:11 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.owned ancestral preview 1280.0/1.3
+00:11 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.maxed ancestral preview 360.0/1.15
+00:11 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.maxed ancestral preview 360.0/1.3
+00:11 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.maxed ancestral preview 1280.0/1.15
+00:11 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.clipper Wealth.maxed ancestral preview 1280.0/1.3
+00:11 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.poor ancestral preview 360.0/1.15
+00:11 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.poor ancestral preview 360.0/1.3
+00:11 +67: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.poor ancestral preview 1280.0/1.15
+00:11 +68: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.poor ancestral preview 1280.0/1.3
+00:12 +69: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.rich ancestral preview 360.0/1.15
+00:12 +70: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.rich ancestral preview 360.0/1.3
+00:12 +71: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.rich ancestral preview 1280.0/1.15
+00:12 +72: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.rich ancestral preview 1280.0/1.3
+00:12 +73: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.owned ancestral preview 360.0/1.15
+00:12 +74: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.owned ancestral preview 360.0/1.3
+00:12 +75: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.owned ancestral preview 1280.0/1.15
+00:13 +76: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.owned ancestral preview 1280.0/1.3
+00:13 +77: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.maxed ancestral preview 360.0/1.15
+00:13 +78: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.maxed ancestral preview 360.0/1.3
+00:13 +79: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.maxed ancestral preview 1280.0/1.15
+00:13 +80: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.bombardier Wealth.maxed ancestral preview 1280.0/1.3
+00:13 +81: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.poor ancestral preview 360.0/1.15
+00:13 +82: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.poor ancestral preview 360.0/1.3
+00:14 +83: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.poor ancestral preview 1280.0/1.15
+00:14 +84: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.poor ancestral preview 1280.0/1.3
+00:14 +85: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.rich ancestral preview 360.0/1.15
+00:14 +86: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.rich ancestral preview 360.0/1.3
+00:14 +87: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.rich ancestral preview 1280.0/1.15
+00:14 +88: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.rich ancestral preview 1280.0/1.3
+00:14 +89: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.owned ancestral preview 360.0/1.15
+00:14 +90: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.owned ancestral preview 360.0/1.3
+00:15 +91: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.owned ancestral preview 1280.0/1.15
+00:15 +92: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.owned ancestral preview 1280.0/1.3
+00:15 +93: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.maxed ancestral preview 360.0/1.15
+00:15 +94: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.maxed ancestral preview 360.0/1.3
+00:15 +95: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.maxed ancestral preview 1280.0/1.15
+00:15 +96: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: BlueprintId.corsair Wealth.maxed ancestral preview 1280.0/1.3
+00:15 +97: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: successive ancestral purchases refresh materials, damage and maximum state
+══╡ EXCEPTION CAUGHT BY GESTURE ╞═══════════════════════════════════════════════════════════════════
+The following StateError was thrown while handling a gesture:
+Bad state: Permanent progression is only available at the home port
+
+When the exception was thrown, this was the stack:
+#0      GameSession._requireHomePort (package:monstrous_core/src/session/game_session.dart:199:7)
+#1      GameSession._handleUpgradeBlueprintArmament (package:monstrous_core/src/session/game_session.dart:717:5)
+#2      GameSession._dispatchCommand (package:monstrous_core/src/session/game_session.dart:498:9)
+#3      GameSession.dispatch (package:monstrous_core/src/session/game_session.dart:424:35)
+#4      GameController.dispatch (package:monstrous_sea/src/game_controller.dart:123:28)
+#5      _PortScreenState._showBlueprintsDialog.<anonymous closure>.<anonymous closure>.<anonymous closure>.<anonymous closure> (package:monstrous_sea/src/screens/port_screen.dart:239:52)
+#6      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#7      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:362:24)
+#8      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#9      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#10     BaseTapGestureRecognizer.acceptGesture (package:flutter/src/gestures/tap.dart:353:7)
+#11     GestureArenaManager.sweep (package:flutter/src/gestures/arena.dart:173:27)
+#12     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:542:20)
+#13     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:508:22)
+#14     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#15     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:447:7)
+#16     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:404:5)
+#17     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1571:42)
+#18     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1581:11)
+#19     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1571:5)
+#20     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#23     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#24     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#25     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#28     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#29     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#30     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1155:21)
+<asynchronous suspension>
+#31     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#32     main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart:160:9)
+<asynchronous suspension>
+#33     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#34     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Handler: "onTap"
+Recognizer:
+  TapGestureRecognizer#d4eb5
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <2>
+  Actual: <1>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart:162:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart line 162
+The test description was:
+  successive ancestral purchases refresh materials, damage and maximum state
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:16 +97 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: successive ancestral purchases refresh materials, damage and maximum state [E]
+  Test failed. See exception logs above.
+  The test description was: successive ancestral purchases refresh materials, damage and maximum state
+
+00:16 +97 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: inactive blueprint upgrades change its multiplier without commissioning a vessel
+══╡ EXCEPTION CAUGHT BY GESTURE ╞═══════════════════════════════════════════════════════════════════
+The following StateError was thrown while handling a gesture:
+Bad state: Permanent progression is only available at the home port
+
+When the exception was thrown, this was the stack:
+#0      GameSession._requireHomePort (package:monstrous_core/src/session/game_session.dart:199:7)
+#1      GameSession._handleUpgradeBlueprintArmament (package:monstrous_core/src/session/game_session.dart:717:5)
+#2      GameSession._dispatchCommand (package:monstrous_core/src/session/game_session.dart:498:9)
+#3      GameSession.dispatch (package:monstrous_core/src/session/game_session.dart:424:35)
+#4      GameController.dispatch (package:monstrous_sea/src/game_controller.dart:123:28)
+#5      _PortScreenState._showBlueprintsDialog.<anonymous closure>.<anonymous closure>.<anonymous closure>.<anonymous closure> (package:monstrous_sea/src/screens/port_screen.dart:239:52)
+#6      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#7      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:362:24)
+#8      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#9      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#10     BaseTapGestureRecognizer.acceptGesture (package:flutter/src/gestures/tap.dart:353:7)
+#11     GestureArenaManager.sweep (package:flutter/src/gestures/arena.dart:173:27)
+#12     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:542:20)
+#13     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:508:22)
+#14     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#15     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:447:7)
+#16     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:404:5)
+#17     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1571:42)
+#18     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1581:11)
+#19     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1571:5)
+#20     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#23     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#24     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#25     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#28     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#29     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#30     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1155:21)
+<asynchronous suspension>
+#31     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#32     main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart:208:7)
+<asynchronous suspension>
+#33     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#34     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Handler: "onTap"
+Recognizer:
+  TapGestureRecognizer#b32b2
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <3>
+  Actual: <2>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart:210:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart line 210
+The test description was:
+  inactive blueprint upgrades change its multiplier without commissioning a vessel
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:16 +97 -2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: inactive blueprint upgrades change its multiplier without commissioning a vessel [E]
+  Test failed. See exception logs above.
+  The test description was: inactive blueprint upgrades change its multiplier without commissioning a vessel
+
+00:16 +97 -2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: (tearDownAll)
+00:16 +97 -2: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: inactive blueprint upgrades change its multiplier without commissioning a vessel
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/ancestral_armament_ui_test.dart: successive ancestral purchases refresh materials, damage and maximum state

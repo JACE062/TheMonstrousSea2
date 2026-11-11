@@ -13,6 +13,8 @@ import '../widgets/svg_asset_view.dart';
 import '../widgets/pilot_art.dart';
 import '../widgets/mechanic_text.dart';
 import '../widgets/utility_description.dart';
+import '../widgets/ancestral_armament_preview.dart';
+import '../widgets/ancestral_armament_offer.dart';
 
 /// Hub screen at Hunter's Respite Port for repairs, trade, and chart planning.
 class PortScreen extends StatefulWidget {
@@ -123,17 +125,14 @@ class _PortScreenState extends State<PortScreen> {
                           final isActive =
                               controller.ship?.blueprintId == bpId.name;
                           final canAfford = profile.canUnlockBlueprint(bpId);
-                          final tier = profile.armamentTierFor(bpId);
-                          final nextCost =
-                              BlueprintArmamentProgression.costForNextTier(
-                                tier,
-                              );
+                          final armamentPreview = AncestralArmamentPreview(
+                            profile,
+                            bpId,
+                            activeShip: controller.ship,
+                          );
+                          final nextCost = armamentPreview.cost;
                           final canUpgrade = profile
                               .canUpgradeBlueprintArmament(bpId);
-                          final multiplier =
-                              BlueprintArmamentProgression.damageMultiplierForTier(
-                                tier,
-                              );
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 14),
                             child: ParchmentCard(
@@ -227,51 +226,23 @@ class _PortScreenState extends State<PortScreen> {
                                   ],
                                   if (isUnlocked) ...[
                                     const Divider(height: 20),
-                                    Text(
-                                      'SIGNATURE ARMAMENT: TIER $tier',
-                                      style: InkTheme.statLabel.copyWith(
-                                        fontSize: 13,
+                                    AncestralArmamentOffer(
+                                      key: ValueKey(
+                                        'ancestral-offer-${bpId.name}',
                                       ),
+                                      preview: armamentPreview,
+                                      canUpgrade: canUpgrade,
+                                      costDescription: nextCost == null
+                                          ? null
+                                          : _formatUnlockCost(nextCost),
+                                      onUpgrade: () {
+                                        controller.dispatch(
+                                          UpgradeBlueprintArmament(bpId),
+                                        );
+                                        setDialogState(() {});
+                                        setState(() {});
+                                      },
                                     ),
-                                    Text(
-                                      '${multiplier.toStringAsFixed(2)}x DMG',
-                                      style: InkTheme.statValue.copyWith(
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    if (nextCost != null) ...[
-                                      Text(
-                                        'Permanent refit: ${_formatUnlockCost(nextCost)}',
-                                        style: InkTheme.body.copyWith(
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 8),
-                                      InkButton(
-                                        label: canUpgrade
-                                            ? 'UPGRADE TIER ${tier + 1}'
-                                            : 'LACKS MATERIALS',
-                                        semanticLabel:
-                                            'Upgrade ${bp.name} signature armament to Tier ${tier + 1}',
-                                        onPressed: canUpgrade
-                                            ? () {
-                                                controller.dispatch(
-                                                  UpgradeBlueprintArmament(
-                                                    bpId,
-                                                  ),
-                                                );
-                                                setDialogState(() {});
-                                                setState(() {});
-                                              }
-                                            : null,
-                                      ),
-                                    ] else
-                                      Text(
-                                        'MAX TIER',
-                                        style: InkTheme.statLabel.copyWith(
-                                          fontSize: 14,
-                                        ),
-                                      ),
                                   ],
                                 ],
                               ),

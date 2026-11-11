@@ -722,13 +722,11 @@ class GameSession {
     final newTier = profile.armamentTierFor(blueprintId);
     if (ship != null && ship!.blueprintId == blueprintId.name) {
       // Refresh signature weapon tier on the active flagship
-      final mult = BlueprintArmamentProgression.damageMultiplierForTier(newTier);
-      final prevMult =
-          BlueprintArmamentProgression.damageMultiplierForTier(newTier - 1);
       final numeral = newTier == 2 ? 'II' : 'III';
       for (final w in ship!.equippedWeapons) {
-        if (w.isSignature || blueprintId == BlueprintId.standard) {
-          w.damage = ((w.damage / prevMult) * mult).round();
+        if (w.isSignature) {
+          w.damage = BlueprintArmamentProgression.damageAfterUpgrade(
+            w.damage, newTier - 1);
           final baseName = w.name.replaceAll(RegExp(r' (II|III)$'), '');
           w.name = '$baseName $numeral';
         }

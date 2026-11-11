@@ -1,0 +1,54 @@
+00:00 +0: loading test/session/ancestral_armament_test.dart
+00:00 +0: BlueprintId.standard tier 1 ancestral purchase changes only the signature
+00:00 +0 -1: BlueprintId.standard tier 1 ancestral purchase changes only the signature [E]
+  Expected: '{"kind":"shipWeapon","id":"cannon_1","name":"Naval Cannon Battery","description":"A reliable cast-iron smoothbore cannon firing lead-alloy solid shot.","value":20,"rarity":"common","damage":10,"hitModifier":85,"chargeTime":0,"chargeCountdown":0,"damageType":"piercing","statusEffect":null,"equipWeight":1,"weaponType":"cannon"}'
+    Actual: '{"kind":"shipWeapon","id":"cannon_1","name":"Naval Cannon Battery II","description":"A reliable cast-iron smoothbore cannon firing lead-alloy solid shot.","value":20,"rarity":"common","damage":13,"hitModifier":85,"chargeTime":0,"chargeCountdown":0,"damageType":"piercing","statusEffect":null,"equipWeight":1,"weaponType":"cannon"}'
+     Which: is different.
+            Expected: ... on Battery","descrip ...
+              Actual: ... on Battery II","desc ...
+                                    ^
+             Differ at offset 65
+
+  package:matcher                                 expect
+  test\session\ancestral_armament_test.dart 32:9  main.<fn>
+
+00:00 +0 -1: BlueprintId.standard tier 2 ancestral purchase changes only the signature
+00:00 +0 -2: BlueprintId.standard tier 2 ancestral purchase changes only the signature [E]
+  Expected: '{"kind":"shipWeapon","id":"cannon_3","name":"Naval Cannon Battery","description":"A reliable cast-iron smoothbore cannon firing lead-alloy solid shot.","value":20,"rarity":"common","damage":10,"hitModifier":85,"chargeTime":0,"chargeCountdown":0,"damageType":"piercing","statusEffect":null,"equipWeight":1,"weaponType":"cannon"}'
+    Actual: '{"kind":"shipWeapon","id":"cannon_3","name":"Naval Cannon Battery III","description":"A reliable cast-iron smoothbore cannon firing lead-alloy solid shot.","value":20,"rarity":"common","damage":12,"hitModifier":85,"chargeTime":0,"chargeCountdown":0,"damageType":"piercing","statusEffect":null,"equipWeight":1,"weaponType":"cannon"}'
+     Which: is different.
+            Expected: ... on Battery","descrip ...
+              Actual: ... on Battery III","des ...
+                                    ^
+             Differ at offset 65
+
+  package:matcher                                 expect
+  test\session\ancestral_armament_test.dart 32:9  main.<fn>
+
+00:00 +0 -2: BlueprintId.ironclad tier 1 ancestral purchase changes only the signature
+00:00 +1 -2: BlueprintId.ironclad tier 2 ancestral purchase changes only the signature
+00:00 +2 -2: BlueprintId.clipper tier 1 ancestral purchase changes only the signature
+00:00 +3 -2: BlueprintId.clipper tier 2 ancestral purchase changes only the signature
+00:00 +4 -2: BlueprintId.bombardier tier 1 ancestral purchase changes only the signature
+00:00 +5 -2: BlueprintId.bombardier tier 2 ancestral purchase changes only the signature
+00:00 +6 -2: BlueprintId.corsair tier 1 ancestral purchase changes only the signature
+00:00 +7 -2: BlueprintId.corsair tier 2 ancestral purchase changes only the signature
+00:00 +8 -2: inactive ancestral upgrades do not alter the commissioned vessel
+00:00 +9 -2: ancestral purchase keeps any existing Standard broadside damage intact
+00:00 +9 -3: ancestral purchase keeps any existing Standard broadside damage intact [E]
+  Expected: <99>
+    Actual: <124>
+
+  package:matcher                                 expect
+  test\session\ancestral_armament_test.dart 50:5  main.<fn>
+
+00:00 +9 -3: home-only, affordability and maximum gates preserve materials on rejection
+00:00 +10 -3: Some tests failed.
+
+Failing tests:
+  test/session/ancestral_armament_test.dart: BlueprintId.standard tier 1 ancestral purchase changes only the signature
+  test/session/ancestral_armament_test.dart: BlueprintId.standard tier 2 ancestral purchase changes only the signature
+  test/session/ancestral_armament_test.dart: ancestral purchase keeps any existing Standard broadside damage intact
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
