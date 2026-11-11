@@ -18,7 +18,7 @@ Start here for The Monstrous Sea V2. This guide replaced the overlapping handoff
 | [Navigation implementation handoff](design/navigation-implementation.md) | New-chat readiness work, source map, bounded implementation packages and acceptance checks. | Taking over the accepted refactor without repeating the design discussion. |
 | [Voyage economy](design/voyage-economy.md) | Selected stock/repair/progression details, audit findings and separately marked unapproved candidates. | Reviewing the refactor's rewards, recovery, spending and material access. |
 | [Player copy review](design/player-copy-review.md) | 36 implemented wording selections; C28 remains working prose. Preserves IDs C01–C36. | Reviewing immersive/concise copy without assuming a blanket rewrite is approved. |
-| [Action/condition copy review](design/mechanic-copy-review.md) | D01–D44 implemented selections for concise effects, Burning/Shaken terminology and linked condition help; D33 explicitly changes retaliation to Blast. | Reviewing the 8 November selections, retained effects and contextual keyword help. |
+| [Action/condition copy review](design/mechanic-copy-review.md) | D01–D44 implemented selections; E01–E33 are pending tooltip copy proposals. D33 explicitly changes retaliation to Blast. | Reviewing concise effects, Burning/Shaken terminology, contextual help and the pending tooltip wording choices. |
 
 The [asset manifest](art/sea_map_art_manifest.json), [art revision records](art/sea_map_revisions_v5.json), and [approved chart markers](art/chart_icon_prompts.json) are visual evidence for asset work. They do not define gameplay. [Playtest screenshots](playtests/2026-10-20/) remain available as evidence.
 

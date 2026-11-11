@@ -192,6 +192,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 
 ### PT2-11 — Combat UI does not function as a readable command station
 
+- **Tooltip copy review, 10 November 2026 — proposals awaiting player selection:** [E01–E33](design/mechanic-copy-review.md#pending-tooltip-copy-review) compare current tooltip text with shorter alternatives, including borderline cuts. No E proposal is applied yet. After this review, the user wants pre-purchase fitting tempering previews; that known UI gap is recorded under [PT2-20](#pt2-20--stronghold-hull-upgrades-mk-tempering-and-master-refits-are-missing), separately from deferred Master Refits.
+
 - **Concise fitting help, 10 November 2026 — implemented; player replay pending:** The [receipt](archive/README.md#concise-fitting-help-2026-11-10) records removal of duplicate target dodge and secondary action-response predictions from fitting tooltips. Computed opening accuracy, direct movement/effect descriptions, enemy dodge HUD, lookout and Inspect remain. The obsolete tooltip-only forecast helper is removed; combat movement/order, values and saves are unchanged.
 
 - **Tooltip sweep, 10 November 2026 — implemented; player replay pending:** The [inventory and receipt](archive/README.md#tooltip-sweep-2026-11-10) review all tooltip producers and walk current screen targets at 115%, with selected 130%/short-window checks. Shared fixes use painted source bounds, track scrolling, dismiss offscreen sources, protect dense-label hover paths without consuming clicks, and fit linked cards into available space. Gold styling, inputs, displayed contextual values, gameplay, player saves and earlier evidence remain intact.
@@ -358,6 +360,8 @@ The Nemesis/death-ledger follow-up, continuity batch A and B's Serpent, ink and 
 - **Acceptance:** Test both regional strongholds and both existing advance commands, including saved completed-Titan checkpoints. Home remains available to subsequent heirs; reaching a stronghold never starts a fresh run.
 
 ### PT2-20 — Stronghold hull upgrades, Mk tempering, and Master Refits are missing
+
+- **Next after the tooltip copy review, requested 10 November 2026 — not implemented:** Show what each fitting tempering purchase changes before the player buys it. [VoyageShipwrightView](../apps/monstrous_sea/lib/src/widgets/voyage_shipwright_view.dart) currently shows fitting slot, current Mk, price and maximum/affordability state, without the next mark's effects. Review current-to-next values for Broadside, Signature and Utility across blueprints, using the actual upgrade rules. This is purchase information for the existing Haven/stronghold service, not new tempering effects, balance changes or the deferred Master Refit system.
 
 - **Status: hull/Mk services implemented; Master Refits remain deferred.** The user approved reusing Haven costs, caps, and upgrade rules at strongholds. Gold buys voyage hull tiers and Mk marks; meta-materials buy permanent blueprint progression at home. Both voyage locations now share one shipwright view and existing core handlers. Master Refit catalogs, prices, and choice rules still require the separate Phase 4 discussion.
 
