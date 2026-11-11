@@ -168,8 +168,8 @@ void main() {
         expect(controller.session.profile.hasExpandedAuxiliarySlot, isFalse);
 
         // Standard is unlocked by default, check Tier 1 status
-        expect(find.text('SIGNATURE ARMAMENT: TIER 1'), findsOneWidget);
-        expect(find.text('1.00x DMG'), findsOneWidget);
+        expect(find.text('Tier 1'), findsOneWidget);
+        expect(find.text('1.00x'), findsOneWidget);
 
         // Provide materials for Tier 2 Signature Armament (1 Beak, 10 Sea Glass, 8 Bone)
         controller.session.profile.metaInventory.add(
@@ -194,8 +194,8 @@ void main() {
           controller.session.profile.armamentTierFor(BlueprintId.standard),
           equals(2),
         );
-        expect(find.text('SIGNATURE ARMAMENT: TIER 2'), findsOneWidget);
-        expect(find.text('1.25x DMG'), findsOneWidget);
+        expect(find.text('Tier 2'), findsOneWidget);
+        expect(find.text('1.25x'), findsOneWidget);
 
         // Now upgrade to Tier 3 (2 Beaks, 1 Serpent Scale, 8 Iron, 6 Barnacles)
         controller.session.profile.metaInventory.add(
@@ -221,8 +221,8 @@ void main() {
           controller.session.profile.armamentTierFor(BlueprintId.standard),
           equals(3),
         );
-        expect(find.text('SIGNATURE ARMAMENT: TIER 3'), findsOneWidget);
-        expect(find.text('1.45x DMG'), findsOneWidget);
+        expect(find.text('Tier 3'), findsOneWidget);
+        expect(find.text('1.45x'), findsOneWidget);
         expect(find.text('MAX TIER'), findsOneWidget);
       },
     );
@@ -364,12 +364,22 @@ void main() {
       expect(find.textContaining('OBSIDIAN TIDE-OBELISK'), findsOneWidget);
       expect(find.textContaining('IDOL OF THE COILED DEEP'), findsOneWidget);
       expect(find.textContaining('BRAZIER OF THE ETERNAL RIM'), findsOneWidget);
-      expect(find.text('RANK 0'), findsNWidgets(3));
+      for (final id in HarborMonumentId.values) {
+        expect(
+          find.descendant(
+            of: find.byKey(ValueKey('monument-rank-${id.name}')),
+            matching: find.text('0'),
+          ),
+          findsOneWidget,
+        );
+      }
 
       // Upgrade Obsidian Obelisk to Rank 1
       final upgradeMonBtn = find.widgetWithText(InkWell, 'UPGRADE (Rank 1)');
       expect(upgradeMonBtn, findsWidgets);
 
+      await tester.ensureVisible(upgradeMonBtn.first);
+      await tester.pumpAndSettle();
       await tester.tap(upgradeMonBtn.first);
       await tester.pumpAndSettle();
 
@@ -379,7 +389,13 @@ void main() {
         ),
         equals(1),
       );
-      expect(find.text('RANK 1'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('monument-rank-obsidianObelisk')),
+          matching: find.text('1'),
+        ),
+        findsOneWidget,
+      );
     });
   });
 }

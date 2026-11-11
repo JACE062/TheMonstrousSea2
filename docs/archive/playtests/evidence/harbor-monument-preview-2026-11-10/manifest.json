@@ -1,0 +1,228 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "e89752914f2f473fdd96b94bbe2af1bb3ba16107",
+  "request": "Show the exact next Harbor Monument rank changes before spending materials at the home port.",
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "598a86cb433f527b5ef213c955a40a176de2c4b0df4182d3367b88c0b88ba9cc"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/harbor_monument_preview.dart",
+      "sha256": "f3b959daf4b14cff185d5135dde6c4efbe1b2d4f0d588c023a84ea5173c3fa64"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/harbor_monument_offer.dart",
+      "sha256": "083c9ad5d01b39f632c2dfeefe560fac84c39b4c08722d1c81da236ed22f6f94"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/upgrade_comparison.dart",
+      "sha256": "b97051a808d2b632584f18f87ce795d7b8de42277fa9865058db92df0e8a0978"
+    },
+    {
+      "path": "apps/monstrous_sea/test/harbor_monument_preview_test.dart",
+      "sha256": "c034a5eb3c76e2f75bde67747fa844c1f2343072a80320d40e63223ba2eabc25"
+    },
+    {
+      "path": "apps/monstrous_sea/test/harbor_monument_ui_test.dart",
+      "sha256": "73ffa5c57dbf57904d0726b867e021c7c5ce255c2a496f60c32d086ce4779f76"
+    },
+    {
+      "path": "apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart",
+      "sha256": "0ee03320249c323f0aef79d8ffaea887b3408f177b7e6d8b532f007a3ba2e8bd"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/persistence/profile_data.dart",
+      "sha256": "fdc607c154b8fb0f8e2f05e9c00073197dd1c270495358fe8d372fcb2f5000d6"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/model/covenant_of_the_deep.dart",
+      "sha256": "8e1f40ddb59b60551196598e4a70bad14374c4ecc59a5d3036003d00fd3a997f"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "37a1e6299a25d98f0a7930a740527d525361e07f373bf4a08c696a994c8483bf"
+    }
+  ],
+  "scope": {
+    "display": [
+      "current to next rank",
+      "total maximum hull bonus",
+      "total bounty gold bonus",
+      "total weapon damage bonus",
+      "existing next-rank material quote",
+      "affordable and unaffordable states"
+    ],
+    "derivation": "Core ProfileData bonus getters for current civic levels and a detached level map with only the selected rank advanced; HarborMonumentDef.costForRank supplies the quote.",
+    "rankCap": null,
+    "costClamp": "Existing costForRank clamps price input to 99; displayed ranks and bonuses continue beyond 99.",
+    "unchanged": [
+      "core code and per-rank effects",
+      "material prices",
+      "Covenant and home-port gates",
+      "save formats and player data",
+      "art",
+      "deferred living-town features"
+    ]
+  },
+  "verification": {
+    "initialApp": {
+      "cases": 52,
+      "passed": 51,
+      "failed": 1,
+      "finding": "Existing ancestral regression still expected labels replaced by the previous preview pass. Assertions updated to the current tier and multiplier texts."
+    },
+    "finalPreviewAndRegressionCasesPassed": 52,
+    "previewModelCases": 20,
+    "previewUiCases": 27,
+    "completeMonumentDialogCasesPassed": 15,
+    "finalTargetedCasesPassed": 67,
+    "countNote": "Final 52-case preview/regression run plus separate 15-case full-dialog run. Initial run overlaps final cases; do not add it.",
+    "modelRanks": [
+      0,
+      1,
+      2,
+      10,
+      99,
+      100
+    ],
+    "modelValidation": [
+      "real paid upgrade matches preview and exact deduction",
+      "hardcoded per-rank bonus increments",
+      "unrelated monument ranks unchanged",
+      "missing hull preserved by the existing Obelisk effect",
+      "profile/ship/chart preview snapshots unchanged",
+      "locked and poor profiles",
+      "rank-99 price clamp retained"
+    ],
+    "uiMatrix": {
+      "monuments": [
+        "obsidianObelisk",
+        "serpentEffigy",
+        "calderaBrazier"
+      ],
+      "states": [
+        "rank 0 poor",
+        "rank 0 affordable",
+        "rank 2 affordable",
+        "rank 100 affordable"
+      ],
+      "sizes": [
+        "360x900",
+        "800x480",
+        "1280x900"
+      ],
+      "textScales": [
+        1.15,
+        1.3
+      ]
+    },
+    "uiPurchaseValidation": "All three monuments: successive purchases refresh rank, effect, exact displayed quote and balance; exact-cost purchase leaves a visible disabled next-rank offer.",
+    "completeDialogSizes": [
+      "360x900",
+      "800x480",
+      "1280x850"
+    ],
+    "analysis": "Final flutter analyze: no issues.",
+    "invocationError": "An attempted pipe-separated test-name filter failed in the Windows wrapper before running tests. Retained invocation log; single-name monument filter passes all 15 selected cases.",
+    "visuallyInspected": [
+      "visual/review-monument-obsidianObelisk-1280.png",
+      "visual/review-monument-calderaBrazier-360.png"
+    ],
+    "captureNote": "Six cached-font captures from the initial run; product rendering code was unchanged afterward. Final tests only refine assertions."
+  },
+  "commands": [
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/harbor_monument_preview_test.dart test/harbor_monument_ui_test.dart test/covenant_and_trophies_ui_test.dart --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "log": "checks/final-app-previews.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/home_layout_matrix_test.dart --name monuments --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "log": "checks/monument-layouts.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter analyze",
+      "log": "checks/final-app-analyze.log"
+    },
+    {
+      "cwd": ".",
+      "command": "python tools/check_docs.py; git diff --cached --check",
+      "logs": [
+        "checks/docs-check.log",
+        "checks/whitespace.log"
+      ]
+    }
+  ],
+  "logNormalization": "Terminal trailing spaces and CRLF normalized in new logs only; test content and prior evidence preserved.",
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/altar-layouts-invocation-error.log",
+      "sha256": "9096935448edb9591c370cb9e8a5c4926f6c281b7db493e4c8ab31c99dc39b32"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/app-analyze.log",
+      "sha256": "2c10a1fce46e9eaa2e533e90ebcf89eadb085a240990a7e33cd02b7d43357038"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/docs-check.log",
+      "sha256": "58331de98b8e9c37d53ba121314edf652a97b363018c204cca81087e2762482d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/final-app-analyze.log",
+      "sha256": "838e518540a068934d968279e69a0a5ebbe94a187ed28405c8e4c30888f521a8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/final-app-previews.log",
+      "sha256": "bc31dc1c94539bfddd13105f4aa3bf8533f74d16d83179f6f7ed42e5c8b6bd50"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/initial-app-previews.log",
+      "sha256": "3083fef7478ceb0bd97946c35645facd6a05c1527a341a1cba741a0170ab8a6e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/monument-layouts.log",
+      "sha256": "f9c9bf85d6276d66378ad636c874fe37bb33e2c53c226b3d4f4147070e132c58"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/checks/whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "captures": [
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/visual/review-monument-calderaBrazier-1280.png",
+      "sha256": "2c61ac806020da7936d0d5ffeb02ffa1885010cbb4d472310de90f5d8638cc3b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/visual/review-monument-calderaBrazier-360.png",
+      "sha256": "bd19b558312690c57da5d125e74d48f5fcd1767d9fd0550eacdb9254e3ec8c4b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/visual/review-monument-obsidianObelisk-1280.png",
+      "sha256": "ca8cc46745aab0cabac017bcdd73c7cd70e40abbc975f9eba6d864e8164332a8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/visual/review-monument-obsidianObelisk-360.png",
+      "sha256": "aa9e9fb509f2e084340d3992f40d1a827dbb2bac0c0aeea7a8e8645147530f20"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/visual/review-monument-serpentEffigy-1280.png",
+      "sha256": "2c61ac806020da7936d0d5ffeb02ffa1885010cbb4d472310de90f5d8638cc3b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/harbor-monument-preview-2026-11-10/visual/review-monument-serpentEffigy-360.png",
+      "sha256": "c11e08bb2c021be75988ad653b3927b094f3994bd589f1b44b03a2f0db141472"
+    }
+  ],
+  "isolation": {
+    "autosave": false,
+    "productionStorageOpened": false,
+    "playerSavesModified": false,
+    "nativeGameLaunched": false,
+    "sharedNativeBundleRebuilt": false,
+    "existingEvidenceRetained": true
+  }
+}

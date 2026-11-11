@@ -594,6 +594,8 @@ Acceptance: review an explicit Phase 4 design before implementation, then verify
 
 The broader living town can express the family's sacrifice through a seawall/lighthouse, memorial, tavern, apothecary garden, lore and inhabitants. These are historical future concepts requiring scoped designs, not currently approved free starting items, hirelings, or automatic scouting bonuses. Existing Harbor Monument progression is a separate implemented system. Avoid describing all town or audio work as completed because its hooks or a profile field exist.
 
+**Existing Harbor Monument purchase previews, 10 November 2026 — implemented; player replay pending:** The home-port altar now compares current/next rank and total maximum-hull, bounty-gold or weapon-damage bonus alongside the material price. Comparisons stay visible when unaffordable and refresh after purchase, including later uncapped ranks. [Verification](archive/README.md#harbor-monument-previews-2026-11-10) covers actual spending and 115–130% layouts. No monument rule, price, save data or deferred living-town scope changed.
+
 ### Additional encounters and exploration
 
 **FUT-03 — Proposed, deferred.** Earlier concepts include derelict ghost fleets, rifts/maelstroms, Siren Reefs, and navigation hazards with explicit risk/reward. Define any future leg-skipping, new encounter rewards or curses against current Dead Reckoning and save rules. Existing ordinary wrecks, coves, shrines and smugglers do not prove these additional concepts are implemented.

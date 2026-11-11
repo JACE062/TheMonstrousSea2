@@ -15,6 +15,8 @@ import '../widgets/mechanic_text.dart';
 import '../widgets/utility_description.dart';
 import '../widgets/ancestral_armament_preview.dart';
 import '../widgets/ancestral_armament_offer.dart';
+import '../widgets/harbor_monument_preview.dart';
+import '../widgets/harbor_monument_offer.dart';
 
 /// Hub screen at Hunter's Respite Port for repairs, trade, and chart planning.
 class PortScreen extends StatefulWidget {
@@ -783,126 +785,22 @@ class _PortScreenState extends State<PortScreen> {
                       ),
                       const SizedBox(height: 12),
                       ...HarborMonumentId.values.map((monumentId) {
-                        final def = HarborMonumentDef.catalog[monumentId]!;
-                        final currentRank = profile.monumentRank(monumentId);
-                        final nextRank = currentRank + 1;
-                        final nextCost = def.costForRank(nextRank);
-                        final canUpgrade = profile.canUpgradeMonument(
+                        final preview = HarborMonumentPreview(
+                          profile,
                           monumentId,
                         );
-
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 12),
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: currentRank > 0
-                                ? InkTheme.parchmentHighlight
-                                : InkTheme.parchmentSurface,
-                            border: Border.all(
-                              color: currentRank > 0
-                                  ? InkTheme.goldAccent
-                                  : InkTheme.inkMuted,
-                              width: currentRank > 0 ? 1.8 : 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _responsiveRow(
-                                children: [
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Wrap(
-                                          spacing: 8,
-                                          runSpacing: 4,
-                                          crossAxisAlignment:
-                                              WrapCrossAlignment.center,
-                                          children: [
-                                            Text(
-                                              def.name.toUpperCase(),
-                                              style: InkTheme.titleMedium
-                                                  .copyWith(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                            ),
-                                            Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                    horizontal: 6,
-                                                    vertical: 2,
-                                                  ),
-                                              decoration: BoxDecoration(
-                                                color: currentRank > 0
-                                                    ? InkTheme.goldAccent
-                                                    : InkTheme.inkMuted,
-                                                borderRadius:
-                                                    BorderRadius.circular(3),
-                                              ),
-                                              child: Text(
-                                                'RANK $currentRank',
-                                                style: InkTheme.caption
-                                                    .copyWith(
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 12,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Text(
-                                          'Generational Blessing: ${def.bonusPerRankDescription}',
-                                          style: InkTheme.caption.copyWith(
-                                            color: InkTheme.goldAccent,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  InkButton(
-                                    label: canUpgrade
-                                        ? 'UPGRADE (Rank $nextRank)'
-                                        : 'LACKS MATERIALS',
-                                    semanticLabel:
-                                        'Upgrade ${def.name} to Rank $nextRank',
-                                    semanticHint: _formatUnlockCost(nextCost),
-                                    onPressed: canUpgrade
-                                        ? () {
-                                            controller.dispatch(
-                                              UpgradeHarborMonument(monumentId),
-                                            );
-                                            setDialogState(() {});
-                                            setState(() {});
-                                          }
-                                        : null,
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                def.subtitle,
-                                style: InkTheme.body.copyWith(fontSize: 12.5),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                'Next Rank ($nextRank) Cost: ${_formatUnlockCost(nextCost)}',
-                                style: InkTheme.caption.copyWith(
-                                  color: canUpgrade
-                                      ? InkTheme.goldAccent
-                                      : InkTheme.crimsonAccent,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
+                        return HarborMonumentOffer(
+                          key: ValueKey('monument-offer-${monumentId.name}'),
+                          preview: preview,
+                          canUpgrade: profile.canUpgradeMonument(monumentId),
+                          costDescription: _formatUnlockCost(preview.cost),
+                          onUpgrade: () {
+                            controller.dispatch(
+                              UpgradeHarborMonument(monumentId),
+                            );
+                            setDialogState(() {});
+                            setState(() {});
+                          },
                         );
                       }),
                     ],

@@ -256,3 +256,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Ancestral armament previews 2026-11-10
 
 [The home-port preview pass](playtests/ANCESTRAL_ARMAMENT_PREVIEWS_2026_11_10.md) compares permanent tiers, signature multipliers and the active mount's exact damage before materials are spent. [Evidence](playtests/evidence/ancestral-armament-preview-2026-11-10/manifest.json) retains the Standard broadside bug reproduction/correction, paid-purchase checks, 115–130% blueprint and shared shipwright regressions, analysis and captures. Existing broadside stats, player saves, costs, art, native previews and prior evidence remain preserved; inspection terminology and Master Refits remain separate work.
+
+## Harbor Monument previews 2026-11-10
+
+[The monument preview pass](playtests/HARBOR_MONUMENT_PREVIEWS_2026_11_10.md) compares current/next ranks and total permanent hull, bounty-gold and weapon-damage bonuses before spending materials. [Evidence](playtests/evidence/harbor-monument-preview-2026-11-10/manifest.json) retains actual purchases, cost/affordability refresh, uncapped-rank checks, 115–130% dialog layouts, analysis and captures. Effects, prices, gates, player saves, art, native previews and prior evidence remain intact.
