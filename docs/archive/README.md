@@ -248,3 +248,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Fitting temper previews 2026-11-10
 
 [The shipwright preview pass](playtests/FITTING_TEMPER_PREVIEWS_2026_11_10.md) shows exact current/next mark effects before buying for every fitting and blueprint, with live affordability/max/refit refresh. [Evidence](playtests/evidence/fitting-temper-preview-2026-11-10/manifest.json) retains model/activation comparisons, 115–130% shore layouts, the font-glyph finding and corrected captures. Costs, tuning, save data, prior evidence and native previews remain intact; Master Refits stay deferred.
+
+## Hull upgrade previews 2026-11-10
+
+[The hull refit preview pass](playtests/HULL_UPGRADE_PREVIEWS_2026_11_10.md) shows exact current/next HP, weapon damage and changing defense/utility values before purchase. [Evidence](playtests/evidence/hull-upgrade-preview-2026-11-10/manifest.json) retains actual paid-refit comparisons, the compact overflow finding/fix, final 115–130% menus and analysis. Costs, mechanics, saves, art, earlier evidence and native previews remain preserved.

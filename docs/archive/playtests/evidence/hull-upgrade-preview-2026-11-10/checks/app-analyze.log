@@ -1,0 +1,5 @@
+Analyzing monstrous_sea...                                      
+
+   info - Statements in a while should be enclosed in a block. Try wrapping the statement in a block - test\hull_upgrade_preview_test.dart:33:43 - curly_braces_in_flow_control_structures
+
+1 issue found. (ran in 4.8s)

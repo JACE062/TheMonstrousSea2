@@ -6,6 +6,7 @@ import '../theme/ink_theme.dart';
 import 'ink_button.dart';
 import 'parchment_card.dart';
 import 'fitting_temper_preview.dart';
+import 'hull_upgrade_preview.dart';
 
 /// The same paid voyage upgrades are offered at midpoint Havens and strongholds.
 class VoyageShipwrightView extends StatelessWidget {
@@ -21,7 +22,7 @@ class VoyageShipwrightView extends StatelessWidget {
       if (ship == null || !controller.session.canUseVoyageShipwright) {
         return const SizedBox.shrink();
       }
-      final cost = calculateShipUpgradeCost(ship.level);
+      final hullPreview = HullUpgradePreview(ship);
       return ParchmentCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -35,15 +36,10 @@ class VoyageShipwrightView extends StatelessWidget {
               style: InkTheme.statLabel.copyWith(color: InkTheme.goldAccent),
             ),
             const SizedBox(height: 12),
-            Text('HULL TIER ${ship.level} / 4', style: InkTheme.statLabel),
-            const SizedBox(height: 8),
-            InkButton(
-              label: ship.level < 4
-                  ? 'UPGRADE TIER · ${cost}g'
-                  : 'MAXIMUM HULL TIER',
-              onPressed: ship.level < 4 && ship.gold >= cost
-                  ? () => controller.dispatch(const UpgradeShip())
-                  : null,
+            _HullOffer(
+              preview: hullPreview,
+              gold: ship.gold,
+              onUpgrade: () => controller.dispatch(const UpgradeShip()),
             ),
             const Divider(height: 28),
             Text('FITTING TEMPERING', style: InkTheme.statLabel),
@@ -76,6 +72,81 @@ class VoyageShipwrightView extends StatelessWidget {
         ),
       );
     },
+  );
+}
+
+class _HullOffer extends StatelessWidget {
+  const _HullOffer({
+    required this.preview,
+    required this.gold,
+    required this.onUpgrade,
+  });
+  final HullUpgradePreview preview;
+  final int gold;
+  final VoidCallback onUpgrade;
+
+  @override
+  Widget build(BuildContext context) => ParchmentCard(
+    padding: const EdgeInsets.all(12),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Semantics(
+          label:
+              'Hull tier ${preview.currentTier}${preview.isMaximum ? ', maximum' : ' to ${preview.nextTier}'}',
+          excludeSemantics: true,
+          child: Wrap(
+            spacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text('HULL TIER', style: InkTheme.statLabel),
+              _ValueComparison(
+                current: '${preview.currentTier}',
+                next: preview.nextTier?.toString(),
+                style: InkTheme.statLabel,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 8),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final scale = MediaQuery.textScalerOf(context).scale(1);
+            final columns = constraints.maxWidth >= 760 * scale ? 2 : 1;
+            final width = (constraints.maxWidth - 16 * (columns - 1)) / columns;
+            return Wrap(
+              spacing: 16,
+              runSpacing: 2,
+              children: [
+                for (final stat in preview.stats)
+                  SizedBox(
+                    width: width,
+                    child: _StatComparison(
+                      valueKey: ValueKey('hull-upgrade-${stat.id}'),
+                      label: stat.label,
+                      current: stat.current,
+                      next: stat.next,
+                    ),
+                  ),
+              ],
+            );
+          },
+        ),
+        const SizedBox(height: 6),
+        InkButton(
+          key: const ValueKey('hull-upgrade'),
+          label: preview.isMaximum
+              ? 'MAXIMUM HULL TIER'
+              : 'UPGRADE TIER · ${preview.cost}g',
+          semanticLabel: preview.isMaximum
+              ? 'Maximum hull tier'
+              : 'Refit to hull tier ${preview.nextTier} for ${preview.cost} gold',
+          onPressed: !preview.isMaximum && gold >= preview.cost
+              ? onUpgrade
+              : null,
+        ),
+      ],
+    ),
   );
 }
 
@@ -117,29 +188,11 @@ class _FittingOffer extends StatelessWidget {
         Text(preview.name, style: InkTheme.titleMedium),
         const SizedBox(height: 8),
         for (final (i, stat) in preview.stats.indexed)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 6),
-            child: Semantics(
-              label:
-                  '${stat.label}: ${stat.currentText}${stat.nextText == null ? '' : ' to ${stat.nextText}'}',
-              excludeSemantics: true,
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 2,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  Text('${stat.label}:', style: InkTheme.body),
-                  _ValueComparison(
-                    key: ValueKey(
-                      'fitting-temper-${preview.slot.name}-stat-$i',
-                    ),
-                    current: stat.currentText,
-                    next: stat.nextText,
-                    style: InkTheme.bodyBold,
-                  ),
-                ],
-              ),
-            ),
+          _StatComparison(
+            valueKey: ValueKey('fitting-temper-${preview.slot.name}-stat-$i'),
+            label: stat.label,
+            current: stat.currentText,
+            next: stat.nextText,
           ),
         const SizedBox(height: 6),
         InkButton(
@@ -159,6 +212,42 @@ class _FittingOffer extends StatelessWidget {
   );
 }
 
+class _StatComparison extends StatelessWidget {
+  const _StatComparison({
+    required this.valueKey,
+    required this.label,
+    required this.current,
+    required this.next,
+  });
+  final Key valueKey;
+  final String label;
+  final String current;
+  final String? next;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 6),
+    child: Semantics(
+      label: '$label: $current${next == null ? '' : ' to $next'}',
+      excludeSemantics: true,
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 2,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          Text('$label:', style: InkTheme.body),
+          _ValueComparison(
+            key: valueKey,
+            current: current,
+            next: next,
+            style: InkTheme.bodyBold,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
 /// Draw arrows as icons: the atmospheric fonts do not contain that glyph.
 class _ValueComparison extends StatelessWidget {
   const _ValueComparison({
@@ -172,21 +261,26 @@ class _ValueComparison extends StatelessWidget {
   final TextStyle style;
 
   @override
-  Widget build(BuildContext context) => Row(
-    mainAxisSize: MainAxisSize.min,
+  Widget build(BuildContext context) => Wrap(
+    runSpacing: 2,
+    crossAxisAlignment: WrapCrossAlignment.center,
     children: [
       Text(current, style: style),
-      if (next != null) ...[
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 6),
-          child: Icon(
-            Icons.arrow_right_alt,
-            size: 20,
-            color: InkTheme.inkMuted,
-          ),
+      if (next != null)
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 6),
+              child: Icon(
+                Icons.arrow_right_alt,
+                size: 20,
+                color: InkTheme.inkMuted,
+              ),
+            ),
+            Text(next!, style: style.copyWith(color: InkTheme.goldAccent)),
+          ],
         ),
-        Text(next!, style: style.copyWith(color: InkTheme.goldAccent)),
-      ],
     ],
   );
 }

@@ -1,0 +1,14 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: BlueprintId.standard Voyage Stronghold hull preview 360.0/1.15
+00:01 +1: BlueprintId.standard Voyage Stronghold hull preview 1280.0/1.15
+00:01 +2: BlueprintId.ironclad Voyage Stronghold hull preview 360.0/1.15
+00:01 +3: BlueprintId.ironclad Voyage Stronghold hull preview 1280.0/1.15
+00:01 +4: BlueprintId.clipper Voyage Stronghold hull preview 360.0/1.15
+00:01 +5: BlueprintId.clipper Voyage Stronghold hull preview 1280.0/1.15
+00:01 +6: BlueprintId.bombardier Voyage Stronghold hull preview 360.0/1.15
+00:02 +7: BlueprintId.bombardier Voyage Stronghold hull preview 1280.0/1.15
+00:02 +8: BlueprintId.corsair Voyage Stronghold hull preview 360.0/1.15
+00:02 +9: BlueprintId.corsair Voyage Stronghold hull preview 1280.0/1.15
+00:02 +10: (tearDownAll)
+00:02 +10: All tests passed!

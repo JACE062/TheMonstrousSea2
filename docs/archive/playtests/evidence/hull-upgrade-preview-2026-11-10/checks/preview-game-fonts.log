@@ -1,0 +1,144 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.standard hull tier 1 preview matches the purchased refit
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.standard hull tier 2 preview matches the purchased refit
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.standard hull tier 3 preview matches the purchased refit
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.standard hull tier 4 preview matches the purchased refit
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.ironclad hull tier 1 preview matches the purchased refit
+00:00 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.ironclad hull tier 2 preview matches the purchased refit
+00:00 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.ironclad hull tier 3 preview matches the purchased refit
+00:00 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.ironclad hull tier 4 preview matches the purchased refit
+00:00 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.clipper hull tier 1 preview matches the purchased refit
+00:00 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.clipper hull tier 2 preview matches the purchased refit
+00:00 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.clipper hull tier 3 preview matches the purchased refit
+00:00 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.clipper hull tier 4 preview matches the purchased refit
+00:00 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.bombardier hull tier 1 preview matches the purchased refit
+00:00 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.bombardier hull tier 2 preview matches the purchased refit
+00:00 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.bombardier hull tier 3 preview matches the purchased refit
+00:00 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.bombardier hull tier 4 preview matches the purchased refit
+00:00 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.corsair hull tier 1 preview matches the purchased refit
+00:00 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.corsair hull tier 2 preview matches the purchased refit
+00:00 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.corsair hull tier 3 preview matches the purchased refit
+00:00 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: BlueprintId.corsair hull tier 4 preview matches the purchased refit
+00:00 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: capped evasion does not advertise a gain and level-scaled utility is included
+00:00 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/hull_upgrade_preview_test.dart: (tearDownAll)
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: (setUpAll)
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Respite Island Haven hull preview 360.0/1.15
+00:03 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Respite Island Haven fitting previews 360.0/1.15
+00:03 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Respite Island Haven fitting previews 360.0/1.15
+00:03 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Respite Island Haven fitting previews 360.0/1.15
+00:03 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Respite Island Haven hull preview 1280.0/1.15
+00:03 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart: shows live purse at stronghold
+00:03 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Respite Island Haven fitting previews 360.0/1.3
+00:03 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Respite Island Haven hull preview 1280.0/1.3
+00:03 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart: purse and upgrade affordability update after spending
+00:03 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart: purse and upgrade affordability update after spending
+00:03 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Voyage Stronghold hull preview 360.0/1.15
+00:03 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Voyage Stronghold hull preview 360.0/1.15
+00:04 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart: fits at 360px and 130% text scale
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: FlutterError:<A RenderFlex overflowed by 2.2 pixels on the right.>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart:107:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart line 107
+The test description was:
+  fits at 360px and 130% text scale
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +32 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Voyage Stronghold hull preview 360.0/1.15
+00:04 +32 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart: fits at 360px and 130% text scale [E]
+  Test failed. See exception logs above.
+  The test description was: fits at 360px and 130% text scale
+  
+00:04 +32 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Voyage Stronghold hull preview 360.0/1.15
+00:04 +33 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Voyage Stronghold fitting previews 360.0/1.15
+00:04 +34 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Voyage Stronghold fitting previews 360.0/1.15
+00:04 +35 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Voyage Stronghold hull preview 1280.0/1.15
+00:04 +36 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Voyage Stronghold fitting previews 360.0/1.3
+00:04 +37 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.standard Voyage Stronghold hull preview 1280.0/1.3
+00:04 +38 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Voyage Stronghold fitting previews 1280.0/1.15
+00:04 +39 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Respite Island Haven hull preview 360.0/1.15
+00:04 +40 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.standard Voyage Stronghold fitting previews 1280.0/1.3
+00:04 +41 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Respite Island Haven hull preview 360.0/1.3
+00:04 +42 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Respite Island Haven fitting previews 360.0/1.15
+00:04 +43 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Respite Island Haven hull preview 1280.0/1.15
+00:04 +44 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Respite Island Haven fitting previews 360.0/1.3
+00:04 +45 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Respite Island Haven hull preview 1280.0/1.3
+00:04 +46 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Respite Island Haven fitting previews 1280.0/1.15
+00:04 +47 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Voyage Stronghold hull preview 360.0/1.15
+00:04 +48 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Respite Island Haven fitting previews 1280.0/1.3
+00:04 +49 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Voyage Stronghold hull preview 360.0/1.3
+00:04 +50 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Voyage Stronghold fitting previews 360.0/1.15
+00:04 +51 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Voyage Stronghold hull preview 1280.0/1.15
+00:05 +52 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.ironclad Voyage Stronghold hull preview 1280.0/1.15
+00:05 +53 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Voyage Stronghold fitting previews 1280.0/1.15
+00:05 +54 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Voyage Stronghold fitting previews 1280.0/1.15
+00:05 +55 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Respite Island Haven hull preview 360.0/1.15
+00:05 +56 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.ironclad Voyage Stronghold fitting previews 1280.0/1.3
+00:05 +57 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Respite Island Haven hull preview 360.0/1.3
+00:05 +58 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Respite Island Haven hull preview 360.0/1.3
+00:05 +59 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Respite Island Haven fitting previews 360.0/1.3
+00:05 +60 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Respite Island Haven hull preview 1280.0/1.15
+00:05 +61 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Respite Island Haven fitting previews 1280.0/1.15
+00:05 +62 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Respite Island Haven hull preview 1280.0/1.3
+00:05 +63 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Respite Island Haven fitting previews 1280.0/1.3
+00:05 +64 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Voyage Stronghold hull preview 360.0/1.15
+00:05 +65 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Voyage Stronghold fitting previews 360.0/1.15
+00:05 +66 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Voyage Stronghold hull preview 360.0/1.3
+00:05 +67 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Voyage Stronghold fitting previews 360.0/1.3
+00:05 +68 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Voyage Stronghold hull preview 1280.0/1.15
+00:05 +69 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Voyage Stronghold fitting previews 1280.0/1.15
+00:05 +70 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.clipper Voyage Stronghold hull preview 1280.0/1.3
+00:05 +71 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Voyage Stronghold fitting previews 1280.0/1.3
+00:05 +72 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.clipper Voyage Stronghold fitting previews 1280.0/1.3
+00:05 +73 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.bombardier Respite Island Haven hull preview 360.0/1.3
+00:06 +74 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.bombardier Respite Island Haven hull preview 360.0/1.3
+00:06 +75 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Respite Island Haven fitting previews 360.0/1.3
+00:06 +76 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Respite Island Haven fitting previews 360.0/1.3
+00:06 +77 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.bombardier Respite Island Haven hull preview 1280.0/1.3
+00:06 +78 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Respite Island Haven fitting previews 1280.0/1.15
+00:06 +79 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.bombardier Voyage Stronghold hull preview 360.0/1.15
+00:06 +80 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.bombardier Voyage Stronghold hull preview 360.0/1.15
+00:06 +81 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Voyage Stronghold fitting previews 360.0/1.15
+00:06 +82 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.bombardier Voyage Stronghold hull preview 360.0/1.3
+00:06 +83 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Voyage Stronghold fitting previews 360.0/1.3
+00:06 +84 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.bombardier Voyage Stronghold hull preview 1280.0/1.15
+00:06 +85 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Voyage Stronghold fitting previews 1280.0/1.15
+00:06 +86 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Voyage Stronghold fitting previews 1280.0/1.15
+00:06 +87 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Respite Island Haven hull preview 360.0/1.15
+00:06 +88 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.bombardier Voyage Stronghold fitting previews 1280.0/1.3
+00:06 +89 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Respite Island Haven hull preview 360.0/1.3
+00:06 +90 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Respite Island Haven hull preview 360.0/1.3
+00:06 +91 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.corsair Respite Island Haven fitting previews 360.0/1.3
+00:06 +92 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Respite Island Haven hull preview 1280.0/1.15
+00:06 +93 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.corsair Respite Island Haven fitting previews 1280.0/1.15
+00:06 +94 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.corsair Respite Island Haven fitting previews 1280.0/1.15
+00:06 +95 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Voyage Stronghold hull preview 360.0/1.15
+00:07 +96 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Voyage Stronghold hull preview 360.0/1.15
+00:07 +97 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.corsair Voyage Stronghold fitting previews 360.0/1.15
+00:07 +98 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Voyage Stronghold hull preview 360.0/1.3
+00:07 +99 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.corsair Voyage Stronghold fitting previews 360.0/1.3
+00:07 +100 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Voyage Stronghold hull preview 1280.0/1.15
+00:07 +101 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.corsair Voyage Stronghold fitting previews 1280.0/1.15
+00:07 +102 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: BlueprintId.corsair Voyage Stronghold hull preview 1280.0/1.3
+00:07 +103 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: BlueprintId.corsair Voyage Stronghold fitting previews 1280.0/1.3
+00:07 +104 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: successive hull purchases refresh exact effects, costs and maximum state
+00:07 +105 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: successive hull purchases refresh exact effects, costs and maximum state
+00:07 +106 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_hull_ui_test.dart: poor captains can read hull comparisons before they can buy
+00:07 +107 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: hull refitting refreshes the Iron Plates temper preview
+00:07 +108 -1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_temper_ui_test.dart: (tearDownAll)
+00:07 +108 -1: Some tests failed.
+
+Failing tests:
+  C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/shipwright_purse_test.dart: fits at 360px and 130% text scale
