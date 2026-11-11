@@ -17,6 +17,8 @@ import '../widgets/ancestral_armament_preview.dart';
 import '../widgets/ancestral_armament_offer.dart';
 import '../widgets/harbor_monument_preview.dart';
 import '../widgets/harbor_monument_offer.dart';
+import '../widgets/eldritch_relic_preview.dart';
+import '../widgets/eldritch_relic_offer.dart';
 
 /// Hub screen at Hunter's Respite Port for repairs, trade, and chart planning.
 class PortScreen extends StatefulWidget {
@@ -606,175 +608,16 @@ class _PortScreenState extends State<PortScreen> {
                       ),
                       const SizedBox(height: 12),
                       ...EldritchRelicId.values.map((relicId) {
-                        final def = EldritchRelicDef.catalog[relicId]!;
-                        final isUnlocked = profile.isEldritchRelicUnlocked(
-                          relicId,
-                        );
-                        final canUnlock = profile.canUnlockEldritchRelic(
-                          relicId,
-                        );
-                        final bpUnlocked = profile.isBlueprintUnlocked(
-                          def.blueprintId,
-                        );
-
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 12),
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: isUnlocked
-                                ? InkTheme.parchmentHighlight
-                                : InkTheme.parchmentSurface,
-                            border: Border.all(
-                              color: isUnlocked
-                                  ? InkTheme.goldAccent
-                                  : InkTheme.inkMuted,
-                              width: isUnlocked ? 1.8 : 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _responsiveRow(
-                                children: [
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Wrap(
-                                          spacing: 8,
-                                          runSpacing: 4,
-                                          crossAxisAlignment:
-                                              WrapCrossAlignment.center,
-                                          children: [
-                                            Text(
-                                              def.name.toUpperCase(),
-                                              style: InkTheme.titleMedium
-                                                  .copyWith(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: isUnlocked
-                                                        ? InkTheme.crimsonAccent
-                                                        : InkTheme.inkPrimary,
-                                                  ),
-                                            ),
-                                            if (isUnlocked) ...[
-                                              Container(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                      horizontal: 6,
-                                                      vertical: 2,
-                                                    ),
-                                                decoration: BoxDecoration(
-                                                  color: InkTheme.goldAccent,
-                                                  borderRadius:
-                                                      BorderRadius.circular(3),
-                                                ),
-                                                child: Text(
-                                                  'FORGED',
-                                                  style: InkTheme.caption
-                                                      .copyWith(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ],
-                                        ),
-                                        Text(
-                                          'Mounts on: ${def.blueprintId.displayName} (${def.weaponType.displayName})',
-                                          style: InkTheme.caption.copyWith(
-                                            fontWeight: FontWeight.w600,
-                                            color: InkTheme.inkSecondary,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  if (isUnlocked)
-                                    Text(
-                                      'ACTIVE ON HULL',
-                                      style: InkTheme.statLabel.copyWith(
-                                        color: InkTheme.goldAccent,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12,
-                                      ),
-                                    )
-                                  else if (!bpUnlocked)
-                                    Text(
-                                      'REQUIRES ${def.blueprintId.displayName.toUpperCase()}',
-                                      style: InkTheme.caption.copyWith(
-                                        color: InkTheme.crimsonAccent,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12,
-                                      ),
-                                    )
-                                  else
-                                    InkButton(
-                                      label: canUnlock
-                                          ? 'FORGE RELIC'
-                                          : 'LACKS MATERIALS',
-                                      semanticLabel: 'Forge ${def.name}',
-                                      semanticHint: _formatUnlockCost(
-                                        def.unlockCost,
-                                      ),
-                                      onPressed: canUnlock
-                                          ? () {
-                                              controller.dispatch(
-                                                UnlockEldritchRelic(relicId),
-                                              );
-                                              setDialogState(() {});
-                                              setState(() {});
-                                            }
-                                          : null,
-                                    ),
-                                ],
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                def.description,
-                                style: InkTheme.body.copyWith(fontSize: 12.5),
-                              ),
-                              const SizedBox(height: 6),
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: InkTheme.parchmentDark.withValues(
-                                    alpha: 0.3,
-                                  ),
-                                  borderRadius: BorderRadius.circular(3),
-                                ),
-                                child: Text(
-                                  'Eldritch Trait: ${def.effectSummary}',
-                                  style: InkTheme.caption.copyWith(
-                                    color: InkTheme.crimsonAccent,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                              if (!isUnlocked && bpUnlocked) ...[
-                                const SizedBox(height: 8),
-                                Text(
-                                  'Forge Cost: ${_formatUnlockCost(def.unlockCost)}',
-                                  style: InkTheme.caption.copyWith(
-                                    color: canUnlock
-                                        ? InkTheme.goldAccent
-                                        : InkTheme.crimsonAccent,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
+                        final preview = EldritchRelicPreview(profile, relicId);
+                        return EldritchRelicOffer(
+                          key: ValueKey('relic-offer-${relicId.name}'),
+                          preview: preview,
+                          costDescription: _formatUnlockCost(preview.cost),
+                          onForge: () {
+                            controller.dispatch(UnlockEldritchRelic(relicId));
+                            setDialogState(() {});
+                            setState(() {});
+                          },
                         );
                       }),
                     ] else ...[

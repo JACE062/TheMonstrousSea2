@@ -1,0 +1,12 @@
+00:00 +0: loading test/session/relic_effects_test.dart
+00:00 +0: EldritchRelicId.siphonRam adds its advertised effect only after forging
+00:00 +1: EldritchRelicId.siphonRam does not add an on-hit effect to a miss
+00:00 +2: EldritchRelicId.ghostwakeCulverin adds its advertised effect only after forging
+00:00 +3: EldritchRelicId.ghostwakeCulverin does not add an on-hit effect to a miss
+00:00 +4: EldritchRelicId.brimstoneMortar adds its advertised effect only after forging
+00:00 +5: EldritchRelicId.brimstoneMortar does not add an on-hit effect to a miss
+00:00 +6: EldritchRelicId.sinewWinch adds its advertised effect only after forging
+00:00 +7: EldritchRelicId.sinewWinch does not add an on-hit effect to a miss
+00:00 +8: Ghostwake bypasses Obscurity without clearing the enemy condition
+00:00 +9: flesh riders do not count armor damage as additional flesh damage
+00:00 +10: All tests passed!

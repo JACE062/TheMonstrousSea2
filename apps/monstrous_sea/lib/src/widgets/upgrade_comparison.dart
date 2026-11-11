@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/ink_theme.dart';
+import 'mechanic_text.dart';
 
 class UpgradeStatComparison extends StatelessWidget {
   const UpgradeStatComparison({
@@ -9,29 +10,42 @@ class UpgradeStatComparison extends StatelessWidget {
     required this.label,
     required this.current,
     required this.next,
+    this.linkKeywords = false,
   });
   final Key valueKey;
   final String label;
   final String current;
   final String? next;
+  final bool linkKeywords;
 
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.only(bottom: 6),
     child: Semantics(
-      label: '$label: $current${next == null ? '' : ' to $next'}',
-      excludeSemantics: true,
+      label: linkKeywords
+          ? null
+          : '$label: $current${next == null ? '' : ' to $next'}',
+      excludeSemantics: !linkKeywords,
       child: Wrap(
         spacing: 8,
         runSpacing: 2,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
-          Text('$label:', style: InkTheme.body),
-          UpgradeValueComparison(
-            key: valueKey,
-            current: current,
-            next: next,
-            style: InkTheme.bodyBold,
+          if (linkKeywords)
+            MechanicText('$label:', style: InkTheme.body)
+          else
+            Text('$label:', style: InkTheme.body),
+          Semantics(
+            label: linkKeywords
+                ? '$current${next == null ? '' : ' to $next'}'
+                : null,
+            excludeSemantics: linkKeywords,
+            child: UpgradeValueComparison(
+              key: valueKey,
+              current: current,
+              next: next,
+              style: InkTheme.bodyBold,
+            ),
           ),
         ],
       ),

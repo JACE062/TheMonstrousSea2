@@ -21,6 +21,7 @@ import '../persistence/profile_data.dart';
 import '../rng/game_rng.dart';
 import '../rules/combat.dart';
 import '../rules/economy.dart';
+import '../rules/eldritch_relics.dart';
 import '../rules/lineage.dart';
 import '../rules/loot.dart';
 import '../rules/paid_repairs.dart';
@@ -1456,6 +1457,7 @@ class GameSession {
     // Ghostwake Rail-Culverin: ignores monster Obscurity
     final hasGhostwake =
         weaponType == ShipWeaponType.precisionCulverin &&
+            EldritchRelicEffects.ghostwakeCulverin.ignoresObscurity &&
             profile.isEldritchRelicActive(EldritchRelicId.ghostwakeCulverin);
     final savedObscured = currentMonster!.isObscured;
     if (hasGhostwake) {
@@ -1541,7 +1543,8 @@ class GameSession {
         final totalHullDmg =
             resolvedHits.fold<int>(0, (sum, e) => sum + e.damage);
         if (totalHullDmg > 0) {
-          final leechHeal = max(1, (totalHullDmg * 0.30));
+          final leechHeal = max(1,
+            totalHullDmg * EldritchRelicEffects.siphonRam.fleshHealingFraction);
           final before = ship!.currentHp;
           ship!.heal(leechHeal);
           final restored = ship!.currentHp - before;
@@ -1558,7 +1561,8 @@ class GameSession {
 
       if (hasGhostwake && currentMonster!.isAlive) {
         final shockDmg = amplifyMonsterDamage(
-          ship!, currentMonster!, resolvedHits.length * 8);
+          ship!, currentMonster!,
+          resolvedHits.length * EldritchRelicEffects.ghostwakeCulverin.shockDamage);
         final before = currentMonster!.currentHp;
         currentMonster!.applyDamage(shockDmg);
         events.add(CombatHealthChanged(target: CombatSide.monster,
@@ -1574,7 +1578,7 @@ class GameSession {
       if (weaponType == ShipWeaponType.heavyMortar &&
           profile.isEldritchRelicActive(EldritchRelicId.brimstoneMortar) &&
           currentMonster!.isAlive) {
-        currentMonster!.addStatus(StatusEffect.burn);
+        currentMonster!.addStatus(EldritchRelicEffects.brimstoneMortar.inflictedStatus!);
         events.add(CombatEffectsChanged.capture(currentMonster!));
         events.add(const NarrationEvent(
           'Caldera Brimstone Mortar coats the beast in searing hydrothermal sulfur (Burning)!',
@@ -1584,7 +1588,7 @@ class GameSession {
       if (weaponType == ShipWeaponType.harpoonWinch &&
           profile.isEldritchRelicActive(EldritchRelicId.sinewWinch) &&
           currentMonster!.isAlive) {
-        currentMonster!.addStatus(StatusEffect.poison);
+        currentMonster!.addStatus(EldritchRelicEffects.sinewWinch.inflictedStatus!);
         events.add(CombatEffectsChanged.capture(currentMonster!));
         events.add(const NarrationEvent(
           'Kraken-Sinew Drag Winch constricts the quarry with venomous abyssal barbs (Poison)!',

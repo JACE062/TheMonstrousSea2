@@ -28,6 +28,7 @@ export 'src/persistence/voyage_save_data.dart';
 export 'src/rng/game_rng.dart';
 export 'src/rules/combat.dart';
 export 'src/rules/economy.dart';
+export 'src/rules/eldritch_relics.dart';
 export 'src/config/voyage_economy_tuning.dart';
 export 'src/model/material_shipment.dart';
 export 'src/rules/lineage.dart';

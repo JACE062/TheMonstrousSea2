@@ -1,0 +1,72 @@
+00:00 +0: loading C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: (setUpAll)
+00:00 +0: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.siphonRam locked preview is read-only and agrees with forge gates
+00:00 +1: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.siphonRam poor preview is read-only and agrees with forge gates
+00:00 +2: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.siphonRam ready preview is read-only and agrees with forge gates
+00:00 +3: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.siphonRam forged preview is read-only and agrees with forge gates
+00:00 +4: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.siphonRam inactive preview is read-only and agrees with forge gates
+00:00 +5: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.ghostwakeCulverin locked preview is read-only and agrees with forge gates
+00:00 +6: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.ghostwakeCulverin poor preview is read-only and agrees with forge gates
+00:00 +7: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.ghostwakeCulverin ready preview is read-only and agrees with forge gates
+00:00 +8: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.ghostwakeCulverin forged preview is read-only and agrees with forge gates
+00:00 +9: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.ghostwakeCulverin inactive preview is read-only and agrees with forge gates
+00:00 +10: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.brimstoneMortar locked preview is read-only and agrees with forge gates
+00:00 +11: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.brimstoneMortar poor preview is read-only and agrees with forge gates
+00:00 +12: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.brimstoneMortar ready preview is read-only and agrees with forge gates
+00:00 +13: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.brimstoneMortar forged preview is read-only and agrees with forge gates
+00:00 +14: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.brimstoneMortar inactive preview is read-only and agrees with forge gates
+00:00 +15: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.sinewWinch locked preview is read-only and agrees with forge gates
+00:00 +16: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.sinewWinch poor preview is read-only and agrees with forge gates
+00:00 +17: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.sinewWinch ready preview is read-only and agrees with forge gates
+00:00 +18: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.sinewWinch forged preview is read-only and agrees with forge gates
+00:00 +19: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: EldritchRelicId.sinewWinch inactive preview is read-only and agrees with forge gates
+00:00 +20: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: previews list added effects without implying intrinsic stat changes
+00:00 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_preview_test.dart: (tearDownAll)
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: (setUpAll)
+00:02 +21: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics locked Size(360.0, 900.0)/1.15
+00:03 +22: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics locked Size(360.0, 900.0)/1.15
+00:03 +23: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics locked Size(360.0, 900.0)/1.15
+00:04 +24: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics locked Size(360.0, 900.0)/1.15
+00:04 +25: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart: PortScreen Blueprints: Ancestral Armament Tiers Upgrades ancestral Signature Armament Tiers without offering an extra mount
+00:04 +26: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart: PortScreen Blueprints: Ancestral Armament Tiers Upgrades ancestral Signature Armament Tiers without offering an extra mount
+00:04 +27: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics locked Size(800.0, 480.0)/1.15
+00:04 +28: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart: PortScreen Covenant Altar: Pacts, Relics & Monuments Covenant banner appears and opens 3-tab Covenant dialog
+00:05 +29: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/covenant_and_trophies_ui_test.dart: PortScreen Covenant Altar: Pacts, Relics & Monuments Covenant banner appears and opens 3-tab Covenant dialog
+00:05 +30: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics locked Size(1280.0, 900.0)/1.15
+00:05 +31: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics locked Size(1280.0, 900.0)/1.3
+00:05 +32: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics poor Size(360.0, 900.0)/1.15
+00:05 +33: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics poor Size(360.0, 900.0)/1.3
+00:06 +34: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics poor Size(800.0, 480.0)/1.15
+00:06 +35: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics poor Size(800.0, 480.0)/1.3
+00:06 +36: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics poor Size(1280.0, 900.0)/1.15
+00:07 +37: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics poor Size(1280.0, 900.0)/1.3
+00:07 +38: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics ready Size(360.0, 900.0)/1.15
+00:07 +39: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics ready Size(360.0, 900.0)/1.3
+00:08 +40: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics ready Size(800.0, 480.0)/1.15
+00:08 +41: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics ready Size(800.0, 480.0)/1.3
+00:08 +42: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics ready Size(1280.0, 900.0)/1.15
+00:09 +43: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics ready Size(1280.0, 900.0)/1.3
+00:09 +44: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics forged Size(360.0, 900.0)/1.15
+00:09 +45: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics forged Size(360.0, 900.0)/1.3
+00:09 +46: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics forged Size(800.0, 480.0)/1.15
+00:09 +47: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics forged Size(800.0, 480.0)/1.3
+00:09 +48: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics forged Size(1280.0, 900.0)/1.15
+00:10 +49: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics forged Size(1280.0, 900.0)/1.3
+00:10 +50: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics inactive Size(360.0, 900.0)/1.15
+00:10 +51: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics inactive Size(360.0, 900.0)/1.3
+00:10 +52: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics inactive Size(800.0, 480.0)/1.15
+00:10 +53: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics inactive Size(800.0, 480.0)/1.3
+00:10 +54: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics inactive Size(1280.0, 900.0)/1.15
+00:11 +55: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relics inactive Size(1280.0, 900.0)/1.3
+00:11 +56: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: EldritchRelicId.siphonRam forging refreshes effects, ownership and payment without changing the vessel
+00:11 +57: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: EldritchRelicId.ghostwakeCulverin forging refreshes effects, ownership and payment without changing the vessel
+00:11 +58: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: EldritchRelicId.brimstoneMortar forging refreshes effects, ownership and payment without changing the vessel
+00:11 +59: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: EldritchRelicId.sinewWinch forging refreshes effects, ownership and payment without changing the vessel
+00:11 +60: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relic Burning keyword help at 360.0/130%
+00:12 +61: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relic Burning keyword help at 1280.0/130%
+00:12 +62: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relic Poison keyword help at 360.0/130%
+00:12 +63: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relic Poison keyword help at 1280.0/130%
+00:12 +64: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relic Obscurity keyword help at 360.0/130%
+00:12 +65: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: relic Obscurity keyword help at 1280.0/130%
+00:13 +66: C:/Workspace/PersonalProjects/TheMonstrousSeaV2/apps/monstrous_sea/test/eldritch_relic_ui_test.dart: (tearDownAll)
+00:13 +66: All tests passed!

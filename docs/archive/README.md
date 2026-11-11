@@ -260,3 +260,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Harbor Monument previews 2026-11-10
 
 [The monument preview pass](playtests/HARBOR_MONUMENT_PREVIEWS_2026_11_10.md) compares current/next ranks and total permanent hull, bounty-gold and weapon-damage bonuses before spending materials. [Evidence](playtests/evidence/harbor-monument-preview-2026-11-10/manifest.json) retains actual purchases, cost/affordability refresh, uncapped-rank checks, 115–130% dialog layouts, analysis and captures. Effects, prices, gates, player saves, art, native previews and prior evidence remain intact.
+
+## Eldritch Relic previews 2026-11-10
+
+[The relic forge preview pass](playtests/ELDRITCH_RELIC_PREVIEWS_2026_11_10.md) shows each added signature effect and price before forging, with hull requirements, ownership refresh and linked condition help. [Evidence](playtests/evidence/eldritch-relic-preview-2026-11-10/manifest.json) retains the user's Ghostwake selection, combat/purchase comparisons, 115–130% layouts, shared comparison regressions, analysis and captures. Combat behavior, costs, saves, art and native bundles remain preserved.

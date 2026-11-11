@@ -155,22 +155,22 @@ class EldritchLore {
     EldritchRelicId.siphonRam: EldritchRelicLoreEntry(
       name: 'Abyssal Siphon Ram',
       description: 'A jagged prow forged from hollow leviathan bone that drinks lifeblood and dark power from rammed beasts.',
-      effectSummary: 'Shatters Carapace and heals the flagship for 30% of damage dealt to flesh.',
+      effectSummary: 'Restores hull equal to 30% of signature damage dealt to flesh.',
     ),
     EldritchRelicId.ghostwakeCulverin: EldritchRelicLoreEntry(
       name: 'Ghostwake Rail-Culverin',
       description: 'Rifled in cold phosphor bronze, its projectiles phase through mist and arc with abyssal static.',
-      effectSummary: 'Ignores monster Obscurity; critical hits deal +8 bonus Shock damage.',
+      effectSummary: 'Ignores enemy Obscurity; flesh hits deal +8 base Shock damage.',
     ),
     EldritchRelicId.brimstoneMortar: EldritchRelicLoreEntry(
       name: 'Caldera Brimstone Mortar',
       description: 'Fires hollow shells packed with pressurized sulfur from the world’s boiling rim.',
-      effectSummary: '2.0x Blast vs Carapace, disrupts frenzy, and inflicts Burning on every hit.',
+      effectSummary: 'Applies Burning on signature hits.',
     ),
     EldritchRelicId.sinewWinch: EldritchRelicLoreEntry(
       name: 'Kraken-Sinew Drag Winch',
       description: 'Spun from living abyssal tendon that writhes and constricts around its quarry.',
-      effectSummary: 'Severs tentacles and inflicts virulent Poison on the tethered beast.',
+      effectSummary: 'Applies Poison on signature hits.',
     ),
   };
 

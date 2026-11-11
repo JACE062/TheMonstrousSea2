@@ -1,0 +1,10 @@
+Analyzing monstrous_sea...
+
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\eldritch_relic_preview_test.dart:15:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\eldritch_relic_preview_test.dart:17:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\eldritch_relic_preview_test.dart:26:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\eldritch_relic_ui_test.dart:26:5 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\eldritch_relic_ui_test.dart:32:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\eldritch_relic_ui_test.dart:201:11 - curly_braces_in_flow_control_structures
+
+6 issues found. (ran in 4.9s)

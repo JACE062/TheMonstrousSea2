@@ -1,0 +1,326 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "2cc1c25b2640be24d1434ff708be67254e866119",
+  "request": "Show exactly what each Eldritch Relic adds before materials are spent at the home port.",
+  "decisions": [
+    {
+      "subject": "Ghostwake trigger mismatch",
+      "oldSummary": "Critical hits deal +8 bonus Shock.",
+      "existingCombat": "Adds 8 base Shock for each resolved flesh hit, including ordinary noncritical hits.",
+      "userChoice": "Describe current behavior (Recommended)",
+      "result": "Keep existing combat and correct the preview/shared inspection summary."
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/port_screen.dart",
+      "sha256": "a500d07bdb56774bb3820023bbced17d7c12fa34e59bc1af63fac6dbf80819ab"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/eldritch_relic_preview.dart",
+      "sha256": "1b5ed54ddb9571ff6722dec837d99817ff8e1924122e096681f800bc3a5be111"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/eldritch_relic_offer.dart",
+      "sha256": "44039aae0a51a3420ca576842ae267a8e65975f6c1f2311430261057ad538225"
+    },
+    {
+      "path": "apps/monstrous_sea/lib/src/widgets/upgrade_comparison.dart",
+      "sha256": "e27340ae005fe5adc78d5b17d986c0016c67697b0b89f93359bf7930fbc34e49"
+    },
+    {
+      "path": "packages/monstrous_core/lib/monstrous_core.dart",
+      "sha256": "d1684c601f2b847959d4303920e4ee930fa0107c6d64ddb5bb919a9846b1c419"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/eldritch_relics.dart",
+      "sha256": "a8555f450bcfd846378f47f9d28e296164c418a24c00ba7f6b0cb027d94f6623"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "8bda7a0461e5d33b2471ef961e4a65cefd0e9337dba1c967afa6bb7bb8a527c5"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/lore/eldritch_lore.dart",
+      "sha256": "c1c00ddaeb21c6bd51696e88af5a08b0ac292d3370c77defef93f98e25c85c06"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/persistence/profile_data.dart",
+      "sha256": "fdc607c154b8fb0f8e2f05e9c00073197dd1c270495358fe8d372fcb2f5000d6"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/relic_effects_test.dart",
+      "sha256": "1e5fa719d857fb9bb01a5ab5e318caf631fd3e5c627d70f302d8595f144953d8"
+    },
+    {
+      "path": "apps/monstrous_sea/test/eldritch_relic_preview_test.dart",
+      "sha256": "149688a3d9a22a9a05a2da3688b5c4a8051f6161bd3e9ee8fc6b2695e32ebb1e"
+    },
+    {
+      "path": "apps/monstrous_sea/test/eldritch_relic_ui_test.dart",
+      "sha256": "a073b302feb6fadd1f38475b8be0df2c64d95c72453be66088a57bf68a6d35f0"
+    }
+  ],
+  "scope": {
+    "display": [
+      "associated hull and signature",
+      "added effects before and after forging",
+      "exact material cost including locked/poor states",
+      "forged and saved inactive states",
+      "Burning/Poison/Obscurity keyword help"
+    ],
+    "effects": {
+      "siphonRam": "30% of flesh damage restored as hull before normal healing modifiers and cap",
+      "ghostwakeCulverin": "Obscurity bypass and 8 base Shock per flesh hit",
+      "brimstoneMortar": "Burning on hit",
+      "sinewWinch": "Poison on hit"
+    },
+    "derivation": "EldritchRelicEffects parameters are shared by core activation and the read-only preview; ownership and purchase gates come from ProfileData.",
+    "unchanged": [
+      "combat effects, triggers and rounding",
+      "intrinsic fitting traits",
+      "costs and purchase gates",
+      "current rolled weapons and base stats",
+      "save formats/player saves",
+      "art",
+      "deferred Master Refits"
+    ],
+    "copyClarification": "Shared relic summaries now distinguish forge additions from existing weapon traits; associated hull names omit the verbose Blueprint prefix."
+  },
+  "verification": {
+    "initialCore": "30 existing cases passed; the new module failed to load because its fixture assigned a read-only Obscurity penalty getter. Corrected to the existing backing field.",
+    "finalCoreCasesPassed": 40,
+    "newCoreCases": 10,
+    "finalAppCasesPassed": 66,
+    "previewModelCases": 21,
+    "relicUiCases": 40,
+    "sharedComparisonCasesPassed": 88,
+    "completeRelicDialogCasesPassed": 15,
+    "finalTargetedCasesPassed": 209,
+    "countNote": "Final 40 core + 66 app + separate 88 shared comparison + 15 complete-dialog cases. Initial/focused reruns overlap and are not additive.",
+    "coreValidation": [
+      "before/after forged effects",
+      "misses do not proc",
+      "noncritical Ghostwake flesh hit adds 8",
+      "Obscurity bypass does not clear the condition",
+      "armor damage excluded from flesh healing/rider counts",
+      "existing Covenant/trophy/Sargasso regressions"
+    ],
+    "uiMatrix": {
+      "relics": [
+        "siphonRam",
+        "ghostwakeCulverin",
+        "brimstoneMortar",
+        "sinewWinch"
+      ],
+      "states": [
+        "blueprint locked",
+        "poor",
+        "ready",
+        "forged",
+        "saved inactive"
+      ],
+      "sizes": [
+        "360x900",
+        "800x480",
+        "1280x900"
+      ],
+      "textScales": [
+        1.15,
+        1.3
+      ]
+    },
+    "uiValidation": [
+      "read-only profile/ship/chart snapshots",
+      "four actual purchases deduct exact costs and preserve the current vessel",
+      "forged state removes purchase button and next values",
+      "keyword popup opens/closes and stays in the viewport at 130% on compact/desktop"
+    ],
+    "sharedComparisonValidation": "Compact 360-width hull, fitting, ancestral and monument matrices at 115/130%; default label presentation retained.",
+    "completeDialogSizes": [
+      "360x900",
+      "800x480",
+      "1280x850"
+    ],
+    "analysis": "Core and final app analysis: no issues. Earlier test-brace lint findings/corrections retained.",
+    "visuallyInspected": [
+      "visual/final-relic-ghostwakeCulverin-1280.png",
+      "visual/final-relic-siphonRam-360.png"
+    ],
+    "captures": "Eight final proofs plus eight initial proofs retaining the earlier Blueprint prefix."
+  },
+  "commands": [
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart test test/session/relic_effects_test.dart test/rules/covenant_and_trophies_test.dart test/session/sargasso_obscurity_test.dart --reporter expanded",
+      "log": "checks/final-core.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/eldritch_relic_preview_test.dart test/eldritch_relic_ui_test.dart test/covenant_and_trophies_ui_test.dart --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --dart-define=mapFocusProofPath=<evidence>/visual/final --reporter expanded",
+      "log": "checks/final-app.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/shipwright_hull_ui_test.dart test/shipwright_temper_ui_test.dart test/ancestral_armament_ui_test.dart test/harbor_monument_ui_test.dart --name 360 --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "log": "checks/shared-comparisons.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter test test/home_layout_matrix_test.dart --name relics --dart-define=artFontCache=<repo>/.dart_tool/patch-kit-art-fonts --reporter expanded",
+      "log": "checks/relic-layouts.log"
+    },
+    {
+      "cwd": "packages/monstrous_core",
+      "command": "dart analyze",
+      "log": "checks/core-analyze.log"
+    },
+    {
+      "cwd": "apps/monstrous_sea",
+      "command": "flutter analyze",
+      "log": "checks/final-copy-analyze.log"
+    },
+    {
+      "cwd": ".",
+      "command": "python tools/check_docs.py; git diff --cached --check",
+      "logs": [
+        "checks/docs-check.log",
+        "checks/whitespace.log"
+      ]
+    }
+  ],
+  "logNormalization": "Terminal trailing spaces and CRLF normalized in new logs only; test content and all prior evidence retained.",
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/app-analyze.log",
+      "sha256": "1e6870cb0c80d44bbcb6f3d683193e683bd87d1beda267fc116542af8f9aa560"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/core-analyze.log",
+      "sha256": "f9cda8887b901c3a07b156c4ea82ffdade9e1a1f7fd6ed390596a8b4fcb1a82d"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/docs-check.log",
+      "sha256": "2254063a6b7bbd1082469fabf0a255e1a28fa62209a881a907ab68a9517d42da"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/final-app-analyze.log",
+      "sha256": "ed1708dfbdc9bb34a7361c0487e228a6e158e2c59fa1afbda083fed448835a5b"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/final-app.log",
+      "sha256": "b8ec1960e64d09a6c7b8e78f22d662e35d2940d659d451ec86799e29cb1dbb11"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/final-copy-analyze.log",
+      "sha256": "2c10a1fce46e9eaa2e533e90ebcf89eadb085a240990a7e33cd02b7d43357038"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/final-core.log",
+      "sha256": "e2685857fc1f1c7a9a4a7afdb32b94192d6c5129aa4f3776cac5ebc749aa6b9f"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/focused-core.log",
+      "sha256": "e9d9bbae965ea9072cc7fd50130ce912f672804a525f614a7d5c7e3492996b5c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/initial-app.log",
+      "sha256": "020fabdc9e64f7587310eab9e31088cffa479fe22e20fe281a3aab370f4ab9e6"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/initial-core.log",
+      "sha256": "9e0324f43658da405b14c4cd3f345b69ed8095c93f24d358bb23942bdd180868"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/intermediate-app-analyze.log",
+      "sha256": "7f891f52b1c7aaeb7c18dda914ec151b4e3db3bfc4199c90b0d8373df7ed04d8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/relic-layouts.log",
+      "sha256": "23301eb5d41d84d1e204d3914ef31eb4d56899ba245264850e8b9fe93235a9d9"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/shared-comparisons.log",
+      "sha256": "e14c1aa267fe63af89fd3f8ee366286011932a3bdbf38cd29f0e0ad174e93a25"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/checks/whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "captures": [
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-brimstoneMortar-1280.png",
+      "sha256": "07256b5481f64507ad07ca743a2c7befb4dfbc350abcadcdcb13ccd3caeae249"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-brimstoneMortar-360.png",
+      "sha256": "eab704798163c0f05533b0ac328fccc0e6908b797cf993b7a0c8372aec1dcdfd"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-ghostwakeCulverin-1280.png",
+      "sha256": "eda8caea8a77ddcf99aa0410c57bfb2c7c07375095020eed16feb6eaa9867444"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-ghostwakeCulverin-360.png",
+      "sha256": "f2f1b2c8a6bbc47c479e49de4bbf60fc4b573abac519073d1e2e022339534772"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-sinewWinch-1280.png",
+      "sha256": "07256b5481f64507ad07ca743a2c7befb4dfbc350abcadcdcb13ccd3caeae249"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-sinewWinch-360.png",
+      "sha256": "453e0fa8c07d77c025d7147a7210eefca28916ca499a14bbb503ac1bb2530375"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-siphonRam-1280.png",
+      "sha256": "19f483ce62c4aff700f379f8c96a5189c0bdb25d3a62a8e06a1054354f4ef2e0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/final-relic-siphonRam-360.png",
+      "sha256": "6b754dce83d93d02796bad889ef992e91c07cab6369ed0ade6f89a73c04cb19e"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-brimstoneMortar-1280.png",
+      "sha256": "be9f8c6aa10f53ac07a657d692eb05d3ef5fc085d031cdef97c8804e726df0ef"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-brimstoneMortar-360.png",
+      "sha256": "7cd55e3983fa5799f92c157f7d4274b4041c492814980a41c988502f1a0e92a1"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-ghostwakeCulverin-1280.png",
+      "sha256": "d911bf67baee6c68ca2414e7d34bd130258acea5fb47a21fd1c3346260a160a8"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-ghostwakeCulverin-360.png",
+      "sha256": "3765e4bd1d936d1f685b24ae989eebd2d09a7b8927398fea7c587e8e2575a422"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-sinewWinch-1280.png",
+      "sha256": "be9f8c6aa10f53ac07a657d692eb05d3ef5fc085d031cdef97c8804e726df0ef"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-sinewWinch-360.png",
+      "sha256": "fc92aa686b41c423d5b0d8b3514750b7e1cf32adee47d3ec3697a75a7efb3de0"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-siphonRam-1280.png",
+      "sha256": "b6873e0d8b7ae9c9f658a0882b11f5e12cc069487d8d9f961edf09f75bedff79"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/eldritch-relic-preview-2026-11-10/visual/review-relic-siphonRam-360.png",
+      "sha256": "51d321485a6f4bb3989f3cef27d1723f1195077b080837903c9546b289684991"
+    }
+  ],
+  "isolation": {
+    "autosave": false,
+    "productionStorageOpened": false,
+    "playerSavesModified": false,
+    "nativeGameLaunched": false,
+    "sharedNativeBundleRebuilt": false,
+    "artChanged": false,
+    "existingEvidenceRetained": true
+  }
+}

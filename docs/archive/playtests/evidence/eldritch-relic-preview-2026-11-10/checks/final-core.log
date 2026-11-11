@@ -1,0 +1,42 @@
+00:00 +0: loading test/session/relic_effects_test.dart
+00:00 +0: test/session/relic_effects_test.dart: EldritchRelicId.siphonRam adds its advertised effect only after forging
+00:00 +1: test/rules/covenant_and_trophies_test.dart: Stage 4: Caldera Dilemma, Covenant of the Deep & Titan Trophies Caldera Climax: Shatter the Core consumes Leviathan Core and ends loop
+00:00 +2: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +3: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +4: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +5: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +6: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +7: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +8: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +9: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +10: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +11: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +12: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +13: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +14: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +15: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +16: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +17: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +18: test/session/sargasso_obscurity_test.dart: shark Apex=false gets haze without stacking ink or dodge
+00:00 +19: test/session/sargasso_obscurity_test.dart: shark Apex=true gets haze without stacking ink or dodge
+00:00 +20: test/session/sargasso_obscurity_test.dart: serpent Apex=false gets haze without stacking ink or dodge
+00:00 +21: test/session/sargasso_obscurity_test.dart: serpent Apex=true gets haze without stacking ink or dodge
+00:00 +22: test/session/sargasso_obscurity_test.dart: jellyfish Apex=false gets haze without stacking ink or dodge
+00:00 +23: test/session/sargasso_obscurity_test.dart: jellyfish Apex=true gets haze without stacking ink or dodge
+00:00 +24: test/session/sargasso_obscurity_test.dart: squid Apex=false gets haze without stacking ink or dodge
+00:00 +25: test/session/sargasso_obscurity_test.dart: squid Apex=true gets haze without stacking ink or dodge
+00:00 +26: test/session/sargasso_obscurity_test.dart: crustacean Apex=false gets haze without stacking ink or dodge
+00:00 +27: test/session/sargasso_obscurity_test.dart: crustacean Apex=true gets haze without stacking ink or dodge
+00:00 +28: test/session/sargasso_obscurity_test.dart: Sargasso Titan starts with haze and retains World Serpent dodge
+00:00 +29: test/session/sargasso_obscurity_test.dart: shark Nemesis receives haze through normal startup
+00:00 +30: test/session/sargasso_obscurity_test.dart: squid Nemesis receives haze through normal startup
+00:00 +31: test/session/sargasso_obscurity_test.dart: region 1 does not gain Sargasso haze
+00:00 +32: test/session/sargasso_obscurity_test.dart: region 3 does not gain Sargasso haze
+00:00 +33: test/session/sargasso_obscurity_test.dart: Volatile Environs strengthens only kelp; repeated haze does not stack
+00:00 +34: test/session/sargasso_obscurity_test.dart: haze uses actual 75/76 hit boundary, Long 60 and normal accuracy caps
+00:00 +35: test/session/sargasso_obscurity_test.dart: successful haze hit disperses at 25, retains at 26: 25
+00:00 +36: test/session/sargasso_obscurity_test.dart: successful haze hit disperses at 25, retains at 26: 26
+00:00 +37: test/session/sargasso_obscurity_test.dart: a dodged accuracy success cannot disperse haze
+00:00 +38: test/session/sargasso_obscurity_test.dart: actual Flare clears haze and expiry does not restore it
+00:00 +39: test/session/sargasso_obscurity_test.dart: actual Ghostwake bypasses haze while retaining its displayed state
+00:00 +40: All tests passed!
