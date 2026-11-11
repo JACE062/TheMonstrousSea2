@@ -136,7 +136,8 @@ class GameSession {
       ship!.equippedWeapons.any(
         (weapon) =>
             weapon.isReady &&
-            isWeaponTypeUsableAtRange(weapon.weaponType, combatRange),
+            isWeaponTypeUsableAtRange(weapon.weaponType, combatRange,
+              isGrappled: ship!.isGrappled),
       );
 
   void _resetCombatActionStages() {
@@ -1410,9 +1411,12 @@ class GameSession {
     )) {
       throw StateError('No ready weapon of this type.');
     }
-    if (!isWeaponTypeUsableAtRange(weaponType, combatRange)) {
+    if (!isWeaponTypeUsableAtRange(weaponType, combatRange,
+        isGrappled: ship!.isGrappled)) {
       throw StateError(
-          'Cannot fire ${weaponType.displayName} at ${combatRange.displayName}');
+          ship!.isGrappled && combatRange == CombatRange.medium
+            ? 'Grappled: cannot close to Short Range to ram.'
+            : 'Cannot fire ${weaponType.displayName} at ${combatRange.displayName}');
     }
     final events = <GameEvent>[];
 

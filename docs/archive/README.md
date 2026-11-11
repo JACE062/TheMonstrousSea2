@@ -240,3 +240,7 @@ Default ripgrep searches exclude this directory and the separate historical art 
 ## Tooltip clarifications 2026-11-10
 
 [The six clarification answers](playtests/TOOLTIP_CLARIFICATIONS_2026_11_10.md) resolve the remaining E selections, retaining Fortified and exact volley bonuses, using the user's Illuminated/Carapace prose and covering all ship movement under Grappled. [Evidence](playtests/evidence/tooltip-clarifications-2026-11-10/manifest.json) retains the failing Ram reproduction, corrected charge/preview checks, cached-font tooltip regressions and captures. Fitting effects, values, saves, previews and earlier evidence remain preserved; fitting tempering previews are still next.
+
+## Grappled Ram reach 2026-11-10
+
+[The explicit reach follow-up](playtests/GRAPPLED_RAM_REACH_2026_11_10.md) makes Ram unavailable at Medium while Grappled and keeps it usable at Short, superseding the first movement-only implementation. [Evidence](playtests/evidence/grappled-ram-reach-2026-11-10/manifest.json) retains the rejection/Impatient baseline, core/UI/bot regressions, analysis and 115–130% captures. Rejected attempts preserve combat state; values, saves, art, previews and earlier evidence remain unchanged.

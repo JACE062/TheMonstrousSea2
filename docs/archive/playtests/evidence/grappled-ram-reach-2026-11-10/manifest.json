@@ -1,0 +1,153 @@
+{
+  "date": "2026-11-10",
+  "baseCommit": "f2e22df4912477b11e0df9323ca8eab23a7aa3fe",
+  "request": "Ram unavailable at Medium while Grappled, still usable at Short.",
+  "sourceInputs": [
+    {
+      "path": "apps/monstrous_sea/lib/src/screens/battle_screen.dart",
+      "sha256": "4d39686bf70e81fee99cb7eb18e137f0a788454191954cab4dcd37c4797bd4e5"
+    },
+    {
+      "path": "apps/monstrous_sea/test/grappled_ram_test.dart",
+      "sha256": "d815871f378adba62749ef944fcaed8f8e11b47a3a9e90ee778ed45f33459fc5"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/rules/combat.dart",
+      "sha256": "653ad15c7aa371c285daef0b6614d6a04728d1f1dd5d38352e49479ebe8d362a"
+    },
+    {
+      "path": "packages/monstrous_core/lib/src/session/game_session.dart",
+      "sha256": "ce21d8e457d8c5af4b322b60cd8de3edfa02060aba32cbbec23736c67a7dc900"
+    },
+    {
+      "path": "packages/monstrous_core/test/session/combat_range_attribution_test.dart",
+      "sha256": "7b713e542ca2798c4dbd8c211d7a2b2aac8f8d3f14b1b3c62686280a138e2590"
+    },
+    {
+      "path": "packages/monstrous_sim/lib/src/strategy/bot_strategy.dart",
+      "sha256": "0543a996723d59bcd35a6f4c8edd7ca0d4f1b6e507923baec6db60a6a6b97bc4"
+    },
+    {
+      "path": "packages/monstrous_sim/lib/src/strategy/cautious_bot.dart",
+      "sha256": "3a055b2bc6a514fc74bfe8ce18f07204dea8e1b6aa13e4f2fddbe7b79acc4401"
+    },
+    {
+      "path": "packages/monstrous_sim/lib/src/strategy/greedy_bot.dart",
+      "sha256": "7b9d1ccabdb25eb462bad8edb20712d22a18eca327e2bd87ccf67a28e9faef0b"
+    },
+    {
+      "path": "packages/monstrous_sim/lib/src/strategy/random_bot.dart",
+      "sha256": "aed8951d1953e96b78cfe50367f2e20451d2f3f2e9fe187539d43aa8d9b959e5"
+    },
+    {
+      "path": "packages/monstrous_sim/lib/src/strategy/reckless_bot.dart",
+      "sha256": "0ec66c355f1806fb4c60b291659ee69d659fbbf74b3402301d04a0676cb13035"
+    },
+    {
+      "path": "packages/monstrous_sim/test/grappled_ram_test.dart",
+      "sha256": "8f9260c409f6af92c2240013afd16f7380f0c713762e3bc1c754ec8d1ba28c53"
+    }
+  ],
+  "baseline": {
+    "file": "checks/baseline-verified.log",
+    "cases": 6,
+    "passed": 4,
+    "failed": 2,
+    "failures": [
+      "Medium Ram allowed",
+      "Impatient combo admitted without a legal weapon"
+    ],
+    "compileProbe": "checks/baseline-core.log retains an initial corrected test-fixture API error, not a behavioral baseline."
+  },
+  "verification": {
+    "corePassed": 89,
+    "simPassed": 14,
+    "appPassed": 26,
+    "textScales": [
+      1.15,
+      1.3
+    ],
+    "botStrategies": 4,
+    "appStates": "Short/Medium, normal/Skirmisher, Ram-only ready and utility cooling.",
+    "analysis": "App/core/simulator: no issues.",
+    "visuallyInspected": [
+      "review-ram-medium-false-1.15.png",
+      "review-ram-short-false-1.15.png"
+    ]
+  },
+  "checks": [
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/app-analyze.log",
+      "sha256": "7a5649639a85aae2b448bff3b6905d260c23bf99b9d94b778d3d69c0ef2d1066"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/app-regressions.log",
+      "sha256": "277d1cc5cbeff650333bd7937bc852dba889e510ba30ba98c3090165645bc59c"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/baseline-core.log",
+      "sha256": "d9af7170df8aa178a0db519db79692a740f54f6a7ae5c58f046634458458e2c7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/baseline-verified.log",
+      "sha256": "828d7dbf99551934a29834d6e27ab35d134eb83c388f8bc711b907b537f92ad7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/core-analyze.log",
+      "sha256": "33d5c77eebf4d6e86163d697a6f890c7383b7075174f12b322c114f029f7527a"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/core-regressions.log",
+      "sha256": "30f1a14dfea40b2f060742c44d59c0fd6463a5f44666b879ccb49b22da5777c7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/sim-analyze.log",
+      "sha256": "ff459289058fe5b21e6bb34a98df97be9588ad195ded5c295c142cd4456e8f58"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/checks/sim-regressions.log",
+      "sha256": "77be6b2bcecd1607b9b0d65ea90cf96f52b4f5c0764da906e2065d9c2f55e162"
+    }
+  ],
+  "visualProofs": [
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-medium-false-1.15.png",
+      "sha256": "43a667c4e4eaeb1be4cd25a5748b3559a8e39e37060858b529f2c97560e62160"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-medium-false-1.3.png",
+      "sha256": "82fab091c1a931c4e4aca7d8f96fc0e140d88b307471af58d91924847d9970b2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-medium-true-1.15.png",
+      "sha256": "43a667c4e4eaeb1be4cd25a5748b3559a8e39e37060858b529f2c97560e62160"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-medium-true-1.3.png",
+      "sha256": "82fab091c1a931c4e4aca7d8f96fc0e140d88b307471af58d91924847d9970b2"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-short-false-1.15.png",
+      "sha256": "59a44bd87222b26ba93f0c5ce6d88c9e00a918eb443f57bb95c47da48d734dd7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-short-false-1.3.png",
+      "sha256": "6a77173c401ef89a30a9eb3e4f0337f1936d913db77aa5381504bfffc55f7bdc"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-short-true-1.15.png",
+      "sha256": "59a44bd87222b26ba93f0c5ce6d88c9e00a918eb443f57bb95c47da48d734dd7"
+    },
+    {
+      "path": "docs/archive/playtests/evidence/grappled-ram-reach-2026-11-10/visual/review-ram-short-true-1.3.png",
+      "sha256": "6a77173c401ef89a30a9eb3e4f0337f1936d913db77aa5381504bfffc55f7bdc"
+    }
+  ],
+  "isolation": {
+    "playerSavesTouched": false,
+    "numericTuningChanged": false,
+    "nativePreviewLaunchedOrRebuilt": false,
+    "earlierEvidencePreserved": true
+  },
+  "nextTask": "PT2-20 fitting tempering previews remain separate."
+}

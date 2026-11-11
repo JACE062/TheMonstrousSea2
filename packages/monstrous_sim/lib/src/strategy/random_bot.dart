@@ -43,7 +43,7 @@ class RandomBot implements BotStrategy {
       case SessionPhase.battle:
         final ship = session.ship!;
         final readyWeapons = ship.equippedWeapons
-            .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
+            .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange, isGrappled: session.ship!.isGrappled))
             .toList();
 
         // 70% attack if weapon ready, 10% special, 10% consumable, 10% range maneuver

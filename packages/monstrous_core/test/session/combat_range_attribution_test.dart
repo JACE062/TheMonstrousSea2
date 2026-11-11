@@ -60,6 +60,36 @@ void main() {
         helmOrder: HelmOrder.fallBack,
         weaponType: ShipWeaponType.prowRam,
       );
+      if (range == CombatRange.medium) {
+        session.ship!
+          ..gunneryDrillBuffActive = true
+          ..pitchCoatingActive = true;
+        final shipBefore = session.ship!.toJson();
+        final monsterHpBefore = session.currentMonster!.currentHp;
+        expect(
+          () =>
+              session.dispatch(const FireWeaponVolley(ShipWeaponType.prowRam)),
+          throwsStateError,
+        );
+        expect(
+          () => executeShipWeaponVolley(
+            session.ship!,
+            ShipWeaponType.prowRam,
+            session.currentMonster!,
+            session.rng,
+            const [],
+            0,
+            1.0,
+            range,
+          ),
+          throwsStateError,
+        );
+        expect(session.ship!.toJson(), shipBefore);
+        expect(session.currentMonster!.currentHp, monsterHpBefore);
+        expect(session.combatRange, range);
+        expect(predicted, range);
+        return;
+      }
       final events = session.dispatch(
         const FireWeaponVolley(ShipWeaponType.prowRam),
       );
@@ -98,6 +128,39 @@ void main() {
       expect(predicted, range);
       expect(session.ship!.utilityCooldown, greaterThan(0));
       expect(session.ship!.isGrappled, isFalse);
+    });
+
+    test('Grappled Ram legality gates Impatient combinations at $range', () {
+      final session = _battle(hull: ShipClass.ironclad)..combatRange = range;
+      session.activeQuirk = BloodlineTrait.impatient;
+      session.ship!.isGrappled = true;
+      for (final weapon in session.ship!.equippedWeapons) {
+        if (weapon.weaponType != ShipWeaponType.prowRam) {
+          weapon.chargeCountdown = 2;
+        }
+      }
+      expect(session.canStartImpatientCombination, range == CombatRange.short);
+      if (range == CombatRange.medium) {
+        final before = session.ship!.toJson();
+        expect(
+          () => session.dispatch(
+            const ExecuteShipSpecialAction(borrowNextAction: true),
+          ),
+          throwsStateError,
+        );
+        expect(session.ship!.toJson(), before);
+        expect(session.isImpatientCombinationPending, isFalse);
+      } else {
+        session.dispatch(
+          const ExecuteShipSpecialAction(borrowNextAction: true),
+        );
+        expect(session.isImpatientCombinationPending, isTrue);
+        final events = session.dispatch(
+          const FireWeaponVolley(ShipWeaponType.prowRam),
+        );
+        expect(events.whereType<AttackAttempted>(), isNotEmpty);
+        expect(session.isImpatientCombinationPending, isFalse);
+      }
     });
   }
 

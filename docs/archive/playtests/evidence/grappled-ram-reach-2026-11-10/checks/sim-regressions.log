@@ -1,0 +1,16 @@
+00:00 +0: loading test/grappled_ram_test.dart
+00:00 +0: test/grappled_ram_test.dart: Cautious respects Grappled Ram reach at Short Range
+00:00 +1: test/blueprint_selection_test.dart: Cautious starts fresh profiles with the Standard flagship
+00:00 +2: test/blueprint_selection_test.dart: Cautious starts fresh profiles with the Standard flagship
+00:00 +3: test/blueprint_selection_test.dart: Cautious starts fresh profiles with the Standard flagship
+00:00 +4: test/blueprint_selection_test.dart: Cautious starts fresh profiles with the Standard flagship
+00:00 +5: test/blueprint_selection_test.dart: Cautious starts fresh profiles with the Standard flagship
+00:00 +6: test/blueprint_selection_test.dart: Cautious starts fresh profiles with the Standard flagship
+00:00 +7: test/grappled_ram_test.dart: Random respects Grappled Ram reach at Short Range
+00:00 +8: test/blueprint_selection_test.dart: Reckless starts fresh profiles with the Standard flagship
+00:00 +9: test/grappled_ram_test.dart: Random respects Grappled Ram reach at Medium Range
+00:00 +10: test/blueprint_selection_test.dart: Greedy starts fresh profiles with the Standard flagship
+00:00 +11: test/blueprint_selection_test.dart: Random starts fresh profiles with the Standard flagship
+00:00 +12: test/blueprint_selection_test.dart: Cautious prefers Ironclad once its blueprint is unlocked
+00:00 +13: test/blueprint_selection_test.dart: Random bot samples only unlocked canonical ships
+00:00 +14: All tests passed!

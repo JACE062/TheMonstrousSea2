@@ -39,17 +39,27 @@ const defaultCombatTraits = <CombatTrait>[
 ///
 /// Tactical Legality Rules:
 /// - Prow Ram: Available at Medium or Short Range. Cannot be initiated from Long Range.
+///   Grappled ships cannot close from Medium, but can still strike at Short.
 /// - Heavy Mortar, Culverin, Harpoon Winch, Broadsides, etc. can be launched from all legal ranges.
-bool isWeaponTypeUsableAtRange(ShipWeaponType type, CombatRange range) {
+bool isWeaponTypeUsableAtRange(
+  ShipWeaponType type,
+  CombatRange range, {
+  bool isGrappled = false,
+}) {
   if (type == ShipWeaponType.prowRam) {
-    return range != CombatRange.long;
+    return range != CombatRange.long &&
+        (!isGrappled || range == CombatRange.short);
   }
   return true;
 }
 
 /// Evaluates whether [weapon] can be fired from [range].
-bool isWeaponUsableAtRange(ShipWeapon weapon, CombatRange range) =>
-    isWeaponTypeUsableAtRange(weapon.weaponType, range);
+bool isWeaponUsableAtRange(
+  ShipWeapon weapon,
+  CombatRange range, {
+  bool isGrappled = false,
+}) =>
+    isWeaponTypeUsableAtRange(weapon.weaponType, range, isGrappled: isGrappled);
 
 /// Returns the Phase 3A normalized range effectiveness multiplier for [type] when fired from [range].
 ///
@@ -573,7 +583,11 @@ List<GameEvent> executeShipWeaponVolley(
   double damageMultiplier = 1.0,
   CombatRange range = CombatRange.medium,
 ]) {
-  if (!isWeaponTypeUsableAtRange(weaponType, range)) {
+  if (!isWeaponTypeUsableAtRange(
+    weaponType,
+    range,
+    isGrappled: ship.isGrappled,
+  )) {
     throw StateError(
       'Cannot fire ${weaponType.displayName} at ${range.displayName}',
     );

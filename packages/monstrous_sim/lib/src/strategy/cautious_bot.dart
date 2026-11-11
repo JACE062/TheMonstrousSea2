@@ -104,7 +104,7 @@ class CautiousBot implements BotStrategy {
         final readyWeapons = ship.equippedWeapons
             .where((w) =>
                 w.isReady &&
-                isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
+                isWeaponTypeUsableAtRange(w.weaponType, session.combatRange, isGrappled: session.ship!.isGrappled))
             .toList();
         if (readyWeapons.isNotEmpty) {
           // If haven't fortified yet and under 50% HP, fortify once if utility is ready

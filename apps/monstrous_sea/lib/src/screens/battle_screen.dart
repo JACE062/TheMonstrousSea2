@@ -420,7 +420,11 @@ class _BattleScreenState extends State<BattleScreen> {
       final ready = ship.equippedWeapons
           .where((w) => w.weaponType == type)
           .any((w) => w.isReady);
-      final usable = isWeaponTypeUsableAtRange(type, previewRange);
+      final usable = isWeaponTypeUsableAtRange(
+        type,
+        previewRange,
+        isGrappled: ship.isGrappled,
+      );
       return ready && usable;
     });
 
@@ -1287,7 +1291,15 @@ class _BattleScreenState extends State<BattleScreen> {
     final cooldown = weapons
         .map((weapon) => weapon.chargeCountdown)
         .fold<int>(0, (a, b) => a > b ? a : b);
-    final usable = isWeaponTypeUsableAtRange(type, range);
+    final usable = isWeaponTypeUsableAtRange(
+      type,
+      range,
+      isGrappled: ship.isGrappled,
+    );
+    final blockedByGrapple =
+        type == ShipWeaponType.prowRam &&
+        ship.isGrappled &&
+        range == CombatRange.medium;
     final canFire =
         isReady && usable && !_isActionLocked && !_decisions.recovering;
     final badge = _getTacticalWeaponBadge(type, range);
@@ -1322,7 +1334,9 @@ class _BattleScreenState extends State<BattleScreen> {
         Expanded(
           child: MechanicTooltip(
             hoverInset: 12,
-            message: '${badge?.tip ?? ''} $accuracyTip'.trim(),
+            message: blockedByGrapple
+                ? 'Grappled: cannot close to Short Range to ram.'
+                : '${badge?.tip ?? ''} $accuracyTip'.trim(),
             child: InkButton(
               key: ValueKey('hardpoint-${slot.name}'),
               label: name,
@@ -1330,13 +1344,18 @@ class _BattleScreenState extends State<BattleScreen> {
               subtitleMaxLines: null,
               subtitle: !isReady
                   ? 'RELOADING (${cooldown}T)'
+                  : blockedByGrapple
+                  ? 'GRAPPLED'
                   : !usable
                   ? 'OUT OF RANGE'
                   : '$accuracy% accuracy · ${(weaponRangeDamageMultiplier(type, range) * 100).round()}% range damage',
-              subtitleColor: !isReady || badge?.isWarning == true
+              subtitleColor:
+                  !isReady || blockedByGrapple || badge?.isWarning == true
                   ? InkTheme.crimsonAccent
                   : InkTheme.goldAccent,
-              semanticLabel: !usable
+              semanticLabel: blockedByGrapple
+                  ? '${type.displayName} unavailable while Grappled at Medium Range.'
+                  : !usable
                   ? '${type.displayName} volley out of range at ${range.displayName}. Advance to strike!'
                   : isReady
                   ? 'Fire ${type.displayName} volley at ${range.displayName}. $accuracyTip ${badge?.badge ?? ''}'

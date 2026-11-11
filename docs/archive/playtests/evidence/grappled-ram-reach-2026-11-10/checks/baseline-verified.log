@@ -1,0 +1,52 @@
+00:00 +0: loading test/session/combat_range_attribution_test.dart
+00:00 +0: Grappled blocks Ram movement at Short Range
+00:00 +1: Grappled blocks Evasive Rigging movement at Short Range
+00:00 +2: Grappled Ram legality gates Impatient combinations at Short Range
+00:00 +3: Grappled blocks Ram movement at Medium Range
+00:00 +3 -1: Grappled blocks Ram movement at Medium Range [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Closure: () => List<GameEvent>>
+     Which: returned [
+                       Instance of 'NarrationEvent',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'AttackAttempted',
+                       Instance of 'AttackHit',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'NarrationEvent',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'StatusEffectTicked',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'SharkFrenzyRoared',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'MonsterAttackOutOfRange',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'MonsterIntentTelegraphed',
+                       Instance of 'CombatEffectsChanged',
+                       Instance of 'CombatEffectsChanged'
+                     ]
+  
+  package:matcher                                       expect
+  test\session\combat_range_attribution_test.dart 69:9  main.<fn>
+  
+00:00 +3 -1: Grappled blocks Evasive Rigging movement at Medium Range
+00:00 +4 -1: Grappled Ram legality gates Impatient combinations at Medium Range
+00:00 +4 -2: Grappled Ram legality gates Impatient combinations at Medium Range [E]
+  Expected: <false>
+    Actual: <true>
+  
+  package:matcher                                        expect
+  test\session\combat_range_attribution_test.dart 137:7  main.<fn>
+  
+00:00 +4 -2: Some tests failed.
+
+Failing tests:
+  test/session/combat_range_attribution_test.dart: Grappled Ram legality gates Impatient combinations at Medium Range
+  test/session/combat_range_attribution_test.dart: Grappled blocks Ram movement at Medium Range
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.

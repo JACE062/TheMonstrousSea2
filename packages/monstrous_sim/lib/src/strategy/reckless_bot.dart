@@ -57,7 +57,7 @@ class RecklessBot implements BotStrategy {
         }
 
         final readyWeapons = ship.equippedWeapons
-            .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange))
+            .where((w) => w.isReady && isWeaponTypeUsableAtRange(w.weaponType, session.combatRange, isGrappled: session.ship!.isGrappled))
             .toList();
 
         if (readyWeapons.isNotEmpty) {

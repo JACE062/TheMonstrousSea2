@@ -1,0 +1,17 @@
+00:00 +0: loading test/session/combat_range_attribution_test.dart
+00:00 +0 -1: loading test/session/combat_range_attribution_test.dart [E]
+  Failed to load "test/session/combat_range_attribution_test.dart":
+  test/session/combat_range_attribution_test.dart:68:55: Error: The method 'toJson' isn't defined for the type 'MonsterState'.
+   - 'MonsterState' is from 'package:monstrous_core/src/model/combatant.dart' ('lib/src/model/combatant.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'toJson'.
+          final monsterBefore = session.currentMonster!.toJson();
+                                                        ^^^^^^
+  test/session/combat_range_attribution_test.dart:83:40: Error: The method 'toJson' isn't defined for the type 'MonsterState'.
+   - 'MonsterState' is from 'package:monstrous_core/src/model/combatant.dart' ('lib/src/model/combatant.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'toJson'.
+          expect(session.currentMonster!.toJson(), monsterBefore);
+                                         ^^^^^^
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  test/session/combat_range_attribution_test.dart: loading test/session/combat_range_attribution_test.dart

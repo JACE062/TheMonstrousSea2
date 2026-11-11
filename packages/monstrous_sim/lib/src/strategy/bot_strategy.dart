@@ -38,7 +38,7 @@ Command? captainTraitAction(GameSession session) {
     if (session.isImpatientRecovering) return const BraceForImpact();
     if (session.isImpatientCombinationPending) {
       final ready = session.ship!.equippedWeapons.where((weapon) =>
-          weapon.isReady && isWeaponTypeUsableAtRange(weapon.weaponType, session.combatRange)).toList()
+          weapon.isReady && isWeaponTypeUsableAtRange(weapon.weaponType, session.combatRange, isGrappled: session.ship!.isGrappled)).toList()
         ..sort((a, b) => b.damage.compareTo(a.damage));
       if (ready.isEmpty) throw StateError('Committed combination has no legal weapon action');
       return FireWeaponVolley(ready.first.weaponType);
